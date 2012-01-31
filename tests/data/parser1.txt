@@ -1,0 +1,17 @@
+This is a test of {{Macro}} parsing. You can even use {{HTMLElement('li')}} inline.
+
+* {{ MacroUsingParams("Foo", "Bar", "Baz") }}
+* {{HéllöWôrld("Unicode!")}}
+* {{ 頁尾附註 ( "下一頁", "カタカナ", "BLAH" ) }}
+* {{ Alpha_Macro_123 ( "Quoted, Comma", 'Another, quoted', Nevermind ) }}
+* {{ Invalid ) macro ( }}
+* {{ Craptastic ( " ) }}
+---
+This is a test of ["Macro",[]] parsing. You can even use ["HTMLElement",["li"]] inline.
+
+* ["MacroUsingParams",["Foo","Bar","Baz"]]
+* ["HéllöWôrld",["Unicode!"]]
+* ["頁尾附註",["下一頁","カタカナ","BLAH"]]
+* ["Alpha_Macro_123",["Quoted, Comma","Another, quoted","Nevermind"]]
+* ["Invalid ) macro",[]]
+* ["Craptastic",null]

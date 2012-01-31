@@ -1,0 +1,7 @@
+*.swp
+*.swo
+tmp
+logs
+.monitor
+.nodemonignore
+node_modules/
