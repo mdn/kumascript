@@ -17,7 +17,7 @@ module.exports = nodeunit.testCase({
     },
 
     "Basic macro substitution should work": function (test) {
-        fs.readFile(__dirname + '/data/parser1.txt', function (err, data) {
+        fs.readFile(__dirname + '/data/macros1.txt', function (err, data) {
             if (err) { throw err; }
             
             var parts = (''+data).split('---'),
