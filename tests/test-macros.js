@@ -26,10 +26,13 @@ module.exports = nodeunit.testCase({
                 result = kumascript.macros.process(src, function (n,a) {
                     return JSON.stringify([n,a]);
                 });
-                
+
             test.equal(result.trim(), expected.trim());
             test.done();
         });
-    }
+    },
+
+    // TODO: Template loading via HTTP (preload, async, before processing?)
+    // TODO: Template execution
 
 });
