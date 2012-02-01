@@ -116,19 +116,37 @@ module.exports = nodeunit.testCase({
         fs.readFile(__dirname + '/fixtures/templates1.txt', function (err, data) {
             if (err) { throw err; }
 
-            var parts = (''+data).split('---');
-
-            _.each(parts, function (p) {
-                util.debug("PART " + util.inspect(p));
-            });
-
-            var
+            var parts = (''+data).split('---'),
                 src = parts.shift(),
                 expected = parts.shift(),
                 templates = {
                     t1: new ks_templates.EJSTemplate({source: parts.shift()}),
                     t2: new ks_templates.EJSTemplate({source: parts.shift()}),
                     t3: new ks_templates.EJSTemplate({source: parts.shift()})
+                },
+                loader = new LocalLoader({ templates: templates }),
+                mp = new ks_macros.MacroProcessor({ loader: loader });
+
+            mp.process(src, function (err, result) {
+                if (err) { throw err; }
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+
+        });
+    },
+
+    "JS sandboxed by node.js should work": function (test) {
+        fs.readFile(__dirname + '/fixtures/templates2.txt', function (err, data) {
+            if (err) { throw err; }
+
+            var parts = (''+data).split('---'),
+                src = parts.shift(),
+                expected = parts.shift(),
+                templates = {
+                    t1: new ks_templates.JSTemplate({source: parts.shift()}),
+                    t2: new ks_templates.JSTemplate({source: parts.shift()}),
+                    t3: new ks_templates.JSTemplate({source: parts.shift()})
                 },
                 loader = new LocalLoader({ templates: templates }),
                 mp = new ks_macros.MacroProcessor({ loader: loader });
