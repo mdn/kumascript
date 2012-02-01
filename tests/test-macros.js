@@ -12,19 +12,23 @@ var util = require('util'),
     kumascript = require('..'),
     ks_utils = kumascript.utils,
     ks_loaders = kumascript.loaders,
+    ks_templates = kumascript.templates,
     ks_macros = kumascript.macros;
 
-// Simple loader subclass that builds templates that just JSONify the name and
-// arguments for testing purposes.
+// Simple template that just JSONifies the name and arguments for testiing.
+var JSONifyTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
+    default_options: {
+        name: "UNNAMED"
+    },
+    execute: function (args, next) {
+        next(null, JSON.stringify([this.options.name, args]));
+    }
+});
+
+// Simple loader subclass that builds JSONifyTemplates.
 var JSONifyLoader = ks_utils.Class(ks_loaders.BaseLoader, {
     load: function (name, loaded_cb) {
-        // Let's pretend to "load" and "compile" an async template
-        var tmpl_fn = function (args, next) {
-            var result = JSON.stringify([name, args]);
-            next(null, result);
-        };
-        // Okay, the template has been loaded, so pass to the callback.
-        loaded_cb(null, tmpl_fn);
+        loaded_cb(null, new JSONifyTemplate({name: name}));
     }
 });
 
@@ -37,12 +41,12 @@ module.exports = nodeunit.testCase({
             data = ["test123", ["alpha", "beta", "gamma"]],
             expected = JSON.stringify(data);
 
-        loader.get(data[0], function (err, tmpl_fn) {
+        loader.get(data[0], function (err, tmpl) {
             
             test.ok(!err);
-            test.notEqual(typeof(tmpl_fn), 'undefined');
+            test.notEqual(typeof(tmpl), 'undefined');
         
-            tmpl_fn(data[1], function (err, result) {
+            tmpl.execute(data[1], function (err, result) {
                 test.equal(result, expected);
                 test.done();
             });
@@ -60,16 +64,18 @@ module.exports = nodeunit.testCase({
         // Install the caching mixin into the loader.
         _.extend(loader, ks_loaders.LocalCacheMixin);
 
-        loader.get(data[0], function (err, tmpl_fn) {
+        loader.get(data[0], function (err, tmpl) {
             
             test.ok(!err);
-            test.notEqual(typeof(tmpl_fn), 'undefined');
+            test.notEqual(typeof(tmpl), 'undefined');
         
-            tmpl_fn(data[1], function (err, result) {
+            tmpl.execute(data[1], function (err, result) {
                 test.equal(result, expected);
+
                 // Ensure the cache is present, and populated
                 test.notEqual(typeof(loader.cache), 'undefined');
                 test.ok(data[0] in loader.cache);
+                
                 test.done();
             });
 
