@@ -1,0 +1,19 @@
+Testing out sandboxed JS templates here...
+
+* {{t1}}
+* {{ t2(12, 12) }}
+* {{ t3 }}
+* {{ y4 }}
+---
+Testing out sandboxed JS templates here...
+
+* 'foo'
+* '<span>24</span>'
+* 't3'
+* {{ y4 }}
+---
+"foo";
+---
+"<span>24</span>";
+---
+"t3";

@@ -119,10 +119,11 @@ module.exports = nodeunit.testCase({
             var parts = (''+data).split('---'),
                 src = parts.shift(),
                 expected = parts.shift(),
+                t_cls = ks_templates.EJSTemplate,
                 templates = {
-                    t1: new ks_templates.EJSTemplate({source: parts.shift()}),
-                    t2: new ks_templates.EJSTemplate({source: parts.shift()}),
-                    t3: new ks_templates.EJSTemplate({source: parts.shift()})
+                    t1: new t_cls({source: parts.shift()}),
+                    t2: new t_cls({source: parts.shift()}),
+                    t3: new t_cls({source: parts.shift()})
                 },
                 loader = new LocalLoader({ templates: templates }),
                 mp = new ks_macros.MacroProcessor({ loader: loader });
@@ -143,10 +144,36 @@ module.exports = nodeunit.testCase({
             var parts = (''+data).split('---'),
                 src = parts.shift(),
                 expected = parts.shift(),
+                t_cls = ks_templates.JSTemplate,
                 templates = {
-                    t1: new ks_templates.JSTemplate({source: parts.shift()}),
-                    t2: new ks_templates.JSTemplate({source: parts.shift()}),
-                    t3: new ks_templates.JSTemplate({source: parts.shift()})
+                    t1: new t_cls({source: parts.shift()}),
+                    t2: new t_cls({source: parts.shift()}),
+                    t3: new t_cls({source: parts.shift()})
+                },
+                loader = new LocalLoader({ templates: templates }),
+                mp = new ks_macros.MacroProcessor({ loader: loader });
+
+            mp.process(src, function (err, result) {
+                if (err) { throw err; }
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+
+        });
+    },
+
+    "Sandbox JS sandboxed by node.js should work": function (test) {
+        fs.readFile(__dirname + '/fixtures/templates3.txt', function (err, data) {
+            if (err) { throw err; }
+
+            var parts = (''+data).split('---'),
+                src = parts.shift(),
+                expected = parts.shift(),
+                t_cls = ks_templates.SandboxJSTemplate,
+                templates = {
+                    t1: new t_cls({source: parts.shift()}),
+                    t2: new t_cls({source: parts.shift()}),
+                    t3: new t_cls({source: parts.shift()})
                 },
                 loader = new LocalLoader({ templates: templates }),
                 mp = new ks_macros.MacroProcessor({ loader: loader });
