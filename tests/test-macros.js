@@ -32,6 +32,20 @@ var JSONifyLoader = ks_utils.Class(ks_loaders.BaseLoader, {
     }
 });
 
+// Loader which pulls from a pre-defined object full of named templates.
+var LocalLoader = ks_utils.Class(ks_loaders.BaseLoader, {
+    default_options: {
+        templates: { }
+    },
+    load: function (name, loaded_cb) {
+        if (name in this.options.templates) {
+            loaded_cb(null, this.options.templates[name]);
+        } else {
+            loaded_cb("not found", null);
+        }
+    }
+});
+
 // Main test case starts here
 module.exports = nodeunit.testCase({
 
@@ -86,7 +100,7 @@ module.exports = nodeunit.testCase({
         var mp = new ks_macros.MacroProcessor({ 
             loader: new JSONifyLoader()
         });
-        fs.readFile(__dirname + '/data/macros1.txt', function (err, data) {
+        fs.readFile(__dirname + '/fixtures/macros1.txt', function (err, data) {
             if (err) { throw err; }
             var parts = (''+data).split('---'),
                 src      = parts[0],
@@ -96,9 +110,49 @@ module.exports = nodeunit.testCase({
                 test.done();
             });
         });
+    },
+
+    "Embedded JS templates should work": function (test) {
+        fs.readFile(__dirname + '/fixtures/templates1.txt', function (err, data) {
+            if (err) { throw err; }
+
+            var parts = (''+data).split('---');
+
+            _.each(parts, function (p) {
+                util.debug("PART " + util.inspect(p));
+            });
+
+            var
+                src = parts.shift(),
+                expected = parts.shift(),
+                templates = {
+                    t1: new ks_templates.EJSTemplate({source: parts.shift()}),
+                    t2: new ks_templates.EJSTemplate({source: parts.shift()}),
+                    t3: new ks_templates.EJSTemplate({source: parts.shift()})
+                },
+                loader = new LocalLoader({ templates: templates }),
+                mp = new ks_macros.MacroProcessor({ loader: loader });
+
+            mp.process(src, function (err, result) {
+                if (err) { throw err; }
+                
+                util.debug("EXPECTED \n" + expected.trim());
+                util.debug("RESULT \n" + result.trim());
+
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+
+        });
     }
+
+    /*
+    "Template loading from filesystem should work": function (test) {
+        test.ok(false, "TBD");
+        test.done();
+    }
+    */
 
     // TODO: Template loading via HTTP (preload, async, before processing?)
     // TODO: Template execution
-
 });
