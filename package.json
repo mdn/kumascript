@@ -19,12 +19,13 @@
       "async": "0.1.15",
       "express": "2.5.6",
       "request": "2.9.100",
-      "ejs": "0.6.1",
+      "asyncEJS": "0.3.0",
       "underscore": "1.3.1",
       "xregexp": "1.5.0"
   },
   "devDependencies": {
       "nodeunit": "0.6.4",
-      "jshint": "0.5.7"
+      "jshint": "0.5.7",
+      "docco": "0.3.0"
   }
 }

@@ -2,6 +2,7 @@
 *.swo
 tmp
 logs
+docs
 .monitor
 .nodemonignore
 node_modules/

@@ -1,17 +1,17 @@
-# kuma-script
+# kumascript
 
 Bringing scripting to the wiki bears.
 
-## Dev setup
+## Setup
 * Install [node.js 0.6.1+](http://nodejs.org/docs/v0.6.1/) and [npm](http://npmjs.org/)
+* [kicker](https://github.com/alloy/kicker) is handy for auto-running tests and lint on file changes
 * `npm install`
 
-## Running tests
+## Docs
+* `./node_modules/docco/bin/docco lib/kumascript/*`
+
+## Tests
 * `./node_modules/nodeunit/bin/nodeunit tests/`
-* If you have [kicker](https://github.com/alloy/kicker), this is handy:
-    * `kicker -c --no-growl -e'./node_modules/nodeunit/bin/nodeunit tests/' lib tests`
 
 ## Linting
 * `./node_modules/jshint/bin/hint lib tests`
-* If you have [kicker](https://github.com/alloy/kicker), this is handy:
-    * `kicker -c --no-growl -e './node_modules/jshint/bin/hint lib tests' lib tests`
