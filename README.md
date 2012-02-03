@@ -19,9 +19,11 @@ Bringing scripting to the wiki bears.
 On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
-    kicker -c --no-growl -e'./node_modules/.bin/jshint lib tests &&
-                            ./node_modules/nodeunit/bin/nodeunit tests &&
-                            ./node_modules/.bin/docco lib/kumascript/*' lib tests
+    kicker -e'./node_modules/.bin/jshint lib tests' \
+           -e'./node_modules/.bin/nodeunit tests' \
+           -e'./node_modules/.bin/docco lib/kumascript/*' \
+           --no-growl \
+           lib tests
 
 ## Setup notes on CentOS (for Kuma VMs)
 
