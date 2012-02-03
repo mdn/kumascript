@@ -16,4 +16,4 @@ foo
 ---
 <span><%= parseInt(arguments[0]) + parseInt(arguments[1]) %></span>
 ---
-t3
+<%= ["t", "3"].join('') %>

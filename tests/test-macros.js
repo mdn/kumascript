@@ -20,7 +20,7 @@ var JSONifyTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
     default_options: {
         name: "UNNAMED"
     },
-    execute: function (args, next) {
+    execute: function (args, ctx, next) {
         next(null, JSON.stringify([this.options.name, args]));
     }
 });
@@ -60,7 +60,7 @@ module.exports = nodeunit.testCase({
             test.ok(!err);
             test.notEqual(typeof(tmpl), 'undefined');
         
-            tmpl.execute(data[1], function (err, result) {
+            tmpl.execute(data[1], {}, function (err, result) {
                 test.equal(result, expected);
                 test.done();
             });
@@ -83,7 +83,7 @@ module.exports = nodeunit.testCase({
             test.ok(!err);
             test.notEqual(typeof(tmpl), 'undefined');
         
-            tmpl.execute(data[1], function (err, result) {
+            tmpl.execute(data[1], {}, function (err, result) {
                 test.equal(result, expected);
 
                 // Ensure the cache is present, and populated
@@ -103,9 +103,11 @@ module.exports = nodeunit.testCase({
         fs.readFile(__dirname + '/fixtures/macros1.txt', function (err, data) {
             if (err) { throw err; }
             var parts = (''+data).split('---'),
-                src      = parts[0],
-                expected = parts[1];
-            mp.process(src, function (err, result) {
+                src = parts[0],
+                expected = parts[1],
+                ctx = {
+                };
+            mp.process(src, ctx, function (err, result) {
                 test.equal(result.trim(), expected.trim());
                 test.done();
             });
@@ -113,56 +115,42 @@ module.exports = nodeunit.testCase({
     },
 
     "Embedded JS templates should work": function (test) {
-        fs.readFile(__dirname + '/fixtures/templates1.txt', function (err, data) {
-            if (err) { throw err; }
-
-            var parts = (''+data).split('---'),
-                src = parts.shift(),
-                expected = parts.shift(),
-                t_cls = ks_templates.EJSTemplate,
-                templates = {
-                    t1: new t_cls({source: parts.shift()}),
-                    t2: new t_cls({source: parts.shift()}),
-                    t3: new t_cls({source: parts.shift()})
-                },
-                loader = new LocalLoader({ templates: templates }),
-                mp = new ks_macros.MacroProcessor({ loader: loader });
-
-            mp.process(src, function (err, result) {
-                if (err) { throw err; }
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
-
-        });
+        testTemplateClass(test, ks_templates.EJSTemplate, 'templates1.txt');
     },
 
     "JS sandboxed by node.js should work": function (test) {
-        fs.readFile(__dirname + '/fixtures/templates2.txt', function (err, data) {
-            if (err) { throw err; }
-
-            var parts = (''+data).split('---'),
-                src = parts.shift(),
-                expected = parts.shift(),
-                t_cls = ks_templates.JSTemplate,
-                templates = {
-                    t1: new t_cls({source: parts.shift()}),
-                    t2: new t_cls({source: parts.shift()}),
-                    t3: new t_cls({source: parts.shift()})
-                },
-                loader = new LocalLoader({ templates: templates }),
-                mp = new ks_macros.MacroProcessor({ loader: loader });
-
-            mp.process(src, function (err, result) {
-                if (err) { throw err; }
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
-
-        });
+        testTemplateClass(test, ks_templates.JSTemplate, 'templates2.txt');
     }
 
     // TODO: Template loading from filesystem
     // TODO: Template loading via HTTP (preload, async, before processing?)
     // TODO: Template execution
 });
+
+function testTemplateClass(test, t_cls, t_fn) {
+
+    fs.readFile(__dirname + '/fixtures/' + t_fn, function (err, data) {
+        if (err) { throw err; }
+
+        var parts = (''+data).split('---'),
+            src = parts.shift(),
+            expected = parts.shift(),
+            templates = {
+                t1: new t_cls({source: parts.shift()}),
+                t2: new t_cls({source: parts.shift()}),
+                t3: new t_cls({source: parts.shift()})
+            },
+            loader = new LocalLoader({ templates: templates }),
+            mp = new ks_macros.MacroProcessor({ loader: loader }),
+            ctx = {
+            };
+
+        mp.process(src, ctx, function (err, result) {
+            if (err) { throw err; }
+            test.equal(result.trim(), expected.trim());
+            test.done();
+        });
+
+    });
+
+}
