@@ -160,44 +160,9 @@ module.exports = nodeunit.testCase({
             });
 
         });
-    },
-
-    "Sandbox JS sandboxed by node.js should work": function (test) {
-        fs.readFile(__dirname + '/fixtures/templates3.txt', function (err, data) {
-            if (err) { throw err; }
-
-            var parts = (''+data).split('---'),
-                src = parts.shift(),
-                expected = parts.shift(),
-                t_cls = ks_templates.SandboxJSTemplate,
-                templates = {
-                    t1: new t_cls({source: parts.shift()}),
-                    t2: new t_cls({source: parts.shift()}),
-                    t3: new t_cls({source: parts.shift()})
-                },
-                loader = new LocalLoader({ templates: templates }),
-                mp = new ks_macros.MacroProcessor({ loader: loader });
-
-            mp.process(src, function (err, result) {
-                if (err) { throw err; }
-                
-                util.debug("EXPECTED \n" + expected.trim());
-                util.debug("RESULT \n" + result.trim());
-
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
-
-        });
     }
 
-    /*
-    "Template loading from filesystem should work": function (test) {
-        test.ok(false, "TBD");
-        test.done();
-    }
-    */
-
+    // TODO: Template loading from filesystem
     // TODO: Template loading via HTTP (preload, async, before processing?)
     // TODO: Template execution
 });
