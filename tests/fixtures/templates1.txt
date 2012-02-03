@@ -2,7 +2,7 @@ Testing out EJS templates here...
 
 * {{t1}}
 * {{ t2(12, 12) }}
-* {{ t3 }}
+* {{ t3(1) }}
 * {{ y4 }}
 ---
 Testing out EJS templates here...
@@ -16,4 +16,4 @@ foo
 ---
 <span><%= parseInt(arguments[0]) + parseInt(arguments[1]) %></span>
 ---
-<%= ["t", "3"].join('') %>
+t3
