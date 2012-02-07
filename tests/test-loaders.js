@@ -57,6 +57,21 @@ module.exports = nodeunit.testCase({
             });
 
         });
+    },
+
+    "Template loading via HTTP should work": function (test) {
+        var test_server = ks_test_utils.createTestServer();
+        var loader = new ks_loaders.HTTPLoader({
+            url_template: 'http://localhost:9001/templates/{name}.ejs'
+        });
+        var tmpl_fn = __dirname + '/fixtures/templates/t1.ejs';
+        fs.readFile(tmpl_fn, function (err, expected) {
+            loader.get('t1', function (err, tmpl) {
+                test.equal(expected, tmpl.options.source);
+                test_server.close();
+                test.done();
+            });
+        });
     }
 
     // TODO: Template loading from filesystem
