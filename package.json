@@ -2,7 +2,7 @@
   "name": "kumascript",
   "description": "Scripting for wikis",
   "version": "0.0.1",
-  "homepage": "http://github.com/lmorchard/kuma-script/",
+  "homepage": "http://github.com/lmorchard/kumascript/",
   "author": "Les Orchard <lorchard@mozilla.com> (http://lmorchard.com/)",
   "repository": {
     "type": "git",
