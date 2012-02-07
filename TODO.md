@@ -12,3 +12,5 @@ TODO
 * Switch doc parser from PEG.js to [Jison][]?
     * Not that there's a known problem, but CoffeeScript uses Jison.
     * PEG grammar is much more readable, though, IMO.
+
+* Revisit Sandbox, or some kind of process separation for executing templates
