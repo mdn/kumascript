@@ -1,25 +1,30 @@
-This is a test of {{Macro}} parsing. You can even use {{HTMLElement('li')}} inline.
+Here is { some text } with braces, but not a macro.
+This is {{ OneInline }} macro and {{Another()}} macro.
+The following items are all macros, though:
 
 * {{ MacroUsingParams("Foo", "Bar", "Baz") }}
 * {{HéllöWôrld("Unicode!")}}
 * {{ 頁尾附註 ( "下一頁", "カタカナ", "BLAH" ) }}
-* {{ Alpha_Macro_123 ( "Quoted, Comma", 'Another, quoted', Nevermind ) }}
-* {{ Invalid ) macro ( }}
-* {{ Craptastic ( " ) }}
+* {{ Alpha_Macro_123 ( "Quoted, Comma", 'Another, quoted' ) }}
 * {{ ParenTastic ( "()()()" ) }}
 * {{ Bracepocalypse(  "{{}}{{}}{{}}"  ) }}
 
-FIXME: Brace parsing is not as intended, but the above is what happens.
+Here is a {{ MultiLineMacro(
+  "With many", 'parameters',
+  'including "quoted"', "text of both 'kinds'",
+  "even \"escaped\"", 'like \'these\'',
+  "and numbers", -10, 0, 0.1, 10, 100
+)}} that even works inline.
 ---
-This is a test of ["Macro",[]] parsing. You can even use ["HTMLElement",["li"]] inline.
+Here is { some text } with braces, but not a macro.
+This is ["OneInline",[]] macro and ["Another",[]] macro.
+The following items are all macros, though:
 
 * ["MacroUsingParams",["Foo","Bar","Baz"]]
 * ["HéllöWôrld",["Unicode!"]]
 * ["頁尾附註",["下一頁","カタカナ","BLAH"]]
-* ["Alpha_Macro_123",["Quoted, Comma","Another, quoted","Nevermind"]]
-* ["Invalid ) macro",[]]
-* ["Craptastic",null]
+* ["Alpha_Macro_123",["Quoted, Comma","Another, quoted"]]
 * ["ParenTastic",["()()()"]]
-* ["Bracepocalypse",[]]{{}}{{}}"  ) }}
+* ["Bracepocalypse",["{{}}{{}}{{}}"]]
 
-FIXME: Brace parsing is not as intended, but the above is what happens.
+Here is a ["MultiLineMacro",["With many","parameters","including \"quoted\"","text of both 'kinds'","even \"escaped\"","like 'these'","and numbers",-10,0,0,10,100]] that even works inline.

@@ -15,11 +15,14 @@ Bringing scripting to the wiki bears.
     * `./node_modules/.bin/nodeunit tests`
 * To generate docs:
     * `./node_modules/.bin/docco lib/kumascript/*`
+* To re-generate the macro parser:
+    * `./node_modules/.bin/pegjs lib/kumascript/parser.pegjs`
 
 On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
-    kicker -e'./node_modules/.bin/jshint lib tests' \
+    kicker -e'./node_modules/.bin/pegjs lib/kumascript/parser.pegjs' \
+           -e'./node_modules/.bin/jshint lib tests' \
            -e'./node_modules/.bin/nodeunit tests' \
            -e'./node_modules/.bin/docco lib/kumascript/*' \
            --no-growl \

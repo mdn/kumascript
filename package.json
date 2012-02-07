@@ -28,6 +28,7 @@
   "devDependencies": {
       "nodeunit": "0.6.4",
       "jshint": "0.5.7",
-      "docco": "0.3.0"
+      "docco": "0.3.0",
+      "pegjs": "0.6.2"
   }
 }
