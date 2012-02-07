@@ -1,0 +1,12 @@
+Here is {{ some more text }} with double braces, but not a macro.
+But, we should also \{ be able to use \ backslashes \\wherever \\\we like.
+Here is { some text } with braces, but not a macro.
+
+* foo
+* <span>24</span>
+* t3
+* This should be not found, and handled gracefully: {{ y4 }}
+
+Look, it's JSON without escaping: ["a","b","c"]
+
+Here is a multi-line macro: [&quot;With many&quot;,&quot;parameters&quot;,&quot;including \&quot;quoted\&quot;&quot;,&quot;text of both 'kinds'&quot;,&quot;even \&quot;escaped\&quot;&quot;,&quot;like 'these'&quot;,&quot;and numbers&quot;,-10,0,0,10,100] that even works inline.

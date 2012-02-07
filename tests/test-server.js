@@ -14,17 +14,31 @@ var util = require('util'),
 
 module.exports = nodeunit.testCase({
 
+    "Fetching document1 from service should be processed as expected": function (test) {
+        var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
+            result_url  = 'http://localhost:9000/docs/document1';
+        fs.readFile(expected_fn, 'utf8', function (err, expected) {
+            request(result_url, function (err, resp, result) {
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+        });
+    },
+
     // Build both a service instance and a document server for test fixtures.
     setUp: function (next) {
-        this.server = new ks_server.Server({
-            port: 9000,
-            document_url_template: "http://localhost:9001/documents/{path}?raw=1",
-            template_url_template: "http://localhost:9001/templates/{path}?raw=1"
-        });
-        this.server.listen();
-
         this.test_server = ks_test_utils.createTestServer();
-
+        try {
+            this.server = new ks_server.Server({
+                port: 9000,
+                document_url_template: "http://localhost:9001/documents/{path}.txt",
+                template_url_template: "http://localhost:9001/templates/{name}.ejs"
+            });
+            this.server.listen();
+        } catch (e) {
+            util.debug("ERROR STARTING TEST SERVER " + e);
+            throw e;
+        }
         next();
     },
 
@@ -33,21 +47,6 @@ module.exports = nodeunit.testCase({
         this.server.close();
         this.test_server.close();
         next();
-    },
-
-    "PLAY": function (test) {
-
-        request('http://localhost:9001/macros1.txt', function (err, resp, body) {
-            test.done();
-        });
-
-        /*
-        request('http://localhost:9000/docs/document1.txt', function (err, resp, body) {
-            util.debug("ERR " + err);
-            test.done();
-        });
-        */
-
     }
 
 });

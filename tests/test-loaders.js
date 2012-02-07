@@ -75,5 +75,4 @@ module.exports = nodeunit.testCase({
     }
 
     // TODO: Template loading from filesystem
-    // TODO: Template loading via HTTP (preload, async, before processing?)
 });
