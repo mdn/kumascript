@@ -6,7 +6,7 @@
   "author": "Les Orchard <lorchard@mozilla.com> (http://lmorchard.com/)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lmorchard/kuma-script.git"
+    "url": "git://github.com/lmorchard/kumascript.git"
   },
   "main": "./lib/kumascript/index",
   "engines": {
