@@ -53,7 +53,6 @@ var LocalLoader = ks_utils.Class(ks_loaders.BaseLoader, {
     }
 });
 
-
 // API that includes some things useful for testing.
 var DemoAPI = ks_utils.Class(ks_api.BaseAPI, {
 

@@ -9,22 +9,25 @@ Bringing scripting to the wiki bears.
 
 ## Development
 
-* To check code quality:
-    * `./node_modules/.bin/hint lib tests`
 * To run tests:
     * `./node_modules/.bin/nodeunit tests`
+* To check code quality:
+    * `./node_modules/.bin/hint lib tests`
+    * This will make a racket if it hits `parser.js`
+        * TODO: Ignore this file.
 * To generate docs:
-    * `./node_modules/.bin/docco lib/kumascript/*`
-* To re-generate the macro parser:
+    * `./node_modules/.bin/docco lib/kumascript/*.js`
+* To generate document macro parser (optional):
     * `./node_modules/.bin/pegjs lib/kumascript/parser.pegjs`
+    * This is not required in dev, but should be done for production.
+        * If `parser.js` is missing, the parser will be built on the fly.
 
 On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
-    kicker -e'./node_modules/.bin/pegjs lib/kumascript/parser.pegjs' \
-           -e'./node_modules/.bin/jshint lib tests' \
+    kicker -e'./node_modules/.bin/jshint lib tests' \
            -e'./node_modules/.bin/nodeunit tests' \
-           -e'./node_modules/.bin/docco lib/kumascript/*' \
+           -e'./node_modules/.bin/docco lib/kumascript/*.js' \
            --no-growl \
            lib tests
 
