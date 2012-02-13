@@ -9,6 +9,9 @@
     "url": "git://github.com/lmorchard/kumascript.git"
   },
   "main": "./lib/kumascript/index",
+  "scripts": {
+      "start": "./run.js"
+  },
   "engines": {
     "node": "~0.6.1"
   },

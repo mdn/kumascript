@@ -25,6 +25,23 @@ module.exports = nodeunit.testCase({
         });
     },
 
+    "POSTing document to service should be processed as expected": function (test) {
+        var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
+            source_fn   = __dirname + '/fixtures/documents/document1.txt',
+            result_url  = 'http://localhost:9000/docs/';
+        fs.readFile(expected_fn, 'utf8', function (err, expected) {
+            fs.readFile(source_fn, 'utf8', function (err, source) {
+                request.post(
+                    { url: result_url, body: source },
+                    function (err, resp, result) {
+                        test.equal(result.trim(), expected.trim());
+                        test.done();
+                    }
+                );
+            })
+        });
+    },
+
     // Build both a service instance and a document server for test fixtures.
     setUp: function (next) {
         this.test_server = ks_test_utils.createTestServer();
