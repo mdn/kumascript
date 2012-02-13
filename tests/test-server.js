@@ -38,7 +38,7 @@ module.exports = nodeunit.testCase({
                         test.done();
                     }
                 );
-            })
+            });
         });
     },
 
