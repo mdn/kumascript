@@ -9,6 +9,10 @@ TODO
 
 * Handle template-not-found errors gracefully
 
+* Cascading template loaders
+    * Like Django. If template not found, fall back to the next in the list
+    * eg. HTTP -> file -> local hash
+
 * Switch doc parser from PEG.js to [Jison][]?
     * Not that there's a known problem, but CoffeeScript uses Jison.
     * PEG grammar is much more readable, though, IMO.
