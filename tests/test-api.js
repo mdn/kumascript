@@ -68,6 +68,7 @@ module.exports = {
             t_fn = 'api1.txt',
             t_cls = ks_templates.EJSTemplate;
 
+        // TODO: Refactor this template testing pattern into ks_test_utils.
         fs.readFile(__dirname + '/fixtures/' + t_fn, function (err, data) {
             if (err) { throw err; }
 
@@ -81,15 +82,71 @@ module.exports = {
                 },
                 loader = new ks_test_utils.LocalLoader({ templates: templates }),
                 mp = new ks_macros.MacroProcessor({ loader: loader }),
-                api_ctx = new ks_api.APIContext({
-                    apis: {
-                        wiki: ks_api.WikiAPI,
-                        demo: DemoAPI
-                    }
-                });
+                api_ctx = new ks_api.APIContext();
+
+            api_ctx.installAPI(DemoAPI, 'demo');
 
             mp.process(src, api_ctx, function (err, result) {
                 if (err) { throw err; }
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+
+        });
+        
+    },
+
+    "Exercise some popular MDN templates that have been transliterated": function (test) {
+
+        // [List of popular MDN templates][tmpl_list]
+        // [tmpl_list]: https://bug714804.bugzilla.mozilla.org/attachment.cgi?id=588125
+        
+        var $this = this,
+            t_fn = 'api2.txt',
+            loader = new ks_loaders.FileLoader({
+                filename_template: __dirname + '/fixtures/templates/{name}.ejs'
+            }),
+            mp = new ks_macros.MacroProcessor({ loader: loader }),
+            api_ctx = new ks_api.APIContext({ });
+
+        api_ctx.installAPI(DemoAPI, 'demo');
+
+        _.extend(api_ctx.wiki, {
+            
+            // Mock out pageExists with pretend pages.
+            pageExists: function (path) {
+                var pretend_exists = [
+                    "en/CSS/position",
+                    "en/CSS/auto",
+                    "en/XUL/content",
+                    "en/XUL:member",
+                    "en/XPCOM_Interface_Reference/nsISupports",
+                    "en/nsIDocShell"
+                ];
+                return (pretend_exists.indexOf(path) !== -1);
+            },
+
+            // Mock out uri() until we have a better implementation.
+            uri: function (path, query) {
+                var out = 'http://example.com/' + path;
+                if (query) { out += '?' + query; }
+                return out;
+            }
+
+        });
+
+        api_ctx.Page.uri = api_ctx.page.uri =
+            'http://example.com/en/HTML/FakePage';
+
+        fs.readFile(__dirname + '/fixtures/' + t_fn, function (err, data) {
+        
+            var parts = (''+data).split('---'),
+                src = parts.shift(),
+                expected = parts.shift();
+
+            mp.process(src, api_ctx, function (err, result) {
+                if (err) { throw err; }
+                // util.debug("RESULT\n" + result.trim());
                 test.equal(result.trim(), expected.trim());
                 test.done();
             });
