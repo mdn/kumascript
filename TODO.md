@@ -3,20 +3,30 @@ TODO
 
 ## v1.0
 
-* Complete the MindTouch-compat API
-    * Continue burning through most-used and longest-source MDN templates
+* Build a forking, robust server runner
 
 * Changes to Django Kuma to use the kumascript proxy
-
-* Scripting jig to allow template editing and macro evaluation on the fly
-
-* Build a forking, robust server runner
 
 * Handle document "syntax errors" gracefully
 
 * Handle template-not-found errors gracefully
 
+* Complete the MindTouch-compat API
+    * Continue burning through most-used and longest-source MDN templates
+
 ## Future
+
+* Make API libs wiki-editable? (eg. wiki, page, etc)
+    * Shared libraries in wiki source?
+    * Load from templates with a node.js-like require()?
+
+* Use StatsD
+    * execution time and counts for templates
+    * execution time and counts for pages overall
+    * see also: https://github.com/mozilla/browserid/blob/dev/lib/statsd.js
+
+* Scripting jig to allow template editing and macro evaluation on the fly
+    * 3 panes: Template source editor, test document editor, execution result
 
 * Move the test server base URLs to test-utils?
     * The constants are sprinkled hard-coded everywhere.

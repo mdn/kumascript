@@ -35,27 +35,29 @@ function main() {
     handleOptions();
     initConfig();
     initLogging();
-    startServer();
+    return buildServer();
 }
 
 // ### Handle command line options
 function handleOptions () {
     // Crazy optimist chaining sugar ahoy!
     optimist
-        .options('help', {
-            describe: 'Display this help message',
-            boolean: true
-        })
-        .options('verbose', {
-            describe: 'Verbose console logging output',
-            boolean: true,
-            alias: 'v'
-        })
-        .options('config', {
-            describe: 'Specify configuration file',
-        })
-        .options('port', {
-            describe: 'Port for HTTP service (default 9080)',
+        .options({
+            'help': {
+                describe: 'Display this help message',
+                boolean: true
+            },
+            'verbose': {
+                describe: 'Verbose console logging output',
+                boolean: true,
+                alias: 'v'
+            },
+            'config': {
+                describe: 'Specify configuration file',
+            },
+            'port': {
+                describe: 'Port for HTTP service (default 9080)',
+            }
         })
         .usage([
             'Run the KumaScript service',
@@ -94,21 +96,22 @@ function initLogging () {
     }
 }
 
-// ### Start the server.
-function startServer () {
-    // Build simple server conf object from nconf.get()'s
-    var server_conf = _.chain([
-        'port',
-        'document_url_template',
-        'template_url_template'
-    ]).map(function (n) {
-        return [n, nconf.get(n)];
-    }).object().value();
-
-    // Fire up the service.
-    var server = new ks_server.Server(server_conf);
-    server.listen();
+// ### Build the server.
+function buildServer () {
+    // Build server config object from nconf.get()'s
+    var server_conf = _
+        .chain(ks_server.Server.prototype.default_options)
+        .keys().map(function (n) { return [n, nconf.get(n)]; })
+        .object().value();
+    // Return a configured server.
+    return new ks_server.Server(server_conf);
 }
 
-// Finally, kick off the main driver.
-main();
+if (require.main === module) {
+    // If this has been executed as a script directly, fire up the server.
+    main().listen();
+} else {
+    // Otherwise, export the server instance. Useful for [up][]
+    // [up]: https://github.com/learnboost/up
+    module.exports = main().app;
+}

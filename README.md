@@ -8,9 +8,13 @@ Bringing scripting to the wiki bears.
 
 * Install [node.js 0.6.1+](http://nodejs.org/docs/v0.6.1/) and [npm](http://npmjs.org/)
 * `npm install`
+* `npm start`
 
 ## Development
 
+* To run the server:
+    * `./node_modules/.bin/up -w run.js`
+    * This will launch 1 child process per CPU, and reload on code changes.
 * To run tests:
     * `./node_modules/.bin/nodeunit tests`
 * To check code quality:
