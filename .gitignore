@@ -5,4 +5,4 @@ logs
 docs
 .monitor
 .nodemonignore
-node_modules/
+*.{node,a,o,dylib}

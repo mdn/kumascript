@@ -40,8 +40,11 @@ function main() {
 
 // ### Handle command line options
 function handleOptions () {
-    // Crazy optimist chaining sugar ahoy!
     optimist
+        .usage([
+            'Run the KumaScript service',
+            'Usage: $0',
+            ].join("\n"))
         .options({
             'help': {
                 describe: 'Display this help message',
@@ -58,11 +61,7 @@ function handleOptions () {
             'port': {
                 describe: 'Port for HTTP service (default 9080)',
             }
-        })
-        .usage([
-            'Run the KumaScript service',
-            'Usage: $0',
-        ].join("\n"));
+        });
 
     // Capture the parsed options
     argv = optimist.argv;
@@ -107,6 +106,7 @@ function buildServer () {
     return new ks_server.Server(server_conf);
 }
 
+// ### Fire up the server, or hand off to manager.
 if (require.main === module) {
     // If this has been executed as a script directly, fire up the server.
     main().listen();

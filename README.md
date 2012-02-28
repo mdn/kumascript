@@ -4,28 +4,34 @@ Bringing scripting to the wiki bears.
 
 ![KumaScript overview](https://wiki.mozilla.org/images/thumb/2/2b/Kumascript.png/1000px-Kumascript.png)
 
-## Setup
+## Setup and Startup
 
-* Install [node.js 0.6.1+](http://nodejs.org/docs/v0.6.1/) and [npm](http://npmjs.org/)
+* Install [node.js 0.6.x](http://nodejs.org/docs/v0.6.10/) and [npm](http://npmjs.org/)
 * `npm install`
 * `npm start`
 
 ## Development
 
-* To run the server:
+* To run the service:
+    * `npm start`
+        * This should launch the same way as production
     * `./node_modules/.bin/up -w run.js`
-    * This will launch 1 child process per CPU, and reload on code changes.
+        * This will launch 1 child process per CPU, and reload on code changes.
+        * Currently what `npm start` does
+    * `node run.js -v`
+        * Run a single service process, with verbose messages
+        * Try the `--help` to see options unavailable with `up`
 * To run tests:
     * `./node_modules/.bin/nodeunit tests`
 * To check code quality:
     * `./node_modules/.bin/hint lib tests`
-    * This will make a racket if it hits `parser.js`
+        * This will make a racket if it hits `parser.js`
         * TODO: Ignore this file.
 * To generate docs:
     * `./node_modules/.bin/docco lib/kumascript/*.js`
 * To generate document macro parser (optional):
     * `./node_modules/.bin/pegjs lib/kumascript/parser.pegjs`
-    * This is not required in dev, but should be done for production.
+        * This is not required in dev, but should be done for production.
         * If `parser.js` is missing, the parser will be built on the fly.
 
 On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running

@@ -14,7 +14,7 @@
       "test": "./node_modules/.bin/nodeunit tests"
   },
   "engines": {
-    "node": "~0.6.1"
+    "node": "0.6.x"
   },
   "directories": { 
       "lib": "./lib"

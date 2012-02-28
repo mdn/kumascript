@@ -4,6 +4,8 @@ TODO
 ## v1.0
 
 * Build a forking, robust server runner
+    * Make sure logger carries over to child processes
+    * Using `up` now, think about using `forever`?
 
 * Changes to Django Kuma to use the kumascript proxy
 
@@ -14,11 +16,16 @@ TODO
 * Complete the MindTouch-compat API
     * Continue burning through most-used and longest-source MDN templates
 
+* Handle language alternates in markup?
+    * eg. span lang="en-US"; lang="zh-CN"; lang="*"
+    * See also Template:JSInherits
+
 ## Future
 
 * Make API libs wiki-editable? (eg. wiki, page, etc)
     * Shared libraries in wiki source?
     * Load from templates with a node.js-like require()?
+        * kuma.require?
 
 * Use StatsD
     * execution time and counts for templates
