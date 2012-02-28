@@ -10,7 +10,6 @@ var util = require('util'),
     _ = require('underscore'),
     
     nconf = require('nconf'),
-    optimist = require('optimist'),
     winston = require('winston'),
 
     kumascript = require(__dirname),
@@ -18,100 +17,80 @@ var util = require('util'),
     ks_server = kumascript.server;
 
 // ### Default configuration settings
+// This could go in `kumascript_settings.json` in the parent project.
 var DEFAULT_CONFIG = {
-    log_filename: 'kumascript.log',
-    port: 9080,
-    document_url_template:
-        "https://developer.mozilla.org/en-US/docs/{path}",
-    template_url_template:
-        "https://developer.mozilla.org/en-US/docs/Template:{path}"
+    log: {
+        console: false,
+        file: {
+            filename: 'kumascript.log',
+            maxsize: 1024 * 100, // 100k
+            maxFiles: 5
+        }
+    },
+    server: {
+        port: 9080,
+        numWorkers: null,
+        workerTimeout: 1000 * 60 * 10,
+        document_url_template:
+            "https://developer.mozilla.org/en-US/docs/{path}",
+        template_url_template:
+            "https://developer.mozilla.org/en-US/docs/en-US/Template:{path}"
+    }
 };
 
-// Evil module-global argv
-var argv;
-
-// ### Main driver
-function main() {
-    handleOptions();
-    initConfig();
-    initLogging();
-    return buildServer();
-}
-
-// ### Handle command line options
-function handleOptions () {
-    optimist
-        .usage([
-            'Run the KumaScript service',
-            'Usage: $0',
-            ].join("\n"))
-        .options({
-            'help': {
-                describe: 'Display this help message',
-                boolean: true
-            },
-            'verbose': {
-                describe: 'Verbose console logging output',
-                boolean: true,
-                alias: 'v'
-            },
-            'config': {
-                describe: 'Specify configuration file',
-            },
-            'port': {
-                describe: 'Port for HTTP service (default 9080)',
-            }
-        });
-
-    // Capture the parsed options
-    argv = optimist.argv;
-    if (argv.help || argv.h) {
-        // Punt out to the help message, if requested.
-        optimist.showHelp();
-        process.exit(1);
-    }
-}
-
 // ### Initialize configuration
-function initConfig () {
-    // Load first from environment and command line
-    nconf.env().argv();
-    // Load from file, based on --config option
-    if (argv.config) {
-        nconf.file({ file: argv.config });
-    }
-    // Defaults, if all else fails.
-    nconf.defaults(DEFAULT_CONFIG);
-}
+//
+// Attempt to load from a prioritized series of configuration files.
+//
+// 1. Environ var `KUMASCRIPT_CONFIG`, because command line options are hard to
+//    sling around when we're using [up][]
+// 2. `kumascript_settings_local.json` in current dir
+// 3. `kumascript_settings.json` in current dir
+// 
+// [up]: https://github.com/learnboost/up
+var cwd = process.cwd(),
+    conf_fns = [
+        process.env.KUMASCRIPT_CONFIG,
+        cwd + '/kumascript_settings_local.json',
+        cwd + '/kumascript_settings.json'
+    ];
+_.each(conf_fns, function (conf_fn) {
+    try {
+        if (conf_fn && fs.statSync(conf_fn).isFile()) {
+            nconf.file({ file: conf_fn });
+        }
+    } catch (e) { }
+});
+
+// Include the fallback defaults.
+nconf.defaults(DEFAULT_CONFIG);
 
 // ### Initialize logging
-function initLogging () {
-    if (!(argv.verbose || argv.v)) {
-        winston.remove(winston.transports.Console);
-        winston.add(winston.transports.File, {
-            filename: nconf.get('log_filename')
-        });
-    } else {
-    }
+var log_conf = nconf.get('log');
+if (!log_conf.console) {
+    winston.remove(winston.transports.Console);
 }
+if (log_conf.file) {
+    // TODO: Need a rotating file logger here!
+    winston.add(winston.transports.File, log_conf.file);
+}
+// TODO: Accept log line format from config?
+// TODO: Use [winston-syslog](https://github.com/indexzero/winston-syslog)?
 
-// ### Build the server.
-function buildServer () {
-    // Build server config object from nconf.get()'s
-    var server_conf = _
-        .chain(ks_server.Server.prototype.default_options)
-        .keys().map(function (n) { return [n, nconf.get(n)]; })
-        .object().value();
-    // Return a configured server.
-    return new ks_server.Server(server_conf);
-}
+// ### Initialize a server
+var server_conf = nconf.get('server'),
+    server = new ks_server.Server(server_conf);
 
 // ### Fire up the server, or hand off to manager.
 if (require.main === module) {
     // If this has been executed as a script directly, fire up the server.
-    main().listen();
+    var up = require('up'),
+        http = require('http'),
+        master = http.Server().listen(server_conf.port),
+        srv = up(master, __filename, server_conf);
+    process.on('SIGUSR2', function () { srv.reload(); });
 } else {
     // Otherwise, export the server instance. Useful for [up][]
     // [up]: https://github.com/learnboost/up
-    module.exports = main().app;
+    module.exports = server.app;
 }
