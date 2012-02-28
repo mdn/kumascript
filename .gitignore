@@ -5,4 +5,9 @@ logs
 docs
 .monitor
 .nodemonignore
-*.{node,a,o,dylib}
+*.node
+*.dSYM
+*.o
+*.a
+*.dylib
+*.un~

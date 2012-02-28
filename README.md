@@ -7,7 +7,7 @@ Bringing scripting to the wiki bears.
 ## Setup and Startup
 
 * Install [node.js 0.6.x](http://nodejs.org/docs/v0.6.10/) and [npm](http://npmjs.org/)
-* `npm install`
+* `npm rebuild`
 * `npm start`
 
 ## Development
