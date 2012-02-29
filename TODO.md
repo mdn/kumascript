@@ -3,6 +3,14 @@ TODO
 
 ## v1.0
 
+* More closely consider issues of case-sensitivity in Kuma doc slugs and
+  kumascript template names.
+
+* Think about relaxing Bleach on Template:* pages, just apply on output?
+
+* Template:* editing sucks in kuma. Maybe default to source editing?
+    * Use cloud9? what?
+
 * Changes to Django Kuma to use the kumascript proxy
     * Caching in Kuma from kumascript
     * Caching in kumascript from Kuma
@@ -14,16 +22,16 @@ TODO
 * Complete the MindTouch-compat API
     * Continue burning through most-used and longest-source MDN templates
 
+* Make API libs wiki-editable? (eg. wiki, page, etc)
+    * Shared libraries in wiki source?
+    * Load from templates with a node.js-like require()?
+        * kuma.require?
+
 * Handle language alternates in markup?
     * eg. span lang="en-US"; lang="zh-CN"; lang="*"
     * See also Template:JSInherits
 
 ## Future
-
-* Make API libs wiki-editable? (eg. wiki, page, etc)
-    * Shared libraries in wiki source?
-    * Load from templates with a node.js-like require()?
-        * kuma.require?
 
 * Use StatsD
     * execution time and counts for templates
