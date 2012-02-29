@@ -3,11 +3,9 @@ TODO
 
 ## v1.0
 
-* Build a forking, robust server runner
-    * Make sure logger carries over to child processes
-    * Using `up` now, think about using `forever`?
-
 * Changes to Django Kuma to use the kumascript proxy
+    * Caching in Kuma from kumascript
+    * Caching in kumascript from Kuma
 
 * Handle document "syntax errors" gracefully
 
