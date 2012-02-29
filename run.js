@@ -32,9 +32,9 @@ var DEFAULT_CONFIG = {
         numWorkers: null,
         workerTimeout: 1000 * 60 * 10,
         document_url_template:
-            "https://developer.mozilla.org/en-US/docs/{path}",
+            "https://developer.mozilla.org/en-US/docs/{path}?raw=1",
         template_url_template:
-            "https://developer.mozilla.org/en-US/docs/en-US/Template:{path}"
+            "https://developer.mozilla.org/en-US/docs/en-US/Template:{name}?raw=1"
     }
 };
 
@@ -84,11 +84,7 @@ var server_conf = nconf.get('server'),
 // ### Fire up the server, or hand off to manager.
 if (require.main === module) {
     // If this has been executed as a script directly, fire up the server.
-    var up = require('up'),
-        http = require('http'),
-        master = http.Server().listen(server_conf.port),
-        srv = up(master, __filename, server_conf);
-    process.on('SIGUSR2', function () { srv.reload(); });
+    server.listen();
 } else {
     // Otherwise, export the server instance. Useful for [up][]
     // [up]: https://github.com/learnboost/up
