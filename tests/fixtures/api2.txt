@@ -11,6 +11,8 @@ tests, but this works fine for now:
 * {{ Interface("nsIDocShell") }}
 * {{ INTERFACE("nsQuackingDuck") }}
 
+{{JSInherits("Object", "Methods", "__defineGetter__", "__defineSetter__", "hasOwnProperty", "isPrototypeOf", "__lookupGetter__", "__lookupSetter__", "__noSuchMethod__", "propertyIsEnumerable", "unwatch", "valueOf", "watch")}}
+
 ---
 This is a monolithic example that should probably be broken up into separate
 tests, but this works fine for now:

@@ -9,6 +9,7 @@ var util = require('util'),
 
     kumascript = require('..'),
     ks_utils = kumascript.utils,
+    ks_templates = kumascript.templates,
     ks_server = kumascript.server,
     ks_test_utils = kumascript.test_utils;
 
@@ -51,6 +52,13 @@ module.exports = nodeunit.testCase({
                 document_url_template: "http://localhost:9001/documents/{path}.txt",
                 template_url_template: "http://localhost:9001/templates/{name}.ejs"
             });
+
+            // HACK: This needs to be configurable in server options, where
+            // KumaEJSTemplate is hardcoded. That, and/or KumaEJSTemplate
+            // should be the thing tested here.
+            this.server.template_loader.options.type_map._default =
+                ks_templates.EJSTemplate;
+                
             this.server.listen();
         } catch (e) {
             util.debug("ERROR STARTING TEST SERVER " + e);
