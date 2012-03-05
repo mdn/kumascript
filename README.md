@@ -13,10 +13,6 @@ Bringing scripting to the wiki bears.
 
 * To run the service:
     * `./node_modules/.bin/up -p 9080 -w run.js`
-        * This will launch 1 child process per CPU, and reload on code changes.
-    * `node run.js`
-        * This should launch the same way as production
-        * See also: `npm start`
 * To run tests:
     * `./node_modules/.bin/nodeunit tests`
 * To check code quality:
