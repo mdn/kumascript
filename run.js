@@ -50,9 +50,9 @@ var DEFAULT_CONFIG = {
 // [up]: https://github.com/learnboost/up
 var cwd = process.cwd(),
     conf_fns = [
-        process.env.KUMASCRIPT_CONFIG,
+        cwd + '/kumascript_settings.json',
         cwd + '/kumascript_settings_local.json',
-        cwd + '/kumascript_settings.json'
+        process.env.KUMASCRIPT_CONFIG
     ];
 _.each(conf_fns, function (conf_fn) {
     try {
