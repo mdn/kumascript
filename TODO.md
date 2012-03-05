@@ -30,6 +30,15 @@ TODO
     * Load from templates with a node.js-like require()?
         * kuma.require?
 
+* General kumascript env and metadata vars in headers with JSON-encoded values?
+    * For use by the API methods.
+    * Examples:
+        * x-kumascript-var-locale: "en-US"
+        * x-kumascript-var-slug: "DOM/Storage"
+        * x-kumascript-var-title: "DOM Storage"
+        * x-kumascript-var-username: "lmorchard"
+        * x-kumascript-var-tags: [ "JavaScript", "HTML5", "CSS" ]
+
 * Handle language alternates in markup?
     * eg. span lang="en-US"; lang="zh-CN"; lang="*"
     * See also Template:JSInherits
