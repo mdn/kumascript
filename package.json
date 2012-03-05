@@ -10,7 +10,7 @@
   },
   "main": "./lib/kumascript/index",
   "scripts": {
-      "start": "./node_modules/.bin/up --watch ./run.js",
+      "start": "./node_modules/.bin/up -p 9080 -w ./run.js",
       "test": "./node_modules/.bin/nodeunit tests"
   },
   "engines": {
