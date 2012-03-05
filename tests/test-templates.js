@@ -42,7 +42,7 @@ function testTemplateClass(test, t_cls, t_fn) {
             },
             loader = new ks_test_utils.LocalLoader({ templates: templates }),
             mp = new ks_macros.MacroProcessor({ loader: loader }),
-            api_ctx = {};
+            api_ctx = new ks_api.APIContext({ });
 
         mp.process(src, api_ctx, function (err, result) {
             if (err) { throw err; }
