@@ -4,11 +4,10 @@ Bringing scripting to the wiki bears.
 
 ![KumaScript overview](https://wiki.mozilla.org/images/thumb/2/2b/Kumascript.png/1000px-Kumascript.png)
 
-## Setup and Startup
+## Setup
 
 * Install [node.js 0.6.x](http://nodejs.org/docs/v0.6.10/) and [npm](http://npmjs.org/)
 * `npm rebuild`
-* `npm start`
 
 ## Development
 
