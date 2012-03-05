@@ -11,8 +11,13 @@ Bringing scripting to the wiki bears.
 
 ## Development
 
-* To run the service:
-    * `./node_modules/.bin/up -p 9080 -w run.js`
+* To run the service (in kuma vagrant):
+    * `cd /vagrant; node kumascript/run.js`
+* To run the service (standalone):
+    * Directly:
+        * `node run.js`
+    * Managed by `up`:
+        * `./node_modules/.bin/up -p 9080 -w run.js`
 * To run tests:
     * `./node_modules/.bin/nodeunit tests`
 * To check code quality:

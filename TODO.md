@@ -14,8 +14,6 @@ TODO
 
 * Think about relaxing Bleach on Template:* pages, just apply on output?
 
-* Kuma-side unit tests
-
 * Changes to Django Kuma to use the kumascript proxy
     * Caching in Kuma from kumascript
     * Caching in kumascript from Kuma
@@ -35,6 +33,9 @@ TODO
 * Handle language alternates in markup?
     * eg. span lang="en-US"; lang="zh-CN"; lang="*"
     * See also Template:JSInherits
+
+* Move `run.js` to `bin/kumascript`
+    * Add a bin section to package.json
 
 ## Future
 
