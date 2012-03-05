@@ -3,21 +3,26 @@ TODO
 
 ## v1.0
 
+* Handle document "syntax errors" gracefully
+
+* Handle template-not-found errors gracefully
+
+* Problem with kuma page slugs containing spaces
+
 * More closely consider issues of case-sensitivity in Kuma doc slugs and
   kumascript template names.
 
 * Think about relaxing Bleach on Template:* pages, just apply on output?
 
-* Template:* editing sucks in kuma. Maybe default to source editing?
-    * Use cloud9? what?
+* Kuma-side unit tests
 
 * Changes to Django Kuma to use the kumascript proxy
     * Caching in Kuma from kumascript
     * Caching in kumascript from Kuma
 
-* Handle document "syntax errors" gracefully
-
-* Handle template-not-found errors gracefully
+* Report to user when kumascript has errors
+    * Hidden panel? Session flash message?
+    * Pass errors in HTTP headers? Special HTML block?
 
 * Complete the MindTouch-compat API
     * Continue burning through most-used and longest-source MDN templates
