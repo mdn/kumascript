@@ -11,3 +11,4 @@ docs
 *.a
 *.dylib
 *.un~
+npm-debug.log
