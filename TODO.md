@@ -7,6 +7,8 @@ TODO
 
 * Handle template-not-found errors gracefully
 
+* Loader abstraction class for document fetch, like template loader
+
 * Problem with kuma page slugs containing spaces
 
 * More closely consider issues of case-sensitivity in Kuma doc slugs and
@@ -63,6 +65,10 @@ TODO
 * Cascading template loaders
     * Like Django. If template not found, fall back to the next in the list
     * eg. HTTP -> file -> local hash
+
+* Multiple template loaders, selectable by document type
+    * Switch loader classes by Content-Type of template resource
+    * Switch loader based on a custom header from the template resource GET
 
 * Switch doc parser from PEG.js to [Jison][]?
     * Not that there's a known problem, but CoffeeScript uses Jison.
