@@ -11,4 +11,5 @@ docs
 *.a
 *.dylib
 *.un~
+node_modules/underscore/raw
 npm-debug.log
