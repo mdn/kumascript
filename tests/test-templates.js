@@ -45,7 +45,6 @@ function testTemplateClass(test, t_cls, t_fn) {
             api_ctx = new ks_api.APIContext({ });
 
         mp.process(src, api_ctx, function (err, result) {
-            if (err) { throw err; }
             test.equal(result.trim(), expected.trim());
             test.done();
         });
