@@ -1,0 +1,17 @@
+{
+  "author": "Les Orchard <me@lmorchard.com> (http://lmorchard.com/)",
+  "name": "firelogger",
+  "description": "Middleware for express/connect that supports the FireLogger protocol",
+  "version": "0.0.1",
+  "homepage": "http://github.com/lmorchard/node-firelogger/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lmorchard/node-firelogger.git"
+  },
+  "main": "firelogger.js",
+  "engines": {
+    "node": "~0.6.10"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
