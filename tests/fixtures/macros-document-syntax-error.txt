@@ -1,0 +1,5 @@
+This document should cause some syntax errors during macro parsing.
+* {{ )( }}
+---
+This document should cause some syntax errors during macro parsing.
+* {{ )( }}

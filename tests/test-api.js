@@ -86,7 +86,6 @@ module.exports = {
             api_ctx.installAPI(DemoAPI, 'demo');
 
             mp.process(src, api_ctx, function (err, result) {
-                if (err) { throw err; }
                 test.equal(result.trim(), expected.trim());
                 test.done();
             });
