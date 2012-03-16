@@ -1,3 +1,5 @@
+var util = require('util');
+
 // See also: <https://github.com/darwin/firelogger/wiki>
 module.exports = function (options) {
 
@@ -28,13 +30,27 @@ module.exports = function (options) {
 
         res.writeHead = function (status, headers) {
 
+            // Wrap up the common exit point
             function wh_next() {
                 res.writeHead = orig_writeHead;
                 res.writeHead(status, headers);
             }
 
+            // Patch the Vary: header to include X-FireLogger, to indicate that
+            // the response changes based on its value.
+            var curr_vary = (''+res.header('Vary')),
+                fl_vary = 'X-FireLogger';
+            if (curr_vary.indexOf(fl_vary) === -1) {
+                res.header('Vary', (curr_vary) ? (curr_vary + ',' + fl_vary) :
+                                                 fl_vary);
+            }
+
+            // Do nothing if there's no X-FireLogger header
             var fl_ver = req.header('X-FireLogger');
             if (!fl_ver) { return wh_next(); }
+
+            // Do nothing, if there are no messages
+            if (!messages.length) { return wh_next(); }
 
             var uid = parseInt(Math.random() * 1000000, 16);
             var d_lines = [];
