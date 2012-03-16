@@ -31,7 +31,7 @@ module.exports = nodeunit.testCase({
 
     "Basic macro substitution should work": function (test) {
         var mp = new ks_macros.MacroProcessor({ 
-            loader: new ks_test_utils.JSONifyLoader()
+            loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros1.txt',
             function (errors, result) {
@@ -42,7 +42,7 @@ module.exports = nodeunit.testCase({
 
     "Errors in document parsing should be handled gracefully and reported": function (test) {
         var mp = new ks_macros.MacroProcessor({ 
-            loader: new ks_test_utils.JSONifyLoader()
+            loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros-document-syntax-error.txt',
             function (errors, result) {
@@ -96,7 +96,7 @@ module.exports = nodeunit.testCase({
         });
         
         var mp = new ks_macros.MacroProcessor({
-            loader: new BrokenTemplateLoader()
+            loader_class: BrokenTemplateLoader
         });
         
         processFixture(test, mp, 'macros-broken-templates.txt',
@@ -127,6 +127,33 @@ module.exports = nodeunit.testCase({
             }
         );
 
+    },
+
+    "Templates for macros should only be loaded once, executed once per unique argument set": function (test) {
+        var load_count = 0,
+            exec_count = 0;
+        var CounterTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
+            execute: function (args, ctx, next) {
+                exec_count++;
+                next(null, args[0] + '=' + exec_count + '/' + load_count);
+            }
+        });
+        var CounterTemplateLoader = ks_utils.Class(ks_loaders.BaseLoader, {
+            load: function (name, loaded_cb) {
+                load_count++;
+                loaded_cb(null, new CounterTemplate());
+            }
+        });
+        var mp = new ks_macros.MacroProcessor({
+            loader_class: CounterTemplateLoader
+        });
+        processFixture(test, mp, 'macros-repeated-macros.txt',
+            function (errors, result) {
+                test.equal(3, exec_count);
+                test.equal(1, load_count);
+                test.done();
+            }
+        );
     }
 
 });

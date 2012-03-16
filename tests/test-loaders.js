@@ -38,9 +38,6 @@ module.exports = nodeunit.testCase({
             data = ["test123", ["alpha", "beta", "gamma"]],
             expected = JSON.stringify(data);
 
-        // Install the caching mixin into the loader.
-        _.extend(loader, ks_loaders.LocalCacheMixin);
-
         loader.get(data[0], function (err, tmpl) {
             
             test.ok(!err);

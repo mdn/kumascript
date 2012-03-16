@@ -12,11 +12,6 @@ var util = require('util'),
 
     kumascript = require('..'),
     ks_utils = kumascript.utils,
-    ks_macros = kumascript.macros,
-    ks_templates = kumascript.templates,
-    ks_loaders = kumascript.loaders,
-    ks_api = kumascript.api,
-    ks_server = kumascript.server,
     ks_caching = kumascript.caching,
     ks_test_utils = kumascript.test_utils;
 
