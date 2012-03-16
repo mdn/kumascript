@@ -102,6 +102,7 @@ module.exports = {
         // [List of popular MDN templates][tmpl_list]
         // [tmpl_list]: https://bug714804.bugzilla.mozilla.org/attachment.cgi?id=588125
         
+        /*
         var $this = this,
             t_fn = 'api2.txt',
             loader = new ks_loaders.FileLoader({
@@ -153,7 +154,7 @@ module.exports = {
             });
 
         });
-        
+        */
     }
 
 };
