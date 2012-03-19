@@ -79,8 +79,12 @@ module.exports = {
                     t2: new t_cls({source: parts.shift()}),
                     t3: new t_cls({source: parts.shift()})
                 },
-                loader = new ks_test_utils.LocalLoader({ templates: templates }),
-                mp = new ks_macros.MacroProcessor({ loader: loader }),
+                loader_class = ks_test_utils.LocalLoader,
+                loader_options = { templates: templates },
+                mp = new ks_macros.MacroProcessor({
+                    loader_class: loader_class,
+                    loader_options: loader_options
+                }),
                 api_ctx = new ks_api.APIContext();
 
             api_ctx.installAPI(DemoAPI, 'demo');
