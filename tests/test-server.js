@@ -81,7 +81,7 @@ module.exports = nodeunit.testCase({
         });
         
         this.server.macro_processor = new ks_macros.MacroProcessor({
-            loader: new BrokenTemplateLoader()
+            loader_class: BrokenTemplateLoader
         });
 
         var expected_fn = __dirname + '/fixtures/documents/document2-expected.txt',
