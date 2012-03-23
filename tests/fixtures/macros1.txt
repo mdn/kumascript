@@ -17,6 +17,11 @@ Here is a {{ MultiLineMacro(
   "even \"escaped\"", 'like \'these\'',
   "and numbers", -10, 0, 0.1, 10, 100
 )}} that even works inline.
+
+Here is a {{ MacroWithJson({
+    "es":"es/JavaScript/Acerca_de_JavaScript",
+    "en": "en/JavaScript/About_JavaScript"
+}) }} that even works inline.
 ---
 Here is {{ some more text }} with double braces, but not a macro.
 But, we should also \{ be able to use \ backslashes \\wherever \\\we like.
@@ -32,3 +37,5 @@ The following items are all macros, though:
 * ["Bracepocalypse",["{{}}{{}}{{}}"]]
 
 Here is a ["MultiLineMacro",["With many","parameters","including \"quoted\"","text of both 'kinds'","even \"escaped\"","like 'these'","and numbers",-10,0,0,10,100]] that even works inline.
+
+Here is a ["MacroWithJson",[{"es":"es/JavaScript/Acerca_de_JavaScript","en":"en/JavaScript/About_JavaScript"}]] that even works inline.

@@ -52,10 +52,7 @@ module.exports = nodeunit.testCase({
 
                 var e = errors[0];
                 test.equal(e.name, 'DocumentParsingError');
-                test.equal(e.message, 
-                    'Syntax error at line 2, column 9: Expected ' + 
-                    '"\'", ")", "\\"", [ \\t\\n\\r] or [\\-.0-9] ' + 
-                    'but "}" found.');
+                test.equal(0, e.message.indexOf('Syntax error at line'));
                 
                 test.done();
             });
