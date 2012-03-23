@@ -99,17 +99,9 @@ module.exports = nodeunit.testCase({
                 test.equal(result.trim(), expected.trim());
 
                 var expected_errors = [
-                    [ "TemplateLoadingError",
-                        "Problem loading template for macro {{ broken1 (\"this " +
-                        "breaks first\") }} at offset 107: NOT FOUND" ],
-                    [ "TemplateLoadingError",
-                        "Problem loading template for macro {{ broken2 (\"this " +
-                        "breaks second\") }} at offset 144: Error: ERROR " +
-                        "INITIALIZING broken2" ],
-                    [ "TemplateExecutionError",
-                        "Problem executing template for macro {{ broken3 " +
-                        "(\"this breaks third\") }} at offset 182: Error: ERROR " +
-                        "EXECUTING broken3" ]
+                    [ "TemplateLoadingError", "NOT FOUND" ],
+                    [ "TemplateLoadingError", "ERROR INITIALIZING broken2" ],
+                    [ "TemplateExecutionError", "ERROR EXECUTING broken3" ]
                 ];
 
                 // First pass, assemble all the base64 log fragments from
@@ -147,7 +139,7 @@ module.exports = nodeunit.testCase({
                 // Finally, assert that the extracted errors match expectations.
                 _.each(errors, function (error, i) {
                     test.equal(error.args[0], expected_errors[i][0]);
-                    test.equal(error.args[1], expected_errors[i][1]);
+                    test.ok(error.args[1].indexOf(expected_errors[i][1]) !== -1);
                 });
 
                 test.done();

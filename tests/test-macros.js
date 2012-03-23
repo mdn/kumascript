@@ -101,26 +101,17 @@ module.exports = nodeunit.testCase({
         
         processFixture(test, mp, 'macros-broken-templates.txt',
             function (errors, result) {
-
                 var expected_errors = [
-                    [ "TemplateLoadingError",
-                        "Problem loading template for macro {{ broken1 (\"this " +
-                        "breaks first\") }} at offset 107: NOT FOUND" ],
-                    [ "TemplateLoadingError",
-                        "Problem loading template for macro {{ broken2 (\"this " +
-                        "breaks second\") }} at offset 144: Error: ERROR " +
-                        "INITIALIZING broken2" ],
-                    [ "TemplateExecutionError",
-                        "Problem executing template for macro {{ broken3 " +
-                        "(\"this breaks third\") }} at offset 182: Error: ERROR " +
-                        "EXECUTING broken3" ]
+                    [ "TemplateLoadingError", "NOT FOUND" ],
+                    [ "TemplateLoadingError", "ERROR INITIALIZING broken2" ],
+                    [ "TemplateExecutionError", "ERROR EXECUTING broken3" ]
                 ];
                 
                 test.ok(errors, "There should be errors");
 
                 for (var idx=0; idx<errors.length; idx++) {
                     test.equal(errors[idx].name, expected_errors[idx][0]);
-                    test.equal(errors[idx].message, expected_errors[idx][1]);
+                    test.ok(errors[idx].message.indexOf(expected_errors[idx][1]) !== -1);
                 }
 
                 test.done();
