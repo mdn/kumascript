@@ -18,6 +18,7 @@ TODO
         * x-kumascript-var-slug: "DOM/Storage"
         * x-kumascript-var-title: "DOM Storage"
         * x-kumascript-var-username: "lmorchard"
+        * x-kumascript-var-userlocale: "en-US"
         * x-kumascript-var-tags: [ "JavaScript", "HTML5", "CSS" ]
 
 * bug 731655: Handle language alternates in markup?
