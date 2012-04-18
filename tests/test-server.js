@@ -46,6 +46,38 @@ module.exports = nodeunit.testCase({
         });
     },
 
+    "Variables passed in request headers should be made available to templates": function (test) {
+        var expected_fn = __dirname + '/fixtures/documents/request-variables-expected.txt',
+            source_fn   = __dirname + '/fixtures/documents/request-variables.txt',
+            result_url  = 'http://localhost:9000/docs/request-variables';
+        fs.readFile(expected_fn, 'utf8', function (err, expected) {
+            fs.readFile(source_fn, 'utf8', function (err, source) {
+                var env = {
+                    'locale': "en-US",
+                    'alpha':  "This is the alpha value",
+                    'beta':   "Consultez les forums dédiés de Mozilla",
+                    'gamma':  "コミュニティ",
+                    'delta':  "커뮤니티",
+                    'foo':    ['one', 'two', 'three'],
+                    'bar':    {'a':1, 'b':2, 'c':3}
+                };
+                var headers = _.chain(env).map(function (v, k) {
+                    var h_key = 'x-kumascript-env-' + k,
+                        d_json = JSON.stringify(v),
+                        data = (new Buffer(d_json,'utf8')).toString('base64');
+                    return [h_key, data];
+                }).object().value();
+                request.get(
+                    { url: result_url, body: source, headers: headers },
+                    function (err, resp, result) {
+                        test.equal(result.trim(), expected.trim());
+                        test.done();
+                    }
+                );
+            });
+        });
+    },
+
     "Errors in macro processing should be included in response headers": function (test) {
 
         var JSONifyTemplate = ks_test_utils.JSONifyTemplate;
