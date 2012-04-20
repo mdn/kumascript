@@ -55,11 +55,13 @@ var cwd = process.cwd(),
         process.env.KUMASCRIPT_CONFIG
     ];
 _.each(conf_fns, function (conf_fn) {
-    try {
-        if (conf_fn && fs.statSync(conf_fn).isFile()) {
-            nconf.file({ file: conf_fn });
-        }
-    } catch (e) { }
+    if (!conf_fn) { return; }
+    // HACK: There's got to be a better way to detect non-existent files.
+    try { fs.statSync(conf_fn).isFile(); }
+    catch (e) { return; }
+    // Don't catch exceptions here, because it will reveal syntax errors in
+    // configuration JSON
+    nconf.file({ file: conf_fn });
 });
 
 // Include the fallback defaults.
