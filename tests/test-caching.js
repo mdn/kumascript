@@ -15,12 +15,12 @@ var util = require('util'),
     ks_caching = kumascript.caching,
     ks_test_utils = kumascript.test_utils;
 
-
 var TEST_PORT = 9001;
 var TEST_BASE_URL = 'http://localhost:' + TEST_PORT;
-var TEST_CONTENT = "TEST CONTENT #1";
-var TEST_ETAG = '8675309JENNY';
 
+var TEST_ETAG = '8675309JENNY';
+// Let's throw some utf-8 torture through the pipes
+var TEST_CONTENT = "Community Communauté Сообщество コミュニティ 커뮤니티";
 
 module.exports = nodeunit.testCase({
 
@@ -386,7 +386,7 @@ module.exports = nodeunit.testCase({
     "Cache internals should support some HTTP caching semantics": function (test) {
 
         var test_key = "/docs/en-US/testdoc",
-            expected_content = [ [], ["THIS", "IS A", "TEST"] ];
+            expected_content = "THIS IS A TEST";
             expected_etag= "8675309JENNY";
 
         var now = (new Date()).getTime(),
@@ -406,8 +406,8 @@ module.exports = nodeunit.testCase({
                     last_modified: then,
                     etag: expected_etag 
                 };
-                cache.set(test_key, expected_content, opts,
-                    function (err, content, meta) {
+                cache.set(test_key, 3600, null, expected_content, opts,
+                    function (err, headers, content, meta) {
                         test.equal(meta.last_modified, opts.last_modified);
                         test.equal(meta.etag, expected_etag);
                         content_etag = meta.etag;
@@ -416,7 +416,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get for something not found
                 var opts = {};
-                cache.get("/lol/wut", opts, function (err, result_content) {
+                cache.get("/lol/wut", opts, function (err, headers, result_content, meta) {
                     test.equal(err, cache.ERR_MISS);
                     test.equal(result_content, null);
                     wf_next();
@@ -424,14 +424,14 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try an unconditional get
                 var opts = {};
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(result_content, expected_content);
                     wf_next();
                 });
             }, function (wf_next) {
                 // Try a get with a max_age condition that should pass
                 var opts = { max_age: ancient_age };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, null);
                     test.equal(result_content, expected_content);
                     wf_next();
@@ -439,7 +439,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get with a max_age of 0
                 var opts = { max_age: 0 };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, cache.ERR_MISS);
                     test.equal(result_content, null);
                     wf_next();
@@ -447,7 +447,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get with a max_age condition that should fail
                 var opts = { max_age: (then_age / 2) };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, cache.ERR_STALE);
                     test.equal(result_content, null);
                     wf_next();
@@ -455,7 +455,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get with a if_none_match condition that should pass
                 var opts = { if_none_match: "BADHASH" };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, null);
                     test.equal(result_content, expected_content);
                     wf_next();
@@ -463,7 +463,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get with a if_none_match condition that should fail
                 var opts = { if_none_match: content_etag };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, cache.ERR_NOT_MODIFIED);
                     test.equal(result_content, null);
                     wf_next();
@@ -471,7 +471,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get with a if_modified_since condition that should pass
                 var opts = { if_modified_since: ancient };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, null);
                     test.equal(result_content, expected_content);
                     wf_next();
@@ -479,7 +479,7 @@ module.exports = nodeunit.testCase({
             }, function (wf_next) {
                 // Try a get with a if_modified_since condition that should fail
                 var opts = { if_modified_since: now - (then_age/2) };
-                cache.get(test_key, opts, function (err, result_content) {
+                cache.get(test_key, opts, function (err, headers, result_content, meta) {
                     test.equal(err, cache.ERR_NOT_MODIFIED);
                     test.equal(result_content, null);
                     wf_next();
@@ -488,7 +488,6 @@ module.exports = nodeunit.testCase({
         ], function () {
             test.done();
         });
-
     }
 
 });
