@@ -117,6 +117,15 @@ module.exports = {
         performTestRequest(test, expected_fn, result_url);
     },
 
+    "The API offers access to a cache for work done in templates": function (test) {
+        // This is not an integration test for memcache. Instead, it just ensures
+        // that the FakeMemcached stub gets used. If that works, then the right
+        // calls should get made to memcached.
+        var expected_fn = __dirname + '/fixtures/documents/memcache-expected.txt',
+            result_url  = 'http://localhost:9000/docs/memcache';
+        performTestRequest(test, expected_fn, result_url);
+    },
+
     "A sub-API installed into APIContext should be usable in a template": function (test) {
         var $this = this,
             t_fn = 'api1.txt',
