@@ -20,7 +20,7 @@
       "lib": "./lib"
   },
   "dependencies": {
-      "pegjs": "git://github.com/lmorchard/pegjs.git",
+      "pegjs": "0.7.0",
       "fibers": "0.6.4",
       "async": "0.1.15",
       "express": "2.5.6",
