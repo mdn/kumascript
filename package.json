@@ -20,7 +20,7 @@
       "lib": "./lib"
   },
   "dependencies": {
-      "pegjs": "git://github.com/lmorchard/pegjs.git#kumascript",
+      "pegjs": "git://github.com/lmorchard/pegjs.git",
       "fibers": "0.6.4",
       "async": "0.1.15",
       "express": "2.5.6",
