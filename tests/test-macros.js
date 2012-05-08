@@ -90,28 +90,39 @@ module.exports = nodeunit.testCase({
             }
         });
         
-        var BrokenTemplateLoader = ks_utils.Class(ks_loaders.BaseLoader, {
-            broken_templates: {
-                'broken1': null,
-                'broken2': BrokenCompilationTemplate,
-                'broken3': BrokenExecutionTemplate
-            },
-            load: function (name, loaded_cb) {
-                var cls = (name in this.broken_templates) ?
-                    this.broken_templates[name] :
-                    JSONifyTemplate;
-                if (null === cls) {
-                    loaded_cb("NOT FOUND", null);
+        var LocalClassLoader = ks_utils.Class(ks_loaders.BaseLoader, {
+            load: function (name, cb) {
+                if (!this.options.templates[name]) {
+                    cb('NOT FOUND', null);
                 } else {
-                    loaded_cb(null, new cls({ name: name }));
+                    cb(null, name);
+                }
+            },
+            compile: function (name, cb) {
+                var cls = (name in this.options.templates) ?
+                    this.options.templates[name] :
+                    JSONifyTemplate;
+                try {
+                    cb(null, new cls({ name: name }));
+                } catch (e) {
+                    cb(e, null);
                 }
             }
         });
         
         var mp = new ks_macros.MacroProcessor({
-            loader_class: BrokenTemplateLoader
+            loader_class: LocalClassLoader,
+            loader_options: {
+                templates: {
+                    'broken1': null,
+                    'broken2': BrokenCompilationTemplate,
+                    'broken3': BrokenExecutionTemplate,
+                    'MacroUsingParams': JSONifyTemplate,
+                    'AnotherFoundMacro': JSONifyTemplate
+                }
+            }
         });
-        
+
         processFixture(test, mp, 'macros-broken-templates.txt',
             function (errors, result) {
                 var expected_errors = [
@@ -148,9 +159,12 @@ module.exports = nodeunit.testCase({
             }
         });
         var CounterTemplateLoader = ks_utils.Class(ks_loaders.BaseLoader, {
-            load: function (name, loaded_cb) {
+            load: function (name, cb) {
                 load_count++;
-                loaded_cb(null, new CounterTemplate());
+                cb(null, new CounterTemplate());
+            },
+            compile: function (obj, cb) {
+                cb(null, obj);
             }
         });
         var mp = new ks_macros.MacroProcessor({

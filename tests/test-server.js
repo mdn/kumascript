@@ -100,14 +100,23 @@ module.exports = nodeunit.testCase({
                 'broken2': BrokenCompilationTemplate,
                 'broken3': BrokenExecutionTemplate
             },
-            load: function (name, loaded_cb) {
+            load: function (name, cb) {
                 var cls = (name in this.broken_templates) ?
                     this.broken_templates[name] :
                     JSONifyTemplate;
                 if (null === cls) {
-                    loaded_cb("NOT FOUND", null);
+                    cb("NOT FOUND", null);
                 } else {
-                    loaded_cb(null, new cls({ name: name }));
+                    cb(null, [cls, name]);
+                }
+            },
+            compile: function (src, cb) {
+                var cls = src[0],
+                    name = src[1];
+                try {
+                    cb(null, new cls({ name: name }));
+                } catch (e) {
+                    cb(e, null);
                 }
             }
         });

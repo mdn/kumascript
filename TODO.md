@@ -3,30 +3,16 @@ TODO
 
 ## v1.0
 
+* Cache invalidation in KS
+    * In Django, set kuma:modified:{full path hash} = modified whenever a Document is saved
+    * In KS, store cached-at times for everything cached
+    * Consider KS cached data invalid if the cached-at time is older than the
+      modified-at time of the page on which the cached data is based.
+
 * Problem with kuma page slugs containing spaces
 
 * Problem with HTML encoding, can't use an URL with ampersands as the parameter
   to a macro.
-
-* bug 730707: Complete the MindTouch-compat API
-    * Continue burning through most-used and longest-source MDN templates
-
-* General kumascript env and metadata vars in headers with JSON-encoded values?
-    * For use by the API methods.
-    * Examples:
-        * x-kumascript-var-locale: "en-US"
-        * x-kumascript-var-slug: "DOM/Storage"
-        * x-kumascript-var-title: "DOM Storage"
-        * x-kumascript-var-username: "lmorchard"
-        * x-kumascript-var-userlocale: "en-US"
-        * x-kumascript-var-tags: [ "JavaScript", "HTML5", "CSS" ]
-
-* bug 731655: Handle language alternates in markup?
-    * eg. span lang="en-US"; lang="zh-CN"; lang="*"
-    * See also Template:JSInherits
-
-* More backends for response caching
-    * memcache backend, local memory with LRU backend
 
 ## Future
 
