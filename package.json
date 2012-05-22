@@ -30,7 +30,7 @@
       "winston": "0.5.9",
       "memcached": "0.0.9",
       "ejs": "0.6.1",
-      "up": "0.1.4",
+      "up": "0.1.7",
       "firelogger": "git://github.com/lmorchard/node-firelogger.git"
   },
   "devDependencies": {
