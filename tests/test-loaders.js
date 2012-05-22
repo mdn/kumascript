@@ -3,7 +3,10 @@
 var util = require('util'),
     fs = require('fs'),
     _ = require('underscore'),
+    async = require('async'),
     nodeunit = require('nodeunit'),
+
+    express = require('express'),
 
     kumascript = require('..'),
     ks_utils = kumascript.utils,
@@ -45,7 +48,93 @@ module.exports = nodeunit.testCase({
                 test.done();
             });
         });
+    },
+
+    "Template loading via HTTP should use conditional GET": function (test) {
+
+        var responses = [
+            { body: "EXPECTED #1",
+              lastmod: "Thu, 17 May 2012 18:13:54 GMT",
+              status_expected: 200 },
+            { body: "EXPECTED #1",
+              lastmod: "Thu, 17 May 2012 18:13:54 GMT" ,
+              status_expected: 304 },
+            { body: "EXPECTED #2",
+              lastmod: "Thu, 17 May 2012 19:24:32 GMT",
+              status_expected: 200 },
+            { body: "EXPECTED #2",
+              lastmod: "Thu, 17 May 2012 19:24:32 GMT",
+              status_expected: 304 },
+        ];
+
+        var app = express.createServer();
+        app.configure(function () {
+            app.use(express.logger({
+                format: 'TEST: :method :url :status :res[content-length]'
+            }));
+            app.use(function (req, res, mw_next) {
+                setTimeout(mw_next, 50);
+            });
+        });
+
+        var request_ct = 0;
+        app.get('/templates/*', function (req, res) {
+            var path = req.params[0];
+            var response = responses[request_ct++];
+            if (!response) {
+                res.send('Ran out of responses', 405);
+            } else {
+                var status = 200;
+
+                // Check if any conditional GET headers match
+                var ims = req.header('if-modified-since');
+                if (ims == response.lastmod) { status = 304; }
+
+                // Assert the expected conditional GET response condition.
+                test.equals(status, response.status_expected);
+
+                res.header('Last-Modified', response.lastmod);
+                res.send((304 == status) ? '' : response.body, status);
+            }
+        });
+        app.listen(9001);
+
+        var loader = new ks_loaders.HTTPLoader({
+            url_template: 'http://localhost:9001/templates/{name}',
+            min_max_age: -1
+        });
+
+        async.waterfall([
+            function (next) {
+                loader.get('testit', function (err, tmpl) {
+                    test.equal(responses[0].body, tmpl.options.source);
+                    next();
+                });
+            },
+            function (next) {
+                loader.get('testit', function (err, tmpl) {
+                    test.equal(responses[1].body, tmpl.options.source);
+                    next();
+                });
+            },
+            function (next) {
+                loader.get('testit', function (err, tmpl) {
+                    test.equal(responses[2].body, tmpl.options.source);
+                    next();
+                });
+            },
+            function (next) {
+                loader.get('testit', function (err, tmpl) {
+                    test.equal(responses[3].body, tmpl.options.source);
+                    next();
+                });
+            }
+        ], function (err) {
+            app.close();
+            test.done();
+        });
+
+
     }
 
-    // TODO: Template loading from filesystem
 });

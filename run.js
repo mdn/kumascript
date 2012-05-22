@@ -85,10 +85,18 @@ var server_conf = nconf.get('server'),
 
 // ### Fire up the server, or hand off to manager.
 if (require.main === module) {
-    // If this has been executed as a script directly, fire up the server.
-    server.listen();
-} else {
-    // Otherwise, export the server instance. Useful for [up][]
-    // [up]: https://github.com/learnboost/up
-    module.exports = server.app;
+    var cluster = require('cluster');
+    var num_workers = server_conf.numWorkers || 
+                      require('os').cpus().length;
+    if (cluster.isMaster) {
+        for (var i = 0; i < num_workers; i++) {
+            cluster.fork();
+        }
+        cluster.on('death', function(worker) {
+            console.log('worker ' + worker.pid + ' died');
+            cluster.fork();
+        });
+    } else {
+        server.listen();
+    }
 }
