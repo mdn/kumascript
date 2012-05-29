@@ -20,11 +20,35 @@ function processFixture(test, mp, fixture_path, next) {
             src = parts[0],
             expected = parts[1],
             ctx = new ks_api.APIContext({ });
+        if (parts.length < 2) {
+            throw "Please provide an expected result after '---' in " +
+                fixture_path;
+        }
         mp.process(src, ctx, function (errors, result) {
             test.equal(result.trim(), expected.trim());
             return next(errors, result);
         });
     });
+}
+
+function makeErrorHandlingTestcase(fixtureName) {
+    return function(test) {
+        var mp = new ks_macros.MacroProcessor({
+            loader_class: ks_test_utils.JSONifyLoader
+        });
+        processFixture(test, mp, fixtureName,
+            function (errors, result) {
+
+                test.ok(errors, "There should be errors");
+                test.equal(errors.length, 1, "There should be 1 error");
+
+                var e = errors[0];
+                test.equal(e.name, 'DocumentParsingError');
+                test.notEqual(null, e.message.match(
+                        /^Syntax error at line \d+, column \d+:[\s\S]*-+\^/));
+                test.done();
+            });
+    };
 }
 
 module.exports = nodeunit.testCase({
@@ -41,7 +65,7 @@ module.exports = nodeunit.testCase({
     },
 
     "Errors in document parsing should be handled gracefully and reported": function (test) {
-        var mp = new ks_macros.MacroProcessor({ 
+        var mp = new ks_macros.MacroProcessor({
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros-document-syntax-error.txt',
@@ -58,7 +82,7 @@ module.exports = nodeunit.testCase({
                 // indicator appears at the expected spot in the context lines
                 // included in the message.
                 test.equal(265, e.message.indexOf('-----------------------------^'));
-                
+
                 test.done();
             });
     },
@@ -196,6 +220,11 @@ module.exports = nodeunit.testCase({
                 done = true;
             }
         );
-    }
+    },
 
+    "Errors in ArgumentsJSON should be reported with line and column numbers":
+        makeErrorHandlingTestcase('macros-syntax-error-argumentsjson.txt'),
+
+    "Errors in ArgumentList should be reported with line and column numbers":
+        makeErrorHandlingTestcase('macros-syntax-error-argumentlist.txt'),
 });
