@@ -86,16 +86,39 @@ var server_conf = nconf.get('server'),
 // ### Fire up the server, or hand off to manager.
 if (require.main === module) {
     var cluster = require('cluster');
-    var num_workers = server_conf.numWorkers || 
-                      require('os').cpus().length;
+
     if (cluster.isMaster) {
+        var num_workers = server_conf.numWorkers || 
+                          require('os').cpus().length;
+        var exiting = false;
+        var workers = {};
+
         for (var i = 0; i < num_workers; i++) {
-            cluster.fork();
+            var worker = cluster.fork();
+            workers[worker.pid] = worker;
         }
+
         cluster.on('death', function(worker) {
+            // Make sure not to keep restarting workers while exiting
+            if (exiting) { return; }
             console.log('worker ' + worker.pid + ' died');
-            cluster.fork();
+            delete workers[worker.pid];
+            var new_worker = cluster.fork();
+            workers[new_worker.pid] = new_worker;
         });
+
+        // See: https://github.com/joyent/node/issues/2060#issuecomment-2767191
+        process.on('SIGINT', function () {
+            exiting = true;
+            console.log("master exiting");
+            for (pid in workers) {
+                var worker = workers[pid];
+                console.log("kill worker " + worker.pid);
+                worker.kill();
+            };
+            process.exit(1);
+        });
+        
     } else {
         server.listen();
     }
