@@ -101,7 +101,7 @@ module.exports = nodeunit.testCase({
 
         var loader = new ks_loaders.HTTPLoader({
             url_template: 'http://localhost:9001/templates/{name}',
-            min_max_age: -1
+            cache_control: 'max-age=0'
         });
 
         async.waterfall([
