@@ -1,0 +1,13 @@
+* {{ fake('This is a "test"') }}
+* {{ fake("This is a 'test'") }}
+* {{ fake("This is a \"test\"") }}
+* {{ fake('This is a \'test\'') }}
+* {{ fake("This is a \'test\'") }}
+* {{ fake('This is a \"test\"') }}
+---
+* ["fake",["This is a \"test\""]]
+* ["fake",["This is a 'test'"]]
+* ["fake",["This is a \"test\""]]
+* ["fake",["This is a 'test'"]]
+* ["fake",["This is a 'test'"]]
+* ["fake",["This is a \"test\""]]

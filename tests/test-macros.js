@@ -87,6 +87,17 @@ module.exports = nodeunit.testCase({
             });
     },
 
+    "Escaped single and double quotes should work in any quoting context": function (test) {
+        var mp = new ks_macros.MacroProcessor({
+            loader_class: ks_test_utils.JSONifyLoader
+        });
+        processFixture(test, mp, 'macros-document-escaped-quotes.txt',
+            function (errors, result) {
+                test.ok(!errors, "There should be no errors");
+                test.done();
+            });
+    },
+
     "Double right brace in a document should not result in a syntax error": function (test) {
         var mp = new ks_macros.MacroProcessor({ 
             loader_class: ks_test_utils.JSONifyLoader
