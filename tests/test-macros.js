@@ -98,6 +98,17 @@ module.exports = nodeunit.testCase({
             });
     },
 
+    "Empty parameters should be accepted": function (test) {
+        var mp = new ks_macros.MacroProcessor({
+            loader_class: ks_test_utils.JSONifyLoader
+        });
+        processFixture(test, mp, 'macros-document-empty-parameter.txt',
+            function (errors, result) {
+                test.ok(!errors, "There should be no errors");
+                test.done();
+            });
+    },
+
     "Double right brace in a document should not result in a syntax error": function (test) {
         var mp = new ks_macros.MacroProcessor({ 
             loader_class: ks_test_utils.JSONifyLoader
