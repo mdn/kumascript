@@ -21,8 +21,7 @@ function processFixture(test, mp, fixture_path, next) {
             expected = parts[1],
             ctx = new ks_api.APIContext({ });
         if (parts.length < 2) {
-            throw "Please provide an expected result after '---' in " +
-                fixture_path;
+            throw "Please provide an expected result after '---' in " + fixture_path;
         }
         mp.process(src, ctx, function (errors, result) {
             test.equal(result.trim(), expected.trim());
@@ -169,6 +168,16 @@ module.exports = nodeunit.testCase({
             }
         });
 
+        var events = [],
+            event_names = ['start', 'end', 'error', 
+                           'templateLoadStart', 'templateLoadEnd',
+                           'macroStart', 'macroEnd'];
+        _(event_names).each(function (name, idx) {
+            mp.on(name, function (m) {
+                events.push([name, (m && 'name' in m) ? m.name : null]);
+            });
+        });
+
         processFixture(test, mp, 'macros-broken-templates.txt',
             function (errors, result) {
                 var expected_errors = [
@@ -188,6 +197,34 @@ module.exports = nodeunit.testCase({
                 // indicator appears at the expected spot in the context lines
                 // included in the message.
                 test.equal(295, errors[2].message.indexOf('---------------------^'));
+
+                var expected_events = [
+                    [ 'start', null ],
+                    [ 'templateLoadStart', 'MacroUsingParams' ],
+                    [ 'templateLoadEnd', 'MacroUsingParams' ],
+                    [ 'templateLoadStart', 'broken1' ],
+                    [ 'error', 'TemplateLoadingError' ],
+                    [ 'templateLoadStart', 'broken3' ],
+                    [ 'templateLoadEnd', 'broken3' ],
+                    [ 'templateLoadStart', 'broken2' ],
+                    [ 'error', 'TemplateLoadingError' ],
+                    [ 'templateLoadStart', 'AnotherFoundMacro' ],
+                    [ 'templateLoadEnd', 'AnotherFoundMacro' ],
+                    [ 'macroStart', 'MacroUsingParams' ],
+                    [ 'macroEnd', 'MacroUsingParams' ],
+                    [ 'macroStart', 'broken1' ],
+                    [ 'macroStart', 'broken3' ],
+                    [ 'error', 'TemplateExecutionError' ],
+                    [ 'macroStart', 'broken2' ],
+                    [ 'macroStart', 'AnotherFoundMacro' ],
+                    [ 'macroEnd', 'AnotherFoundMacro' ],
+                    [ 'end', null ]
+                ];
+                test.ok(expected_events.length == events.length);
+                for (var idx=0; idx<events.length; idx++) {
+                    test.equal(events[idx][0], expected_events[idx][0]);
+                    test.equal(events[idx][1], expected_events[idx][1]);
+                }
 
                 test.done();
             }
@@ -244,9 +281,38 @@ module.exports = nodeunit.testCase({
         );
     },
 
+    "Documents with macros that hang should trigger a timeout and carry on": function (test) {
+        var HangTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
+            execute: function (args, ctx, next) {
+                setTimeout(function () {
+                    next(null, 'FINISHED');
+                }, 100);
+            }
+        });
+        var HangTemplateLoader = ks_utils.Class(ks_loaders.BaseLoader, {
+            load: function (name, cb) {
+                cb(null, name);
+            },
+            compile: function (name, cb) {
+                cb(null, new HangTemplate({name: name}));
+            }
+        });
+        var mp = new ks_macros.MacroProcessor({ 
+            loader_class: HangTemplateLoader,
+            macro_timeout: 50
+        });
+        processFixture(test, mp, 'macros-timeout.txt',
+            function (errors, result) {
+                test.ok(errors, "There should be an error");
+                test.done();
+            }
+        );
+    },
+
     "Errors in ArgumentsJSON should be reported with line and column numbers":
         makeErrorHandlingTestcase('macros-syntax-error-argumentsjson.txt'),
 
     "Errors in ArgumentList should be reported with line and column numbers":
-        makeErrorHandlingTestcase('macros-syntax-error-argumentlist.txt'),
+        makeErrorHandlingTestcase('macros-syntax-error-argumentlist.txt')
+
 });
