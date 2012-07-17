@@ -6,13 +6,21 @@
 
 // ### Prerequisites
 var util = require('util'),
+    http = require('http'),
     fs = require('fs'),
     net = require('net'),
     repl = require('repl'),
+    assert = require('assert'),
+    child_process = require('child_process'),
+
     _ = require('underscore'),
     
+    async = require('async'),
+    request = require('request'),
     nconf = require('nconf'),
     winston = require('winston'),
+    express = require('express'),
+    httpProxy = require('http-proxy'),
 
     kumascript = require(__dirname),
     ks_utils = kumascript.utils,
@@ -31,8 +39,9 @@ var DEFAULT_CONFIG = {
     },
     server: {
         port: 9080,
-        numWorkers: null,
+        numWorkers: 4,
         workerTimeout: 1000 * 60 * 10,
+        workerMaxRequests: 10,
         document_url_template:
             "https://developer.mozilla.org/en-US/docs/{path}?raw=1",
         template_url_template:
@@ -49,12 +58,9 @@ var DEFAULT_CONFIG = {
 //
 // Attempt to load from a prioritized series of configuration files.
 //
-// 1. Environ var `KUMASCRIPT_CONFIG`, because command line options are hard to
-//    sling around when we're using [up][]
+// 1. Environ var `KUMASCRIPT_CONFIG`
 // 2. `kumascript_settings_local.json` in current dir
 // 3. `kumascript_settings.json` in current dir
-// 
-// [up]: https://github.com/learnboost/up
 var cwd = process.cwd(),
     conf_fns = [
         cwd + '/kumascript_settings.json',
@@ -63,11 +69,8 @@ var cwd = process.cwd(),
     ];
 _.each(conf_fns, function (conf_fn) {
     if (!conf_fn) { return; }
-    // HACK: There's got to be a better way to detect non-existent files.
     try { fs.statSync(conf_fn).isFile(); }
     catch (e) { return; }
-    // Don't catch exceptions here, because it will reveal syntax errors in
-    // configuration JSON
     nconf.file({ file: conf_fn });
 });
 
@@ -89,62 +92,128 @@ if (log_conf.file) {
 // Make a nicer alias to the default logger
 var log = winston;
 
-// ### Initialize a server
 var server_conf = nconf.get('server');
+var workers = {};
+var worker_list = [];
+var is_exiting = false;
 
-function startWorker() {
-    log.info("Worker PID " + process.pid + " starting");
+function runWorker () {
     process.on('uncaughtException', function (err) {
         log.error('uncaughtException:', err.message);
         log.error(err.stack);
         process.exit(1);
     });
+
+    var port = process.env.KS_PORT;
+    log.info("Worker PID " + process.pid + " starting on port " + port);
     var server = new ks_server.Server(server_conf);
-    server.listen();
+    server.listen(port);
 }
 
-function startMaster() {
-    log.info("Master PID " + process.pid + " starting");
+function runMaster () {
+    var master_server;
+    var master_repl_server;
 
-    var num_workers = server_conf.numWorkers || 
-                      require('os').cpus().length;
-    var exiting = false;
-    var workers = {};
-
-    for (var i = 0; i < num_workers; i++) {
-        var worker = cluster.fork();
-        workers[worker.pid] = worker;
+    function performExit () {
+        log.info("Master PID " + process.pid + " exiting");
+        is_exiting = true;
+        for (var pid in workers) {
+            var worker = workers[pid];
+            log.info("Killing worker PID " + worker.pid);
+            worker.kill();
+        }
+        if (master_repl_server) {
+            master_repl_server.close();
+        }
+        process.exit(0);
     }
 
-    cluster.on('death', function(worker) {
-        // Make sure not to keep restarting workers while exiting
-        if (exiting) { return; }
-        log.info('Worker ' + worker.pid + ' died');
-        delete workers[worker.pid];
-        var new_worker = cluster.fork();
-        workers[new_worker.pid] = new_worker;
+    process.on('SIGINT', performExit);
+    process.on('uncaughtException', function (err) {
+        log.error('uncaughtException:', err.message);
+        log.error(err.stack);
+        //performExit();
     });
 
-    // Kill the master and all workers. If this is being monitored at the
-    // OS level, the whole thing should restart.
-    function performExit () {
-        exiting = true;
-        log.info("Master exiting...");
-        for (pid in workers) {
-            var worker = workers[pid];
-            worker.kill();
-            log.info("Killed worker " + worker.pid);
-        };
-        process.exit(1);
+    function fork () {
+        // Pick an available port.
+        var port = server_conf.port + 1;
+        var ports_taken = _(workers).pluck('port');
+        while (-1 != ports_taken.indexOf(port)) { port++; }
+
+        // Fork a new worker process
+        var worker = child_process.fork(
+            process.argv[1], 
+            process.argv.slice(2),
+            {env: _(process.env).chain().clone().extend({
+                "KS_IS_WORKER": 1,
+                "KS_PORT": port
+            }).value()}
+        );
+
+        // Initialize some bookkeeping for the new worker.
+        worker.port = port;
+        worker.requests = 0;
+        workers[worker.pid] = worker;
+        worker_list = _(workers).values();
+
+        worker.on('message', function (m, handle) {
+            log.debug("Worker PID " + worker.pid + " says: " + JSON.stringify(m)); 
+        });
+
+        // If this worker exits, we need to for get its PID, free up its port,
+        // and start a new one as long as we're not exiting.
+        worker.on('exit', function () {
+            log.info("Worker PID "+worker.pid+" exited");
+            delete workers[worker.pid];
+            worker_list = _(workers).values();
+            if (!is_exiting) { fork(); }
+        });
+
+        return worker;
     }
 
-    // See: https://github.com/joyent/node/issues/2060#issuecomment-2767191
-    process.on('SIGINT', performExit);
+    // Fork the initial set of workers
+    for (var i=0; i<server_conf.numWorkers; i++) { fork(); }
+
+    // Set up a round-robin HTTP proxy between the workers.
+    var request_cnt = 0;
+    var port = server_conf.port;
+    var max_requests = server_conf.workerMaxRequests || 10;
+    log.info("Master PID " + process.pid + " starting on port " + port);
+    httpProxy.createServer(function (req, res, proxy) {
+        
+        // Grab the worker off the top of the list.
+        var worker = worker_list.shift();
+
+        // Assign an ID to this request, for tracking through logs & etc.
+        var request_id = (request_cnt++) + '-' + worker.pid;
+        req.headers['X-Request-ID'] = request_id;
+
+        // Patch to trap the end of the proxy response.
+        var orig_end = res.end;
+        res.end = function (data, enc) {
+            orig_end.call(res, data, enc);
+            if (++(worker.requests) >= max_requests) {
+                log.info("Worker PID " + worker.pid + " reached max requests");
+                worker.kill();
+            }
+        }
+
+        // Fire up the proxy machinery.
+        proxy.proxyRequest(req, res, {
+            host: 'localhost',
+            port: worker.port
+        });
+
+        // Worker goes to the end of the list to maintain round-robin.
+        worker_list.push(worker);
+
+    }).listen(port);
 
     // Open up a telnet REPL for interactive access to the server.
     var repl_config = nconf.get('repl');
     if (repl_config.enabled) {
-        // TODO: Move this off into its own repl.js module?
 
         // Things to expose to the REPL
         var context = {
@@ -176,39 +245,38 @@ function startMaster() {
         // Cribbed from https://github.com/joyent/node/blob/v0.6/lib/repl.js#L76
         var vm = require('vm');
         var eval = function(code, context, file, cb) {
-            log.info("REPL (cmd): > " + util.inspect(code));
+            log.info("Master REPL (cmd): > " + util.inspect(code));
             var err, result;
             try {
                 result = vm.runInContext(code, context, file);
             } catch (e) {
                 err = e;
             }
-            log.info("REPL (result): " + util.inspect([err, result]));
+            log.info("Master REPL (result): " + util.inspect([err, result]));
             cb(err, result);
         };
 
         // Finally, set up the server to accept REPL connections.
         var host = repl_config.host;
         var port = repl_config.port;
-        net.createServer(function (socket) {
+        master_repl_server = net.createServer(function (socket) {
             var r_host = socket.remoteAddress;
             var r_port = socket.remotePort;
             var shell = repl.start("ks> ", socket, eval);
             _(shell.context).extend(context);
-            log.info("REPL received connection from "+r_host+":"+r_port); 
+            log.info("Master REPL received connection from "+r_host+":"+r_port); 
             socket.on('close', function () {
-                log.info("REPL connection closed for "+r_host+":"+r_port);
+                log.info("Master REPL connection closed for "+r_host+":"+r_port);
             });
         }).listen(port, host)
-        log.info("Telnet REPL interface started on " + host + ":" + port);
+        log.info("Master REPL interface started on " + host + ":" + port);
     }
 
 }
 
-// Fire up the master or the worker, as appropriate.
-var cluster = require('cluster');
-if (!cluster.isMaster) {
-    startWorker();
+var is_worker = 'KS_IS_WORKER' in process.env
+if (is_worker) {
+    runWorker();
 } else {
-    startMaster();
+    runMaster();
 }

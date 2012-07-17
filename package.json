@@ -29,6 +29,7 @@
       "nconf": "0.5.1",
       "winston": "0.5.9",
       "memcached": "0.0.9",
+      "http-proxy": "0.8.1",
       "ejs": "0.6.1",
       "firelogger": "git://github.com/lmorchard/node-firelogger.git"
   },
