@@ -21,6 +21,7 @@ var util = require('util'),
     winston = require('winston'),
     express = require('express'),
     httpProxy = require('http-proxy'),
+    StatsD = require('node-statsd').StatsD,
 
     kumascript = require(__dirname),
     ks_utils = kumascript.utils,
@@ -36,6 +37,11 @@ var DEFAULT_CONFIG = {
             maxsize: 1024 * 100, // 100k
             maxFiles: 5
         }
+    },
+    statsd: {
+        enabled: true,
+        host: "127.0.0.1",
+        port: 8125
     },
     server: {
         port: 9080,
@@ -92,7 +98,20 @@ if (log_conf.file) {
 // Make a nicer alias to the default logger
 var log = winston;
 
+var statsd_conf = nconf.get('statsd');
+var statsd;
+if (statsd_conf.enabled) {
+    statsd = new StatsD(statsd_conf.host, statsd_conf.port);
+} else {
+    // HACK: StatsD disabled, so make a fake client
+    statsd = {};
+    _(['timing', 'increment', 'decrement', 'gauge', 'update_stats'])
+        .each(function (n) { statsd[n] = function () {}; });
+}
+
 var server_conf = nconf.get('server');
+server_conf.statsd = statsd;
+
 var workers = {};
 var worker_list = [];
 var is_exiting = false;
