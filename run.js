@@ -37,6 +37,11 @@ var DEFAULT_CONFIG = {
             maxFiles: 5
         }
     },
+    statsd: {
+        enabled: false,
+        host: '127.0.0.1',
+        port: 8125
+    },
     server: {
         port: 9080,
         numWorkers: 4,
@@ -92,7 +97,13 @@ if (log_conf.file) {
 // Make a nicer alias to the default logger
 var log = winston;
 
+var statsd = ks_utils.getStatsD({
+    statsd_conf: nconf.get('statsd')
+});
+
 var server_conf = nconf.get('server');
+server_conf.statsd = statsd;
+
 var workers = {};
 var worker_list = [];
 var is_exiting = false;
