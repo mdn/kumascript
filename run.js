@@ -109,7 +109,10 @@ var worker_list = [];
 var is_exiting = false;
 
 function runWorker () {
+    statsd.increment('kumascript.workers_started');
+
     process.on('uncaughtException', function (err) {
+        statsd.increment('kumascript.worker_exceptions');
         log.error('uncaughtException:', err.message);
         log.error(err.stack);
         process.exit(1);
@@ -122,6 +125,8 @@ function runWorker () {
 }
 
 function runMaster () {
+    statsd.increment('kumascript.masters_started');
+
     var master_server;
     var master_repl_server;
 
@@ -141,9 +146,10 @@ function runMaster () {
 
     process.on('SIGINT', performExit);
     process.on('uncaughtException', function (err) {
+        statsd.increment('kumascript.master_exceptions');
         log.error('uncaughtException:', err.message);
         log.error(err.stack);
-        //performExit();
+        performExit();
     });
 
     function fork () {
@@ -196,6 +202,7 @@ function runMaster () {
         
         // Grab the worker off the top of the list.
         var worker = worker_list.shift();
+        statsd.increment('kumascript.port_' + worker.port);
 
         // Assign an ID to this request, for tracking through logs & etc.
         var request_id = (request_cnt++) + '-' + worker.pid;
@@ -206,6 +213,7 @@ function runMaster () {
         res.end = function (data, enc) {
             orig_end.call(res, data, enc);
             if (++(worker.requests) >= max_requests) {
+                statsd.increment('kumascript.workers_hit_max_requests');
                 log.info("Worker PID " + worker.pid + " reached max requests");
                 worker.kill();
             }
