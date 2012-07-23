@@ -33,6 +33,7 @@ function processFixture(test, mp, fixture_path, next) {
 function makeErrorHandlingTestcase(fixtureName) {
     return function(test) {
         var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, fixtureName,
@@ -54,6 +55,7 @@ module.exports = nodeunit.testCase({
 
     "Basic macro substitution should work": function (test) {
         var mp = new ks_macros.MacroProcessor({ 
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros1.txt',
@@ -65,6 +67,7 @@ module.exports = nodeunit.testCase({
 
     "Errors in document parsing should be handled gracefully and reported": function (test) {
         var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros-document-syntax-error.txt',
@@ -88,6 +91,7 @@ module.exports = nodeunit.testCase({
 
     "Escaped single and double quotes should work in any quoting context": function (test) {
         var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros-document-escaped-quotes.txt',
@@ -99,6 +103,7 @@ module.exports = nodeunit.testCase({
 
     "Empty parameters should be accepted": function (test) {
         var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros-document-empty-parameter.txt',
@@ -110,6 +115,7 @@ module.exports = nodeunit.testCase({
 
     "Double right brace in a document should not result in a syntax error": function (test) {
         var mp = new ks_macros.MacroProcessor({ 
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         processFixture(test, mp, 'macros-document-double-brace.txt',
@@ -156,6 +162,7 @@ module.exports = nodeunit.testCase({
         });
         
         var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
             loader_class: LocalClassLoader,
             loader_options: {
                 templates: {
@@ -168,11 +175,12 @@ module.exports = nodeunit.testCase({
             }
         });
 
-        var events = [],
-            event_names = ['start', 'end', 'error', 
-                           'templateLoadStart', 'templateLoadEnd',
-                           'macroStart', 'macroEnd'];
-        _(event_names).each(function (name, idx) {
+        var events = [];
+        var ev_names = ['start', 'error', 'end',
+                        'autorequireStart', 'autorequireEnd',
+                        'templateLoadStart', 'templateLoadEnd',
+                        'macroStart', 'macroEnd'];
+        _(ev_names).each(function (name, idx) {
             mp.on(name, function (m) {
                 events.push([name, (m && 'name' in m) ? m.name : null]);
             });
@@ -200,22 +208,29 @@ module.exports = nodeunit.testCase({
 
                 var expected_events = [
                     [ 'start', null ],
+                    [ 'autorequireStart', null ],
+                    [ 'autorequireEnd', null ],
                     [ 'templateLoadStart', 'MacroUsingParams' ],
                     [ 'templateLoadEnd', 'MacroUsingParams' ],
                     [ 'templateLoadStart', 'broken1' ],
                     [ 'error', 'TemplateLoadingError' ],
+                    [ 'templateLoadEnd', 'broken1' ],
                     [ 'templateLoadStart', 'broken3' ],
                     [ 'templateLoadEnd', 'broken3' ],
                     [ 'templateLoadStart', 'broken2' ],
                     [ 'error', 'TemplateLoadingError' ],
+                    [ 'templateLoadEnd', 'broken2' ],
                     [ 'templateLoadStart', 'AnotherFoundMacro' ],
                     [ 'templateLoadEnd', 'AnotherFoundMacro' ],
                     [ 'macroStart', 'MacroUsingParams' ],
                     [ 'macroEnd', 'MacroUsingParams' ],
                     [ 'macroStart', 'broken1' ],
+                    [ 'macroEnd', 'broken1' ],
                     [ 'macroStart', 'broken3' ],
                     [ 'error', 'TemplateExecutionError' ],
+                    [ 'macroEnd', 'broken3' ],
                     [ 'macroStart', 'broken2' ],
+                    [ 'macroEnd', 'broken2' ],
                     [ 'macroStart', 'AnotherFoundMacro' ],
                     [ 'macroEnd', 'AnotherFoundMacro' ],
                     [ 'end', null ]
@@ -251,6 +266,7 @@ module.exports = nodeunit.testCase({
             }
         });
         var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
             loader_class: CounterTemplateLoader
         });
         processFixture(test, mp, 'macros-repeated-macros.txt',
@@ -265,6 +281,7 @@ module.exports = nodeunit.testCase({
     "Documents with no macros should not cause the server to hang": function (test) {
         var done = false;
         var mp = new ks_macros.MacroProcessor({ 
+            macro_timeout: 500,
             loader_class: ks_test_utils.JSONifyLoader
         });
         setTimeout(function () {
