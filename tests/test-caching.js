@@ -33,9 +33,49 @@ module.exports = nodeunit.testCase({
 
     tearDown: function (next) {
         var $this = this;
-
         $this.app.close();
         next();
+    },
+
+    "Caching request should send headers from options, regardless of Cache-Control option": function (test) {
+        var $this = this;
+        var cases = [null, 'no-cache', 'max-age=0'];
+        async.forEach(cases, function (cache_control, fe_next) {
+
+            var expected_headers = {
+                'X-Foo': 'BarBaz',
+                'X-Quux': 'Xyzzy'
+            };
+            var endpoint = '/headers-echo';
+            $this.app.get(endpoint, function (req, res) {
+                var out = JSON.stringify(req.headers);
+                res.send(out);
+            });
+            var opts = {
+                memcached: new ks_utils.FakeMemcached(),
+                timeout: 500,
+                url: TEST_BASE_URL + endpoint,
+                headers: _(expected_headers).clone()
+            };
+            if (cache_control) {
+                opts['cache_control'] = cache_control;
+            }
+            ks_caching.request(opts, function (err, resp, body, cache_hit) {
+                var result_headers = JSON.parse(body);
+                _(expected_headers).each(function (v, k) {
+                    var lk = k.toLowerCase();
+                    test.ok(lk in result_headers);
+                    test.equal(v, result_headers[lk]);
+                });
+                if (cache_control) {
+                    test.equal(cache_control, result_headers['cache-control']);
+                }
+                fe_next();
+            });
+
+        }, function (err) {
+            test.done();
+        });
     },
 
     "Should use Last-Modified from cached response if available": function (test) {
