@@ -42,5 +42,16 @@ module.exports = nodeunit.testCase({
                    [{type: "MACRO", name: "f", args: [{a: "f)"}], offset: 0}],
                    "The macro is parsed correctly");
     test.done();
+  },
+
+  "Empty JSON values are allowed": function (test) {
+    var tokens = ks_parser.parse('{{ f({}) }}');
+    test.deepEqual(tokens, [{type: "MACRO", name: "f", args: [{}], offset: 0}],
+                   "Empty JSON objects are parsed correctly");
+
+    tokens = ks_parser.parse('{{ f({ "a": [] }) }}');
+    test.deepEqual(tokens, [{type: "MACRO", name: "f", args: [{a: []}], offset: 0}],
+                   "Empty JSON objects are parsed correctly");
+    test.done();
   }
 });
