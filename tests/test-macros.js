@@ -89,6 +89,18 @@ module.exports = nodeunit.testCase({
             });
     },
 
+    "A numeric macro argument with a decimal point should not be trimmed to an integer": function (test) {
+        var mp = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
+            loader_class: ks_test_utils.JSONifyLoader
+        });
+        processFixture(test, mp, 'macros-decimal-argument.txt',
+            function (errors, result) {
+                test.ok(!errors, "There should be no errors");
+                test.done();
+            });
+    },
+
     "Escaped single and double quotes should work in any quoting context": function (test) {
         var mp = new ks_macros.MacroProcessor({
             macro_timeout: 500,
