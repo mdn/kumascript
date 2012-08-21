@@ -53,5 +53,27 @@ module.exports = nodeunit.testCase({
     test.deepEqual(tokens, [{type: "MACRO", name: "f", args: [{a: []}], offset: 0}],
                    "Empty JSON objects are parsed correctly");
     test.done();
+  },
+
+  "Escaped Unicode codepoints are parsed correctly": function (test) {
+    var tokens = ks_parser.parse('{{ f({ "a": "\\u00f3" }) }}');
+    test.deepEqual(tokens,
+                   [{type: "MACRO", name: "f", args: [{a: "\u00f3"}], offset: 0}],
+                   "Lowercase hex digits are parsed correctly");
+
+    var tokens = ks_parser.parse('{{ f({ "a": "\\u00F3" }) }}');
+    test.deepEqual(tokens,
+                   [{type: "MACRO", name: "f", args: [{a: "\u00f3"}], offset: 0}],
+                   "Uppercase hex digits are parsed correctly");
+
+    test.throws(function() {
+      ks_parser.parse('{{ f({ "a": "\\uGHIJ" }) }}');
+    }, PEG.parser.SyntaxError, "Non-hexadecimal characters are not allowed");
+
+    test.throws(function() {
+      ks_parser.parse('{{ f({ "a": "\\uFF" }) }}');
+    }, PEG.parser.SyntaxError, "Four digits are required");
+
+    test.done();
   }
 });
