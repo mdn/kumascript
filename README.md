@@ -1,5 +1,7 @@
 # kumascript
 
+[![Build Status](https://secure.travis-ci.org/mozilla/kumascript.png)](http://travis-ci.org/mozilla/kumascript)
+
 Bringing scripting to the wiki bears.
 
 ![KumaScript overview](https://wiki.mozilla.org/images/thumb/2/2b/Kumascript.png/1000px-Kumascript.png)
