@@ -144,7 +144,14 @@ function runMaster () {
         process.exit(0);
     }
 
-    process.on('SIGINT', performExit);
+    process.on('SIGINT', function (err) {
+        log.info("Received SIGINT, exiting...");
+        performExit();
+    });
+    process.on('SIGTERM', function (err) {
+        log.info("Received SIGTERM, exiting...");
+        performExit();
+    });
     process.on('uncaughtException', function (err) {
         statsd.increment('kumascript.master_exceptions');
         log.error('uncaughtException:', err.message);
