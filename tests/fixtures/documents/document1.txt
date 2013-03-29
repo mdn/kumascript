@@ -9,9 +9,17 @@ Here is { some text } with braces, but not a macro.
 
 Look, it's JSON without escaping: {{ json_unescaped('a', 'b', 'c') }}
 
+Here is a macro with a JSON parameter: {{ json_unescaped({
+    "alpha": "one", "beta": "two", "gamma": "three"
+}) }}
+
 Here is a multi-line macro: {{ json(
   "With many", 'parameters',
   'including "quoted"', "text of both 'kinds'",
   "even \"escaped\"", 'like \'these\'',
   "and numbers", -10, 0, 0.1, 10, 100
 )}} that even works inline.
+
+Here is another macro with a JSON parameter: {{ json_unescaped({
+    "alpha": "uno", "beta": "dos", "gamma": "tres"
+}) }}
