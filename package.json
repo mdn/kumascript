@@ -32,7 +32,8 @@
       "http-proxy": "0.8.1",
       "ejs": "0.6.1",
       "node-statsd": "git://github.com/sivy/node-statsd.git#0b8b9df9308a4d7f788686417d82c8384bc04fa6",
-      "firelogger": "git://github.com/lmorchard/node-firelogger.git"
+      "firelogger": "git://github.com/lmorchard/node-firelogger.git",
+      "hirelings": "git://github.com/lmorchard/node-hirelings.git"
   },
   "devDependencies": {
       "nodeunit": "0.6.4",

@@ -19,7 +19,7 @@ function processFixture(test, mp, fixture_path, next) {
         var parts = (''+data).split('---'),
             src = parts[0],
             expected = parts[1],
-            ctx = new ks_api.APIContext({ });
+            ctx = {};
         if (parts.length < 2) {
             throw "Please provide an expected result after '---' in " + fixture_path;
         }
@@ -34,7 +34,11 @@ function makeErrorHandlingTestcase(fixtureName) {
     return function(test) {
         var mp = new ks_macros.MacroProcessor({
             macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
+            loader: {
+                module: __dirname + '/../lib/kumascript/test-utils',
+                class_name: 'JSONifyLoader',
+                options: { }
+            }
         });
         processFixture(test, mp, fixtureName,
             function (errors, result) {
@@ -53,12 +57,24 @@ function makeErrorHandlingTestcase(fixtureName) {
 
 module.exports = nodeunit.testCase({
 
-    "Basic macro substitution should work": function (test) {
-        var mp = new ks_macros.MacroProcessor({ 
+    setUp: function (next) {
+        this.mp = new ks_macros.MacroProcessor({ 
             macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
+            loader: {
+                module: __dirname + '/../lib/kumascript/test-utils',
+                class_name: 'JSONifyLoader',
+                options: { }
+            }
         });
-        processFixture(test, mp, 'macros1.txt',
+        this.mp.startup(next);
+    },
+
+    tearDown: function (next) {
+        this.mp.shutdown(next);
+    },
+
+    "Basic macro substitution should work": function (test) {
+        processFixture(test, this.mp, 'macros1.txt',
             function (errors, result) {
                 test.ok(!errors, "There should be no errors");
                 test.done();
@@ -66,13 +82,8 @@ module.exports = nodeunit.testCase({
     },
 
     "Errors in document parsing should be handled gracefully and reported": function (test) {
-        var mp = new ks_macros.MacroProcessor({
-            macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
-        });
-        processFixture(test, mp, 'macros-document-syntax-error.txt',
+        processFixture(test, this.mp, 'macros-document-syntax-error.txt',
             function (errors, result) {
-
                 test.ok(errors, "There should be errors");
                 test.equal(errors.length, 1, "There should be 1 error");
 
@@ -84,17 +95,12 @@ module.exports = nodeunit.testCase({
                 // indicator appears at the expected spot in the context lines
                 // included in the message.
                 test.equal(265, e.message.indexOf('-----------------------------^'));
-
                 test.done();
             });
     },
 
     "A numeric macro argument with a decimal point should not be trimmed to an integer": function (test) {
-        var mp = new ks_macros.MacroProcessor({
-            macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
-        });
-        processFixture(test, mp, 'macros-decimal-argument.txt',
+        processFixture(test, this.mp, 'macros-decimal-argument.txt',
             function (errors, result) {
                 test.ok(!errors, "There should be no errors");
                 test.done();
@@ -102,11 +108,7 @@ module.exports = nodeunit.testCase({
     },
 
     "Escaped single and double quotes should work in any quoting context": function (test) {
-        var mp = new ks_macros.MacroProcessor({
-            macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
-        });
-        processFixture(test, mp, 'macros-document-escaped-quotes.txt',
+        processFixture(test, this.mp, 'macros-document-escaped-quotes.txt',
             function (errors, result) {
                 test.ok(!errors, "There should be no errors");
                 test.done();
@@ -114,11 +116,7 @@ module.exports = nodeunit.testCase({
     },
 
     "Empty parameters should be accepted": function (test) {
-        var mp = new ks_macros.MacroProcessor({
-            macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
-        });
-        processFixture(test, mp, 'macros-document-empty-parameter.txt',
+        processFixture(test, this.mp, 'macros-document-empty-parameter.txt',
             function (errors, result) {
                 test.ok(!errors, "There should be no errors");
                 test.done();
@@ -126,11 +124,7 @@ module.exports = nodeunit.testCase({
     },
 
     "Double right brace in a document should not result in a syntax error": function (test) {
-        var mp = new ks_macros.MacroProcessor({ 
-            macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
-        });
-        processFixture(test, mp, 'macros-document-double-brace.txt',
+        processFixture(test, this.mp, 'macros-document-double-brace.txt',
             function (errors, result) {
                 test.ok(!errors, "There should be no errors");
                 test.done();
@@ -139,203 +133,64 @@ module.exports = nodeunit.testCase({
 
     "Errors in template loading, compilation, and execution should be handled gracefully and reported": function (test) {
 
-        var JSONifyTemplate = ks_test_utils.JSONifyTemplate;
-
-        var BrokenCompilationTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
-            initialize: function (options) {
-                throw new Error("ERROR INITIALIZING " + this.options.name);
-            }
-        });
-        
-        var BrokenExecutionTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
-            execute: function (args, ctx, next) {
-                throw new Error("ERROR EXECUTING " + this.options.name);
-            }
-        });
-        
-        var LocalClassLoader = ks_utils.Class(ks_loaders.BaseLoader, {
-            load: function (name, cb) {
-                if (!this.options.templates[name]) {
-                    cb('NOT FOUND', null);
-                } else {
-                    cb(null, name);
-                }
-            },
-            compile: function (name, cb) {
-                var cls = (name in this.options.templates) ?
-                    this.options.templates[name] :
-                    JSONifyTemplate;
-                try {
-                    cb(null, new cls({ name: name }));
-                } catch (e) {
-                    cb(e, null);
-                }
-            }
-        });
-        
-        var mp = new ks_macros.MacroProcessor({
+        var mp = new ks_macros.MacroProcessor({ 
             macro_timeout: 500,
-            loader_class: LocalClassLoader,
-            loader_options: {
-                templates: {
-                    'broken1': null,
-                    'broken2': BrokenCompilationTemplate,
-                    'broken3': BrokenExecutionTemplate,
-                    'MacroUsingParams': JSONifyTemplate,
-                    'AnotherFoundMacro': JSONifyTemplate
+            loader: {
+                module: __dirname + '/../lib/kumascript/test-utils',
+                class_name: 'LocalClassLoader',
+                options: {
+                    module: __dirname + '/../lib/kumascript/test-utils',
+                    templates: {
+                        'broken1': null,
+                        'broken2': 'BrokenCompilationTemplate',
+                        'broken3': 'BrokenExecutionTemplate',
+                        'MacroUsingParams': 'JSONifyTemplate',
+                        'AnotherFoundMacro': 'JSONifyTemplate'
+                    }
                 }
             }
         });
-
-        var events = [];
-        var ev_names = ['start', 'error', 'end',
-                        'autorequireStart', 'autorequireEnd',
-                        'templateLoadStart', 'templateLoadEnd',
-                        'macroStart', 'macroEnd'];
-        _(ev_names).each(function (name, idx) {
-            mp.on(name, function (m) {
-                events.push([name, (m && 'name' in m) ? m.name : null]);
+        mp.startup(function () {
+            var events = [];
+            var ev_names = ['start', 'error', 'end',
+                            'autorequireStart', 'autorequireEnd',
+                            'templateLoadStart', 'templateLoadEnd',
+                            'macroStart', 'macroEnd'];
+            _(ev_names).each(function (name, idx) {
+                mp.on(name, function (m) {
+                    events.push([name, (m && 'name' in m) ? m.name : null]);
+                });
             });
-        });
 
-        processFixture(test, mp, 'macros-broken-templates.txt',
-            function (errors, result) {
-                var expected_errors = [
-                    [ "TemplateLoadingError", "NOT FOUND" ],
-                    [ "TemplateLoadingError", "ERROR INITIALIZING broken2" ],
-                    [ "TemplateExecutionError", "ERROR EXECUTING broken3" ]
-                ];
-                
-                test.ok(errors, "There should be errors");
+            processFixture(test, mp, 'macros-broken-templates.txt',
+                function (errors, result) {
+                    var expected_errors = {
+                        'broken1': ["TemplateLoadingError", "NOT FOUND"],
+                        'broken2': ["TemplateLoadingError", "ERROR INITIALIZING broken2"],
+                        'broken3': ["TemplateExecutionError", "ERROR EXECUTING broken3"]
+                    };
+                    
+                    test.ok(errors, "There should be errors");
 
-                for (var idx=0; idx<errors.length; idx++) {
-                    test.equal(errors[idx].name, expected_errors[idx][0]);
-                    test.ok(errors[idx].message.indexOf(expected_errors[idx][1]) !== -1);
+                    for (var idx=0; idx<errors.length; idx++) {
+                        var error = errors[idx];
+                        var expected = expected_errors[error.options.name];
+                        test.equal(error.name, expected[0]);
+                        test.ok((''+error.message).indexOf(expected[1]) !== -1);
+                        if ('broken3' == error.options.name) {
+                            // Note: This is a *bit* brittle, but it makes sure the error
+                            // indicator appears at the expected spot in the context lines
+                            // included in the message.
+                            test.equal(295, error.message.indexOf('---------------------^'));
+                        }
+                    }
+
+                    mp.shutdown(function () {
+                        test.done();
+                    });
                 }
-
-                // Note: This is a *bit* brittle, but it makes sure the error
-                // indicator appears at the expected spot in the context lines
-                // included in the message.
-                test.equal(295, errors[2].message.indexOf('---------------------^'));
-
-                var expected_events = [
-                    [ 'start', null ],
-                    [ 'autorequireStart', null ],
-                    [ 'autorequireEnd', null ],
-                    [ 'templateLoadStart', 'MacroUsingParams' ],
-                    [ 'templateLoadEnd', 'MacroUsingParams' ],
-                    [ 'templateLoadStart', 'broken1' ],
-                    [ 'error', 'TemplateLoadingError' ],
-                    [ 'templateLoadEnd', 'broken1' ],
-                    [ 'templateLoadStart', 'broken3' ],
-                    [ 'templateLoadEnd', 'broken3' ],
-                    [ 'templateLoadStart', 'broken2' ],
-                    [ 'error', 'TemplateLoadingError' ],
-                    [ 'templateLoadEnd', 'broken2' ],
-                    [ 'templateLoadStart', 'AnotherFoundMacro' ],
-                    [ 'templateLoadEnd', 'AnotherFoundMacro' ],
-                    [ 'macroStart', 'MacroUsingParams' ],
-                    [ 'macroEnd', 'MacroUsingParams' ],
-                    [ 'macroStart', 'broken1' ],
-                    [ 'macroEnd', 'broken1' ],
-                    [ 'macroStart', 'broken3' ],
-                    [ 'error', 'TemplateExecutionError' ],
-                    [ 'macroEnd', 'broken3' ],
-                    [ 'macroStart', 'broken2' ],
-                    [ 'macroEnd', 'broken2' ],
-                    [ 'macroStart', 'AnotherFoundMacro' ],
-                    [ 'macroEnd', 'AnotherFoundMacro' ],
-                    [ 'end', null ]
-                ];
-                test.ok(expected_events.length == events.length);
-                for (var idx=0; idx<events.length; idx++) {
-                    test.equal(events[idx][0], expected_events[idx][0]);
-                    test.equal(events[idx][1], expected_events[idx][1]);
-                }
-
-                test.done();
-            }
-        );
-
-    },
-
-    "Templates for macros should only be loaded once, executed once per unique argument set": function (test) {
-        var load_count = 0,
-            exec_count = 0;
-        var CounterTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
-            execute: function (args, ctx, next) {
-                exec_count++;
-                next(null, args[0] + '=' + exec_count + '/' + load_count);
-            }
+            );
         });
-        var CounterTemplateLoader = ks_utils.Class(ks_loaders.BaseLoader, {
-            load: function (name, cb) {
-                load_count++;
-                cb(null, new CounterTemplate());
-            },
-            compile: function (obj, cb) {
-                cb(null, obj);
-            }
-        });
-        var mp = new ks_macros.MacroProcessor({
-            macro_timeout: 500,
-            loader_class: CounterTemplateLoader
-        });
-        processFixture(test, mp, 'macros-repeated-macros.txt',
-            function (errors, result) {
-                test.equal(3, exec_count);
-                test.equal(1, load_count);
-                test.done();
-            }
-        );
-    },
-
-    "Documents with no macros should not cause the server to hang": function (test) {
-        var done = false;
-        var mp = new ks_macros.MacroProcessor({ 
-            macro_timeout: 500,
-            loader_class: ks_test_utils.JSONifyLoader
-        });
-        setTimeout(function () {
-            if (done) { return; }
-            test.ok(false, 'Test timed out, assuming a hang.');
-            test.done();
-        }, 250);
-        processFixture(test, mp, 'macros-no-macros.txt',
-            function (errors, result) {
-                test.ok(!errors, "There should be no errors");
-                test.done();
-                done = true;
-            }
-        );
-    },
-
-    "Documents with macros that hang should trigger a timeout and carry on": function (test) {
-        var HangTemplate = ks_utils.Class(ks_templates.BaseTemplate, {
-            execute: function (args, ctx, next) {
-                setTimeout(function () {
-                    next(null, 'FINISHED');
-                }, 100);
-            }
-        });
-        var HangTemplateLoader = ks_utils.Class(ks_loaders.BaseLoader, {
-            load: function (name, cb) {
-                cb(null, name);
-            },
-            compile: function (name, cb) {
-                cb(null, new HangTemplate({name: name}));
-            }
-        });
-        var mp = new ks_macros.MacroProcessor({ 
-            loader_class: HangTemplateLoader,
-            macro_timeout: 50
-        });
-        processFixture(test, mp, 'macros-timeout.txt',
-            function (errors, result) {
-                test.ok(errors, "There should be an error");
-                test.done();
-            }
-        );
     },
 
     "Errors in ArgumentsJSON should be reported with line and column numbers":
@@ -343,5 +198,4 @@ module.exports = nodeunit.testCase({
 
     "Errors in ArgumentList should be reported with line and column numbers":
         makeErrorHandlingTestcase('macros-syntax-error-argumentlist.txt')
-
 });
