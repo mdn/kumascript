@@ -13,9 +13,9 @@ var util = require('util'),
     _ = require('underscore'),
     hirelings = require('../lib/hirelings');
 
-var CONCURRENCY = 4;
-var MAX_JOBS = 4;
-var LOTS_OF_JOBS = ((CONCURRENCY * MAX_JOBS) + 10);
+var MAX_PROCESSES = 4;
+var MAX_JOBS = 6;
+var LOTS_OF_JOBS = ((MAX_PROCESSES * MAX_JOBS) + 10);
 
 var suite = vows.describe('Basic hirelings tests');
 
@@ -40,7 +40,7 @@ suite.addBatch({
     'a Pool running an echo worker': {
         topic: function () {
             var pool = new hirelings.Pool({
-                concurrency: CONCURRENCY,
+                max_processes: MAX_PROCESSES,
                 module: __dirname + '/workers/echo.js',
                 options: { thing: 'ohai' }
             });
@@ -126,7 +126,7 @@ suite.addBatch({
             var processes = {};
             var pool = new hirelings.Pool({
                 max_jobs_per_process: MAX_JOBS,
-                concurrency: CONCURRENCY,
+                max_processes: MAX_PROCESSES,
                 module: __dirname + '/workers/echo.js',
                 options: { thing: 'ohai' }
             });
@@ -167,7 +167,7 @@ suite.addBatch({
     'a Pool running a sleep worker': {
         topic: function () {
             var pool = new hirelings.Pool({
-                concurrency: CONCURRENCY,
+                max_processes: MAX_PROCESSES,
                 module: __dirname + '/workers/sleep.js',
                 options: { }
             });
@@ -192,7 +192,7 @@ suite.addBatch({
         'that enqueues more Jobs than available Processes': {
             topic: function (pool) {
                 var jobs = [];
-                for (var i = 0; i < (CONCURRENCY * 2); i++) {
+                for (var i = 0; i < (MAX_PROCESSES * 2); i++) {
                     jobs.push(pool.enqueue({delay: 5000}));
                 }
                 return jobs;
@@ -203,7 +203,7 @@ suite.addBatch({
             },
             'and aborts some Jobs': {
                 topic: function (jobs) {
-                    for (var i=0; i<CONCURRENCY; i++) {
+                    for (var i=0; i<MAX_PROCESSES; i++) {
                         jobs.shift().abort();
                     }
                     return jobs;

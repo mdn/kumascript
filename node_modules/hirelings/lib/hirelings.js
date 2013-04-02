@@ -26,7 +26,7 @@ function Pool (options) {
     events.EventEmitter.call(this);
     this.options = _.defaults(options, {
         max_jobs_per_process: 64,
-        concurrency: 8 || Math.ceil(require('os').cpus().length * 1.25)
+        max_processes: Math.ceil(require('os').cpus().length * 1.25)
     });
     this.backlog = [];
     this.hirelings = {};
@@ -113,7 +113,7 @@ _.extend(Pool.prototype, {
     // Spawn a new Process, if the pool is not yet full.
     _spawnHireling: function () {
         var pids = _.keys(this.hirelings);
-        if (pids.length >= this.options.concurrency) {
+        if (pids.length >= this.options.max_processes) {
             return null;
         }
         var hp = new Process(this, this.options.options);

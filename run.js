@@ -38,9 +38,10 @@ var DEFAULT_CONFIG = {
     },
     server: {
         port: 9080,
-        numWorkers: 4,
+        numWorkers: 16,
+        workerConcurrency: 4,
         workerTimeout: 1000 * 60 * 10,
-        workerMaxRequests: 10,
+        workerMaxJobs: 64,
         document_url_template:
             "https://developer.mozilla.org/en-US/docs/{path}?raw=1",
         template_url_template:
