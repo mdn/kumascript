@@ -181,7 +181,7 @@ module.exports = nodeunit.testCase({
                             // Note: This is a *bit* brittle, but it makes sure the error
                             // indicator appears at the expected spot in the context lines
                             // included in the message.
-                            test.equal(295, error.message.indexOf('---------------------^'));
+                            test.equal(264, error.message.indexOf('---------------------^'));
                         }
                     }
 
