@@ -31,7 +31,7 @@
       "memcached": "0.0.9",
       "http-proxy": "0.8.1",
       "ejs": "0.6.1",
-      "node-statsd": "git://github.com/sivy/node-statsd.git#0b8b9df9308a4d7f788686417d82c8384bc04fa6",
+      "node-statsd": "git://github.com/sivy/node-statsd.git#c9b3767d0aac67435a8f96d26c74942a6d8fcaf8",
       "firelogger": "git://github.com/lmorchard/node-firelogger.git",
       "hirelings": "git://github.com/lmorchard/node-hirelings.git"
   },
