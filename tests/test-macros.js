@@ -7,6 +7,7 @@ var util = require('util'),
     
     kumascript = require('..'),
     ks_utils = kumascript.utils,
+    ks_errors = kumascript.errors,
     ks_macros = kumascript.macros,
     ks_templates = kumascript.templates,
     ks_loaders = kumascript.loaders,

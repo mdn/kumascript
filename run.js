@@ -42,6 +42,7 @@ var DEFAULT_CONFIG = {
         workerConcurrency: 4,
         workerTimeout: 1000 * 60 * 10,
         workerMaxJobs: 64,
+        workerRetries: 3,
         document_url_template:
             "https://developer.mozilla.org/en-US/docs/{path}?raw=1",
         template_url_template:
