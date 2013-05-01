@@ -18,8 +18,8 @@ var util = require('util'),
 // Pool
 // ----
 //
-// A instance of Pool manages a pool of Hirelings. Jobs can be enqueued and
-// tasked to Hirelings. When all the Hirelings in the pool are busy, Jobs are
+// A instance of Pool manages a pool of processes. Jobs can be enqueued and
+// tasked to processes. When all the processes in the pool are busy, Jobs are
 // kept in a FIFO backlog.
 function Pool (options) {
     var self = this;
@@ -31,7 +31,7 @@ function Pool (options) {
     });
     this.jobs_ct = 0;
     this.backlog = [];
-    this.hirelings = {};
+    this.worker_processes = {};
 }
 
 // ### Events
@@ -42,7 +42,7 @@ function Pool (options) {
 //
 // * `spawn (Process)` - a Process has been spawned
 // * `exit (Process)` - a Process has exited
-// * `task (job, hireling)` - a Process has been tasked with a Job
+// * `task (job, process)` - a Process has been tasked with a Job
 // * `backlog (job)` - a Job has been queued into the backlog
 // * `done (job)` - a Job has been completed (success or error)
 // * `drain` - the backlog has been drained and all Processes are idle
@@ -59,7 +59,7 @@ _.extend(Pool.prototype, {
         var self = this;
         var job = new Job(self, options);
         process.nextTick(function () {
-            self._taskHireling(job);
+            self._taskWorkerProcess(job);
         });
         if (cb) {
             // Abstract away the event handlers, if a callback was supplied.
@@ -87,13 +87,13 @@ _.extend(Pool.prototype, {
 
     // #### exit
     //
-    // Cause all Processes to exit (if any). Call this when you're done
+    // Cause all WorkerProcesses to exit (if any). Call this when you're done
     // with the Pool.
     exit: function () {
-        for (pid in this.hirelings) {
-            this.hirelings[pid].exit();
+        for (pid in this.worker_processes) {
+            this.worker_processes[pid].exit();
         }
-        this.hirelings = {};
+        this.worker_processes = {};
     },
 
     // #### getStats
@@ -101,13 +101,13 @@ _.extend(Pool.prototype, {
     // Report some statistics on current state of the worker pool.
     getStats: function () {
         var backlog_ct = this.backlog.length;
-        var hirelings = this.hirelings;
+        var worker_processes = this.worker_processes;
         var workers_ct = 0;
         var busy_ct = 0;
 
-        for (pid in hirelings) {
+        for (pid in worker_processes) {
             workers_ct++;
-            if (hirelings[pid].job) { busy_ct++; }
+            if (worker_processes[pid].job) { busy_ct++; }
         }
 
         return {
@@ -120,88 +120,88 @@ _.extend(Pool.prototype, {
 
     // ### Methods (private)
     //
-    // #### _taskHireling
+    // #### _taskWorkerProcess
     //
     // Given a Job, task a Process with its execution. If no
     // Process is free, push it onto the backlog.
-    _taskHireling: function (job) {
+    _taskWorkerProcess: function (job) {
         var self = this;
-        var hireling = self._findFreeHireling();
-        if (!hireling) {
+        var worker_process = self._findFreeWorkerProcess();
+        if (!worker_process) {
             this.backlog.push(job);
             this.emit('backlog', job);
         } else {
-            hireling.acceptJob(job);
-            this.emit('task', job, hireling);
+            worker_process.acceptJob(job);
+            this.emit('task', job, worker_process);
         }
     },
 
-    // #### _findFreeHireling
+    // #### _findFreeWorkerProcess
     //
     // Find an idle Process available for a new Job. Spawn a new
     // process if the pool is not yet full. Return null, if the pool is full
     // and completely busy.
-    _findFreeHireling: function () {
-        for (pid in this.hirelings) {
-            var hireling = this.hirelings[pid];
-            if (!hireling.job) { return hireling; }
+    _findFreeWorkerProcess: function () {
+        for (pid in this.worker_processes) {
+            var worker_process = this.worker_processes[pid];
+            if (!worker_process.job) { return worker_process; }
         }
-        return this._spawnHireling();
+        return this._spawnWorkerProcess();
     },
 
-    // #### _spawnHireling
+    // #### _spawnWorkerProcess
     //
     // Spawn a new Process, if the pool is not yet full.
-    _spawnHireling: function () {
-        var pids = _.keys(this.hirelings);
+    _spawnWorkerProcess: function () {
+        var pids = _.keys(this.worker_processes);
         if (pids.length >= this.options.max_processes) {
             return null;
         }
-        var hp = new Process(this, this.options.options);
-        this.hirelings[hp.process.pid] = hp;
+        var hp = new WorkerProcess(this, this.options.options);
+        this.worker_processes[hp.getPID()] = hp;
         this.emit('spawn', hp);
         return hp;
     },
 
-    // #### _onHirelingExit
+    // #### _onWorkerProcessExit
     //
     // React to the exit of a Process. If the process had a current
     // Job, report the exit as a failure. Either way, drop the Process
     // from the pool.
-    _onHirelingExit: function (hireling) {
+    _onWorkerProcessExit: function (worker_process) {
         // Yank the process out of the pool.
-        delete this.hirelings[hireling.process.pid];
-        if (hireling.job) {
-            hireling.job.send('failure', 'exit');
+        delete this.worker_processes[worker_process.getPID()];
+        if (worker_process.job) {
+            worker_process.job.send('failure', 'exit');
         }
-        this.emit('exit', hireling);
+        this.emit('exit', worker_process);
         // TODO: Spawn a replacement? Currently wait until a new Job needs one.
     },
 
     // #### _onJobDone
     //
     // React to the exit of a finished Job. Disassociate the Job from its
-    // Process to mark it idle, and task a hireling with the next Job
+    // Process to mark it idle, and task a process with the next Job
     // in the backlog (if any).
     _onJobDone: function (job) {
         var self = this;
 
         this.jobs_ct++;
         this.emit('done', job);
-        if (job.hireling) {
-            var hireling = job.hireling;
-            hireling.job = null;
-            if (hireling.jobs_count >= this.options.max_jobs_per_process) {
-                hireling.exit();
+        if (job.worker_process) {
+            var worker_process = job.worker_process;
+            worker_process.job = null;
+            if (worker_process.jobs_count >= this.options.max_jobs_per_process) {
+                worker_process.exit();
             }
         }
         if (this.backlog.length) {
-            this._taskHireling(this.backlog.shift());
+            this._taskWorkerProcess(this.backlog.shift());
         } else {
             // Wait a tick, and report drained queue if workers all idle.
             process.nextTick(function () {
-                for (pid in self.hirelings) {
-                    if (self.hirelings[pid].job) { return; }
+                for (pid in self.worker_processes) {
+                    if (self.worker_processes[pid].job) { return; }
                 }
                 self.emit('drain');
             });
@@ -210,12 +210,11 @@ _.extend(Pool.prototype, {
 
 });
 
-// Hireling
+// Worker
 // --------
 //
-// A Hireling instance provides the scaffolding for a worker module to offer
-// its services as a hireling.
-function Hireling (options) {
+// A Worker instance provides the scaffolding for a worker module.
+function Worker (options) {
     var self = this;
     this.options = options;
 
@@ -232,14 +231,14 @@ function Hireling (options) {
 
 // ### Events
 //
-// A Hireling instance emits several events in response to messages from the
+// A Worker instance emits several events in response to messages from the
 // Pool. These are useful in getting things done in a worker module:
 //
 // * `init (options)` - received options for initialization & configuration
 // * `job (work_data)` - received a job on which to work
-util.inherits(Hireling, events.EventEmitter);
+util.inherits(Worker, events.EventEmitter);
 
-_.extend(Hireling.prototype, {
+_.extend(Worker.prototype, {
     _handle_init: function (data) {
         this.options = _.defaults(
             this.options || {},
@@ -255,15 +254,15 @@ _.extend(Hireling.prototype, {
 
 // ### Methods
 //
-// * `hireling.progress(data)`
+// * `worker.progress(data)`
 //     * Inform the Job of progress toward completing the task. This can be
 //       called repeatedly before the job is completed.
-// * `hireling.success(data)`
+// * `worker.success(data)`
 //     * Inform the Job of successful completion of the task. Call this once.
-// * `hireling.failure(data)`
+// * `worker.failure(data)`
 //     * Inform the Job of failure in completing the task. Call this once.
 ['progress', 'success', 'failure'].forEach(function (name) {
-    Hireling.prototype[name] = function (data) {
+    Worker.prototype[name] = function (data) {
         var self = this;
         try {
             process.send({op: name, data: data});
@@ -280,8 +279,8 @@ _.extend(Hireling.prototype, {
 // ---
 //
 // A Job instance is obtained from Pool.enqueue(), and it represents a unit of
-// work for the Hireling pool. It may eventually be picked up as a task by a
-// Hireling. It emits events narrating the status of the task.
+// work for the Process pool. It may eventually be picked up as a task by a
+// Process. It emits events narrating the status of the task.
 //
 function Job (pool, options) {
     var self = this;
@@ -311,7 +310,7 @@ function Job (pool, options) {
 //
 // * `progress (result)` - progress reported on the work
 // * `success (result)` - the work has been completed successfully
-// * `failure (error)` - the hireling failed in performing the work
+// * `failure (error)` - the process failed in performing the work
 util.inherits(Job, events.EventEmitter);
 
 // ### Methods
@@ -321,8 +320,8 @@ _.extend(Job.prototype, {
     // * `abort()` - abort this job, killing the Process if it's in progress.
     abort: function () {
         this.emit('abort');
-        if (this.hireling) {
-            this.hireling.exit();
+        if (this.worker_process) {
+            this.worker_process.exit();
         }
     },
 
@@ -344,7 +343,7 @@ _.extend(Job.prototype, {
         } else {
             this.retries_left--;
             process.nextTick(function () {
-                self.pool._taskHireling(self);
+                self.pool._taskWorkerProcess(self);
             });
             this.send('retry');
         }
@@ -352,13 +351,13 @@ _.extend(Job.prototype, {
 
 });
 
-// Process (private)
+// WorkerProcess (private)
 // =================
 //
-// A Process manages a child process that can be associated with a Job. As a
-// user of Hirelings, you should never have to work with Process instances.
-// All the heavy lifting is done with Job instances.
-function Process (pool, options) {
+// A WorkerProcess manages a child process that can be associated with a Job.
+// As a user of node-hirelings, you should never have to work with
+// WorkerProcess instances. All the heavy lifting is done with Job instances.
+function WorkerProcess (pool, options) {
     var self = this;
     events.EventEmitter.call(this);
     
@@ -367,16 +366,16 @@ function Process (pool, options) {
     this.job = null;
     this.jobs_count = 0;
 
-    this.process = child_process.fork(
+    this._cprocess = child_process.fork(
         pool.options.module,
         [],
         { env: this._getEnvForWorker() }
     );
-    this.process.on('exit', function () {
-        self.pool._onHirelingExit(self);
+    this._cprocess.on('exit', function () {
+        self.pool._onWorkerProcessExit(self);
     });
     // A Process just proxies messages to the current Job
-    this.process.on('message', function (msg) {
+    this._cprocess.on('message', function (msg) {
         if (self.job) {
             self.job.send(msg.op, msg.data);
         }
@@ -385,25 +384,29 @@ function Process (pool, options) {
     this.send({op: 'init', data: this.options});
 }
 
-util.inherits(Process, events.EventEmitter);
+util.inherits(WorkerProcess, events.EventEmitter);
 
-_.extend(Process.prototype, {
+_.extend(WorkerProcess.prototype, {
 
     exit: function () {
-        this.process.kill();
-        this.pool._onHirelingExit(this);
+        this._cprocess.kill();
+        this.pool._onWorkerProcessExit(this);
     },
 
     send: function (data) {
-        this.process.send(data);
+        this._cprocess.send(data);
     },
 
     acceptJob: function (job) {
-        if (this.job) { throw "Hireling already has a job"; }
+        if (this.job) { throw "Process already has a job"; }
         this.jobs_count++;
         this.job = job;
-        job.hireling = this;
-        this.process.send({op: 'job', data: job.options});
+        job.worker_process = this;
+        this._cprocess.send({op: 'job', data: job.options});
+    },
+
+    getPID: function () {
+        return this._cprocess.pid;
     },
 
     _getEnvForWorker: function() {
@@ -420,5 +423,5 @@ _.extend(Process.prototype, {
 
 module.exports = {
     Pool: Pool,
-    Hireling: Hireling
+    Worker: Worker
 };

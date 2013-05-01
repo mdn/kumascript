@@ -2,7 +2,7 @@ var util = require('util'),
     _ = require('underscore'),
     hirelings = require(__dirname + '/../../lib/hirelings');
 
-var self = new hirelings.Hireling();
+var self = new hirelings.Worker();
 
 self.on('job', function (job) {
     if (job.cause_error) {
