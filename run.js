@@ -41,8 +41,8 @@ var DEFAULT_CONFIG = {
         numWorkers: 16,
         workerConcurrency: 4,
         workerTimeout: 1000 * 60 * 10,
-        workerMaxJobs: 64,
-        workerRetries: 3,
+        workerMaxJobs: 8,
+        workerRetries: 10,
         document_url_template:
             "https://developer.mozilla.org/en-US/docs/{path}?raw=1",
         template_url_template:
@@ -116,6 +116,7 @@ if (repl_config.enabled) {
         log: log,
         server_conf: server_conf,
         kill: performExit,
+        server: server
     });
     repl.listen(repl_config.host, repl_config.port);
 }
