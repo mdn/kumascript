@@ -18,7 +18,7 @@ var MAX_JOBS = 6;
 var LOTS_OF_JOBS = ((MAX_PROCESSES * MAX_JOBS) + 10);
 var MAX_KILLS = 5;
 
-var suite = vows.describe('Basic hirelings tests');
+var suite = vows.describe('Basic processes tests');
 
 var job_result_topic = function (job) {
     var self = this;
@@ -52,7 +52,7 @@ suite.addBatch({
             assert.isObject(pool);
         },
         'should start with no Process instances': function (pool) {
-            var pids = _.keys(pool.hirelings);
+            var pids = _.keys(pool.worker_processes);
             assert.equal(pids.length, 0);
         },
         'that enqueues': {
@@ -73,11 +73,11 @@ suite.addBatch({
                 },
                 'should result in at least one Process': function (job) {
                     var pool = job.pool;
-                    var pids = _.keys(pool.hirelings);
+                    var pids = _.keys(pool.worker_processes);
                     assert.ok(pids.length > 0);
-                    var hp = pool.hirelings[pids[0]];
+                    var hp = pool.worker_processes[pids[0]];
                     assert.ok(hp);
-                    assert.ok(hp.process.pid);
+                    assert.ok(hp.getPID());
                 },
                 'to which event handlers are attached': {
                     topic: job_result_topic,
@@ -133,11 +133,11 @@ suite.addBatch({
             });
             // Watch for spawning processes
             pool.on('spawn', function (p) {
-                processes[p.process.pid] = 0;
+                processes[p.getPID()] = 0;
             });
             // Count jobs tasked to processes
             pool.on('task', function (job, p) {
-                processes[p.process.pid]++;
+                processes[p.getPID()]++;
             });
             // Queue up an arbitrarily large number of jobs.
             var jobs = [];
@@ -181,7 +181,8 @@ suite.addBatch({
             topic: function (pool) {
                 var job = pool.enqueue({delay: 500});
                 setTimeout(function () {
-                    job.hireling.process.kill();
+                    // HACK: Reaching into guts, but this is unusual
+                    job.worker_process._cprocess.kill();
                 }, 200);
                 return job_result_topic.call(this, job);
             },
@@ -271,7 +272,8 @@ suite.addBatch({
                 // Simulate catastrophe by killing workers upon tasking
                 pool.on('task', function (job, worker) {
                     if (results[job.options].kills++ < MAX_KILLS) {
-                        worker.process.kill();
+                        // HACK: Reaching into guts, but this is unusual
+                        worker._cprocess.kill();
                     }
                 });
 
