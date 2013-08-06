@@ -50,6 +50,52 @@ module.exports = nodeunit.testCase({
         });
     },
 
+    "Template loading via HTTP should retry on failure": function (test) {
+        var responses = [
+            { status: 500, body: 'INTERNAL SERVER ERROR' },
+            { status: 503, body: 'SERVICE UNAVAILABLE' },
+            { status: 204, body: 'NO CONTENT' },
+            { status: 200, body: '' },
+            { status: 200, body: 'OK' }
+        ];
+
+        var app = express.createServer();
+        app.configure(function () {
+            app.use(express.logger({
+                format: 'TEST: :method :url :status :res[content-length]'
+            }));
+            app.use(function (req, res, mw_next) {
+                setTimeout(mw_next, 50);
+            });
+        });
+
+        var request_ct = 0;
+        app.get('/templates/*', function (req, res) {
+            var path = req.params[0];
+            var response = responses[request_ct++];
+            if (!response) {
+                res.send('Ran out of responses', 405);
+            } else {
+                res.send(response.body, response.status);
+            }
+        });
+        app.listen(9001);
+
+        var loader = new ks_loaders.HTTPLoader({
+            url_template: 'http://localhost:9001/templates/{name}',
+            cache_control: 'max-age=0',
+            max_retries: responses.length - 1
+        });
+
+        loader.get('testit', function (err, tmpl) {
+            test.ok(!!tmpl);
+            test.equal(responses[responses.length-1].body,
+                       tmpl.options.source);
+            app.close();
+            test.done();
+        });
+    },
+
     "Template loading via HTTP should use conditional GET": function (test) {
 
         var responses = [
