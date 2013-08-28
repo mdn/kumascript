@@ -10,11 +10,22 @@ var PEG = require("pegjs"),
 
 module.exports = nodeunit.testCase({
   "JSON values are parsed correctly": function (test) {
-    var tokens = ks_parser.parse('{{ f({ "a": "x", "b": -1e2, "c": 0.5, "d": [1,2] }) }}');
+    var tokens = ks_parser.parse('{{ f({ "a": "x", "b": -1e2, "c": 0.5, "d": [1,2, 3] }) }}');
     test.deepEqual(tokens,
                    [{type: "MACRO",
                      name: "f",
-                     args: [{a: "x", b: -1e2, c: 0.5, d: [1, 2]}],
+                     args: [{a: "x", b: -1e2, c: 0.5, d: [1, 2, 3]}],
+                     offset: 0}],
+                   "The macro is parsed correctly");
+    test.done();
+  },
+
+  "JSON parameter should allow a single-item list": function (test) {
+    var tokens = ks_parser.parse('{{ f({ "a": ["one"] }) }}');
+    test.deepEqual(tokens,
+                   [{type: "MACRO",
+                     name: "f",
+                     args: [{a: ["one"]}],
                      offset: 0}],
                    "The macro is parsed correctly");
     test.done();
