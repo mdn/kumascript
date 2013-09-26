@@ -14,7 +14,7 @@ Bringing scripting to the wiki bears.
 ## Development
 
 * To run the service (in kuma vagrant):
-    * `cd /vagrant; node kumascript/run.js`
+    * `cd /home/vagrant/src; node kumascript/run.js`
 * To run the service (standalone):
     * Directly:
         * `node run.js`
