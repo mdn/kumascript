@@ -1,0 +1,3 @@
+This should be a feed:
+
+{{ fetch-feed('http://localhost:9001/hacks.rss') }}

@@ -133,6 +133,12 @@ module.exports = {
         var expected_fn = __dirname + '/fixtures/documents/memcache-expected.txt',
             result_url  = 'http://localhost:9000/docs/memcache';
         performTestRequest(test, expected_fn, result_url);
+    },
+
+    "The API offers access to an RSS/Atom feed parser": function (test) {
+        var expected_fn = __dirname + '/fixtures/documents/feeds-expected.txt',
+            result_url  = 'http://localhost:9000/docs/feeds';
+        performTestRequest(test, expected_fn, result_url);
     }
 
     /* TODO: Fix this test. It relies on in-process macro processing, breaks
