@@ -21,7 +21,7 @@
   },
   "dependencies": {
       "pegjs": "0.7.0",
-      "fibers": "0.6.4",
+      "fibers": "0.6.5",
       "async": "0.1.15",
       "express": "2.5.6",
       "request": "2.9.100",
