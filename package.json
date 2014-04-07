@@ -21,7 +21,7 @@
   },
   "dependencies": {
       "pegjs": "0.7.0",
-      "fibers": "0.6.5",
+      "fibers": "1.0.1",
       "async": "0.1.15",
       "express": "2.5.6",
       "request": "2.9.100",
@@ -32,10 +32,8 @@
       "http-proxy": "0.8.1",
       "ejs": "0.6.1",
       "sax": "0.5.x",
-      "xml2js": "0.2.x",
       "feedparser": "0.10.x",
-      "html5": "0.3.x",
-      "node-statsd": "git://github.com/sivy/node-statsd.git#c9b3767d0aac67435a8f96d26c74942a6d8fcaf8",
+      "node-statsd": "0.0.7",
       "firelogger": "git://github.com/lmorchard/node-firelogger.git",
       "hirelings": "git://github.com/lmorchard/node-hirelings.git"
   },
