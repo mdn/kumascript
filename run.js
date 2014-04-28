@@ -137,7 +137,7 @@ process.on('SIGTERM', function () {
     log.info("Received SIGTERM, exiting...");
     performExit();
 });
-process.on('uncaughtException', function () {
+process.on('uncaughtException', function (err) {
     log.error('uncaughtException:', err.message);
     log.error(err.stack);
     performExit();
