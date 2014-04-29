@@ -28,7 +28,7 @@
       "underscore": "1.3.1",
       "nconf": "0.6.9",
       "winston": "0.7.3",
-      "memcached": "0.0.9",
+      "memcached": "0.2.8",
       "http-proxy": "0.8.1",
       "ejs": "0.6.1",
       "sax": "0.5.x",
