@@ -47,8 +47,10 @@ module.exports = nodeunit.testCase({
 
     // Kill all the servers on teardown.
     tearDown: function (next) {
-        this.server.close();
-        this.test_server.close();
+        try {
+            this.server.close();
+            this.test_server.close();
+        } catch (e) { /* no-op */ }
         next();
     },
 
@@ -198,6 +200,32 @@ module.exports = nodeunit.testCase({
             });
         });
 
+    },
+
+    "Error fetching source document should be logged": function (test) {
+        var $this = this;
+
+        // Induce error condition by closing down the test server.
+        $this.test_server.close();
+        var expected_err = 'Problem fetching source document: connect ECONNREFUSED';
+
+        var req_opts = {
+            method: "GET",
+            uri: 'http://localhost:9000/docs/error-doc',
+            headers: {
+                "X-FireLogger": "plaintext"
+            }
+        };
+        request.get(req_opts, function (err, resp, result) {
+            // Look for the expected error message in headers
+            var found_it = false;
+            _.each(resp.headers, function (value, key) {
+                if (key.indexOf('firelogger-') === -1) { return; }
+                if (value.indexOf(expected_err) !== -1) { found_it = true; }
+            });
+            test.ok(found_it);
+            test.done();
+        });
     }
 
 });
