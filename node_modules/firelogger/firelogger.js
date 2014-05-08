@@ -4,6 +4,8 @@ var util = require('util');
 module.exports = function (options) {
 
     options = options || {};
+    // HACK: Under 8k seems like an arbitrary best guess at a max
+    var max_header_length = options.max_header_length || 8000;
     var levels = options.levels ||
         ['debug', 'info', 'warning', 'error', 'critical'];
 
@@ -64,8 +66,9 @@ module.exports = function (options) {
                 // accept anything else.
                 var d_logs = { logs: messages },
                     d_json = JSON.stringify(d_logs),
-                    d_b64 = (new Buffer(d_json, 'utf-8')).toString('base64');
-                d_lines = d_b64.match(/(.{1,75})/g);
+                    d_b64 = (new Buffer(d_json, 'utf-8')).toString('base64'),
+                    d_re = new RegExp("(.{1," + max_header_length + "})", 'g');
+                d_lines = d_b64.match(d_re)
             }
 
             for (var i=0; i<d_lines.length; i++) {
