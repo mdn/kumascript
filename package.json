@@ -34,7 +34,7 @@
       "sax": "0.5.x",
       "feedparser": "0.10.x",
       "node-statsd": "0.0.7",
-      "firelogger": "git://github.com/lmorchard/node-firelogger.git",
+      "firelogger": "0.1.0",
       "hirelings": "git://github.com/lmorchard/node-hirelings.git"
   },
   "devDependencies": {
