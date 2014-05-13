@@ -22,10 +22,8 @@ Installation
 ------------
 
 ````
-$ npm install git://github.com/lmorchard/node-hirelings
+$ npm install node-hirelings
 ````
-
-**TODO:** Needs submission to npm. (*I'm scared, Sarge.*)
 
 Usage
 -----
@@ -45,6 +43,14 @@ Frequently Anticipated Questions
     * It amuses me to pick odd names for projects. Hirelings are the
       semi-disposable, semi-reliable hired help that players can pick up in
       role-playing games.
+
+TODO
+----
+
+* Further limit respawning workers that die early. Maybe kill the pool entirely
+  with an error if too many workers are dying in a span of time.
+
+* Promises-based API?
 
 License
 -------
