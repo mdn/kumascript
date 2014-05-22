@@ -32,7 +32,7 @@
       "http-proxy": "0.8.1",
       "ejs": "0.6.1",
       "sax": "0.5.x",
-      "feedparser": "0.10.x",
+      "feedparser": "0.16.6",
       "node-statsd": "0.0.7",
       "firelogger": "0.1.0",
       "hirelings": "0.4.3"
