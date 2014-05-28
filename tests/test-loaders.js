@@ -13,6 +13,8 @@ var util = require('util'),
     ks_loaders = kumascript.loaders,
     ks_test_utils = kumascript.test_utils;
 
+var DEBUG = false;
+
 module.exports = nodeunit.testCase({
 
     "Basic template loading should work": function (test) {
@@ -61,7 +63,7 @@ module.exports = nodeunit.testCase({
 
         var app = express.createServer();
         app.configure(function () {
-            app.use(express.logger({
+            if (DEBUG) app.use(express.logger({
                 format: 'TEST: :method :url :status :res[content-length]'
             }));
             app.use(function (req, res, mw_next) {
@@ -115,7 +117,7 @@ module.exports = nodeunit.testCase({
 
         var app = express.createServer();
         app.configure(function () {
-            app.use(express.logger({
+            if (DEBUG) app.use(express.logger({
                 format: 'TEST: :method :url :status :res[content-length]'
             }));
             app.use(function (req, res, mw_next) {
