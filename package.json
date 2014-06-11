@@ -25,19 +25,21 @@
   	"firelogger": "0.1.0",
   	"hirelings": "0.4.3",
   	"http-proxy": "1.1.4",
+  	"memcached": "0.2.8",
+  	"nconf": "0.6.9",
   	"node-statsd": "0.0.7",
   	"sax": "0.6.0",
   	"underscore": "1.6.0",
   	"winston": "0.7.3",
 
 
-      "pegjs": "0.7.0",
       "fibers": "1.0.1",
       "express": "2.5.6",
       "ejs": "1.0.0",
-      "request": "2.9.100",
-      "nconf": "0.6.9",
-      "memcached": "0.2.8"
+      
+
+      "pegjs": "0.7.0",
+      "request": "2.9.100"
   },
   "devDependencies": {
       "nodeunit": "0.6.4",
