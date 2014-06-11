@@ -26,6 +26,7 @@
   	"hirelings": "0.4.3",
   	"http-proxy": "1.1.4",
   	"node-statsd": "0.0.7",
+  	"sax": "0.6.0",
   	"underscore": "1.6.0",
   	"winston": "0.7.3",
 
@@ -36,8 +37,7 @@
       "ejs": "1.0.0",
       "request": "2.9.100",
       "nconf": "0.6.9",
-      "memcached": "0.2.8",
-      "sax": "0.5.x"
+      "memcached": "0.2.8"
   },
   "devDependencies": {
       "nodeunit": "0.6.4",
