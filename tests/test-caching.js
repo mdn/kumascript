@@ -33,7 +33,7 @@ module.exports = nodeunit.testCase({
 
     tearDown: function (next) {
         var $this = this;
-        $this.app.close();
+        $this.app.listener.close();
         next();
     },
 
@@ -325,6 +325,8 @@ module.exports = nodeunit.testCase({
     "Should not cache a response with a status other than 200 OK": function (test) {
         var $this = this;
 
+        console.log('entered test');
+
         var req_cnt = 0,
             url = TEST_BASE_URL + '/test1',
             bad_etag = 'IGNORE THIS',
@@ -341,16 +343,22 @@ module.exports = nodeunit.testCase({
                     res.send(TEST_CONTENT, 200);
                 }
                 req_cnt++;
+
+                console.log('ending async get');
             });
         });
 
+        console.log('after get');
+
         async.waterfall([
             function (wf_next) {
+                console.log('in waterfall 1');
                 request(url, function (err, res, content) {
                     test.equal(res.statusCode, 404);
-                    wf_next(null, res.header.etag);
+                    wf_next(null, res.headers.etag);
                 });
             }, function (etag, wf_next) {
+                console.log('in waterfall 2');
                 var opts = {
                     url: url,
                     headers: { "If-None-Match": etag } 
@@ -362,6 +370,7 @@ module.exports = nodeunit.testCase({
                 });
             }
         ], function () {
+            console.log('waterfall test done');
             test.done();
         });
     },

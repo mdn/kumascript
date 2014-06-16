@@ -92,19 +92,28 @@ module.exports = {
                 }
             }
         });
+
         this.server = new ks_server.Server({
             port: 9000,
             document_url_template: "http://localhost:9001/documents/{path}.txt",
             macro_processor: this.macro_processor
         });
-        this.server.listen();
+        this.listener = this.server.listen();
+
         next();
     },
 
     // Kill all the servers on teardown.
     tearDown: function (next) {
-        this.server.close();
-        this.test_server.close();
+        this.listener.close();
+        console.log('listener close: ')
+        console.log(this.listener.close);
+
+        this.test_server.listener.close();
+
+        console.log('listener close: ')
+        console.log(this.test_server.listener.close);
+
         next();
     },
 
@@ -140,8 +149,8 @@ module.exports = {
             result_url  = 'http://localhost:9000/docs/feeds';
         performTestRequest(test, expected_fn, result_url);
     }
-
-    /* TODO: Fix this test. It relies on in-process macro processing, breaks
+/*
+     TODO: Fix this test. It relies on in-process macro processing, breaks
      * horribly with child processes
 
     "A sub-API installed into APIContext should be usable in a template": function (test) {
@@ -178,7 +187,5 @@ module.exports = {
 
         });
         
-    }
-    */
-
+    } */
 };

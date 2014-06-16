@@ -48,8 +48,8 @@ module.exports = nodeunit.testCase({
     // Kill all the servers on teardown.
     tearDown: function (next) {
         try {
-            this.server.close();
-            this.test_server.close();
+            this.server.listener.close();
+            this.test_server.listener.close();
         } catch (e) { /* no-op */ }
         next();
     },
@@ -69,6 +69,7 @@ module.exports = nodeunit.testCase({
         var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
             source_fn   = __dirname + '/fixtures/documents/document1.txt',
             result_url  = 'http://localhost:9000/docs/';
+
         fs.readFile(expected_fn, 'utf8', function (err, expected) {
             fs.readFile(source_fn, 'utf8', function (err, source) {
                 request.post(
@@ -206,7 +207,7 @@ module.exports = nodeunit.testCase({
         var $this = this;
 
         // Induce error condition by closing down the test server.
-        $this.test_server.close();
+        $this.test_server.listener.close();
         var expected_err = 'Problem fetching source document: connect ECONNREFUSED';
 
         var req_opts = {
