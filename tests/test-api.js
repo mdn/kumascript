@@ -105,15 +105,8 @@ module.exports = {
 
     // Kill all the servers on teardown.
     tearDown: function (next) {
-        this.listener.close();
-        console.log('listener close: ')
-        console.log(this.listener.close);
-
+        this.server.close();
         this.test_server.listener.close();
-
-        console.log('listener close: ')
-        console.log(this.test_server.listener.close);
-
         next();
     },
 

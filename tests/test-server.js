@@ -32,12 +32,12 @@ module.exports = nodeunit.testCase({
                     }
                 }
             });
-            this.server = new ks_server.Server({
+            var server = this.server = new ks_server.Server({
                 port: 9000,
                 document_url_template: "http://localhost:9001/documents/{path}.txt",
                 macro_processor: this.macro_processor
             });
-            this.server.listen();
+            server.listen();
         } catch (e) {
             util.debug("ERROR STARTING TEST SERVER " + e);
             throw e;
@@ -48,7 +48,7 @@ module.exports = nodeunit.testCase({
     // Kill all the servers on teardown.
     tearDown: function (next) {
         try {
-            this.server.listener.close();
+            this.server.close();
             this.test_server.listener.close();
         } catch (e) { /* no-op */ }
         next();
