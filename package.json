@@ -21,6 +21,7 @@
   },
   "dependencies": {
       "async": "0.9.0",
+      "feedparser": "0.17.0",
       "fibers": "1.0.1",
       "http-proxy": "1.1.4",
       "hirelings": "0.4.3",
@@ -34,7 +35,7 @@
       "request": "2.9.100",
       "ejs": "0.6.1",
       "sax": "0.5.x",
-      "feedparser": "0.16.6",
+      
       "node-statsd": "0.0.7",
       "firelogger": "0.1.0"
       
