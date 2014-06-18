@@ -29,13 +29,13 @@
       "memcached": "0.2.8",
       "nconf": "0.6.9",
       "node-statsd": "0.0.7",
+      "request": "2.36.0",
       "sax": "0.6.0",
       "underscore": "1.6.0",
       "winston": "0.7.3",
 
       "pegjs": "0.7.0",
       "express": "2.5.6",
-      "request": "2.9.100",
       "ejs": "0.6.1"
   },
   "devDependencies": {
