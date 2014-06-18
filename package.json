@@ -14,7 +14,7 @@
       "test": "./node_modules/.bin/nodeunit tests"
   },
   "engines": {
-    "node": "0.6.x"
+    "node": "0.10.26"
   },
   "directories": { 
       "lib": "./lib"
@@ -31,12 +31,12 @@
       "morgan": "1.1.1",
       "nconf": "0.6.9",
       "node-statsd": "0.0.7",
+      "request": "2.36.0",
       "sax": "0.6.0",
       "underscore": "1.6.0",
       "winston": "0.7.3",
 
       "pegjs": "0.7.0",
-      "request": "2.9.100",
       "ejs": "0.6.1"
   },
   "devDependencies": {
