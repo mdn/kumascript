@@ -1,6 +1,7 @@
 # kumascript
-
-[![Build Status](https://secure.travis-ci.org/mozilla/kumascript.png)](http://travis-ci.org/mozilla/kumascript)
+[![Build Status](https://secure.travis-ci.org/mozilla/kumascript.svg)](https://travis-ci.org/mozilla/kumascript)
+[![Dependency Status](https://david-dm.org/mozilla/kumascript.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript)
+[![devDependency Status](https://david-dm.org/mozilla/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript#info=devDependencies)
 
 Bringing scripting to the wiki bears.
 
