@@ -46,7 +46,7 @@ module.exports = nodeunit.testCase({
         fs.readFile(tmpl_fn, function (err, expected) {
             loader.get('t1', function (err, tmpl) {
                 test.equal(expected, tmpl.options.source);
-                test_server.close();
+                test_server.listener.close();
                 test.done();
             });
         });
@@ -61,14 +61,13 @@ module.exports = nodeunit.testCase({
             { status: 200, body: 'OK' }
         ];
 
-        var app = express.createServer();
-        app.configure(function () {
-            if (DEBUG) app.use(express.logger({
-                format: 'TEST: :method :url :status :res[content-length]'
-            }));
-            app.use(function (req, res, mw_next) {
-                setTimeout(mw_next, 50);
-            });
+        var app = express();
+        
+        if (DEBUG) app.use(express.logger({
+            format: 'TEST: :method :url :status :res[content-length]'
+        }));
+        app.use(function (req, res, mw_next) {
+            setTimeout(mw_next, 50);
         });
 
         var request_ct = 0;
@@ -81,7 +80,7 @@ module.exports = nodeunit.testCase({
                 res.send(response.body, response.status);
             }
         });
-        app.listen(9001);
+        var listener = app.listen(9001);
 
         var loader = new ks_loaders.HTTPLoader({
             url_template: 'http://localhost:9001/templates/{name}',
@@ -93,7 +92,7 @@ module.exports = nodeunit.testCase({
             test.ok(!!tmpl);
             test.equal(responses[responses.length-1].body,
                        tmpl.options.source);
-            app.close();
+            listener.close();
             test.done();
         });
     },
@@ -115,16 +114,14 @@ module.exports = nodeunit.testCase({
               status_expected: 304 },
         ];
 
-        var app = express.createServer();
-        app.configure(function () {
-            if (DEBUG) app.use(express.logger({
-                format: 'TEST: :method :url :status :res[content-length]'
-            }));
-            app.use(function (req, res, mw_next) {
-                setTimeout(mw_next, 50);
-            });
+        var app = express();
+        if (DEBUG) app.use(express.logger({
+            format: 'TEST: :method :url :status :res[content-length]'
+        }));
+        app.use(function (req, res, mw_next) {
+            setTimeout(mw_next, 50);
         });
-
+        
         var request_ct = 0;
         app.get('/templates/*', function (req, res) {
             var path = req.params[0];
@@ -145,7 +142,7 @@ module.exports = nodeunit.testCase({
                 res.send((304 == status) ? '' : response.body, status);
             }
         });
-        app.listen(9001);
+        var listener = app.listen(9001);
 
         var loader = new ks_loaders.HTTPLoader({
             url_template: 'http://localhost:9001/templates/{name}',
@@ -178,7 +175,7 @@ module.exports = nodeunit.testCase({
                 });
             }
         ], function (err) {
-            app.close();
+            listener.close();
             test.done();
         });
 
