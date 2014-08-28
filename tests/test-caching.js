@@ -406,7 +406,7 @@ module.exports = nodeunit.testCase({
                              headers: { "If-None-Match": etag } };
                 request(opts, function (err, res, content) {
                     test.equal(res.statusCode, 304);
-                    test.equal(content, '');
+                    test.equal(typeof(content), 'undefined');
                     wf_next();
                 });
             }, function (wf_next) {
@@ -414,7 +414,7 @@ module.exports = nodeunit.testCase({
                 request(opts, function (err, res, content) {
                     test.equal(res.statusCode, 200);
                     test.equal(res.headers['x-cache'], 'HIT');
-                    test.equal(content, '');
+                    test.equal(typeof(content), 'undefined');
                     wf_next();
                 });
             }
