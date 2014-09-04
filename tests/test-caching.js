@@ -528,6 +528,90 @@ module.exports = nodeunit.testCase({
         ], function () {
             test.done();
         });
-    }
+    },
 
+    "If a 304 is returned but the body content isn't in cache, force a 200 from kuma": function (test) {
+        
+        // Step 1:  do a test request for content, cache it (200)
+        // Step 2:  do a test request that returns a 304, ensure the last_mod is future
+        // Step 3:  remove the body from memcache *directly*
+        // Step 4:  make a request that would otherwise trigger 304 but since the body is gone, last_mod is set to 0
+        // Step 5:  ensure the next request is a 304 and cache has body
+
+        var $this = this;
+        var url = TEST_BASE_URL + '/test1';
+
+        // Key generated the same as within caching.js
+        var key = function (opts, name) { 
+            var base_key = 'kumascript:request:' + ks_utils.md5(opts.url);
+            return base_key + ':' + name; 
+        }
+        var cache = new ks_utils.FakeMemcached();
+                
+        // Step 1
+        $this.app.get('/test1', function (req, res) {
+            var opts = getOptions();
+            $this.cache.cacheResponse(req, res, opts, function (req, res) {
+                res.send(TEST_CONTENT);
+            });
+        });
+
+        // The same URL and cache object will be used throughout the tests
+        // Need to keep returning new object to headers aren't applied to it from re-use
+        function getOptions() {
+            return {
+                url: url,
+                memcached: cache
+            };
+        }
+
+        async.waterfall([
+            function (wf_next) { // Step 2:  Part 1
+                var opts = getOptions();
+                ks_caching.request(opts, function (err, res, content) {
+                    test.equal(res.statusCode, 200);
+                    wf_next(null);
+                });
+            }, function (wf_next) {  // Step 2:  Part 2
+                var opts = getOptions();
+                ks_caching.request(opts, function (err, res, content) {
+                    test.equal(res.statusCode, 304);
+                    test.ok(res.req._headers['if-modified-since'], 'A "if-modified-since" is set for the cached document request');
+
+                    cache.get(key(opts, 'body'), function(err, res) {
+                        test.ok(res != undefined, 'Content is properly stored in cache');
+                        wf_next(null);
+                    });
+                });
+            }, function (wf_next) { // Step 3
+                var opts = getOptions();
+                cache.remove(key(opts, 'body'), function() {
+                    cache.get(key(opts, 'body'), function(err, res) {
+                        test.ok(res === undefined, 'Content removed from fake cache');
+                        wf_next(null);
+                    });
+                });
+            }, function (wf_next) { // Step 4
+                var opts = getOptions();
+                ks_caching.request(opts, function (err, res, content) {
+                    test.ok(res.req._headers['if-modified-since'] === undefined, 'A "if-modified-since" is *not* set for the document request');
+                    test.equal(res.statusCode, 200);
+                    wf_next(null);
+                });
+            }, function (wf_next) { // Step 5
+                var opts = getOptions();
+                ks_caching.request(opts, function (err, res, content) {
+                    test.equal(res.statusCode, 304);
+                    test.ok(res.req._headers['if-modified-since'], 'A "if-modified-since" is set again for the document request');
+
+                    cache.get(key(opts, 'body'), function(err, res) {
+                        test.ok(res != undefined, 'Content is properly stored in cache');
+                        wf_next(null);
+                    });
+                });
+            }
+        ], function () {
+            test.done();
+        });
+    }
 });
