@@ -1,0 +1,13 @@
+{
+  "name": "mongooseDAL",
+  "version": "0.0.0",
+  "main": "index.js",
+  "plugin": {
+    "consumes": [
+      "mongodbProcess"
+    ],
+    "provides": [
+      "mongooseDAL"
+    ]
+  }
+}

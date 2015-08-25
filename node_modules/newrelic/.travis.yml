@@ -1,0 +1,31 @@
+language: node_js
+node_js:
+  - "0.8"
+  - "0.10"
+  - "0.12"
+  - "iojs-v1"
+  - "iojs-v2"
+env:
+  - SUITE=smoke
+  - SUITE=unit
+  - SUITE=integration
+  - SUITE=lint
+addons:
+  postgresql: "9.3"
+services:
+  - memcached
+  - mysql
+  - redis
+  - cassandra
+  - postgresql
+before_install:
+  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+  - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+  - sudo apt-get update
+  - sudo apt-get install -y mongodb-org
+  - mongod --version
+  - sudo apt-get install -qq time
+  - make update_npm_global
+  - if [ "$SUITE" = "integration" ]; then make sub_node_modules; fi
+install: if [ "$SUITE" != "smoke" ]; then npm install; fi
+script: make $SUITE
