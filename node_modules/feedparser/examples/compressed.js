@@ -1,13 +1,7 @@
-/**
- * Tips
- * ====
- * - Set `user-agent` and `accept` headers when sending requests. Some services will not respond as expected without them.
- * - Set `pool` to false if you send lots of requests using "request" library.
- */
-
 var request = require('request')
   , FeedParser = require(__dirname+'/..')
-  , Iconv = require('iconv').Iconv;
+  , Iconv = require('iconv').Iconv
+  , zlib = require('zlib');
 
 function fetch(feed) {
   // Define our streams
@@ -19,13 +13,15 @@ function fetch(feed) {
 
   var feedparser = new FeedParser();
 
+
   // Define our handlers
   req.on('error', done);
   req.on('response', function(res) {
     if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
-    var charset = getParams(res.headers['content-type'] || '').charset;
+    var encoding = res.headers['content-encoding'] || 'identity'
+      , charset = getParams(res.headers['content-type'] || '').charset;
+    res = maybeDecompress(res, encoding);
     res = maybeTranslate(res, charset);
-    // And boom goes the dynamite
     res.pipe(feedparser);
   });
 
@@ -37,6 +33,16 @@ function fetch(feed) {
       console.log(post);
     }
   });
+}
+
+function maybeDecompress (res, encoding) {
+  var decompress;
+  if (encoding.match(/\bdeflate\b/)) {
+    decompress = zlib.createInflate();
+  } else if (encoding.match(/\bgzip\b/)) {
+    decompress = zlib.createGunzip();
+  }
+  return decompress ? res.pipe(decompress) : res;
 }
 
 function maybeTranslate (res, charset) {
@@ -82,8 +88,9 @@ function done(err) {
 var server = require('http').createServer(function (req, res) {
   var stream = require('fs').createReadStream(require('path').resolve(__dirname, '../test/feeds' + req.url));
   res.setHeader('Content-Type', 'text/xml; charset=Windows-1251');
+  res.setHeader('Content-Encoding', 'gzip');
   stream.pipe(res);
 });
 server.listen(0, function () {
-  fetch('http://localhost:' + this.address().port + '/iconv.xml');
+  fetch('http://localhost:' + this.address().port + '/compressed.xml');
 });
