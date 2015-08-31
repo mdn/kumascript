@@ -27,7 +27,7 @@
     "fibers": "^1.0.6",
     "firelogger": "0.1.0",
     "hirelings": "0.4.3",
-    "http-proxy": "0.8.1",
+    "http-proxy": "^1.11.2",
     "memcached": "0.2.8",
     "nconf": "0.6.9",
     "newrelic": "^1.22.0",
