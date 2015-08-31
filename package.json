@@ -4,6 +4,10 @@
   "version": "0.0.1",
   "homepage": "http://github.com/lmorchard/kumascript/",
   "author": "Les Orchard <lorchard@mozilla.com> (http://lmorchard.com/)",
+  "contributors": [{
+    "name": "David Walsh",
+    "email": "dwalsh@mozilla.com"
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/lmorchard/kumascript.git"
@@ -34,7 +38,7 @@
     "newrelic": "^1.22.0",
     "node-statsd": "^0.1.1",
     "pegjs": "0.7.0",
-    "request": "2.9.100",
+    "request": "^2.61.0",
     "sax": "^1.1.2",
     "underscore": "^1.8.3",
     "winston": "^1.0.1"

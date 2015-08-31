@@ -9,7 +9,7 @@ Bringing scripting to the wiki bears.
 
 ## Setup
 
-* Install [node.js 0.10.26](http://nodejs.org/docs/v0.10.26/) and [npm](http://npmjs.org/)
+* Install [node.js 0.10.36](http://nodejs.org/docs/v0.10.36/) and [npm](http://npmjs.org/)
 * `npm rebuild`
 
 ## Development
