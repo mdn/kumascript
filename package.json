@@ -31,7 +31,7 @@
     "memcached": "0.2.8",
     "nconf": "0.6.9",
     "newrelic": "^1.22.0",
-    "node-statsd": "0.0.7",
+    "node-statsd": "^0.1.1",
     "pegjs": "0.7.0",
     "request": "2.9.100",
     "sax": "^1.1.2",
