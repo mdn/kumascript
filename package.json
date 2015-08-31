@@ -34,7 +34,7 @@
     "node-statsd": "0.0.7",
     "pegjs": "0.7.0",
     "request": "2.9.100",
-    "sax": "0.5.x",
+    "sax": "^1.1.2",
     "underscore": "1.5.0",
     "winston": "0.7.3"
   },
