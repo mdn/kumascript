@@ -33,7 +33,7 @@ module.exports = nodeunit.testCase({
 
     tearDown: function (next) {
         var $this = this;
-        $this.app.close();
+        $this.app._kumascript_listener.close();
         next();
     },
 
@@ -335,10 +335,10 @@ module.exports = nodeunit.testCase({
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
                 if (req_cnt === 0) {
                     res.header('ETag', bad_etag);
-                    res.send(bad_content, 404);
+                    res.status(404).send(bad_content);
                 } else {
                     res.header('ETag', TEST_ETAG);
-                    res.send(TEST_CONTENT, 200);
+                    res.status(200).send(TEST_CONTENT);
                 }
                 req_cnt++;
             });
@@ -348,7 +348,7 @@ module.exports = nodeunit.testCase({
             function (wf_next) {
                 request(url, function (err, res, content) {
                     test.equal(res.statusCode, 404);
-                    wf_next(null, res.header.etag);
+                    wf_next(null, res.headers.etag);
                 });
             }, function (etag, wf_next) {
                 var opts = {
