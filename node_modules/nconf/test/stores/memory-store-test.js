@@ -1,7 +1,7 @@
 /*
  * memory-store-test.js: Tests for the nconf Memory store.
  *
- * (C) 2011, Nodejitsu Inc.
+ * (C) 2011, Charlie Robbins and the Contributors.
  *
  */
 
@@ -85,7 +85,7 @@ vows.describe('nconf/stores/memory').addBatch({
       },
       "when merging into an existing Object value": function (store) {
         store.set('merge:object', {
-          prop1: 2, 
+          prop1: 2,
           prop2: 'prop2',
           prop3: {
             bazz: 'bazz'
@@ -101,7 +101,24 @@ vows.describe('nconf/stores/memory').addBatch({
           bar: 'foo',
           bazz: 'bazz'
         });
-        assert.equal(store.get('merge:object:prop4').length, 2);        
+        assert.equal(store.get('merge:object:prop4').length, 2);
+      }
+    }
+  },
+  "When using the nconf memory store with different logical separator": {
+    topic: new nconf.Memory({logicalSeparator: '||' }),
+    "when storing with : (colon)": {
+      "should store the config atomicly": function (store) {
+        store.set('foo:bar:bazz', 'buzz');
+        assert.isTrue(typeof store.get('foo:bar') === 'undefined');
+        assert.equal(store.get('foo:bar:bazz'), 'buzz');
+      }
+    },
+    "when storing with separator": {
+      "should be able to read the object": function (store) {
+        store.set('foo||bar||bazz', 'buzz');
+        assert.equal(store.get('foo||bar').bazz, 'buzz');
+        assert.equal(store.get('foo').bar.bazz, 'buzz');
       }
     }
   }
