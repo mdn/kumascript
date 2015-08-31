@@ -36,7 +36,7 @@
     "request": "2.9.100",
     "sax": "^1.1.2",
     "underscore": "1.5.0",
-    "winston": "0.7.3"
+    "winston": "^1.0.1"
   },
   "devDependencies": {
     "nodeunit": "0.6.4",
