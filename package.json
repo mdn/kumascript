@@ -14,7 +14,7 @@
     "test": "./node_modules/.bin/nodeunit tests"
   },
   "engines": {
-    "node": "0.10.26"
+    "node": "0.10.36"
   },
   "directories": {
     "lib": "./lib"
@@ -24,7 +24,7 @@
     "ejs": "0.6.1",
     "express": "2.5.6",
     "feedparser": "0.16.6",
-    "fibers": "1.0.1",
+    "fibers": "^1.0.6",
     "firelogger": "0.1.0",
     "hirelings": "0.4.3",
     "http-proxy": "0.8.1",
