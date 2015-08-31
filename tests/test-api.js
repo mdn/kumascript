@@ -104,7 +104,7 @@ module.exports = {
     // Kill all the servers on teardown.
     tearDown: function (next) {
         this.server.close();
-        this.test_server.close();
+        this.test_server._kumascript_listener.close();
         next();
     },
 
