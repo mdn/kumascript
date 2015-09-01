@@ -15,7 +15,7 @@
   "main": "./lib/kumascript/index",
   "scripts": {
     "start": "./run.js",
-    "test": "./node_modules/.bin/nodeunit tests"
+    "test": "npm rebuild && ./node_modules/.bin/nodeunit tests"
   },
   "engines": {
     "node": "0.10.36"
