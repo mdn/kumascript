@@ -49,7 +49,7 @@ module.exports = nodeunit.testCase({
     tearDown: function (next) {
         try {
             this.server.close();
-            this.test_server.close();
+            this.test_server._kumascript_listener.close();
         } catch (e) { /* no-op */ }
         next();
     },
@@ -206,7 +206,7 @@ module.exports = nodeunit.testCase({
         var $this = this;
 
         // Induce error condition by closing down the test server.
-        $this.test_server.close();
+        $this.test_server._kumascript_listener.close();
         var expected_err = 'Problem fetching source document: connect ECONNREFUSED';
 
         var req_opts = {
