@@ -104,7 +104,7 @@ Transaction.prototype.applyUserNamingRules = function applyUserNamingRules(reque
   if (normalizer.isIgnored(requestUrl)) this.ignore = true
   // User rules take precedence over the API and router introspection.
   // Only override names set via API if rules match.
-  if (normalizer.isNormalized(requestUrl)) {
+  if (normalizer.canNormalize(requestUrl)) {
     this.partialName = NAMES.NORMALIZED + normalizer.normalize(requestUrl)
   }
 }
@@ -148,7 +148,7 @@ Transaction.prototype.setName = function setName(requestURL, statusCode) {
   this.name = this.agent.txSegmentNormalizer.normalize(this.name)
 
   // Allow the API to explicitly set the ignored status.
-  if (this.forceIgnore === true || this.forceIgnore === false) {
+  if (this.forceIgnore !== null) {
     this.ignore = this.forceIgnore
   }
 }
@@ -161,7 +161,7 @@ Transaction.prototype.setBackgroundName = function setBackgroundName(name, group
   if (normalizer.isIgnored(fullName)) this.ignore = true
   this.name = normalizer.normalize(fullName)
 
-  if (this.forceIgnore === true || this.forceIgnore === false) {
+  if (this.forceIgnore !== null) {
     this.ignore = this.forceIgnore
   }
 }
