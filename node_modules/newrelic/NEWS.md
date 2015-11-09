@@ -1,3 +1,32 @@
+### v1.22.2 (2015-10-14):
+
+* Removed client support of the RC4 stream cipher for communicating with the New
+  Relic servers.
+
+  The RC4 cipher is considered unsafe and is generally being deprecated.
+
+* Fix for logging version number in Express instrumentation.  Thanks @tregagnon.
+
+  When an unsupported version of Express is detected, we log a message that
+  contains the Express version number.  The version is a string and was being
+  logged as a number, resulting in NaN in the log message.
+
+* Agent is now more safe when recording memory stats.
+
+  Previously, the agent would crash the process as it was gathering memory usage
+  information (i.e. when process.memoryUsage threw an error). This defect is now
+  guarded against with a try-catch.
+
+### v1.22.1 (2015-08-20):
+
+* Express and Connect instrumentation will no longer crash on Node 4
+
+  As of ES6, the `Function.name` attribute will track if the function
+  is a getter/a setter/is bound to (i.e. `fn.bind().name ->` `'bound ' +
+  fn.name`).  This new behavior caused the agent to crash on start up due to the
+  way connect and express are instrumented.  The agent is now more defensive of
+  future implementations of ES6.
+
 ### v1.22.0 (2015-08-20):
 
 * Errors will now respect its transaction's ignore state.

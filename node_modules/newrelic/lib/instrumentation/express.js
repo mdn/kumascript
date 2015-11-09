@@ -32,6 +32,9 @@ var RESERVED = [ // http://es5.github.io/#x7.6.1.2
  * @returns {string} A safe (potentially mangled) function name.
  */
 function mangle(name) {
+  var parts = name.split(' ')
+  name = parts[parts.length - 1]
+
   if (RESERVED.indexOf(name) !== -1) return name + '_'
 
   return name
@@ -622,7 +625,7 @@ module.exports = function initialize(agent, express) {
       }
       break
     default:
-      logger.warn("Unrecognized version %d of Express detected; not instrumenting",
+      logger.warn("Unrecognized version %s of Express detected; not instrumenting",
                   version)
   }
 }
