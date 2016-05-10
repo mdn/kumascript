@@ -7,8 +7,9 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends python2.7 build-essential nodejs npm
 RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
-WORKDIR /app
-COPY . /app
+ENV NODE_PATH=/node_modules
+COPY package.json /
 RUN npm install
 
-
+WORKDIR /app
+COPY . /app
