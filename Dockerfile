@@ -11,5 +11,6 @@ ENV NODE_PATH=/node_modules
 COPY package.json /
 RUN npm install
 
+CMD ["node", "run.js"]
 WORKDIR /app
 COPY . /app
