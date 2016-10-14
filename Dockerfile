@@ -14,3 +14,5 @@ RUN npm install
 CMD ["node", "run.js"]
 WORKDIR /app
 COPY . /app
+
+EXPOSE 9080
