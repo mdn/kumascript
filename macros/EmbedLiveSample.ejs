@@ -1,0 +1,50 @@
+<%
+// Embeds a live sample given the ID of its header block.
+//
+// Parameters:
+//  $0 - The ID of the header block containing the sample
+//  $1 - The width of the iframe (optional)
+//  $2 - The height of the iframe (optional)
+//  $3 - The url of a screenshot of the sample working as intended (optional)
+//  $4 - The slug from which to load the sample (optional; current page used if not provided)
+//  $5 - The class name of the frame; defaults to "sample-code-frame"
+//
+// See also : LiveSampleLink
+ 
+var str = "";
+var sampleUrl = "";
+
+var className = $5|| "sample-code-frame";
+
+if ($4) {
+    sampleUrl = "https://developer.mozilla.org/" + env.locale + "/docs";
+    if ($4.charAt(0) != "/") {
+        sampleUrl += "/";
+    }
+    sampleUrl += $4;
+}
+
+sampleUrl = Web.spacesToUnderscores(sampleUrl);
+ 
+var widthHeight = "";
+if ($1) {
+    widthHeight = "width='" + $1 + "' ";
+}
+if ($2) {
+    widthHeight += "height='" + $2 + "' ";
+}
+
+var liveSample = '<iframe class="live-sample-frame ' + className +'" id="frame_'+ $0 +'" frameborder="0" ' + widthHeight + 'src="' + template('LiveSampleURL', [$0, sampleUrl]) + '"></iframe>';
+if ($3 && ($3.length > 0)) {
+    str += '<table class="sample-code-table"><thead><tr>';
+    str += '<th scope="col" style="text-align: center;">Screenshot</th>';
+    str += '<th scope="col" style="text-align: center;">Live sample</th>';
+    str += '</tr></thead><tbody><tr>';
+    str += '<td><img alt="" class="internal" src="' + $3 + '" /></td>';
+    str += '<td>' + liveSample + '</td>';
+    str += '</tr></tbody></table>';
+} else {
+    str += liveSample;
+}
+%>
+<%- str %>
