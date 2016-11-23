@@ -1,0 +1,24 @@
+<%/*
+See also:
+    https://developer.mozilla.org/en-US/docs/Template:TranslationInProgress
+    https://developer.mozilla.org/en-US/docs/Template:未翻訳
+
+このテンプレートの引数
+    $0 : 「このページは翻訳中です。<br />」の後に追加される文言 (Optional / 初期値: "翻訳作業に参加する場合は、履歴にある翻訳者と連絡·調整してください。")
+
+※このテンプレートを用いて数年以上間放置しているページが散見されます。
+連絡の手間が新規参入者の障壁となる可能性がある為、極力、このテンプレートの代わりに
+translationInProgress をご利用下さい。こちらは以下の文言を出力します：
+
+    「この文書は翻訳中です。他国語のままの部分などがあるのはその為です。<br />是非お気軽に MDN に登録して翻訳に参加し、私たちの手助けをして下さい！」
+*/
+
+
+
+// マクロに第一引数が指定されていない場合、この文言がデフォルトで追加されます。
+var str = $0 || "翻訳作業に参加する場合は、履歴にある翻訳者と連絡·調整してください。";
+
+
+%><div class="overheadIndicator translationInProgress translationInProgressHeader">
+    <p>このページは翻訳中です。<br /><%- str %></p> 
+</div>
