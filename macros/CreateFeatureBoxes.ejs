@@ -1,0 +1,76 @@
+<%
+// Creates a set of feature boxes, given a list of pages.
+//
+// Parameters:
+//
+//  $0  A string describing the boxes to create
+//
+// The descriptor string format is:
+//
+// path|title|text|fa-character|image||...
+//
+// Where:
+//
+//  path: The path of the target page
+//
+//  title: A title to give the box. Specify "*" to use the page's title
+//
+//  text: The text to place in the box. Specify "*" to use the page's SEO summary
+//
+//  fa-character: A Font Awesome character to use to adorn the box; optional --
+//                to leave out, just use "*"
+//
+//  image: The URL of an image to use in the box -- sized to fill the box; optional
+//
+
+var numBoxes = 0;
+var descList = $0.split("||");      // Each entry is one box's descriptor
+
+// Set up the start of the boxes' HTML
+
+var featureBoxes = "<ul class='card-grid'>";
+
+// Iterate over each descriptor, building the boxes
+
+for (var i=0; i<descList.length; i++) {
+    var params = descList[i].split("|");     // Get each parameter
+    var path = params[0];
+    var title = params[1];
+    var text = params[2];
+    var faChar = params[3];
+    var image = params[4];
+    var imageElem = "";
+    var hasImage = false;
+    var extraClass = "";
+    
+    // Handle the Font Awesome character
+    
+    if (faChar != "*") {
+        faChar = "<i class='" + faChar + "'></i> ";
+    } else {
+        faChar = "";
+    }
+    
+    // Set up the string for the background attribute
+    
+    if (image != "*") {
+        imageElem = "<img src='" + image + "'>";
+        extraClass = " class='double-card'";
+        hasImage = true;
+    }
+    
+    // Pull the page summary if text is "*"
+    
+    if (text == "*") {
+        var page = wiki.getPage(path);
+        text = page.summary;
+    }
+    
+    featureBoxes += "<li" + extraClass + ">" + imageElem + "<span>" + faChar + "<a href='" + path + "'>" + " " + title + "</a></span><p>" + text + "</p></li>";
+}
+
+// Finish out the grid
+
+featureBoxes += "</ul>";
+%>
+<%-featureBoxes%>
