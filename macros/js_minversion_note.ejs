@@ -1,0 +1,67 @@
+<% 
+/* first parameter: JavaScript version */
+/* second parameter: note */
+
+/* get the page language */
+var u = uri.parts(Page.uri);
+var lang = string.tolower(u.path[0]);
+
+if (string.contains(lang, "project")) {
+    lang = string.substr(lang, 8);
+}
+
+/* fall back to page.language on a user page */
+else if (string.StartsWith(lang, "user:")) {
+    lang = page.language;
+}
+
+var link = '';
+
+/* check if English 'New in JavaScript/$0' page exists for fallback */
+if(wiki.pageExists('/en-US/docs/JavaScript/New_in_JavaScript/' + $0)) {
+    link = web.link(wiki.uri('/en-US/docs/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+} else {
+    link = 'JavaScript ' + $0;
+}
+
+var str = link + ' note';
+
+switch(lang) {
+    case 'fr':
+        if(wiki.pageExists(lang + '/en-US/docs/JavaScript/Nouveautés_dans_JavaScript/' + $0)) {
+            link = web.link(wiki.uri(lang + '/en-US/docs/JavaScript/Nouveautés_dans_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists(lang + '/docs/Nouveautés_dans_JavaScript_' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/Nouveautés_dans_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = link + ' note';
+        break;
+    case 'ja':
+        if(wiki.pageExists(lang + '/docs/JavaScript/New_in_JavaScript/' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists(lang + '/docs/New_in_JavaScript_' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/New_in_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = link + " における注記";
+        break;
+    case 'pl':
+        if(wiki.pageExists(lang + '/docs/JavaScript/Nowości_w_JavaScript/' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/JavaScript/Nowości_w_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists(lang + '/docs/Nowości_w_JavaScript_' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/Nowości_w_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = "Uwaga dla " + link;
+        break;
+    case 'zh-TW':
+        str = link + " 附註";
+        break;
+    case 'ru':
+        str = link + ' замечание';
+        break;
+    default: break;
+}
+
+
+%><div class="blockIndicator standardNote standardNoteBlock">
+    <p><%- (web.html(str)) %></p>
+    <p style="font-weight:400;"><%- (web.html($1)) %></p>
+</div>
