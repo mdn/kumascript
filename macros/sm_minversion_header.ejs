@@ -1,0 +1,65 @@
+<%
+/*
+<p>One of the <a title="Project:en/Custom_Templates#Version_information_templates" 
+href="/Project:en/Custom_Templates#Version_information_templates">Version information templates</a>.
+For example: <span class="script">Sm_minversion_header("2")</span></p>
+<p>This template should be used when the content of the whole page or section applies to SeaMonkey
+version N or higher. For individual items in a list or a table use 
+<a title="Template:fx_minversion_inline" href="/Template:fx_minversion_inline">Template:sm minversion inline</a>.</p>
+*/
+
+/* one parameter:  SeaMonkey version */
+
+/* get the page language */
+var lang = env.locale;
+
+var articleName = "SeaMonkey " + $0 + " for developers";
+var text = "This article covers features introduced in " + web.link(web.spacesToUnderscores(wiki.uri(articleName)), "SeaMonkey " + $0);
+
+switch(lang) {
+  case 'de':
+    articleName = "SeaMonkey " + $0 + " für Entwickler";
+    text = "Dieser Artikel umfasst Features die in " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0) + " eingeführt wurden";
+    break;
+  case 'es':
+    articleName = "SeaMonkey " + $0 + " para desarrolladores";
+    text = "Este artículo cubre características introducidas en " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
+  case 'fr':
+    articleName = "SeaMonkey " + $0 + " pour les développeurs";
+    text = "Cet article traite de fonctionnalités introduites dans " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
+  case 'ja':
+    articleName = "SeaMonkey " + $0 + " for developers";
+    text = "この記事は " + web.link(wiki.uri(web.spacesToUnderscores(lang + '/docs/' + articleName)), "SeaMonkey " + $0) + "  の新機能について述べています";
+    break;
+  case 'ko':
+    articleName = "SeaMonkey " + $0 + " for developers";
+    text = "이 문서는 SeaMonkey 개발자들을 위한 정보입니다. " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
+  case 'pl':
+    articleName = "SeaMonkey " + $0 + " dla programistów";
+    text = "Ten artykuł obejmuje funkcje wprowadzone w " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
+  case 'pt':
+    articleName = "SeaMonkey " + $0 + " para desenvolvedores";
+    text = "Este artigo cobre características introduzidas no " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
+  case 'zh-cn':
+    articleName = "SeaMonkey " + $0 + " for developers";
+    text = "该条目记录了 " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0) + " 引入的新特性";
+    break;
+  case 'zh-tw':
+    articleName = "SeaMonkey " + $0 + " 技術文件";
+    text = "本文描述 " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0) + " 之後加入的功能。";
+    break;
+  case 'ru':
+    articleName = "SeaMonkey " + $0 + " для разработчиков";
+    text = "Статья покрывает возможности, представленные в " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
+}
+%>
+
+<div class="overheadIndicator smMinVerHeader standardNote">
+  <p><%- text %></p>
+</div>
