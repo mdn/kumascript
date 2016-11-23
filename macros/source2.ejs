@@ -1,0 +1,12 @@
+<%
+// Insert a link to a file in the mozilla-central source repository,
+// with the link text being just the specified text instead of the
+// full URL.
+//
+//  $0 - File to link to
+//  $1 - (OPTIONAL) text for the link
+
+var url = "https://dxr.mozilla.org/mozilla-central/source/" + $0;
+var text = $0;
+%>
+<a rel="custom" href="<%=url%>"><%=text%></a>
