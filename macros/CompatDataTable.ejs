@@ -1,0 +1,180 @@
+<%
+
+// TODO
+// Find a way to call CompatGeckoDesktop
+// CompatNightly case not handled yet.
+
+var lang = env.locale;
+var slug = env.slug;
+var test = log.debug;
+var localize = mdn.getLocalString;
+var notesCollection = [];
+var compatStrings = string.deserialize(template("L10n:CompatTable"));
+
+var desktopBrowsers = [
+  "Chrome",
+  "Edge",
+  "Firefox",
+  "Internet Explorer",
+  "Opera",
+  "Safari",
+  "Servo"
+];
+var mobileBrowsers = [
+  "Android",
+  "Chrome for Android",
+  "Edge Mobile",
+  "Firefox for Android",
+  "IE Mobile",
+  "Opera Mobile",
+  "Safari Mobile"
+];
+
+function getSupportString(browser, support) {
+  var output = support;
+  if (support === true) {
+    output = '<span style="color: #888">(' + localize(compatStrings, "supportsShort_yes") + ')</span>';
+  }
+  if (support === false) {
+    output = '<span style="color:#f00;">' + localize(compatStrings, "supportsLong_no") + '</span>';
+  }
+  if (support === null) {
+    output = '<span title="' + localize(compatStrings, "supportsShort_unknown_title");
+    output += '" style="color: rgb(255, 153, 0);">';
+    output += localize(compatStrings, "supportsShort_unknown") + '</span>';
+  }
+  /*if (browser === "Firefox" && typeof support === "string") {
+    output = compatGeckoDesktop([support);
+  }*/
+  return output;
+}
+
+function writeTableHead(environment, browserNames) {
+  var output = '<div id="compat-' + environment + '">' +
+               '<table class="compat-table">' +
+               '  <thead>' +
+               '    <tr>' +
+               '      <th>' + localize(compatStrings, "feature") + '</th>';
+  for (var i = 0; i < browserNames.length; i++) {
+    output += '      <th>' + browserNames[i] + '</th>\n';
+  }
+  output   +=  '    </tr>' +
+               '  </thead>';
+  return output;
+}
+
+function writeTableCells(environment, data, mode) {
+    
+
+  function processNotes(notesArray, accumulatedNotes) {
+    
+    function getExistingNote(noteContent, notesCollection) {
+      for (var i = 0; i < notesCollection.length; i++) {
+        var note = notesCollection[i];
+        if (note.content == noteContent) {
+          return i;
+        }
+      }
+      return -1;
+    }
+
+    var output = "";
+    if (!notesArray) {
+      return output;
+    }
+    for (var j = 0; j < notesArray.length; j++) {
+      if (output) {
+        output += "<sup>,</sup>";
+      }
+      var note = notesArray[j];
+      // if this note exists already
+      var existingNoteIndex = getExistingNote(note, accumulatedNotes);
+      if (existingNoteIndex != -1) {
+        // then just link to the existing note
+        var existingNote = accumulatedNotes[existingNoteIndex];
+        output += '<a href="#' + existingNote.anchor + '"><strong><sup>' +
+                   (existingNoteIndex + 1) + '</sup></strong></a>';
+      } else {
+        // otherwise, create a new note, and link to it
+        var noteIndex = accumulatedNotes.length + 1;
+        var id = "note-" + noteIndex;
+        output += '<a href="#' + id + '"><strong><sup>' + noteIndex + '</sup></strong></a>';
+        
+        var newNote = {
+          anchor: id,
+          content: note
+        }
+        accumulatedNotes.push(newNote);
+      }
+    }
+    return output;
+  }    
+    
+  var output = '<tbody>';
+  for (var prop in data) {
+    output += '<tr>';
+    if (prop === "Basic support") {
+      output += '<td>' + localize(compatStrings, "feature_basicsupport") + '</td>';
+    } else if (prop !== "status") {
+      output += '<td>' + prop + '</td>';
+    }
+    var compatData = data[prop];
+    if (mode === "module") {
+      compatData = data[prop]["Basic support"];
+    }
+    for (var browser in compatData) {
+       if ( (environment === "desktop" && desktopBrowsers.indexOf(browser) !== -1) ||
+            (environment === "mobile" && mobileBrowsers.indexOf(browser) !== -1) ) {
+         output += '<td>' + getSupportString(browser, compatData[browser].support);
+         if (compatData[browser].notes) {
+             output += processNotes(compatData[browser].notes, notesCollection);
+         }
+         output += '</td>';
+       }
+    }
+    output += '</tr>';
+  }
+
+  output   += '</tbody>';
+  return output;
+}
+
+function writeNotes(notesCollection) {
+  var output = "";
+  if (!notesCollection.length) {
+      return "";
+  }
+  for (var i = 0; i < notesCollection.length; i++) {
+    var note = notesCollection[i];
+    output += '<p id="' + note.anchor + '">' + (i+1) + '. ' + note.content + '</p>';
+  }
+  return output;
+}
+
+function createTable(compatData, mode) {
+  var output = '<div class="htab">';
+  output += '<a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>';
+  output += '<ul>';
+  output += '<li class="selected"><a href="javascript:;">' + localize(compatStrings, "browserType_desktop") + '</a></li>';
+  output += '<li><a href="javascript:;">' + localize(compatStrings, "browserType_mobile") + '</a></li>';
+  output += '</ul>';
+  output += '</div>';
+  output += writeTableHead("desktop", desktopBrowsers);
+  output += writeTableCells("desktop", compatData, mode);
+  output += '</table></div>';
+  output += writeTableHead("mobile", mobileBrowsers);
+  output += writeTableCells("mobile", compatData, mode);
+  output += '</table></div>';
+  output += writeNotes(notesCollection);
+  return output;
+}
+
+var output = "";
+if ($0) {
+  output = createTable($0, $1);
+} else {
+  output = 'No compatibility data found. Please contribute data for "' + env.title + '" to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.';
+}
+
+%>
+<%-output%>
