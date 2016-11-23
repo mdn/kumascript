@@ -1,0 +1,16 @@
+<%
+// Used by the documentation for the XUL "min" attribute at
+// https://developer.mozilla.org/en-US/docs/XUL/Attribute/min
+// to show a "Firefox 3" minimum version badge if and only
+// if the template is being used in the page for "textbox".
+//
+// Parameters:
+//
+//  $0 - Page slug being displayed on
+
+var html = "";
+
+if ($0.indexOf("textbox") != -1) {
+    template("gecko_minversion_inline", [1.9]);
+}
+%>
