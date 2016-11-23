@@ -1,0 +1,36 @@
+<%
+
+var str_title = mdn.localString({
+    "en-US" : "Web technology for game developers",
+    "ja" : "ゲーム開発者向けウェブ技術",
+    "ru" : "Веб-технологии для разработчиков игр"
+});
+
+var el = env.locale;
+
+
+%><div class="horizFlexboxContainer">
+  <div class="smallTextMultiColumnBoxHeading"><%- str_title %></div>
+  <div class="smallTextMultiColumnBoxList">
+    <ul>
+      <li><a href="/<%- el %>/docs/DOM/File_API">File API</a></li>
+      <li><a href="/<%- el %>/docs/DOM/Using_fullscreen_mode">Full Screen API</a></li>
+      <li><a href="/<%- el %>/docs/API/Gamepad/Using_Gamepad_API">Gamepad API</a></li>
+      <li><a href="/<%- el %>/docs/CSS">CSS</a></li>
+      <li><a href="/<%- el %>/docs/HTML/Element/audio">HTML audio</a></li>
+      <li><a href="/<%- el %>/docs/IndexedDB">IndexedDB</a></li>
+      <li><a href="/<%- el %>/docs/JavaScript">JavaScript</a></li>
+      <li><a href="/<%- el %>/docs/WebAPI/Pointer_Lock">Pointer Lock API</a></li>
+      <li><a href="/<%- el %>/docs/SVG">SVG</a></li>
+      <li><a href="/<%- el %>/docs/JavaScript/Typed_arrays">Typed Arrays</a></li>
+      <li><a href="/<%- el %>/docs/Web_Audio_API">Web Audio API</a></li>
+      <li><a href="/<%- el %>/docs/HTML/Canvas">Canvas</a></li>
+      <li><a href="/<%- el %>/docs/WebGL">WebGL</a></li>
+      <li><a href="/<%- el %>/docs/WebRTC">WebRTC</a></li>
+      <li><a href="/<%- el %>/docs/WebSockets">WebSockets</a></li>
+      <li><a href="/<%- el %>/docs/DOM/Using_web_workers">Web Workers</a></li>
+      <li><a href="/<%- el %>/docs/DOM/XMLHttpRequest">XMLHttpRequest</a></li>
+    </ul>
+  </div>
+  </div>
+</div>
