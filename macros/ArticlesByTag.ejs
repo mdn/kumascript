@@ -1,0 +1,98 @@
+<%
+// ArticlesByTag produce a list of article based on tags and URL filters
+// By default, articles are extracted from the /Learn, /docs/Web/Guide and /docs/Web/Tutorial sections of MDN
+//
+// Param:
+// $0 : A tag to filter the list of articles
+//      or a configuration object with the following properties:
+//      * urls: (optional) An Array of URL prefixes (starting with / without the local) that the articles must match
+//      * tags: An Array of tags articles must have to get in the list. If a tag is prefixe with "!" it means articles
+//              must NOT have that tag
+//      * recursive: (optional) A boolean indicating if articles must be search deeply into the URL tree. Default: false
+
+
+// L10N
+// ----------------------------------------------------------------------------
+var l10n = {
+    noArticles : mdn.localString({
+        "en-US": "There have been no articles written yet. <a href=\"/en-US/docs/MDN/Getting_started\">Please consider contributing</a>.",
+        "fr"   : "Aucun article n'a encore été écrit ou traduit. <a href=\"/fr/docs/MDN/Débuter_sur_MDN\">N'hésitez pas à contribuer.</a>",
+        "ru"   : "Вы ещё не написали статей. <a href=\"/ru/docs/MDN/Getting_started\">Пожалуйста, посмотрите о вкладе</a>."
+    }),
+    rootLearn : mdn.localString({
+        "en-US": '/Learn',
+        "fr"   : '/Apprendre',
+        "bn-BD": '/docs/Learn'
+    }),
+    rootGuide : mdn.localString({
+        "en-US": '/docs/Web/Guide',
+        "fr"   : '/docs/Web/Guide',
+        "bn-BD": '/docs/Web/Guide'
+    }),
+    rootTutorials : mdn.localString({
+        "en-US": '/docs/Web/Tutorials',
+        "fr"   : '/docs/Web/Tutoriels',
+        "bn-BD": '/docs/Web/Tutorials'
+    })
+}
+
+
+// ENVIRONEMENT
+// ----------------------------------------------------------------------------
+var ARTICLES  = [];
+var DEEP      = $0.recursive ? null : 1;
+var TAGS      = $0.tags && Array.isArray($0.tags) ? $0.tags : [$0];
+var URL_ROOTS = $0.urls && Array.isArray($0.urls) ? $0.urls : [
+    l10n.rootLearn,
+    l10n.rootGuide,
+    l10n.rootTutorials
+];
+
+
+// PAGE LOGIC EXTRACTION
+// ----------------------------------------------------------------------------
+URL_ROOTS.forEach(function (root) {
+    var url = '/' + env.locale + root;
+    var pages = page.subPagesFlatten(page.subpagesExpand(url, DEEP)).forEach(function (p) {
+        var self  = env.url.indexOf(p.url) > -1;
+        var match = !self && TAGS.every(function (t) {
+            if (t.indexOf("!") === 0) {
+                return !page.hasTag(p, t.substr(1));
+            }
+
+            return page.hasTag(p, t);
+        });
+
+        if (match) {
+            ARTICLES.push({
+                title   : p.title,
+                url     : p.url,
+                summary : p.summary
+            });
+        }
+    });
+});
+
+// DISPLAY THE LIST OF ARTICLES
+// ----------------------------------------------------------------------------
+if (ARTICLES.length > 0) {
+    ARTICLES.sort(function (a,b) {
+        return a.title.localeCompare(b.title);
+    });
+
+%>
+<dl>
+<%
+    for (n in ARTICLES) {
+%>
+    <dt><a href="<%= ARTICLES[n].url %>"><%- ARTICLES[n].title %></a></dt>
+    <dd><%- ARTICLES[n].summary %></dd>
+<%
+    }
+%>
+</dl>
+<%
+} else {
+%><p><em><%- l10n.noArticles %></em></p><%
+}
+%>
