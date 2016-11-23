@@ -1,0 +1,54 @@
+<%
+var el = env.locale;
+
+switch (el) {
+
+    case "ja" :
+
+%><tr>
+  <td><code>width</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>文書の可視領域幅</td>
+</tr>
+<tr>
+  <td><code>height</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>文書の可視領域高</td>
+</tr>
+<tr>
+  <td><code>x</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>文書の可視領域の左端からの座標</td>
+</tr>
+<tr>
+  <td><code>y</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>文書の可視領域の上端からの座標</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>width</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>The width of the visible region of the document.</td>
+</tr>
+<tr>
+  <td><code>height</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>The height of the visible region of the document.</td>
+</tr>
+<tr>
+  <td><code>x</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>The X coordinate of the left edge of the visible region of the document.</td>
+</tr>
+<tr>
+  <td><code>y</code> <%-template("readOnlyInline")%></td>
+  <td>long (int)</td>
+  <td>The Y coordinate of the top edge of the visible region of the document.</td>
+</tr><%
+
+        break;
+} %>
