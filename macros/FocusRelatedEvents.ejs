@@ -1,0 +1,32 @@
+<%
+
+var el = env.locale;
+var path = "/" + el + "/docs/";
+
+path += mdn.localString({
+    "ja" : "Web/Reference/Events/",
+    "en-US" : "Web/Reference/Events/"
+});
+
+switch (el) {
+
+    case "ja":
+
+%><ul>
+<li><a href="<%- path %>focus"><code>focus</code></a></li>
+<li><a href="<%- path %>blur"><code>blur</code></a></li>
+<li><a href="<%- path %>focusin"><code>focusin</code></a></li>
+<li><a href="<%- path %>focusout"><code>focusout</code></a></li>
+</ul><%
+
+        break;
+    default:
+
+%><ul>
+<li><a href="/en-US/docs/Web/Reference/Events/focus"><code>focus</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/blur"><code>blur</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/focusin"><code>focusin</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/focusout"><code>focusout</code></a></li>
+</ul><%
+
+} %>
