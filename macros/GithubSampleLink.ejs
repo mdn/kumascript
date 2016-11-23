@@ -1,0 +1,27 @@
+<%
+// Creates a link to the specified server code sample in the MDN
+// Sample Server repository on Github.
+//
+// Parameters:
+//  $0  The name of the sample
+//  $1  The link text (optional)
+//  $2  Relative path of the specific file to link to (optional)
+//
+
+// urlRoot is the link to the base directory under which all the samples
+// live.
+
+var urlRoot = "https://github.com/mdn/samples-server/tree/master/s/";
+
+// Build the URL to the sample
+
+var url = urlRoot + $0;
+var text = $1 || $2 || $0;
+
+if ($2 != undefined && $2 && $2.length != 0) {
+    url += "/" + $2;
+}
+
+var html = "<a href='" + url + "'>" + text + "</a>";
+%>
+<%-html%>
