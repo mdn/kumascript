@@ -1,0 +1,93 @@
+<%
+/*
+ * first parameter: inline/header/note
+ * second parameter: Thunderbird version
+ * third parameter: additional information required for the type specified by the first parameter
+ *   note requires the note to display
+*/
+var lang = env.locale;
+
+var version = $1.replace(/\.0/,'');
+
+var articleName = "Thunderbird " + version + " for developers";
+var text = "This article covers features introduced in " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+var note = "Thunderbird " + version + " note";
+var newIn = "New in ";
+
+switch(lang){
+    case 'de':
+		articleName = "Thunderbird " + version + " für Entwickler";
+		text = "Dieser Artikel umfasst Features die in " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version) + " eingeführt wurden";
+		note = "Hinweis zu Thunderbird " + version;
+		newIn = "Neu in ";
+		break;
+	case 'es':
+		articleName = "Thunderbird " + version + " para desarrolladores";
+		text = "Este artículo cubre características introducidas en " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+		note = "Nota sobre Thunderbird " + version;
+		newIn = "Nuevo en ";
+	    break;
+	case 'fr':
+		articleName = "Thunderbird " + version + " pour les développeurs";
+		text = "Cet article traite de fonctionnalités introduites dans " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+		note = "Note concernant Thunderbird " + version;
+		newIn = "Nouveau dans ";
+	    break;
+	case 'ja':
+		articleName = "Thunderbird " + version + " for developers";
+		text = "この記事は " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version) + "  の新機能について述べています";
+		note = "Thunderbird " + version + " における注記";
+	    break;
+	case 'ko':
+		articleName = "Thunderbird " + version + " for developers";
+		text = "이 문서는 Thunderbird 개발자들을 위한 정보입니다. " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+	    break;
+	case 'pl':
+		articleName = "Thunderbird " + version + " dla programistów";
+		text = "Ten artykuł obejmuje funkcje wprowadzone w " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+		note = "Uwaga dotycząca Firefoksa " + version;
+		newIn = "Nowość w ";
+    	break;
+	case 'pt':
+		articleName = "Thunderbird " + version + " para desenvolvedores";
+		text = "Este artigo cobre características introduzidas no " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+		newIn = "Novidade no ";
+	    break;
+	case 'ru':
+		articleName = "Thunderbird " + version + " для разработчиков";
+        text = "Эта статья покрывает возможности, представленные в " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+		newIn = "Нововведение в ";
+        note = "Замечание по Thunderbird " + version;
+	    break;
+	case 'zh-CN':
+		articleName = "Thunderbird " + version + " for developers";
+		text = "该条目记录了 " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version) + " 引入的新特性";
+	    break;
+	case 'zh-TW':
+		articleName = "Thunderbird " + version + " 技術文件";
+		text = "本文描述 " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version) + " 之後加入的功能。";
+	    break;
+	default: break;
+}
+ 
+switch($0) {
+	case 'inline':
+	%><span class="inlineIndicator tbMinVer standardNote standardNoteInline">
+	  <%=newIn%>
+	  <%- web.link(wiki.uri(lang + '/' + articleName), "Thunderbird " + version) %>
+	  </span><%
+	    break;
+	case 'header':
+	%><div class="overheadIndicator tbMinVer standardNote">
+	  <p><%-text%></p>
+	  </div><%
+	    break;
+	case 'note':
+	%><div class="overheadIndicator tbMinVer standardNote">
+	  <p><%- web.link(wiki.uri(lang + '/' + articleName), note) %></p>
+	  <p style="font-weight:400;"><%-$2%></p>
+	  </div><%
+	    break;
+    default: break;
+}
+%>
