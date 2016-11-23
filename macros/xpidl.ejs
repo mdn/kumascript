@@ -1,0 +1,10 @@
+<%
+// Insert a link to the XPIDL doc for the specified term
+//
+//  $0 - XPIDL term to link to
+
+var lang = env.locale;
+
+var target = "/" + lang + "/docs/XPIDL/Syntax#" + $0;
+%>
+<a href="<%=target%>"><%=$0%></a>
