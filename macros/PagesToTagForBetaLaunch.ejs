@@ -1,0 +1,105 @@
+<%
+/* List pages to tag */
+
+function containsTag(tagList, tag) {
+    if (!tagList || tagList == undefined) return 0;
+    tag = tag.toLowerCase();
+    for (var i = 0, len = tagList.length; i < len; i++) {
+        if (tagList[i].toLowerCase() === tag) return 1;
+    }
+    return 0;
+}
+
+
+// We want to be sure that every page below Web/CSS has 'CSS' on them
+%>
+<h2>Pages missing the 'CSS' tag</h2>
+<ol><%
+var CSSpageList = page.subpagesExpand("/en-US/docs/Web/CSS");
+for (aPage in CSSpageList) {
+        if (!containsTag(CSSpageList[aPage].tags, "CSS")) { 
+%>
+   <li><%-CSSpageList[aPage].url + ' (<a href="'+CSSpageList[aPage].url+'">'+CSSpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+
+// We want to be sure that every page below Web/HTML has 'HTML' on them
+%>
+</ol>
+<h2>Pages missing the 'HTML' tag</h2>
+<ol><%
+var HTMLpageList = page.subpagesExpand("/en-US/docs/Web/HTML");
+for (aPage in HTMLpageList) {
+        if (!containsTag(HTMLpageList[aPage].tags, "HTML")) { 
+%>
+    <li><%-HTMLpageList[aPage].url + ' (<a href="'+HTMLpageList[aPage].url+'">'+HTMLpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+
+// We want to be sure that every page below Web/API has 'API' on them
+%>
+</ol>
+<h2>Pages missing the 'API' tag</h2>
+<ol><%
+var APIpageList = page.subpagesExpand("/en-US/docs/Web/API");
+for (aPage in APIpageList) {
+        if (!containsTag(APIpageList[aPage].tags, "API")) { 
+%>
+   <li><%-APIpageList[aPage].url + ' (<a href="'+APIpageList[aPage].url+'">'+APIpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+%>
+</ol>
+<h2>Pages missing the 'SVG' tag</h2>
+<ol><%
+var SVGpageList = page.subpagesExpand("/en-US/docs/Web/SVG");
+for (aPage in SVGpageList) {
+        if (!containsTag(SVGpageList[aPage].tags, "SVG")) { 
+%>
+   <li><%-SVGpageList[aPage].url + ' (<a href="'+SVGpageList[aPage].url+'">'+SVGpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+%>
+</ol>
+<h2>Pages missing the 'JavaScript' tag</h2>
+<ol><%
+var JSpageList = page.subpagesExpand("/en-US/docs/Web/JavaScript");
+for (aPage in JSpageList) {
+        if (!containsTag(JSpageList[aPage].tags, "JavaScript")) { 
+%>
+   <li><%-JSpageList[aPage].url + ' (<a href="'+JSpageList[aPage].url+'">'+JSpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+%>
+</ol>
+<h2>Pages missing the 'MathML' tag</h2>
+<ol><%
+var MLpageList = page.subpagesExpand("/en-US/docs/Web/MathML");
+for (aPage in MLpageList) {
+        if (!containsTag(MLpageList[aPage].tags, "MathML")) { 
+%>
+   <li><%-MLpageList[aPage].url + ' (<a href="'+MLpageList[aPage].url+'">'+MLpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+%>
+</ol>
+<h2>Pages missing the 'Method' or 'Property' tag</h2>
+<ol><%
+var MLpageList = page.subpagesExpand("/en-US/docs/Web/API");
+for (aPage in MLpageList) {
+        if ((MLpageList[aPage].title.indexOf('.') != -1) &&
+            !containsTag(MLpageList[aPage].tags, "Property")&&
+            !containsTag(MLpageList[aPage].tags, "Method")) { 
+%>
+   <li><%-MLpageList[aPage].url + ' (<a href="'+MLpageList[aPage].url+'">'+MLpageList[aPage].title+'</a>)'%></li>
+<%
+    }
+}
+%>
+</ol>
