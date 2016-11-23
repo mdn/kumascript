@@ -1,0 +1,47 @@
+<%
+/*
+    Parameter : none;
+*/
+
+var el = env.locale;
+
+switch (el) {
+    case "ja":
+
+%><tr>
+  <td><code>mozChannels</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>チャンネル数</td>
+</tr>
+<tr>
+  <td><code>mozSampleRate</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>秒毎のサンプルレート</td>
+</tr>
+<tr>
+  <td><code>mozFrameBufferLength</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>すべてのチャンネルのサンプルの数の合計</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>mozChannels</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>The number of channels.</td>
+</tr>
+<tr>
+  <td><code>mozSampleRate</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>The sample rate per second.</td>
+</tr>
+<tr>
+  <td><code>mozFrameBufferLength</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>The number of samples collected in all channels.</td>
+</tr><%
+
+        break;
+}%>
