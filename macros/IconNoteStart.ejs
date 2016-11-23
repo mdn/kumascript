@@ -1,0 +1,25 @@
+<%
+// Starts a special type of note box that includes a Font Awesome icon and a custom title.
+// Use the "NoteEnd" macro to end the box. Everything in between the two macros will be
+// inside the box.
+//
+// THIS SHOULD BE USED SPARINGLY AND ONLY IN ACCORDANCE WITH STYLE GUIDE RULES
+// (WHICH STILL NEED TO BE WRITTEN).
+//
+// Parameters
+//  $0  Font awesome icon name (see http://fortawesome.github.io/Font-Awesome/icons/)
+//  $1  Title string
+
+var note = mdn.localString({
+    "en-US": "Note:",
+    "de": "Hinweis:",
+    "es": "Nota:",
+    "fr": "Note&nbsp;:",
+    "ja": "註:",
+    "ko": "주의:",
+    "pl": "Uwaga:",
+    "zh-TW": "註：",
+    "ru": "Замечание:"
+});
+
+%><div class="note"><h5><i class="<%=$0%>"></i>&nbsp;<%-$1%></h5><br/>
