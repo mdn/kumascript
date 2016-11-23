@@ -1,0 +1,15 @@
+<%
+var lang = env.locale;
+ 
+/* English for fallback only*/
+  
+var str = "This page is currently being translated: contribute yourself by filling in the missing parts.";
+
+/* fix for other languages */
+if (!string.compare(lang, "it", true)) {
+  str = "Questa pagina è in fase di traduzione: contribuisci anche tu completando le parti mancanti. Il testo da tradurre potrebbe essere nascosto nella pagina: vai in modifica per visualizzarlo";
+}
+%>
+<div style="border: 1px solid rgb(189, 225, 156); background: rgb(205, 242, 173) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; text-align: center;">
+<p><%- str %></p>
+</div>
