@@ -1,0 +1,57 @@
+<%/*
+    Parameter : none
+*/
+
+var el = env.locale;
+
+switch (el) {
+
+    case "yourlocale" :
+
+%><tr>
+  <td><code>alpha</code> <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>The current orientation of the device around the Z axis; that is, how far the device is rotated around a line perpendicular to the device.</td>
+</tr>
+<tr>
+  <td><code>beta</code> <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>The current orientation of the device around the X axis; that is, how far the device is tipped forward or backward.</td>
+</tr>
+<tr>
+  <td><code>gamma</code>  <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>The current orientation of the device around the Y axis; that is, how far the device is turned left or right.</td>
+</tr>
+<tr>
+  <td><code>absolute</code> <%-template("readOnlyInline")%></td>
+  <td>boolean</td>
+  <td>This value is <code>true</code> if the orientation is provided as a difference between the device coordinate frame and the Earth coordinate frame; if the device can't detect the Earth coordinate frame, this value is <code>false</code>.</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>alpha</code> <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>The current orientation of the device around the Z axis; that is, how far the device is rotated around a line perpendicular to the device.</td>
+</tr>
+<tr>
+  <td><code>beta</code> <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>The current orientation of the device around the X axis; that is, how far the device is tipped forward or backward.</td>
+</tr>
+<tr>
+  <td><code>gamma</code>  <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>The current orientation of the device around the Y axis; that is, how far the device is turned left or right.</td>
+</tr>
+<tr>
+  <td><code>absolute</code> <%-template("readOnlyInline")%></td>
+  <td>boolean</td>
+  <td>This value is <code>true</code> if the orientation is provided as a difference between the device coordinate frame and the Earth coordinate frame; if the device can't detect the Earth coordinate frame, this value is <code>false</code>.</td>
+</tr><%
+
+        break;
+} %>
