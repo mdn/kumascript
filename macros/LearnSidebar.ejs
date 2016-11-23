@@ -1,0 +1,653 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+var slug = env.slug;
+var baseURL = "/" + locale + "/docs/Learn/";
+
+function currentPageIsUnder(root) {
+  rootSlug = "Learn/" + root;
+  if (slug.indexOf(rootSlug) != -1) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localString({
+  'en-US': {
+    'Complete_beginners': 'Complete beginners start here!',
+    'Getting_started_with_the_web': 'Getting started with the Web',
+      'Getting_started_with_the_web_overview': 'Getting started with the Web overview',
+      'Installing_basic_software': 'Installing basic software',
+      'What_will_your_website_look_like': 'What will your website look like?',
+      'Dealing_with_files': 'Dealing with files',
+      'HTML_basics': 'HTML basics',
+      'CSS_basics': 'CSS basics',
+      'JavaScript_basics': 'JavaScript basics',
+      'Publishing_your_website': 'Publishing your website',
+      'How_the_Web_works': 'How the Web works',
+    'HTML_structuring_the_Web': 'HTML — Structuring the Web',
+      'Introduction_to_HTML': 'Introduction to HTML',
+        'Introduction_to_HTML_overview': 'Introduction to HTML overview',
+        'Getting_started_with_HTML': 'Getting started with HTML',
+        'Whats_in_the_head_metadata_in_HTML': 'What\'s in the head? Metadata in HTML',
+        'HTML_text_fundamentals': 'HTML text fundamentals',
+        'Creating_hyperlinks': 'Creating hyperlinks',
+        'Advanced_text_formatting': 'Advanced text formatting',
+        'Document_and_website_structure': 'Document and website structure',
+        'Debugging_HTML': 'Debugging HTML',
+        'Assessment_marking_up_a_letter': 'Assessment: Marking up a letter',
+        'Assessment_structuring_a_page_of_content': 'Assessment: Structuring a page of content',
+      'Multimedia_and_embedding': 'Multimedia and embedding',
+        'Multimedia_and_embedding_overview': 'Multimedia and embedding overview',
+        'Images_in_HTML': 'Images in HTML',
+        'Video_and_audio_content': 'Video and audio content',
+        'Other_embedding_technologies': 'From object to iframe — other embedding technologies',
+        'Adding_vector_graphics_to_the_Web': 'Adding vector graphics to the Web',
+        'Responsive_images': 'Responsive images',
+        'Assessment_Mozilla_splash_page': 'Assessment: Mozilla splash page',
+    'CSS_styling_the_Web': 'CSS — Styling the Web',
+      'Introduction_to_CSS': 'Introduction to CSS',
+        'Introduction_to_CSS_overview': 'Introduction to CSS overview',
+        'How_CSS_works': 'How CSS works',
+        'CSS_syntax': 'CSS syntax',
+        'Selectors_introduction': 'Selectors introduction',
+        'Simple_selectors': 'Simple selectors',
+        'Attribute_selectors': 'Attribute selectors',
+        'Pseudo-classes_and_pseudo-elements': 'Pseudo-classes and pseudo-elements',
+        'Combinators_and_multiple_selectors': 'Combinators and multiple selectors',
+        'CSS_values_and_units': 'CSS values and units',
+        'Cascade_and_inheritance': 'Cascade and inheritance',
+        'The_box_model': 'The box model',
+        'Debugging_CSS': 'Debugging CSS',
+        'Assessment_fundamental_CSS_comprehension': 'Assessment: Fundamental CSS comprehension',
+      'Styling_text': 'Styling text',
+        'Styling_text_overview': 'Styling text overview',
+        'Fundamental_text_and_font_styling': 'Fundamental text and font styling',
+        'Styling_lists': 'Styling lists',
+        'Styling_links': 'Styling links',
+        'Web_fonts': 'Web fonts',
+        'Assessment_typesetting_a_community_school_homepage': 'Assessment: Typesetting a community school homepage',
+      'Styling_boxes': 'Styling boxes',
+        'Styling_boxes_overview': 'Styling boxes overview',
+        'Box_model_recap': 'Box model recap',
+        'Backgrounds': 'Backgrounds',
+        'Borders': 'Borders',
+        'Styling_tables': 'Styling tables',
+        'Advanced_box_effects': 'Advanced box effects',
+        'Assessment_creating_fancy_letterheaded_paper': 'Assessment: Creating fancy letterheaded paper',
+        'Assessment_a_cool_looking_box': 'Assessment: A cool-looking box',
+      'CSS_layout': 'CSS layout',
+        'CSS_layout_overview': 'CSS layout overview',
+        'Floats': 'Floats',
+        'Positioning': 'Positioning',
+        'Practical_positioning_examples': 'Practical positioning examples',
+        'Flexbox': 'Flexbox',
+        'Grids' : 'Grids',
+    'JavaScript_dynamic_client-side_scripting': 'JavaScript — Dynamic client-side scripting',
+      'JavaScript_first_steps': 'JavaScript first steps',
+        'JavaScript_first_steps_overview': 'JavaScript first steps overview',
+        'What_is_JavaScript': 'What is JavaScript?',
+        'A_first_splash_into_JavaScript': 'A first splash into JavaScript',
+        'What_went_wrong': 'What went wrong? Troubleshooting JavaScript',
+        'Storing_the_information_you_need': 'Storing the information you need — Variables',
+        'Basic_math_in_JavaScript': 'Basic in JavaScript — Numbers and operators',
+        'Handling_text': 'Handling text — Strings in JavaScript',
+        'Useful_string_methods': 'Useful string methods',
+        'Arrays': 'Arrays',
+        'Assessment_silly_story_generator': 'Assessment: Silly story generator',
+      'JavaScript_building_blocks': 'JavaScript building blocks',
+        'JavaScript_building_blocks_overview': 'JavaScript building blocks overview',
+        'Making_decisions_in_your_code': 'Making decisions in your code — Conditionals',
+        'Looping_code': 'Looping code',
+        'Functions': 'Functions — Reusable blocks of code',
+        'Build_your_own_function': 'Build your own function',
+        'Function_return_values': 'Function return values',
+        'Introduction_to_events': 'Introduction to events',
+        'Assessment_image_gallery': 'Assessment: Image gallery',
+      'Introducing_JavaScript_objects' :  'Introducing JavaScript objects',
+        'Introducing_JavaScript_objects_overview' :  'Introducing JavaScript objects overview',
+        'Object_basics' : 'Object basics',
+        'Object-oriented_JavaScript_for_beginners' : 'Object-oriented JavaScript for beginners',
+        'Object_prototypes' : 'Object prototypes',
+        'Inheritance_in_JavaScript' : 'Inheritance in JavaScript',
+        'Working_with_JSON_data' : 'Working with JSON data',
+        'Object_building_practise' : 'Object building practise',
+        'Assessment_Adding_features_to_our_bouncing_balls_demo' : 'Assessment: Adding features to our bouncing balls demo',
+    'Tools_and_testing' : 'Tools and testing',
+      'Cross_browser_testing' : 'Cross browser testing',
+        'Cross_browser_testing_overview' : 'Cross browser testing overview',
+        'Introduction_to_cross_browser_testing' : 'Introduction to cross browser testing',
+        'Strategies_for_carrying_out_testing' : 'Strategies for carrying out testing',
+        'Handling_common_HTML_and_CSS_problems' : 'Handling common HTML and CSS problems',
+        'Handling_common_JavaScript_problems' : 'Handling common JavaScript problems',
+        'Handling_common_accessibility_problems' : 'Handling common accessibility problems',
+        'Implementing_feature_detection' : 'Implementing feature detection',
+        'Introduction_to_automated_testing' : 'Introduction to automated testing',
+        'Setting_up_your_own_test_automation_environment' : 'Setting up your own test automation environment',
+    'Server-side_website_programming' : 'Server-side website programming',
+      'First_steps' : 'First steps',
+        'First_steps_overview' : 'First steps overview',
+        'Introduction_to_the_server-side' : 'Introduction to the server-side',
+        'Client-Server_overview' : 'Client-Server overview',
+        'Server-side_web_frameworks' : 'Server-side web frameworks',
+        'Website_security' : 'Website security',
+      'Django_web_framework_(Python)' : 'Django web framework (Python)',
+        'Django_web_framework_(Python)_overview' : 'Django web framework (Python) overview',
+        'Introduction' : 'Introduction',
+        'Setting_up_a_development_environment' : 'Setting up a development environment',
+        'Tutorial_The_Local_Library_website' : 'Tutorial: The Local Library website',
+        'Tutorial_Part_2_Creating_a_skeleton_website' : 'Tutorial Part 2: Creating a skeleton website',
+        'Tutorial_Part_3_Using_models' : 'Tutorial Part 3: Using models',
+        'Tutorial_Part_4_Django_admin_site' : 'Tutorial Part 4: Django admin site',
+        'Tutorial_Part_5_Creating_our_home_page' : 'Tutorial Part 5: Creating our home page',
+        'Tutorial_Part_6_Generic_list_and_detail_views' : 'Tutorial Part 6: Generic list and detail views',
+        'Tutorial_Part_7_Sessions_framework' : 'Tutorial Part 7: Sessions framework',
+        'Tutorial_Part_8_User_authentication_and_permissions' : 'Tutorial Part 8: User authentication and permissions',
+        'Tutorial_Part_9_Working_with_forms' : 'Tutorial Part 9: Working with forms',
+        'Tutorial_Part_10_Testing_a_Django_web_application' : 'Tutorial Part 10: Testing a Django web application',
+        'Tutorial_Part_11_Deploying_Django_to_production' : 'Tutorial Part 11: Deploying Django to production',
+        'Web_application_security' : 'Web application security',
+        'Assessment_DIY_mini_blog' : 'Assessment: DIY mini blog',
+    'Further_resources': 'Further resources',
+    'Advanced_learning_material': 'Advanced learning material',
+      'WebGL_graphics_processing': 'WebGL: Graphics processing',
+    'Common_questions': 'Common questions',
+      'HTML_questions': 'HTML questions',
+      'CSS_questions': 'CSS questions',
+      'How_the_Web_works': 'How the Web works',
+      'Tools_and_setup': 'Tools and setup',
+      'Design_and_accessibility': 'Design and accessibility',
+    'How_to_contribute': 'How to contribute'    
+  },
+  'ru': {
+    'Complete_beginners': 'Новички начинают здесь!',
+    'Getting_started_with_the_web': 'Начало работы с Вебом',
+      'Getting_started_with_the_web_overview': 'Начало работы с Вебом',
+      'Installing_basic_software': 'Установка базового программного обеспечения',
+      'What_will_your_website_look_like': 'Каким должен быть ваш веб-сайт?',
+      'Dealing_with_files': 'Работа с файлами',
+      'HTML_basics': 'Основы HTML',
+      'CSS_basics': 'Основы CSS',
+      'JavaScript_basics': 'Основы JavaScript',
+      'Publishing_your_website': 'Публикация вашего веб-сайта',
+      'How_the_Web_works': 'Как работает Веб',
+    'HTML_structuring_the_Web': 'HTML — структура Веба',
+      'Introduction_to_HTML': 'Вступление в HTML',
+        'Introduction_to_HTML_overview': 'Вступление в HTML',
+        'Getting_started_with_HTML': 'Начало работы с HTML',
+        'Whats_in_the_head_metadata_in_HTML': 'Что в "шапке"? Метаданные в HTML',
+        'HTML_text_fundamentals': 'Тексты в HTML',
+        'Creating_hyperlinks': 'Создание гиперссылок',
+        'Advanced_text_formatting': 'Продвинутое форматирование текста',
+        'Document_and_website_structure': 'Структура документа и веб-сайта',
+        'Debugging_HTML': 'Отладка HTML',
+        'Assessment_marking_up_a_letter': 'Задание: Выделение символа',
+        'Assessment_structuring_a_page_of_content': 'Задание: Структура страницы',
+      'Multimedia_and_embedding': 'Мультимедиа и встраивание',
+        'Multimedia_and_embedding_overview': 'Мультимедиа и встраивание',
+        'Images_in_HTML': 'Изображения в HTML',
+        'Video_and_audio_content': 'Видео и аудио контент',
+        'Other_embedding_technologies': 'От object до iframe — другие технологии встраивания',
+        'Adding_vector_graphics_to_the_Web': 'Добавление векторный графики в Веб',
+        'Responsive_images': 'Отзывчивые изображения',
+        'Assessment_Mozilla_splash_page': 'Задание: Страница о Mozilla',
+    'CSS_styling_the_Web': 'CSS — стилизирование Веба',
+      'Introduction_to_CSS': 'Вступление в CSS',
+        'Introduction_to_CSS_overview': 'Вступление в CSS',
+        'How_CSS_works': 'Как работает CSS',
+        'CSS_syntax': 'Синтаксис CSS',
+        'Selectors_introduction': 'Введение в селекторы',
+        'Simple_selectors': 'Простые селекторы',
+        'Attribute_selectors': 'Селекторы по атрибутам',
+        'Pseudo-classes_and_pseudo-elements': 'Псевдоклассы и псевдоэлементы',
+        'Combinators_and_multiple_selectors': 'Комбинаторы и множественные селекторы',
+        'CSS_values_and_units': 'CSS значения и единицы',
+        'Cascade_and_inheritance': 'Каскадность и наследование',
+        'The_box_model': 'Блочная модель',
+        'Debugging_CSS': 'Отладка CSS',
+        'Assessment_fundamental_CSS_comprehension': 'Задание: Основы понимания CSS',
+      'Styling_text': 'Стилизирование текста',
+        'Styling_text_overview': 'Стилизирование текста',
+        'Fundamental_text_and_font_styling': 'Основы стилизирования текста и шрифта',
+        'Styling_lists': 'Стилизирование списков',
+        'Styling_links': 'Стилизирование ссылок',
+        'Web_fonts': 'Веб-шрифты',
+        'Assessment_typesetting_a_community_school_homepage': 'Задание: Стилизирование школьного сайта',
+      'Styling_boxes': 'Стилизирование блоков',
+        'Styling_boxes_overview': 'Стилизирование блоков',
+        'Box_model_recap': 'Кратко о блочной модели',
+        'Backgrounds': 'Фоны',
+        'Borders': 'Рамки',
+        'Styling_tables': 'Стилизирование таблиц',
+        'Advanced_box_effects': 'Продвинутые эффекты',
+        'Assessment_creating_fancy_letterheaded_paper': 'Задание: Создание разукращенного листа',
+        'Assessment_a_cool_looking_box': 'Задание: Классно выглядищий блок',
+      'CSS_layout': 'CSS макет',
+        'CSS_layout_overview': 'CSS макет',
+        'Floats': 'Float',
+        'Positioning': 'Позиционирование',
+        'Practical_positioning_examples': 'Практические примеры позиционирования',
+        'Flexbox': 'Flexbox',
+        'Grids' : 'Сетки',
+    'JavaScript_dynamic_client-side_scripting': 'JavaScript — динамический клиентский скриптинг',
+      'JavaScript_first_steps': 'Первые шаги в JavaScript',
+        'JavaScript_first_steps_overview': 'Первые шаги в JavaScript',
+        'What_is_JavaScript': 'Что такое JavaScript?',
+        'A_first_splash_into_JavaScript': 'Первое погружение в JavaScript',
+        'What_went_wrong': 'Что-то пошло не так? Устранение ошибок JavaScript',
+        'Storing_the_information_you_need': 'Хранение нужной информации — Переменные',
+        'Basic_math_in_JavaScript': 'Основы JavaScript — Числа и операторы',
+        'Handling_text': 'Работа с текстом — Строки в JavaScript',
+        'Useful_string_methods': 'Полезные методы для строк',
+        'Arrays': 'Массивы',
+        'Assessment_silly_story_generator': 'Задание: Генератор глупых историй',
+      'JavaScript_building_blocks': 'Блоки в JavaScript',
+        'JavaScript_building_blocks_overview': 'Блоки в JavaScript',
+        'Making_decisions_in_your_code': 'Делаем решения в вашем годе — Условия',
+        'Looping_code': 'Повторение кода',
+        'Functions': 'Функции — Переиспользуемые блоки кода',
+        'Build_your_own_function': 'Создаём свою функцию',
+        'Function_return_values': 'Возвращаемые значения функций',
+        'Introduction_to_events': 'Введение в события',
+        'Assessment_image_gallery': 'Задание: Галерея изображений',
+      'Introducing_JavaScript_objects' :  'Введение в объекты JavaScript',
+        'Introducing_JavaScript_objects_overview' :  'Введение в объекты JavaScript',
+        'Object_basics' : 'Основы объектов',
+        'Object-oriented_JavaScript_for_beginners' : 'Объектно-ориентированный JavaScript для новичков',
+        'Object_prototypes' : 'Прототипы объектов',
+        'Inheritance_in_JavaScript' : 'Наследование в JavaScript',
+        'Working_with_JSON_data' : 'Работа с JSON данными',
+        'Object_building_practise' : 'Практика по созданию объектов',
+        'Assessment_Adding_features_to_our_bouncing_balls_demo' : 'Задание: Добавление возможностей в пример с прыгающими шарами',
+    'Tools_and_testing' : 'Инструменты и тестирование',
+      'Cross_browser_testing' : 'Кроссбраузерное тестирование',
+        'Cross_browser_testing_overview' : 'Кроссбраузерное тестирование',
+        'Introduction_to_cross_browser_testing' : 'Вступление в кроссбраузерное тестирование',
+        'Strategies_for_carrying_out_testing' : 'Стратегии выполнения тестирования',
+        'Handling_common_HTML_and_CSS_problems' : 'Решение частых проблем с HTML и CSS',
+        'Handling_common_JavaScript_problems' : 'Решение частых проблем с JavaScript',
+        'Handling_common_accessibility_problems' : 'Решение частых проблем доступности',
+        'Implementing_feature_detection' : 'Проверка поддержки возможностей',
+        'Introduction_to_automated_testing' : 'Вступление в автоматическое тестирование',
+        'Setting_up_your_own_test_automation_environment' : 'Установка вашей автоматической среды тестирования',
+    'Server-side_website_programming' : 'Программирование серверной части сайта',
+      'First_steps' : 'Первые шаги',
+        'First_steps_overview' : 'Первые шаги',
+        'Introduction_to_the_server-side' : 'Вступление в серверное программирование',
+        'Client-Server_overview' : 'Клиент-сервер',
+        'Server-side_web_frameworks' : 'Веб-фреймворки для серверной части',
+        'Website_security' : 'Защищённость веб-сайтов',
+      'Django_web_framework_(Python)' : 'Веб-фреймворк Django (Python)',
+        'Django_web_framework_(Python)_overview' : 'Веб-фреймворк Django (Python)',
+        'Introduction' : 'Вступление',
+        'Setting_up_a_development_environment' : 'Установка среды разработки',
+        'Tutorial_The_Local_Library_website' : 'Руководство: Сайт местной библиотеки',
+        'Tutorial_Part_2_Creating_a_skeleton_website' : 'Руководство часть 2: Создаём набросок сайта',
+        'Tutorial_Part_3_Using_models' : 'Руководство часть 3: Использование моделей',
+        'Tutorial_Part_4_Django_admin_site' : 'Руководство часть 4: Django панель администратора',
+        'Tutorial_Part_5_Creating_our_home_page' : 'Руководство часть 5: Создание нашей домашней страницы',
+        'Tutorial_Part_6_Generic_list_and_detail_views' : 'Руководство часть 6: Списки и представления',
+        'Tutorial_Part_7_Sessions_framework' : 'Руководство часть 7: Сессии',
+        'Tutorial_Part_8_User_authentication_and_permissions' : 'Руководство часть 8: Аутенфикация и разрешения пользователей',
+        'Tutorial_Part_9_Working_with_forms' : 'Руководство часть 9: Работа с формами',
+        'Tutorial_Part_10_Testing_a_Django_web_application' : 'Руководство часть 10: Тестирование веб-приложения на Django',
+        'Tutorial_Part_11_Deploying_Django_to_production' : 'Руководство часть 11: Разворачивание Django на продакшн сервере',
+        'Web_application_security' : 'Защищённость веб-приложения',
+        'Assessment_DIY_mini_blog' : 'Задание: создание мини блога',
+    'Further_resources': 'Дальнейшее чтение',
+    'Advanced_learning_material': 'Расширенный материал для обучения',
+      'WebGL_graphics_processing': 'WebGL: Работа с графикой',
+    'Common_questions': 'Общие вопросы',
+      'HTML_questions': 'Вопросы по HTML',
+      'CSS_questions': 'Вопросы по CSS',
+      'How_the_Web_works': 'Как работает Веб',
+      'Tools_and_setup': 'Инструменты и установка',
+      'Design_and_accessibility': 'Дизайн и доступность',
+    'How_to_contribute': 'Как помочь?'    
+  },
+  'zh-TW': {
+    'Complete_beginners': '全新手請從這開始！',
+    'Getting_started_with_the_web': 'Web 入門',
+      'Getting_started_with_the_web_overview': 'Web 概述',
+      'Installing_basic_software': '安裝基本軟體',
+      'What_will_your_website_look_like': '自己的網站會是什麼樣子？',
+      'Dealing_with_files': '處理檔案',
+      'HTML_basics': 'HTML 基礎概念',
+      'CSS_basics': 'CSS 基礎概念',
+      'JavaScript_basics': 'JavaScript 基礎概念',
+      'Publishing_your_website': '發佈自己的網站',
+      'How_the_Web_works': 'Web 運作的方式',
+    'HTML_structuring_the_Web': 'HTML — 架構 Web',
+      'Introduction_to_HTML': 'HTML 介紹',
+        'Introduction_to_HTML_overview': 'HTML 概述',
+        'Getting_started_with_HTML': 'HTML 入門',
+        'Whats_in_the_head_metadata_in_HTML': '標題裡是什麼？HTML 中的後設資料 (Metadata)',
+        'HTML_text_fundamentals': 'HTML 文字基礎概念',
+        'Creating_hyperlinks': '建立超連結',
+        'Advanced_text_formatting': '進階文字格式',
+        'Document_and_website_structure': '文件與網站架構',
+        'Debugging_HTML': 'HTML 除錯',
+        'Assessment_marking_up_a_letter': '親和度：設個字母',
+        'Assessment_structuring_a_page_of_content': '親和度：架構出具備內容的網頁',
+      'Multimedia_and_embedding': '多媒體與嵌入',
+        'Multimedia_and_embedding_overview': '多媒體與嵌入的概述',
+        'Images_in_HTML': 'HTML 中的圖片',
+        'Video_and_audio_content': '視訊與音訊內容',
+        'Other_embedding_technologies': '從物件到 iframe — 其他嵌入技巧',
+        'Adding_vector_graphics_to_the_Web': '為 Web 新增向量圖',
+        'Responsive_images': '適應性圖片',
+        'Assessment_Mozilla_splash_page': '親和度：Mozilla 形象頁面',
+    'CSS_styling_the_Web': 'CSS — 設計 Web 的風格',
+      'Introduction_to_CSS': 'CSS 介紹',
+        'Introduction_to_CSS_overview': 'CSS 概述',
+        'How_CSS_works': 'CSS 運作方式',
+        'CSS_syntax': 'CSS 語法',
+        'Selectors_introduction': '選擇器介紹',
+        'Simple_selectors': '簡易選擇器',
+        'Attribute_selectors': '屬性選擇器',
+        'Pseudo-classes_and_pseudo-elements': '擬 (Pseudo) 類別與擬元素',
+        'Combinators_and_multiple_selectors': '整合器與多重選擇器',
+        'CSS_values_and_units': 'CSS 數值與單位',
+        'Cascade_and_inheritance': '串聯與繼承',
+        'The_box_model': '區塊模型',
+        'Debugging_CSS': 'CSS 除錯',
+        'Assessment_fundamental_CSS_comprehension': '親合度：CSS 基礎概念',
+      'Styling_text': '樣式化文字',
+        'Styling_text_overview': '樣式化文字概述',
+        'Fundamental_text_and_font_styling': '基礎的文字與字型樣式化',
+        'Styling_lists': '樣式化列表',
+        'Styling_links': '樣式化連結',
+        'Web_fonts': 'Web 字型',
+        'Assessment_typesetting_a_community_school_homepage': '親合度：設定社區大學首頁的版面',
+      'Styling_boxes': '樣式化區塊',
+        'Styling_boxes_overview': '樣式化區塊概述',
+        'Box_model_recap': '再述區塊模型扼要',
+        'Backgrounds': '背景',
+        'Borders': '邊界',
+        'Styling_tables': '樣式化表格',
+        'Advanced_box_effects': '進階區塊效果',
+        'Assessment_creating_fancy_letterheaded_paper': '親合度：建立有趣的標題抬頭',
+        'Assessment_a_cool_looking_box': '親合度：酷炫外觀區塊',
+      'CSS_layout': 'CSS 版面配置',
+        'CSS_layout_overview': 'CSS 版面配置概述',
+        'Floats': '浮動',
+        'Positioning': '定位',
+        'Practical_positioning_examples': '實作定位範例',
+        'Flexbox': '彈性區塊',
+        'Grids' : '格線',
+    'JavaScript_dynamic_client-side_scripting': 'JavaScript — 動態的用戶端指令',
+      'JavaScript_first_steps': 'JavaScript 第一步',
+        'JavaScript_first_steps_overview': 'JavaScript 第一步概述',
+        'What_is_JavaScript': '什麼是 JavaScript？',
+        'A_first_splash_into_JavaScript': '初次接觸 JavaScript',
+        'What_went_wrong': '出了什麼問題？JavaScript 疑難排解',
+        'Storing_the_information_you_need': '儲存你所需的資訊 — 變數',
+        'Basic_math_in_JavaScript': 'JavaScript 基礎概念 — 數字與運算子',
+        'Handling_text': '處理文字 — JavaScript 中的字串',
+        'Useful_string_methods': '有用的字串函式',
+        'Arrays': '陣列',
+        'Assessment_silly_story_generator': '親合度：傻瓜故事產生器',
+      'JavaScript_building_blocks': 'JavaScript 基礎要件',
+        'JavaScript_building_blocks_overview': 'JavaScript 基礎要件概述',
+        'Making_decisions_in_your_code': '於程式碼中決策 — 條件',
+        'Looping_code': '程式碼迴圈',
+        'Functions': '函式 — 可重複使用的程式碼區塊',
+        'Build_your_own_function': '建立自己的函式',
+        'Function_return_values': '函式回傳值',
+        'Introduction_to_events': '事件介紹',
+        'Assessment_image_gallery': '親合度：圖庫',
+      'Introducing_JavaScript_objects' :  'JavaScript 物件介紹',
+        'Introducing_JavaScript_objects_overview' :  'JavaScript 物件概述',
+        'Object_basics' : '物件基礎概念',
+        'Object-oriented_JavaScript_for_beginners' : '適合新手的物件導向 (OO) JavaScript',
+        'Object_prototypes' : '物件原型',
+        'Inheritance_in_JavaScript' : 'JavaScript 中的繼承',
+        'Working_with_JSON_data' : '使用 JSON 資料',
+        'Object_building_practise' : '物件建構實作',
+        'Assessment_Adding_features_to_our_bouncing_balls_demo' : '親合度：為彈跳球展示新增功能',
+    'Tools_and_testing' : '工具與測試',
+      'Cross_browser_testing' : '跨瀏覽器測試',
+        'Cross_browser_testing_overview' : '跨瀏覽器測試概述',
+        'Introduction_to_cross_browser_testing' : '跨瀏覽器測試介紹',
+        'Strategies_for_carrying_out_testing' : '測試執行策略',
+        'Handling_common_HTML_and_CSS_problems' : '處理常見的 HTML 與 CSS 問題',
+        'Handling_common_JavaScript_problems' : '處理常見的 JavaScript 問題',
+        'Handling_common_accessibility_problems' : '處理常見的親合度問題',
+        'Implementing_feature_detection' : '建置功能偵測',
+        'Introduction_to_automated_testing' : '自動化測試介紹',
+        'Setting_up_your_own_test_automation_environment' : '設定自己的自動化測試環境',
+    'Server-side_website_programming' : '伺服端網站程式設計',
+      'First_steps' : '第一步',
+        'First_steps_overview' : '第一步概述',
+        'Introduction_to_the_server-side' : '伺服端介紹',
+        'Client-Server_overview' : '用戶端概述',
+        'Server-side_web_frameworks' : '伺服端網路框架',
+        'Website_security' : '網站安全',
+      'Django_web_framework_(Python)' : 'Django 網站框架 (Python)',
+        'Django_web_framework_(Python)_overview' : 'Django 網站框架 (Python) 概述',
+        'Introduction' : '介紹',
+        'Setting_up_a_development_environment' : '設定開發環境',
+        'Tutorial_The_Local_Library_website' : '線上教學：本地圖書館網站',
+        'Tutorial_Part_2_Creating_a_skeleton_website' : '線上教學 2：建立網站骨架',
+        'Tutorial_Part_3_Using_models' : '線上教學 3：使用模型',
+        'Tutorial_Part_4_Django_admin_site' : '線上教學 4：Django 管理網站',
+        'Tutorial_Part_5_Creating_our_home_page' : '線上教學 5：建立我們的首頁',
+        'Tutorial_Part_6_Generic_list_and_detail_views' : '線上教學 6：泛型清單與細節檢視',
+        'Tutorial_Part_7_Sessions_framework' : '線上教學 7：會話 (Sessions) 框架',
+        'Tutorial_Part_8_User_authentication_and_permissions' : '線上教學 8：使用者授權與許可',
+        'Tutorial_Part_9_Working_with_forms' : '線上教學 9：搭配表單',
+        'Tutorial_Part_10_Testing_a_Django_web_application' : '線上教學 10：測試 Django 的 Web App',
+        'Tutorial_Part_11_Deploying_Django_to_production' : '線上教學 11：佈署 Django 至產品',
+        'Web_application_security' : 'Web App 安全性',
+        'Assessment_DIY_mini_blog' : '親合度：DIY 迷你部落格',
+    'Further_resources': '更多資源',
+    'Advanced_learning_material': '進階學習教材',
+      'WebGL_graphics_processing': 'WebGL：圖形處理',
+    'Common_questions': '常見問題',
+      'HTML_questions': 'HTML 問題',
+      'CSS_questions': 'CSS 問題',
+      'How_the_Web_works': 'Web 的運作方式',
+      'Tools_and_setup': '工具與設定',
+      'Design_and_accessibility': '設計與親合度',
+    'How_to_contribute': '如何貢獻'    
+  }
+});
+%>
+
+<section class="Quick_links" id="Quick_Links">
+
+<ol>
+  <li data-default-state="<%=currentPageIsUnder('Getting_started_with_the_web')%>"><a href="<%=baseURL%>Getting_started_with_the_web"><strong><%=text['Complete_beginners']%></strong></a>
+  <li data-default-state="<%=currentPageIsUnder('Getting_started_with_the_web')%>"><a href="<%=baseURL%>Getting_started_with_the_web"><%=text['Getting_started_with_the_web']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web"><%=text['Getting_started_with_the_web_overview']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/Installing_basic_software"><%=text['Installing_basic_software']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/What_will_your_website_look_like"><%=text['What_will_your_website_look_like']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/Dealing_with_files"><%=text['Dealing_with_files']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/HTML_basics"><%=text['HTML_basics']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/CSS_basics"><%=text['CSS_basics']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/JavaScript_basics"><%=text['JavaScript_basics']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/Publishing_your_website"><%=text['Publishing_your_website']%></a></li>
+      <li><a href="<%=baseURL%>Getting_started_with_the_web/How_the_Web_works"><%=text['How_the_Web_works']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('HTML')%>"><a href="<%=baseURL%>HTML"><strong><%=text['HTML_structuring_the_Web']%></strong></a></li>
+  <li data-default-state="<%=currentPageIsUnder('HTML/Introduction_to_HTML')%>"><a href="<%=baseURL%>HTML/Introduction_to_HTML"><%=text['Introduction_to_HTML']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML"><%=text['Introduction_to_HTML_overview']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Getting_started"><%=text['Getting_started_with_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/The_head_metadata_in_HTML"><%=text['Whats_in_the_head_metadata_in_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/HTML_text_fundamentals"><%=text['HTML_text_fundamentals']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Creating_hyperlinks"><%=text['Creating_hyperlinks']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Advanced_text_formatting"><%=text['Advanced_text_formatting']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Document_and_website_structure"><%=text['Document_and_website_structure']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Debugging_HTML"><%=text['Debugging_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Marking_up_a_letter"><%=text['Assessment_marking_up_a_letter']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Structuring_a_page_of_content"><%=text['Assessment_structuring_a_page_of_content']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('HTML/Multimedia_and_embedding')%>"><a href="<%=baseURL%>HTML/Multimedia_and_embedding"><%=text['Multimedia_and_embedding']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding"><%=text['Multimedia_and_embedding_overview']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Images_in_HTML"><%=text['Images_in_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Video_and_audio_content"><%=text['Video_and_audio_content']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Other_embedding_technologies"><%=text['Other_embedding_technologies']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web"><%=text['Adding_vector_graphics_to_the_Web']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Responsive_images"><%=text['Responsive_images']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Mozilla_splash_page"><%=text['Assessment_Mozilla_splash_page']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('CSS')%>"><a href="<%=baseURL%>CSS"><strong><%=text['CSS_styling_the_Web']%></strong></a></li>
+  <li data-default-state="<%=currentPageIsUnder('CSS/Introduction_to_CSS')%>"><a href="<%=baseURL%>CSS/Introduction_to_CSS"><%=text['Introduction_to_CSS']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS"><%=text['Introduction_to_CSS_overview']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/How_CSS_works"><%=text['How_CSS_works']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Syntax"><%=text['CSS_syntax']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Selectors"><%=text['Selectors_introduction']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Simple_selectors"><%=text['Simple_selectors']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Attribute_selectors"><%=text['Attribute_selectors']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements"><%=text['Pseudo-classes_and_pseudo-elements']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Combinators_and_multiple_selectors"><%=text['Combinators_and_multiple_selectors']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Values_and_units"><%=text['CSS_values_and_units']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Cascade_and_inheritance"><%=text['Cascade_and_inheritance']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Box_model"><%=text['The_box_model']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Debugging_CSS"><%=text['Debugging_CSS']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Introduction_to_CSS/Fundamental_CSS_comprehension"><%=text['Assessment_fundamental_CSS_comprehension']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('CSS/Styling_text')%>"><a href="<%=baseURL%>CSS/Styling_text"><%=text['Styling_text']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>CSS/Styling_text"><%=text['Styling_text_overview']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_text/Fundamentals"><%=text['Fundamental_text_and_font_styling']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_text/Styling_lists"><%=text['Styling_lists']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_text/Styling_links"><%=text['Styling_links']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_text/Web_fonts"><%=text['Web_fonts']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_text/Typesetting_a_homepage"><%=text['Assessment_typesetting_a_community_school_homepage']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('CSS/Styling_boxes')%>"><a href="<%=baseURL%>CSS/Styling_boxes"><%=text['Styling_boxes']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes"><%=text['Styling_boxes_overview']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/Box_model_recap"><%=text['Box_model_recap']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/Backgrounds"><%=text['Backgrounds']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/Borders"><%=text['Borders']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/Styling_tables"><%=text['Styling_tables']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/Advanced_box_effects"><%=text['Advanced_box_effects']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/Creating_fancy_letterheaded_paper"><%=text['Assessment_creating_fancy_letterheaded_paper']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Styling_boxes/A_cool_looking_box"><%=text['Assessment_a_cool_looking_box']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('CSS/CSS_layout')%>"><a href="<%=baseURL%>CSS/CSS_layout"><%=text['CSS_layout']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>CSS/CSS_layout"><%=text['CSS_layout_overview']%></a></li>
+      <li><a href="<%=baseURL%>CSS/CSS_layout/Floats"><%=text['Floats']%></a></li>
+      <li><a href="<%=baseURL%>CSS/CSS_layout/Positioning"><%=text['Positioning']%></a></li>
+      <li><a href="<%=baseURL%>CSS/CSS_layout/Practical_positioning_examples"><%=text['Practical_positioning_examples']%></a></li>
+      <li><a href="<%=baseURL%>CSS/CSS_layout/Flexbox"><%=text['Flexbox']%></a></li>
+      <li><a href="<%=baseURL%>CSS/CSS_layout/Grids"><%=text['Grids']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('JavaScript')%>"><a href="<%=baseURL%>JavaScript"><strong><%=text['JavaScript_dynamic_client-side_scripting']%></strong></a></li>
+  <li data-default-state="<%=currentPageIsUnder('JavaScript/First_steps')%>"><a href="<%=baseURL%>JavaScript/First_steps"><%=text['JavaScript_first_steps']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>JavaScript/First_steps"><%=text['JavaScript_first_steps_overview']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/What_is_JavaScript"><%=text['What_is_JavaScript']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/A_first_splash"><%=text['A_first_splash_into_JavaScript']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/What_went_wrong"><%=text['What_went_wrong']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/Variables"><%=text['Storing_the_information_you_need']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/Math"><%=text['Basic_math_in_JavaScript']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/Strings"><%=text['Handling_text']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/Useful_string_methods"><%=text['Useful_string_methods']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/Arrays"><%=text['Arrays']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/First_steps/Silly_story_generator"><%=text['Assessment_silly_story_generator']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('JavaScript/Building_blocks')%>"><a href="<%=baseURL%>JavaScript/Building_blocks"><%=text['JavaScript_building_blocks']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks"><%=text['JavaScript_building_blocks_overview']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/conditionals"><%=text['Making_decisions_in_your_code']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/Looping_code"><%=text['Looping_code']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/Functions"><%=text['Functions']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/Build_your_own_function"><%=text['Build_your_own_function']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/Return_values"><%=text['Function_return_values']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/Events"><%=text['Introduction_to_events']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Building_blocks/Image_gallery"><%=text['Assessment_image_gallery']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('JavaScript/Objects')%>"><a href="<%=baseURL%>JavaScript/Objects"><%=text['Introducing_JavaScript_objects']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>JavaScript/Objects"><%=text['Introducing_JavaScript_objects_overview']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/Basics"><%=text['Object_basics']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/Object-oriented_JS"><%=text['Object-oriented_JavaScript_for_beginners']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/Object_prototypes"><%=text['Object_prototypes']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/Inheritance"><%=text['Inheritance_in_JavaScript']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/JSON"><%=text['Working_with_JSON_data']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/Object_building_practise"><%=text['Object_building_practise']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Objects/Adding_bouncing_balls_features"><%=text['Assessment_Adding_features_to_our_bouncing_balls_demo']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('Tools_and_testing')%>"><a href="<%=baseURL%>Tools_and_testing"><strong><%=text['Tools_and_testing']%></strong></a></li>
+  <li data-default-state="<%=currentPageIsUnder('Tools_and_testing/Cross_browser_testing')%>"><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing"><%=text['Cross_browser_testing']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing"><%=text['Cross_browser_testing_overview']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/Introduction"><%=text['Introduction_to_cross_browser_testing']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/Testing_strategies"><%=text['Strategies_for_carrying_out_testing']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/HTML_and_CSS"><%=text['Handling_common_HTML_and_CSS_problems']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/JavaScript"><%=text['Handling_common_JavaScript_problems']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/Accessibility"><%=text['Handling_common_accessibility_problems']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/Feature_detection"><%=text['Implementing_feature_detection']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/Automated_testing"><%=text['Introduction_to_automated_testing']%></a></li>
+      <li><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing/Your_own_automation_environment"><%=text['Setting_up_your_own_test_automation_environment']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('Server-side')%>"><a href="<%=baseURL%>Server-side"><strong><%=text['Server-side_website_programming']%></strong></a></li>
+
+  <li data-default-state="<%=currentPageIsUnder('Server-side/First_steps')%>"><a href="<%=baseURL%>Server-side/First_steps"><%=text['First_steps']%></a>
+  <ol>
+    <li><a href="<%=baseURL%>Server-side/First_steps"><%=text['First_steps_overview']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/First_steps/Introduction"><%=text['Introduction_to_the_server-side']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/First_steps/Client-Server_overview"><%=text['Client-Server_overview']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/First_steps/Web_frameworks"><%=text['Server-side_web_frameworks']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/First_steps/Website_security"><%=text['Website_security']%></a></li>
+  </ol>
+  </li>
+
+  <li data-default-state="<%=currentPageIsUnder('Server-side/Django')%>"><a href="<%=baseURL%>Server-side/Django"><%=text['Django_web_framework_(Python)']%></a>
+  <ol>
+    <li><a href="<%=baseURL%>Server-side/Django"><%=text['Django_web_framework_(Python)_overview']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Introduction"><%=text['Introduction']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/development_environment"><%=text['Setting_up_a_development_environment']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Tutorial_local_library_website"><%=text['Tutorial_The_Local_Library_website']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/skeleton_website"><%=text['Tutorial_Part_2_Creating_a_skeleton_website']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Models"><%=text['Tutorial_Part_3_Using_models']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Admin_site"><%=text['Tutorial_Part_4_Django_admin_site']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Home_page"><%=text['Tutorial_Part_5_Creating_our_home_page']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Generic_views"><%=text['Tutorial_Part_6_Generic_list_and_detail_views']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Sessions"><%=text['Tutorial_Part_7_Sessions_framework']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Authentication"><%=text['Tutorial_Part_8_User_authentication_and_permissions']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Forms"><%=text['Tutorial_Part_9_Working_with_forms']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Testing"><%=text['Tutorial_Part_10_Testing_a_Django_web_application']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/Deployment"><%=text['Tutorial_Part_11_Deploying_Django_to_production']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/web_application_security"><%=text['Web_application_security']%></a></li>
+    <li><a href="<%=baseURL%>Server-side/Django/django_assessment_blog"><%=text['Assessment_DIY_mini_blog']%></a></li>
+  </ol>
+  </li>
+  <li><a href="#"><strong><%=text['Further_resources']%></strong></a></li>
+  <li data-default-state="<%=currentPageIsUnder('Other_learning_material')%>"><a href="<%=baseURL%>Other_learning_material"><%=text['Advanced_learning_material']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>WebGL"><%=text['WebGL_graphics_processing']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('Common_questions')%>"><a href="<%=baseURL%>Common_questions"><%=text['Common_questions']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>HTML/Howto"><%=text['HTML_questions']%></a></li>
+      <li><a href="<%=baseURL%>CSS/Howto"><%=text['CSS_questions']%></a></li>
+      <li><a href="<%=baseURL%>Common_questions#How_the_Web_works"><%=text['How_the_Web_works']%></a></li>
+      <li><a href="<%=baseURL%>Common_questions#Tools_and_setup"><%=text['Tools_and_setup']%></a></li>
+      <li><a href="<%=baseURL%>Common_questions#Design_and_accessibility"><%=text['Design_and_accessibility']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('How_to_contribute')%>"><a href="<%=baseURL%>How_to_contribute"><%=text['How_to_contribute']%></a></li>
+</ol>
+
+</section>
