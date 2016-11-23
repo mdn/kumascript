@@ -1,0 +1,28 @@
+<%
+switch (env.locale) {
+
+    case "ja":
+
+
+%><div class="includeonly">
+<div class="breadcrumbs"><a title="ja" href="/ja">メインページ</a> &raquo; <a title="SpiderMonkey" href="/ja/docs/SpiderMonkey">SpiderMonkey</a> &raquo;
+ <a title="JSAPI_Reference" href="/ja/docs/SpiderMonkey/JSAPI_Reference">JSAPI リファレンス</a> &raquo;
+ <code><%- web.html($0) %></code></div>
+</div>
+<p class="noinclude">このテンプレートは廃止されています。使用しないで下さい。</p><%
+
+
+        break;
+	default:
+
+
+%><div class="includeonly">
+<div class="breadcrumbs"><a title="en-US" href="/en-US">Main Page</a> &raquo; <a title="SpiderMonkey" href="/en-US/docs/SpiderMonkey">SpiderMonkey</a> &raquo;
+ <a title="JSAPI_Reference" href="/en-US/docs/SpiderMonkey/JSAPI_Reference">JSAPI Reference</a> &raquo;
+ <code><%- web.html($0) %></code></div>
+</div>
+<p class="noinclude">This template is obsolete. Do not use it.</div><%
+
+
+		break;
+} %>
