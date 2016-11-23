@@ -1,0 +1,12 @@
+<%
+// Inserts an unordered list containing links to the main pages in the HTML Reference.
+// Since these are not necessarily in a subtree together, we need this macro.
+//
+// Parameters: None
+%>
+<ol>
+    <li><%-template("LinkItem", ["HTML element reference", "/en-US/docs/Web/HTML/Element"])%></li>
+    <li><%-template("LinkItem", ["HTML attribute reference", "/en-US/docs/Web/HTML/Attributes"])%></li>
+    <li><%-template("LinkItem", ["Global attributes", "/en-US/docs/Web/HTML/Global_attributes"])%></li>
+    <li><%-template("LinkItem", ["Link types", "/en-US/docs/Web/HTML/Link_types"])%></li>
+</ol>
