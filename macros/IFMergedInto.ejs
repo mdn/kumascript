@@ -1,0 +1,26 @@
+<%
+    // Creates a note indicating that an interface has been merged into another
+    //
+    // Parameters:
+    //  $0: The Gecko version in which the interface was merged
+    //  $1: The interface it was merged into
+    //  $2: (optional) Additional notes
+    
+    switch(env.locale) {
+        default:
+            note = "In " + template("gecko", [$0]) + " this Interface was merged into the " + template("interface", [$1]) + " interface.";
+            break;
+    }
+%>
+
+<div class="geckoVersionNote">
+<%-template("gecko_callout_heading", [$0])%>
+<p><%-note%></p>
+<%
+if ($2) {
+    %>
+    <p><%-$2%></p>
+    <%
+}
+%>
+</div>
