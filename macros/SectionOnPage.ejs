@@ -1,0 +1,28 @@
+<%
+// Create a link to a specific section on a page.
+//
+// Parameters:
+//
+// $0   Page path
+// $1   Section name
+
+var lang = env.locale;
+var text = "";
+var page = wiki.getPage($0);
+var title = page.title;
+
+var url = $0 + "#" + $1;
+
+url = Web.spacesToUnderscores(url);
+url = url.replace(":", "");             // Remove colons
+
+switch(lang) {
+    case "ru":
+        text = '"<a href="' + url + '">' + $1 + '</a>" в <a href="' + $0 + '">' + title + '</a>';
+        break;
+    default:
+        text = '"<a href="' + url + '">' + $1 + '</a>" in <a href="' + $0 + '">' + title + '</a>';
+        break;
+}
+%>
+<%-text%>
