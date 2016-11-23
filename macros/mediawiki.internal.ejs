@@ -1,0 +1,8 @@
+<%
+var parts = $0.split('|'),
+    path = parts[0],
+    text = (parts[1] || parts[0]),
+    locale = $1;
+
+
+%><a href="/<%=locale%>/docs/<%=path%>"><%=text%></a>
