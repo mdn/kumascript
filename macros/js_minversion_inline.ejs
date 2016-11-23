@@ -1,0 +1,51 @@
+<%/* Example: js_minversion_inline("9.9") */%>
+<%
+/* one parameter: JavaScript version */
+ 
+/* get the page language */
+var lang = env.locale;
+var link = '';
+ 
+/* check if English 'New in JavaScript/$0' page exists for fall back */
+if(wiki.pageExists('en-US/docs/JavaScript/New_in_JavaScript/' + $0)) {
+    link = web.link(wiki.uri('en-US/docs/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+} else {
+    link = 'JavaScript ' + $0;
+}
+ 
+var str = "Requires " + link;
+ 
+switch(lang) {
+    case 'de':
+        str = "Ab " + link;
+        break;
+    case 'fr':
+        if(wiki.pageExists(lang + '/docs/JavaScript/Nouveautés_dans_JavaScript/' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/JavaScript/Nouveautés_dans_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists(lang + '/docs/Nouveautés_dans_JavaScript_' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/Nouveautés_dans_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = "Requires " + link;
+        break;
+    case 'ja':
+        if(wiki.pageExists(lang + '/docs/JavaScript/New_in_JavaScript/' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists(lang + '/docs/New_in_JavaScript_' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/New_in_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = link + " が必要";
+        break;
+    case 'pl':
+        if(wiki.pageExists(lang + '/docs/JavaScript/Nowości_w_JavaScript/' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/JavaScript/Nowości_w_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists(lang + '/docs/Nowości_w_JavaScript_' + $0)) {
+            link = web.link(wiki.uri(lang + '/docs/Nowości_w_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = "Wymaga " + link;
+        break;
+     case 'ru':
+        str = "Требуется " + link;
+        break;
+}
+
+%><span class="inlineIndicator jsMinVer"><%- str %></span>
