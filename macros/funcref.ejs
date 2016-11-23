@@ -1,0 +1,13 @@
+<%
+// Inserts a link to a function located at the top level of the site;
+// these should really move to where they actually belong, but there you go.
+//
+// Parameters:
+//
+//  $0 - Function name
+
+var lang = env.locale;
+
+var URL =  '<a href="/' + lang + '/Add-ons/Plugins/Reference/' + $0 + '">' + $0 + '</a>';
+%>
+<%- URL %>
