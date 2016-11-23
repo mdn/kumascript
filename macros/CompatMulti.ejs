@@ -1,0 +1,56 @@
+<%
+/*
+
+Macro quering multiple compat data from GitHub repo mdn/browser-compat-data
+
+Parameters:
+$0 – json (as string)
+
+Example1:
+
+ {{CompatMulti('[{"file": "api/webgl2renderingcontext", "features": "webgl2renderingcontent.uniform1ui,webgl2renderingcontent.uniform1ui"}]')}}
+                [{"file": "api/webgl2renderingcontext", "features": "WebGL2RenderingContext.clearBufferf,WebGL2RenderingContext.clearBufferi"}]
+
+Example2:
+
+ {{CompatMulti('[{"file": "http/headers/public-key-pins", "features": "Public-Key-Pins"}, {"file": "http/headers/public-key-pins-report-only", "features": "Public-Key-Pins-Report-Only"}]')}}
+
+*/
+
+var githubURL = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/";
+var locale = env.locale;
+var output = "";
+var compatRequests = JSON.parse($0);
+
+if (compatRequests.length < 5) {
+
+var noDataFoundl10n = mdn.localString({
+    "en-US": 'No compatibility data found. Please contribute data for "' + env.title + '" to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.',
+    "fr"   : "Aucune donnée de compatibilité trouvée"
+});
+
+var data = {};
+
+for (var prop in compatRequests) {
+  try {
+    var file = mdn.fetchJSONResource(githubURL + compatRequests[prop].file + '.json');
+    var features = compatRequests[prop].features.split(",");
+    for (var f in features) {
+      var name = features[f].trim();
+      data[name] = file[name];
+    }
+  } catch (e) {
+     output = 'File "' + file + '" not found or malformed.'
+ }
+}
+
+output = template("CompatDataTable", [data, "module"]);
+
+if (output === '') {
+  output = noDataFoundl10n;
+}
+
+}
+
+%>
+<%-output%>
