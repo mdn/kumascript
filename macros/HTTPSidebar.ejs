@@ -1,0 +1,118 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+var path = env.path;
+
+function state(section) {
+  if (path.indexOf("Content-Security-Policy") !== -1 && (section === "Web/HTTP/Headers")) {
+    return "closed";
+  }
+  if (path.indexOf(section) !== -1) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localString({
+  'en-US': {
+    'HTTP': 'HTTP',
+    'Basics': 'Basics of HTTP',
+    'Overview': 'Overview of HTTP',
+    'Evolution': 'Evolution of HTTP',
+    'ResourcesURI': 'Resources and URIs',
+    'Identifying': 'Identifying resources on the Web',
+    'DataURIs': 'Data URIs',
+    'MIMETypes': 'Introduction to MIME Types',
+    'ListMIMETypes': 'Complete list of MIME Types',
+    'WWWorNotWWW': 'Choosing between www and non-www URLs',
+    'Messages': 'HTTP Messages',
+    'Session': 'A typical HTTP session',
+    'Connection1x': 'Connection management in HTTP/1.x',
+    'Redirects': 'HTTP redirects',
+    'Conditionals': 'HTTP conditional requests',
+    'ContentNego': 'HTTP content negotiation',
+    'Headers': 'HTTP headers',
+    'Response_codes': 'Response codes',
+    'Compression': 'HTTP compression',
+    'Cookies': 'HTTP cookies',
+    'Caching': 'HTTP caching',
+    'CORS': 'HTTP access control (CORS)',
+    'Resources': 'HTTP specifications',
+    'Guides': 'Guides:',
+    'Reference': 'References:',
+    'Methods': 'HTTP request methods',
+    'Status': 'HTTP response status codes',
+    'CSPDirectives': 'CSP directives',
+    'Security': 'HTTP security'
+  },
+  'ru': {
+    'HTTP': 'HTTP',
+    'Session': 'Базовая сессия',
+    'Headers': 'Заголовки',
+    'Response_codes': 'Коды ответа',
+    'Cookies': 'Куки',
+    'CORS': 'HTTP контроль доступа (CORS)',
+    'Guides': 'Guides:',
+    'Reference': 'References:'
+  }
+});
+%>
+
+
+<section class="Quick_links" id="Quick_Links">
+  <ol>
+    <li><a href="/<%=locale%>/docs/Web/HTTP"><strong><em><%=text['HTTP']%></em></strong></a></li>
+    <li><strong><%=text['Guides']%></strong></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Resources_and_URIs"><%=text['ResourcesURI']%></a>
+    <ol>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web"><%=text['Identifying']%></a>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Data_URIs"><%=text['DataURIs']%></a>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/MIME_Types"><%=text['MIMETypes']%></a>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types"><%=text['ListMIMETypes']%></a>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Choosing_between_www_and_non-www_URLs"><%=text['WWWorNotWWW']%></a>
+    </ol></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP"><%=text['Basics']%></a>
+    <ol>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Overview"><%=text['Overview']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP"><%=text['Evolution']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Messages"><%=text['Messages']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Session"><%=text['Session']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Connection_management_in_HTTP_1.x"><%=text['Connection1x']%></a></li>
+    </ol>
+    </li>
+    <li><a href="#"><%=text['Security']%></a>
+    <ol>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/CSP">Content Security Policy (CSP)</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Public_Key_Pinning">HTTP Public Key Pinning (HPKP)</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/Strict-Transport-Security">HTTP Strict Transport Security (HSTS)</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies">Cookie security</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a></li>
+        <li><a href="https://wiki.mozilla.org/Security/Guidelines/Web_Security">Mozilla web security guidelines</a></li>
+        <li><a href="https://observatory.mozilla.org/">Mozilla Observatory</a></li>
+    </ol>
+    </li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Access_control_CORS"><%=text['CORS']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Caching"><%=text['Caching']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Compression"><%=text['Compression']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Conditional_requests"><%=text['Conditionals']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Content_negotiation"><%=text['ContentNego']%></a></li>  
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Cookies"><%=text['Cookies']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Redirections"><%=text['Redirects']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Resources_and_specifications"><%=text['Resources']%></a></li>
+    <li><strong><%=text['Reference']%></strong></li>
+    <li data-default-state="<%=state('Web/HTTP/Headers')%>"><a href="/<%=locale%>/docs/Web/HTTP/Headers"><%=text['Headers']%></a>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers'])%>
+    </li>
+    <li data-default-state="<%=state('Web/HTTP/Methods')%>"><a href="/<%=locale%>/docs/Web/HTTP/Methods"><%=text['Methods']%></a>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Methods'])%>
+    </li>
+    <li data-default-state="<%=state('Web/HTTP/Status')%>"><a href="/<%=locale%>/docs/Web/HTTP/Status"><%=text['Status']%></a>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Status'])%>
+    </li>
+    <li data-default-state="<%=state('Web/HTTP/Headers/Content-Security-Policy')%>"><a href="/<%=locale%>/docs/Web/HTTP/Headers/Content-Security-Policy"><%=text['CSPDirectives']%></a>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Content-Security-Policy'])%>
+    </li>
+  </ol>
+</section>
