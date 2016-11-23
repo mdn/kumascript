@@ -1,0 +1,30 @@
+<%
+
+// These strings are copied from LocalizationStatusInSection
+// where there should be maintained
+var l10nPriority = mdn.localString({
+    "en-US": "Priority_articles",
+    "de"   : "Priorisierte_Artikel",
+    "fr"   : "Articles_prioritaires",
+    "ja"   : "最優先記事",
+    "pt-BR": "Artigos_prioritários",
+    "ru"   : "Приоритетные_статьи",
+    "zh-CN": "优先级较高的文档"
+});
+
+var slugBase = "/docs/MDN/Doc_status$children?expand";
+var locale = $0;
+var url =  "http://developer.mozilla.org/" + locale + slugBase;
+var jsonOverview = mdn.fetchJSONResource(url);
+var output = "";
+for (var page in jsonOverview.subpages){
+  var sections = jsonOverview.subpages[page].sections;
+  for (var section in sections){
+    if(sections[section].id === l10nPriority){
+          output += "<h2> "+jsonOverview.subpages[page].title + "</h2>";
+          output += template("Page", [jsonOverview.subpages[page].url, sections[section].id]);
+        }
+    }
+}
+%>
+<%- output %>
