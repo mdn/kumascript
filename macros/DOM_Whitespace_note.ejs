@@ -1,0 +1,112 @@
+<%
+// This template is used on various DOM articles to include a note about how text nodes are inserted
+// into a document to represent whitespace in the source markup.
+//
+// Parameters:
+//  None.
+
+var lang = env.locale;
+
+var linkFirstChild = template("domxref", ["Node.firstChild"]);
+var linkPrevSib = template("domxref", ["Node.previousSibling"]);
+
+function showEnglish() {
+%>
+    <p>Gecko-based browsers insert text nodes into a document to represent whitespace in the source markup. 
+    Therefore a node obtained, for example, using <%-linkFirstChild%> or <%-linkPrevSib%> may refer to a
+    whitespace text node rather than the actual element the author intended to get.</p>
+    
+    <p>See <a href="/en-US/docs/Web/Guide/DOM/Whitespace_in_the_DOM">Whitespace in the DOM</a> and
+    <a href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Why are some Text nodes empty?</a>
+    for more information.</p>
+<%
+}
+
+function showPortugueseBr() {
+%>
+    <p>Navegador baseados na engine Gecko inserem nós de texto no documento para representar espaços em branco na marcação do fonte. 
+    Portanto um nó obtido, por exemplo, usando <%-linkFirstChild%> ou <%-linkPrevSib%> pode fazer referência a um
+    espaço em banco ao invés do elemento que o autor pretendia obter.</p>
+    
+    <p>Veja <a href="/en-US/docs/Web/Guide/DOM/Whitespace_in_the_DOM">Whitespace in the DOM</a> e
+    <a href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Why are some Text nodes empty?</a>
+    Para mais informações.
+    </p>
+<%
+}
+
+function showKorean() {
+%>
+    <p>Gecko 기반 브라우저는 소스 마크업에서 공백을 나타내기 위해 문서 내에 텍스트 노드를 삽입합니다. 
+    그러므로 예를 들어 <%-linkFirstChild%>나 <%-linkPrevSib%>을 통해서 얻은 노드는 작성자가 얻으려 한 실제 요소와는 
+    달리 공백 텍스트 노드를 참조할 지도 모릅니다. </p>
+    
+    <p>더 많은 정보는 <a href="/ko/docs/Whitespace_in_the_DOM">Whitespace in the DOM</a>과
+    <a class="external" href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Why are some Text nodes empty?</a>를 보세요.</p>
+<%
+}
+
+function showZHcn() {
+%>
+    <p>Gecko内核的浏览器会在源代码中标签内部有空白符的地方插入一个文本结点到文档中.因此,使用诸如
+    <%-linkFirstChild%> 和 <%-linkPrevSib%> 之类的方法可能会引用到一个空白符文本节点,
+    而不是使用者所预期得到的节点.</p>
+    
+    <p>详情请参见 <a href="/zh-CN/docs/Whitespace_in_the_DOM">DOM 中的空白符</a>
+    和<a class="external" href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: 为什么一些文本节点是空的</a>.</p>
+<%
+}
+
+function showFrench() {
+%>
+    <p>Les navigateurs basés sur Gecko insèrent des nœuds texte dans un document pour représenter des espaces
+    vides dans le balisage source. Par conséquent, un nœud obtenu par exemple via <%-linkFirstChild%> ou
+    <%-linkPrevSib%> peut faire référence à un nœud texte contenant des espaces plutôt qu'au véritable élément
+    que l'auteur comptait obtenir.</p>
+    
+    <p>Consultez <a href="/fr/docs/Gestion_des_espaces_dans_le_DOM">Gestion des espaces dans le DOM</a>
+    et <a class="external" href="http://www.w3.org/DOM/faq.html#emptytext"><i>Why are some Text nodes empty?</i>
+    dans la FAQ DOM 3 du W3C</a> pour plus d'informations.</p>
+<%
+}
+
+function showJapanese() {%>
+    <p>Geckoベースのブラウザーはソースマークアップの中で空白を表現するためにテキストノードをドキュメントに挿入します。ですので、例えば <%-linkFirstChild%> や <%-linkPrevSib%> で得られるノードが、作者が取得しようとした実際の要素ではなく、空白のテキストノードを参照していることがあります。</p>
+    <p>より多くの情報を得るには『<a href="/ja/docs/Web/Guide/DOM/Whitespace_in_the_DOM">DOM 中の空白文字</a>』と『<a class="external" href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Why are some Text nodes empty?</a>』を参照してください。</p>
+<%}
+
+function showRussian() {
+%>
+    <p>Браузеры, основанные на Gecko, вставляют текстовые узлы в документ для представления пробелов в разметке.
+    Поэтому узел, полученный, например, при использовании <%-linkFirstChild%> или <%-linkPrevSib%> может относиться к
+    пробелу, а не к тому элементу, который автор хотел получить.</p>
+    
+    <p>Смотрите <a href="/ru/docs/Web/Guide/DOM/Whitespace_in_the_DOM">Пробел в DOM</a> и
+    <a href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Почему некоторые текстовые узлы пустые?</a>
+    для дополнительной информации.</p>
+<%
+}
+
+switch(lang) {
+    case 'zh-CN':
+        showZHcn();
+        break;
+    case 'pt-BR':
+        showPortugueseBr();
+        break;
+    case 'ko':
+        showKorean();
+        break;
+    case 'fr':
+        showFrench();
+        break;
+    case 'ja':
+        showJapanese();
+        break;
+    case 'ru':
+        showRussian();
+        break;
+    default:
+        showEnglish();
+        break;
+}%>
