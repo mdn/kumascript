@@ -1,0 +1,73 @@
+<%
+// Returns a URL for an appropriate logo image given the specified
+// inputs. By using this template instead of hardcoded logo URLs,
+// we can avoid having to attach logos to pages in order to have them,
+// and will be ready to deal with any logo changes over time.
+//
+// Parameters:
+//
+//  $0  Product name
+//  $1  Wordmark option (optional)
+//
+//  Product name can be one of:
+//      firefox
+//      thunderbird
+//      firefoxos
+//      marketplace
+//      mozilla
+//
+//  Wordmark flag is one of:
+//      none (same as leaving the parameter out, or empty)
+//          This returns a URL with only the icon and no text.
+//      vertical
+//          Returns a URL with an icon above the wordmark.
+//      horizontal
+//          Returns a URL with an icon next to the wordmark.
+//      wordmark
+//          Returns ONLY the wordmark, with no logo.
+//
+// When the requested kind of logo isn't available, the best substitute will
+// be returned. Be ready for cases like "mozilla", which only has a wordmark.
+
+var product = $0;
+var wordmark = $1 || "none";
+
+var logos = {
+    firefox: {
+        none: "/files/5429/firefox.png",
+        vertical: "/files/5429/firefox.png",
+        horizontal: "/files/5429/firefox.png",
+        wordmark: "/files/5429/firefox.png"
+    },
+    marketplace: {
+        none: "/files/5435/marketplace-color.png",
+        vertical: "/files/5435/marketplace-color.png",
+        horizontal: "/files/5437/marketplace-wordmark-horizontal.png",
+        wordmark: "/files/5439/marketplace-wordmark-only.png"
+    },
+    firefoxos: {
+        none: "/files/5429/firefox.png",
+        vertical: "/files/5443/fxos-wordmark-vertical.png",
+        horizontal: "/files/5441/FxOS-logo-horiz.png",
+        wordmark: "/files/5445/fxos-wordmark-only.png"
+    },
+    mozilla: {
+        none: "/files/5447/mozilla-wordmark.png",
+        vertical: "/files/5447/mozilla-wordmark.png",
+        horizontal: "/files/5447/mozilla-wordmark.png",
+        wordmark: "/files/5447/mozilla-wordmark.png"
+    },
+    thunderbird: {
+        none: "/files/5449/thunderbird.png",
+        vertical: "/files/5449/thunderbird.png",
+        horizontal: "/files/5449/thunderbird.png",
+        wordmark: "/files/5449/thunderbird.png"
+    }
+};
+
+// Pull out the info from the logo list and return the logo's URL
+
+var item = logos[product];
+var url = item[wordmark];
+%>
+<%-url%>
