@@ -1,0 +1,25 @@
+<%
+/* Used for embedding documentation for a WebExtension type inside another page.
+ * 
+ * @param
+ *   The name of the type to embed. This may be a type inside the same API,
+ *   in which case it's a single word. Or it may be a type in a different API,
+ *   in which case it's in the form "<api>.<type>".
+ *
+ */
+
+var slug_pieces = env.slug.split("/");
+
+var type_pieces = $0.split(".");
+
+var slice_end = -(type_pieces.length);
+
+var target_pieces = slug_pieces.slice(0, slice_end).concat(type_pieces);
+
+var target = target_pieces.join("/");
+
+var output = wiki.page(target, "Type");
+
+%>
+
+<%- output %>
