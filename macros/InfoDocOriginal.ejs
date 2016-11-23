@@ -1,0 +1,10 @@
+<%
+var out = [];
+if ($0) {out.push('"author":"' + $0 + '"');}
+if ($1) {out.push('"others":"' + $1 + '"');}
+if ($2) {out.push('"date":"' + $2 + '"');}
+if ($3) {out.push('"copyright":"' + $3 + '"');}
+if ($4) {out.push('"original":"' + $4 + '"');}
+var str = JSON.parse('{' + out.join(',') + '}');
+
+%><%- template("OrigDocInfo", [str]) %>
