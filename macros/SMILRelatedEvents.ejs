@@ -1,0 +1,15 @@
+<%
+var p1 = "/en-US/docs/";
+var p2 = "Web/Reference/Events/";
+
+var el = env.locale;
+
+if(el === "ja") p1 = "/" + el + "/docs/";
+
+var path = p1 + p2;
+
+%><ul>
+    <li><a href="<%- path %>beginEvent"><code>beginEvent</code></a></li>
+    <li><a href="<%- path %>endEvent"><code>endEvent</code></a></li>
+    <li><a href="<%- path %>repeatEvent"><code>repeatEvent</code></a></li>
+</ul>
