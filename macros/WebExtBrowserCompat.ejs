@@ -1,0 +1,83 @@
+<%
+/*
+Generates a compatibility table from the remote JSON data.
+
+This takes zero, one, or two arguments.
+
+Called with one argument, it treats the argument as the name of a module, and
+generates a compat table for that module.
+
+Called with 2 arguments, it treats $0 as the name of a module and $1 as
+the name of an API in that module, and generates a compat table for that API.
+
+###
+
+Called with no arguments:
+
+* if it thinks it's in a module page, it generates a compat table for that module.
+* if it thinks it's in an API page, it generates a compat table for that API.
+
+The general rule is that:
+
+* if the current page is directly under "API" (e.g. path/to/API/bookmarks)
+then it's in a module page whose name is the leaf (e.g. "bookmarks").
+
+* if the current page's parent is directly under "API"
+(e.g. path/to/API/bookmarks/create), then it's in an API page, where the parent
+is the module name (e.g. "bookmarks") and the leaf is the API name (e.g. "create").
+
+This general rule depends on a 2-level structure, with API leaf items directly
+under module names.
+
+There is special-casing for APIs which don't live directly under a module.
+The only object that does this is storage.StorageArea, which has properties
+like get(), set() etc under it. In this case, the properties pages will live
+at URLs like: path/to/API/storage/storageArea/get.
+
+So if there are three path components underneath "API", we will:
+* treat the first one as the module name (e.g. "storage")
+* join the other two: (e.g. "storageArea.get") and use that for the API name.
+
+###
+
+
+*/
+
+var url = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/browser-compat-data.json";
+var data = mdn.fetchJSONResource(url);
+var output = "";
+
+// if any args are given, use them
+// $0 is the module name, $1 is the api name
+if ($0) {
+  if ($1) {
+    output = template("WebExtBrowserCompatTable", [data[$0][$1], "api-item"]);
+  }
+  else {
+    output = template("WebExtBrowserCompatTable", [data[$0], "api"]);
+  }
+// if no args are given: if this is a module page: make a table for that module
+//                       if this is an API page: make a table for that API
+} else {
+  var urlPieces = env.slug.split("/");
+  if (urlPieces.length < 3) {
+    return;
+  }
+  var leaf = urlPieces[urlPieces.length - 1];
+  var parent = urlPieces[urlPieces.length - 2];
+  var grandparent = urlPieces[urlPieces.length - 3];
+ 
+  if (parent == "API") {
+    output = template("WebExtBrowserCompatTable", [data[leaf], "api", leaf]);
+  } else {
+      if (grandparent == "API") {
+        output = template("WebExtBrowserCompatTable", [data[parent][leaf], "api-item"]);
+      } else {
+        var apiItem = [parent, leaf].join(".");
+        output = template("WebExtBrowserCompatTable", [data[grandparent][apiItem], "api-item"]);
+      }
+  }
+}
+
+%>
+<%-output%>
