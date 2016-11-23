@@ -1,0 +1,22 @@
+<%
+// Creates a button offering a link to a live sample.
+//
+// Input parameters: Path of sample's file under developer.mozilla.org/
+// Localizers: Add your language to the object.
+// See also : HTMLLiveSample, CSSLiveSample, DOMLiveSample, SVGLiveSample
+
+var str = mdn.localString({
+    "en-US": "View Live Examples",
+	"es":    "Ver El Ejemplo Vivo",
+	"de":    "Live-Beispiel ansehen",
+	"fr":    "Voir l'exemple en direct",
+	"ja":    "実際の表示を確認",
+	"ko":    "실제 예제 보기",
+	"pl":    "Zobacz przykład",
+	"zh-CN": "查看在线演示",
+	"zh-TW": "查看示例",
+    "ru":    "Посмотреть живые примеры"
+});
+
+var target = ($0.charAt(0) == "/") ? $0 : "/" + $0;
+%><a class="button liveSample" href="<%=target%>"><%=str%></a>
