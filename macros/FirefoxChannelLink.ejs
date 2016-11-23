@@ -1,0 +1,54 @@
+<%
+// Inserts a link for downloading Firefox for a specific channel
+//
+// Parameters:
+//  $0  Channel name ("nightly", "aurora", "beta", "firefox")
+//  $1  Icon size (in pixels, or 0 for a text-only link)
+//  $2  Link text (used for link in text-only links)
+
+var lang = env.locale;
+var channel = $0.toLowerCase();
+var downloadURL = "";
+var iconURL = "";
+var baseURL = "https://www.mozilla.org/" + lang + "/firefox/channel/";
+var html = "";
+
+if (channel == "nightly") {
+    downloadURL = "https://nightly.mozilla.org";
+    iconURL = "/files/7513/Firefox-Nightly-300dpi.png";
+} 
+else if (channel == "developer") {
+    downloadURL = "https://www.mozilla.org/en-US/firefox/developer/";
+    iconURL = "/files/9069/firefox-dev-ed_logo-only_1024.png";    
+}
+else {
+    switch(channel) {
+        case "aurora":
+            downloadURL = baseURL + "#aurora";
+            iconURL = "/files/7509/Firefox-Aurora-300dpi.png"
+            break;
+        case "beta":
+            downloadURL = baseURL + "#beta";
+            iconURL = "/files/7511/Firefox-Beta-300dpi.png";
+            break;
+        case "firefox":
+        case "release":
+            downloadURL = baseURL + "#firefox";
+            iconURL = "/files/7515/Firefox-Release-300dpi.png";
+            break;
+    }
+}
+
+// Handle the "no-icon" case
+
+if (!$1 == 0) {
+    html = "<a href='" + downloadURL + "'>" + $2 + "</a>";
+}
+
+// Handle the icon case
+
+if ($1 != 0) {
+    html = "<a class='ignore-external' href='" + downloadURL + "'><img src='" + iconURL + "' width='" + $1 + "px'></a>";
+}
+%>
+<%-html%>
