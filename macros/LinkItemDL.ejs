@@ -1,0 +1,17 @@
+<%
+// Create a single item in a definition list; great for landing pages! The item
+// is created as a link with the item text as specified, linked to the
+// given page; the page summary is automatically added as the <dd> term.
+//
+// You must have already opened the <dl>.
+//
+// Parameters:
+//
+//  $0  Item text
+//  $1  URL
+
+var page = wiki.getPage($1);
+var summary = wiki.escapeQuotes(page.summary);
+%>
+<dt><a href="<%-$1%>"><%-$0%></a></dt>
+<dd><%-summary%></dd>
