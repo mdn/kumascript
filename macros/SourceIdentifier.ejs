@@ -1,0 +1,8 @@
+<%
+// Insert a link to search for an identifier in the mozilla-central source repository.
+//
+//  $0 - Identifier to search for
+
+var url = "https://dxr.mozilla.org/mozilla-central/search?q=id:" + $0;
+%>
+<code><a href="<%=url%>"><%=$0%></a></code>
