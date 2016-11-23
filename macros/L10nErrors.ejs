@@ -1,0 +1,56 @@
+<%
+ switch(env.locale) {
+    case "ru":
+        translatedStr = "Переведено";
+        errorsStr = "Ошибки Kumascript";
+        inprogressStr = "Частично переведено";
+        woParentStr = "Не связано со страницей en-US";
+    break;
+    case "fr":
+        translatedStr = "Pages traduites";
+        errorsStr = "Erreurs Kumascript";
+        inprogressStr = "Partiellement traduites";
+        woParentStr = "Non liées à une page en-US";
+    break;
+    default:
+        translatedStr = "Translated";
+        errorsStr = "Kumascript errors";
+        inprogressStr = "Partially translated";
+        woParentStr = "Not linked to an en-US page";
+ }
+ allURL = "/" + env.locale + "/docs/all";
+ errorsURL = "/" + env.locale + "/docs/with-errors";
+ inprogressURL = "/" + env.locale + "/docs/localization-tag/inprogress";
+ woParentURL = "/" + env.locale + "/docs/without-parent";
+ 
+ page_all = template("page", [allURL]);
+ page_errors = template("page", [errorsURL]);
+ page_inprogress = template("page", [inprogressURL]);
+ page_wo_parents = template("page", [woParentURL]);
+ function getValue(page) {
+    var result = page.match(/<\/h1>[^<]*<p>[^<0-9]*([0-9]*)/);
+    var value = 0;
+    if (result) {
+        value = result[1];
+    }
+    return value;
+ }
+%>
+<table class="standard-table">
+    <thead>
+        <tr>
+            <th><%- translatedStr%></th>
+            <th><%- errorsStr%></th>
+            <th><%- inprogressStr%></th>
+            <th><%- woParentStr%></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="<%- allURL%>"><%- getValue(page_all) %></a></td>
+            <td><a href="<%- errorsURL%>"><%- getValue(page_errors) %></a></td>
+            <td><a href="<%- inprogressURL%>"><%- getValue(page_inprogress) %></a></td>
+            <td><a href="<%- woParentURL%>"><%- getValue(page_wo_parents) %></a></td>
+        </tr>
+    </tbody>
+</table>
