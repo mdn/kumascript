@@ -1,0 +1,18 @@
+<tr>
+  <td><code>touches</code> <%- template("readonlyInline") %></td>
+  <td><a href="/en-US/docs/DOM/TouchList">TouchList</a></td>
+  <td>A list of <a href="/en/DOM/Touch"><code>Touch</code></a>es for every point of contact currently touching the surface.</td>
+</tr>
+<tr>
+  <td><code>targetTouches</code> <%- template("readonlyInline") %></td>
+  <td><a href="/en-US/docs/DOM/TouchList">TouchList</a></td>
+  <td>A list of <a href="/en/DOM/Touch"><code>Touch</code></a>es for every point of contact that is touching the surface and started on the element that is the target of the current event.</td>
+</tr>
+<tr>
+  <td><code>changedTouches</code> <%- template("readonlyInline") %></td>
+  <td><a href="/en-US/docs/DOM/TouchList">TouchList</a></td>
+  <td>
+    A list of <a href="/en-US/docs/DOM/Touch"><code>Touch</code></a>es for every point of contact which contributed to the event.<br/>
+    For the touchstart event this must be a list of the touch points that just became active with the current event. For the touchmove event this must be a list of the touch points that have moved since the last event. For the touchend and touchcancel events this must be a list of the touch points that have just been removed from the surface.
+  </td>
+</tr>
