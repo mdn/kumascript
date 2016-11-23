@@ -1,0 +1,25 @@
+<%
+var el = env.locale;
+var path = "";
+
+switch (el) {
+    case "ja":
+    case "zh-TW":
+        path = "/" + el + "/docs/";
+        break;
+    default:
+        path = "/en-US/docs/"
+}
+
+var path2 = mdn.localString({
+    "en-US" : "Web/Reference/Events/"
+});
+
+
+%><ul>
+<li><a href="<%- path %><%- path2 %>DOMContentLoaded"><code>DOMContentLoaded</code></a></li>
+<li><a href="<%- path %><%- path2 %>readystatechange"><code>readystatechange</code></a></li>
+<li><a href="<%- path %><%- path2 %>load"><code>load</code></a></li>
+<li><a href="<%- path %><%- path2 %>beforeunload"><code>beforeunload</code></a></li>
+<li><a href="<%- path %><%- path2 %>unload"><code>unload</code></a></li>
+</ul>
