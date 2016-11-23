@@ -1,0 +1,12 @@
+<%
+var lang = env.locale;
+
+var html = "is currently <a href='/en-US/docs/Interfaces/About_under_review_interfaces'>under review</a>";
+
+switch(lang) {
+    case "ja":
+        html = "現在<a href='/ja/docs/Interfaces/About_under_review_interfaces'>レビュー中</a>です。";
+        break;
+}
+%>
+<%-html%>
