@@ -1,0 +1,8 @@
+<%
+// Inserts the text of the specified DOM property's article
+//
+//  $0 - Property name
+
+var url = "/" + env.locale + "/docs/DOM/" + $0;
+
+%><span id='p-<%-$0%>'><%-wiki.page(url)%></span>
