@@ -1,0 +1,14 @@
+<%
+var p = kuma.url.parse(wiki.kumaPath($0), true);
+var pageNewTite = (wiki.getPage(p.path).title || p.path);
+var START = template("NoteStart");
+var END = template("NoteEnd");
+
+str = START + "The content of this page has been merged into " + web.link(p.href, pageNewTite) + "." + END;
+
+switch (env.locale) {
+    case "ja": str = START + "このページの内容は " + web.link(p.href, pageNewTite) + "にマージされました。" + END; break;
+}
+
+
+%><%- str %>
