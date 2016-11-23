@@ -1,0 +1,4 @@
+<h3 id="{{if ($id!=null){$id} else {$name}}}" class="constructor"><a name="{{if ($id!=null) {$id} else {$name}}}" /><span class="constructor-name"><span class="script">$name</span></span>(<span class="script">buf = [];foreach(var param in $params){buf += ['<b class="param-name">'+param.name+'</b> as <i class="param-type">'+param.type+'</i>']};paramList = web.html(""+string.join(buf,", ")+"");paramList </span>) returns <span class="constructor-type"><span class="script">$type</span></span></h3>
+<div class="label"><strong>Description</strong></div>
+<div class="description"><span class="script">web.html(""+$description+"")</span></div>
+<ul class="params-descr"><span class="script">buf = [];foreach(var param in $params){buf += [' <li class="param-descr"><b class="param-descr-label">'+param.name+'</b>. <i class="param-descr-body">'+param.description+'</i></li>']};paramDescrs = web.html(""+string.join(buf,"")+""); paramDescrs </span></ul>
