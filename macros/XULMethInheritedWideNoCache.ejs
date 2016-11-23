@@ -1,0 +1,67 @@
+<div style="border: 5px solid #CCC; margin: 1em 0; padding: 10px; background: #F9F9F9; overflow: hidden;">
+
+<%
+
+var s_Inherited_Methods = mdn.localString({
+    "en-US" : "Inherited Methods",
+    "de" : "Geerbte Methoden",
+    "es" : "Métodos Heredados",
+    "ja" : "継承メソッド",
+    "ru" : "Наследуемые методы"
+});
+
+
+
+%><div><strong><%- s_Inherited_Methods %></strong></div>
+
+<div style="font-size:small">
+<%- template("DOMXREF",        ["EventTarget.addEventListener", "addEventListener()"]) %>,
+<%- template("DOMXREF",        ["Node.appendChild", "appendChild()"]) %>,
+<%- template("xulmeth", ["blur"]) %>,
+<%- template("xulmeth", ["click"]) %>,
+<%- template("DOMXREF",        ["Node.cloneNode", "cloneNode()"]) %>,
+<%- template("DOMXREF",        ["Node.compareDocumentPosition", "compareDocumentPosition"]) %>,
+<%- template("dommeth", ["dispatchEvent"]) %>,
+<%- template("xulmeth", ["doCommand"]) %>,
+<%- template("xulmeth", ["focus"]) %>,
+<%- template("DOMXREF",        ["element.getAttribute", "getAttribute()"]) %>,
+<%- template("DOMXREF",        ["element.getAttributeNode", "getAttributeNode()"]) %>,
+<%- template("DOMXREF",        ["element.getAttributeNodeNS", "getAttributeNodeNS()"]) %>,
+<%- template("DOMXREF",        ["element.getAttributeNS", "getAttributeNS()"]) %>,
+<%- template("DOMXREF",        ["element.getBoundingClientRect", "getBoundingClientRect()"]) %>,
+<%- template("DOMXREF",        ["element.getClientRects", "getClientRects()"]) %>,
+<%- template("xulmeth", ["getElementsByAttribute"]) %>,
+<%- template("xulmeth", ["getElementsByAttributeNS"]) %>,
+<%- template("DOMXREF",        ["Element.getElementsByClassName", "getElementsByClassName()"]) %>,
+<%- template("DOMXREF",        ["Element.getElementsByTagName", "getElementsByTagName()"]) %>,
+<%- template("DOMXREF",        ["Element.getElementsByTagNameNS", "getElementsByTagNameNS()"]) %>,
+<%- template("DOMXREF",        ["Node.getFeature", "getFeature"]) %>,
+<%- template("DOMXREF",        ["Node.getUserData", "getUserData"]) %>,
+<%- template("DOMXREF",        ["element.hasAttribute", "hasAttribute()"]) %>,
+<%- template("dommeth", ["hasAttributeNS"]) %>,
+<%- template("dommeth", ["hasAttributes"]) %>,
+<%- template("dommeth", ["hasChildNodes"]) %>,
+<%- template("dommeth", ["insertBefore"]) %>,
+<%- template("domxref",        ["Node.isDefaultNamespace", "isDefaultNamespace()"]) %>,
+<%- template("DOMXREF",        ["Node.isEqualNode", "isEqualNode"]) %>
+<%- template("DOMXREF",        ["Node.isSameNode", "isSameNode"]) %>
+<%- template("dommeth", ["isSupported"]) %>,
+<%- template("DOMXREF",        ["Node.lookupNamespaceURI", "lookupNamespaceURI"]) %>,
+<%- template("DOMXREF",        ["Node.lookupPrefix", "lookupPrefix"]) %>,
+<%- template("dommeth", ["normalize"]) %>,
+<%- template("dommeth", ["querySelector"]) %>,
+<%- template("dommeth", ["querySelectorAll"]) %>,
+<%- template("dommeth", ["removeAttribute"]) %>,
+<%- template("dommeth", ["removeAttributeNode"]) %>,
+<%- template("dommeth", ["removeAttributeNS"]) %>,
+<%- template("dommeth", ["removeChild"]) %>,
+<%- template("dommeth", ["removeEventListener"]) %>,
+<%- template("dommeth", ["replaceChild"]) %>,
+<%- template("dommeth", ["setAttribute"]) %>,
+<%- template("dommeth", ["setAttributeNode"]) %>,
+<%- template("dommeth", ["setAttributeNodeNS"]) %>,
+<%- template("dommeth", ["setAttributeNS"]) %>,
+<%- template("DOMXREF",        ["Node.setUserData", "setUserData"]) %></a>
+</div>
+
+</div>
