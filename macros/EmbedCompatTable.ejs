@@ -1,0 +1,714 @@
+<%
+
+/*
+ * Embeds a custom compat table into the page using the Web Compat Services data.
+ *
+ * $0 - The feature slug to use.  (ex:  "css-display")
+ */
+
+var mdn = require('MDN:Common');
+
+var url = encodeURI('https://browsercompat.herokuapp.com/api/v1/view_features/' + $0 + '.json');
+
+var content = false;
+
+var lang = env.locale;
+var localStrings = string.deserialize(template('L10n:CompatTable'));
+
+var localize = mdn.getLocalString;
+var replacePlaceholders = mdn.replacePlaceholders;
+
+var response = mdn.fetchCompatTableJSON(url);
+
+if (response === null) {
+    content = localize(localStrings, 'connectionFailure');
+}
+else if (response.errors) {
+    content = replacePlaceholders(localize(localStrings, 'compatServiceError'), {error: JSON.stringify(response.errors)});
+}
+
+// check we have localized strings for > 80% of strings 
+function translationsExist(strings, lang) {
+
+    var countStrings = 0;
+    var countLang = 0;
+    
+    for (var i in strings) {
+        countStrings ++;
+        if(strings[i][lang]) {
+           countLang ++;
+        }
+    }
+    
+    if ( (countLang / countStrings) > 0.8) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+if ( lang != 'en-US' && !translationsExist(localStrings, lang)) {
+    content = 'Less than 80% of macro strings have been translated. Falling back to wiki table.';
+}
+
+
+function loadTable(payload, locale) {
+    // Payload Shortcuts
+    var tabs = payload.meta.compat_table.tabs;
+
+    // Important Vars
+    var numberOfBrowsers = getNumberOfBrowsers();
+
+    // This is ultimately returned from the function
+    var output = '';
+
+    // Templates
+    var templates = {
+        icon: '<abbr title="$title$" class="only-icon"><span>$text$</span><i class="ic-$icon$" aria-hidden="true"></i></abbr>',
+        iconx2: '<abbr title="$title$" class="only-icon"><span>$text$</span><i class="ic-$icon1$" aria-hidden="true"></i> <i class="ic-$icon2$" aria-hidden="true"></i></abbr>',
+        support: '<abbr title="$title$" class="bc-level bc-level-$icon$ only-icon"><span>$text$</span><img src="/media/img/wiki-compat-tables-support-sprite.gif" aria-hidden="true"></abbr>',
+        legendItem: '<dt>$icon$</dt><dd>$text$</dd>'
+    };
+    templates.historySupport = templates.icon + ' $title$';
+
+    // Conditions object so we know what to put into the legend
+    var legendConditions = {
+        // Support levels
+        yes: false,
+        partial: false,
+        no: false,
+
+        // Individual browser support details
+        prefix: false,
+        alternate: false,
+        'protected': false,
+        note: false,
+        config: false,
+
+        // Feature detail
+        experimental: false,
+        nonstandard: false,
+        obsolete: false
+    };
+
+    // TABLE
+    // ===============================
+    output += '<table class="bc-table bc-table-' + numberOfBrowsers + '">';
+
+    // HEADER
+    // ===============================
+    output += '<thead>';
+    output += '<tr class="bc-mediums">';
+    output += '<td></td>';
+    tabs.forEach(function(tab) {
+
+        output += _hackTableHeading(tab);
+
+    });
+    output += '</tr>';
+
+    output += '<tr class="bc-browsers">';
+    output += '<td></td>';
+    tabs.forEach(function(tab, tabIndex) {
+        // This is needed to differentiate groups of icons under desktop and mobile
+        // The first cell in the mobile column requires an extra left border
+        var addExtraLeftBorder = tabIndex ? 'bc-medium-border' : '';
+
+        tab.browsers.forEach(function(browserId) {
+            output += _hackBrowserIcons(browserId, addExtraLeftBorder);
+            addExtraLeftBorder = '';
+        });
+    });
+    output += '</tr>';
+
+    output += '</thead>';
+
+    // BODY
+    // ===============================
+    output += '<tbody>';
+
+    // current feature aka Basic Support
+    if (payload.features.links.supports.length > 0) {
+        output += outputFeatureRow(payload.features, true);
+    }
+
+    // each linked feature
+    payload.linked.features.forEach( function(feature){
+        output += outputFeatureRow(feature);
+    });
+
+    output += '</tbody>';
+
+    // Table close
+    output += '</table>';
+
+    
+    // LEGEND
+    // ===============================
+    output += '<section class="bc-legend">';
+    output += '<strong class="offscreen">' + localize(localStrings, 'legend') + '</strong>';
+    output += '<dl>' + outputLegend() + '</dl>';
+    output += '</section>';
+
+    // Done!
+    return output;
+
+
+
+
+    // UTILITY FUNCTIONS
+    // ===============================
+
+    // creates a table row based on feature input
+    function outputFeatureRow(feature, isBasicSupport) {
+        isBasicSupport = typeof isBasicSupport !== 'undefined' ? isBasicSupport : false;
+        var output = '';
+        var name = getLocaleOrDefaultFromObject(feature.name);
+
+        output += '<tr>';
+        output += '<th scope="row">';
+        if (isBasicSupport){
+            output += localize(localStrings, 'feature_basicsupport');
+        }else if (nameIsCanonical(name, feature)) {
+            output += '<code>' + name + '</code>';
+        }
+        else {
+            output += name;
+        }
+
+        // Account for icons in this cell
+        if (feature.experimental || feature.standardized === false || feature.obsolete) {
+
+            output += '<div class="bc-icons">';
+            if (feature.experimental) {
+                output += getExperimentalIcon();
+                setLegendCondition('experimental');
+            }
+            if (feature.standardized === false) {
+                output += getNonStandardIcon();
+                setLegendCondition('nonstandard');
+            }
+            if (feature.obsolete) {
+                output += getObsoleteIcon();
+                setLegendCondition('obsolute');
+            }
+            output += '</div>';
+
+        }
+
+        output += '</th>';
+
+        tabs.forEach(function(tab, tabIndex) {
+            // This is needed to differentiate groups of icons under desktop and mobile
+            // The first cell in the mobile column requires an extra left border
+            var addExtraLeftBorder = tabIndex > 0;
+
+            tab.browsers.forEach(function(browserId) {
+                var browserFeatureHistory = payload.meta.compat_table.supports[feature.id][browserId];
+                var browserMeta = findObjectByIdInArray(browserId, payload.linked.browsers);
+                var currentBrowserObj;
+                var browserVersionObj;
+
+                var cell = {
+                    classes: [],
+                    content: ''
+                };
+
+                // Apply the extra margin if first cell in second tab
+                if (addExtraLeftBorder) {
+                    cell.classes.push('bc-medium-border');
+                    addExtraLeftBorder = false;
+                }
+
+                if (browserFeatureHistory) {
+
+                    // Assume the last item is the "current"
+                    // This will likely need to change in the future
+                    currentBrowserObj = findObjectByIdInArray(browserFeatureHistory[browserFeatureHistory.length - 1], payload.linked.supports);
+
+                    // Determine support via classname
+                    cell.classes.push('bc-supports-' + currentBrowserObj.support);
+
+                    // Build up the content 
+                    // This is going to need a ton of logic 
+                    browserVersionObj = findObjectByIdInArray(currentBrowserObj.links.version, payload.linked.versions);
+
+                    // Add "Yes", "No", "Partial" or $version$
+                    cell.content += getBrowserSupportText(browserVersionObj, currentBrowserObj);
+                    cell.content += getSupportIcon(currentBrowserObj);
+
+                    setLegendCondition(currentBrowserObj.support);
+
+                    // Add icons for this individual history object
+                    cell.content += outputIconsForHistoryObject(currentBrowserObj);
+
+                    // History stuff goes here
+                    var needsHistory = meetsHistoryCriteria(currentBrowserObj, browserFeatureHistory);
+                    if (needsHistory) {
+
+                        cell.classes.push('bc-has-history');
+
+                        // Setup the section
+                        cell.content += '<section class="bc-history hidden" aria-hidden="true">';
+                        cell.content += '<p class="bc-history-head">' + localize(localStrings, 'bc_history_head') + '</p>';
+                        cell.content += '<dl>';
+
+                        // Reverse the array to show support newest -> oldest
+                        browserFeatureHistory.reverse();
+                        browserFeatureHistory.forEach(function(historyItemId) {
+                            var historyItemObject = findObjectByIdInArray(historyItemId, payload.linked.supports);
+                            var historyItemVersionObject = findObjectByIdInArray(historyItemObject.links.version, payload.linked.versions);
+
+                            cell.content += '<dt class="bc-supports-' + historyItemObject.support +' bc-supports">';
+
+                            cell.content += getSupportIcon(historyItemObject);
+
+                            // Add text for the version/support box
+                            cell.content += getBrowserSupportText(historyItemVersionObject, historyItemObject);
+                            cell.content += outputIconsForHistoryObject(historyItemObject);
+                            
+                            cell.content += '</dt>';
+
+                            cell.content += '<dd>' + outputDetailsForHistoryObject(historyItemObject) + '</dd>';
+
+                            setLegendCondition(historyItemObject.support);
+                        });
+                        cell.content += '</dl></section>';
+                    }
+                }
+                else {
+                    cell.classes.push('bc-supports-unknown');
+                    cell.content += '?';
+                }
+
+                // Provide the browser class regardless of support
+                cell.classes.push('bc-browser-' + browserMeta.slug);
+
+                output += '<td class="' + cell.classes.join(' ') + '"> ' + cell.content + '</td>';
+
+            });
+        });
+
+        output += '</tr>';
+        return output;
+    }
+
+    function nameIsCanonical(name, feature){
+        return (name == feature.name);
+    }
+
+    function meetsHistoryCriteria(currentBrowserObj, browserFeatureHistory) {
+        if (browserFeatureHistory.length > 1){
+            return true;
+        } else if (meetsIconCriteria(currentBrowserObj)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Simple true/false logic determining if a browser history object meets "extra info" criteria
+    function meetsIconCriteria(historyObject) {
+        return (historyObject.prefix_mandatory || 
+            historyObject.alternate_name_mandatory || 
+            historyObject['protected'] || 
+            historyObject.note ||
+            meetsConfigCriteria(historyObject)
+        );
+    }
+
+    function meetsConfigCriteria(historyObject) {
+        return historyObject.requires_config > 0 && historyObject.default_config != historyObject.requires_config;
+    }
+
+    // Evaluate a browser history object, place icons as needed
+    function outputIconsForHistoryObject(historyObject) {
+        var output = '';
+
+        // Account for any required icons
+        if (meetsIconCriteria(historyObject)) {
+
+            output += '<div class="bc-icons">';
+
+            // Browser Prefix
+            if (historyObject.prefix_mandatory) {
+                output += getPrefixIcon(historyObject);
+                setLegendCondition('prefix');
+            }
+
+            // Alternate Name Mandatory
+            if (historyObject.alternate_name_mandatory) {
+                output += getAlternateIcon(historyObject);
+                setLegendCondition('alternate');
+            }
+
+            // Requires/Default config
+            if (meetsConfigCriteria(historyObject)) {
+                output += getConfigIcon(historyObject);
+                setLegendCondition('config');
+            }
+
+            // Protected
+            if (historyObject['protected']) {
+                output += getProtectedIcon();
+                setLegendCondition('protected');
+            }
+
+            // Notes
+            if (historyObject.note) {
+                output += getNoteIcon();
+                setLegendCondition('note');
+            }
+
+            output += '</div>';
+        }
+
+        return output;
+    }
+
+
+    // Evaluate a browser history object, place icons and detail text as needed
+    function outputDetailsForHistoryObject(historyObject) {
+        var output = '';
+
+        // Account for any required icons
+        if (meetsIconCriteria(historyObject)) {
+
+            // Browser Prefix
+            if (historyObject.prefix_mandatory) {
+                output += getPrefixIcon(historyObject) + ' ' + getPrefixText(historyObject) + '<br>';
+            }
+
+            // Alternate Name Mandatory
+            if (historyObject.alternate_name_mandatory) {
+                output += getAlternateIcon(historyObject) + ' ' + getAlternateText(historyObject) + '<br>';
+            }
+
+            // Requires/Default config
+            if (meetsConfigCriteria(historyObject)) {
+                output += getConfigIcon(historyObject) + ' ' + getConfigText(historyObject) + '<br>';
+            }
+
+            // Protected
+            if (historyObject['protected']) {
+                output += getProtectedIcon() + 'FIX ME :: PROTECTED';
+            }
+
+            // Notes
+            if (historyObject.note) {
+                output += getNoteIcon() + ' ' + getLocaleOrDefaultFromObject(historyObject.note) + '<br>';
+            }
+
+        }
+
+        if (output === '') {
+            output += '&nbsp;';
+        }
+
+        return output;
+    }
+
+    // Outputs line items 
+    function outputLegend() {
+        var output = '';
+
+        // Basic supports
+        ['yes', 'partial', 'no'].forEach(function(key) {
+            if (legendConditions[key]) {
+                output += getLegendHTML('<span class="bc-supports-' + key + ' bc-supports">' + getSupportIcon({ support: key }) + '&nbsp;</span>', localize(localStrings, 'supportsLong_' + key));
+            }
+        });
+
+        // Browser support details
+        if (legendConditions.prefix) {
+            output += getLegendHTML(getPrefixIcon(false), localize(localStrings, 'legend_prefixLong'));
+        }
+        if (legendConditions.alternate) {
+            output += getLegendHTML(getAlternateIcon(false), getAlternateText());
+        }
+        if (legendConditions['protected']) {
+            output += getLegendHTML(getProtectedIcon(false), localize(localStrings, 'requirement_protectedLong'));
+        }
+        if (legendConditions.note) {
+            output += getLegendHTML(getNoteIcon(false), localize(localStrings, 'requirement_noteLong'));
+        }
+        if (legendConditions.config) { // FIX ME
+            output += getLegendHTML(getConfigIcon(null, false), localize(localStrings, 'legend_disabledLong'));
+        }
+
+        // Feature details
+        if (legendConditions.experimental) {
+            output += getLegendHTML(getExperimentalIcon(false), localize(localStrings, 'feature_experimentalLong'));
+        }
+        if (legendConditions.nonstandard) {
+            output += getLegendHTML(getNonStandardIcon(false), localize(localStrings, 'feature_nonstandardLong'));
+        }
+        if (legendConditions.obsolete) {
+            output += getLegendHTML(getObsoleteIcon(false), localize(localStrings, 'feature_obsoleteLong'));
+        }
+
+        return output;
+    }
+
+
+    // Set a legend condition key
+    function setLegendCondition(key) {
+        legendConditions[key] = true;
+    }
+
+    // Returns either the browser version number or "Yes" / "No" / "Partial"  for support text blocks
+    function getBrowserSupportText(versionObj, browserObj) {
+        if (versionObj && versionObj.version && versionObj.version != 'current') {
+            return versionObj.version;
+        }
+        else {
+            return localize(localStrings, 'supportsShort_' + browserObj.support); // PROBLEM:  This requires localization for "Yes" and "No"
+        }
+    }
+
+    // Returns the total number of browsers, both desktop and mobile
+    function getNumberOfBrowsers() {
+        var numBrowsers = 0;
+
+        tabs.forEach(function(tab) {
+            numBrowsers += tab.browsers.length;
+        });
+
+        return numBrowsers;
+    }
+
+    // Tries to find the locale string for a given name object based on the navigator locale
+    function getLocaleOrDefaultFromObject(nameObject) {
+        return typeof nameObject === 'string' ? nameObject : (nameObject[locale] || nameObject[locale.split('-')[0]] || nameObject['en']);
+    }
+
+    // Given an array of objects, this finds the desired object based on provided ID
+    function findObjectByIdInArray(id, array) {
+        var match;
+        array.forEach(function(obj) {
+            if (match) return;
+            if (obj.id === id) match = obj;
+        });
+        return match;
+    }
+
+    // ICON BUILDERS
+    // ===============================
+    function _getBasicIcon(langKey, longTextKey, shortTextKey, icon, showTitle) {
+        if (typeof showTitle === "undefined") {
+            showTitle = true;
+        }
+        return replacePlaceholders(templates.icon, {
+                    title: showTitle ? localize(localStrings, langKey + '_' + longTextKey) : '',
+                    text: localize(localStrings, langKey + '_' + shortTextKey),
+                    icon: (icon || shortTextKey)
+                });
+    }
+
+    function getExperimentalIcon(showTitle) {
+        return _getBasicIcon('features', 'experimentalLong', 'experimental', showTitle);
+    }
+
+    function getNonStandardIcon(showTitle) {
+        return _getBasicIcon('features', 'nonstandardLong', 'nonstandard', 'non-standard', showTitle);
+    }
+
+    function getObsoleteIcon(showTitle) {
+        return _getBasicIcon('features', 'obsoleteLong', 'obsolete', showTitle);
+    }
+
+    function getProtectedIcon(showTitle) {
+        return _getBasicIcon('requirement', 'protectedLong', 'protected', showTitle);
+    }
+
+    function getNoteIcon(showTitle) {
+        return _getBasicIcon('requirement', 'noteLong', 'note', 'footnote', showTitle);
+    }
+
+    function getConfigIcon(historyObject, showTitle) {
+        return replacePlaceholders(templates.icon, {
+                    title: showTitle ? getConfigText(historyObject) : '',
+                    text: localize(localStrings, 'requirement_disabled'),
+                    icon: 'disabled'
+                });
+    }
+    function getConfigText(historyObject) {
+        return replacePlaceholders(localize(localStrings, 'requirement_' + (historyObject.requires_config && historyObject.default_config) ? 'disabledRequires' : 'disabledDefault'), {
+                        'default': historyObject.default_config,
+                        'requires': historyObject.requires_config
+                    });
+    }
+
+    function getAlternateIcon(historyObject) {
+        return replacePlaceholders(templates.icon, {
+                    title: getAlternateText(historyObject),
+                    text: localize(localStrings, 'requirement_alternate'),
+                    icon: 'altname'
+                });
+    }
+    function getAlternateText(historyObject) {
+        if (historyObject) {
+            return replacePlaceholders(localize(localStrings, 'requirement_alternateLong'), {
+                            prefix: historyObject ? historyObject.alternate_name : ''
+                        });
+        }
+        else {
+            return localize(localStrings, 'legend_alternateLong');
+        }
+        
+    }
+
+    function getPrefixIcon(historyObject) {
+        return replacePlaceholders(templates.icon, {
+                    title: getPrefixText(historyObject),
+                    text: localize(localStrings, 'requirement_prefix'),
+                    icon: 'prefix'
+                });
+    }
+    function getPrefixText(historyObject) {
+        return replacePlaceholders(localize(localStrings, 'requirement_prefixLong'), {
+                        prefix: historyObject ? historyObject.prefix : ''
+                    });
+    }
+
+    function getSupportIcon(browserObj) {
+        return replacePlaceholders(templates.support, {
+                        title: localize(localStrings, 'supportsLong_' + browserObj.support),
+                        icon: browserObj.support,
+                        text: localize(localStrings, 'supportsLong_' + browserObj.support)
+                    });
+    }
+
+    function getLegendHTML(icon, text) {
+        return replacePlaceholders(templates.legendItem, {
+            icon: icon,
+            text: text
+        });
+    }
+
+
+
+    // HACKS
+    // ===============================
+    // This section includes temporary hacks to make icons and such display properly
+
+    function _hackTableHeading(tab) {
+        var output = '';
+        var tabName = getLocaleOrDefaultFromObject(tab.name);
+
+        // Hacky vars
+        var tabIcon = _hackEnvironmentIcon(tab);
+
+        output += '<th colspan="' + tab.browsers.length +'" class="bc-medium-' + tabIcon + '">';
+
+        output += replacePlaceholders(templates.icon, {
+            title: tabName,
+            text: tabName,
+            icon: tabIcon
+        });
+
+        output += '</th>';
+
+        return output;
+    }
+    
+    function _hackEnvironmentIcon(tab) {
+        var tabName = tab.name.en.toLowerCase();
+        var iconName = '';
+        if (tabName.indexOf('desktop') != -1){
+            iconName = 'desktop';
+        } else if (tabName.indexOf('mobile') != -1) {
+            iconName = 'mobile';
+        } else if (tabName.indexOf('non-browser') != -1){
+            iconName = 'non';
+        }
+        return iconName;
+    }
+
+    function _hackBrowserIcons(browserId, extraClass) {
+        var output = '';
+        var matchedBrowserObj = findObjectByIdInArray(browserId, payload.linked.browsers);
+        var browserName = getLocaleOrDefaultFromObject(matchedBrowserObj.name);
+        var icon = matchedBrowserObj.slug;
+        var template = templates.icon;
+        var substituteObject = {
+            title: browserName,
+            text: browserName, // PROBLEM:  No way of knowing "for Desktop" (localization issue)
+            icon: icon
+        };
+
+        switch (icon) {
+            case 'chrome_desktop':
+                substituteObject.icon = 'chrome';
+                break;
+    
+            case 'chrome_for_android':
+                template = templates.iconx2;
+                substituteObject.icon1 = 'chrome';
+                substituteObject.icon2 = 'android';
+                break;
+
+            case 'firefox_desktop':
+                substituteObject.icon = 'firefox';
+                break;
+
+            case 'firefox_android':
+                template = templates.iconx2;
+                substituteObject.icon1 = 'firefox';
+                substituteObject.icon2 = 'android';
+                break;
+
+            case 'ie_desktop':
+            case 'ie_mobile':
+                substituteObject.icon = 'ie';
+                break;
+
+            case 'opera_desktop':
+                substituteObject.icon = 'opera';
+                break;
+
+            case 'opera_mobile':
+                template = templates.iconx2;
+                substituteObject.icon1 = 'opera';
+                substituteObject.icon2 = 'mobile';
+                break;
+
+            case 'opera_mini':
+                template = templates.iconx2;
+                substituteObject.icon1 = 'opera';
+                substituteObject.icon2 = 'mini';
+                break;
+
+            case 'safari_desktop':
+            case 'safari_ios':
+                substituteObject.icon = 'safari';
+                break;
+
+            case 'android':
+            case 'android_webview':
+                substituteObject.icon = 'android_browser';
+                break;
+        }
+
+
+        output += '<th class="bc-browser-' + icon + ' ' + extraClass + '">';
+
+        output += replacePlaceholders(template, substituteObject);
+
+        output += '</th>';
+
+        return output;
+    }
+
+}
+
+if (!content) {
+    content = loadTable(response, lang);
+}
+
+response = JSON.stringify(response);
+
+%>
+<div class="bc-api hidden">
+<%-content%>
+</div>
