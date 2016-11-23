@@ -1,0 +1,20 @@
+<%
+// Inserts a link to a JS API's documentation in the JSAPI Reference.
+// Appropriate styling is applied. Makes no call to retrieve the page summary.
+//
+// Parameters:
+//
+//  $0 - API name
+//  $1 - name to display (optional)
+//  $2 - anchor (#xyz) (optional)
+//  $3 - If set, do not put the text in <code></code>
+//
+
+var str = $1 || $0;
+var api  = $0.replace('()', '');
+var URL = "/" + env.locale + "/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference/" + api;
+
+var code    = !$3 ? '<code>'  : '';
+var endcode = !$3 ? '</code>' : '';
+
+%><a href="<%- URL + $2 %>" title="<%- str %>"><%- code %><%= str %><%- endcode %></a>
