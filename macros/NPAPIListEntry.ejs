@@ -1,0 +1,21 @@
+<%
+// Outputs a DT/DD formatted entry for a single NPAPI term.
+//
+// Parameters:
+//
+//  $0 - API name
+
+var lang = env.locale;
+
+var URL = "/" + lang + "/docs/" + $0;
+
+var aPage = wiki.getPage(URL);
+
+var summary = "";
+
+if (aPage.summary) {
+    summary = aPage.summary.replace(/<img[^>]*>/g," ");
+}
+
+%>
+<dt><%- template("xref", [URL, $0]) %></dt><dd><%-summary%></dd>
