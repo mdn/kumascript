@@ -1,0 +1,82 @@
+<%
+// Creates the HTML for a "Related topics" box to be used on a landing page.
+//
+// Parameters:
+//  $0  A JSON object as described below.
+//
+//  articles:  An array of URIs to pages on MDN to which to link.
+//  links:     An array of JSON objects describing off-site links (see below).
+//
+// Both "articles" and "links" are optional, although you obviously should provide
+// at least one of them.
+//
+// The "links" objects look like this:
+//
+//  name:      The name to use for the link
+//  url:       The URL to link to
+
+var linkList = "";
+var relTopicsTitle = "";
+var relTopicsMessage = "";
+
+switch(env.locale) {
+    case "de":
+        relTopicsTitle = "Verwandte Themen";
+        relTopicsMessage = "Siehe auch:";
+        break;
+    case "zh-CN":
+        relTopicsTitle = "相关文档";
+        relTopicsMessage = "下面这些文档你也许会感兴趣：";
+        break;
+    case "ru":
+        relTopicsTitle = "Похожие темы";
+        relTopicsMessage = "Эти темы также могут быть вам интересны:";
+        break;
+    default:
+        relTopicsTitle = "Related topics";
+        relTopicsMessage = "These topics may also be of interest:";
+        break;
+}
+
+// Start with the on-site links
+
+var len = 0;
+var numItems = 0;
+
+if ($0.articles) {
+    len = $0.articles.length;
+
+    if (len) {
+        for (var i=0; i<len; i++) {
+            var page = wiki.getPage($0.articles[i]);
+            linkList += "<li><a href='" + page.url + "'>" + page.title + "</a></li>";
+            numItems++;
+        }
+    }
+}
+
+// Now do the off-site links, if any
+
+if ($0.links) {
+    len = $0.links.length;
+    
+    if (len) {
+        for (var i=0; i<len; i++) {
+            linkList += "<li><a href='" + $0.links[i].url + "'>" + $0.links[i].name + "</a></li>";
+            numItems++;
+        }
+    }
+}
+
+// Wrap in <ul> if there are any items
+
+if (numItems) {
+    linkList = "<ul>" + linkList + "</ul>";
+}
+%>
+
+<div class="landingPageBox">
+<h2 class="Related_Topics" id="Related_Topics"><%=relTopicsTitle%></h2>
+<p><%=relTopicsMessage%></p>
+<%-linkList%>
+</div>
