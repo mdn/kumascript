@@ -1,0 +1,112 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+
+function state(section) {
+  if (section == currentSection) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localString({
+  'en-US': {
+    'Tutorials': 'Tutorials:',
+    'Introductory': 'Introductory',
+    'HTML_Guide': 'HTML developer guide',
+    'Intermediate': 'Intermediate',
+    'Block-level': 'Block-level elements',
+    'Advanced': 'Advanced',
+    'Speculative_parsing': 'Optimizing your pages for speculative parsing',
+    'Reference': 'References:',
+    'HTML_Elements': 'HTML elements',
+    'Global_attributes': 'Global attributes',
+    'Documentation': 'Documentation:',
+    'Useful_lists': 'Useful lists',
+    'Index': 'All pages index',
+    'HTML_tag': 'Pages tagged "HTML"',
+    'Contribute': 'Contribute',
+    'Doc_status': 'HTML doc status',
+    'The_MDN_project': 'The MDN project',
+  },
+  'fr': {
+    'Tutorials': 'Tutoriels:',
+    'Introductory': 'Introduction',
+    'HTML_Guide': 'Guide HTML',
+    'Intermediate': 'Intermédiaire',
+    'Block-level': 'Éléments de blocs',
+    'Advanced': 'Avancé',
+    'Speculative_parsing': 'Optimiser une page pour l\'analyse spéculative',
+    'Reference': 'Références&nbsp;:',
+    'HTML_Elements': 'Éléments HTML',
+    'Global_attributes': 'Attributs universels',
+    'Documentation': 'Documentation&nbsp;:',
+    'Useful_lists': 'Listes utiles',
+    'Index': 'Index de toutes les pages',
+    'HTML_tag': 'Pages étiquetées "HTML"',
+    'Contribute': 'Contribuer',
+    'Doc_status': 'Statut de la documentation HTML',
+    'The_MDN_project': 'Le projet MDN',
+  },
+  'ru': {
+    'Tutorials': 'Уроки:',
+    'Introductory': 'Вступление',
+    'HTML_Guide': 'Руководство HTML разработчика',
+    'Intermediate': 'Средний',
+    'Block-level': 'Блочные элементы',
+    'Advanced': 'Продвинутый',
+    'Speculative_parsing': 'Оптимизация ваших страниц для ускорения парсинга',
+    'Reference': 'Руководства:',
+    'HTML_Elements': 'HTML элементы',
+    'Global_attributes': 'Глобальные атрибуты',
+    'Documentation': 'Документация:',
+    'Useful_lists': 'Полезные списки',
+    'Index': 'Индекс всех страниц',
+    'HTML_tag': 'Страницы отмеченные "HTML"',
+    'Contribute': 'Внести вклад',
+    'Doc_status': 'Статус HTML документации',
+    'The_MDN_project': 'Проект MDN',
+  }
+});
+%>
+<section class="Quick_links" id="Quick_Links">
+ <ol>
+  <li><a href="/<%=locale%>/docs/Web/HTML"><strong><em>HTML</em></strong></a></li>
+  <li><strong><%=text['Tutorials']%></strong></li>
+  <li data-default-state="<%=state('Introductory')%>"><a href="#"><%=text['Introductory']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/Web/Guide/HTML"><%=text['HTML_Guide']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="<%=state('Intermediate')%>"><a href="#"><%=text['Intermediate']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/Web/HTML/Block-level_elements"><%=text['Block-level']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="<%=state('Advanced')%>"><a href="#"><%=text['Advanced']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing"><%=text['Speculative_parsing']%></a></li>
+   </ol>
+  </li>
+  <li><strong><a href="/<%=locale%>/docs/Web/HTML/Reference"><%=text['Reference']%></a></strong></li>
+  <li data-default-state="<%=state('Elements')%>"><a href="/<%=locale%>/docs/Web/HTML/Element"><%=text['HTML_Elements']%></a>
+   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 1])%>
+  </li>
+  <li data-default-state="<%=state('Global_attributes')%>"><a href="/<%=locale%>/docs/Web/HTML/Global_attributes"><%=text['Global_attributes']%></a>
+   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
+  </li>
+  <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
+  <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/Web/HTML/Index"><%=text['Index']%></a></li>
+    <li><a href="/<%=locale%>/docs/tag/HTML"><%=text['HTML_tag']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="<%=state('Contribute')%>"><a href="#"><%=text['Contribute']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/MDN/Doc_status/HTML"><%=text['Doc_status']%></a></li>
+    <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
+   </ol>
+  </li>
+ </ol>
+</section>
