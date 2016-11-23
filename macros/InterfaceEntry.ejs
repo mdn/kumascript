@@ -1,0 +1,16 @@
+<%
+var s = mdn.localString({
+    'en-US': ['Status:', 'Defined in:'],
+    'de':    ['Status:', 'Definiert in:'],
+    'fr':    ['Statut:', 'Définie dans:'],
+    'ja':    ['状態:', ' で定義されている:'],
+    'ko':    ['상태:', '에 정의됨:'],
+    'pl':    ['Status:', 'Zdefiniowany w:'],
+    'ru':    ['Статус:', 'Определён в:']
+});
+%>
+<% if ('ja'==env.locale || 'ko'==env.locale) { %>
+<a href="/<%=env.locale%>/docs/<%=$0%>"><%=$1%></a>. <%=s[0]%> <%-template('InterfaceStatus:' + $2 + ':DisplayName')%>.<br /> <%-template('Source', [$3])%><%=s[1]%>
+<% } else { %>
+<a href="/<%=env.locale%>/docs/<%=$0%>"><%=$1%></a>. <%=s[0]%> <%-template('InterfaceStatus:' + $2 + ':DisplayName')%>.<br /> <%=s[1]%> <%-template('Source', [$3])%>
+<% } %>
