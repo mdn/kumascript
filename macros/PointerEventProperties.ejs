@@ -1,0 +1,41 @@
+<tr>
+  <td><code>pointerId</code> <%- template("readonlyInline") %></td>
+  <td>long</td>
+  <td>A unique identifier for the pointer causing the event.</td>
+</tr>
+<tr>
+  <td><code>width</code> <%- template("readonlyInline") %></td>
+  <td>double (float)</td>
+  <td>The width (magnitude on the X axis), in CSS pixels, of the contact geometry of the pointer.</td>
+</tr>
+<tr>
+  <td><code>height</code> <%- template("readonlyInline") %></td>
+  <td>double (float)</td>
+  <td>The height (magnitude on the Y axis), in CSS pixels, of the contact geometry of the pointer.</td>
+</tr>
+<tr>
+  <td><code>pressure</code> <%- template("readonlyInline") %></td>
+  <td>float</td>
+  <td>The normalized pressure of the pointer input in the range of 0 to 1, where 0 and 1 represent the minimum and maximum pressure the hardware is capable of detecting, respectively.</td>
+</tr>
+<tr>
+  <td><code>tiltX</code> <%- template("readonlyInline") %></td>
+  <td>long (float)</td>
+  <td>The plane angle (in degrees, in the range of -90 to 90) between the Y-Z plane and the plane containing both the transducer (e.g. pen stylus) axis and the Y axis.</td>
+</td>
+</tr>
+<tr>
+  <td><code>tiltY</code> <%- template("readonlyInline") %></td>
+  <td>long (float)</td>
+  <td>The plane angle (in degrees, in the range of -90 to 90) between the X-Z plane and the plane containing both the transducer (e.g. pen stylus) axis and the X axis.</td>
+</tr>
+<tr>
+  <td><code>pointerType</code> <%- template("readonlyInline") %></td>
+  <td>string</td>
+  <td>Indicates the device type that caused the event. Must be one of the strings <code>mouse</code>, <code>pen</code> or <code>touch</code>, or an <em>empty string</em>.</td>
+</tr>
+<tr>
+  <td><code>isPrimary</code> <%- template("readonlyInline") %></td>
+  <td>boolean</td>
+  <td>Indicates if the pointer represents the primary pointer of this pointer type.</td>
+</tr>
