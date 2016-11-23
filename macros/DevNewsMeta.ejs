@@ -1,0 +1,22 @@
+<div class="breadcrumbs"><a href="/ja/docs/DevNews">&laquo; DevNews 一覧</a></div>
+
+<table class="standard-table">
+    <tbody>
+        <tr>
+            <th>原文</th>
+            <td><del><%- web.link($1, '原文') %></del> (<a href="http://web.archive.org/web/*/<%- $1 %>">archive.olg</a>)</td>
+        </tr>
+        <tr>
+            <th>公開日時</th>
+            <td><%- web.html($2) %></td>
+        </tr>
+        <tr>
+            <th>著者</th>
+            <td><%- web.html($3) %></td>
+        </tr>
+        <tr>
+            <th>カテゴリー</th>
+            <td><%- web.html($4) %></td>
+        </tr>
+    </tbody>
+</table>
