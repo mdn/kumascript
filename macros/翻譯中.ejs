@@ -1,0 +1,19 @@
+<%
+
+/*
+    Parameter:
+        $0 : 原文URL (Optional)
+
+    See also:
+        https://developer.mozilla.org/en-US/docs/Template:translationinprogress
+*/
+
+
+var orig = "";
+if ($0) orig = '<a href="' + $0 + '">原文</a> / ';
+
+
+%><div class="overheadIndicator translationInProgress translationInProgressHeader">
+    <p>本文件正在翻譯中，請協助翻譯。</p>
+    <p><%- orig %><a href="/en-US/docs/Project:Translating_MDN_pages">參考</a></p>
+</div>
