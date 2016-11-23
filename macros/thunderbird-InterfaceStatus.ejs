@@ -1,0 +1,15 @@
+<%/*
+ - 1 - Interface Name
+ - 2 - Source Location relative to @topsrc@/mozilla/
+ - 3 - FROZEN/unfrozen/UNDER_REVIEW/EXPERIMENTAL
+ - 4 - Since [date/milestone] (in unfrozen case, last-changed-in)
+ - 5 - Scriptable? (yes/no)
+
+
+See MDC:Writing interface reference documentation (/en-US/docs/Project:Writing_interface_reference_documentation) for an elaborate guide on documenting interfaces on MDC.
+
+
+*/%><code><span class="script">web.html($0)</span></code> is defined in
+ <span class="script">wiki.template('tbsource', mediawiki.args([$1]))</span>.
+ It is <span class="script">wiki.template(mediawiki.path('InterfaceStatus:Scriptable_' + $4, "en"))</span>
+ and <span class="script">wiki.template(mediawiki.path('InterfaceStatus:' + $2, "en"), mediawiki.args([$3]))</span>.
