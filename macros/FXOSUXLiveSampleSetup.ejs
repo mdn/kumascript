@@ -1,0 +1,34 @@
+<%
+// Prepares for doing a Gaia live sample by inserting the CSS needed to make them work.
+// Do this before any of your own CSS blocks, so that the inserted CSS is the first CSS
+// in your document.
+//
+// Parameters:
+//  $0... - The URLs of the CSS for the UX being demonstrated (optional)
+//
+%>
+
+<div class="hidden">
+<pre class="brush: css">
+<%
+var cssStr = "";
+
+for (var i = 0; i < arguments.length; i++) {
+    cssStr += "@import url(" + arguments[i] + ");";
+}
+%><%- cssStr %>
+
+@import url('https://developer.mozilla.org/media/css/gaia.css');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  height: 100%;
+  overflow-x: hidden;
+  background: #000 url(https://mdn.mozillademos.org/files/4655/fx_logo_white_backdrop.jpg) fixed;
+}
+
+body { background: none; }
+</pre>
+</div>
