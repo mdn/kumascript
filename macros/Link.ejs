@@ -1,0 +1,12 @@
+<%
+// Creates a link to a page, with a tooltip based on the SEO summary.
+//
+// Parameters:
+//  $0  Page link
+
+var page = wiki.getPage($0);
+var title = page.title;
+var summary = page.summary.replace(/<img[^>]*>/g," ");
+var url = page.url
+%>
+<a href="<%-url%>" title="<%=summary%>"><%=title%></a>
