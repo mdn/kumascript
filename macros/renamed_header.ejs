@@ -1,0 +1,11 @@
+<%
+// Use this as to add a header banner that something was renamed in a given Gecko release.
+//
+// Parameters:
+//  $0 - old API name
+//  $1 - Gecko release it was renamed in
+
+
+%><div class="overheadIndicator renamed renamedHeader">
+    <p title="<%-template("geckoRelease", [$1])%>">Renamed from <code><%=$0%></code> in Gecko <%=$1%></p>
+</div>
