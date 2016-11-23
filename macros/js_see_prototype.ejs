@@ -1,0 +1,55 @@
+<%
+/* Should be used to provide a helpful pointer to the included property/method list of the subject's prototype object. Place below the appropriate heading.
+ * Syntax:
+ * {{Js_see_prototype("constructor", "Properties")}}
+ * {{Js_see_prototype("constructor", "Methods")}}
+ * constructor - JavaScript constructor that is the subject of the current page (can be '' as the page title is used instead)
+*/
+
+$1 += '';
+
+var s1 = $1.toLowerCase();
+var eTitle = env.title;
+var eURL = env.url;
+var encURL = encodeURI($1);
+
+var str = 'For ' + s1 + ' available on <code>' + eTitle + '</code> instances, see ' + web.link(eURL + '/prototype#' + encURL, string.toupperfirst(s1) + ' of ' + eTitle + ' instances') + '.';
+
+switch(env.locale) {
+    case 'fr':
+        var s2 = s1;
+        switch (s1){
+            case 'properties':
+                s2 = 'propriétés';
+                break;
+            case 'methods':
+                s2 = 'méthodes';
+                break;
+        }
+        str = 'Pour les ' + s2 + ' héritées par les instances de <code>' + eTitle + '</code>, consultez ' + web.link(eURL + '/prototype#' + encURL , string.toupperfirst(s2) + ' des instances de ' + eTitle) + '.';
+        break;
+    case 'ru':
+        // Падежи, не забываем о них
+        var s2 = s1;
+        var s3 = s1;
+        switch (s1) {
+            case 'properties':
+                s2 = 'свойствам';
+                s3 = 'Свойства';
+                break;
+            case 'methods':
+                s2 = 'методам';
+                s3 = 'Методы';
+                break;
+        }
+        str = 'Справку по ' + s2 + ', доступным на экземплярах <code>' + eTitle + '</code>, смотрите в разделе ' + web.link(eURL + '/prototype#' + encURL , string.toupperfirst(s3) + ' экземпляров ' + eTitle) + '.';
+        break;
+    case 'ja':
+        // $1 is Japanese like "メソッド"
+        str = '<code>' + eTitle + '</code> インスタンスから継承されている' + $1 + 'については、' + web.link(eURL + '/prototype#' + encURL , eTitle + ' インスタンスの' + $1) + 'を参照してください。';
+        break;
+    default:
+        break;
+}
+
+%><small style="margin-left: 1em;"><em><%- str %></em></small>
