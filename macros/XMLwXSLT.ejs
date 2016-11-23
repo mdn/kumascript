@@ -1,0 +1,25 @@
+<%
+var link = '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Transforming XML with XSLT</a>';
+
+switch (env.locale) {
+    case "es":
+        link = '<a href="/es/docs/Transformando_XML_con_XSLT">&laquo; Transformando XML con XSLT</a>';
+        break;
+    case "fr":
+        link = '<a href="/fr/docs/Transformations_XML_avec_XSLT">&laquo; Transformations XML avec XSLT</a>';
+        break;
+    case "ko":
+        link = '<a href="/ko/docs/Transforming_XML_with_XSLT">&laquo; Transforming XML with XSLT</a>';
+        break;
+    case "pl":
+        link = '<a href="/pl/docs/Transformacje_XML_z_XSLT">&laquo; Transformacje XML z XSLT</a>';
+        break;
+    case "ru":
+        link = '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Преобразование XML с помощью XSLT</a>';
+        break;
+    case "cs":
+        link = '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Transformace XML pomocí XSLT</a>';
+        break;
+};
+
+%><%- link %>
