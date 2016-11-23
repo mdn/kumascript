@@ -1,0 +1,26 @@
+<%
+
+/*
+$0 is a URL to a resource to go to for asking more questions.
+$1 is the link text to go along with this URL
+*/
+
+if($0) {
+  var urlString = mdn.localString({
+    'en-US': ' If you want to contribute or ask questions, contact us at <a href="' + $0 + '">' + $1 + '</a>.',
+    'ru'   : ' Если вы хотите внести вклад или задать вопросы, свяжитесь с нами по почте <a href="' + $0 + '">' + $1 + '</a>.'
+  });
+}
+
+var text = mdn.localString({
+  'en-US': '<strong>Important</strong>: This translation is out-of-date, and needs to be updated to reflect the current content of the English version.',
+  'ru'   : '<strong>Важно</strong>: Этот перевод устарел, и должен быть обновлён, чтобы отражать текущее содержание английской версии'
+});
+
+if($0) {
+  var string = '<div class="warning"><p>' + text + urlString + '</p></div>';
+} else { 
+  var string = '<div class="warning"><p>' + text + '</p></div>';
+}
+%>
+<%- string %>
