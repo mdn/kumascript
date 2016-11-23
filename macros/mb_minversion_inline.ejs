@@ -1,0 +1,90 @@
+<%
+var path = false; // TODO: mediawiki.localurl("en", 'Mobile ' + $0 + ' for developers');
+var s_title = 'Mobile $0 for developers';
+var s_name = 'Mobile $0';
+var s_text = 'New in $name';
+
+switch (env.locale) {
+    case 'de':
+        s_title = 'Mobile $0 para desarrolladores';
+        s_name = 'Mobile $0';
+        s_text = 'Neu in $name';
+        break;
+    case 'es':
+        s_title = 'Mobile $0 for developers';
+        s_name = 'Mobile $0';
+        s_text = 'Nuevo en $name';
+        break;
+    case 'fr':
+        s_title = 'Mobile $0 pour les développeurs';
+        s_name = 'Mobile $0';
+        s_text = 'Nouveau dans $name';
+        break;
+    case 'ja':
+        s_title = 'Mobile $0 for developers';
+        s_name = 'Mobile $0';
+        s_text = '$name の新機能';
+        break;
+    case 'ko':
+        s_title = 'Mobile $0 for developers';
+        s_name = 'Mobile $0';
+        s_text = 'New in $name';
+        break;
+    case 'pl':
+        s_title = 'Mobile $0 dla programistów';
+        s_name = 'Firefoksie $0';
+        s_text = 'Nowość w $name';
+        break;
+    case 'pt':
+        s_title = 'Mobile $0 para desenvolvedores';
+        s_name = 'Mobile $0';
+        s_text = 'Novidade no $name';
+        break;
+    case 'zh-CN':
+        s_title = 'Mobile $0 for developers';
+        s_name = 'Mobile $0';
+        s_text = 'New in $name';
+        break;
+    default: break;
+}
+
+var title = s_title.replace('$0', $0);
+var name = s_name.replace('$0', $0);
+
+var text = (path && wiki.pageExists(path)) ? s_text.replace('$name', web.link(path, name, title)) : s_text.replace('$name', name);
+
+%><span class="inlineIndicator mbMinVer mbMinVerInline"><%- text %></span>
+<% /*
+<p>One of the <a title="Project:en/Custom_Templates#Version_information_templates" href="/Project:en/Custom_Templates#Version_information_templates">Version information templates</a>.<br />
+For example: <span class="script">template.mb_minversion_inline(2)</span><br />
+This template should be used when an individual item in a list or a table appeared in Mobile version N. When a whole page or section describes a feature that appeared in a new Mobile version, use <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Template:mb minversion header</a>.</p>
+
+<p>One of the <a title="Project:es/Custom_Templates#Version_information_templates" href="/Project:es/Custom_Templates#Version_information_templates">Version information templates</a>. <br />
+For example: <span class="script">template.mb_minversion_inline(2)</span><br />
+This template should be used when an individual item in a list or a table appeared in Mobile version N. When a whole page or section describes a feature that appeared in a new Mobile version, use <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Template:mb minversion header</a>.</p>
+
+<p>Un des <a title="Project:fr/Modèles_personnalisés#Mod.C3.A8les_d.27information_de_version" href="/Project:fr/Modèles_personnalisés#Mod.C3.A8les_d.27information_de_version">modèles d'information de version</a>. <br />
+Par exemple: <span class="script">template.mb_minversion_inline(2)</span><br />
+Ce modèle doit être utilisé lorsqu'un élément particulier dans une liste ou un tableau est apparu dans Mobile version N. Lorsqu'une page ou section entière décrit une fonctionnalité apparue dans une nouvelle version de Mobile, utilisez <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Modèle:mb minversion header</a>.</p>
+
+<p><a title="Project:ja/Custom_Templates#Version_information_templates" href="/Project:ja/Custom_Templates#Version_information_templates">バージョン情報テンプレート</a> の 1 つです。例えば: <br />
+は: <span class="script">template.mb_minversion_inline(2)</span> という結果になります。<br />
+このテンプレートはリストやテーブルの (Mobile バージョン N で登場した) 個々の項目に使うべきです。ページか章全体が Mobile の新バージョンで登場した機能について述べているなら、 <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Template:mb minversion header</a> を使ってください。</p>
+
+<p>One of the <a title="Project:ko/Custom_Templates#Version_information_templates" href="/Project:ko/Custom_Templates#Version_information_templates">Version information templates</a>. <br />
+For example: <span class="script">template.mb_minversion_inline(2)</span><br />
+This template should be used when an individual item in a list or a table appeared in Mobile version N. When a whole page or section describes a feature that appeared in a new Mobile version, use <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Template:mb minversion header</a>.</p>
+
+<p>Jeden z <a title="Project:pl/Własne_szablony#Szablony_informuj.C4.85ce_o_wersji" href="/Project:pl/Własne_szablony#Szablony_informuj.C4.85ce_o_wersji">szablonów informujących o wersji</a>. <br />
+Na przykład: <span class="script">template.mb_minversion_inline(2)</span><br />
+Szablon ten powinien być użyty, gdy pojedyncze elementy listy lub tabeli pojawiły się w wersji N Firefoksa. W przypadku gdy cała strona lub jej część opisują funkcję, która pojawiła się w nowej wersji Firefoksa, należy użyć <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Szablon:mb minversion header</a>.</p>
+
+<p>One of the <a title="Project:pt/Custom_Templates#Version_information_templates" href="/Project:pt/Custom_Templates#Version_information_templates">Version information templates</a>. <br />
+For example: <span class="script">template.mb_minversion_inline(2)</span><br />
+This template should be used when an individual item in a list or a table appeared in Mobile version N. When a whole page or section describes a feature that appeared in a new Mobile version, use <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Template:mb minversion header</a>.</p>
+
+<p>One of the <a title="Project:cn/Custom_Templates#Version_information_templates" href="/Project:cn/Custom_Templates#Version_information_templates">Version information templates</a>. <br />
+For example: <span class="script">template.mb_minversion_inline(2)</span><br />
+This template should be used when an individual item in a list or a table appeared in Mobile version N. When a whole page or section describes a feature that appeared in a new Mobile version, use <a title="Template:mb_minversion_header" href="/Template:mb_minversion_header">Template:mb minversion header</a>.</p>
+
+*/ %>
