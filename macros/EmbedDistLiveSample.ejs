@@ -1,0 +1,25 @@
+<%
+// Embeds a live sample given the URL and the ID of its header block.
+//
+// Parameters:
+//  $0 - The URL or slug of the page from which to get the sample
+//  $1 - The ID of the header block containing the sample
+//  $2 - The width of the iframe (optional)
+//  $3 - The height of the iframe (optional)
+
+//var html = template('EmbedLiveSample', [$1, $2, $3, null, $0]);
+
+var domain = 'https://mdn.mozillademos.org';
+var url = $0.replace('https://developer.mozilla.org', domain) + '$samples/' + $1;
+
+if(url.indexOf(domain) !== 0) {
+    url = domain + (url.indexOf("/") === 0 ? "" : "/") + url;
+}
+
+var widthHeight = "";
+if ($2 && $3) {
+    widthHeight = 'width="' + $2 + '" height="' + $3 + '"';
+}
+
+
+%><iframe class="livesample" frameborder="0" <%=widthHeight%> src="<%= url %>"></iframe>
