@@ -4,15 +4,10 @@ var util = require('util'),
     fs = require('fs'),
     _ = require('underscore'),
     nodeunit = require('nodeunit'),
-    express = require('express'),
     request = require('request'),
 
     kumascript = require('..'),
-    ks_utils = kumascript.utils,
     ks_macros = kumascript.macros,
-    ks_templates = kumascript.templates,
-    ks_loaders = kumascript.loaders,
-    ks_api = kumascript.api,
     ks_server = kumascript.server,
     ks_test_utils = kumascript.test_utils;
 
@@ -22,7 +17,7 @@ module.exports = nodeunit.testCase({
     setUp: function (next) {
         this.test_server = ks_test_utils.createTestServer();
         try {
-            this.macro_processor = new ks_macros.MacroProcessor({ 
+            this.macro_processor = new ks_macros.MacroProcessor({
                 macro_timeout: 500,
                 loader: {
                     module: __dirname + '/../lib/kumascript/loaders',
@@ -34,6 +29,7 @@ module.exports = nodeunit.testCase({
             });
             this.server = new ks_server.Server({
                 port: 9000,
+                logging: false,
                 document_url_template: "http://localhost:9001/documents/{path}.txt",
                 macro_processor: this.macro_processor
             });
@@ -116,7 +112,7 @@ module.exports = nodeunit.testCase({
 
     "Errors in macro processing should be included in response headers": function (test) {
 
-        var mp = this.server.macro_processor = new ks_macros.MacroProcessor({ 
+        var mp = this.server.macro_processor = new ks_macros.MacroProcessor({
             macro_timeout: 500,
             loader: {
                 module: __dirname + '/../lib/kumascript/test-utils',

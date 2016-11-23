@@ -11,6 +11,6 @@ Look, it's JSON without escaping: ["a","b","c"]
 
 Here is a macro with a JSON parameter: [{"alpha":"one","beta":"two","gamma":"three"}]
 
-Here is a multi-line macro: [&quot;With many&quot;,&quot;parameters&quot;,&quot;including \&quot;quoted\&quot;&quot;,&quot;text of both 'kinds'&quot;,&quot;even \&quot;escaped\&quot;&quot;,&quot;like 'these'&quot;,&quot;and numbers&quot;,&quot;-10&quot;,&quot;0&quot;,&quot;0.1&quot;,&quot;10&quot;,&quot;100&quot;] that even works inline.
+Here is a multi-line macro: [&#34;With many&#34;,&#34;parameters&#34;,&#34;including \&#34;quoted\&#34;&#34;,&#34;text of both &#39;kinds&#39;&#34;,&#34;even \&#34;escaped\&#34;&#34;,&#34;like &#39;these&#39;&#34;,&#34;and numbers&#34;,&#34;-10&#34;,&#34;0&#34;,&#34;0.1&#34;,&#34;10&#34;,&#34;100&#34;] that even works inline.
 
 Here is another macro with a JSON parameter: [{"alpha":"uno","beta":"dos","gamma":"tres"}]

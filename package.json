@@ -1,46 +1,46 @@
 {
   "name": "kumascript",
-  "description": "Scripting for wikis",
-  "version": "0.0.1",
-  "homepage": "http://github.com/lmorchard/kumascript/",
+  "description": "Scripting for MDN",
+  "version": "0.1.0",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/mozilla/kumascript",
+  "bugs": "https://github.com/mozilla/kumascript/issues",
   "author": "Les Orchard <lorchard@mozilla.com> (http://lmorchard.com/)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/lmorchard/kumascript.git"
+    "url": "https://github.com/mozilla/kumascript.git"
   },
   "main": "./lib/kumascript/index",
   "scripts": {
-    "start": "./run.js",
-    "test": "./node_modules/.bin/nodeunit tests"
+    "start": "make run",
+    "test": "make test"
   },
   "engines": {
-    "node": "0.10.26"
+    "node": "6.9.2"
   },
   "directories": {
     "lib": "./lib"
   },
   "dependencies": {
-    "async": "0.7.0",
-    "ejs": "0.6.1",
-    "express": "2.5.6",
-    "feedparser": "0.16.6",
-    "fibers": "1.0.1",
+    "async": "2.1.4",
+    "ejs": "2.5.2",
+    "express": "4.14.0",
+    "feedparser": "1.1.5",
+    "fibers": "1.0.15",
     "firelogger": "0.1.0",
     "hirelings": "0.4.3",
-    "http-proxy": "0.8.1",
-    "memcached": "0.2.8",
-    "nconf": "0.6.9",
-    "newrelic": "^1.22.2",
-    "node-statsd": "0.0.7",
+    "memcached": "2.2.2",
+    "morgan": "1.7.0",
+    "nconf": "0.8.4",
+    "newrelic": "1.34.0",
+    "node-statsd": "0.1.1",
     "pegjs": "0.7.0",
-    "request": "2.9.100",
-    "sax": "0.5.x",
-    "underscore": "1.5.0",
-    "winston": "0.7.3"
+    "request": "2.79.0",
+    "underscore": "1.8.3",
+    "winston": "2.3.0"
   },
   "devDependencies": {
-    "nodeunit": "0.6.4",
-    "jshint": "0.5.7",
-    "docco": "0.3.0"
+    "nodeunit": "0.10.2",
+    "jshint": "2.9.4"
   }
 }
