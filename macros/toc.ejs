@@ -1,0 +1,69 @@
+<%
+// Creates and embeds a table of contents for the specified page.
+//
+// Parameters:
+//
+//  $0  Path of the page for which to insert a TOC
+//  $1  Chapter number; if 0, not used.
+//  $2  Maximum depth; if 0 or not provided, 3 is used
+
+var maxDepth = $2 || 3;
+var list = wiki.getHeadings($0, maxDepth);
+
+if (list) {
+    var page = wiki.getPage($0);
+    var chapter = "";
+    var numHeadings = list.length;
+    var lastLevel = 1;
+    var levelAdjust = 0;
+    var secNum = [0, 0, 1, 1, 1, 1, 1];
+    
+    if ($1) {
+        chapter = $1 + ".";
+    }
+    
+    for (var i=0; i<numHeadings; i++) {
+        var item = list[i];
+        var title = item.title;
+        var level = item.level;
+                
+        var url = $0 + "#" + web.spacesToUnderscores(title);
+        
+        if (i == 0) {
+            levelAdjust = level - 1;
+        }
+        
+        level -= levelAdjust;   // Normalize the levels to start at 1
+        
+        // Start with the chapter number, if specified
+                
+        if (level < lastLevel) {
+            for (var x=level+1; x<=lastLevel; x++) {
+                secNum[x] = 1;      // reset all the in-between levels
+            }
+            secNum[level]++;
+        } else if (level == lastLevel) {
+            secNum[level]++;
+        }
+        
+        // Build the section number chain
+        
+        var secStr = chapter;
+        
+        for (var j=1; j<=level; j++) {
+            secStr += secNum[j] + ".";
+        }
+        
+        var width = level;
+        width *= 2;
+        
+        var divStr = "<div style='display:inline-block; text-align:right; width:" + width + "em;'>";
+                
+        %><%-divStr%><%=secStr%></div>&nbsp;<a href="<%=url%>"><%=title%></a><br><%
+
+        lastLevel = level;
+    }
+} else {
+    %><%-"<p>Meh.</p>"%><%
+}
+%>
