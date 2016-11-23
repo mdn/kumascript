@@ -1,0 +1,23 @@
+<%
+/* one parameter: HTML version */
+
+var link = "HTML " + $0;
+if ($0 == "5") {
+    link = web.link("/" + env.locale + "/docs/HTML/HTML5", "HTML" + $0);
+}
+
+var s_msg = mdn.localString({
+    "en-US": ["Introduced in ",""],
+    "es": ["Introducido en ",""],
+    "fr": ["Ajouté dans ",""],
+    "ja": [""," で導入"],
+    "zh-CN": ["引进于 ",""],
+    "de": ["Eingeführt in ",""],
+    "ru": ["Представлено в ",""]
+});
+
+var str = s_msg[0] + link + s_msg[1];
+%>
+<div class="overheadIndicator htmlVer htmlMinVerHeader">
+  <p><%- str %></p>
+</div>
