@@ -1,0 +1,66 @@
+<%
+/*
+
+Compat data from GitHub repo mdn/browser-compat-data
+
+Examples (per the current tentative plan):
+MDN URL                                                 GitHub File                                                           Compat macro call
+
+Web/JavaScript/Reference/Global_Objects/Promise         javascript/built-ins/promise.json                                     {{Compat("javascript/built-ins/promise")}}
+Web/JavaScript/Reference/Global_Objects/Promise/all     javascript/built-ins/promise.json["Promise.all"]                      {{Compat("javascript/built-ins/promise","Promise.all")}}
+Web/JavaScript/Reference/Operators/Arithmetic_Operators javascript/operators/arithmetic_operators.json                        {{Compat("javascript/operators/arithmetic_operators")}}
+Web/JavaScript/Reference/Statements/for...in            javascript/statements/for-in.json                                     {{Compat("javascript/statements/for-in")}}
+Web/HTTP/Status/404                                     http/status.json["404"]                                               {{Compat("http/status", "404")}}
+Web/HTTP/Method/POST                                    http/method.json["POST"]                                              {{Compat("http/method", "POST")}}
+Web/HTTP/Headers/Content-Security-Policy/               http/headers/content-security-policy.json                             {{Compat("http/headers/content-security-policy")}}
+Web/HTTP/Headers/Content-Security-Policy/child-src      http/headers/content-security-policy.json["child-src"]                {{Compat("http/headers/content-security-policy", "child-src")}}
+Web/API/WebGL2RenderingContext/                         api/WebGL2RenderingContext.json                                       {{Compat("api/WebGL2RenderingContext")}}
+Web/API/WebGL2RenderingContext/beginQuery               api/WebGL2RenderingContext.json["WebGL2RenderingContext.beginQuery"]  {{Compat("api/WebGL2RenderingContext", "WebGL2RenderingContext.beginQuery")}}
+Web/HTML/Element/input                                  html/input.json                                                       {{Compat("html/input")}}
+Web/HTML/Element/input/date                             html/input.json["date"]                                               {{Compat("html/input", "type=date")}}
+Web/CSS/background                                      css/properties/background.json                                        {{Compat("css/properties/background")}}
+Web/CSS/:active                                         css/selectors/active.json                                             {{Compat("css/selectors/active")}}
+Web/CSS/@font-face                                      css/at-rules/font-face.json                                           {{Compat("css/at-rules/font-face")}}
+
+Parameters:
+
+$0 – json file in the repository (without ".json")
+$1 – (optional) Node in that json 
+
+*/
+
+var githubURL = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/";
+var locale = env.locale;
+var output = "";
+var file = $0 + ".json";
+var leaf = $1;
+var url = githubURL + file;
+
+var noDataFoundl10n = mdn.localString({
+    "en-US": 'No compatibility data found. Please contribute data for "' + env.title + '" to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.',
+    "fr"   : "Aucune donnée de compatibilité trouvée"
+});
+
+
+if ($0) {
+  try {
+    var data = mdn.fetchJSONResource(url);
+  } catch (e) {
+    output = 'File "' + file + '" not found or malformed.'
+  }
+}
+
+if (data) {
+    if (leaf !== '') {
+      output = template("CompatDataTable", [data[leaf], "api"]);
+    } else {
+      output = template("CompatDataTable", [data, "module"]);
+    }
+}
+
+if (output === '') {
+  output = noDataFoundl10n;
+}
+
+%>
+<%-output%>
