@@ -1,0 +1,118 @@
+<%
+
+/*
+Given a JSON blob containing compatibility data for a given JS API, in this format:
+https://github.com/mdn/browser-compat-data/tree/master/webextensions
+... this macro generates a table summarising the compatibility data.
+*/
+
+var browserNames = [
+  "Chrome",
+  "Edge",
+  "Firefox",
+  "Firefox for Android",
+  "Opera"
+];
+
+function writeSummaryTableCell(browserName, summaryInfo, width) {
+  var coverage = summaryInfo.supported/summaryInfo.total;
+  var cellClass = "unknown-support";
+
+  switch (coverage) {
+    case 0:
+      cellClass = "no-support";
+      break;
+    case 1:
+      cellClass = "full-support";
+      break;
+    default:
+      cellClass = "partial-support";
+    }
+
+  var cellContents = browserName + ": " + summaryInfo.supported + "/" + summaryInfo.total;
+ 
+  return '      <td style="width:' + width +
+         '%" class="' + cellClass + '">' + cellContents + '</td>\n';  
+}
+
+function writeSummaryTable(summaries) {
+    
+  var width = 100/(browserNames.length)
+
+  output = '<table class="webext-summary-compat-table">\n';
+  output += '  <tbody>\n' +
+           '    <tr>\n';
+
+  for (var i = 0; i < browserNames.length; i++) {
+    var browserName = browserNames[i];
+    output += writeSummaryTableCell(browserName, summaries[browserName], width);
+  }
+    
+  output += '  </tbody>\n';
+  output += '</table>\n';
+
+  return output;
+  
+}
+
+function addToSummary(name, data, summary) {
+  var browsers = Object.keys(summary);
+  for (var i = 0; i < browsers.length; i++) {
+      switch (data[browsers[i]].support) {
+        case false:
+          summary[browsers[i]].unsupported++;
+          break;
+        case "Unknown":
+          summary[browsers[i]].unknown++;
+          break;
+        default:
+          summary[browsers[i]].supported++;
+    }
+    if (data[browsers[i]].notes) {
+        summary[browsers[i]].hasNotes = true;
+    }
+  }
+}
+
+function getSummaries(moduleData) {
+  
+  function BrowserSupportSummary(total) {
+    this.supported = 0;
+    this.unsupported = 0;
+    this.unknown = 0;
+    this.hasNotes = false;
+    this.total = total;
+  }
+    
+  var summaries = {};
+  var apiElementNames = Object.keys(moduleData).sort();
+  
+  for (var i = 0; i < browserNames.length; i++) {
+     summaries[browserNames[i]] = new BrowserSupportSummary(apiElementNames.length);
+  }
+
+  var apiElementNames = Object.keys(moduleData).sort();
+    
+  for (var i = 0; i < apiElementNames.length; i++) {
+    var apiElementName = apiElementNames[i];
+    var apiElementData = moduleData[apiElementName];
+
+    addToSummary(apiElementName, apiElementData, summaries);
+  }
+    
+  return summaries;  
+}
+
+function summaryTableForModule(moduleData) {
+
+  var summaries = getSummaries(moduleData);
+
+  var table = writeSummaryTable(summaries);
+    
+  return table;
+}
+
+var output = summaryTableForModule($0);
+
+%>
+<%-output%>
