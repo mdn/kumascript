@@ -1,0 +1,17 @@
+<div class="breadcrumbs">
+メインページ &raquo;
+<a href="/ja/docs/tag/移行予定">移行準備中の文書</a> &raquo;
+<%- template("web.html", [$1]) %> (外部サイトから移行準備中)
+</div>
+
+
+<div class="warning">
+
+<p>この記事は、Mozilla Japan 翻訳部門もしくはその関連グループによりすでに翻訳済みのものがあります。
+<%- template("mediawiki.external", [$0 + ' 翻訳済みの文書']) %> は MDC 日本語版への移行作業の対象となっておりますが、
+まだ移行されておりません。</p>
+
+<p>html から wiki 記法への移行作業はなるべく早く行う予定ですが、技術的な問題から少し時間を要すると考えられております。
+ご不便をおかけいたしますが、作業完了までは <%- template("mediawiki.external", [$0 + ' こちら']) %> をご覧下さい。</p>
+
+</div>
