@@ -1,0 +1,18 @@
+<%
+var s_header = mdn.localString({
+    "en-US": [ "Desktop", "Mobile" ],
+    "cs":    [ "Plocha", "Mobile" ],
+    "ja":    [ "デスクトップ", "モバイル" ],
+    "pl":    [ "Pulpit", "Mobile" ],
+    "de":    [ "Desktop", "Mobile" ],
+    "ru":    [ "Настольные", "Мобильные" ],
+    "fr":    [ "Ordinateur", "Mobile" ]
+});
+
+%><div class="htab">
+    <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
+    <ul>
+        <li class="selected"><a href="javascript:;"><%- s_header[0] %></a></li>
+        <li><a href="javascript:;"><%- s_header[1] %></a></li>
+    </ul>
+</div>
