@@ -1,0 +1,40 @@
+<%
+// Inserts a link to a section of a given NPAPI reference page
+//
+//  $0 - page name
+//  $1 - section name
+
+var el = env.locale;
+var slug = "Gecko Plugin API Reference"; // en-US and Default
+
+switch(el) {
+    case 'de':
+        slug = "Gecko Plugin API Referenz";
+        break;
+    case 'fr':
+        slug = "Documentation API Greffons Gecko";
+        break;
+    case 'pl':
+        slug = "Dokumentacja wtyczek Gecko";
+        break;
+    case 'ru':
+        slug = "Документация по API для плагинов Gecko";
+        break;
+}
+
+var destOldType = "/" + el + '/docs/' + slug + ':' + $0;
+var destNewType = "/" + el + '/docs/' + slug + '/' + $0;
+var url = "";
+
+if (wiki.pageExists(destNewType)) {
+    url = destNewType;
+} else if (wiki.pageExists(destOldType)) {
+    url = destOldType;
+} else {
+    url = destNewType;
+}
+
+url = web.spacesToUnderscores(url + '#' + $1);
+
+
+%><a href="<%=url%>"><%=$1%></a>
