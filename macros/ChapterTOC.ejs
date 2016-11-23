@@ -1,0 +1,60 @@
+<%
+// Outputs a numbered table of contents for a multi-chapter document.
+// The chapter list is provided in another template, specified as an input.
+//
+// Parameters:
+//  $0  Name of a macro containing the chapter list.
+
+var chapterList = string.deserialize(template($0));
+var cLen = chapterList.length;
+var el = env.locale;
+var expTOC = "";
+var link1 = "";
+var i;
+
+var s_TOC = mdn.localString({
+    "en-US": "Quick Table of Contents",
+       "ja": "目次",
+       "ru": "Краткое содержание",
+    "zh-CN": "目录",
+       "fr": "Courte table des matières"
+});
+
+var s_Expanded_TOC = mdn.localString({
+    "en-US": "Expanded Table of Contents",
+       "ja": "追加コンテンツの目次",
+       "ru": "Расширенное содержание",
+       "fr": "Table des matières complète"
+});
+
+
+%><h2><%- s_TOC %></h2>
+<ol>
+<%
+
+switch (el) {
+    case    "ja":
+    case    "de":
+    case    "fr":
+    case    "ru":
+    case "zh-CN":
+        for (i = 0; i < cLen; ++i) { chapterList[i] = chapterList[i].replace(/en-US/, el); }
+        break;
+    default: break;
+}
+
+for (i = 0; i < cLen; ++i) {
+    var path = chapterList[i];
+    var link1 = web.link(path, wiki.getPage(path).title);
+
+    %><li><%- link1 %></li><%
+    // TODO: bug 769516, need support for wiki.toc()
+    // expTOC += "<h3>" + link1 + "</h3>" + wiki.toc(path);
+}
+%>
+</ol>
+<% if (expTOC) { %>
+<% /* TODO: bug 769516, need support for wiki.toc() */ %>
+<h2><%- s_Expanded_TOC %></h2>
+<%- expTOC %>
+<% } %>
