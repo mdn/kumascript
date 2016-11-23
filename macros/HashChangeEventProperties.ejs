@@ -1,0 +1,20 @@
+<%
+
+var str = mdn.localString({
+    "en-US" : [
+        'The previous URL from which the window was navigated.',
+        'The new URL to which the window is navigating.'
+    ] 
+});
+
+
+%><tr>
+  <td><code>oldURL</code> <%- template("readOnlyInline") %></td>
+  <td>string</td>
+  <td><%- str[0] %></td>
+</tr>
+<tr>
+  <td>newURL <%- template("readOnlyInline") %></td>
+  <td>string</td>
+  <td><%- str[2] %></td>
+</tr>
