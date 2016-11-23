@@ -1,0 +1,33 @@
+<%
+// Embeds a live example of the Firefox OS UX; you should use this only after a
+// previous use of FXOSUXLiveSampleSetup. You can also use FXOSUXLiveSample() to
+// do both, assuming there is no in-page CSS in your sample.
+//
+// Parameters:
+//  $0 - The ID of the header block containing the sample
+//
+
+var lang = env.locale;
+var compatStr = "";
+var nightlyUrl = "http://nightly.mozilla.org/";
+
+switch(lang) {
+    default:     // english by default
+        compatStr = "Firefox OS live demos generally require a Gecko-based browser, and work best in <a href='" + nightlyUrl + "'>recent builds</a> of Firefox.";
+        break;
+    case 'ja':
+        compatStr = 'Firefox OS ライブデモの閲覧には Gecko エンジンを搭載したブラウザが必要です。' +
+                    '<a href="' + nightlyUrl + '">最新バージョンの Firefox</a>での閲覧がベストです。';
+        break;
+    case 'ru':
+        compatStr = "Живым примерам для Firefox OS требуется браузер, основанный на Gecko, а лучше всего подойдут <a href='" + nightlyUrl + "'>последние сборки</a> Firefox.";
+        break;
+}
+%>
+
+<%
+var widthHeight = "width='320' height='480'";
+var liveSample = '<div class="fxosLiveSampleWrapper"><iframe  frameborder="1" ' + widthHeight + 'src="' + template('LiveSampleURL', [$0]) +
+                        '"></iframe><br/>' + compatStr + '</div>';
+%>
+<%- liveSample %>
