@@ -1,0 +1,70 @@
+<%
+/* Presents a "target page not found" page. */
+/* Parameters: */
+/*   $0: target URL that wasn't found */
+/*   $1: search term (or empty string to not offer search of MXR) */
+/*   $2: URL of relevant file on mozilla-central (optional) */
+
+/* get the target page's language */
+
+var lang = env.locale;
+
+/* root URLs for the options */
+
+var sourceUrl = "http://mxr.mozilla.org/mozilla-central/source/";
+var searchUrl = "http://mxr.mozilla.org/mozilla-central/ident?i=";
+var loginUrl = "https://developer.mozilla.org/index.php?title=Special:Userlogin&returntotitle=";
+
+/* Heading strings in English; localize in the switch below */
+
+var heading = mdn.localString({
+    "en-US" : "That page doesn't exist yet",
+    "de"    : "Diese Seite existiert bisher nicht",
+    "ja"    : "この URL のページはまだ存在しません。",
+    "ru"    : "Эта страница ещё не существует"
+});
+
+var optionsHeading = "You have options";
+
+/* Section body texts; localize in the switch below */
+
+var intro = "The page you're trying to visit (" + $0 + ") doesn't exist yet. Either you came upon a bad link or you've discovered a link to an article that nobody has written yet.",
+    s_opt_1 = "Here are some things things you can do now:",
+    s_opt_2 = "<a href=" + loginUrl + $0 + ">Log in</a> and <a href=" + $0 + ">create the page</a>! We're always looking for help adding new material to our documentation.",
+    s_opt_3 = "Read the related source or header file: ",
+    optionsText = "<p>" + s_opt_1 + "</p><ul>";
+
+optionsText = optionsText + "<li>" + s_opt_2 + "</li>";
+
+if ($2 && string.length($2)) {
+    optionsText = optionsText + "<li>" + s_opt_3 + template("Source", [$2]) + "</li>";
+} 
+
+if ($1 && string.length($1)) {
+    optionsText = optionsText + "<li>" + template("LXRSearch", ["ident", "i", $1]) + "</li>";
+}
+
+switch(lang) {
+    case 'de':
+        intro = "Die Seite (" + $0 + "), die du versuchst, zu besuchen, existiert bisher noch nicht. Falls du willst, kannst du dich anmelden und sie erstellen.";
+        break;
+    case 'ru':
+        optionsHeading = "У вас есть следующие варианты";
+        intro = "Страница (" + $0 + "), которую вы пытаетесь посетить, не существует. Либо вы пришли по битой ссылке, либо попали на ссылку статьи, которую ещё никто не написал.";
+        s_opt_1 = "Вот несколько вещей, которые вы можете сделать сейчас:";
+        s_opt_2 = "<a href=" + loginUrl + $0 + ">Войти</a> и <a href=" + $0 + ">создать страницу</a>! Мы всегда ищем помощи в добавлении нового материала в нашу документацию.";
+        s_opt_3 = "Прочитайте связанный источник или заголовочный файл: ";
+        break;
+    default:
+        break;
+}
+
+optionsText = optionsText + "</ul>";
+
+%>
+
+
+<h2><%- heading %></h2>
+<p><%- intro %></p> 
+<h2><%- optionsHeading %></h2>
+<%- optionsText %>
