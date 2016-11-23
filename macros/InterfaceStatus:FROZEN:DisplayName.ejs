@@ -1,0 +1,11 @@
+<% if ('fr' == env.locale) { %>
+<a href="/docs/fr/Interfaces/%c3%80_propos_des_interfaces_gel%c3%a9es">gelée</a>
+<% } else if ('ja' == env.locale) { %>
+<a href="/docs/ja/Interfaces/About_Frozen_Interfaces">凍結</a>
+<% } else if ('ko' == env.locale) { %>
+<a href="/docs/ko/Interfaces/About_Frozen_Interfaces">frozen</a>
+<% } else if ('pl' == env.locale) { %>
+został <a href="/docs/pl/Interfejsy/O_zamro%c5%bconych_interfejsach">zamrożony</a> począwszy od <%=$0%>
+<% } else { %>
+<a href="/docs/en/Interfaces/About_Frozen_Interfaces">frozen</a>
+<% } %>
