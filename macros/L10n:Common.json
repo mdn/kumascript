@@ -1,0 +1,181 @@
+{
+    "summary": {
+        "en-US": "The documentation about this has not yet been written; please consider contributing!",
+        "ca"   : "Aquesta pàgina encara no ha estat traduïda. Si us plau considera contribuir-hi!",
+        "de"   : "Die Beschreibung hierüber wurde bisher noch nicht geschrieben; bitte erwäge, mitzuwirken!",
+        "es"   : "La documentación acerca de este tema no ha sido escrita todavía . ¡Por favor  considera contribuir !",
+        "fr"   : "Cette documentation n'a pas encore été rédigée, vous pouvez aider en contribuant&nbsp;!",
+        "ru"   : "Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!",
+        "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
+        "ja"   : "この項目についての文書はまだ書かれていません。書いてみませんか？"
+    },
+    
+    "Methods": { 
+        "en-US": "Methods",
+        "de"   : "Methoden",
+        "fr"   : "Méthodes",
+        "it"   : "Metodi",
+        "es"   : "Métodos",
+        "ru"   : "Методы",
+        "zh-CN": "方法",
+        "pl"   : "Metody",
+        "ca"   : "Mètodes",
+        "ja"   : "メソッド"
+    },
+    
+    "Properties": {
+        "en-US": "Properties",
+        "de"   : "Eigenschaften",
+        "fr"   : "Propriétés",
+        "es"   : "Propiedades",
+        "ru"   : "Свойства",
+        "zh-CN": "属性",
+        "it"   : "Proprietà",
+        "pl"   : "Własności",
+        "ca"   : "Propietats",
+        "ja"   : "プロパティ"
+    },
+    
+    "Event_handlers": {
+        "en-US": "Event handlers",
+        "fr"   : "Gestionnaires d'évènements",
+        "ja"   : "イベントハンドラー",
+        "ko"   : "이벤트 핸들러",
+        "zh-TW": "事件處理器",
+        "zh-CN": "事件句柄",
+        "ru"   : "Обработчики событий"
+    },
+    
+    "Constructor": {
+        "en-US": "Constructor",
+        "de"   : "Konstruktor",
+        "es"   : "Constructor",
+        "fr"   : "Constructeur",
+        "it"   : "Costruttore",
+        "ca"   : "Constructor",
+        "ja"   : "コンストラクター",
+        "ru"   : "Конструктор"
+    },
+    
+    "Inheritance": {
+        "en-US": "Inheritance:",
+        "de"   : "Vererbung:",
+        "es"   : "Herencia",
+        "fr"   : "Héritage&nbsp;:",
+        "ru"   : "Наследование:",
+        "zh-CN": "继承",
+        "ca"   : "Herència",
+        "ja"   : "継承"
+    },
+    
+    "Implemented_by": {
+        "en-US": "Implemented by:",
+        "de"   : "Implementiert von:",
+        "es"   : "Implementado por:",
+        "fr"   : "Implémenté par&nbsp;:",
+        "it"   : "Implementato da:",
+        "ca"   : "Implementat per",
+        "ru"   : "Выполняется:"
+    },
+    
+    "Related_pages": {
+        "en-US": "Related pages for $1",
+        "de"   : "Ähnliche Seiten zu $1",
+        "es"   : "Páginas relacionadas a $1",
+        "fr"   : "Pages liées à $1",
+        "it"   : "Pagine correlate du $1",
+        "ca"   : "Pàgines similars a $1",
+        "ru"   : "Похожие страницы для $1",
+        "ja"   : "$1 に関連するページ"
+    },
+    
+    "Related_pages_wo_group": {
+        "en-US": "Related pages:",
+        "de"   : "Ähnliche Seiten:",
+        "es"   : "Páginas relacionadas:",
+        "fr"   : "Pages similaires&nbsp;:",
+        "it"   : "Pagine correlate:",
+        "ca"   : "Pàgines similars",
+        "ru"   : "Похожие страницы:",
+        "ja"   : "関連するページ"
+    },
+    
+    "Reference": {
+        "en-US": "Reference",
+        "de"   : "Referenz",
+        "es"   : "Referencia",
+        "fr"   : "Référence",
+        "ja"   : "リファレンス",
+        "pt-BR": "Referência",
+        "zh-CN": "参考",
+        "pl"   : "Referencje",
+        "ca"   : "Referència",
+        "ru"   : "Руководство"
+    },
+    
+    "section": {
+        "en-US": "section",
+        "fr"   : "section",
+        "ru"   : "секция",
+        "ja"   : "セクション"
+    },
+    
+    "[Translate]": {
+        "en-US": "[Translate]",
+        "de"   : "[Übersetzen]",
+        "es"   : "[Traducir]",
+        "fr"   : "[Traduire]",
+        "zh-CN": "[我来译!]",
+        "ca"   : "[Traduir]",
+        "ru"   : "[Перевести]",
+        "ja"   : "[翻訳する]"
+        
+    },
+    
+    "TranslationCTA": {
+        "en-US": "Our volunteers haven't translated this article into your language yet. Join us and help get the job done!",
+        "de": "Unsere Freiwilligen haben diesen Artikel noch nicht in Deutsch übersetzt. Machen Sie mit und helfen Sie, das zu erledigen!",
+        "es": "Nuestros voluntarios aún no han traducido este artículo al Español. ¡Únete a nosotros y ayuda a traducirlo!",
+        "fr": "Nos volontaires n'ont pas encore traduit cet article en français. Rejoignez-nous et aidez-nous à le faire&nbsp;!",
+        "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
+        "ca" : "Els nostres voluntaris encara no han traduït aquest article al Català. Uneix-te a nosaltres i ajuda-ns a acabar la feina!",
+        "ru" : "Наши волонтёры ещё не перевели данную статью на Русский. Присоединяйтесь к нам и помогите закончить эту работу!",
+        "ja" : "まだボランティアによって日本語に翻訳されていない記事です。MDNに参加して、翻訳してみませんか？"
+    },
+    
+    "Guides": {
+        "en-US": "Guides",
+        "de"   : "Anleitungen",
+        "es"   : "Guías",
+        "fr"   : "Guides",
+        "ru"   : "Руководства",
+        "ja"   : "ガイド"
+    },
+    
+    "Events": {
+        "en-US": "Events",
+        "de"   : "Ereignisse",
+        "es"   : "Eventos",
+        "fr"   : "Événements",
+        "ru"   : "События",
+        "ja"   : "イベント"
+    },
+    
+    "Interfaces": {
+        "en-US": "Interfaces",
+        "de"   : "Schnittstellen",
+        "es"   : "Interfaces",
+        "fr"   : "Interfaces",
+        "ru"   : "Интерфейсы",
+        "ja"   : "インターフェイス"
+    },
+
+    "listSeparator": {
+        "en-US": ", ",
+        "de"   : ", ",
+        "es"   : ", ",
+        "fr"   : ", ",
+        "ja"   : " 、 ",
+        "ru"   : ", "
+    }
+}
