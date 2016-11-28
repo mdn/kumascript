@@ -1,0 +1,89 @@
+<%
+
+var sidebarUtils = require("SidebarUtilities");
+var output = "";
+var pageModule = page;
+var hasTag = page.hasTag;
+var slug = env.slug;
+var locale = env.locale;
+var baseURL = "/" + locale + "/docs/";
+var baseAPIPage = baseURL + "Mozilla/Add-ons/WebExtensions/API";
+
+function classifyPages(subpages) {
+  var collection = {
+      properties: [],
+      methods: [],
+      events: [],
+      types: []
+  }
+  
+  subpages.forEach(function(subpage) {
+    if (hasTag(subpage, "Property")) {
+      collection.properties.push(subpage);
+    }
+    if (hasTag(subpage, "Method")) {
+      collection.methods.push(subpage);
+    }
+    if (hasTag(subpage, "Type")) {
+      collection.types.push(subpage);
+    }
+    if (hasTag(subpage, "Event")) {
+      collection.events.push(subpage);
+    }
+  });
+
+  return collection;
+}
+
+function buildSidebarForSingleAPI(apiPath) {
+  output+= '<ol>';
+
+var subpages = pageModule.subpagesExpand(apiPath);
+
+  var pageCollection = classifyPages(subpages);
+  
+  if (pageCollection.methods.length > 0) {
+    output += sidebarUtils.buildSublist(pageCollection.methods, "Methods", true);
+  }
+  if (pageCollection.properties.length > 0) {
+    output += sidebarUtils.buildSublist(pageCollection.properties, "Properties", true);
+  }
+  if (pageCollection.types.length > 0) {
+    output += sidebarUtils.buildSublist(pageCollection.types, "Types", true);
+  }
+  if (pageCollection.events.length > 0) {
+    output += sidebarUtils.buildSublist(pageCollection.events, "Events", true);
+  }
+  
+output += '</ol>';
+}
+
+function buildSidebarForAllAPIs() {
+  output = "<ol>";
+  var browserSupportURL = baseURL + "Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs";
+  var browserSupportTitle = "Browser support for JavaScript APIs";
+  output +=  '<li><a href="' +  browserSupportURL + '">' + browserSupportTitle + '</a>';
+
+  var subpages = pageModule.subpagesExpand(baseAPIPage);
+  for (var i = 0; i < subpages.length; i++) {
+    var apiPage = subpages[i];
+    var pieces = apiPage.url.split("/");
+    var apiName = pieces.slice(-1);
+    if (slug.indexOf(apiPage.slug) != -1) {
+      output +=  '<li class="webextension-api-sidebar"><a href="' +  apiPage.url + '">' + apiName + '</a>';
+      buildSidebarForSingleAPI(baseURL + apiPage.slug);
+    }
+    else {
+      output +=  '<li><a href="' +  apiPage.url + '">' + apiName + '</a>';
+    }
+    output += '</li>';
+  }
+
+output += '</ol>';
+}
+
+
+buildSidebarForAllAPIs(baseURL);
+%>
+
+<%-output%>

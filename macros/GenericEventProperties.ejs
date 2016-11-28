@@ -1,0 +1,19 @@
+<%
+// make sure that we have an array of properties
+if ( !( $0 instanceof Array ) ) { $0 = [$0]; }
+  
+var i = -1,
+    length = $0.length,
+    prop;
+
+// loop on the properties
+while ( ++i < length ) {
+    prop = $0[i];
+
+%><tr>
+  <td><code><%= $prop.name; %></code> <%- template("readOnlyInline") %></td>
+  <td><%= $prop.type; %></td>
+  <td><%= $prop.description; %></td>
+</tr><%
+
+} %>

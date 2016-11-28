@@ -1,0 +1,40 @@
+<p><%
+
+
+/*
+<div class="noinclude">
+<span class="script">template.NeedsTechnicalReview()</span>
+<hr />
+</div> */
+%>
+
+<% if ("en" == env.locale) { %>
+<span style="overflow:hidden;display:block;background:lemonchiffon;border:1px solid navajowhite;text-align:center;margin-bottom:1em;">
+<span style="display:block; color:coral; font-weight:700; border-bottom:1px solid navajowhite;">This page has been flagged by editors or users as needing technical review.</span>
+Until it is fully reviewed, it may contain inaccurate or incorrect information.
+</span>
+<% } else if ("de" == env.locale) { %>
+<span style="overflow:hidden;display:block;background:lemonchiffon;border:1px solid navajowhite;text-align:center;margin-bottom:1em;">
+<span style="display:block; color:coral; font-weight:700; border-bottom:1px solid navajowhite;">Diese Seite muss inhaltlich überprüft werden.</span>
+Bis dahin sind die Informationen hier möglicherweise falsch oder ungenau. In vielen Fällen ist die <a title="en" style="white-space:nowrap" href="/en">englischsprachige Dokumentation</a> aktueller.
+</span>
+
+<% } else if ("ja" == env.locale) { %>
+<span style="overflow:hidden;display:block;background:lemonchiffon;border:1px solid navajowhite;text-align:center;margin-bottom:1em;">
+<span style="display:block; color:coral; font-weight:700; border-bottom:1px solid navajowhite;">このページは編集者または閲覧者により、技術レビューの必要があると判断されました。</span>
+全体のレビューが終わるまで、不正確あるいは誤った情報を含む可能性があります。
+</span>
+<% } else if ("ko" == env.locale) { %>
+<span style="overflow:hidden;display:block;background:lemonchiffon;border:1px solid navajowhite;text-align:center;margin-bottom:1em;">
+<span style="display:block; color:coral; font-weight:700; border-bottom:1px solid navajowhite;">이 페이지는 편집자나 사용자가 기술 검토가 필요하다고 표시하였습니다.</span>
+충분히 검토할 때까지, 부정확하거나 틀린 정보를 포함할지도 모릅니다.
+</span>
+<% } else { %>
+<span style="overflow:hidden;display:block;background:lemonchiffon;border:1px solid navajowhite;text-align:center;margin-bottom:1em;">
+<span style="display:block; color:coral; font-weight:700; border-bottom:1px solid navajowhite;">This page has been flagged by editors or users as needing technical review.</span>
+Until it is fully reviewed, it may contain inaccurate or incorrect information.
+</span>
+
+<%
+}
+%></p>

@@ -1,0 +1,26 @@
+<tr><%
+
+var el = env.locale;
+
+switch (el) {
+
+    case "yourlocale":
+
+%>
+  <td><code>gampad</code> <%- template("readOnlyInline") %></td>
+  <td>Gamepad</td>
+  <td>The single gamepad attribute provides access to the associated gamepad data for this event.</td>
+<%
+
+        break;
+    default:
+
+%>
+  <td><code>gampad</code> <%- template("readOnlyInline") %></td>
+  <td>Gamepad</td>
+  <td>The single gamepad attribute provides access to the associated gamepad data for this event.</td>
+<%
+
+    break;
+
+} %></tr>

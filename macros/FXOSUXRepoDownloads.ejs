@@ -1,0 +1,43 @@
+<% /*
+Inserts download links for the CSS and media resources for a standard Gaia UX component.
+
+    Parameters:
+        $0 - The URL of the CSS file
+        $1 - The URL of the ui resources folder
+*/
+
+// Localize strings
+
+var heading = mdn.localString({
+    "en-US" : "Download resources",
+    "ja"    : "ファイルのダウンロード",
+    "ru"    : "Скачать ресурсы"
+});
+
+var downloadCSS = mdn.localString({
+    "en-US" : "CSS (Style)",
+    "ja"    : "CSS",
+    "ru"    : "CSS (Стили)"
+});
+
+var downloadMedia = mdn.localString({
+    "en-US" : "Media Files",
+    "ja"    : "メディアファイル",
+    "ru"    : "Медиа файлы"
+});
+
+var downloadFonts = mdn.localString({
+    "en-US" : "Fonts",
+    "ja"    : "フォント",
+    "ru"    : "Шрифты"
+});
+
+
+%><div class="standardSidebar" style="padding:10px 10px 0">
+  <div><%- heading %></div>
+  <ul>
+  <li><a href='<%- $0 %>'><%- downloadCSS %></a></li>
+  <li><a href='<%- $1 %>'><%- downloadMedia %></a></li>
+  <li><a href='https://github.com/mozilla-b2g/moztt/'><%- downloadFonts %></a></li>
+  </ul>
+</div>

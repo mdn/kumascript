@@ -1,0 +1,85 @@
+<%
+/*
+ * This template should work if you change the invocation from a page to be a valid JSON object, and add parens around it like this example:
+ * {{OrigDocInfo({"author": "Ian Hickson", "date": "October 14, 2006", "original": "http://lxr.mozilla.org/mozilla/source/config/preprocessor.txt"})}}
+*/
+var s_title = "Original Document Information";
+var s_author = "Author(s): ";
+var s_others = "Other Contributors: ";
+var s_date = "Last Updated Date: ";
+var s_copyright = "Copyright Information: ";
+var s_original = "Original Location: ";
+var s_note = "Note: ";
+
+switch (env.locale) {
+  case 'cs':
+    s_title = "Informace o dokumentu";
+    s_author = "Autor: ";
+    s_others = "Další přispěvatelé: ";
+    s_date = "Poslední aktualizace: ";
+    s_copyright = "Informace o copyrightu: ";
+    // s_original = " ";
+    // s_note = " ";
+    break;
+  case 'ja':
+    s_title = "原文書の情報";
+    s_author = "著者: ";
+    s_others = "貢献者: ";
+    s_date = "最終変更日: ";
+    s_copyright = "著作権: ";
+    s_original = "原文書の場所: ";
+    s_note = "注記: ";
+    break;
+  case 'ko':
+    s_title = "원본 문서 정보";
+    s_author = "제작자: ";
+    // s_others = " ";
+    s_date = "최근 업데이트 날짜: ";
+    // s_copyright = " ";
+    // s_original = " ";
+    // s_note = " ";
+    break;
+  case 'pl':
+    s_title = "Informacje o oryginalnym dokumencie";
+    s_author = "Autor(zy): ";
+    s_others = "Inni współpracownicy: ";
+    s_date = "Data ostatniej aktualizacji: ";
+    s_copyright = "Informacja o prawach autorskich: ";
+    s_original = "Pierwotna lokalizacja: ";
+    s_note = "Uwagi: ";
+    break;
+  case 'pt-PT':
+    s_title = "Informações Sobre o Documento Original";
+    s_author = "Autor(es): ";
+    s_others = "Outros Contribuidores: ";
+    s_date = "Última Atualização ";
+    s_copyright = "Informações sobre Copyright: ";
+    // s_original = " ";
+    // s_note = " ";
+    break;
+  case 'ru':
+    s_title = "Информация об оригинальном документе";
+    s_author = "Автор(ы): ";
+    s_others = "Другие помощники: ";
+    s_date = "Дата последнего обновления: ";
+    s_copyright = "Информация об авторских правах: ";
+    s_original = "Оригинальное расположение: ";
+    s_note = "Замечание: ";
+    break;
+};
+var out = [];
+if ($0.author) {out.push('<li>' + s_author + $0.author + '</li>');}
+if ($0.others) {out.push('<li>' + s_others + $0.others + '</li>');}
+if ($0.date) {out.push('<li>' + s_date + $0.date + '</li>');}
+if ($0.copyright) {out.push('<li>' + s_copyright + $0.copyright + '</li>');}
+if ($0.original) {out.push('<li>' + s_original + web.link($0.original) + '</li>');}
+if ($0.note) {out.push('<li>' + s_note + $0.note + '</li>');}
+var str = out.join('\n');
+
+
+%><div class="originaldocinfo">
+<h2 id="Original_Document_Information" name="Original_Document_Information"><%- s_title %></h2>
+<ul>
+<%- str %>
+</ul>
+</div>

@@ -1,0 +1,43 @@
+<%
+var el = env.locale;
+
+switch (el) {
+
+    case "yourLocale":
+
+%><tr>
+  <td><code>value</code> <%- template("readonlyInline") %></td>
+  <td>Double (float)</td>
+  <td>The sensor data for <%= $0 %>.</td>
+</tr>
+<tr>
+  <td><code>min</code> <%- template("readonlyInline") %></td>
+  <td>Double (float)</td>
+  <td>The minimum value in the range the sensor detects (if available, 0 otherwise).</td>
+</tr>
+<tr>
+  <td><code>max</code>  <%- template("readonlyInline") %></td>
+  <td>Double (float)</td>
+  <td>The maximum value in the range the sensor detects (if available, 0 otherwise).</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>value</code> <%- template("readonlyInline") %></td>
+  <td>Double (float)</td>
+  <td>The sensor data for <%= $0 %>.</td>
+</tr>
+<tr>
+  <td><code>min</code> <%- template("readonlyInline") %></td>
+  <td>Double (float)</td>
+  <td>The minimum value in the range the sensor detects (if available, 0 otherwise).</td>
+</tr>
+<tr>
+  <td><code>max</code>  <%- template("readonlyInline") %></td>
+  <td>Double (float)</td>
+  <td>The maximum value in the range the sensor detects (if available, 0 otherwise).</td>
+</tr><%
+        break;
+} %>

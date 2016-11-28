@@ -1,0 +1,119 @@
+<%
+// Generates a simple list of pages in alphabetical order *but* pulls out a specified list
+// of pages to appear at the top of the list instead of in their alphabetical slot. This
+// list is formatted for use in a zone's nav sidebar.
+//
+// Parameters
+//  $0...$n The pages to pull out and put at the top
+//
+// The pulled-out pages are listed in the order specified, and are specified by page SLUG.
+
+var html = "";
+var htmlEscape = kuma.htmlEscape;
+var lang = env.locale;
+
+// Sort routines
+
+function chunkify(t) {
+	var tz = [], x = 0, y = -1, n = 0, i, j;
+
+	while (i = (j = t.charAt(x++)).charCodeAt(0)) {
+        var m = (i == 46 || (i >=48 && i <= 57));
+		if (m !== n) {
+			tz[++y] = "";
+			n = m;
+		}
+		tz[y] += j;
+	}
+	return tz;
+}
+
+function alphanumForward(a, b) {
+
+	var aa = chunkify(a.title);
+	var bb = chunkify(b.title);
+
+	for (x = 0; aa[x] && bb[x]; x++) {
+		if (aa[x] !== bb[x]) {
+			var c = Number(aa[x]), d = Number(bb[x]);
+			if (c == aa[x] && d == bb[x]) {
+				return c - d;
+			} else return (aa[x] > bb[x]) ? 1 : -1;
+		}
+	}
+	return aa.length - bb.length;
+}
+
+function process_array(folderItem, arr) {
+    var result = '';
+    var openTag = '<ol>';
+    var closeTag = '</ol>';
+    
+    if (arr.length) {
+        result += openTag;
+        
+        // Start by inserting an item for the landing page itself
+        
+        if (folderItem != null) {
+            result += '<li><a href="' + folderItem.url + '">' + htmlEscape(folderItem.title) + '</a></li>';
+        }
+        
+        // Process the child items
+        
+        arr.forEach(function(item) {
+            if (!item) {
+                return;         // This subtree is empty
+            }
+            
+            // Skip this item if its language isn't the same as the current page
+            
+            if (item.locale != lang) {
+                return;
+            }
+            
+            // Skip this item if it's title is "Index"
+            
+            if (item.title == "Index") {
+                return;
+            }
+            
+            result += '<li><a href="' + item.url + '">' + htmlEscape(item.title) + '</a>' + process_array(item, item.subpages || []) + '</li>';
+        });
+        result += closeTag;
+    }
+    
+    return result;
+}
+
+// Get all the subpages of this page. This will be treated as the main list of pages; we will
+// pull out the requested pages afterward.
+
+var alphaList = page.subpagesExpand(/*env.path*/"/" + lang + "/docs/MDN", 2, 0);
+var numPages = alphaList.length;
+
+alphaList.sort(alphanumForward);
+
+var specialList = [];   // The list of items to go first
+
+// Iterate over the page list, comparing each page to the provided list
+// and moving any matches over. We do this only at the top level, so do
+// it now.
+
+for (var j=0; j<arguments.length; j++) {
+    for (var i=0; i<alphaList.length; i++) {
+        if (alphaList[i].slug.toLowerCase() == arguments[j].toLowerCase()) {
+            specialList.push(alphaList[i]); // add to the special list
+            alphaList.splice(i, 1);          // remove from the main list
+        }
+    }
+}
+
+// Process the special list, building out the subtrees into HTML.
+
+html = process_array(null, specialList);
+
+// Now add the main list.
+
+html += process_array(null, alphaList);
+%>
+<%-html%>

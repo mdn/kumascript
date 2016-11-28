@@ -1,0 +1,69 @@
+<%
+/* Used for generating cross-references from the Web Extensions API
+ * documentation to guide pages.
+ *
+ * This macro is used for porting documentation from other systems,
+ * and probably isn't suitable for other uses.
+ *
+ * Given the first parameter as the name of the target page,
+ * it looks for that page in:
+ *
+ *  /en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/<name>
+ *
+ * If it finds a page here is builds a link to that page.
+ * If it doesn't find a page here, it looks for a page in:
+ *
+ *  /en-US/docs/Mozilla/Add-ons/WebExtensions/<name>
+ *
+ * If it doesn't find the page here either, it just returns the link text (param 2)
+ * if given, or the name otherwise.
+ *
+ * @param
+ *   The path of the page to link to, relative to the
+ * /en-US/docs/Mozilla/Add-ons/WebExtensions/API documentation path.
+ * @param [optional] 
+ *   The text to use for the link.  If omitted, the value of the first
+ *   parameter will be used
+ */
+
+var targetPage = $0;
+var linkText = $1 || $0;
+var myWiki = wiki;
+var myMdn = mdn;
+
+function getResult(targetPage) {
+  var firstChoice = '/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/' + targetPage;
+  guidePage = targetPage.replace(' ', '_');
+  var secondChoice = '/en-US/docs/Mozilla/Add-ons/WebExtensions/' + guidePage;
+
+  var page = myWiki.getPage(firstChoice);
+
+  if (page.url) {
+    return buildLink(page, firstChoice, linkText);
+  }
+
+  page = myWiki.getPage(secondChoice);
+
+  if (page.url) {
+    return buildLink(page, secondChoice, linkText);
+  }
+
+  return linkText;
+}
+
+function buildLink(page, target, text) {
+  if (page.summary) {
+    var summary = myMdn.escapeQuotes(page.summary);
+    return '<a href="' + target + '"' +
+               'title="' + summary + '"' +
+            '>' + text + "</a>";
+  }
+  else {
+    return '<a href="' + target + '""' +
+           '>' + text + "</a>";  
+  }
+}
+
+var result = getResult(targetPage);
+
+%><%-result%>

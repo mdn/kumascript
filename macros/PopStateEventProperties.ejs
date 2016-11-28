@@ -1,0 +1,14 @@
+<%
+
+var str_description = mdn.localString({
+    "en-US" : "The current history entry's state object (if any).",
+    "ja"    : "対象の履歴エントリーの状態オブジェクト (ある場合)",
+    "ru"    : "Объект state текущей записи истории (если есть)."
+});
+
+
+%><tr>
+  <td><code>state</code> <%- template("readOnlyInline") %></td>
+  <td><i>any</i></td>
+  <td><%- str_description %></td>
+</tr>

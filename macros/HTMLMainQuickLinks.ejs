@@ -1,0 +1,115 @@
+<%
+// Creates a Quick Links section for HTML landing pages
+//
+// Parameters: None.
+
+var lang = env.locale;
+
+switch(lang) {
+    case "fr": %>
+<section id="Quick_Links">
+  <ol>
+   <li><%-template("LinkItem", ["Cascading Style Sheets (CSS)", "/fr/docs/CSS"])%></li>
+   <li><%-template("LinkItem", ["Document Object Model (DOM)", "/fr/docs/DOM"])%></li>
+   <li><%-template("LinkItem", ["Guide sur les APIs Web", "/en-US/docs/Web/Guide/API"])%></li>
+   <li><%-template("LinkItem", ["Référence API Web", "/en-US/docs/Web/Reference/API"])%></li>
+   <li><a href="#" title="Outils Développeur indépendant">Outils développeur hors navigateur</a>
+    <ol>
+     <li><a href="http://validator.w3.org/" title="Le World Wide Web Consortium propose un validateur HTML, qui vérifie la syntaxe des documents HTML.">Validateur HTML W3C</a></li>
+     <li><a href="http://tidy.sourceforge.net/" title="Un utilitaire Open-Source pour nettoyer du code HTML.">HTML Tidy</a></li>
+     <li><a href="http://prettydiff.com/?html" title="Un utilitaire Web pour comparer deux versions d'un fichier, avec un support spécial pour la comparaison du HTML.">Pretty Diff</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Outils Développeur de Firefox">Outils Développeur Firefox</a>
+    <ol>
+     <li><%-template("LinkItem", ["Outils Développeur intégrés", "/fr/docs/Outils"])%></li>
+     <li><a href="https://addons.mozilla.org/fr/firefox/addon/firebug/">Module Firebug</a></li>
+     <li><a href="https://addons.mozilla.org/fr/firefox/addon/web-developer/">Module Web Developer</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Outils Développeur de Safari">Outils Développeur Safari</a>
+    <ol>
+     <li><a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html">Inspecteur Web de Safari</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Outils Développeur de Chrome">Outils Développeur Chrome</a>
+    <ol>
+     <li><a href="https://developers.google.com/chrome-developer-tools/">Chrome DevTools</a></li>
+    </ol>
+   </li>
+  </ol>
+ </section>
+<% // END FRENCH
+        break;
+   case "ru": %>
+<section id="Quick_Links">
+  <ol>
+   <li><%-template("LinkItem", ["Каскадные таблицы стилей (CSS)", "/ru/docs/Web/CSS"])%></li>
+   <li><%-template("LinkItem", ["Объектная модель документа (DOM)", "/ru/docs/DOM"])%></li>
+   <li><%-template("LinkItem", ["Уроки по Web API", "/ru/docs/Web/Guide/API"])%></li>
+   <li><%-template("LinkItem", ["Руководство Web API", "/ru/docs/Web/Reference/API"])%></li>
+   <li><a href="#" title="Browser-independent developer tools">Инструменты независящие от браузера</a>
+    <ol>
+     <li><a href="http://validator.w3.org/" title="The World Wide Web Consortium offers its HTML validator, which checks your HTML to ensure that it follows proper syntax.">W3C HTML Validator</a></li>
+     <li><a href="http://tidy.sourceforge.net/" title="An open-source utility for cleaning up HTML code.">HTML Tidy</a></li>
+     <li><a href="http://prettydiff.com/?html" title="A Web-based utility for comparing two versions of a file, with special support for comparing versions of HTML source.">Pretty Diff</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Firefox-based developer tools">Инструменты разработки Firefox</a>
+    <ol>
+     <li><%-template("LinkItem", ["Встроенные инструменты разработчика", "/ru/docs/Tools"])%></li>
+     <li><a href="https://addons.mozilla.org/ru/firefox/addon/1843">Расширение Firebug</a></li>
+     <li><a href="https://addons.mozilla.org/ru/firefox/addon/web-developer/">Расширение Web Developer</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Safari-based developer tools">Инструменты разработчика Safari</a>
+    <ol>
+     <li><a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html">Safari Web Inspector</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Chrome-based developer tools">Инструменты разработчика Chrome</a>
+    <ol>
+     <li><a href="https://developers.google.com/chrome-developer-tools/">Chrome DevTools</a></li>
+    </ol>
+   </li>
+  </ol>
+ </section>
+ <% // END RUSSIAN
+    break;
+    default: %>
+<section id="Quick_Links">
+  <ol>
+   <li><%-template("LinkItem", ["Cascading Style Sheets (CSS)", "/en-US/docs/Web/CSS"])%></li>
+   <li><%-template("LinkItem", ["Document Object Model (DOM)", "/en-US/docs/DOM"])%></li>
+   <li><%-template("LinkItem", ["Guide to Web APIs", "/en-US/docs/Web/Guide/API"])%></li>
+   <li><%-template("LinkItem", ["Web API Reference", "/en-US/docs/Web/Reference/API"])%></li>
+   <li><a href="#" title="Browser-independent developer tools">Browser-independent tools</a>
+    <ol>
+     <li><a href="http://validator.w3.org/" title="The World Wide Web Consortium offers its HTML validator, which checks your HTML to ensure that it follows proper syntax.">W3C HTML Validator</a></li>
+     <li><a href="http://tidy.sourceforge.net/" title="An open-source utility for cleaning up HTML code.">HTML Tidy</a></li>
+     <li><a href="http://prettydiff.com/?html" title="A Web-based utility for comparing two versions of a file, with special support for comparing versions of HTML source.">Pretty Diff</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Firefox-based developer tools">Firefox developer tools</a>
+    <ol>
+     <li><%-template("LinkItem", ["Built-in developer tools", "/en-US/docs/Tools"])%></li>
+     <li><a href="https://addons.mozilla.org/en-US/firefox/addon/1843">Firebug extension</a></li>
+     <li><a href="https://addons.mozilla.org/en-US/firefox/addon/web-developer/">Web Developer extension</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Safari-based developer tools">Safari developer tools</a>
+    <ol>
+     <li><a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html">Safari Web Inspector</a></li>
+    </ol>
+   </li>
+   <li><a href="#" title="Chrome-based developer tools">Chrome developer tools</a>
+    <ol>
+     <li><a href="https://developers.google.com/chrome-developer-tools/">Chrome DevTools</a></li>
+    </ol>
+   </li>
+  </ol>
+ </section>
+ <% // END DEFAULT: ENGLISH
+    break;
+}
+%>

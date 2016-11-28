@@ -1,0 +1,23 @@
+<pre class="script">
+/* two parameters: interface name, title for the link */
+/* get a page's language (Don't use page.language!) */
+var u = Uri.Parts(Page.uri);
+var lang = string.toLower(u.path[0]);
+if(string.Contains(lang, "project")) {
+ lang = string.Substr(lang, 8);
+}
+/* fall back to page.language on a user page */
+else if (string.StartsWith(lang, "user:")) {
+ lang = page.language;
+}
+
+/* check $0 exists */
+if(wiki.pageExists(lang + '/XPCOM_Interface_Reference/' + $0)) {
+    (web.link(wiki.uri(lang + '/XPCOM_Interface_Reference/' + $0), $1));
+} else if(wiki.pageExists(lang + '/' + $0)) {
+    (web.link(wiki.uri(lang + '/' + $0), $1));
+} else {
+    <<span class="start-tag">a</span><span class="attribute-name"> rel</span>=(<span class="attribute-value">'internal') </span><span class="attribute-name">href</span><span>=</span>(<span>wiki.uri(</span>lang + '/' + $0<span>)) </span><span class="attribute-name">class</span>=<span class="attribute-value">('new')></span>$1</<span class="end-tag">a></span>;
+}
+
+%>

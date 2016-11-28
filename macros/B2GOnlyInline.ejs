@@ -1,0 +1,21 @@
+<%
+/* one parameter: Gecko version as of which should only be used in B2G (optional) */
+/* get the page language */
+
+var lang = env.locale;
+
+var str = "";
+var title = "";
+
+switch(lang) {
+    default:
+    if ($0) {
+        str = "Only available on Firefox OS";
+        title = "Available only on Firefox OS as of Gecko " + $0 + " " + template("geckoRelease", [$0]);
+    } else {
+        str = "Only available on Firefox OS";
+        title = "This is a Firefox OS (Boot to Gecko) specific API.";
+    }
+    break;
+}
+%><span title="<%=title%>" class="inlineIndicator projectSpecific projectSpecificInline"><%=str%></span>

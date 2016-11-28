@@ -18,16 +18,16 @@ var DEBUG = false;
 module.exports = nodeunit.testCase({
 
     "Basic template loading should work": function (test) {
-        
+
         var loader = new ks_test_utils.JSONifyLoader(),
             data = ["test123", ["alpha", "beta", "gamma"]],
             expected = JSON.stringify(data);
 
         loader.get(data[0], function (err, tmpl) {
-            
+
             test.ok(!err);
             test.notEqual(typeof(tmpl), 'undefined');
-        
+
             tmpl.execute(data[1], {}, function (err, result) {
                 test.equal(result, expected);
                 test.done();
@@ -35,6 +35,30 @@ module.exports = nodeunit.testCase({
 
         });
 
+    },
+
+    "The FileLoader should detect duplicates": function (test) {
+        test.throws(
+            function() {
+                var loader = new ks_loaders.FileLoader({
+                    root_dir: 'tests/fixtures'
+                });
+            }
+        );
+        test.done();
+    },
+
+    "Template loading via the FileLoader should work": function (test) {
+        var loader = new ks_loaders.FileLoader({
+            root_dir: 'tests/fixtures/templates'
+        });
+        var tmpl_fn = __dirname + '/fixtures/templates/t1.ejs';
+        fs.readFile(tmpl_fn, function (err, expected) {
+            loader.get('t1', function (err, tmpl) {
+                test.equal(expected, tmpl.options.source);
+                test.done();
+            });
+        });
     },
 
     "Template loading via HTTP should work": function (test) {

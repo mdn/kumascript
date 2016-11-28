@@ -1,0 +1,23 @@
+<%
+// Inserts a link to an XPCOM reference page, styling
+// the link appropriately.
+//
+// Parameters:
+//
+//  $0 - Name of the class, function, or interface.
+
+var lang = env.locale;
+var slug = "/" + lang + "/docs/Mozilla/Tech/XPCOM/Reference/";
+var urlList = "";
+
+switch(lang) {
+    default:
+        urlList =        slug + "Glue_classes/" + $0;
+        urlList += "|" + slug + "Components/" + $0;
+        urlList += "|" + slug + "Core_functions/" + $0;
+        urlList += "|" + slug + "String_functions/" + $0;
+        urlList += "|" + slug + "Interface/" + $0;
+    break;
+}
+%>
+<%- template("xref2", [urlList, $0, true]) %>

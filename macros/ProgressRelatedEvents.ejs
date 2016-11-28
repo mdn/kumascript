@@ -1,0 +1,31 @@
+<%
+var el = env.locale;
+var path1 = "/" + el + "/docs/";
+var path2 = "Web/Reference/Events/";
+
+switch (el) {
+    case "ja":
+        
+%><ul>
+<li><a href="<%- path1 %><%- path2 %>loadstart"><code>loadstart</code></a></li>
+<li><a href="<%- path1 %><%- path2 %>progress"><code>progress</code></a></li>
+<li><a href="<%- path1 %><%- path2 %>error_(ProgressEvent)"><code>error</code></a></li>
+<li><a href="<%- path1 %><%- path2 %>abort_(ProgressEvent)"><code>abort</code></a></li>
+<li><a href="<%- path1 %><%- path2 %>load_(ProgressEvent)"><code>load</code></a></li>
+<li><a href="<%- path1 %><%- path2 %>loadend"><code>loadend</code></a></li>
+</ul><%
+
+        break;
+    default:
+
+%><ul>
+<li><a href="/en-US/docs/Mozilla_event_reference/loadstart"><code>loadstart</code></a></li>
+<li><a href="/en-US/docs/Mozilla_event_reference/progress"><code>progress</code></a></li>
+<li><a href="/en-US/docs/Mozilla_event_reference/error_(ProgressEvent)"><code>error</code></a></li>
+<li><a href="/en-US/docs/Mozilla_event_reference/abort_(ProgressEvent)"><code>abort</code></a></li>
+<li><a href="/en-US/docs/Mozilla_event_reference/load"><code>load</code></a></li>
+<li><a href="/en-US/docs/Mozilla_event_reference/loadend"><code>loadend</code></a></li>
+</ul><%
+
+        break;
+} %>

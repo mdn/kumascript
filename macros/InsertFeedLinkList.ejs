@@ -1,0 +1,70 @@
+<%
+// Inserts a bullet list of links for a given Web feed.
+//
+// Parameters:
+//
+//  $0  Feed URL
+//  $1  Maximum number of entries to output
+//  $2  Heading level to use (or 0 for no heading)
+//  $3  Class to use for the list
+//  $4  List type
+//  $5  Heading level for the list items
+//
+// List types:
+//
+//  0   Simple bullet list
+//  1   Header for the title, paragraph with byline
+
+var feed = kuma.fetchFeed($0);
+var titleHTML = "";
+var listType = parseInt($4, 10);
+var html = "<ul";
+
+if ($3 && ($3 != undefined)) {
+    html += " class='" + $3 + "'";
+}
+html += ">";
+
+var numItems = $1;
+
+if (numItems > feed.articles.length) {
+    numItems = feed.articles.length;
+}
+
+if ($2 != 0) {
+    titleHTML = "<h" + $2 + ">" + wiki.escapeQuotes(feed.meta.title) + "</h" + $2 + ">";
+}
+
+Object.prototype.getKeyByValue = function( value ) {
+    for( var prop in this ) {
+        if( this.hasOwnProperty( prop ) ) {
+             if( this[ prop ] === value )
+                 return prop;
+        }
+    }
+}
+
+for (var i=0; i<numItems; i++) {
+    var item = feed.articles[i];
+    var itemHTML = "";
+    
+    switch(listType) {
+        case 0: // Simple bullet list
+        default:
+            itemHTML = "<li><a href='" + item.link + "'>" + item.title + "</a></li>";
+            break;
+            
+        case 1: // heading then paragraph with byline
+            var date = item.pubDate.toLocaleDateString();
+            itemHTML = "<li><h" + $5 + "><a href='" + item.link + "'>" + item.title + "</a></h" + $5 + ">";
+            itemHTML += "<p>By " + item.author + " on " + date + "</p>";
+            break;
+    }
+    
+    html += itemHTML;
+}
+
+html += "</ul>";
+%>
+<%-titleHTML%>
+<%-html%>

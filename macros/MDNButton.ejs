@@ -1,0 +1,18 @@
+<%
+// Creates an in-page button to be used on MDN "easy task" type pages, such
+// as the MDN Inbox.
+//
+// Parameters:
+//  $0  Button name
+//  $1  URL of link
+//  $2  A string to display in smaller text centered below the button
+
+var smallText = "";
+
+if ($2 != null && $2 != undefined) {
+    smallText = "<div>" + $2 + "</div>";
+}
+
+var html = "<div class='align-center'><a class='ignore-external button mega positive' href='" + $1 + "'>" + $0 + smallText + "</a></div>";
+%>
+<%-html%>

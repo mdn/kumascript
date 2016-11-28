@@ -1,0 +1,34 @@
+<%
+/* one parameter: topic name */
+
+var lang = env.locale;
+var langName = $0 + " Topic Page";
+
+switch(lang) {
+  case 'es':
+    langName = $0 + " Página sobre el tema";
+    break;
+  case 'fr':
+    langName = "Page du sujet " + $0;
+    break;
+  case 'ja':
+    langName = "トピック " + $0;
+    break;
+  case 'nl':
+    langName = $0 + " Onderwerps Pagina";
+    break;
+  case 'pl':
+    langName = "Strona tematu " + $0;
+    break;
+  case 'ru':
+    langName = $0 + " К основной статье раздела";
+    break;
+  case 'zh-CN':
+    langName = $0 + " 主题页面";
+    break;
+}
+/*var dest = lang + '/docs/' + $0;*/
+var dest = $0;
+
+%>
+    <a href="<%-dest%>">« <%-langName%></a>

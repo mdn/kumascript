@@ -1,0 +1,2070 @@
+[{
+  "SVGSymbolElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFitToViewBox", "SVGTests"]
+  },
+  "TVChannel": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGPolygonElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["SVGAnimatedPoints"]
+  },
+  "HTMLDataElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MozCdmaIccInfo": {
+    "inh"  : "MozIccInfo",
+    "impl" : []
+  },
+  "TreeBoxObject": {
+    "inh"  : "BoxObject",
+    "impl" : []
+  },
+  "CSSStyleDeclaration": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "Selection": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "XULElement": {
+    "inh"  : "Element",
+    "impl" : ["GlobalEventHandlers", "TouchEventHandlers", "MozFrameLoaderOwner", "OnErrorEventHandlerForNodes"]
+  },
+  "XMLHttpRequestUpload": {
+    "inh"  : "XMLHttpRequestEventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "WindowRoot": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "BrowserElement": {
+    "inh"  : "",
+    "impl" : ["BrowserElementCommon", "BrowserElementPrivileged"]
+  },
+  "IDBTransaction": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "TVTuner": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "ScrollViewChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPathSegCurvetoCubicSmoothAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "CameraControl": {
+    "inh"  : "MediaStream",
+    "impl" : []
+  },
+  "SVGFEMorphologyElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "FetchEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "DeviceOrientationEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLBRElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MozWifiConnectionInfoEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "BroadcastChannel": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "IDBDatabase": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLFormControlsCollection": {
+    "inh"  : "HTMLCollection",
+    "impl" : []
+  },
+  "WebSocket": {
+    "inh"  : "EventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGDescElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "SVGCircleElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "DOMDownload": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGPathSegArcAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "ArchiveRequest": {
+    "inh"  : "DOMRequest",
+    "impl" : []
+  },
+  "SharedWorkerGlobalScope": {
+    "inh"  : "WorkerGlobalScope",
+    "impl" : []
+  },
+  "Exception": {
+    "inh"  : "",
+    "impl" : ["ExceptionMembers"]
+  },
+  "BluetoothAdapterEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLParagraphElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "AudioDestinationNode": {
+    "inh"  : "AudioNode",
+    "impl" : []
+  },
+  "ProcessingInstruction": {
+    "inh"  : "CharacterData",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "BeforeUnloadEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PseudoElement": {
+    "inh"  : "",
+    "impl" : ["GeometryUtils"]
+  },
+  "NetworkInformation": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MutationObserver": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "NodeList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "CloseEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLAreaElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["HTMLHyperlinkElementUtils", "URLUtilsSearchParams"]
+  },
+  "HTMLLegendElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGMetadataElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "SVGPathSegList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGForeignObjectElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "SVGPatternElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFitToViewBox", "SVGURIReference", "SVGUnitTypes"]
+  },
+  "Performance": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLElement": {
+    "inh"  : "Element",
+    "impl" : ["GlobalEventHandlers", "TouchEventHandlers", "OnErrorEventHandlerForNodes"]
+  },
+  "HTMLHeadElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MozIcc": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "UDPSocket": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "DocumentType": {
+    "inh"  : "Node",
+    "impl" : ["ChildNode", "LegacyQueryInterface"]
+  },
+  "SVGStopElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "ImageDocument": {
+    "inh"  : "HTMLDocument",
+    "impl" : []
+  },
+  "SVGElement": {
+    "inh"  : "Element",
+    "impl" : ["GlobalEventHandlers", "TouchEventHandlers", "OnErrorEventHandlerForNodes"]
+  },
+  "GamepadEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLTableElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "PerformanceMark": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "InstallEvent": {
+    "inh"  : "ExtendableEvent",
+    "impl" : []
+  },
+  "FocusEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "OscillatorNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "PluginCrashedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPathSegLinetoVerticalRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "DocumentFragment": {
+    "inh"  : "Node",
+    "impl" : ["ParentNode", "LegacyQueryInterface"]
+  },
+  "OfflineAudioCompletionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPoint": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLTitleElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "Window": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface", "GlobalEventHandlers", "WindowEventHandlers", "WindowTimers", "WindowBase64", "IDBEnvironment", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "GlobalFetch", "ImageBitmapFactories"]
+  },
+  "WindowClient": {
+    "inh"  : "Client",
+    "impl" : []
+  },
+  "ErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MessageEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPathSegCurvetoQuadraticAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "AudioNode": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MediaDevices": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "CanvasCaptureMediaStream": {
+    "inh"  : "MediaStream",
+    "impl" : []
+  },
+  "DynamicsCompressorNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "SVGSVGElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["SVGFitToViewBox", "SVGZoomAndPan"]
+  },
+  "File": {
+    "inh"  : "Blob",
+    "impl" : []
+  },
+  "SVGAnimationElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGTests"]
+  },
+  "BluetoothPairingEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "ShadowRoot": {
+    "inh"  : "DocumentFragment",
+    "impl" : []
+  },
+  "ExtendableEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGFEOffsetElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "DesktopNotification": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGGradientElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGURIReference", "SVGUnitTypes"]
+  },
+  "HTMLMetaElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "Text": {
+    "inh"  : "CharacterData",
+    "impl" : ["LegacyQueryInterface", "GeometryUtils"]
+  },
+  "DOMApplication": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "InstallTrigger": {
+    "inh"  : "",
+    "impl" : []
+  },
+  "MutationEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLLabelElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGPathElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["SVGAnimatedPathData"]
+  },
+  "HTMLTemplateElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGAnimatedInteger": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGFEDisplacementMapElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "SVGPathSegMovetoAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "XULCommandEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "Crypto": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "Response": {
+    "inh"  : "",
+    "impl" : ["Body"]
+  },
+  "SVGZoomEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "SVGLinearGradientElement": {
+    "inh"  : "SVGGradientElement",
+    "impl" : []
+  },
+  "WebGLContextEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "WebGL2RenderingContext": {
+    "inh"  : "WebGLRenderingContext",
+    "impl" : []
+  },
+  "SVGFEDistantLightElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "MouseScrollEvent": {
+    "inh"  : "MouseEvent",
+    "impl" : []
+  },
+  "DOMStringMap": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGAnimateMotionElement": {
+    "inh"  : "SVGAnimationElement",
+    "impl" : []
+  },
+  "ChannelSplitterNode": {
+    "inh"  : "AudioNode",
+    "impl" : []
+  },
+  "ListBoxObject": {
+    "inh"  : "BoxObject",
+    "impl" : []
+  },
+  "MozGsmIccInfo": {
+    "inh"  : "MozIccInfo",
+    "impl" : []
+  },
+  "TrackEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGStyleElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "PresentationDeviceInfoManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "NodeIterator": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGAltGlyphElement": {
+    "inh"  : "SVGTextPositioningElement",
+    "impl" : ["SVGURIReference"]
+  },
+  "SVGFEGaussianBlurElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "MozMobileConnection": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGFEConvolveMatrixElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "FileList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "Document": {
+    "inh"  : "Node",
+    "impl" : ["XPathEvaluator", "GlobalEventHandlers", "TouchEventHandlers", "ParentNode", "OnErrorEventHandlerForNodes", "GeometryUtils", "FontFaceSource", "LegacyQueryInterface"]
+  },
+  "SVGAnimatedEnumeration": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozStkCommandEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLFontElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SharedWorker": {
+    "inh"  : "EventTarget",
+    "impl" : ["AbstractWorker"]
+  },
+  "RecordErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "DelayNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "SVGPathSegCurvetoCubicAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "BluetoothGatt": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "CameraClosedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGMaskElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGUnitTypes"]
+  },
+  "ContactManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "ProgressEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "ServiceWorker": {
+    "inh"  : "EventTarget",
+    "impl" : ["AbstractWorker"]
+  },
+  "SVGPathSegLinetoHorizontalAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "CharacterData": {
+    "inh"  : "Node",
+    "impl" : ["ChildNode", "NonDocumentTypeChildNode"]
+  },
+  "KeyboardEvent": {
+    "inh"  : "UIEvent",
+    "impl" : ["KeyEvent"]
+  },
+  "TelephonyCall": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "WorkerNavigator": {
+    "inh"  : "",
+    "impl" : ["NavigatorID", "NavigatorLanguage", "NavigatorOnLine", "NavigatorDataStore"]
+  },
+  "PopupBlockedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MediaElementAudioSourceNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "HTMLFrameSetElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["WindowEventHandlers"]
+  },
+  "BluetoothManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGFilterElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGURIReference", "SVGUnitTypes"]
+  },
+  "SVGClipPathElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGUnitTypes"]
+  },
+  "SVGLineElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "SpeechRecognitionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPointList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGFEDropShadowElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "HTMLQuoteElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGFESpotLightElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "ServiceWorkerContainer": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLContentElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "HTMLOutputElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "DataStoreChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "Plugin": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGStringList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGRectElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "HTMLUListElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "History": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SpeechRecognition": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "AnimationEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "TouchEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "IDBMutableFile": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "Range": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "CameraStateChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MediaStreamAudioDestinationNode": {
+    "inh"  : "AudioNode",
+    "impl" : []
+  },
+  "HTMLMenuItemElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MediaSource": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "PannerNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "MozNFCPeerEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "GamepadButtonEvent": {
+    "inh"  : "GamepadEvent",
+    "impl" : []
+  },
+  "IDBRequest": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGLengthList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLDataListElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "HTMLFieldSetElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "BluetoothDiscoveryHandle": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGDefsElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "SVGTextElement": {
+    "inh"  : "SVGTextPositioningElement",
+    "impl" : []
+  },
+  "SVGScriptElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGURIReference"]
+  },
+  "InputEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "HTMLShadowElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "XPathEvaluator": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "AudioBufferSourceNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "MozNFCTagEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PageTransitionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PopStateEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "Element": {
+    "inh"  : "Node",
+    "impl" : ["ChildNode", "NonDocumentTypeChildNode", "ParentNode", "Animatable", "GeometryUtils", "LegacyQueryInterface"]
+  },
+  "HTMLInputElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozImageLoadingContent", "MozPhonetic"]
+  },
+  "ValidityState": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGAElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["SVGURIReference"]
+  },
+  "DedicatedWorkerGlobalScope": {
+    "inh"  : "WorkerGlobalScope",
+    "impl" : []
+  },
+  "HTMLTimeElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "IDBFileHandle": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MediaKeyError": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "StyleSheet": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "URL": {
+    "inh"  : "",
+    "impl" : ["URLUtils", "URLUtilsSearchParams"]
+  },
+  "XMLHttpRequest": {
+    "inh"  : "XMLHttpRequestEventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozMessageDeletedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPathSegCurvetoQuadraticSmoothRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "RTCPeerConnectionIdentityErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "AudioStreamTrack": {
+    "inh"  : "MediaStreamTrack",
+    "impl" : []
+  },
+  "HTMLSelectElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "DOMCursor": {
+    "inh"  : "EventTarget",
+    "impl" : ["DOMRequestShared"]
+  },
+  "TextTrackList": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MozIccManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "ScrollBoxObject": {
+    "inh"  : "BoxObject",
+    "impl" : []
+  },
+  "NamedNodeMap": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGFEFloodElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "DOMDownloadManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "DataContainerEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "IccCardLockError": {
+    "inh"  : "DOMError",
+    "impl" : []
+  },
+  "TelephonyCallGroup": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "TVManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SelectionStateChangedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CSSValueList": {
+    "inh"  : "CSSValue",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "VideoTrackList": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SettingsLock": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "PerformanceMeasure": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "HTMLOptionsCollection": {
+    "inh"  : "HTMLCollection",
+    "impl" : []
+  },
+  "TVCurrentChannelChangedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "WorkerGlobalScope": {
+    "inh"  : "EventTarget",
+    "impl" : ["WindowTimers", "WindowBase64", "GlobalFetch", "IDBEnvironment", "FontFaceSource", "ImageBitmapFactories"]
+  },
+  "MouseEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "SVGPathSegLinetoAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "HTMLAppletElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozImageLoadingContent", "MozFrameLoaderOwner", "MozObjectLoadingContent"]
+  },
+  "LocalMediaStream": {
+    "inh"  : "MediaStream",
+    "impl" : []
+  },
+  "HTMLOptionElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "TVSource": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "StyleRuleChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLMeterElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "AudioChannelManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MediaRecorder": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGPreserveAspectRatio": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "TransitionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLBodyElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["WindowEventHandlers"]
+  },
+  "MozVoicemail": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLDivElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGPolylineElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["SVGAnimatedPoints"]
+  },
+  "IDBVersionChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "ClipboardEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGFEMergeNodeElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "MessagePort": {
+    "inh"  : "EventTarget",
+    "impl" : ["Transferable"]
+  },
+  "MozVoicemailEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "BoxObject": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "BluetoothAttributeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CSSPrimitiveValue": {
+    "inh"  : "CSSValue",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "PaintRequestList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MediaStreamAudioSourceNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "AudioProcessingEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "Attr": {
+    "inh"  : "Node",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLObjectElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozImageLoadingContent", "MozFrameLoaderOwner", "MozObjectLoadingContent"]
+  },
+  "SVGFEPointLightElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "SVGAnimatedString": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGGElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "VRFieldOfView": {
+    "inh"  : "VRFieldOfViewReadOnly",
+    "impl" : []
+  },
+  "HTMLTableSectionElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MutationRecord": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MediaKeySession": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "DataErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "Worker": {
+    "inh"  : "EventTarget",
+    "impl" : ["AbstractWorker"]
+  },
+  "HTMLTableColElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "IccChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLSpanElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MozActivity": {
+    "inh"  : "DOMRequest",
+    "impl" : []
+  },
+  "PerformanceResourceTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "HTMLCollection": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "USSDReceivedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLMapElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "ImageCapture": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "AudioTrackList": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLSourceElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "Navigator": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface", "NavigatorID", "NavigatorLanguage", "NavigatorOnLine", "NavigatorContentUtils", "NavigatorStorageUtils", "NavigatorFeatures", "NavigatorGeolocation", "NavigatorBattery", "NavigatorDataStore", "NavigatorMobileId"]
+  },
+  "OfflineAudioContext": {
+    "inh"  : "AudioContext",
+    "impl" : []
+  },
+  "SVGPathSegCurvetoCubicSmoothRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "SVGAnimatedPreserveAspectRatio": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozContactChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLMediaElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "DeviceStorage": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGImageElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["MozImageLoadingContent", "SVGURIReference"]
+  },
+  "UIEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGTransformList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozSpeakerManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MozCellBroadcast": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGAnimateTransformElement": {
+    "inh"  : "SVGAnimationElement",
+    "impl" : []
+  },
+  "SVGFEBlendElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "CSSStyleSheet": {
+    "inh"  : "StyleSheet",
+    "impl" : []
+  },
+  "SVGPathSegArcRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "MozCellBroadcastEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "FMRadio": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLTableCellElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "ChromeWorker": {
+    "inh"  : "Worker",
+    "impl" : []
+  },
+  "Telephony": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGFECompositeElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "Event": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLButtonElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "ScrollAreaEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "IDBOpenDBRequest": {
+    "inh"  : "IDBRequest",
+    "impl" : []
+  },
+  "SVGComponentTransferFunctionElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "SVGPathSegLinetoVerticalAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "SVGTSpanElement": {
+    "inh"  : "SVGTextPositioningElement",
+    "impl" : []
+  },
+  "TVScanningStateChangedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "BluetoothDevice": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLProgressElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MozOtaStatusEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLOptGroupElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "GamepadAxisMoveEvent": {
+    "inh"  : "GamepadEvent",
+    "impl" : []
+  },
+  "XULDocument": {
+    "inh"  : "Document",
+    "impl" : []
+  },
+  "Notification": {
+    "inh"  : "EventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "DOMPoint": {
+    "inh"  : "DOMPointReadOnly",
+    "impl" : []
+  },
+  "HMDVRDevice": {
+    "inh"  : "VRDevice",
+    "impl" : []
+  },
+  "SVGFEFuncRElement": {
+    "inh"  : "SVGComponentTransferFunctionElement",
+    "impl" : []
+  },
+  "MediaStreamTrackEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "RTCDataChannel": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "AudioContext": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "RTCPeerConnectionIdentityEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "VTTCue": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "ServiceWorkerGlobalScope": {
+    "inh"  : "WorkerGlobalScope",
+    "impl" : ["GlobalFetch"]
+  },
+  "PopupBoxObject": {
+    "inh"  : "BoxObject",
+    "impl" : []
+  },
+  "SpeechSynthesisUtterance": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "TreeColumns": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGDocument": {
+    "inh"  : "Document",
+    "impl" : []
+  },
+  "MozMobileMessageManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGFEFuncBElement": {
+    "inh"  : "SVGComponentTransferFunctionElement",
+    "impl" : []
+  },
+  "HTMLDListElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "DOMRect": {
+    "inh"  : "DOMRectReadOnly",
+    "impl" : []
+  },
+  "HTMLHtmlElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGFEMergeElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "ContainerBoxObject": {
+    "inh"  : "BoxObject",
+    "impl" : []
+  },
+  "CameraConfigurationEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MozAbortablePromise": {
+    "inh"  : "_Promise",
+    "impl" : []
+  },
+  "RTCPeerConnection": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGFESpecularLightingElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "XMLDocument": {
+    "inh"  : "Document",
+    "impl" : []
+  },
+  "DownloadEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "WorkerLocation": {
+    "inh"  : "",
+    "impl" : ["URLUtilsReadOnly"]
+  },
+  "PositionSensorVRDevice": {
+    "inh"  : "VRDevice",
+    "impl" : []
+  },
+  "BeforeAfterKeyboardEvent": {
+    "inh"  : "KeyboardEvent",
+    "impl" : []
+  },
+  "SVGFEColorMatrixElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "CallEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "BlobEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLUnknownElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "TouchList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "DOMTransactionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGPathSegCurvetoQuadraticRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "SVGAnimateElement": {
+    "inh"  : "SVGAnimationElement",
+    "impl" : []
+  },
+  "DOMParser": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGEllipseElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "SimpleGestureEvent": {
+    "inh"  : "MouseEvent",
+    "impl" : []
+  },
+  "NotifyPaintEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGTextPathElement": {
+    "inh"  : "SVGTextContentElement",
+    "impl" : ["SVGURIReference"]
+  },
+  "HTMLDocument": {
+    "inh"  : "Document",
+    "impl" : []
+  },
+  "CameraFacesDetectedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CustomEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "TimeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "DOMException": {
+    "inh"  : "",
+    "impl" : ["ExceptionMembers"]
+  },
+  "IDBCursorWithValue": {
+    "inh"  : "IDBCursor",
+    "impl" : []
+  },
+  "SVGMPathElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGURIReference"]
+  },
+  "CommandEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MozInterAppMessageEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLAudioElement": {
+    "inh"  : "HTMLMediaElement",
+    "impl" : []
+  },
+  "SVGViewElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFitToViewBox", "SVGZoomAndPan"]
+  },
+  "SVGTextPositioningElement": {
+    "inh"  : "SVGTextContentElement",
+    "impl" : []
+  },
+  "SVGTextContentElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "Location": {
+    "inh"  : "",
+    "impl" : []
+  },
+  "FontFaceSet": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "TVCurrentSourceChangedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "Touch": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozSettingsEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "BluetoothAdapter": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGPathSegMovetoRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "RTCDataChannelEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLModElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "BluetoothStatusChangedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SpeechSynthesisEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGTitleElement": {
+    "inh"  : "SVGElement",
+    "impl" : []
+  },
+  "DOMApplicationsManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SettingsManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MenuBoxObject": {
+    "inh"  : "BoxObject",
+    "impl" : []
+  },
+  "Screen": {
+    "inh"  : "EventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozClirModeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLEmbedElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozImageLoadingContent", "MozFrameLoaderOwner", "MozObjectLoadingContent"]
+  },
+  "OfflineResourceList": {
+    "inh"  : "EventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGPathSegClosePath": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "ConvolverNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "BluetoothDiscoveryStateChangedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PropertyNodeList": {
+    "inh"  : "NodeList",
+    "impl" : []
+  },
+  "HTMLStyleElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["LinkStyle"]
+  },
+  "DataStore": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "CDATASection": {
+    "inh"  : "Text",
+    "impl" : []
+  },
+  "SourceBufferList": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "StorageEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MozEmergencyCbModeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PluginArray": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGFETurbulenceElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "MozInterAppMessagePort": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "SVGNumberList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozWifiStatusChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGFETileElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "CaretPosition": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGPathSegCurvetoCubicRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "Request": {
+    "inh"  : "",
+    "impl" : ["Body"]
+  },
+  "SVGAnimatedNumber": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGFEDiffuseLightingElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "TreeWalker": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "BarProp": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLLinkElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["LinkStyle"]
+  },
+  "SVGUseElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : ["SVGURIReference"]
+  },
+  "HTMLCanvasElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGPathSegLinetoHorizontalRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "HTMLParamElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SourceBuffer": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HashChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PointerEvent": {
+    "inh"  : "MouseEvent",
+    "impl" : []
+  },
+  "FileReader": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "Comment": {
+    "inh"  : "CharacterData",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MozMmsEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "BatteryManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "DOMMatrix": {
+    "inh"  : "DOMMatrixReadOnly",
+    "impl" : []
+  },
+  "SVGSwitchElement": {
+    "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "SVGFEImageElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes", "SVGURIReference"]
+  },
+  "HTMLScriptElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "HTMLPictureElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "ServiceWorkerRegistration": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLVideoElement": {
+    "inh"  : "HTMLMediaElement",
+    "impl" : []
+  },
+  "IDBFileRequest": {
+    "inh"  : "DOMRequest",
+    "impl" : []
+  },
+  "SVGAnimatedNumberList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "RTCPeerConnectionIceEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PaintRequest": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLMenuElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "EngineeringMode": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "BluetoothDeviceEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "DeviceLightEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "GainNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "MozApplicationEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGFEFuncAElement": {
+    "inh"  : "SVGComponentTransferFunctionElement",
+    "impl" : []
+  },
+  "StyleSheetApplicableStateChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "TVEITBroadcastedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "UndoManager": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "XMLSerializer": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "SVGPathSegCurvetoQuadraticSmoothAbs": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "WaveShaperNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "VideoStreamTrack": {
+    "inh"  : "MediaStreamTrack",
+    "impl" : []
+  },
+  "DOMImplementation": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLTableCaptionElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGMarkerElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFitToViewBox"]
+  },
+  "MozWifiManager": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLPreElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "Rect": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "DeviceStorageChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "DOMMobileMessageError": {
+    "inh"  : "DOMError",
+    "impl" : []
+  },
+  "CSSFontFaceLoadEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLHeadingElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGRadialGradientElement": {
+    "inh"  : "SVGGradientElement",
+    "impl" : []
+  },
+  "DeviceProximityEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "EventSource": {
+    "inh"  : "EventTarget",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "StereoPannerNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "AutocompleteErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLFrameElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozFrameLoaderOwner"]
+  },
+  "HTMLOListElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "RadioNodeList": {
+    "inh"  : "NodeList",
+    "impl" : []
+  },
+  "StyleSheetChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "TextTrack": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLBaseElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "AnalyserNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "MediaStream": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLTableRowElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "UserProximityEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "DragEvent": {
+    "inh"  : "MouseEvent",
+    "impl" : []
+  },
+  "HTMLHRElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "BiquadFilterNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "ScriptProcessorNode": {
+    "inh"  : "AudioNode",
+    "impl" : ["AudioNodePassThrough"]
+  },
+  "MimeTypeArray": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "HTMLIFrameElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozFrameLoaderOwner", "BrowserElement"]
+  },
+  "FormData": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "MediaKeyMessageEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MozNFC": {
+    "inh"  : "EventTarget",
+    "impl" : ["MozNFCManager"]
+  },
+  "HTMLLIElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "DOMTokenList": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "XMLStylesheetProcessingInstruction": {
+    "inh"  : "ProcessingInstruction",
+    "impl" : []
+  },
+  "MozSettingsTransactionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGFEComponentTransferElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGFilterPrimitiveStandardAttributes"]
+  },
+  "MozSmsEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLDirectoryElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "MediaEncryptedEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CFStateChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLTrackElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGPathSegLinetoRel": {
+    "inh"  : "SVGPathSeg",
+    "impl" : []
+  },
+  "WheelEvent": {
+    "inh"  : "MouseEvent",
+    "impl" : []
+  },
+  "Node": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "MozWifiStationInfoEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGRect": {
+    "inh"  : "",
+    "impl" : ["LegacyQueryInterface"]
+  },
+  "DOMSettableTokenList": {
+    "inh"  : "DOMTokenList",
+    "impl" : []
+  },
+  "HTMLImageElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["MozImageLoadingContent"]
+  },
+  "DOMRequest": {
+    "inh"  : "EventTarget",
+    "impl" : ["DOMRequestShared"]
+  },
+  "HTMLFormElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "SVGGraphicsElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGTests"]
+  },
+  "DeviceMotionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CompositionEvent": {
+    "inh"  : "UIEvent",
+    "impl" : []
+  },
+  "SpeechRecognitionError": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CallGroupErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MozInputMethod": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "UDPMessageEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "MediaStreamEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "HTMLTextAreaElement": {
+    "inh"  : "HTMLElement",
+    "impl" : []
+  },
+  "XMLHttpRequestEventTarget": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "HTMLAnchorElement": {
+    "inh"  : "HTMLElement",
+    "impl" : ["HTMLHyperlinkElementUtils", "URLUtilsSearchParams"]
+  },
+  "HTMLPropertiesCollection": {
+    "inh"  : "HTMLCollection",
+    "impl" : []
+  },
+  "SVGFEFuncGElement": {
+    "inh"  : "SVGComponentTransferFunctionElement",
+    "impl" : []
+  },
+  "ImageCaptureErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "SVGSetElement": {
+    "inh"  : "SVGAnimationElement",
+    "impl" : []
+  },
+  "ChannelMergerNode": {
+    "inh"  : "AudioNode",
+    "impl" : []
+  },
+  "SyncEvent": {
+    "inh"  : "ExtendableEvent",
+    "impl" : []
+  },
+  "OffscreenCanvas": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "PromiseRejectionEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "CSSCounterStyleRule": {
+    "inh"  : "CSSRule",
+    "impl" : []
+  }
+}]

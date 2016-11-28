@@ -1,0 +1,24 @@
+<%
+
+var el = env.locale;
+
+var s = mdn.localString({
+    "en-US" : "<strong>This is a new technology, part of the ECMAScript 2015 (ES6) standard.</strong><br />" +
+              "This technology's specification has been finalized, but " +
+              " check the <a href='#Browser_compatibility'>compatibility table</a> for usage and implementation status in various browsers.",
+    "fr"    : "<strong>Cette fonction fait partie du standard ECMAScript 2015 (ES6) </strong><br />" +
+              "Cette technologie a été finalisée mais il est préférable" +
+              " de consulter le <a href='#Compatibilité_des_navigateurs'>tableau de compatibilité</a> pour connaître l'état de l'implémentation dans les différents navigateurs.",
+    "ru" : "<strong>Это экспериментальная технология, часть предложения Harmony (ECMAScript 6).</strong><br />" +
+              "Поскольку спецификация этой технологии ещё не стабилизировалась," +
+              " проверьте <a href='#Browser_compatibility'>таблицу совместимости</a> её использования в различных браузерах." +
+              " Также обратите внимание, что синтаксис и поведение экспериментальной технологии могут быть изменены в будущих версиях браузеров в соответствии с изменениями в спецификации.",
+    "ja"    : "<strong>これは Harmony(ECMAScript 2015 (ES6)) の一部です。</strong><br />" +
+              "この技術の仕様は最終化されていますが、使用にあたっては<a href='#Browser_compatibility'>ブラウザーごとの実装状況の一覧表</a>を確認してください。",
+    "zh-CN" : "<strong>该新特性属于 ECMAScript 2015（ES6）规范，在使用时请注意浏览器兼容性。</strong>",
+});
+
+
+%><div class="overheadIndicator" style="background:#9CF49C;">
+    <p><%- s %></p>
+</div>

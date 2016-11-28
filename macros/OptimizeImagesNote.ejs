@@ -1,0 +1,38 @@
+<%
+// Inserts a note reminding contributors to use an image optimization tool
+// before uploading images to MDN. Includes suggested tools that may be
+// helpful.
+//
+// Parameters:
+//  $0  If zero or not specified, the text is placed in a note styled box.
+//      Otherwise, the text is returned without any surrounding block, for
+//      use inline with other content.
+
+var doInline = $0 || 0;
+
+var noteBoxText = mdn.localString({
+    "en-US":    "Note: ",
+    "ru"   :    "Замечание: "
+});
+
+var html = mdn.localString({
+    "en-US":    "When uploading an image, please be sure to use an image optimization tool " +
+                "to make the file as small to download as possible. This improves page " +
+                "load time and helps MDN's performance overall. You may use your " +
+                "preferred tool, if you have one. Otherwise, we suggest " +
+                "<a href='https://tinypng.com/'>TinyPNG</a>, a handy Web tool.",
+    "ru"   :    "При загрузке изображения, пожалуйста, убедитесь, что используете инструменты "+
+                "оптимизации, чтобы сделать файл маленьким, а загрузку возможной. Это улучшает "+
+                "время загрузки страницы и помогает производительности MDN в целом. Вы можете "+
+                "использовать свой любимый инструмент, если он у вас есть. Иначе, мы предлагаем "+
+                "<a href='https://tinypng.com/'>TinyPNG</a> - удобный Веб инструмент."
+});
+
+// Wrap in a note box if requested
+
+if (doInline == 0) {
+    html = "<div class='note'><strong>" + noteBoxText + "</strong>" + html + "</div>";
+}
+
+%>
+<%-html%>

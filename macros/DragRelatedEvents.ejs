@@ -1,0 +1,40 @@
+<%
+
+var el = env.locale;
+var path = "/" + el + "/docs/";
+
+path += mdn.localString({
+    "ja" : "Web/Reference/Events/",
+    "en-US" : "Web/Reference/Events/"
+});
+
+switch (el) {
+
+    case "ja":
+
+%><ul>
+<li><a href="<%- path %>drag"><code>drag</code></a></li>
+<li><a href="<%- path %>dragstart"><code>dragstart</code></a></li>
+<li><a href="<%- path %>dragend"><code>dragend</code></a></li>
+<li><a href="<%- path %>dragover"><code>dragover</code></a></li>
+<li><a href="<%- path %>dragenter"><code>dragenter</code></a></li>
+<li><a href="<%- path %>dragleave"><code>dragleave</code></a></li>
+<li><a href="<%- path %>dragexit"><code>dragexit</code></a></li>
+<li><a href="<%- path %>drop"><code>drop</code></a></li>
+</ul><%
+
+        break;
+    default:
+
+%><ul>
+<li><a href="/en-US/docs/Web/Reference/Events/drag"><code>drag</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/dragstart"><code>dragstart</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/dragend"><code>dragend</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/dragover"><code>dragover</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/dragenter"><code>dragenter</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/dragleave"><code>dragleave</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/dragexit"><code>dragexit</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/drop"><code>drop</code></a></li>
+</ul><%
+
+} %>

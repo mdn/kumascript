@@ -1,0 +1,25 @@
+<%
+    // Inserts a paragraph saying that this interface implements a given DOM event and to see that event's
+    // documentation.
+    //
+    // Parameters:
+    //
+    // $0 - Name of XPCOM interface
+    // $1 - Name of the DOM event's interface
+    
+    var lang = env.locale;
+    
+    var str = "";
+    var target = "/" + lang + "/docs/DOM/" + $1;
+    
+    switch(lang) {
+        "de":
+            str = "Die " + template("interface", [$0]) + " Schnittstelle implementiert die DOM " + web.link(target, $1) + " Schnittstelle. Siehe diese Seite für Details.";
+            break;
+
+        default:
+            str = "The " + template("interface", [$0]) + " interface implements the DOM " + web.link(target, $1) + " interface. See that page for details.";
+            break;
+    }    
+%>
+<%-str%>

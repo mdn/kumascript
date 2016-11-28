@@ -1,0 +1,74 @@
+<%
+// Produces a list of recent discussions from Stack Overflow for the
+// Mozilla Developer Program home page.
+var debug = false;
+
+// NOTE: This SO app key is public, but that's okay because they say:
+// "This is not considered a secret, and may be safely embed in client side code or distributed binaries."
+var so_key = 'i7BYjOX7xKaTodRmQxOcfQ((';
+var tags = ['firefox','firefox-os','html5-apps'];
+var items = [];
+
+// Add item to array only if it doesn't already exist
+var seen = {};
+function addItem(item) {
+    if (item.question_id in seen) return;
+    items.push(item);
+    seen[item.question_id] = 1;
+}
+
+for (var i=0; i<tags.length; i++) {
+    var url = 'https://api.stackexchange.com/2.1/questions?key='+encodeURI(so_key)+'&pagesize=5&order=desc&sort=activity&site=stackoverflow&tagged=' + tags[i];
+    var cache_key = 'DevProgramListSOTopic_v7_' + tags[i];
+    var data = null;
+    try {
+        // First, try fetching from Stack Overflow.
+        var raw = mdn.fetchHTTPResource(url, { ignore_cache_control: true });
+        data = JSON.parse(raw);
+        
+        // Since we made it this far, the data is probably worth caching as 
+        // a fallback in case of errors.
+        mdn.memcacheSet(cache_key, raw, 86400);
+    } catch(e) {
+        try {
+            // There was an error fetching or parsing SO data, so try to use 
+            // the last good result from cache.
+            data = JSON.parse(mdn.memcacheGet(cache_key));
+        } catch (e) {
+            // Both the request and the cache failed, so give up.
+            data = {
+                items: [
+                    {
+                        question_id: -1,
+                        link: "http://stackoverflow.com/r/mozilla",
+                        title: "Stack Overflow data is temporarily unavailable"
+                    }
+                ]
+            };
+        }
+    }
+    if (data && data.items) {
+        for (var j=0; j<data.items.length; j++) {
+            addItem(data.items[j]);
+        }
+    }
+}
+
+items.sort(function (a,b) {
+    return b.last_activity_date - a.last_activity_date;
+});
+
+var numItems = items.length;
+if (numItems > 5) {
+    numItems = 5;
+}
+
+var html = "";
+for (var i=0; i<numItems; i++) {
+    var item = items[i];
+    html += "<li><a href='" + item.link + "'>" + item.title + "</a></li>";
+}
+%>
+<ul class="no-bullets">
+<%-html%>
+</ul>

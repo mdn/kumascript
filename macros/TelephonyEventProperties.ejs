@@ -1,0 +1,34 @@
+<%
+var el = env.locale;
+
+switch (el) {
+
+    case "ja":
+
+%><tr>
+  <td><code>state</code> <%-template("readOnlyInline")%></td>
+  <td>DOMString (string)</td>
+  <td>現在の通話状態</td>
+</tr>
+<tr>
+  <td><code>call</code> <%-template("readOnlyInline")%></td>
+  <td>Call</td>
+  <td>The call concerned by the event.</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>state</code> <%-template("readOnlyInline")%></td>
+  <td>DOMString (string)</td>
+  <td>The current state of the call.</td>
+</tr>
+<tr>
+  <td><code>call</code> <%-template("readOnlyInline")%></td>
+  <td>Call</td>
+  <td>The call concerned by the event.</td>
+</tr><%
+
+        break;
+}%>

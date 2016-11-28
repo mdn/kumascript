@@ -1,0 +1,12 @@
+<div>
+<span class="indicatorInHeadline standardNote standardNoteMethod"><%
+  var lang = env.locale;
+  var url = "/" + lang + "/docs/Firefox_" + $1 + "_for_developers";
+
+if (wiki.pageExists(url)) {
+    %><a href="<%-url%>">Firefox <%-$1%></a><%
+  } else {
+    %>Firefox <%-$1%><%
+}%></span>
+<h3><%=$0%></h3>
+</div>

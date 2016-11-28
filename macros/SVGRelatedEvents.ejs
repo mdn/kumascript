@@ -1,0 +1,37 @@
+<%
+
+var el = env.locale;
+var path = "/" + el + "/docs/";
+
+path += mdn.localString({
+    "en-US" : "Web/Reference/Events/"
+});
+
+switch (el) {
+
+    case "ja":
+
+%><ul>
+<li><a href="<%- path %>SVGResize"><code>SVGResize</code></a></li>
+<li><a href="<%- path %>SVGScroll"><code>SVGScroll</code></a></li>
+<li><a href="<%- path %>SVGZoom"><code>SVGZoom</code></a></li>
+<li><a href="<%- path %>SVGLoad"><code>SVGLoad</code></a></li>
+<li><a href="<%- path %>SVGUnload"><code>SVGUnload</code></a></li>
+<li><a href="<%- path %>SVGAbort"><code>SVGAbort</code></a></li>
+<li><a href="<%- path %>SVGError"><code>SVGError</code></a></li>
+</ul><%
+
+        break;
+    default:
+
+%><ul>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGResize"><code>SVGResize</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGScroll"><code>SVGScroll</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGZoom"><code>SVGZoom</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGLoad"><code>SVGLoad</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGUnload"><code>SVGUnload</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGAbort"><code>SVGAbort</code></a></li>
+<li><a href="/en-US/docs/Web/Reference/Events/SVGError"><code>SVGError</code></a></li>
+</ul><%
+
+} %>

@@ -1,0 +1,26 @@
+<tr><%
+var el = env.locale;
+var path = "/" + el + "/docs/";
+
+switch (el) {
+
+    case "ja" :
+
+%>
+  <td><code>message</code> <%- template("readOnlyInline") %></td>
+  <td><a href="<%- path %>Web/API/SmsMessage">SmsMessage</a></td>
+  <td>The message concerned by the event.</td>
+<%
+
+        break;
+    default:
+
+%>
+  <td><code>message</code> <%- template("readOnlyInline") %></td>
+  <td><a href="/en-US/docs/Web/API/SmsMessage">SmsMessage</a></td>
+  <td>The message concerned by the event.</td>
+<%
+
+        break;
+}
+%></tr>

@@ -1,0 +1,18 @@
+<%
+
+
+/* Cuando se aplica la plantilla también se añade la categoría para tener un listado de todas las páginas */
+
+
+var URL = page.URL;
+var PATH = page.path;
+
+
+%><div class="note">
+<p><img alt="Imagen:traduccion-pendiente.png" src="/@api/deki/files/1153/=Traduccion-pendiente.png" />
+ Esta página está traduciéndose a partir del artículo <em><%-
+    web.link('/' + $2 + '/' + $1, $1)
+%></em>,
+ razón por la cual puede haber algunos errores sintácticos o partes sin traducir.
+ <em>Puedes colaborar <a href="<%- URL %><%- PATH %>$edit">continuando con la traducción</a></em></p>
+</div>

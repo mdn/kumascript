@@ -1,0 +1,17 @@
+<%/*
+No parameter
+*/
+
+var str = mdn.localString({
+   "en-US": "Not available to workers.",
+   "fr":    "Pas disponible dans les workers.",
+   "ru":    "Не доступно в workers."
+});
+
+var str_desc = mdn.localString({
+  "en-US": "Although the interface of this feature is available to workers, this feature isn't.",
+  "fr":    "Bien que l'interface à laquelle appartient cette fonctionnalité est disponible dans le contexte d'un Worker, celle-ci ne l'est pas.",
+  "ru":    "Хотя интерфейс этой возможности доступен в workers, этой возможности нет."
+});
+
+%><div class="overheadIndicator unimplemented unimplementedHeader"><p><strong><%-str%></strong><br/><%-str_desc%></p></div>

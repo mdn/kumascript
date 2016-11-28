@@ -1,0 +1,23 @@
+<%
+/* Parameters:
+    $0 - version of Gecko
+*/
+ 
+/* get the page language */
+var lang = env.locale;
+ 
+var str = "Gecko " + $0 + " note";
+ 
+switch(lang) {
+  case 'de':
+    str = "Hinweis zu Gecko " + $0;
+    break;
+  case 'ru':
+    str = "Замечание по Gecko " + $0;
+    break;
+}
+%>
+ 
+<div style="border: 0px none ; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); text-align: center;">
+  <p style="margin: 4px 0px; font-weight: bold;"><%= str %></p>
+  <p style="margin: 4px 0px;">

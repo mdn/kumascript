@@ -1,0 +1,28 @@
+<%
+
+var el = env.locale;
+
+var p1 = mdn.localString({
+   "en-US" : "/en-US/docs/",
+   "ja"    : "/" + el + "/docs/"
+});
+
+var p2 = mdn.localString({
+    "en-US" : "Mozilla_event_reference/",
+    "ja"    : "Web/Reference/Events/"
+});
+
+var path = p1 + p2;
+
+%><ul>
+<li><a href="<%- path %>mousedown"><code>mousedown</code></a></li>
+<li><a href="<%- path %>mouseup"><code>mouseup</code></a></li>
+<li><a href="<%- path %>mousemove"><code>mousemove</code></a></li>
+<li><a href="<%- path %>click"><code>click</code></a></li>
+<li><a href="<%- path %>dblclick"><code>dblclick</code></a></li>
+<li><a href="<%- path %>mouseover"><code>mouseover</code></a></li>
+<li><a href="<%- path %>mouseout"><code>mouseout</code></a></li>
+<li><a href="<%- path %>mouseenter"><code>mouseenter</code></a></li>
+<li><a href="<%- path %>mouseleave"><code>mouseleave</code></a></li>
+<li><a href="<%- path %>contextmenu"><code>contextmenu</code></a></li>
+</ul>

@@ -1,0 +1,12 @@
+<%
+var lang = env.locale;
+
+var str = "";
+
+switch(lang) {
+    default:
+        str = "is experimental (meaning it is very likely to change in future)";
+        break;
+}
+%>
+<%-str%>

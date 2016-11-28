@@ -1,0 +1,42 @@
+<%
+
+/*
+
+two parameters:
+
+$0: Platform you want to declare specific support for, e.g. "Firefox Desktop", "Firefox Mobile", "Desktop", "Mobile", "Mac OS X", "Firefox OS"
+$1: Gecko version the feature is supported in mobile or desktop (optional if specific version number is required)
+
+*/
+
+var str = "";
+var title = "";
+if($1) { 
+    str = mdn.localString({
+        "de": "Nur " + $0 + " "  + $1,
+        "en-US": $0 + " "  + $1 + " Only",
+        "zh-CN": "只支持Gecko移动设备" + "(Gecko" + $1 + "以上)",
+        "ru": "Только " + $0 + " "  + $1
+    });
+
+    title = mdn.localString({
+        "de": "Nur verfügbar in " + $0 + " "  + $1,
+        "en-US": "Available only in " + $0 + " " + $1,
+        "zh-CN": "只在内核为 " + $1 + "的" + $0 + "中可用",
+        "ru": "Доступно только в " + $0 + " " + $1
+    });
+} else {
+    str = mdn.localString({
+        "de": "Nur " + $0,
+        "en-US": $0 + " Only",
+        "ru": "Только " + $0
+    });
+
+    title = mdn.localString({
+        "de": "Nur " + $0,
+        "en-US": $0 + " Only",
+        "ru": "Только " + $0
+    });
+}
+
+%><span title=<%= title %> class="inlineIndicator optional optionalInline"><%= str %></span>

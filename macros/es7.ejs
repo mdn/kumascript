@@ -1,0 +1,23 @@
+<%
+var s = mdn.localString({
+    "en-US" : "<strong>This is an experimental technology, part of the ECMAScript 2016 (ES7) proposal.</strong><br />" +
+              "Because this technology's specification has not stabilized," +
+              " check the <a href='#Browser_compatibility'>compatibility table</a> for usage in various browsers." +
+              " Also note that the syntax and behavior of an experimental technology is subject to change in future version of browsers as the spec changes.",
+    "ru"    : "<strong>Это экспериментальная технология, часть предложения Harmony (ECMAScript 7).</strong><br />" +
+              "Поскольку спецификация этой технологии ещё не стабилизировалась," +
+              " проверьте <a href='#Browser_compatibility'>таблицу совместимости</a> её использования в различных браузерах." +
+              " Также обратите внимание, что синтаксис и поведение экспериментальной технологии могут быть изменены в будущих версиях браузеров в соответствии с изменениями в спецификации.",
+    "zh-CN" : "<strong>该特性目前仍处于 ECMAScript 7 规范提案中</strong><br />" +
+              "目前的实现在未来可能会发生改变，甚至被完全删除，请谨慎使用。",
+    "fr": "<strong> Cette fonctionnalité fait partie des propositions pour Harmony (ECMAScript7) et est donc expérimentale.</strong><br/>"+
+          "Cette spécification technique n'a pas encore été stabilisée,"+
+          " veuillez consulter le <a href='#Browser_compatibility'>tableau de compatibilité</a> pour plus d'informations sur les éventuelles différences entre les navigateurs. "+
+          "Il convient de noter qu'une fonctionnalité expérimentale peut voir sa syntaxe" +
+          " ou son comportement modifié dans le futur, en fonction des évolutions de la spécification."
+});
+%>
+
+<div class="overheadIndicator" style="background:#9CF49C;">
+  <p><%- s %></p>
+</div>

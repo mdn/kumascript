@@ -1,0 +1,63 @@
+<%
+// Builds a table of tags used in a section
+//
+// Parameters:
+//  $0  -  The slug to build the table for (e.g. "/en-us/docs/Web/JavaScript")
+
+
+
+var l10nTag = mdn.localString({
+    "en-US": "Tag",
+    "fr"   : "Étiquette",
+    "ru"   : "Метка"
+});
+
+var l10nQty = mdn.localString({
+    "en-US": "Number of occurences",
+    "fr"   : "Nombre d'occurences",
+    "ru"   : "Количество вхождений"
+});
+
+
+var section = $0;
+
+var pageList = page.subpagesExpand(section, '', true);
+var result = {};
+var lastPageWithTag = {};
+
+function getTags(pageList) {
+    if (pageList) {
+        for (var i = 0; i < pageList.length; i++) {
+            pageList[i].tags.sort().forEach(function(tag) {
+                result[tag] = result[tag] + 1 || 1;
+                lastPageWithTag[tag] = pageList[i];
+            });
+            var subpage = getTags(pageList[i].subpages);
+        }
+    }
+}
+
+getTags(pageList);
+
+%>
+
+<table class="fullwidth-table standard-table">
+<thead>
+    <th><%=l10nTag%></th>
+    <th><%=l10nQty%></th>
+</thead>
+<tbody>
+
+<% for (var tag in result) { %>
+<tr>
+    <td><a href="https://developer.mozilla.org/<%=env.locale%>/docs/tag/<%=tag%>"><%=tag%></a></td>
+    <% if (result[tag] === 1) { %>
+    <td><%=result[tag]%> (<a href="<%=lastPageWithTag[tag].url%>">page</a>)</td>
+    <% } else { %>
+    <td><%=result[tag]%></td>
+    <% } %>
+</tr>
+<% } %>
+
+</tbody>
+</table>

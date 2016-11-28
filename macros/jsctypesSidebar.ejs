@@ -1,0 +1,39 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+
+function state(section) {
+  if (section == currentSection) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localString({
+  'en-US': {
+    'Introduction': 'Introduction',
+    'References': 'References',
+    'Examples': 'Examples',
+  },
+  'ru': {
+    'Introduction': 'Введение',
+    'References': 'Руководства',
+    'Examples': 'Примеры',
+  }
+});
+%>
+<section class="Quick_links" id="Quick_Links">
+ <ol>
+  <li><a href="/<%=locale%>/docs/Mozilla/js-ctypes"><strong><em>js-ctypes</em></strong></a></li>
+
+  <li data-default-state="<%=state('Introduction')%>"><a href="/<%=locale%>/docs/Mozilla/js-ctypes/Using_js-ctypes"><%=text['Introduction']%></a>
+    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Using_js-ctypes', 1])%>
+  </li>
+  <li data-default-state="<%=state('References')%>"><a href="/<%=locale%>/docs/Mozilla/js-ctypes/js-ctypes_reference"><%=text['References']%></a>
+    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/js-ctypes_reference'])%>
+  </li>
+  <li data-default-state="<%=state('Examples')%>"><a href="/<%=locale%>/docs/Mozilla/js-ctypes/Examples"><%=text['Examples']%></a>
+    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Examples', 1])%>
+  </li>
+ </ol>
+</section>

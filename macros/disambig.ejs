@@ -1,0 +1,21 @@
+<%
+/* get a page's language (Don't use page.language!) */
+var lang = env.locale;
+
+/* assume English */
+var str = "This is a " + web.link(wiki.uri(lang + '/docs/Project:Disambiguation'), 'disambiguation') + " page — a navigational aid which lists other pages that might otherwise share the same title. If an article link referred you here, you might want to go back and fix it to point directly to the intended page.";
+
+/* fix for other languages */
+ 
+if (!string.compare(lang, "fr", true)) {
+  str = "Ceci est une page de " + web.link(wiki.uri(lang + '/docs/Project:D%c3%a9sambiguation'), 'désambiguation') + " — une aide à la navigation qui liste une série de pages qui devraient partager le même titre. Si un lien provenant d'un article mène ici, n'hésitez pas à revenir à celui-ci pour le faire pointer vers la page concernée.";
+} else if (!string.compare(lang, "ja", true)) {
+  str = "これは" + web.link(wiki.uri(lang + '/docs/Project:Disambiguation'), 'あいまい性除去') + "のページです — 同じ題名を共有している可能性のあるページをリストして案内を補助します。 記事のリンクからここに来たのであれば、戻って意図するページに直接行くように修正することもできます。";
+} else if (!string.compare(lang, "pl", true)) {
+  str = "To jest strona " + web.link(wiki.uri(lang + '/docs/Project:Ujednoznacznienie'), 'ujednoznaczniająca') + " — nawigacyjna pomoc będąca listą stron, które w jakiś sposób mogą współdzielić ten sam tytuł. Jeśli odnośnik w artykule przekierowuje na tę stronę, należy powrócić do tego artykułu i poprawić ten odnośnik tak, aby prowadził on bezpośrednio do zamierzonej strony.";
+} else if (!string.compare(lang, "pt-PT", true)) {
+  str = "Esta é uma página de " + web.link(wiki.uri(lang + '/docs/Project:Desambigua%c3%a7%c3%a3o'), 'desambiguação') + " — uma ajuda navegacional que lista as páginas que puderam de alguma maneira compartilhar o mesmo título. Se um <b>link de artigo</b> trouxe você aqui, você pode querer voltar e repará-lo para apontar para a página desejada.";
+}
+
+
+%><div class="disambig" id="disambig"><p><i><%- str %></i></p></div>

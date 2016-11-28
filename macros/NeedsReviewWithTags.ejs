@@ -1,0 +1,123 @@
+<%
+// Outputs a list of links to articles that are in need of the specified type of
+// review that ALSO have all of the specified tags and matches the specified locale,
+// if requested
+//
+// Parameters:
+//  $0  -   The type of review: "editorial", "technical", or "kumascript", or
+//          omitted (or "" for "all review types")
+//  $1  -   (Optional) Comma-delineated list of tags to match
+//  $2  -   (Optional) Boolean; if specified, all locales are included
+
+var reviewUrl = 'https://developer.mozilla.org/en-US/docs/feeds/json/needs-review';
+
+if ($0) {
+    reviewUrl = reviewUrl + "/" + $0.toString().toLowerCase();
+}
+
+if ($2 != 0) {
+    reviewUrl = reviewUrl + "?all_locales";
+}
+
+// Build an array of the specified tags, if any
+
+var requestedTags = new Array;
+
+if ($1 && $1 != undefined) {
+    requestedTags = $1.split(',');
+}
+
+for (i=0; i<requestedTags.length; i++) {
+    requestedTags[i] = requestedTags[i].trim();
+}
+
+// Fetch the review list from the server
+
+var articleList = mdn.fetchJSONResource(reviewUrl);
+var prunedList = new Array;
+
+// Remove from the list anything that doesn't match the requested values
+
+for (var i=0; i<articleList.length; i++) {
+    var tags = articleList[i].categories;
+
+    // Match the tags
+    
+    var tagMatch = true;
+    
+    if (tags) {
+        for (var tagIdx=0; tagIdx<requestedTags.length; tagIdx++) {
+            if (!tags[requestedTags[tagIdx]]) {
+                tagMatch = false;
+                break;                                   // No need to keep going
+            }
+        }
+    
+    } else {
+        if (requestedTags.length) {
+            tagMatch = false;
+        }
+    }
+    
+    if (tagMatch) {
+        prunedList.push(articleList[i]);
+    }
+}
+
+// Output the results
+
+var lang = env.locale;
+
+switch(lang) {
+    default:
+        localeSeparator = ", ";
+        break;
+}
+
+// Build list of tags for heading
+
+var tagString = "";
+
+for (i=0; i<requestedTags.length; i++) {
+    if (i != 0) {
+        tagString += localeSeparator;
+    }
+    tagString += requestedTags[i];
+}
+
+// Build and display heading
+
+switch(lang) {
+    default:
+        heading = "Found " + prunedList.length + " pages needing " + $0 + " review";
+        if (requestedTags.length != 0) {
+            heading = heading + " with tags " + tagString;
+        }
+        heading = heading + ":";
+        break;
+}
+
+%><p><strong><%=heading%></strong></p><div class="wideColumnBox wideColumnBoxList"><ul><%
+
+for (i=0; i<prunedList.length; i++) {
+    var title = prunedList[i].title;
+    var link = prunedList[i].link;
+    
+// Get the locale
+    
+    if ($2 != 0) {
+        var re = /^https:\/\/developer.mozilla.org\/(.+?)\/.*/;
+        var result = re.exec(link);
+        if (!result) {
+            continue;
+        }
+        var locale = "(" + result[1] + ")";
+    } else {
+        locale = "";
+    }
+    
+    %><li><a href='<%=link%>'><%=title%> <%=locale%></a></li><%
+}
+
+%>
+</ul></div>

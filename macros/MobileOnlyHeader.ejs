@@ -1,0 +1,15 @@
+<%
+var str = "";
+var title = "";
+
+switch(env.locale) {
+  default:
+    str = "Mobile Only in Gecko " + $0;
+    title = "Available only in Firefox Mobile as of Gecko " + $0 + " " + template("geckoRelease", [$0]);
+    break;
+}
+
+%><div class="overheadIndicator mobileOnly mobileOnlyHeader">
+    <p><strong><%=str%></strong><br/>
+    <%=title%></p>
+</div>

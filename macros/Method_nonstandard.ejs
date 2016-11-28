@@ -1,0 +1,19 @@
+<%
+    var lang = env.locale;
+    var str = "";
+    
+    switch(lang) {
+        case 'ja':
+            str = "非標準";
+            break;
+        case 'ru':
+            str = "Нестандартный";
+            break;
+        default:
+            str = "Non-standard";
+            break;
+    }
+%><div>
+    <span class="indicatorInHeadline nonStandard nonStandardMethod"><%-str%></span>
+    <h3><%-($0)%>()</h3>
+</div>

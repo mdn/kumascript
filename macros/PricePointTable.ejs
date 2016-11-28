@@ -1,0 +1,246 @@
+<%
+// price point table using data pulled from the Firefox Marketplace REST API
+
+// Define a few data not available through the API
+
+// Currencies
+var currency = {}; 
+currency.EUR = { "symbol": "€",          "symbol_pos" : "before" };
+currency.COP = { "symbol": "$",       "symbol_pos" : "before" };
+currency.GBP = { "symbol": "£",          "symbol_pos" : "before" };
+currency.HUF = { "symbol": "Ft&nbsp;",   "symbol_pos" : "before" };
+currency.MXN = { "symbol": "$",          "symbol_pos" : "before" };
+currency.PLN = { "symbol": "&nbsp;zł",   "symbol_pos" : "after"  };
+currency.USD = { "symbol": "$",          "symbol_pos" : "before" };
+currency.CHF = { "symbol": "&nbsp;SFr.", "symbol_pos" : "after"  };
+currency.RSD = { "symbol": "РСД&nbsp;",  "symbol_pos" : "before" };
+currency.RMB = { "symbol": "¥",          "symbol_pos" : "before" };
+currency.CLP = { "symbol": "$",          "symbol_pos" : "before" };
+currency.ARS = { "symbol": "$",          "symbol_pos" : "before" };
+currency.BRL = { "symbol": "R$",         "symbol_pos" : "before" };
+currency.PEN = { "symbol": "&nbsp;S/.",  "symbol_pos" : "after" };
+currency.UYU = { "symbol": "$U",         "symbol_pos" : "before" };
+
+// Tax: index is the region index of the rest API
+var tax = {}; 
+tax[ 1] = {"included": false, "value": ""};    // Rest of the world
+tax[ 2] = {"included": false, "value": ""};    // US
+tax[ 4] = {"included": true,  "value": "20%"}; // UK
+tax[ 7] = {"included": false, "value": ""};    // Brazil
+tax[ 8] = {"included": true,  "value": "21%"}; // Spain
+tax[ 9] = {"included": true,  "value": "16%"}; // Colombia
+tax[10] = {"included": true,  "value": "12%"}; // Venezuela
+tax[11] = {"included": true,  "value": "23%"}; // Poland
+tax[12] = {"included": true,  "value": "16%"}; // Mexico: changed in 2014
+tax[13] = {"included": true,  "value": "27%"}; // Hungary
+tax[14] = {"included": true,  "value": "19%"}; // Germany
+tax[15] = {"included": true,  "value": "19%"}; // Montenegro
+tax[16] = {"included": true,  "value": "20%"}; // Serbia
+tax[17] = {"included": true,  "value": "23%"}; // Greece
+tax[18] = {"included": true,  "value": "18%"}; // Peru
+tax[19] = {"included": true,  "value": "22%"}; // Uruguay
+tax[20] = {"included": true,  "value": "21%"}; // Argentina
+tax[21] = {"included": true,  "value": "17%"}; // China
+tax[22] = {"included": true,  "value": "22%"}; // Italy
+tax[23] = {"included": true,  "value": "19%"}; // Chile
+
+
+// Create table of price point
+//
+// Format:
+// price["tier"] = {"credit_card_purchase": true, "region":  [region_id : { "price": xyz, "currency":XYZ }, region_id2 : …]}
+// Only values with paid == true are considered
+// If several values for the same identifier (tier/region) the latest is used
+// The following field are ignored: "dev", "carrier", "provider", "id"
+
+var url = "https://marketplace.firefox.com/api/v1/webpay/prices/";
+var data = mdn.fetchJSONResource(url);
+
+var regionList = new Array; // list of regions (used to define the columns)
+var price = new Array; // list of prices (per tier/region)
+for (var i = 0; i < data.meta.total_count; i++) { 
+    tier = {"name": data.objects[i].name};
+            
+    regions = new Array;
+                                       
+    for (var j = 0; j < data.objects[i].prices.length; j++) {
+        if (data.objects[i].prices[j].dev) { // Only if paid!
+            regions[data.objects[i].prices[j].region] = {};
+            
+            
+            // Price for credit card purchase
+            if ((data.objects[i].prices[j].method == "1") || (data.objects[i].prices[j].method == "2")) {
+                regions[data.objects[i].prices[j].region][0] = {}
+                regions[data.objects[i].prices[j].region][0].price    = data.objects[i].prices[j].price;
+                regions[data.objects[i].prices[j].region][0].currency = data.objects[i].prices[j].currency;
+            }
+            // Price for carrier purchase
+            if ((data.objects[i].prices[j].method == "0") || (data.objects[i].prices[j].method == "2")) {
+                regions[data.objects[i].prices[j].region][1] = {}
+                regions[data.objects[i].prices[j].region][1].price    = data.objects[i].prices[j].price;
+                regions[data.objects[i].prices[j].region][1].currency = data.objects[i].prices[j].currency;
+            }
+            if (regionList.indexOf(data.objects[i].prices[j].region) == -1) { regionList.push(data.objects[i].prices[j].region); } // We add it to the region list
+        }
+    }
+    tier.region = regions;
+
+    price.push(tier);
+}
+
+// Build region information for header
+//
+// Format:
+// region[id] = { "name": Xyz, "default_currency": XYZ, "credit_card_only": bool}
+
+var region = new Array; // list of regions 
+var url = "https://marketplace.firefox.com/api/v1/services/region/";
+var data = mdn.fetchJSONResource(url);
+for (var i = 0; i < data.meta.total_count; i++) { 
+    if (regionList.indexOf(data.objects[i].id) != -1) { // Only if we need to display this region
+        region.push({
+        "id"              : data.objects[i].id,
+        "name"            : data.objects[i].name,
+        "default_currency": data.objects[i].default_currency
+        });
+    }
+}
+
+%>
+<table class="standard-table">
+  <thead>
+    <tr>
+      <th rowspan="2">Price point</th>
+<%
+    var arrayLength = region.length;
+    for (var i=0; i < arrayLength; i++) {
+        if (region[i]) { // there may be gaps!
+%>
+      <th><%= region[i].name %></th> 
+<%      }
+    }
+%>
+    <tr>
+<%
+    for (var i=0; i < arrayLength; i++) {
+        if (region[i]) { // there may be gaps!
+%>
+      <th><%= region[i].default_currency %></th>
+<%      }
+    }
+%>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>VAT/Tax included in price</th>
+<%
+    for (var i=0; i < arrayLength; i++) {
+        if (region[i]) { // there may be gaps!
+            if (tax[region[i].id]) {
+%>
+      <td><%= tax[region[i].id].included?"yes":"no" %><%= (tax[region[i].id].included&&tax[region[i].id].value)?"&nbsp;("+tax[region[i].id].value+")":""%></td>
+<%          } else { // Unknown
+%>
+      <td>unknown</td>
+<%          }
+        }
+    }
+%>
+    </tr>
+
+<% // create price point rows
+    for (var i = 0; i < price.length; i++) { 
+%>
+    <tr>
+      <th><%= price[i].name %></th>
+<%
+        for (var j = 0; j < arrayLength; j++) {
+%>
+      <td>
+<%
+            columnRegionID = region[j].id;
+            numberOfPricesDisplayed = 0;
+            
+            if (price[i].region[columnRegionID]) { // there may be gaps!
+                            // Display first value (credit card)
+
+                if (price[i].region[columnRegionID][0]) {
+                    if (currency[price[i].region[columnRegionID][0].currency]) {
+                        currSymbol = currency[price[i].region[columnRegionID][0].currency].symbol;
+                        currPos    = currency[price[i].region[columnRegionID][0].currency].symbol_pos;
+                    }
+                    else { // default values
+                        currSymbol = price[i].region[columnRegionID][0].currency + " ";
+                        currPos    = "before";
+                    }
+%>
+        <%= (currPos == "before"?currSymbol:"") + price[i].region[columnRegionID][0].price + (currPos != "before"?currSymbol:"") %>
+<%
+                    numberOfPricesDisplayed++;
+                
+                    // If different than the second price, we need to put a link to footnote [1]
+                    if (!price[i].region[columnRegionID][0] || !price[i].region[columnRegionID][1] ||
+                        (price[i].region[columnRegionID][0].currency != price[i].region[columnRegionID][1].currency) ||
+                        (price[i].region[columnRegionID][0].price    != price[i].region[columnRegionID][1].price)) {
+%>          <span class="footnote"><a href="#pricetable_fn_1" alt="Footnote: credit card purchase only" title="Credit card purchase only">[1]</a></span>
+<%          
+                    }
+                }
+                
+                // We display the second price
+                if (price[i].region[columnRegionID][1] &&
+                    (!price[i].region[columnRegionID][0] || 
+                     (price[i].region[columnRegionID][0].currency != price[i].region[columnRegionID][1].currency) ||
+                     (price[i].region[columnRegionID][0].price    != price[i].region[columnRegionID][1].price))) {
+                    if (numberOfPricesDisplayed > 0) {
+%>
+            &nbsp;/&nbsp;
+<%
+                    }
+                    if (currency[price[i].region[columnRegionID][1].currency]) {
+                        currSymbol = currency[price[i].region[columnRegionID][1].currency].symbol;
+                        currPos    = currency[price[i].region[columnRegionID][1].currency].symbol_pos;
+                    }
+                    else { // default values
+                        currSymbol = price[i].region[columnRegionID][1].currency + " ";
+                        currPos    = "before";
+                    }
+%>
+        <%= (currPos == "before"?currSymbol:"") + price[i].region[columnRegionID][1].price + (currPos != "before"?currSymbol:"") %>
+<%
+                    numberOfPricesDisplayed++;
+                
+                    // If different than the first price, we need to put a link to footnote [1]
+                    if (!price[i].region[columnRegionID][0] || !price[i].region[columnRegionID][1] ||
+                        (price[i].region[columnRegionID][0].currency != price[i].region[columnRegionID][1].currency) ||
+                        (price[i].region[columnRegionID][0].price    != price[i].region[columnRegionID][1].price)) {
+%>          <span class="footnote"><a href="#pricetable_fn_2" alt="Footnote: purchase via carrier only" title="Purchase via carrier only">[2]</a></span>
+<%          
+                    }
+                }    
+            }
+            if (numberOfPricesDisplayed == 0) {
+%> 
+                n/a
+<%
+            }
+%>
+      </td>
+<%
+        }
+%>
+    </tr>
+<%
+    }
+%>
+
+  </tbody>
+  <caption style="caption-side:bottom;text-align:right"><small>Last updated: <%= Date.now() %>.</small></caption>
+
+</table>
+<ul style="list-style-type: none">
+    <li id="pricetable_fn_1">[1] Credit card purchase only.</li>
+    <li id="pricetable_fn_1">[2] Carrier billing only, no credit card purchase.</li>
+
+</ul>

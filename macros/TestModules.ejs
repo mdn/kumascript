@@ -1,0 +1,16 @@
+<%
+// An example of how to use modules from within KumaScript functions.
+//
+
+// Import the modules you wish to use into script context.
+
+
+
+function test(url) {
+    var wiki = kuma.require('DekiScript:Wiki');
+    log.debug("Wiki: " + wiki);
+    wiki.template("LandingPageListSubpages", [url]);
+}
+
+%>
+<%-test("https://developer.mozilla.org/en-US/docs/Web")%>

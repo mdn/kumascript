@@ -1,0 +1,15 @@
+<%
+// Creates a link to an example on the MDN sample server. This should only
+// be used for samples that are meant to be loaded in the user's browser
+// directly from the sample server (as opposed to services running on the
+// server which are accessed by MDN's inline code sample mechanism).
+//
+// Parameters:
+//  $0  Name of the sample
+//  $1  (Optional) custom link text
+
+var url = "https://mdn-samples.mozilla.org/s/" + $0;
+var text = $1 || $0
+var html = "<a href='" + url + "'>" + text + "</a>";
+%>
+<%-html%>

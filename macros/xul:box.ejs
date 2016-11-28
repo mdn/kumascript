@@ -1,0 +1,15 @@
+<%
+
+var str = mdn.localString({
+    "en-US" : '<a title="XUL/element/box" href="/en-US/docs/XUL/element/box"> ]box </a> A container element which can contain any number of child elements.' +
+              ' If the box has an orient attribute that is set to horizontal, the child elements are laid out from left to right in the order that they appear in the box.' +
+              ' If orient is set to vertical, the child elements are laid out from top to bottom. Child elements do not overlap. The default orientation is horizontal.',
+    "es"    : '<a title="XUL/element/box" href="/es/docs/XUL/element/box"> ]box </a> Un elemento contenedor que puede contener cualquier cantidad de elementos herederos.' +
+              ' Si el cuadro tiene un atributo orient que está seteado a horizontal,' +
+              ' los elementos herederos son establecidos desde la izquierda a la derecha en el orden en que aparecen en el cuadro.' +
+              ' Si orient está configurado a vertical, los elementos herederos se establecen desde arriba hacia abajo. Los elementos herederos no se solapan.' +
+              ' La orientación predeterminada es horizontal.'
+}); // "en-US" is wild card.
+
+
+%><p><%- str %></p>

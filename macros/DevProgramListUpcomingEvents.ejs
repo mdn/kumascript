@@ -1,0 +1,52 @@
+<%
+// Inserts a list of upcoming events from "Where's Mozilla".
+
+var events = mdn.loadArrayFromCSV("https://spreadsheets.google.com/pub?key=0AsZa7UiEJyV7dHFQalNmTHF3Qm9md043UkdNV3k3Znc&output=csv");
+var wmHTML = "<table class='dev-program-table'>";
+
+const confNameCol = 1;
+const startDateCol = 2;
+const endDateCol = 3;
+const locationCol = 4;
+const urlCol = 5;
+
+wmHTML += "<tbody>";
+
+events.shift(); // remove the headings
+
+function compareDates(a, b) {
+    var db = new Date(b[startDateCol]);
+    var da = new Date(a[startDateCol]);
+    return db-da;
+}
+
+events.sort(compareDates);
+
+var numEvents = events.length;
+if (numEvents > 5) {
+    numEvents = 5;
+}
+
+for (var i=numEvents-1; i>=0; i--) {
+    var event = events[i];
+    var startDate = date.parse(event[startDateCol]);
+    var url = event[urlCol];
+    
+    if (url.substr(0, 5) != "http:" && url.substr(0,6) != "https:") {
+        url = "http://" + url;
+    }
+    
+    if (startDate != NaN) {
+        var row="<tr>";
+        row += "<td><a href='" + url + "'>" + event[confNameCol] + "</a></td>";
+        row += "<td>" + date.getLocaleDateString(startDate) + "</td>";
+        row += "<td>" + event[locationCol] + "</td>";
+        row += "</tr>";
+        wmHTML += row;
+    }
+}
+
+wmHTML += "</tbody></table>";
+%>
+
+<%-wmHTML%>

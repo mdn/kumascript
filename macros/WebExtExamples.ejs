@@ -1,0 +1,99 @@
+<%
+
+var allExamples = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/webextensions-examples/master/examples.json");
+
+var examplesInAPIHeading = $0 || "h3";
+
+function getExamplesForModule(module) {
+  var examplesForModule = [];
+  for (var i = 0; i < allExamples.length; i++) {
+    var example = allExamples[i];
+    for (var j = 0; j < example.javascript_apis.length; j++) {
+      var apiUsed = example.javascript_apis[j].split(".")[0]
+      if (apiUsed === module) {
+        examplesForModule.push(example);
+        break;
+      }
+    }
+  }
+  return examplesForModule;
+}
+
+function getExamplesForAPI(module, api) {
+  var examplesForAPI = [];
+  var moduleAndAPI = module + "." + api;
+  for (var i = 0; i < allExamples.length; i++) {
+    var example = allExamples[i];
+    for (var j = 0; j < example.javascript_apis.length; j++) {
+      if (moduleAndAPI === example.javascript_apis[j]) {
+        examplesForAPI.push(example);
+        break;
+      }
+    }
+  }
+  return examplesForAPI;
+}
+
+var lang = env.locale;
+
+function writeExampleDetails(examples) {
+  var output = "";
+  for (var i = 0; i < examples.length; i++) {
+    var example = examples[i]; 
+    output += "<hr/>";
+    output += "<h2>" + example.name + "</h2>";
+    var exampleUrl = "https://github.com/mdn/webextensions-examples/tree/master/" + example.name;
+    output += '<p><a href="' + exampleUrl + '">' + exampleUrl + '</a></p>';
+    output += '<p>' + example.description + '</p>';
+    
+    if (example.javascript_apis.length > 0) {
+      output += "<h3>" + "JavaScript APIs" + "</h3>";
+        output += "<ul>";
+        for (var k = 0; k < example.javascript_apis.length; k++) {
+          var link = "/" + lang + "/Add-ons/WebExtensions/API/" + example.javascript_apis[k].replace(".", "/");
+          output += '<li><a href="' + link + '"><code>' + example.javascript_apis[k] + '</code></a>';
+          output += "</li>";
+        }
+        output += "</ul>";
+    }
+  }
+  return output;
+}
+
+
+function writeExampleLinks(examples) {
+  var output = "";
+  if (examples.length > 0) {
+    output = "<" + examplesInAPIHeading + ">Example add-ons</" + examplesInAPIHeading + ">";
+    output += "<ul>";
+    for (var i = 0; i < examples.length; i++) {
+      var example = examples[i];
+      output += "<li>";
+      var exampleURL = "https://github.com/mdn/webextensions-examples/tree/master/" + example.name;
+      output += '<a href="' + exampleURL + '">' + example.name + '</a>';
+      output += "</li>";
+    }
+    output += "</ul>";
+  }
+  return output;
+}
+
+var output = "";
+
+var pieces = env.slug.split("/");
+var leaf = pieces[pieces.length-1];
+var parent = pieces[pieces.length-2];
+var grandparent = pieces[pieces.length-3];
+
+if (leaf == "Examples") {
+  output = writeExampleDetails(allExamples);
+} else if (parent == "API") {
+  output = writeExampleLinks(getExamplesForModule(leaf));
+}
+else {
+  output = writeExampleLinks(getExamplesForAPI(parent, leaf));
+}
+
+%>
+
+<%- output %>

@@ -1,0 +1,16 @@
+<%/*
+
+Inserts a row into an event reference property list table.
+
+Parameters:
+    $0  Property name
+    $1  Data type
+    $2  Description
+    $3  Read Only? (Boolean)
+
+
+*/%><tr>
+  <td><code><%=$0%></code><% if($3) { %> <%- template("readOnlyInline") %><% } %></td>
+  <td><%-template("domxref", [$1])%></td>
+  <td><%-$2%></td>
+</tr>

@@ -1,0 +1,61 @@
+<%
+/*
+ * first parameter: product eg Firefox/Thunderbird/SeaMonkey (Use proper case as will be used directly in content)
+ * second parameter: Product version
+*/
+
+
+
+// Fixit: Now some pages ("Firefox_XX_for_developers") are in other place.
+
+
+
+var lang = env.locale;
+ 
+var product = $0.trim() + ' ';
+var version = $1.replace(/\.0/,'');
+var articleName = product + version + " for developers";
+var note = product + version + " note";
+
+switch(lang) {
+    case 'de':
+        articleName = product + version + " für Entwickler";
+        note = "Hinweis zu " + product + version;
+        break;
+    case 'es':
+        articleName = product + version + " para desarrolladores";
+        note = "Nota sobre " + product + version;
+        break;
+    case 'fr':
+        articleName = product + version + " pour les développeurs";
+        note = "Note concernant " + product + version;
+        break;
+    case 'ja':
+        articleName = product + version + " for developers";
+        note = product + version + " における注記";
+        break;
+    case 'ko':
+        articleName = product + version + " for developers";
+        break;
+    case 'pl':
+        articleName = product + version + " dla programistów";
+        note = "Uwaga dotycząca Firefoksa " + version;
+        break;
+    case 'pt':
+        articleName = product + version + " para desenvolvedores";
+        break;
+    case 'ru':
+        articleName = product + version + " для разработчиков";
+        note = "Замечание по "+product + version;
+        break;
+    case 'zh-CN':
+        articleName = product + version + " for developers";
+        break;
+    case 'zh-TW':
+        articleName = product + version + " 技術文件";
+        break;
+    default: break;
+}
+%><div class="blockIndicator standardNote standardNoteBlock">
+    <p><%- web.link(wiki.uri(lang + '/docs/' + articleName), note) %></p>
+    <p style="font-weight:400;">

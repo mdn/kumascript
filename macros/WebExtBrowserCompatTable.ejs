@@ -1,0 +1,152 @@
+<%
+var browserNames = [
+  "Chrome",
+  "Edge",
+  "Firefox",
+  "Firefox for Android",
+  "Opera"
+];
+
+var lang = env.locale;
+var baseURL = "docs/Mozilla/Add-ons/WebExtensions/API";
+
+function writeTableHead() {
+
+  var browserColumnWidth = 60/browserNames.length;
+
+  var output = '<table class="webext-summary-compat-table">\n' +
+               '  <thead>\n' +
+               '    <tr>\n' +
+               '      <th style="width: 40%"></th>\n';
+
+  for (var i = 0; i < browserNames.length; i++) {
+    output += '      <th style="width:' + browserColumnWidth + '%"' + '>' + browserNames[i] + '</th>\n';
+  }
+
+  output += '    <tr>\n' +
+            '  </thead>\n';
+  return output;
+}
+
+function writeTableCells(columns, moduleName, name, data) {
+
+  var output = "";
+
+  for (var i = 0; i < columns.length; i++) {
+    var supported = data[columns[i]].support;
+    var supportedClass = "unknown-support";
+    if (supported == "Unknown") {
+        supported = "?";
+    } else if (!supported) {
+        supportedClass = "no-support";
+        supported = "No";
+    } else {
+        supportedClass = "full-support";
+        if (supported === true) {
+          supported = "Yes";
+        }
+    }
+
+    // if we are building a module table, and there are notes...
+    if (moduleName && name && data[columns[i]].notes) {
+      // then add a link to the detailed page
+      var linkToDetails = "<a href=\"" + getApiItemUrl(moduleName, name) + "#Browser_compatibility\">*</a>";
+      supported = supported + " " + linkToDetails;
+    }
+    output += '      <td class="' + supportedClass + '">' + supported + '</td>\n';
+  }
+  
+  return output;
+}
+
+function getApiItemUrl(moduleName, apiElementName) {
+  var apiPieces = [lang, baseURL, moduleName].concat(apiElementName.split("."));
+  apiItemUrl = "/" + apiPieces.join("/");
+  return apiItemUrl;
+}
+
+function tableForModule(compatData, moduleName) {
+  var apiElementNames = Object.keys(compatData).sort();
+
+  var output = writeTableHead();
+
+  output += '  <tbody>\n';  
+  for (var i = 0; i < apiElementNames.length; i++) {
+        
+    var apiElementName = apiElementNames[i];
+    var apiElementData = compatData[apiElementName];
+    var apiItemUrl = getApiItemUrl(moduleName, apiElementName);
+
+    output += '    <tr>\n';
+    output += '      <td><a href="' + apiItemUrl + '"><code>' + apiElementName + '</code></a></td>\n';
+    output += writeTableCells(browserNames, moduleName, apiElementName, apiElementData);
+    output += '    </tr>\n';
+  }
+  output += '  </tbody>\n' +
+            '</table>';
+
+  return output;
+}
+
+function tableForAPI(compatData) {
+
+  function getCompatNotes(data) {
+    var browserNotesArray = [];
+    for (var i = 0; i < browserNames.length; i++) {
+      var browserName = browserNames[i];
+      if (data[browserName].notes) {
+        var browserNotes = {
+          browser: browserName,
+          notes: data[browserName].notes
+        }
+        browserNotesArray.push(browserNotes);
+      }
+    }
+    return browserNotesArray;
+  }
+
+  function writeCompatNotes(compatNotes) {
+    if (!compatNotes.length) {
+        return "";
+    }
+    var output = "<h3>Compatibility notes</h3>\n";
+    for (var i = 0; i < compatNotes.length; i++) {
+      var compatNote = compatNotes[i];
+      output += "<h4>" + compatNote.browser + "</h4>\n";
+      output += "<ul>\n";
+      for (var j = 0; j < compatNote.notes.length; j++) {
+        var note = compatNote.notes[j];
+        output += "  <li>" + note + "</li>\n";
+      }
+      output += "</ul>\n";
+    }
+
+    return output;
+  }
+  
+  var output = writeTableHead();
+
+  output += '  <tbody>\n' +
+            '    <tr>\n' +
+            '      <td>Basic support</td>\n';
+  output += writeTableCells(browserNames, null, null, compatData);
+  output += '    </tr>\n' +
+            '  </tbody>\n' +
+            '</table>';
+
+    
+  var compatNotes = getCompatNotes(compatData);
+  output += writeCompatNotes(compatNotes);
+
+  return output;
+}
+
+var output = "";
+if ($1 == "api") {
+  output = tableForModule($0, $2);
+} else if ($1 == "api-item") {
+  output = tableForAPI($0);
+}
+
+%>
+<%-output%>

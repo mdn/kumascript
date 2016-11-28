@@ -1,0 +1,20 @@
+<%/* 
+  Adds inline yellow box giving the required
+  version of Firefox OS. Example: 
+  fxos_minversion_inline("1.1") 
+*/%>
+<%
+/* one parameter: Firefox OS version */
+/* get the page language */
+var str = mdn.localString({
+    'en-US': "Requires Firefox OS " + $0 + " or below",
+    'fr'   : "Nécessite Firefox OS " + $0,
+ // 'ja'   : "Firefox OS " + $0 + " ???",
+    'pl'   : "Wymaga Firefox OS " + $0,
+    'pt'   : "Requer Firefox OS " + $0,
+    'de'   : "Ab Firefox OS " + $0,
+    'es'   : "Requiere Firefox OS " + $0,
+    'ru'   : "Требуется Firefox OS " + $0 + " или ниже",
+});
+%>
+<span class="inlineIndicator geckoMinVer standardNote standardNoteInline"><%=str%></span>

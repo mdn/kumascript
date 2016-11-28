@@ -1,0 +1,56 @@
+<%
+
+var el = env.locale;
+var path = "/" + el + "/docs/"
+
+switch (el) {
+
+    case "ja" :
+
+%><tr>
+  <td><code>acceleration</code> <%-template("readOnlyInline")%></td>
+  <td><a href="<%- path %>Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
+  <td>The acceleration of the device. This value has taken into account the effect of gravity and removed it from the figures. This value may not exist if the hardware doesn't know how to remove gravity from the acceleration data.</td>
+</tr>
+<tr>
+  <td><code>accelerationIncludingGravity</code></td>
+  <td><a href="<%- path %>Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
+  <td>The acceleration of the device. This value includes the effect of gravity, and may be the only value available on devices that don't have a gyroscope to allow them to properly remove gravity from the data.</td>
+</tr>
+<tr>
+  <td><code>interval</code> <%-template("readOnlyInline")%></td>
+  <td>double</td>
+  <td>The interval, in milliseconds, at which the DeviceMotionEvent is fired. The next event will be fired in approximately this amount of time.</td>
+</tr>
+<tr>
+  <td><code>rotationRate</code> <%-template("readOnlyInline")%></td>
+  <td><a href="<%- path %>Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
+  <td>The rates of rotation of the device about all three axes.</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>acceleration</code> <%-template("readOnlyInline")%></td>
+  <td><a href="/en-US/docs/Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
+  <td>The acceleration of the device. This value has taken into account the effect of gravity and removed it from the figures. This value may not exist if the hardware doesn't know how to remove gravity from the acceleration data.</td>
+</tr>
+<tr>
+  <td><code>accelerationIncludingGravity</code></td>
+  <td><a href="/en-US/docs/Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
+  <td>The acceleration of the device. This value includes the effect of gravity, and may be the only value available on devices that don't have a gyroscope to allow them to properly remove gravity from the data.</td>
+</tr>
+<tr>
+  <td><code>interval</code> <%-template("readOnlyInline")%></td>
+  <td>double</td>
+  <td>The interval, in milliseconds, at which the DeviceMotionEvent is fired. The next event will be fired in approximately this amount of time.</td>
+</tr>
+<tr>
+  <td><code>rotationRate</code> <%-template("readOnlyInline")%></td>
+  <td><a href="/en-US/docs/Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
+  <td>The rates of rotation of the device about all three axes.</td>
+</tr><%
+
+        break;
+} %>

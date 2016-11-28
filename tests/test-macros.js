@@ -4,7 +4,7 @@ var util = require('util'),
     fs = require('fs'),
     _ = require('underscore'),
     nodeunit = require('nodeunit'),
-    
+
     kumascript = require('..'),
     ks_utils = kumascript.utils,
     ks_errors = kumascript.errors,
@@ -59,7 +59,7 @@ function makeErrorHandlingTestcase(fixtureName) {
 module.exports = nodeunit.testCase({
 
     setUp: function (next) {
-        this.mp = new ks_macros.MacroProcessor({ 
+        this.mp = new ks_macros.MacroProcessor({
             macro_timeout: 500,
             loader: {
                 module: __dirname + '/../lib/kumascript/test-utils',
@@ -134,7 +134,7 @@ module.exports = nodeunit.testCase({
 
     "Errors in template loading, compilation, and execution should be handled gracefully and reported": function (test) {
 
-        var mp = new ks_macros.MacroProcessor({ 
+        var mp = new ks_macros.MacroProcessor({
             macro_timeout: 500,
             loader: {
                 module: __dirname + '/../lib/kumascript/test-utils',
@@ -170,7 +170,7 @@ module.exports = nodeunit.testCase({
                         'broken2': ["TemplateLoadingError", "ERROR INITIALIZING broken2"],
                         'broken3': ["TemplateExecutionError", "ERROR EXECUTING broken3"]
                     };
-                    
+
                     test.ok(errors, "There should be errors");
 
                     for (var idx=0; idx<errors.length; idx++) {
@@ -192,6 +192,38 @@ module.exports = nodeunit.testCase({
                 }
             );
         });
+    },
+
+    "Check for unrecoverable errors during initialize": function (test) {
+        test.doesNotThrow(
+            function() {
+                // This should not throw an error.
+                var mp = new ks_macros.MacroProcessor({
+                    loader: {
+                        module: __dirname + '/../lib/kumascript/loaders',
+                        class_name: 'FileLoader',
+                        options: {
+                            root_dir: 'tests/fixtures/templates',
+                        }
+                    }
+                });
+            }
+        );
+        test.throws(
+            function() {
+                // This should throw a "duplicate macros" error.
+                var mp = new ks_macros.MacroProcessor({
+                    loader: {
+                        module: __dirname + '/../lib/kumascript/loaders',
+                        class_name: 'FileLoader',
+                        options: {
+                            root_dir: 'tests/fixtures',
+                        }
+                    }
+                });
+            }
+        );
+        test.done();
     },
 
     "Errors in ArgumentsJSON should be reported with line and column numbers":

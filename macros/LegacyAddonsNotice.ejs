@@ -1,0 +1,24 @@
+<%
+
+var output =
+
+'<div class="warning">' +
+'<p>We are planning to deprecate the use by Firefox add-ons of the techniques described in this document.</p>' +
+'<p>Don\'t use these techniques to develop new add-ons. Use ' +
+'<a href="/en-US/Add-ons/WebExtensions">WebExtensions</a> instead.' +
+'<p>If you maintain an add-on which uses the techniques described here, consider migrating it to use ' +
+'WebExtensions instead.<p>' +
+'<p>Add-ons developed using these techniques might not work with multiprocess Firefox (e10s), which is ' +
+'already the default in Firefox Nightly and Firefox Developer Edition, and will soon be the default in ' +
+'Beta  and Release versions of Firefox. We have <a ' +
+'href="/en-US/Add-ons/Working_with_multiprocess_Firefox">documentation on making your add-ons ' +
+'multiprocess-compatible</a>, but it will be more future-proof for you to migrate to WebExtensions.</p>' +
+
+'<p>A wiki page containing <a href="https://wiki.mozilla.org/Add-ons/developer/communication">' +
+'resources, migration paths, office hours, and more</a>, '+
+'is available to help developers transition to the new technologies.' +
+'</div>';
+
+%>
+
+<%- output %>

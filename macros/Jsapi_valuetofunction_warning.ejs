@@ -1,0 +1,14 @@
+<%
+var text = "This conversion is dangerous and almost entirely useless, because the resulting " +
+           "<code>JSFunction</code> is not a real function object and therefore cannot be safely " +
+           "passed to any other JSAPI function. That includes <code>JS_CallFunction()</code> and " +
+           "<code>JS_GetFunctionObject()</code>. A <code>JSFunction</code> represents only the " +
+           "compiled code and not the environment of the function. Unless the function happens " +
+           "to be a native function, this means it isn't attached to any global or enclosing " +
+           "scope, and therefore must not be treated like a real function. Instead, use " +
+           "<code>JSVAL_IS_OBJECT</code> and <code>JS_ObjectIsFunction()</code> to check " +
+           "whether a value is already a function, or use <code>JS_ConvertValue()</code> to " +
+           "convert a value to <code>JSTYPE_FUNCTION</code> safely."
+
+
+%><%-template("Warning", [text])%>

@@ -1,0 +1,104 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+
+function state(section) {
+  if (section == currentSection) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localString({
+  'en-US': {
+    'Service_Worker_API': 'Service Worker API',
+    'Overview': 'Overview of Service Worker interfaces',
+    'Service_Worker_guides': 'Service Worker guides',
+    'Interfaces': 'Interfaces',
+    'Documentation': 'Documentation:',
+    'Useful_lists': 'Useful lists',
+    'Service_Worker_tag': 'Pages tagged "ServiceWorker"',
+    'Contribute': 'Contribute',
+    'Doc_status': 'Service Worker doc status',
+    'The_MDN_project': 'The MDN project',
+    'Using_Service_Workers': 'Using Service Workers',
+    'Related_APIs': 'Related APIs',
+    'Push_API': 'Push API',
+    'Notifications_API': 'Notifications API',
+    'Channel_Messaging_API': 'Channel Messaging API',
+    'Web_Workers_API': 'Web Workers API'
+  },
+  'ru': {
+    'Service_Worker_API': 'Service Worker API',
+    'Overview': 'Обзор интерфейсов Service Worker',
+    'Service_Worker_guides': 'Руководства по Service Worker',
+    'Interfaces': 'Интерфейсы',
+    'Documentation': 'Документация:',
+    'Useful_lists': 'Полезные списки',
+    'Service_Worker_tag': 'Страницы отмеченные "ServiceWorker"',
+    'Contribute': 'Внести вклад',
+    'Doc_status': 'Статус документации по Service Worker',
+    'The_MDN_project': 'Проект MDN',
+    'Using_Service_Workers': 'Использование Service Workers',
+    'Related_APIs': 'Похожие API',
+    'Push_API': 'Push API',
+    'Notifications_API': 'Notifications API',
+    'Channel_Messaging_API': 'Channel Messaging API',
+    'Web_Workers_API': 'Web Workers API'
+  }
+});
+%>
+<section id="Quick_Links">
+ <ol>
+  <li><a href="/<%=locale%>/docs/Web/API/Service_Worker_API"><strong><%=text['Service_Worker_API']%></strong></a></li>
+  <li data-default-state="open"><a href="#"><strong><%=text['Service_Worker_guides']%></strong></a>
+   <ol>
+     <li><a href="/<%=locale%>/docs/Web/API/Service_Worker_API/Using_Service_Workers"><%=text['Using_Service_Workers']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="open"><a href="#"><strong><%=text['Interfaces']%></strong></a>
+   <ol>
+    <li><%-template("domxref", ["Cache"])%></li>
+    <li><%-template("domxref", ["CacheStorage"])%></li>
+    <li><%-template("domxref", ["Client"])%></li>
+    <li><%-template("domxref", ["Clients"])%></li>
+    <li><%-template("domxref", ["ExtendableEvent"])%></li>
+    <li><%-template("domxref", ["FetchEvent"])%></li>
+    <li><%-template("domxref", ["InstallEvent"])%></li>
+    <li><%-template("domxref", ["Navigator.serviceWorker"])%></li>
+    <li><%-template("domxref", ["NotificationEvent"])%></li>
+    <li><%-template("domxref", ["PeriodicSyncEvent"])%></li>
+    <li><%-template("domxref", ["PeriodicSyncManager"])%></li>
+    <li><%-template("domxref", ["PeriodicSyncRegistration"])%></li>
+    <li><%-template("domxref", ["ServiceWorker"])%></li>
+    <li><%-template("domxref", ["ServiceWorkerContainer"])%></li>
+    <li><%-template("domxref", ["ServiceWorkerGlobalScope"])%></li>
+    <li><%-template("domxref", ["ServiceWorkerRegistration"])%></li>
+    <li><%-template("domxref", ["SyncEvent"])%></li>
+    <li><%-template("domxref", ["SyncManager"])%></li>
+    <li><%-template("domxref", ["SyncRegistration"])%></li>
+    <li><%-template("domxref", ["WindowClient"])%></li>
+   </ol>
+  </li>
+  <li data-default-state="open"><a href="#"><strong><%=text['Related_APIs']%></strong></a>
+   <ol>
+     <li><a href="/<%=locale%>/docs/Web/API/Channel_Messaging_API"><%=text['Channel_Messaging_API']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Notifications_API"><%=text['Notifications_API']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Push_API"><%=text['Push_API']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Web_Workers_API"><%=text['Web_Workers_API']%></a></li>
+   </ol>
+  </li>
+  <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
+  <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/tag/ServiceWorker"><%=text['Service_Worker_tag']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="<%=state('Contribute')%>"><a href="#"><%=text['Contribute']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/MDN/Doc_status/API/ServiceWorkers"><%=text['Doc_status']%></a></li>
+    <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
+   </ol>
+  </li>
+ </ol>
+</section>

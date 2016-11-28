@@ -1,0 +1,55 @@
+<%
+/* This automatically links to the method or property of the prototype of the specified global object.
+ * Syntax:
+ * {{JSInherits("globalObject", "inheritType","inherited",...)}}
+ * globalObject - the name of the global object whose prototype properties/methods are being passed on
+ * inheritType - Properties or Methods. Make sure you capitalize it and use the plural.
+ * inherited - the name of the property or method being inherited.
+*/
+
+
+if(!$2) return;
+
+
+var s1 = '';
+var s2 = '';
+var LOCALE = env.locale;
+var aLen = arguments.length;
+var i = 2;
+var links = [];
+
+
+switch(LOCALE) {
+    case 'fr':
+    	s1 += $1 + ' héritées de ' + web.link(wiki.uri(env.locale + '/docs/JavaScript/Référence_JavaScript/Objets_globaux/' + $0 + '/prototype'), $0 + '.prototype');
+		for (; i < aLen; ++i) {
+			links.push(web.link(wiki.uri(LOCALE + '/docs/JavaScript/Référence_JavaScript/Objets_globaux/' + $0 + '/' + arguments[i]), arguments[i]));
+		}
+		break;
+	case 'ja':
+		s1 += web.link(wiki.uri(env.locale + '/docs/Web/JavaScript/Reference/Global_Objects/' + $0 + '/prototype'), $0 + '.prototype') + ' から継承される' + $1;
+		for (; i < aLen; ++i) {
+			links.push(web.link(wiki.uri(LOCALE + '/docs/Web/JavaScript/Reference/Global_Objects/' + $0 + '/' + arguments[i]), arguments[i]));
+		}
+		break;
+	case 'pl':
+		s1 += $1 + ' dziedziczone z ' + web.link(wiki.uri(env.locale + '/docs/Dokumentacja_języka_JavaScript_1.5/Obiekty/' + $0 + '/prototype'), $0 + '.prototype');
+		for (; i < aLen; ++i) {
+			links.push(web.link(wiki.uri(LOCALE + '/docs/Dokumentacja_języka_JavaScript_1.5/Obiekty/' + $0 + '/' + arguments[i]), arguments[i]));
+		}
+		break;
+	default:
+		s1 += $1 + ' inherited from ' + web.link(wiki.uri(env.locale + '/docs/Web/JavaScript/Reference/Global_Objects/' + $0 + '/prototype'), $0 + '.prototype');
+		for (; i < aLen; ++i) {
+			links.push(web.link(wiki.uri(LOCALE + '/docs/Web/JavaScript/Reference/Global_Objects/' + $0 + '/' + arguments[i]), arguments[i]));
+		}
+		break;
+}
+
+s2 = links.join(', ');
+
+
+%><div class="inheritsbox template-jsInherits">
+	<div style="font-weight:700;"><%-s1%></div>
+	<div><%-s2%></div>
+</div>

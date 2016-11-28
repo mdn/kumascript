@@ -1,0 +1,35 @@
+<%
+
+var el = env.locale;
+
+switch (el) {
+
+    case "ja":
+
+%><tr>
+  <td><code>network</code> <%-template("readOnlyInline") %></td>
+  <td>nsIVariant (object)</td>
+  <td>SSID フィールドを持つネットワークオブジェクト</td>
+</tr>
+<tr>
+  <td><code>status</code>  <%-template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>無線 LAN マネージャの現在の状態を記述。指定可能な値については上記を参照してください。</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>network</code> <%-template("readOnlyInline") %></td>
+  <td>nsIVariant (object)</td>
+  <td>Network object with an SSID field.</td>
+</tr>
+<tr>
+  <td><code>status</code> <%-template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>Word describing the current status of the wifi manager. See possible values above.</td>
+</tr><%
+
+        break;
+} %>

@@ -1,0 +1,26 @@
+<%
+/* one parameter: ID of sample on JSFiddle.net */
+
+var s_text = mdn.localString({
+    "en-US": "View on JSFiddle",
+    "es":    "Ver en el JSFiddle",
+    "de":    "Sicht auf JSFiddle",
+    "fr":    "Voir dans JSFiddle",
+    "ga-IE": "Féach ar JSFiddle",
+    "he":    "צפה על JSFiddle",
+    "id":    "Lihat pada JSFiddle",
+    "it":    "Visualizza il JSFiddle",
+    "ja":    "JSFiddle で確認",
+    "ko":    "JSFiddle에서보기",
+    "nl":    "Zicht op JSFiddle",
+    "pl":    "Zobacz na JSFiddle",
+    "pt-PT": "Veja em JSFiddle",
+    "ru":    "Посмотреть на JSFiddle",
+    "tr":    "JSFiddle gör",
+    "zh-CN": "在JSFiddle中查看",
+    "zh-TW": "在JSFiddle中查看"
+});
+
+var s_result = '<a class="button liveSample" href="http://jsfiddle.net/' + $0 +'">' + s_text + '</a>';
+
+%><%- s_result %>

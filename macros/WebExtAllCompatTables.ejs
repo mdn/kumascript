@@ -1,0 +1,15 @@
+<%
+
+var output = "";
+var compatDataUrl = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/browser-compat-data.json";
+var data = mdn.fetchJSONResource(compatDataUrl);
+var apiList = Object.keys(data).sort();
+
+for (var i = 0; i < apiList.length; i++) {
+  var apiName = apiList[i];
+  output += "<h2>" + apiName + "</h2>";
+  output += template("WebExtBrowserCompatTable", [data[apiName], "api", apiName]);
+}
+
+%>
+<%-output%>

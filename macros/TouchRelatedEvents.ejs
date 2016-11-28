@@ -1,0 +1,19 @@
+<%
+var el = env.locale;
+var path = "/en-US/docs/";
+
+switch (el) {
+    case "ja":
+        path = "/" + el + "/docs/";
+        break;
+    default:
+        break;
+}
+
+
+%><ul>
+    <li><a href="<%- path %>Web/Reference/Events/touchstart"><code>touchstart</code></a></li>
+    <li><a href="<%- path %>Web/Reference/Events/touchend"><code>touchend</code></a></li>
+    <li><a href="<%- path %>Web/Reference/Events/touchmove"><code>touchmove</code></a></li>
+    <li><a href="<%- path %>Web/Reference/Events/touchcancel"><code>touchcancel</code></a></li>
+</ul>

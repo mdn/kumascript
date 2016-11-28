@@ -1,0 +1,217 @@
+<%
+// Generates and inserts the quicklinks box for the SVG Reference.
+//
+// Parameters: None.
+
+var s_svg_href = '/'+env.locale+'/docs/Web/SVG';
+var s_svg_title = 'SVG';
+var s_svg_ref_href = '/'+env.locale+'/docs/Web/SVG/Element';
+var s_svg_ref_title = 'SVG Elements';
+// var s_html_guide_href = '/'+env.locale+'/docs/Web/Guide/HTML';
+var s_api_href = '/' + env.locale + '/docs/Web/API';
+switch (env.locale) {
+    case 'fr':
+        s_svg_href = '/'+env.locale+'/docs/SVG';
+        s_svg_ref_href = '/'+env.locale+'/docs/Web/SVG/Element';
+        s_svg_ref_title = 'Éléments SVG';
+        break;
+    default: break;
+}
+
+// Find the section of SVG this page belongs to (that is the first tag of the form "SVG XYZ")
+var tags = env.tags;
+var found_tag = '';
+if (tags || typeof tags != 'undefined') {
+    for (i in tags) {
+        if( tags.hasOwnProperty(i) && tags[i] != s_svg_ref_title && tags[i].substr(0, 4) == 'SVG ') {
+            found_tag = tags[i];
+            break;
+        }
+    }
+}
+
+// Find the SVG Tags belonging to the same subject
+
+if (found_tag != undefined && found_tag != null && found_tag.length) {
+    // Find the pages, sub-pages of SVG/Element that are tagged with that specific tag
+    var pageList = page.subpagesExpand(s_svg_ref_href);   // Get subpages, including tags
+    var resultSVG = [];
+
+    for (aPage in pageList) {
+        if (page.hasTag(pageList[aPage], found_tag)) {
+            resultSVG.push(pageList[aPage].title.replace(/[<>]/g, ""));
+        }
+    }
+}
+
+// var resultGuide = [];
+var resultAPI = [];
+
+ if (s_svg_href) {  %>
+  <section class="Quick_links" id="Quick_Links">
+  <ol>
+   <% if (found_tag) {        
+/*       
+        for( aPage in resultGuide) { // Tutorials and guides matching
+  %>
+            <li><a href="<%-resultGuide[aPage].url%>"><%-resultGuide[aPage].title%></a></li>
+  <%    }
+*/
+        for (aTitle in resultSVG) { // SVG entities matching 
+  %>
+            <li><%- template("SVGElement", [resultSVG[aTitle]]) %></li>
+  <%    } 
+        for (aTitle in resultAPI) { // SVG-DOM interfaces matching 
+  %>
+            <li><%- template("domxref", [resultAPI[aTitle]]) %></li>
+  <%    } 
+    } %>
+   <li><a href="<%-s_svg_href%>"><%-s_svg_ref_title%></a><ol>
+ <li>A
+   <ol>
+     <li><%-template("SVGElement", ["a"])%></li>
+     <li class="deprecatedElement"><%-template("SVGElement", ["altGlyph"])%></li>
+     <li class="deprecatedElement"><%-template("SVGElement", ["altGlyphDef"])%></li>
+     <li class="deprecatedElement"><%-template("SVGElement", ["altGlyphItem"])%></li>
+     <li><%-template("SVGElement", ["animate"])%></li>
+     <li><%-template("SVGElement", ["animateColor"])%></li>
+     <li><%-template("SVGElement", ["animateMotion"])%></li>
+     <li><%-template("SVGElement", ["animateTransform"])%></li>
+   </ol>
+ </li>
+ <li>B-C
+   <ol>
+     <li><%-template("SVGElement", ["circle"])%></li>
+     <li><%-template("SVGElement", ["clipPath"])%></li>
+     <li class="deprecatedElement"><%-template("SVGElement", ["color-profile"])%></li>
+     <li><%-template("SVGElement", ["cursor"])%></li>
+   </ol>
+ </li>
+ <li>D
+   <ol>
+     <li><%-template("SVGElement", ["defs"])%></li>
+     <li><%-template("SVGElement", ["desc"])%></li>
+   </ol>
+ </li>
+ <li>E
+   <ol>
+     <li><%-template("SVGElement", ["ellipse"])%></li>
+   </ol>
+ </li>
+ <li>F
+   <ol>
+     <li><%-template("SVGElement", ["feBlend"])%></li>
+     <li><%-template("SVGElement", ["feColorMatrix"])%></li>
+     <li><%-template("SVGElement", ["feComponentTransfer"])%></li>
+     <li><%-template("SVGElement", ["feComposite"])%></li>
+     <li><%-template("SVGElement", ["feConvolveMatrix"])%></li>
+     <li><%-template("SVGElement", ["feDiffuseLighting"])%></li>
+     <li><%-template("SVGElement", ["feDisplacementMap"])%></li>
+     <li><%-template("SVGElement", ["feDistantLight"])%></li>
+     <li><%-template("SVGElement", ["feFlood"])%></li>
+     <li><%-template("SVGElement", ["feFuncA"])%></li>
+     <li><%-template("SVGElement", ["feFuncB"])%></li>
+     <li><%-template("SVGElement", ["feFuncG"])%></li>
+     <li><%-template("SVGElement", ["feFuncR"])%></li>
+     <li><%-template("SVGElement", ["feGaussianBlur"])%></li>
+     <li><%-template("SVGElement", ["feImage"])%></li>
+     <li><%-template("SVGElement", ["feMerge"])%></li>
+     <li><%-template("SVGElement", ["feMergeNode"])%></li>
+     <li><%-template("SVGElement", ["feMorphology"])%></li>
+     <li><%-template("SVGElement", ["feOffset"])%></li>
+     <li><%-template("SVGElement", ["fePointLight"])%></li>
+     <li><%-template("SVGElement", ["feSpecularLighting"])%></li>
+     <li><%-template("SVGElement", ["feSpotLight"])%></li>
+     <li><%-template("SVGElement", ["feTile"])%></li>
+     <li><%-template("SVGElement", ["feTurbulence"])%></li>
+     <li><%-template("SVGElement", ["filter"])%></li>
+     <li><%-template("SVGElement", ["font"])%></li>
+     <li><%-template("SVGElement", ["font-face"])%></li>
+     <li><%-template("SVGElement", ["font-face-format"])%></li>
+     <li><%-template("SVGElement", ["font-face-name"])%></li>
+     <li><%-template("SVGElement", ["font-face-src"])%></li>
+     <li><%-template("SVGElement", ["font-face-uri"])%></li>
+     <li><%-template("SVGElement", ["foreignObject"])%></li>
+   </ol>
+ </li>
+ <li>G
+   <ol>
+     <li><%-template("SVGElement", ["g"])%></li>
+     <li><%-template("SVGElement", ["glyph"])%></li>
+     <li class="deprecatedElement"><%-template("SVGElement", ["glyphRef"])%></li>
+   </ol>
+ </li>
+ <li>H
+   <ol>
+     <li><%-template("SVGElement", ["hkern"])%></li>
+   </ol>
+ </li>
+ <li>I
+   <ol>
+     <li><%-template("SVGElement", ["image"])%></li>
+   </ol>
+ </li>
+ <li>J-L
+   <ol>
+     <li><%-template("SVGElement", ["line"])%></li>
+     <li><%-template("SVGElement", ["linearGradient"])%></li>
+   </ol>
+ </li>
+ <li>M
+   <ol>
+     <li><%-template("SVGElement", ["marker"])%></li>
+     <li><%-template("SVGElement", ["mask"])%></li>
+     <li><%-template("SVGElement", ["metadata"])%></li>
+     <li><%-template("SVGElement", ["missing-glyph"])%></li>
+     <li><%-template("SVGElement", ["mpath"])%></li>
+   </ol>
+ </li>
+ <li>N-P
+   <ol>
+     <li><%-template("SVGElement", ["path"])%></li>
+     <li><%-template("SVGElement", ["pattern"])%></li>
+     <li><%-template("SVGElement", ["polygon"])%></li>
+     <li><%-template("SVGElement", ["polyline"])%></li>
+   </ol>
+ </li>
+ <li>Q-R
+   <ol>
+     <li><%-template("SVGElement", ["radialGradient"])%></li>
+     <li><%-template("SVGElement", ["rect"])%></li>
+   </ol>
+ </li>
+ <li>S
+   <ol>
+     <li><%-template("SVGElement", ["script"])%></li>
+     <li><%-template("SVGElement", ["set"])%></li>
+     <li><%-template("SVGElement", ["stop"])%></li>
+     <li><%-template("SVGElement", ["style"])%></li>
+     <li><%-template("SVGElement", ["svg"])%></li>
+     <li><%-template("SVGElement", ["switch"])%></li>
+     <li><%-template("SVGElement", ["symbol"])%></li>
+   </ol>
+ </li>
+ <li>T
+   <ol>
+     <li><%-template("SVGElement", ["text"])%></li>
+     <li><%-template("SVGElement", ["textPath"])%></li>
+     <li><%-template("SVGElement", ["title"])%></li>
+     <li class="deprecatedElement"><%-template("SVGElement", ["tref"])%></li>
+     <li><%-template("SVGElement", ["tspan"])%></li>
+   </ol>
+ </li>
+ <li>U
+   <ol>
+     <li><%-template("SVGElement", ["use"])%></li>
+   </ol>
+ </li>
+ <li>V-Z
+   <ol>
+     <li><%-template("SVGElement", ["view"])%></li>
+     <li><%-template("SVGElement", ["vkern"])%></li>
+   </ol>   
+ </li>
+   </ol></li>
+   </ol>
+  </section>
+<%}%>

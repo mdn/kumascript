@@ -1,0 +1,75 @@
+<%
+// Variables and data
+
+// $0 is the API whose properties/methods you want listed on the page, as listed in the GroupData macro
+// see https://developer.mozilla.org/en-US/docs/Template:GroupData
+
+var slug = $0;
+
+var locale = env.locale;
+var finalSlugList = [];
+var output = '';
+
+var webAPIGroups = string.deserialize(template('GroupData'));
+var webAPIInterfaces = webAPIGroups[0][slug]['interfaces'];
+var webAPIMethods = webAPIGroups[0][slug]['methods'];
+var webAPIProperties = webAPIGroups[0][slug]['properties'];
+
+// Populating the output
+
+for(i = 0; i < webAPIInterfaces.length ; i++) {
+  var childPagesTest = page.subpages('/' + locale + '/docs/Web/API/' + webAPIInterfaces[i], 0, false);
+  if(childPagesTest.length === 0) {
+    var childPages = page.subpages('/en-US/docs/Web/API/' + webAPIInterfaces[i]);
+    for(j = 0; j < childPages.length ; j++) {
+      var fixedTitle = childPages[j].title.replace('.','/');
+      finalSlugList.push('/en-US/docs/Web/API/' + fixedTitle);
+    }
+  } else {
+    var childPages = page.subpages('/' + locale + '/docs/Web/API/' + webAPIInterfaces[i]);
+    for(j = 0; j < childPages.length ; j++) {
+      var fixedTitle = childPages[j].title.replace('.','/');
+      finalSlugList.push('/' + locale + '/docs/Web/API/' + fixedTitle);
+    } 
+  }
+}
+
+if(webAPIMethods.length > 0) {
+  for(m = 0; m < webAPIMethods.length ; m++) {
+    finalSlugList.push(webAPIMethods[m]);
+  }
+}
+
+if(webAPIProperties.length > 0) {
+  for(p = 0; p < webAPIProperties.length ; p++) {
+    finalSlugList.push(webAPIProperties[p]);
+  }
+}
+
+output += '<h2 id="Methods_and_properties_list">Methods and properties list</h2><ul>';
+
+finalSlugList.sort();
+
+for(l = 0 ; l < finalSlugList.length ; l++) {   
+  var currentSlug = finalSlugList[l];
+  var linkText;
+  
+  var slugSplit = currentSlug.split('/');
+  if(slugSplit[slugSplit.length-2]) {
+    linkText = slugSplit[slugSplit.length-2] + '.' + slugSplit[slugSplit.length-1];
+  } else {
+    linkText = slugSplit[slugSplit.length-1];      
+  }   
+  
+  if(finalSlugList[l].indexOf('()') !== -1) {
+    currentSlug = finalSlugList[l].replace('()','');
+  }
+  
+  output += '<li><code><a href="' + currentSlug + '">' + linkText + '</a></code></li>';
+}
+
+output += '</ul>';
+
+%>
+
+<%-output %>

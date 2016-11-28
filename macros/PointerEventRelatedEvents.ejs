@@ -1,0 +1,25 @@
+<%
+var el = env.locale;
+var path = "/en-US/docs/";
+
+switch (el) {
+    case "ja":
+        path = "/" + el + "/docs/";
+        break;
+    default:
+        break;
+}
+
+
+%><ul>
+    <li><a href="<%- path %>Web/Events/pointerover"><code>pointerover</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointerenter"><code>pointerenter</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointerdown"><code>pointerdown</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointermove"><code>pointermove</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointerup"><code>pointerup</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointercancel"><code>pointercancel</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointerout"><code>pointerout</code></a></li>
+    <li><a href="<%- path %>Web/Events/pointerleave"><code>pointerleave</code></a></li>
+    <li><a href="<%- path %>Web/Events/gotpointercapture"><code>gotpointercapture</code></a></li>
+    <li><a href="<%- path %>Web/Events/lostpointercapture"><code>lostpointercapture</code></a></li>
+</ul>

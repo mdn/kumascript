@@ -1,0 +1,36 @@
+<%
+var el = env.locale;
+var path = "/" + el + "/docs/";
+
+switch (el) {
+
+    case "ja" :
+
+%><tr>
+  <td><code>newVersion</code> <%- template("readOnlyInline") %></td>
+  <td>unsigned long (int)</td>
+  <td>データベースの新バージョン</td>
+</tr>
+<tr>
+  <td><code>oldVersion</code> <%- template("readOnlyInline") %></td>
+  <td>unsigned long (int)</td>
+  <td>データベースの旧バージョン</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>newVersion</code> <%- template("readOnlyInline") %></td>
+  <td>unsigned long (int)</td>
+  <td>The new version of the database.</td>
+</tr>
+<tr>
+  <td><code>oldVersion</code> <%- template("readOnlyInline") %></td>
+  <td>unsigned long (int)</td>
+  <td>The old version of the database.</td>
+</tr><%
+
+        break;
+
+} %>

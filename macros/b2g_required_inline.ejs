@@ -1,0 +1,18 @@
+<%/* Example: b2g_required_inline("1.0") */%>
+<%
+/* one parameter: FirefoxOS version */
+
+/* get the page language */
+var label = mdn.localString({
+    "en-US" : "Requires FirefoxOS %d",
+    "fr"    : "Nécessite FirefoxOS %d",
+    "ja"    : "※要 FirefoxOS %d ",
+    "pl"    : "Wymaga FirefoxOS %d",
+    "pt-PT" : "Requer FirefoxOS %d",
+    "de"    : "Ab FirefoxOS %d",
+    "es"    : "Requiere Firefox %d"
+});
+
+label = label.replace('%d', $0);
+
+%><span class="inlineIndicator standardNote standardNoteInline" title="<%= label %>"><a href="/<%- env.locale %>/docs/Mozilla/Firefox_OS"><%= label %></a></span>

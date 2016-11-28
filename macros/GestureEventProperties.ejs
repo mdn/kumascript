@@ -1,0 +1,41 @@
+<%
+
+var el = env.locale;
+var path = "/" + el + "/docs/";
+
+switch (el) {
+
+    case "yourlocale":
+
+%><tr>
+  <td><code>direction</code> <%-template("readOnlyInline")%></td>
+  <td>unsigned long (int)</td>
+  <td>The <a href="<%- path %>Web/Guide/DOM/Events/Mouse_gesture_events#Direction_constants">direction</a> of the gesture. Read only.</td>
+</tr>
+<tr>
+  <td><code>delta</code> <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>
+    The amount by which the gesture moved; for rotation, this value is in degrees. 
+    Positive values are clockwise and negative values are counterclockwise.
+    For magnification, this value is implementation-specific, but the value is positive for zooming in and negative for zooming out.</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>direction</code> <%-template("readOnlyInline")%></td>
+  <td>unsigned long (int)</td>
+  <td>The <a href="/en-US/docs/Web/Guide/DOM/Events/Mouse_gesture_events#Direction_constants">direction</a> of the gesture. Read only.</td>
+</tr>
+<tr>
+  <td><code>delta</code> <%-template("readOnlyInline")%></td>
+  <td>double (float)</td>
+  <td>
+    The amount by which the gesture moved; for rotation, this value is in degrees. 
+    Positive values are clockwise and negative values are counterclockwise.
+    For magnification, this value is implementation-specific, but the value is positive for zooming in and negative for zooming out.</td>
+</tr><%
+
+} %>

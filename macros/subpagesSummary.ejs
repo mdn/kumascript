@@ -1,0 +1,22 @@
+<%
+/* The list of template's arguments is used to know which subpages title should not be marked as code */
+var notCodeElements = arguments;
+   
+var pages = page.subpagesExpand('','1');
+var str = '';
+if (pages.length) {
+    str += '<dl>';
+    pages.forEach(function(item) {
+        str += '<dt><a href="' + item.url + '">';
+        if(notCodeElements.indexOf(item.title) < 0) {
+            str += '<code>' + kuma.htmlEscape(item.title) + '</code>';
+        } else {
+            str += kuma.htmlEscape(item.title);
+        }
+        str += '</a></dt>';
+        str += '<dd>' + item.summary + '</dd>';
+    });
+    str += '</dl>';
+}
+%>
+<%- str %>

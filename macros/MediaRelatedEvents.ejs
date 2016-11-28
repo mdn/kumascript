@@ -1,0 +1,28 @@
+<%
+var el = env.locale;
+var path = "/" + el + "/docs/";
+var path2 = mdn.localString({
+    "en-US": "Web/Reference/Events/"
+}); // "en-US" is wild card.
+
+
+%><ul>
+<li><a href="<%- path %><%- path2 %>playing"><code>playing</code></a></li>
+<li><a href="<%- path %><%- path2 %>waiting"><code>waiting</code></a></li>
+<li><a href="<%- path %><%- path2 %>seeking"><code>seeking</code></a></li>
+<li><a href="<%- path %><%- path2 %>seeked"><code>seeked</code></a></li>
+<li><a href="<%- path %><%- path2 %>ended"><code>ended</code></a></li>
+<li><a href="<%- path %><%- path2 %>loadedmetadata"><code>loadedmetadata</code></a></li>
+<li><a href="<%- path %><%- path2 %>loadeddata"><code>loadeddata</code></a></li>
+<li><a href="<%- path %><%- path2 %>canplay"><code>canplay</code></a></li>
+<li><a href="<%- path %><%- path2 %>canplaythrough"><code>canplaythrough</code></a></li>
+<li><a href="<%- path %><%- path2 %>durationchange"><code>durationchange</code></a></li>
+<li><a href="<%- path %><%- path2 %>timeupdate"><code>timeupdate</code></a></li>
+<li><a href="<%- path %><%- path2 %>play"><code>play</code></a></li>
+<li><a href="<%- path %><%- path2 %>pause"><code>pause</code></a></li>
+<li><a href="<%- path %><%- path2 %>ratechange"><code>ratechange</code></a></li>
+<li><a href="<%- path %><%- path2 %>volumechange"><code>volumechange</code></a></li>
+<li><a href="<%- path %><%- path2 %>suspend"><code>suspend</code></a></li>
+<li><a href="<%- path %><%- path2 %>emptied"><code>emptied</code></a></li>
+<li><a href="<%- path %><%- path2 %>stalled"><code>stalled</code></a></li>
+</ul>

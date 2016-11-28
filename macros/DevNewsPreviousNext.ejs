@@ -1,0 +1,18 @@
+<%
+
+/*
+このテンプレートは http://developer.mozilla.org/devnews/ の翻訳 (/ja/docs/DevNews)に使われています。
+このテンプレートを使うには以下の内容を記事の先頭に追加してください。
+{{DevNewsPreviousNext|前の記事のページ名|次の記事のページ名}}
+*/
+
+
+%><div class="includeonly">
+<div class="prevnext">
+<p>{{string.trim(($0 || '')) !== '' ? web.html('<span style=\"float:left;\">« ' + mediawiki.internal('DevNews:' + $0 + '|' + $0, "ja") + '</span>') : ''}}
+{{string.trim(($1 || '')) !== '' ? web.html('<span style=\"float:right;\">' + mediawiki.internal('DevNews:' + $1 + '|' + $1, "ja") + ' »</span>') : ''}}
+</p>
+</div>
+<p><span class="comment">Comment here to ensure newlines get recognized</span>
+</p>
+</div>

@@ -1,0 +1,64 @@
+<%
+var el = env.locale;
+
+switch (el) {
+
+    case "yourlocale":
+    
+%><tr>
+  <td><code>key</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The key being changed.</td>
+</tr>
+<tr>
+  <td><code>oldValue</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The old value of the key being changed.</td>
+</tr>
+<tr>
+  <td><code>newValue</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The new value of the key being changed.</td>
+</tr>
+<tr>
+  <td><code>url</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The address of the document whose key changed.</td>
+</tr>
+<tr>
+  <td><code>storageArea</code> <%- template("readOnlyInline") %></td>
+  <td>Storage</td>
+  <td>The Storage object that was affected.</td>
+</tr><%
+
+        break;
+    default:
+
+%><tr>
+  <td><code>key</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The key being changed.</td>
+</tr>
+<tr>
+  <td><code>oldValue</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The old value of the key being changed.</td>
+</tr>
+<tr>
+  <td><code>newValue</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The new value of the key being changed.</td>
+</tr>
+<tr>
+  <td><code>url</code> <%- template("readOnlyInline") %></td>
+  <td>DOMString (string)</td>
+  <td>The address of the document whose key changed.</td>
+</tr>
+<tr>
+  <td><code>storageArea</code> <%- template("readOnlyInline") %></td>
+  <td>Storage</td>
+  <td>The Storage object that was affected.</td>
+</tr><%
+
+        break;
+} %>

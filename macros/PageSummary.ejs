@@ -1,0 +1,13 @@
+<%
+// Inserts the summary of a specified page into the document.
+//
+// Parameters:
+//
+//  $0 - URL of the page whose summary is to be inserted. Example: "/en-US/docs". Do not use https://etc.
+//
+
+var url = web.spacesToUnderscores($0);
+var page = wiki.getPage($0);
+var summary = page.summary;
+%>
+<%- page.summary %>

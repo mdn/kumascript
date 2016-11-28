@@ -1,0 +1,79 @@
+<%
+var s_inherited = "Inherited from XUL element";
+
+switch (env.locale) {
+    case "de":
+        s_inherited = "Geerbt von XUL-Element"; break;
+    case "es":
+        s_inherited = "Heredados desde el elemento XUL"; break;
+    case "fr":
+        s_inherited = "Hérités de XUL element"; break;
+    case "ja":
+        s_inherited = "XUL 要素からの継承"; break;
+    case "pl":
+        s_inherited = "Dziedziczy z elementu XUL"; break;
+    case "ru":
+        s_inherited = "Наследуется с XUL элемента"; break;
+}
+
+
+
+%><table style="border: 1px solid rgb(204, 204, 204); margin: 0 0 10px 10px; padding: 0 10px; background: rgb(238, 238, 238);">
+<tbody>
+<tr>
+<td><p><strong><%=s_inherited%></strong><br /> <small> 
+<%- template("XULAttr", ["align"]) %>, 
+<%- template("XULAttr", ["allowevents"]) %>, 
+<%- template("XULAttr", ["allownegativeassertions"]) %>, 
+<%- template("XULAttr", ["class"]) %>, 
+<%- template("XULAttr", ["coalesceduplicatearcs"]) %>, 
+<%- template("XULAttr", ["collapsed"]) %>, 
+<%- template("XULAttr", ["container"]) %>, 
+<%- template("XULAttr", ["containment"]) %>, 
+<%- template("XULAttr", ["context"]) %>, 
+<%- template("XULAttr", ["contextmenu"]) %>, 
+<%- template("XULAttr", ["datasources"]) %>, 
+<%- template("XULAttr", ["dir"]) %>, 
+<%- template("XULAttr", ["empty"]) %>, 
+<%- template("XULAttr", ["equalsize"]) %>, 
+<%- template("XULAttr", ["flags"]) %>, 
+<%- template("XULAttr", ["flex"]) %>, 
+<%- template("XULAttr", ["height"]) %>, 
+<%- template("XULAttr", ["hidden"]) %>, 
+<%- template("XULAttr", ["id"]) %>, 
+<%- template("XULAttr", ["insertafter"]) %>, 
+<%- template("XULAttr", ["insertbefore"]) %>, 
+<%- template("XULAttr", ["left"]) %>, 
+<%- template("XULAttr", ["maxheight"]) %>, 
+<%- template("XULAttr", ["maxwidth"]) %>, 
+<%- template("XULAttr", ["menu"]) %>, 
+<%- template("XULAttr", ["minheight"]) %>, 
+<%- template("XULAttr", ["minwidth"]) %>, 
+<%- template("XULAttr", ["mousethrough"]) %>, 
+<%- template("XULAttr", ["observes"]) %>, 
+<%- template("XULAttr", ["ordinal"]) %>, 
+<%- template("XULAttr", ["orient"]) %>, 
+<%- template("XULAttr", ["pack"]) %>, 
+<%- template("XULAttr", ["persist"]) %>, 
+<%- template("XULAttr", ["popup"]) %>, 
+<%- template("XULAttr", ["position"]) %>, 
+<%- template("XULAttr", ["preference-editable"]) %>, 
+<%- template("XULAttr", ["querytype"]) %>, 
+<%- template("XULAttr", ["ref"]) %>, 
+<%- template("XULAttr", ["removeelement"]) %>, 
+<%- template("XULAttr", ["sortDirection"]) %>, 
+<%- template("XULAttr", ["sortResource"]) %>, 
+<%- template("XULAttr", ["sortResource2"]) %>, 
+<%- template("XULAttr", ["statustext"]) %>, 
+<%- template("XULAttr", ["style"]) %>, 
+<%- template("XULAttr", ["template"]) %>, 
+<%- template("XULAttr", ["tooltip"]) %>, 
+<%- template("XULAttr", ["tooltiptext"]) %>, 
+<%- template("XULAttr", ["top"]) %>, 
+<%- template("XULAttr", ["uri"]) %>, 
+<%- template("XULAttr", ["wait-cursor"]) %>, 
+<%- template("XULAttr", ["width"]) %> </small></p>
+</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,21 @@
+<%
+// Note: To add a link to new JavaScript version description
+// add version number to versionList variable below. The page linked to
+// must reside in /en/JavaScript/New_in_JavaScript/N, where N is version number.
+
+var el = env.locale;
+var versionList = ["1.2", "1.3", "1.4","1.5", "1.6", "1.7", "1.8", "1.8.1", "1.8.5"];
+
+
+%><ul>
+<%
+for (var i=0; i<versionList.length; i++) {
+    var s;
+    switch (env.locale) {
+      case "de": s= "/de/docs/Web/JavaScript/Neu_in_JavaScript/" + versionList[i]; break;
+      default: s = "/" + el + "/docs/Web/JavaScript/New_in_JavaScript/" + versionList[i];
+    }
+    %><li><%- web.link(s, wiki.getPage(s).title) %></li><%
+}
+%>
+</ul>

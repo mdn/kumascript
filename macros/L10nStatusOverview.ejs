@@ -1,0 +1,119 @@
+<%
+/*
+ * Displays an overview table for l10n status
+ *
+ */
+
+var sectionColumnTitle = mdn.localString({
+    "en-US": "Section",
+    "de"   : "Bereich",
+    "fr"   : "Catégorie",
+    "ru"   : "Раздел"
+});
+
+var pagesColumnTitle = mdn.localString({
+    "en-US": "Pages",
+    "de"   : "Seiten",
+    "fr" : "Pages",
+    "ru"   : "Страниц"
+});
+
+var translatedColumnTitle = mdn.localString({
+    "en-US": "Translated",
+    "de"   : "Übersetzt",
+    "fr"   : "Traduites",
+    "ru"   : "Переведено"
+});
+
+var translationsUpToDateColumnTitle = mdn.localString({
+    "en-US": "Translation up to date",
+    "de"   : "Übersetzung auf neustem Stand",
+    "fr"   : "Traductions à jour",
+    "ru"   : "Актуальных переводов"
+});
+
+var total = mdn.localString({
+    "en-US": "Total",
+    "de"   : "Gesamt",
+    "fr"   : "Total",
+    "ru"   : "Итого"
+});
+
+var statusStr = mdn.localString({
+   "en-US": "documentation status",
+   "fr"   : "Statut de la documentation",
+   "ru"   : "Статус документации"
+});
+
+/*** Collect doc status data ***/
+var MDN = require("MDN:Common");
+var result = {};
+var totalPages = 0,
+    totalTranslated = 0,
+    totalUpToDate = 0;
+var pageList = page.subpagesExpand('/' + env.locale + '/docs/MDN/Doc_status');
+
+function getPages(pageList) {
+    if (pageList) {
+        for (var aPage in pageList) {
+            if (pageList[aPage].url.indexOf("Doc_status/Overview") == -1) {
+                var url = 'https://developer.mozilla.org/' + pageList[aPage].locale + '/docs/' + pageList[aPage].slug + '?raw&macros&section=json';
+                var resource = MDN.fetchHTTPResource(url);
+                if (resource != '') {
+                    result[pageList[aPage].title] = {};
+                    result[pageList[aPage].title].metrics = JSON.parse(resource);
+                    result[pageList[aPage].title].url = pageList[aPage].url;
+                }
+                var subpage = getPages(pageList[aPage].subpages);
+            }
+        }
+    }
+}
+
+getPages(pageList);
+
+/*** Summary table ***/
+%>
+<table class="docstatussummary standard-table">
+  <thead>
+    <tr>
+        <th><%=sectionColumnTitle%></th>
+        <th><%=pagesColumnTitle%></th>
+        <th><%=translatedColumnTitle%></th>
+        <th><%=translationsUpToDateColumnTitle%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%     
+        for (var key in result) {
+        if (result.hasOwnProperty(key) && typeof key != 'undefined') {
+            var pageCounter = result[key].metrics.pages.counter || 0;
+            var translationCounter = result[key].metrics.translations.counter || 0;
+            var updateCounter = result[key].metrics.updateNeeded.counter || 0;
+       
+            totalPages += pageCounter;
+            totalTranslated += translationCounter;
+            totalUpToDate += updateCounter;
+        
+            var translationPercent = Math.floor((translationCounter / pageCounter) * 100);
+            var uptodatePercent = Math.floor((updateCounter / pageCounter) * 100);
+        
+            var totalTranslatedPercent = Math.floor((totalTranslated / totalPages) * 100);
+            var totalUpToDatePercent = Math.floor((totalUpToDate / totalPages) * 100);
+    %>
+        <tr>
+            <td><a href="<%=result[key].url%>"><%=key.replace(statusStr, "", "i")%></a></td>
+            <td><%=pageCounter%></td>
+            <td><%=translationCounter%> (<%=translationPercent%>%)</td>
+            <td><%=updateCounter%> (<%=uptodatePercent%>%)</td>
+        </tr>
+    <% }} %>
+    <tr>
+        <td><strong><%=total%></strong></td>
+        <td><strong><%=totalPages%></strong></td>
+        <td><strong><%=totalTranslated%> (<%=totalTranslatedPercent%>%)</strong></td>
+        <td><strong><%=totalUpToDate%> (<%=totalUpToDatePercent%>%)</strong></td>
+    </tr>
+</tbody>
+</table>
+<div id="json" style="display: none"><%=JSON.stringify(result) %></div>

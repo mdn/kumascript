@@ -1,0 +1,19 @@
+<%
+// Inserts a #include line for the specified path, with the header file name a link to
+// a search for files with that text.
+//
+// Sheppy note: I honestly am not sure what use this is. :)
+//
+//  $0 - Path to header file
+
+var parts = $0.split("/");
+var len = parts.length;
+
+if (len) {
+    var fname = parts[len-1];
+} else {
+    var fname = pars;
+}
+var html = '<pre>#include &quot;<a href="http://mxr.mozilla.org/mozilla-central/find?string=' + fname + '">' + fname + '&quot;</pre>';
+%>
+<%-html%>

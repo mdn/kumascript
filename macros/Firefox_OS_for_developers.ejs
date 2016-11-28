@@ -1,0 +1,65 @@
+<div class="multiColumnList">
+<ul>
+<%
+/*
+ * $0 max version to list
+ *
+ */
+
+/*
+var maxVersion = $0;
+    minVersion = maxVersion - 30;
+
+if (minVersion < 4) { minVersion = 4 }
+*/
+// for href attr
+var slug = mdn.localString({
+    "en-US" : "Releases",
+    "fr" : "Versions",
+    "ru" : "Версии"
+});
+
+// for content
+var str = mdn.localString({
+    "fr" : ["Firefox OS ", " pour les développeurs"],
+    "en-US": ["Firefox OS ", " for developers"],
+    "ru": ["Firefox OS ", " для разработчиков"]
+});
+
+var loc = mdn.localString({
+    "en-US" : "en-US",
+    "fr" : "fr",
+    "ja": "ja",
+    "zh-CN": "zh-CN",
+    "ru": "ru"
+});
+
+/*
+// for newer version
+for (var i = maxVersion; i >= minVersion; i--) {
+    %><li><a href="/<%-loc%>/docs/Mozilla/Firefox_OS/<%- slug %>/<%- i %>"><%- str[0] %><%- i %><%- str[1] %></a></li><%
+}
+*/
+// for older version
+/* if (minVersion == 4) { */
+// old versions
+  var ov = ["2.0", "1.4", "1.3", "1.2", "1.1", "1.0.1"];
+  var ovStart = ov.indexOf($0);
+  if (ovStart == -1) {
+    ovStart = 0;
+  }
+  for(var i = ovStart; i < ov.length; i++) {
+      %><li><a href="/<%-loc%>/docs/Mozilla/Firefox_OS/<%- slug %>/<%- ov[i] %>"><%- str[0] %><%-ov[i]%><%- str[1] %></a></li><%
+  }
+/* } */
+ 
+/*
+    This is a modified version of the Firefox_for_developers macro, developed by Chris Mills for use in the
+    Firefox OS release notes pages. Most of this is extraneous, given that there are only four versions of Firefox OS
+    in existence at the moment, but I'm keeping the original code structure because in the future Firefox OS versions could well
+    adopt the same more regular versioning.
+*/
+ 
+ 
+%></ul>
+</div>

@@ -1,0 +1,57 @@
+<%
+/* one parameter: JavaScript version */
+var lang = env.locale;
+var link = '';
+
+
+
+/* check if English 'New in JavaScript/$0' page exists for fallback */
+if(wiki.pageExists('/en-US/docs/JavaScript/New_in_JavaScript/' + $0)) {
+    link = web.link(wiki.uri('/en-US/docs/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+} else {
+    link = 'JavaScript ' + $0;
+}
+
+var str = "Introduced in " + link;
+
+switch(lang) {
+    case 'fr':
+        if(wiki.pageExists('/fr/docs/Web/JavaScript/New_in_JavaScript/' + $0)) {
+            link = web.link(wiki.uri('/fr/docs/Web/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists('/fr/docs/Web/JavaScript/New_in_JavaScript/Nouveaut%C3%A9s_dans_JavaScript_' + $0)) {
+            link = web.link(wiki.uri('/fr/docs/Web/JavaScript/New_in_JavaScript/Nouveaut%C3%A9s_dans_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = "Introduit dans " + link;
+        break;
+    case 'ja':
+        if(wiki.pageExists(lang + '/ja/docs/JavaScript/New_in_JavaScript/' + $0)) {
+            link = web.link(wiki.uri('/ja/docs/JavaScript/New_in_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists('/ja/docs/New_in_JavaScript_' + $0)) {
+            link = web.link(wiki.uri('/ja/docs/New_in_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = link + " で導入";
+        break;
+    case 'pl':
+        if(wiki.pageExists('/pl/docs/JavaScript/Nowości_w_JavaScript/' + $0)) {
+            link = web.link(wiki.uri('/pl/docs/JavaScript/Nowości_w_JavaScript/' + $0), 'JavaScript ' + $0);
+        } else if(wiki.pageExists('/pl/docs/Nowości_w_JavaScript_' + $0)) {
+            link = web.link(wiki.uri('/pl/docs/Nowości_w_JavaScript_' + $0), 'JavaScript ' + $0);
+        }
+        str = "Wprowadzono w " + link;
+        break;
+    case 'zh-TW':
+        str = "在 " + link + "引入";
+        break;
+    case 'zh-CN':
+        str = "在 " + link + " 引入";
+        break;
+    case 'ru':
+        str = 'Представлено в '+link;
+        break;
+    default: break;
+}
+
+
+%><div class="overheadIndicator jsMinVerHeader standardNote">
+<p><%- str %></p>
+</div>

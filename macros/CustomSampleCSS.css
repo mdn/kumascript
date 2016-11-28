@@ -1,0 +1,34 @@
+/* CSS here */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+svg:not(:root) {
+    display:block;
+}
+
+
+/* Canvas docs, playable samples */
+.playable-code {
+  background-color: #F4F7F8;
+  border: none;
+  border-left: 6px solid  #558ABB;
+  border-width: medium medium medium 6px;
+  color: #4D4E53;
+  height: 100px;
+  width: 90%;
+  padding: 10px 10px 0px;
+}
+
+.playable-canvas {
+  border: 1px solid #4D4E53;
+  border-radius: 2px;
+}
+
+.playable-buttons {
+  text-align: right;
+  width: 90%;
+  padding: 5px 10px 5px 26px;
+}

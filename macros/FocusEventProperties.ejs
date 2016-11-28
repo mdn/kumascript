@@ -1,0 +1,26 @@
+<tr><%
+var el = env.locale;
+var prm = $0 || "null";
+
+switch (el) {
+
+    case "yourLocale" :
+
+%>
+  <td><code>relatedTarget</code> <%-template("readOnlyInline")%></td>
+  <td>EventTarget (DOM element)</td>
+  <td><%= prm %></td>
+<%
+
+        break;
+    default:
+
+%>
+  <td><code>relatedTarget</code> <%-template("readOnlyInline")%></td>
+  <td>EventTarget (DOM element)</td>
+  <td><%= prm %></td>
+<%
+
+        break;
+} %>
+</tr>

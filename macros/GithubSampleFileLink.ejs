@@ -1,0 +1,24 @@
+<%
+// Creates a link to a specific file on the MDN sample server, given
+// the name of the sample and the name (or path) of the file within the
+// sample.
+//
+// Parameters:
+//  $0  The name of the sample
+//  $1  The name of the file within the sample
+//  $2  The link text (optional)
+//
+
+// urlRoot is the link to the base directory under which all the samples
+// live.
+
+var urlRoot = "https://github.com/mdn/samples-server/tree/master/s/";
+
+// Build the URL to the sample
+
+var url = urlRoot + $0 + "/" + $1;
+var text = $2 || $0 | "/" + $1;
+
+var html = "<a href='" + url + "'>" + text + "</a>";
+%>
+<%-html%>

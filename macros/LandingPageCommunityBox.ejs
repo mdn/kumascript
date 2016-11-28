@@ -1,0 +1,76 @@
+<%
+// Presents a box showing assorted information about the community
+// for the technology area covered by a landing page.
+//
+// Parameters:
+//  $0  Name of the topic/community
+//  $1  Name of the mailing list for the community
+//  $2  Name of the newsgroup for the community
+//  $3  IRC channel name
+//  $4  String containing a list of URLs and descriptions for additional
+//      links (empty string or null if none).
+//
+// The $4 string of additional links is formatted as a list like this:
+// url|description||url|description...
+
+var channelStr = "";
+var headingStr = "";
+var messageStr = "";
+var ircLink = "";
+var extraLinks = "";
+
+var ircInfoLink = "<a href='https://wiki.mozilla.org/IRC'>IRC</a>";
+
+// Build the IRC channel URL if a channel name was specified
+
+if ($3 && $3.length) {
+    ircLink = "<a href='irc://irc.mozilla.org/" + $3 + "'>#" + $3 + "</a>";
+}
+
+// If the extra links string is provided, build that HTML
+
+if ($4 && $4.length) {
+    var list = $4.split("||");      // a list of each item in "url|description" format
+    
+    extraLinks = "<ul>";
+    
+    for (var i=0; i<list.length; i++) {
+        var comp = list[i].split("|");
+        extraLinks += "<li><a href='" + comp[0] + "'>" + comp[1] + "</a></li>";
+    }
+    
+    extraLinks += "</ul>";
+}
+
+switch(env.locale) {
+    case "de":
+        headingStr = "Community";
+        messageStr = "Trete der " + $0 + " Community über unsere Mailing-Liste oder Newsgruppe bei:";
+        if ($3) {
+            channelStr = "Du kannst auch über den " + ircLink + " Kannal auf " + ircInfoLink + " live mitdiskutieren.";
+        }
+        break;
+    case "zh-CN":
+        headingStr = "社区";
+        messageStr = "我们有下面这些与 " + $0 + " 相关的社区：";
+        if ($3) {
+            channelStr = "另外，也欢迎加入我们的 " + ircLink + " 频道 " + ircInfoLink + " 。";
+        }
+        break;
+    default:
+        headingStr = "Community";
+        messageStr = "Join the " + $0 + " community on our mailing list or newsgroup:";
+        if ($3) {
+            channelStr = "Also, be sure to join in the live discussion in the " + ircLink + " channel on " + ircInfoLink + ".";
+        }
+        break;
+}
+
+%>
+<div class="landingPageBox">
+<h2 class="Community"><%=headingStr%></h2>
+<p><%=messageStr%></p>
+<%-template("DiscussionList", [$1, $2])%>
+<p><%-channelStr%></p>
+<%-extraLinks%>
+</div>

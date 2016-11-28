@@ -1,0 +1,20 @@
+<%
+/* one parameter: name of sample's file in /samples/domref */
+/* get the page language */
+
+var target = "/samples/domref/" + $0;
+
+// Localizers: add a case to hear for your language
+var str = mdn.localString({
+    "en-US": "View Live Examples",
+	"es":    "Ver ejemplo en vivo",
+	"de":    "Live-Beispiel ansehen",
+	"fr":    "Voir l'exemple sur une page",
+	"ja":    "実際の表示を確認",
+	"ko":    "실제 예제 보기",
+	"pl":    "Zobacz przykład",
+	"zh-CN": "查看在线演示",
+	"zh-TW": "查看示例",
+    "ru":    "Посмотреть живые примеры"
+});
+%><a class="button liveSample" href="<%=target%>"><%-str%></a>

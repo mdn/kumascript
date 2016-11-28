@@ -1,0 +1,23 @@
+<%
+
+var el = env.locale;
+
+var path1 = mdn.localString({
+    "en-US" : "/en-US/docs/",
+    "ja" :    "/" + el + "/docs/"
+});
+
+var path2 = mdn.localString({
+    "en-US" : "Mozilla_event_reference/",
+    "ja"    : "Web/Reference/Events/"
+});
+
+var path = path1 + path2;
+
+
+%><ul>
+<li><a href="<%- path %>keydown"><code>keydown</code></a></li>
+<li><a href="<%- path %>keyup"><code>keyup</code></a></li>
+<li><a href="<%- path %>keypress"><code>keypress</code></a></li>
+<li><a href="<%- path %>input"><code>input</code></a> (event)</li>
+</ul>
