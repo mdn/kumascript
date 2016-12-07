@@ -6,7 +6,7 @@ var baseURL = "/" + locale + "/docs/Mozilla/Add-ons/";
 
 function currentPageIsUnder(root) {
   rootSlug = "Mozilla/Add-ons/" + root;
-  if (slug.indexOf(rootSlug) != -1) {
+  if (slug && slug.indexOf(rootSlug) != -1) {
     return "open";
   }
   return "closed";
