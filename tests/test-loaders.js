@@ -48,14 +48,34 @@ module.exports = nodeunit.testCase({
         test.done();
     },
 
-    "Template loading via the FileLoader should work": function (test) {
+    "Template loading via FileLoader": function (test) {
         var loader = new ks_loaders.FileLoader({
             root_dir: 'tests/fixtures/templates'
         });
         var tmpl_fn = __dirname + '/fixtures/templates/t1.ejs';
         fs.readFile(tmpl_fn, function (err, expected) {
             loader.get('t1', function (err, tmpl) {
-                test.equal(expected, tmpl.options.source);
+                test.ifError(err);
+                if (!err) {
+                    test.equal(expected, tmpl.options.source);
+                }
+                test.done();
+            });
+        });
+    },
+
+    "Template loading (with colons in name) via FileLoader": function (test) {
+        var loader = new ks_loaders.FileLoader({
+            root_dir: 'tests/fixtures/templates'
+        });
+        var tmpl_fn = __dirname +
+                      '/fixtures/templates/template-exec-template.ejs';
+        fs.readFile(tmpl_fn, function (err, expected) {
+            loader.get('TemPlaTe:eXec:teMplatE', function (err, tmpl) {
+                test.ifError(err);
+                if (!err) {
+                    test.equal(expected, tmpl.options.source);
+                }
                 test.done();
             });
         });
