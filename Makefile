@@ -11,6 +11,7 @@ DOCKER_PORT_ARGS ?= -p "${PORT}:${PORT}"
 DEIS_PROFILE ?= usw
 DEIS_APP ?= kumascript-dev
 PRIVATE_IMAGE ?= ${PRIVATE_REGISTRY}/${DEIS_APP}\:${VERSION}
+TEST_RUN_ARGS ?=
 
 
 build:
@@ -23,7 +24,8 @@ run:
 	docker run ${DOCKER_RUN_ARGS} ${DOCKER_PORT_ARGS} ${IMAGE} node run.js
 
 test:
-	docker run ${DOCKER_RUN_ARGS} ${IMAGE} ./node_modules/.bin/nodeunit tests
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    ./node_modules/.bin/nodeunit ${TEST_RUN_ARGS} tests
 
 bash:
 	docker run -it ${DOCKER_RUN_ARGS} ${IMAGE} bash
