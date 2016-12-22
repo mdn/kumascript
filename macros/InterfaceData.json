@@ -8,7 +8,7 @@
     "impl" : []
   },
   "SVGPolygonElement": {
-    "inh"  : "SVGGraphicsElement",
+    "inh"  : "SVGGeometryElement",
     "impl" : ["SVGAnimatedPoints"]
   },
   "HTMLDataElement": {
@@ -108,7 +108,7 @@
     "impl" : []
   },
   "SVGCircleElement": {
-    "inh"  : "SVGGraphicsElement",
+    "inh"  : "SVGGeometryElement",
     "impl" : []
   },
   "DOMDownload": {
@@ -375,8 +375,12 @@
     "inh"  : "HTMLElement",
     "impl" : []
   },
-  "SVGPathElement": {
+  "SVGGeometryElement": {
     "inh"  : "SVGGraphicsElement",
+    "impl" : []
+  },
+  "SVGPathElement": {
+    "inh"  : "SVGGeometryElement",
     "impl" : ["SVGAnimatedPathData"]
   },
   "HTMLTemplateElement": {
@@ -588,7 +592,7 @@
     "impl" : ["SVGUnitTypes"]
   },
   "SVGLineElement": {
-    "inh"  : "SVGGraphicsElement",
+    "inh"  : "SVGGeometryElement",
     "impl" : []
   },
   "SpeechRecognitionEvent": {
@@ -636,7 +640,7 @@
     "impl" : ["LegacyQueryInterface"]
   },
   "SVGRectElement": {
-    "inh"  : "SVGGraphicsElement",
+    "inh"  : "SVGGeometryElement",
     "impl" : []
   },
   "HTMLUListElement": {
@@ -956,7 +960,7 @@
     "impl" : []
   },
   "SVGPolylineElement": {
-    "inh"  : "SVGGraphicsElement",
+    "inh"  : "SVGGeometryElement",
     "impl" : ["SVGAnimatedPoints"]
   },
   "IDBVersionChangeEvent": {
@@ -1392,7 +1396,7 @@
     "impl" : ["LegacyQueryInterface"]
   },
   "SVGEllipseElement": {
-    "inh"  : "SVGGraphicsElement",
+    "inh"  : "SVGGeometryElement",
     "impl" : []
   },
   "SimpleGestureEvent": {
