@@ -10,6 +10,9 @@ var none = "None."
 
 // API is either $0 or the name of the calling page
 var slug = env.slug;
+if (!slug) {
+    return;
+}
 var pathComponents = slug.split("/");
 if (pathComponents < 1) {
     return;
