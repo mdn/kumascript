@@ -10,8 +10,8 @@ var EventHref = '/' + locale + '/docs/Web/Events';
 var output = "";
 // slug is not available in preview mode.
 if (slug) {
-    
-var groups = string.deserialize(template("GroupData"))[0];
+
+var groups = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/data/master/api/groups.json");
 var event = slug.replace('Web/Events/','').split('/')[0];
 
 
