@@ -1757,7 +1757,6 @@
                             "WebGLTransformFeedback",
                             "WebGLVertexArrayObject",
                             "WebGL2RenderingContext",
-                            "WebGLVertexArrayObjectOES",
                             "WEBGL_compressed_texture_s3tc",
                             "WEBGL_compressed_texture_atc",
                             "WEBGL_compressed_texture_etc1",
