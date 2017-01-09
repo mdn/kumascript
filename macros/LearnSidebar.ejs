@@ -113,6 +113,17 @@ var text = mdn.localString({
         'Working_with_JSON_data' : 'Working with JSON data',
         'Object_building_practise' : 'Object building practise',
         'Assessment_Adding_features_to_our_bouncing_balls_demo' : 'Assessment: Adding features to our bouncing balls demo',
+    'Accessibility_—_Make_the_web_usable_by_everyone' : 'Accessibility — Make the web usable by everyone',
+    'Accessibility_guides' : 'Accessibility guides',
+    'Accessibility_assessment' : 'Accessibility assessment',
+      'Accessibility_overview' : 'Accessibility overview',
+      'What_is_accessibility' : 'What is accessibility?',
+      'HTML_a_good_basis_for_accessibility' : 'HTML: A good basis for accessibility',
+      'CSS_and_JavaScript_accessibility_best_practices' : 'CSS and JavaScript accessibility best practices',
+      'WAI-ARIA_basics' : 'WAI-ARIA basics',
+      'Accessible_multimedia' : 'Accessible multimedia',
+      'Mobile_accessibility' : 'Mobile accessibility',
+      'Assessment_Accessibility_troubleshooting' : 'Assessment: Accessibility troubleshooting',
     'Tools_and_testing' : 'Tools and testing',
       'Cross_browser_testing' : 'Cross browser testing',
         'Cross_browser_testing_overview' : 'Cross browser testing overview',
@@ -148,6 +159,17 @@ var text = mdn.localString({
         'Tutorial_Part_11_Deploying_Django_to_production' : 'Tutorial Part 11: Deploying Django to production',
         'Web_application_security' : 'Web application security',
         'Assessment_DIY_mini_blog' : 'Assessment: DIY mini blog',
+      'Express_Web_Framework_(Node.js_JavaScript)' : 'Express Web Framework (node.js/JavaScript)',
+        'Express_Web_Framework_(Node.js_JavaScript)_overview' : 'Express Web Framework (Node.js/JavaScript) overview',
+        'Express_Node_introduction' : 'Express/Node introduction',
+        'Setting_up_a_Node_(Express)_development_environment' : 'Setting up a Node (Express) development environment',
+        'Express_Tutorial_The_Local_Library_website' : 'Express tutorial: The Local Library website',
+        'Express_Tutorial_Part_2_Creating_a_skeleton_website' : 'Express Tutorial Part 2: Creating a skeleton website',
+        'Express_Tutorial_Part_3_Using_a_database_(with_Mongoose)' : 'Express Tutorial Part 3: Using a database (with Mongoose)',
+        'Express_Tutorial_Part_4_Routes_and_controllers' : 'Express Tutorial Part 4: Routes and controllers',
+        'Express_Tutorial_Part_5_Displaying_library_data' : 'Express Tutorial Part 5: Displaying library data',
+        'Express_Tutorial_Part_6_Working_with_forms' : 'Express Tutorial Part 6: Working with forms',
+        'Express_Tutorial_Part_7_Deploying_to_production' : 'Express Tutorial Part 7: Deploying to production',
     'Further_resources': 'Further resources',
     'Advanced_learning_material': 'Advanced learning material',
       'WebGL_graphics_processing': 'WebGL: Graphics processing',
@@ -157,7 +179,7 @@ var text = mdn.localString({
       'How_the_Web_works': 'How the Web works',
       'Tools_and_setup': 'Tools and setup',
       'Design_and_accessibility': 'Design and accessibility',
-    'How_to_contribute': 'How to contribute'    
+    'How_to_contribute': 'How to contribute'
   },
   'ru': {
     'Complete_beginners': 'Новички начинают здесь!',
@@ -303,7 +325,7 @@ var text = mdn.localString({
       'How_the_Web_works': 'Как работает Веб',
       'Tools_and_setup': 'Инструменты и установка',
       'Design_and_accessibility': 'Дизайн и доступность',
-    'How_to_contribute': 'Как помочь?'    
+    'How_to_contribute': 'Как помочь?'
   },
   'zh-TW': {
     'Complete_beginners': '全新手請從這開始！',
@@ -449,7 +471,7 @@ var text = mdn.localString({
       'How_the_Web_works': 'Web 的運作方式',
       'Tools_and_setup': '工具與設定',
       'Design_and_accessibility': '設計與親合度',
-    'How_to_contribute': '如何貢獻'    
+    'How_to_contribute': '如何貢獻'
   }
 });
 %>
@@ -586,6 +608,22 @@ var text = mdn.localString({
       <li><a href="<%=baseURL%>JavaScript/Objects/Adding_bouncing_balls_features"><%=text['Assessment_Adding_features_to_our_bouncing_balls_demo']%></a></li>
     </ol>
   </li>
+  <li data-default-state="<%=currentPageIsUnder('Accessibility')%>"><a href="<%=baseURL%>Accessibility"><strong><%=text['Accessibility_—_Make_the_web_usable_by_everyone']%></a></strong></li>
+  <li data-default-state="<%=currentPageIsUnder('Accessibility')%>"><a href="<%=baseURL%>Accessibility"><%=text['Accessibility_guides']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>Accessibility"><%=text['Accessibility_overview']%></a></li>
+      <li><a href="<%=baseURL%>Accessibility/What_is_accessibility"><%=text['What_is_accessibility']%></a></li>
+      <li><a href="<%=baseURL%>Accessibility/HTML"><%=text['HTML_a_good_basis_for_accessibility']%></a></li>
+      <li><a href="<%=baseURL%>Accessibility/CSS_and_JavaScript"><%=text['CSS_and_JavaScript_accessibility_best_practices']%></a></li>
+      <li><a href="<%=baseURL%>Accessibility/WAI-ARIA_basics"><%=text['WAI-ARIA_basics']%></a></li>
+      <li><a href="<%=baseURL%>Accessibility/Multimedia"><%=text['Accessible_multimedia']%></a></li>
+      <li><a href="<%=baseURL%>Accessibility/Mobile"><%=text['Mobile_accessibility']%></a></li>
+    </ol>
+    <li data-default-state="<%=currentPageIsUnder('Accessibility')%>"><a href="<%=baseURL%>Accessibility"><%=text['Accessibility_assessment']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>Accessibility/Accessibility_troubleshooting"><%=text['Assessment_Accessibility_troubleshooting']%></a></li>
+    </ol>
+  </li>
   <li data-default-state="<%=currentPageIsUnder('Tools_and_testing')%>"><a href="<%=baseURL%>Tools_and_testing"><strong><%=text['Tools_and_testing']%></strong></a></li>
   <li data-default-state="<%=currentPageIsUnder('Tools_and_testing/Cross_browser_testing')%>"><a href="<%=baseURL%>Tools_and_testing/Cross_browser_testing"><%=text['Cross_browser_testing']%></a>
     <ol>
@@ -603,34 +641,47 @@ var text = mdn.localString({
   <li data-default-state="<%=currentPageIsUnder('Server-side')%>"><a href="<%=baseURL%>Server-side"><strong><%=text['Server-side_website_programming']%></strong></a></li>
 
   <li data-default-state="<%=currentPageIsUnder('Server-side/First_steps')%>"><a href="<%=baseURL%>Server-side/First_steps"><%=text['First_steps']%></a>
-  <ol>
-    <li><a href="<%=baseURL%>Server-side/First_steps"><%=text['First_steps_overview']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/First_steps/Introduction"><%=text['Introduction_to_the_server-side']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/First_steps/Client-Server_overview"><%=text['Client-Server_overview']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/First_steps/Web_frameworks"><%=text['Server-side_web_frameworks']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/First_steps/Website_security"><%=text['Website_security']%></a></li>
-  </ol>
+    <ol>
+      <li><a href="<%=baseURL%>Server-side/First_steps"><%=text['First_steps_overview']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/First_steps/Introduction"><%=text['Introduction_to_the_server-side']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/First_steps/Client-Server_overview"><%=text['Client-Server_overview']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/First_steps/Web_frameworks"><%=text['Server-side_web_frameworks']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/First_steps/Website_security"><%=text['Website_security']%></a></li>
+    </ol>
   </li>
-
   <li data-default-state="<%=currentPageIsUnder('Server-side/Django')%>"><a href="<%=baseURL%>Server-side/Django"><%=text['Django_web_framework_(Python)']%></a>
-  <ol>
-    <li><a href="<%=baseURL%>Server-side/Django"><%=text['Django_web_framework_(Python)_overview']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Introduction"><%=text['Introduction']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/development_environment"><%=text['Setting_up_a_development_environment']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Tutorial_local_library_website"><%=text['Tutorial_The_Local_Library_website']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/skeleton_website"><%=text['Tutorial_Part_2_Creating_a_skeleton_website']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Models"><%=text['Tutorial_Part_3_Using_models']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Admin_site"><%=text['Tutorial_Part_4_Django_admin_site']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Home_page"><%=text['Tutorial_Part_5_Creating_our_home_page']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Generic_views"><%=text['Tutorial_Part_6_Generic_list_and_detail_views']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Sessions"><%=text['Tutorial_Part_7_Sessions_framework']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Authentication"><%=text['Tutorial_Part_8_User_authentication_and_permissions']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Forms"><%=text['Tutorial_Part_9_Working_with_forms']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Testing"><%=text['Tutorial_Part_10_Testing_a_Django_web_application']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/Deployment"><%=text['Tutorial_Part_11_Deploying_Django_to_production']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/web_application_security"><%=text['Web_application_security']%></a></li>
-    <li><a href="<%=baseURL%>Server-side/Django/django_assessment_blog"><%=text['Assessment_DIY_mini_blog']%></a></li>
-  </ol>
+    <ol>
+      <li><a href="<%=baseURL%>Server-side/Django"><%=text['Django_web_framework_(Python)_overview']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Introduction"><%=text['Introduction']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/development_environment"><%=text['Setting_up_a_development_environment']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Tutorial_local_library_website"><%=text['Tutorial_The_Local_Library_website']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/skeleton_website"><%=text['Tutorial_Part_2_Creating_a_skeleton_website']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Models"><%=text['Tutorial_Part_3_Using_models']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Admin_site"><%=text['Tutorial_Part_4_Django_admin_site']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Home_page"><%=text['Tutorial_Part_5_Creating_our_home_page']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Generic_views"><%=text['Tutorial_Part_6_Generic_list_and_detail_views']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Sessions"><%=text['Tutorial_Part_7_Sessions_framework']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Authentication"><%=text['Tutorial_Part_8_User_authentication_and_permissions']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Forms"><%=text['Tutorial_Part_9_Working_with_forms']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Testing"><%=text['Tutorial_Part_10_Testing_a_Django_web_application']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/Deployment"><%=text['Tutorial_Part_11_Deploying_Django_to_production']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/web_application_security"><%=text['Web_application_security']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Django/django_assessment_blog"><%=text['Assessment_DIY_mini_blog']%></a></li>
+    </ol>
+  </li>
+  <li data-default-state="<%=currentPageIsUnder('Server-side/Express_Nodejs')%>"><a href="<%=baseURL%>Server-side/Express_Nodejs"><%=text['Express_Web_Framework_(Node.js_JavaScript)']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs"><%=text['Express_Web_Framework_(Node.js_JavaScript)_overview']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/Introduction"><%=text['Express_Node_introduction']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/development_environment"><%=text['Setting_up_a_Node_(Express)_development_environment']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/Tutorial_local_library_website"><%=text['Express_Tutorial_The_Local_Library_website']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/skeleton_website"><%=text['Express_Tutorial_Part_2_Creating_a_skeleton_website']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/mongoose"><%=text['Express_Tutorial_Part_3_Using_a_database_(with_Mongoose)']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/routes"><%=text['Express_Tutorial_Part_4_Routes_and_controllers']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/Displaying_data"><%=text['Express_Tutorial_Part_5_Displaying_library_data']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/forms"><%=text['Express_Tutorial_Part_6_Working_with_forms']%></a></li>
+      <li><a href="<%=baseURL%>Server-side/Express_Nodejs/deployment"><%=text['Express_Tutorial_Part_7_Deploying_to_production']%></a></li>
+    </ol>
   </li>
   <li><a href="#"><strong><%=text['Further_resources']%></strong></a></li>
   <li data-default-state="<%=currentPageIsUnder('Other_learning_material')%>"><a href="<%=baseURL%>Other_learning_material"><%=text['Advanced_learning_material']%></a>
