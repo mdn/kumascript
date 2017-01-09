@@ -11,6 +11,7 @@ function state(section) {
 
 var text = mdn.localString({
   'en-US': {
+    'Overview': 'JavaScript technologies overview',
     'Tutorials': 'Tutorials:',
     'Guide': 'JavaScript Guide',
     'Guide_Introduction': 'Introduction',
@@ -28,10 +29,11 @@ var text = mdn.localString({
     'Guide_OOP': 'Details of the object model',
     'Guide_Iterators_Generators': 'Iterators and generators',
     'Guide_Meta': 'Meta programming',
-    'Introductory': 'Introductory',
+    'Complete_beginners': 'Complete beginners',
     'Basics': 'JavaScript basics',
-    'Overview': 'JavaScript technologies overview',
-    'OO_JavaScript': 'Introduction to Object Oriented JavaScript',
+    'First_steps': 'JavaScript first steps',
+    'Building_blocks': 'JavaScript Building blocks',
+    'Introducing_objects': 'Introducing JavaScript objects',
     'Intermediate': 'Intermediate',
     'Re-introduction': 'A re-introduction to JavaScript',
     'Data_structures': 'JavaScript data structures',
@@ -375,7 +377,16 @@ var text = mdn.localString({
 <section class="Quick_links" id="Quick_Links">
  <ol>
   <li><a href="/<%=locale%>/docs/Web/JavaScript"><strong><em>JavaScript</em></strong></a></li>
+  <li><a href="/<%=locale%>/docs/Web/JavaScript/JavaScript_technologies_overview"><%=text['Overview']%></a></li>
   <li><a href="/<%=locale%>/docs/Web/JavaScript/Tutorials"><strong><%=text['Tutorials']%></strong></a></li>
+  <li data-default-state="<%=state('Complete_beginners')%>"><a href="#"><%=text['Complete_beginners']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/Learn/Getting_started_with_the_web/JavaScript_basics"><%=text['Basics']%></a></li>
+    <li><a href="/<%=locale%>/docs/Learn/JavaScript/First_steps"><%=text['First_steps']%></a></li>
+    <li><a href="/<%=locale%>/docs/Learn/JavaScript/Building_blocks"><%=text['Building_blocks']%></a></li>
+    <li><a href="/<%=locale%>/docs/Learn/JavaScript/Objects"><%=text['Introducing_objects']%></a></li>
+   </ol>
+  </li>
   <li data-default-state="<%=state('JavaScript Guide')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Guide"><%=text['Guide']%></a>
     <ol>
       <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Introduction"><%=text['Guide_Introduction']%></a></li>
@@ -393,13 +404,6 @@ var text = mdn.localString({
       <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Details_of_the_Object_Model"><%=text['Guide_OOP']%></a></li>
       <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Iterators_and_generators"><%=text['Guide_Iterators_Generators']%></a></li>
       <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Meta_programming"><%=text['Guide_Meta']%></a></li>
-   </ol>
-  </li>
-  <li data-default-state="<%=state('Introductory')%>"><a href="#"><%=text['Introductory']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/Learn/Getting_started_with_the_web/JavaScript_basics"><%=text['Basics']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/JavaScript_technologies_overview"><%=text['Overview']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript"><%=text['OO_JavaScript']%></a></li>
    </ol>
   </li>
   <li data-default-state="<%=state('Intermediate')%>"><a href="#"><%=text['Intermediate']%></a>
