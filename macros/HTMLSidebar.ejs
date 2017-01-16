@@ -12,12 +12,26 @@ function state(section) {
 var text = mdn.localString({
   'en-US': {
     'Tutorials': 'Tutorials:',
-    'Introductory': 'Introductory',
-    'HTML_Guide': 'HTML developer guide',
-    'Intermediate': 'Intermediate',
-    'Block-level': 'Block-level elements',
-    'Advanced': 'Advanced',
-    'Speculative_parsing': 'Optimizing your pages for speculative parsing',
+    'HTML_basics': 'HTML basics',
+    'Introduction_to_HTML': 'Introduction to HTML',
+      'Introduction_to_HTML_overview': 'Introduction to HTML overview',
+      'Getting_started_with_HTML': 'Getting started with HTML',
+      'Whats_in_the_head_metadata_in_HTML': 'What\'s in the head? Metadata in HTML',
+      'HTML_text_fundamentals': 'HTML text fundamentals',
+      'Creating_hyperlinks': 'Creating hyperlinks',
+      'Advanced_text_formatting': 'Advanced text formatting',
+      'Document_and_website_structure': 'Document and website structure',
+      'Debugging_HTML': 'Debugging HTML',
+      'Assessment_marking_up_a_letter': 'Assessment: Marking up a letter',
+      'Assessment_structuring_a_page_of_content': 'Assessment: Structuring a page of content',
+    'Multimedia_and_embedding': 'Multimedia and embedding',
+      'Multimedia_and_embedding_overview': 'Multimedia and embedding overview',
+      'Images_in_HTML': 'Images in HTML',
+      'Video_and_audio_content': 'Video and audio content',
+      'Other_embedding_technologies': 'From object to iframe — other embedding technologies',
+      'Adding_vector_graphics_to_the_Web': 'Adding vector graphics to the Web',
+      'Responsive_images': 'Responsive images',
+      'Assessment_Mozilla_splash_page': 'Assessment: Mozilla splash page',
     'Reference': 'References:',
     'HTML_Elements': 'HTML elements',
     'Global_attributes': 'Global attributes',
@@ -73,20 +87,31 @@ var text = mdn.localString({
  <ol>
   <li><a href="/<%=locale%>/docs/Web/HTML"><strong><em>HTML</em></strong></a></li>
   <li><strong><%=text['Tutorials']%></strong></li>
-  <li data-default-state="<%=state('Introductory')%>"><a href="#"><%=text['Introductory']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/Guide/HTML"><%=text['HTML_Guide']%></a></li>
-   </ol>
+  <li><a href="<%=baseURL%>Getting_started_with_the_web/HTML_basics"><%=text['HTML_basics']%></a></li>
+  <li data-default-state="<%=currentPageIsUnder('HTML/Introduction_to_HTML')%>"><a href="<%=baseURL%>HTML/Introduction_to_HTML"><%=text['Introduction_to_HTML']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML"><%=text['Introduction_to_HTML_overview']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Getting_started"><%=text['Getting_started_with_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/The_head_metadata_in_HTML"><%=text['Whats_in_the_head_metadata_in_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/HTML_text_fundamentals"><%=text['HTML_text_fundamentals']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Creating_hyperlinks"><%=text['Creating_hyperlinks']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Advanced_text_formatting"><%=text['Advanced_text_formatting']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Document_and_website_structure"><%=text['Document_and_website_structure']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Debugging_HTML"><%=text['Debugging_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Marking_up_a_letter"><%=text['Assessment_marking_up_a_letter']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Introduction_to_HTML/Structuring_a_page_of_content"><%=text['Assessment_structuring_a_page_of_content']%></a></li>
+    </ol>
   </li>
-  <li data-default-state="<%=state('Intermediate')%>"><a href="#"><%=text['Intermediate']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/HTML/Block-level_elements"><%=text['Block-level']%></a></li>
-   </ol>
-  </li>
-  <li data-default-state="<%=state('Advanced')%>"><a href="#"><%=text['Advanced']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing"><%=text['Speculative_parsing']%></a></li>
-   </ol>
+  <li data-default-state="<%=currentPageIsUnder('HTML/Multimedia_and_embedding')%>"><a href="<%=baseURL%>HTML/Multimedia_and_embedding"><%=text['Multimedia_and_embedding']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding"><%=text['Multimedia_and_embedding_overview']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Images_in_HTML"><%=text['Images_in_HTML']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Video_and_audio_content"><%=text['Video_and_audio_content']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Other_embedding_technologies"><%=text['Other_embedding_technologies']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web"><%=text['Adding_vector_graphics_to_the_Web']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Responsive_images"><%=text['Responsive_images']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Mozilla_splash_page"><%=text['Assessment_Mozilla_splash_page']%></a></li>
+    </ol>
   </li>
   <li><strong><a href="/<%=locale%>/docs/Web/HTML/Reference"><%=text['Reference']%></a></strong></li>
   <li data-default-state="<%=state('Elements')%>"><a href="/<%=locale%>/docs/Web/HTML/Element"><%=text['HTML_Elements']%></a>
