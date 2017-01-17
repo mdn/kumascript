@@ -31,7 +31,7 @@ var status = {
   'CORS'                       : 'REC',
   'Credential Management'      : 'ED',
   'CSP 1.0'                    : 'CR',
-  'CSP 1.1'                    : 'CR',
+  'CSP 1.1'                    : 'REC',
   'CSP 3.0'                    : 'ED',
   'CSS1'                       : 'REC',
   'CSS2.1'                     : 'REC',
@@ -105,6 +105,7 @@ var status = {
   'CSS Scroll Snap'            : 'CR',
   'CSS Shapes'                 : 'CR',
   'CSS Text Size Adjust'       : 'ED',
+  'CSS Transforms 2'           : 'ED',
   'CSS Will Change'            : 'WD',
   'CSSOM'                      : 'WD',
   'CSSOM View'                 : 'WD',
@@ -188,7 +189,7 @@ var status = {
   'Performance Timeline Level 2' : 'ED',
   'Permissions API'            : 'ED',
   'Pointer Events'             : 'REC',
-  'Pointer Events 2'           : 'ED',
+  'Pointer Events 2'           : 'WD',
   'Pointer Lock'               : 'CR',
   'Preload'                    : 'WD',
   'Presentation'               : 'CR',
@@ -215,6 +216,7 @@ var status = {
   'Server-sent events'         : 'REC',
   'Service Workers'            : 'WD',
   'Shadow DOM'                 : 'WD',
+  'Shape Detection API'        : 'ED',
   'Shared Memory'              : 'Draft',
   'SIMD'                       : 'Draft',
   'Storage'                    : 'Living',
@@ -238,6 +240,7 @@ var status = {
   'Web Audio API'              : 'WD',
   'Web Background Sync'        : 'Living',
   'Web Bluetooth'              : 'Draft',
+  'Web Budget API'             : 'ED',
   'Web Crypto API'             : 'CR',
   'WebGL'                      : 'REC',
   'WebGL2'                     : 'ED',
@@ -262,7 +265,7 @@ var status = {
   'OES_vertex_array_object'    : 'REC',
   'WEBGL_color_buffer_float'   : 'REC',
   'WEBGL_compressed_texture_s3tc': 'REC',
-  'WEBGL_compressed_texture_es3': 'Draft',
+  'WEBGL_compressed_texture_etc': 'Draft',
   'WEBGL_compressed_texture_pvrtc': 'Draft',
   'WEBGL_compressed_texture_etc1': 'Draft',
   'WEBGL_compressed_texture_atc': 'Draft',
@@ -286,7 +289,8 @@ var status = {
   'XMLHttpRequest'             : 'Living'
 }
 
-status['CSS3 2D Transforms'] = status['CSS3 3D Transforms'] = status['CSS3 Transforms'];
+status['CSS3 2D Transforms'] = status['CSS3 Transforms'];
+status['CSS3 3D Transforms'] = status['CSS Transforms 2'];
 status['CSS3 Flexbox'] = status['CSS Flexbox'];
 status['CSS3 Grid'] = status['CSS Grid'];
 status['CSS3 UI'] = status['CSS3 Basic UI'];
@@ -377,7 +381,7 @@ var label = {
   }),
   'LC' : mdn.localString({
       'en-US' : 'Last Call Working Draft',
-      'ja'    : '草案の最終案',  
+      'ja'    : '草案の最終案',
       'ru'    : 'Последнее изменение рабочего черновика'
   })
 }
