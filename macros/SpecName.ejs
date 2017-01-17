@@ -27,7 +27,7 @@ var lang = env.locale;
 // * Whenever possible, specify a link to the Editor Draft of a spec. This
 //   is the most up-to-date draft. This is not always possible: sometimes the
 //   editor version describe a further level than the published spec: in this
-//   case list both, with the Editor Draft on top. This is the case for CSP 1.0
+//   case list both, with the Editor Draft on top. This is the case for CSP 1.0 
 //   where the ED draft described a further level of CSP and is far from the
 //   Recommendation status.
 //
@@ -48,7 +48,7 @@ var specList = {
         url  : "https://w3c.github.io/ambient-light/"
     },
     'Async Function':{
-        name : "ECMAScript Async Functions",
+        name : "ECMAScript Async Function",
         url  : "https://tc39.github.io/ecmascript-asyncawait/"
     },
     'Background Sync': {
@@ -256,7 +256,7 @@ var specList = {
         url  : 'https://drafts.csswg.org/css-syntax/'
     },
     'CSS3 Text':{
-        name : 'CSS Text Module Level&nbsp;3',
+        name : 'CSS Text Level&nbsp;3',
         url  : "https://drafts.csswg.org/css-text-3/"
     },
     'CSS3 Text Decoration':{
@@ -303,6 +303,10 @@ var specList = {
         name : 'CSS Color Module Level&nbsp;4',
         url  : "https://drafts.csswg.org/css-color/"
     },
+    'CSS4 Fonts':{
+        name : 'CSS Fonts Module Level&nbsp;4',
+        url  : "https://drafts.csswg.org/css-fonts-4/",
+    },
     'CSS4 Images':{
         name : 'CSS Image Values and Replaced Content Module Level&nbsp;4',
         url  : "https://drafts.csswg.org/css-images-4/"
@@ -328,7 +332,7 @@ var specList = {
         url  : "https://drafts.csswg.org/css-text-4/"
     },
     'CSS Containment':{
-        name : 'CSS Containment Module Level 1',
+        name : 'CSS Containment Module Level 3',
         url  : 'https://drafts.csswg.org/css-containment/'
     },
     'CSS Exclusions':{
@@ -348,7 +352,7 @@ var specList = {
         url  : "https://drafts.csswg.org/css-grid/"
     },
     'CSS Masks':{
-        name : 'CSS Masking Module Level&nbsp;1',
+        name : 'CSS Masking Level&nbsp;1',
         url  : 'https://drafts.fxtf.org/css-masking-1/'
     },
     'CSS Non-element Selectors':{
@@ -382,10 +386,6 @@ var specList = {
     'CSS Text Size Adjust':{
         name : 'CSS Mobile Text Size Adjustment Module Level&nbsp;1',
         url  : 'https://drafts.csswg.org/css-size-adjust/'
-    },
-    'CSS Transforms 2':{
-        name : 'CSS Transforms Level&nbsp;2',
-        url  : "https://drafts.csswg.org/css-transforms-2/"
     },
     'CSS Will Change':{
         name : 'CSS Will Change Module Level&nbsp;1',
@@ -655,6 +655,10 @@ var specList = {
         name : 'Media Source Extensions',
         url  : 'https://w3c.github.io/media-source/'
     },
+    'MediaStream Image':{
+        name : 'MediaStream Image Capture',
+        url  : 'https://w3c.github.io/mediacapture-image/'
+    },
     'MediaStream Recording':{
         name : 'MediaStream Recording',
         url  : 'https://w3c.github.io/mediacapture-record/MediaRecorder.html'
@@ -751,6 +755,10 @@ var specList = {
         name : 'Referrer Policy',
         url  : 'https://w3c.github.io/webappsec-referrer-policy/'
     },
+    'Remote Playback':{
+        name : 'Remote Playback API',
+        url  : 'https://w3c.github.io/remote-playback/'
+    },
     'RequestAnimationFrame':{
         name : 'Timing control for script-based animations',
         url  : 'http://www.w3.org/TR/animation-timing/'
@@ -766,6 +774,10 @@ var specList = {
     'Screen Orientation':{
         name : 'Screen Orientation API',
         url  : 'https://w3c.github.io/screen-orientation/'
+    },
+    'Scroll Anchoring':{
+        name : "Scroll Anchoring",
+        url  : "https://wicg.github.io/ScrollAnchoring/"
     },
     'Secure Contexts':{
         name : "Secure Contexts",
@@ -799,13 +811,9 @@ var specList = {
         name : 'Shadow DOM',
         url  : 'https://www.w3.org/TR/shadow-dom/'
     },
-    'Shape Detection API': {
-        name : 'Accelerated Shape Detection in Images',
-        url  : 'https://wicg.github.io/shape-detection-api/'
-    },
     'Shared Memory':{
         name : 'ECMAScript Shared Memory and Atomics',
-        url  : 'http://tc39.github.io/ecmascript_sharedmem/shmem.html'
+        url  : 'http://tc39.github.io/ecmascript_sharedmem/shmem.html' 
     },
     'SIMD': {
         name : 'SIMD',
@@ -919,10 +927,6 @@ var specList = {
         name : 'Web Bluetooth',
         url  : 'https://webbluetoothcg.github.io/web-bluetooth/'
     },
-    'Web Budget API': {
-        name : 'Web Budget API',
-        url  : 'https://wicg.github.io/budget-api/'
-    },
     'Web Crypto API':{
         name : 'Web Cryptography API',
         url  : 'https://dvcs.w3.org/hg/webcrypto-api/raw-file/tip/spec/Overview.html'
@@ -1007,9 +1011,9 @@ var specList = {
         name : 'WEBGL_compressed_texture_s3tc',
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_s3tc/'
     },
-    'WEBGL_compressed_texture_etc':{
-        name : 'WEBGL_compressed_texture_etc',
-        url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_etc/'
+    'WEBGL_compressed_texture_es3':{
+        name : 'WEBGL_compressed_texture_es3',
+        url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_es3/'
     },
     'WEBGL_compressed_texture_pvrtc':{
         name : 'WEBGL_compressed_texture_pvrtc',
@@ -1056,7 +1060,7 @@ var specList = {
         url  : 'https://notifications.spec.whatwg.org/'
     },
     'WebRTC 1.0':{
-        name : 'WebRTC 1.0: Real-time Communication Between Browser',
+        name : 'WebRTC 1.0: Real-time Communication Between Browsers',
         url  : 'https://w3c.github.io/webrtc-pc/'
     },
     'Websockets':{ /* This draft has been merged into HTML WHATWG */
@@ -1108,8 +1112,7 @@ var specList = {
 // Some APIs share specifications. Here we attend to that.
 
 specList['Blending'] = specList['Compositing'];
-specList['CSS3 2D Transforms'] = specList['CSS3 Transforms'];
-specList['CSS3 3D Transforms'] = specList['CSS Transforms 2'];
+specList['CSS3 2D Transforms'] = specList['CSS3 3D Transforms'] = specList['CSS3 Transforms'];
 specList['CSS3 Break'] = specList['CSS3 Fragmentation'];
 specList['CSS3 Flexbox'] = specList['CSS Flexbox'];
 specList['CSS3 Template'] = specList['CSS3 Grid'] = specList['CSS Grid'];
