@@ -1,8 +1,16 @@
+sudo: required
+
 language: node_js
 
-node_js:
- - 0.10
+services:
+  - docker
+
+before_script:
+  - make build
+
+script:
+  - make test
 
 notifications:
   email:
-    - me@lmorchard.com
+    - rjohnson@mozilla.com

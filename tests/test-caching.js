@@ -1,13 +1,8 @@
 /*jshint node: true, expr: false, boss: true */
 
-var util = require('util'),
-    fs = require('fs'),
-    crypto = require('crypto'),
-
-    _ = require('underscore'),
+var _ = require('underscore'),
     async = require('async'),
     nodeunit = require('nodeunit'),
-    express = require('express'),
     request = require('request'),
 
     kumascript = require('..'),
@@ -58,7 +53,7 @@ module.exports = nodeunit.testCase({
                 headers: _(expected_headers).clone()
             };
             if (cache_control) {
-                opts['cache_control'] = cache_control;
+                opts.cache_control = cache_control;
             }
             ks_caching.request(opts, function (err, resp, body, cache_hit) {
                 var result_headers = JSON.parse(body);
@@ -83,7 +78,7 @@ module.exports = nodeunit.testCase({
         var expected_modified = 'Wed, 14 Mar 2002 15:48:09 GMT';
         $this.app.get('/test1', function (req, res) {
             $this.cache.cacheResponse(req, res, {}, function (req, res) {
-                res.header('Last-Modified', expected_modified);
+                res.set('Last-Modified', expected_modified);
                 res.send(TEST_CONTENT);
             });
         });
@@ -110,7 +105,7 @@ module.exports = nodeunit.testCase({
         var $this = this;
         $this.app.get('/test1', function (req, res) {
             $this.cache.cacheResponse(req, res, {}, function (req, res) {
-                res.header('ETag', TEST_ETAG);
+                res.set('ETag', TEST_ETAG);
                 res.send(TEST_CONTENT);
             });
         });
@@ -122,7 +117,7 @@ module.exports = nodeunit.testCase({
 
     "Should support conditional GET with If-Modified-Since": function (test) {
         var $this = this;
-        
+
         $this.app.get('/test1', function (req, res) {
             var opts = { };
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
@@ -152,11 +147,11 @@ module.exports = nodeunit.testCase({
 
     "Should support conditional GET with If-None-Match": function (test) {
         var $this = this;
-        
+
         $this.app.get('/test1', function (req, res) {
             var opts = { };
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
-                res.header('ETag', TEST_ETAG);
+                res.set('ETag', TEST_ETAG);
                 res.send(TEST_CONTENT);
             });
         });
@@ -183,7 +178,7 @@ module.exports = nodeunit.testCase({
 
     "Should honor max-age = 0 with shortcircuit": function (test) {
         var $this = this;
-        
+
         $this.app.get('/test1', function (req, res) {
             var opts = { };
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
@@ -225,7 +220,7 @@ module.exports = nodeunit.testCase({
 
     "Should honor max-age > 0": function (test) {
         var $this = this;
-        
+
         $this.app.get('/test1', function (req, res) {
             var opts = { };
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
@@ -278,7 +273,7 @@ module.exports = nodeunit.testCase({
 
     "Should honor no-cache": function (test) {
         var $this = this;
-        
+
         $this.app.get('/test1', function (req, res) {
             var opts = { };
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
@@ -334,11 +329,11 @@ module.exports = nodeunit.testCase({
             var opts = { };
             $this.cache.cacheResponse(req, res, opts, function (req, res) {
                 if (req_cnt === 0) {
-                    res.header('ETag', bad_etag);
-                    res.send(bad_content, 404);
+                    res.set('ETag', bad_etag);
+                    res.status(404).send(bad_content);
                 } else {
-                    res.header('ETag', TEST_ETAG);
-                    res.send(TEST_CONTENT, 200);
+                    res.set('ETag', TEST_ETAG);
+                    res.status(200).send(TEST_CONTENT);
                 }
                 req_cnt++;
             });
@@ -348,12 +343,12 @@ module.exports = nodeunit.testCase({
             function (wf_next) {
                 request(url, function (err, res, content) {
                     test.equal(res.statusCode, 404);
-                    wf_next(null, res.header.etag);
+                    wf_next(null, res.headers.etag);
                 });
             }, function (etag, wf_next) {
                 var opts = {
                     url: url,
-                    headers: { "If-None-Match": etag } 
+                    headers: { "If-None-Match": etag }
                 };
                 request(opts, function (err, res, content) {
                     test.equal(res.statusCode, 200);
@@ -375,13 +370,13 @@ module.exports = nodeunit.testCase({
 
         $this.app.get('/test1', function (req, res) {
             $this.cache.cacheResponse(req, res, {}, function (req, res) {
-                res.header('ETag', TEST_ETAG);
+                res.set('ETag', TEST_ETAG);
                 res.send(TEST_CONTENT);
             });
         });
         $this.app.post('/test1', function (req, res) {
             $this.cache.cacheResponse(req, res, {}, function (req, res) {
-                res.header('ETag', post_etag);
+                res.set('ETag', post_etag);
                 res.send(post_ct);
             });
         });
@@ -406,7 +401,7 @@ module.exports = nodeunit.testCase({
                              headers: { "If-None-Match": etag } };
                 request(opts, function (err, res, content) {
                     test.equal(res.statusCode, 304);
-                    test.equal(typeof(content), 'undefined');
+                    test.equal(content.length, 0);
                     wf_next();
                 });
             }, function (wf_next) {
@@ -414,7 +409,7 @@ module.exports = nodeunit.testCase({
                 request(opts, function (err, res, content) {
                     test.equal(res.statusCode, 200);
                     test.equal(res.headers['x-cache'], 'HIT');
-                    test.equal(typeof(content), 'undefined');
+                    test.equal(content.length, 0);
                     wf_next();
                 });
             }
@@ -426,7 +421,7 @@ module.exports = nodeunit.testCase({
     "Cache internals should support some HTTP caching semantics": function (test) {
 
         var test_key = "/docs/en-US/testdoc",
-            expected_content = "THIS IS A TEST";
+            expected_content = "THIS IS A TEST",
             expected_etag= "8675309JENNY";
 
         var now = (new Date()).getTime(),
@@ -444,7 +439,7 @@ module.exports = nodeunit.testCase({
                 // Set the cache content.
                 var opts = {
                     last_modified: then,
-                    etag: expected_etag 
+                    etag: expected_etag
                 };
                 cache.set(test_key, 3600, null, expected_content, opts,
                     function (err, headers, content, meta) {
@@ -531,7 +526,7 @@ module.exports = nodeunit.testCase({
     },
 
     "If a 304 is returned but the body content isn't in cache, force a 200 from kuma": function (test) {
-        
+
         // Step 1:  do a test request for content, cache it (200)
         // Step 2:  do a test request that returns a 304, ensure the last_mod is future
         // Step 3:  remove the body from memcache *directly*
@@ -542,12 +537,12 @@ module.exports = nodeunit.testCase({
         var url = TEST_BASE_URL + '/test1';
 
         // Key generated the same as within caching.js
-        var key = function (opts, name) { 
+        var key = function (opts, name) {
             var base_key = 'kumascript:request:' + ks_utils.md5(opts.url);
-            return base_key + ':' + name; 
-        }
+            return base_key + ':' + name;
+        };
         var cache = new ks_utils.FakeMemcached();
-                
+
         // Step 1
         $this.app.get('/test1', function (req, res) {
             var opts = getOptions();
@@ -579,7 +574,7 @@ module.exports = nodeunit.testCase({
                     test.ok(res.req._headers['if-modified-since'], 'A "if-modified-since" is set for the cached document request');
 
                     cache.get(key(opts, 'body'), function(err, res) {
-                        test.ok(res != undefined, 'Content is properly stored in cache');
+                        test.ok(res !== undefined, 'Content is properly stored in cache');
                         wf_next(null);
                     });
                 });
@@ -605,7 +600,7 @@ module.exports = nodeunit.testCase({
                     test.ok(res.req._headers['if-modified-since'], 'A "if-modified-since" is set again for the document request');
 
                     cache.get(key(opts, 'body'), function(err, res) {
-                        test.ok(res != undefined, 'Content is properly stored in cache');
+                        test.ok(res !== undefined, 'Content is properly stored in cache');
                         wf_next(null);
                     });
                 });

@@ -1,18 +1,10 @@
 /*jshint node: true, expr: false, boss: true */
 
-var util = require('util'),
-    fs = require('fs'),
+var fs = require('fs'),
     _ = require('underscore'),
     nodeunit = require('nodeunit'),
-
     kumascript = require('..'),
-    ks_utils = kumascript.utils,
-    ks_errors = kumascript.errors,
-    ks_macros = kumascript.macros,
-    ks_templates = kumascript.templates,
-    ks_loaders = kumascript.loaders,
-    ks_api = kumascript.api,
-    ks_test_utils = kumascript.test_utils;
+    ks_macros = kumascript.macros;
 
 function processFixture(test, mp, fixture_path, next) {
     fs.readFile(__dirname + '/fixtures/' + fixture_path, function (err, data) {
@@ -198,7 +190,7 @@ module.exports = nodeunit.testCase({
         test.doesNotThrow(
             function() {
                 // This should not throw an error.
-                var mp = new ks_macros.MacroProcessor({
+                new ks_macros.MacroProcessor({
                     loader: {
                         module: __dirname + '/../lib/kumascript/loaders',
                         class_name: 'FileLoader',
@@ -212,7 +204,7 @@ module.exports = nodeunit.testCase({
         test.throws(
             function() {
                 // This should throw a "duplicate macros" error.
-                var mp = new ks_macros.MacroProcessor({
+                new ks_macros.MacroProcessor({
                     loader: {
                         module: __dirname + '/../lib/kumascript/loaders',
                         class_name: 'FileLoader',

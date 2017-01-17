@@ -1,64 +1,55 @@
 /*jshint node: true, expr: false, boss: true */
 
-var util = require('util'),
-    fs = require('fs'),
-    _ = require('underscore'),
-    nodeunit = require('nodeunit'),
-    ejs = require('ejs'),
-
+var fs = require('fs'),
     // This also injects `Fiber` and `yield`
-    fibers = require('fibers'),
-    Future = require('fibers/future'),
-    wait = Future.wait,
+    // Future = require('fibers/future'),
     request = require('request'),
-    
+
     // Loading kumascript modules can use index here, because the tests aren't
     // a part of the package.
     kumascript = require('..'),
-    ks_utils = kumascript.utils,
-    ks_loaders = kumascript.loaders,
-    ks_templates = kumascript.templates,
-    ks_api = kumascript.api,
+    // ks_utils = kumascript.utils,
+    // ks_templates = kumascript.templates,
+    // ks_api = kumascript.api,
     ks_server = kumascript.server,
     ks_macros = kumascript.macros,
     ks_test_utils = kumascript.test_utils;
 
-// API that includes some things useful for testing.
-var DemoAPI = ks_utils.Class(ks_api.BaseAPI, {
-
-    initialize: function (options) {
-    },
-
-    echo: function (s) {
-        return s;
-    },
-
-    // snooze: demo of the fibers/future way to handle async in sync templates.
-    snooze: function (ms) {
-        var f = new Future(),
-            s = new Date();
-        setTimeout(function () {
-            f['return'](); // HACK: Make jshint happy.
-        }, ms);
-        f.wait();
-        return new Date() - s;
-    },
-
-    random: function () {
-        var content = '',
-            request = require('request'),
-            f = new Future();
-            url = 'http://www.random.org/integers/?num=1&min=1&max=1000000&'+
-                  'col=1&base=10&format=plain&rnd=new';
-        request(url, function (error, resp, body) {
-            content = body;
-            f['return'](); // HACK: Make jshint happy.
-        });
-        f.wait();
-        return content.trim();
-    }
-
-});
+// // API that includes some things useful for testing.
+// var DemoAPI = ks_utils.Class(ks_api.BaseAPI, {
+//
+//     initialize: function (options) {
+//     },
+//
+//     echo: function (s) {
+//         return s;
+//     },
+//
+//     // snooze: demo of the fibers/future way to handle async in sync templates.
+//     snooze: function (ms) {
+//         var f = new Future(),
+//             s = new Date();
+//         setTimeout(function () {
+//             f['return'](); // HACK: Make jshint happy.
+//         }, ms);
+//         f.wait();
+//         return new Date() - s;
+//     },
+//
+//     random: function () {
+//         var content = '',
+//             f = new Future(),
+//             url = 'http://www.random.org/integers/?num=1&min=1&max=1000000&'+
+//                   'col=1&base=10&format=plain&rnd=new';
+//         request(url, function (error, resp, body) {
+//             content = body;
+//             f['return'](); // HACK: Make jshint happy.
+//         });
+//         f.wait();
+//         return content.trim();
+//     }
+//
+// });
 
 // Reusable fixture-based test runner
 function performTestRequest(test, expected_fn, result_url) {
@@ -79,7 +70,7 @@ module.exports = {
 
     setUp: function (next) {
         this.test_server = ks_test_utils.createTestServer();
-        this.macro_processor = new ks_macros.MacroProcessor({ 
+        this.macro_processor = new ks_macros.MacroProcessor({
             macro_timeout: 500,
             autorequire: {
                 "test_api": "autorequire-lib1"
@@ -94,6 +85,7 @@ module.exports = {
         });
         this.server = new ks_server.Server({
             port: 9000,
+            logging: false,
             document_url_template: "http://localhost:9001/documents/{path}.txt",
             macro_processor: this.macro_processor
         });
@@ -177,7 +169,7 @@ module.exports = {
             });
 
         });
-        
+
     }
     */
 

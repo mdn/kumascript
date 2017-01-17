@@ -1,15 +1,13 @@
 /*jshint node: true, expr: false, boss: true */
 
-var util = require('util'),
-    fs = require('fs'),
-    _ = require('underscore'),
+var fs = require('fs'),
     async = require('async'),
     nodeunit = require('nodeunit'),
 
+    morgan = require('morgan'),
     express = require('express'),
 
     kumascript = require('..'),
-    ks_utils = kumascript.utils,
     ks_loaders = kumascript.loaders,
     ks_test_utils = kumascript.test_utils;
 
@@ -40,7 +38,7 @@ module.exports = nodeunit.testCase({
     "The FileLoader should detect duplicates": function (test) {
         test.throws(
             function() {
-                var loader = new ks_loaders.FileLoader({
+                new ks_loaders.FileLoader({
                     root_dir: 'tests/fixtures'
                 });
             }
@@ -105,27 +103,24 @@ module.exports = nodeunit.testCase({
             { status: 200, body: 'OK' }
         ];
 
-        var app = express.createServer();
-        app.configure(function () {
-            if (DEBUG) app.use(express.logger({
-                format: 'TEST: :method :url :status :res[content-length]'
-            }));
-            app.use(function (req, res, mw_next) {
-                setTimeout(mw_next, 50);
-            });
+        var app = express();
+        if (DEBUG) {
+            app.use(morgan('TEST: :method :url :status :res[content-length]'));
+        }
+        app.use(function (req, res, mw_next) {
+            setTimeout(mw_next, 50);
         });
 
         var request_ct = 0;
         app.get('/templates/*', function (req, res) {
-            var path = req.params[0];
             var response = responses[request_ct++];
             if (!response) {
-                res.send('Ran out of responses', 405);
+                res.status(405).send('Ran out of responses');
             } else {
-                res.send(response.body, response.status);
+                res.status(response.status).send(response.body);
             }
         });
-        app.listen(9001);
+        var server = app.listen(9001);
 
         var loader = new ks_loaders.HTTPLoader({
             url_template: 'http://localhost:9001/templates/{name}',
@@ -137,7 +132,7 @@ module.exports = nodeunit.testCase({
             test.ok(!!tmpl);
             test.equal(responses[responses.length-1].body,
                        tmpl.options.source);
-            app.close();
+            server.close();
             test.done();
         });
     },
@@ -159,37 +154,34 @@ module.exports = nodeunit.testCase({
               status_expected: 304 },
         ];
 
-        var app = express.createServer();
-        app.configure(function () {
-            if (DEBUG) app.use(express.logger({
-                format: 'TEST: :method :url :status :res[content-length]'
-            }));
-            app.use(function (req, res, mw_next) {
-                setTimeout(mw_next, 50);
-            });
+        var app = express();
+        if (DEBUG) {
+            app.use(morgan('TEST: :method :url :status :res[content-length]'));
+        }
+        app.use(function (req, res, mw_next) {
+            setTimeout(mw_next, 50);
         });
 
         var request_ct = 0;
         app.get('/templates/*', function (req, res) {
-            var path = req.params[0];
             var response = responses[request_ct++];
             if (!response) {
-                res.send('Ran out of responses', 405);
+                res.status(405).send('Ran out of responses');
             } else {
                 var status = 200;
 
                 // Check if any conditional GET headers match
-                var ims = req.header('if-modified-since');
+                var ims = req.get('if-modified-since');
                 if (ims == response.lastmod) { status = 304; }
 
                 // Assert the expected conditional GET response condition.
                 test.equals(status, response.status_expected);
 
-                res.header('Last-Modified', response.lastmod);
-                res.send((304 == status) ? '' : response.body, status);
+                res.set('Last-Modified', response.lastmod);
+                res.status(status).send((304 == status) ? '' : response.body);
             }
         });
-        app.listen(9001);
+        var server = app.listen(9001);
 
         var loader = new ks_loaders.HTTPLoader({
             url_template: 'http://localhost:9001/templates/{name}',
@@ -222,10 +214,9 @@ module.exports = nodeunit.testCase({
                 });
             }
         ], function (err) {
-            app.close();
+            server.close();
             test.done();
         });
-
 
     }
 

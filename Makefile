@@ -25,10 +25,18 @@ run:
 
 test:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	    ./node_modules/.bin/nodeunit ${TEST_RUN_ARGS} tests
+	    /node_modules/.bin/nodeunit ${TEST_RUN_ARGS} tests
+
+lint:
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    /node_modules/.bin/jshint --show-non-errors lib tests
 
 bash:
 	docker run -it ${DOCKER_RUN_ARGS} ${IMAGE} bash
+
+shrinkwrap:
+	docker run -it -v ${MOUNT_DIR}\:${APP_DIR} -w / -u root ${IMAGE} \
+	    bash -c "npm shrinkwrap && cp npm-shrinkwrap.json ${APP_DIR}"
 
 deis-pull:
 	deis pull ${IMAGE} -a ${DEIS_APP}

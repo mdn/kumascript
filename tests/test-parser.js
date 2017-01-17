@@ -1,4 +1,4 @@
-"use strict";
+/* jshint node: true */
 
 var PEG = require("pegjs"),
     fs = require("fs"),
@@ -10,6 +10,7 @@ var PEG = require("pegjs"),
 
 module.exports = nodeunit.testCase({
   "JSON values are parsed correctly": function (test) {
+    "use strict";
     var tokens = ks_parser.parse('{{ f({ "a": "x", "b": -1e2, "c": 0.5, "d": [1,2, 3] }) }}');
     test.deepEqual(tokens,
                    [{type: "MACRO",
@@ -21,6 +22,7 @@ module.exports = nodeunit.testCase({
   },
 
   "JSON parameter should allow a single-item list": function (test) {
+    "use strict";
     var tokens = ks_parser.parse('{{ f({ "a": ["one"] }) }}');
     test.deepEqual(tokens,
                    [{type: "MACRO",
@@ -32,6 +34,7 @@ module.exports = nodeunit.testCase({
   },
 
   "Invalid JSON should cause a syntax error": function (test) {
+    "use strict";
     test.throws(function() {
       ks_parser.parse('{{ f({ x: 1 }) }}');
     }, PEG.parser.SyntaxError, "Quotes around property names are required");
@@ -48,6 +51,7 @@ module.exports = nodeunit.testCase({
   },
 
   "JSON strings should be able to contain ')'": function (test) {
+    "use strict";
     var tokens = ks_parser.parse('{{ f({ "a": "f)" }) }}');
     test.deepEqual(tokens,
                    [{type: "MACRO", name: "f", args: [{a: "f)"}], offset: 0}],
@@ -56,6 +60,7 @@ module.exports = nodeunit.testCase({
   },
 
   "Empty JSON values are allowed": function (test) {
+    "use strict";
     var tokens = ks_parser.parse('{{ f({}) }}');
     test.deepEqual(tokens, [{type: "MACRO", name: "f", args: [{}], offset: 0}],
                    "Empty JSON objects are parsed correctly");
@@ -67,12 +72,13 @@ module.exports = nodeunit.testCase({
   },
 
   "Escaped Unicode codepoints are parsed correctly": function (test) {
+    "use strict";
     var tokens = ks_parser.parse('{{ f({ "a": "\\u00f3" }) }}');
     test.deepEqual(tokens,
                    [{type: "MACRO", name: "f", args: [{a: "\u00f3"}], offset: 0}],
                    "Lowercase hex digits are parsed correctly");
 
-    var tokens = ks_parser.parse('{{ f({ "a": "\\u00F3" }) }}');
+    tokens = ks_parser.parse('{{ f({ "a": "\\u00F3" }) }}');
     test.deepEqual(tokens,
                    [{type: "MACRO", name: "f", args: [{a: "\u00f3"}], offset: 0}],
                    "Uppercase hex digits are parsed correctly");
