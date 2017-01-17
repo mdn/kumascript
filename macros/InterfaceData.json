@@ -281,7 +281,7 @@
   },
   "Window": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface", "GlobalEventHandlers", "WindowEventHandlers", "WindowTimers", "WindowBase64", "IDBEnvironment", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "GlobalFetch", "ImageBitmapFactories"]
+    "impl" : ["LegacyQueryInterface", "GlobalEventHandlers", "WindowEventHandlers", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "WindowOrWorkerGlobalScope"]
   },
   "WindowClient": {
     "inh"  : "Client",
@@ -897,7 +897,7 @@
   },
   "WorkerGlobalScope": {
     "inh"  : "EventTarget",
-    "impl" : ["WindowTimers", "WindowBase64", "GlobalFetch", "IDBEnvironment", "FontFaceSource", "ImageBitmapFactories"]
+    "impl" : ["GlobalCrypto", "WindowOrWorkerGlobalScope"]
   },
   "MouseEvent": {
     "inh"  : "UIEvent",
