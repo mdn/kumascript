@@ -111,6 +111,10 @@
     "inh"  : "SVGGeometryElement",
     "impl" : []
   },
+  "SVGCursorElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGURIReference"]
+  },
   "DOMDownload": {
     "inh"  : "EventTarget",
     "impl" : []
