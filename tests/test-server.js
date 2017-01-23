@@ -5,6 +5,7 @@ var util = require('util'),
     _ = require('underscore'),
     nodeunit = require('nodeunit'),
     request = require('request'),
+    qs = require('querystring'),
 
     kumascript = require('..'),
     ks_macros = kumascript.macros,
@@ -21,9 +22,9 @@ module.exports = nodeunit.testCase({
                 macro_timeout: 500,
                 loader: {
                     module: __dirname + '/../lib/kumascript/loaders',
-                    class_name: 'HTTPLoader',
+                    class_name: 'FileLoader',
                     options: {
-                        url_template: "http://localhost:9001/templates/{name}.ejs",
+                        root_dir: "tests/fixtures/templates",
                     }
                 }
             });
@@ -53,6 +54,17 @@ module.exports = nodeunit.testCase({
     "Fetching document1 from service should be processed as expected": function (test) {
         var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
             result_url  = 'http://localhost:9000/docs/document1';
+        fs.readFile(expected_fn, 'utf8', function (err, expected) {
+            request(result_url, function (err, resp, result) {
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+        });
+    },
+
+    "Fetching 시작하기 from service should be processed as expected": function (test) {
+        var expected_fn = __dirname + '/fixtures/documents/시작하기-expected.txt',
+            result_url  = 'http://localhost:9000/docs/' + qs.escape('시작하기');
         fs.readFile(expected_fn, 'utf8', function (err, expected) {
             request(result_url, function (err, resp, result) {
                 test.equal(result.trim(), expected.trim());
