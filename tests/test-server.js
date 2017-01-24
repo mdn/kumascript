@@ -5,7 +5,6 @@ var util = require('util'),
     _ = require('underscore'),
     nodeunit = require('nodeunit'),
     request = require('request'),
-    qs = require('querystring'),
 
     kumascript = require('..'),
     ks_macros = kumascript.macros,
@@ -64,7 +63,7 @@ module.exports = nodeunit.testCase({
 
     "Fetching 시작하기 from service should be processed as expected": function (test) {
         var expected_fn = __dirname + '/fixtures/documents/시작하기-expected.txt',
-            result_url  = 'http://localhost:9000/docs/' + qs.escape('시작하기');
+            result_url  = 'http://localhost:9000/docs/' + encodeURI('시작하기');
         fs.readFile(expected_fn, 'utf8', function (err, expected) {
             request(result_url, function (err, resp, result) {
                 test.equal(result.trim(), expected.trim());
