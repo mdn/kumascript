@@ -3,12 +3,11 @@
 <%
 /*
  * $0 max version to list
- *
  */
  
-var CURRENT_MAX_VERSION = 50; 
- 
-var maxVersion = CURRENT_MAX_VERSION; /* was $0; replaced by this value to update after each release. */
+var CURRENT_MAX_VERSION = 53; // Needs to be updated on every release
+
+var maxVersion = $0 || CURRENT_MAX_VERSION;
 var minVersion = maxVersion - 30;
 
 if (minVersion < 4) { minVersion = 4 }
