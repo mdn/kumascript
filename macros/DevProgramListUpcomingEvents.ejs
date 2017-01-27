@@ -29,7 +29,7 @@ if (numEvents > 5) {
 
 for (var i=numEvents-1; i>=0; i--) {
     var event = events[i];
-    var startDate = date.parse(event[startDateCol]);
+    var startDate = Date.parse(event[startDateCol]);
     var url = event[urlCol];
     
     if (url.substr(0, 5) != "http:" && url.substr(0,6) != "https:") {
@@ -39,7 +39,7 @@ for (var i=numEvents-1; i>=0; i--) {
     if (startDate != NaN) {
         var row="<tr>";
         row += "<td><a href='" + url + "'>" + event[confNameCol] + "</a></td>";
-        row += "<td>" + date.getLocaleDateString(startDate) + "</td>";
+        row += "<td>" + startDate.toLocaleDateString() + "</td>";
         row += "<td>" + event[locationCol] + "</td>";
         row += "</tr>";
         wmHTML += row;
