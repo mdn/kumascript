@@ -20,7 +20,7 @@
             "interfaces": [],
             "methods":    [],
             "properties": [],
-            "events":     [ "cached", 
+            "events":     [ "cached",
                             "checking",
                             "downloading",
                             "noupdate",
@@ -64,6 +64,14 @@
             "events":     [ "headphoneschange",
                             "mozinterruptbegin",
                             "mozinterruptend" ]
+        },
+        "Background Tasks": {
+              "overview":     [ "Cooperative Scheduling of Background Tasks API" ],
+              "interfaces":   [ "IdleDeadline" ],
+              "methods":      [ "Window.cancelIdleCallback()",
+                                "Window.requestIdleCallback()" ],
+              "properties":   [],
+              "events":       []
         },
         "Battery API": {
             "overview":   [ "Battery Status API" ],
@@ -126,7 +134,7 @@
                             "HTMLIFrameElement.setVisible()",
                             "HTMLIFrameElement.setVolume()",
                             "HTMLIFrameElement.stop()",
-                            "HTMLIFrameElement.unmute()",                      
+                            "HTMLIFrameElement.unmute()",
                             "HTMLIFrameElement.zoom()" ],
             "properties": [],
             "events":     [ "mozbrowseractivitydone",
@@ -603,10 +611,10 @@
         "Fullscreen API": {
             "overview":   [ "Fullscreen API" ],
             "interfaces": [],
-            "methods":    [ "Document.exitFullscreen()", 
+            "methods":    [ "Document.exitFullscreen()",
                             "Element.requestFullscreen()" ],
-            "properties": [ "Document.fullscreen", 
-                            "Document.fullscreenElement", 
+            "properties": [ "Document.fullscreen",
+                            "Document.fullscreenElement",
                             "Document.onfullscreenchange",
                             "Document.onfullscreenerror" ],
             "events":     [ "fullscreenchange",
@@ -843,7 +851,7 @@
                             { "url":   "/en-US/docs/Web/Guide/HTML/Drag_operations",
                               "title": "Drag operations" }],
             "interfaces": [ "DataTransfer",
-                            "DataTransferItem",  
+                            "DataTransferItem",
                             "DataTransferItemList",
                             "DragEvent" ],
             "methods":    [],
@@ -1143,7 +1151,7 @@
         "Performance Timeline API": {
             "overview":   [ "Performance Timeline" ],
             "interfaces": [ "Performance",
-                            "PerformanceEntry",            
+                            "PerformanceEntry",
                             "PerformanceObserver",
                             "PerformanceObserverEntryList",
                             "PerformanceResourceTiming" ],
@@ -1156,7 +1164,7 @@
             "interfaces": [ "Permissions",
                             "PermissionStatus" ],
             "methods":    [],
-            "properties": [ "Navigator.permissions", 
+            "properties": [ "Navigator.permissions",
                             "WorkerNavigator.permissions"],
             "events":     []
         },
@@ -1183,7 +1191,7 @@
                             "GlobalEventHandlers.onpointerenter",
                             "GlobalEventHandlers.onpointerleave",
                             "Navigator.maxTouchPoints" ],
-            "events":     [ "pointerover", 
+            "events":     [ "pointerover",
                             "pointerenter",
                             "pointerdown",
                             "pointermove",
@@ -1202,7 +1210,7 @@
             "properties": [ "Document.pointerLockElement",
                             "Document.onpointerlockchange",
                             "Document.onpointerlockerror" ],
-            "events":     [ "pointerlockchange", 
+            "events":     [ "pointerlockchange",
                             "pointerlockerror"]
         },
         "Power Management API": {
@@ -1290,7 +1298,7 @@
             "methods":    [ "Document.getSelection()",
                             "Window.getSelection()" ],
             "events":     [ "selectionchange",
-                            "selectstart" ] 
+                            "selectstart" ]
         },
         "Server Sent Events": {
             "overview":   [ "Server-sent events" ],
@@ -1678,6 +1686,16 @@
             "events":     [  ]
         },
         "Web Audio API": {
+            "guides": [ { "url":   "/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API",
+                          "title": "Basic concepts behind Web Audio API" },
+                        { "url":   "/docs/Web/API/Web_Audio_API/Using_Web_Audio_API",
+                          "title":  "Using the Web Audio API" },
+                        { "url":   "/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API",
+                          "title": "Visualizations with Web Audio API" },
+                        { "url":   "/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics",
+                          "title": "Web audio spatialization basics" },
+                        { "url":   "/docs/Web/API/Web_Audio_API/Porting_webkitAudioContext_code_to_standards_based_AudioContext",
+                          "title": "Porting webkitAudioContext code to standards-based AudioContext" } ],
             "overview":   [ "Web Audio API" ],
             "interfaces": [ "AnalyserNode",
                             "AudioBuffer",
@@ -1689,9 +1707,11 @@
                             "AudioNode",
                             "AudioParam",
                             "AudioProcessingEvent",
+                            "BaseAudioContext",
                             "BiquadFilterNode",
                             "ChannelMergerNode",
                             "ChannelSplitterNode",
+                            "ConstantSourceNode",
                             "ConvolverNode",
                             "DelayNode",
                             "DynamicsCompressorNode",
@@ -1710,7 +1730,7 @@
                             "StereoPannerNode" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "statechange", 
+            "events":     [ "statechange",
                             "complete",
                             "ended",
                             "message",
