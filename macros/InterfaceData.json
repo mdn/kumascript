@@ -819,6 +819,18 @@
     "inh"  : "Event",
     "impl" : []
   },
+  "RTCTrackEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "RTCDTMFSender": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "RTCDTMFToneChangeEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
   "AudioStreamTrack": {
     "inh"  : "MediaStreamTrack",
     "impl" : []
