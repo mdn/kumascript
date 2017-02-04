@@ -27,7 +27,6 @@
     "express": "4.14.0",
     "feedparser": "1.1.5",
     "fibers": "1.0.15",
-    "firelogger": "0.1.0",
     "hirelings": "0.4.3",
     "memcached": "2.2.2",
     "morgan": "1.7.0",

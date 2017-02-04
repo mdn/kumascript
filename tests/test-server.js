@@ -155,6 +155,7 @@ module.exports = nodeunit.testCase({
                 request(req_opts, function (err, resp, result) {
 
                     test.equal(result.trim(), expected.trim());
+                    test.equal(resp.headers['vary'], 'X-FireLogger');
 
                     var expected_errors = {
                         'broken1': ["TemplateLoadingError", "NOT FOUND"],
@@ -185,20 +186,21 @@ module.exports = nodeunit.testCase({
                     });
 
                     // Third pass, extract all kumascript error messages.
-                    var errors = [];
+                    var errors = {};
                     _.each(logs, function (messages, uid) {
                         _.each(messages, function (m) {
                             if (m.name == 'kumascript' && m.level == 'error') {
-                                errors.push(m);
+                                errors[m.args[2].name] = m.args.slice(0, 2);
                             }
                         });
                     });
 
                     // Finally, assert that the extracted errors match expectations.
-                    _.each(errors, function (error, i) {
-                        var expected = expected_errors[error.args[2].name];
-                        test.equal(error.args[0], expected[0]);
-                        test.ok(error.args[1].indexOf(expected[1]) !== -1);
+                    _.each(expected_errors, function (expected, name) {
+                        test.ok(name in errors);
+                        var error = errors[name];
+                        test.equal(error[0], expected[0]);
+                        test.ok(error[1].indexOf(expected[1]) !== -1);
                     });
 
                     test.done();
