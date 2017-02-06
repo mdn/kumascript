@@ -1007,6 +1007,18 @@
     "inh"  : "AudioNode",
     "impl" : ["AudioNodePassThrough"]
   },
+  "AudioScheduledSourceNode": {
+    "inh"  : "AudioNode",
+    "impl" : []
+  },
+  "ConstantSourceNode": {
+    "inh"  : "AudioScheduledSourceNode",
+    "impl" : []
+  },
+  "BaseAudioContext": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
   "AudioProcessingEvent": {
     "inh"  : "Event",
     "impl" : []
