@@ -8,13 +8,15 @@ $1 is the link text to go along with this URL
 if($0) {
   var urlString = mdn.localString({
     'en-US': ' If you want to contribute or ask questions, contact us at <a href="' + $0 + '">' + $1 + '</a>.',
-    'ru'   : ' Если вы хотите внести вклад или задать вопросы, свяжитесь с нами по почте <a href="' + $0 + '">' + $1 + '</a>.'
+    'ru'   : ' Если вы хотите внести вклад или задать вопросы, свяжитесь с нами по почте <a href="' + $0 + '">' + $1 + '</a>.',
+    'fr'   : 'Si vous souhaitez contribuer ou poser vos questions, vous pouvez-nous contacter à <a href="' + $0 + '">' + $1 + '</a>.'
   });
 }
 
 var text = mdn.localString({
   'en-US': '<strong>Important</strong>: This translation is out-of-date, and needs to be updated to reflect the current content of the English version.',
-  'ru'   : '<strong>Важно</strong>: Этот перевод устарел, и должен быть обновлён, чтобы отражать текущее содержание английской версии'
+  'ru'   : '<strong>Важно</strong>: Этот перевод устарел, и должен быть обновлён, чтобы отражать текущее содержание английской версии',
+  'fr'   : '<strong>Important</strong>&nbsp;: Cette traduction est obsolète et doit être mise à jour par rapport à l'article anglais.'
 });
 
 if($0) {
