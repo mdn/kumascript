@@ -1969,6 +1969,7 @@
                             "VRPose",
                             "VREyeParameters",
                             "VRFieldOfView",
+                            "VRLayer"
                             "VRStageParameters" ],
             "methods":    [ "Navigator.getVRDisplays()" ],
             "properties": [ "Gamepad.displayId",
