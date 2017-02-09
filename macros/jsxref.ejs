@@ -51,4 +51,13 @@ if (page && page.summary) {
 var code    = !$3 ? '<code>'  : '';
 var endcode = !$3 ? '</code>' : '';
 
-%><a href="<%- URL + $2 %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
+%>
+<a href="<%- URL + $2 %>" title="<%-summary%>"><%- code %>
+<%
+  if ($3) {
+    %><%=str%><%
+  } else {
+    %><%-str%><%
+  }
+%>
+<%- endcode %></a>
