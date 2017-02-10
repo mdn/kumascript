@@ -45,6 +45,11 @@ var text = mdn.localString({
         'Adding_vector_graphics_to_the_Web': 'Adding vector graphics to the Web',
         'Responsive_images': 'Responsive images',
         'Assessment_Mozilla_splash_page': 'Assessment: Mozilla splash page',
+      'HTML_tables' : 'HTML tables',
+        'HTML_tables_overview' : 'HTML tables overview',
+        'HTML_table_basics' : 'HTML table basics',
+        'HTML_table_advanced' : 'HTML Table advanced features and accessibility',
+        'Assessment_Structuring_planet_data' : 'Assessment: Structuring planet data',
     'CSS_styling_the_Web': 'CSS — Styling the Web',
       'Introduction_to_CSS': 'Introduction to CSS',
         'Introduction_to_CSS_overview': 'Introduction to CSS overview',
@@ -176,6 +181,7 @@ var text = mdn.localString({
     'Common_questions': 'Common questions',
       'HTML_questions': 'HTML questions',
       'CSS_questions': 'CSS questions',
+      'JavaScript_questions': 'JavaScript questions',
       'How_the_Web_works': 'How the Web works',
       'Tools_and_setup': 'Tools and setup',
       'Design_and_accessibility': 'Design and accessibility',
@@ -519,6 +525,14 @@ var text = mdn.localString({
       <li><a href="<%=baseURL%>HTML/Multimedia_and_embedding/Mozilla_splash_page"><%=text['Assessment_Mozilla_splash_page']%></a></li>
     </ol>
   </li>
+  <li data-default-state="<%=currentPageIsUnder('HTML/Tables')%>"><a href="<%=baseURL%>HTML/Tables"><%=text['HTML_tables']%></a>
+    <ol>
+      <li><a href="<%=baseURL%>HTML/Tables"><%=text['HTML_tables_overview']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Tables/Basics"><%=text['HTML_table_basics']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Tables/Advanced"><%=text['HTML_table_advanced']%></a></li>
+      <li><a href="<%=baseURL%>HTML/Tables/Structuring_planet_data"><%=text['Assessment_Structuring_planet_data']%></a></li>
+    </ol>
+  </li>
   <li data-default-state="<%=currentPageIsUnder('CSS')%>"><a href="<%=baseURL%>CSS"><strong><%=text['CSS_styling_the_Web']%></strong></a></li>
   <li data-default-state="<%=currentPageIsUnder('CSS/Introduction_to_CSS')%>"><a href="<%=baseURL%>CSS/Introduction_to_CSS"><%=text['Introduction_to_CSS']%></a>
     <ol>
@@ -693,6 +707,7 @@ var text = mdn.localString({
     <ol>
       <li><a href="<%=baseURL%>HTML/Howto"><%=text['HTML_questions']%></a></li>
       <li><a href="<%=baseURL%>CSS/Howto"><%=text['CSS_questions']%></a></li>
+      <li><a href="<%=baseURL%>JavaScript/Howto"><%=text['JavaScript_questions']%></a></li>
       <li><a href="<%=baseURL%>Common_questions#How_the_Web_works"><%=text['How_the_Web_works']%></a></li>
       <li><a href="<%=baseURL%>Common_questions#Tools_and_setup"><%=text['Tools_and_setup']%></a></li>
       <li><a href="<%=baseURL%>Common_questions#Design_and_accessibility"><%=text['Design_and_accessibility']%></a></li>
