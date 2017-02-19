@@ -24,6 +24,7 @@ var URL    = mdn.localString({
 
 var sep = mdn.localString({
     "en-US":": ",
+    "zh-CN":"：",
     "fr"   :"&nbsp;: "
 });
 
@@ -33,6 +34,7 @@ URL    += $0.replace(/\s+/g,'_');
 var page    = wiki.getPage(URL);
 var summary = mdn.localString({
     "en-US": "The definition of that term (" + str + ") has not been written yet; please consider contributing it!",
+    "zh-CN": "术语（" + str + "）的定义尚未撰写；欢迎贡献！",
     "de"   : "Die Definition dieses Ausdrucks (" + str + ") wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!",
     "fr"   : "La définition de ce terme («&nbsp;"+ str +"&nbsp;») n'a pas encore été rédigée. Nous serions heureux de vous voir l'écrire&nbsp;!",
     "ja"   : "この用語 (" + str + ") の定義はまだ書かれていません。ぜひご寄稿ください！",

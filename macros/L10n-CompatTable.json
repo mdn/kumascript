@@ -1,6 +1,7 @@
 {
     "connectionFailure": {
         "en-US": "Unable to contact CompatTable service.",
+        "zh-CN": "无法联系 CompatTable 服务。",
         "de"   : "Es ist nicht möglich, den CompatTable Service zu kontaktieren.",
         "es"   : "Imposible de contactar el servicio CompatTable.",
         "fr"   : "Impossible de contacter le service CompatTable.",
@@ -9,6 +10,7 @@
     },
     "compatServiceError": {
         "en-US": "Compat service error returned: $error$",
+        "zh-CN": "兼容性服务回报错误：$error$",
         "de"   : "Compat Service hat einen Fehler zurückgeliefert: $error$",
         "es"   : "El servicio CompatTable regresó el error : $error$",
         "fr"   : "Le service de compatibilité a renvoyé l'erreur&nbsp;: $error$",
@@ -18,6 +20,7 @@
 
     "browserType_desktop": {
         "en-US": "Desktop",
+        "zh-CN": "桌面版",
         "de"   : "Desktop",
         "es"   : "Desktop",
         "fr"   : "Ordinateur",
@@ -26,6 +29,7 @@
     },
     "browserType_mobile": {
         "en-US": "Mobile",
+        "zh-CN": "移动版",
         "de"   : "Mobile",
         "es"   : "Mobile",
         "fr"   : "Mobile",
@@ -34,6 +38,7 @@
     },
     "browserType_non": {
         "en-US": "Non-Browser Environment",
+        "zh-CN": "非浏览器环境",
         "de"   : "Nicht-Browser-Umgebung",
         "es"   : "Entorno no basado en navegadores",
         "fr"   : "Environnement non-navigateur",
@@ -43,6 +48,7 @@
 
     "bc_history_head": {
         "en-US": "Implementation Notes",
+        "zh-CN": "实现注记",
         "es"   : "Notas de implementación",
         "fr"   : "Notes d'implémentation",
         "ja"   : "実装ノート",
@@ -50,6 +56,7 @@
     },
     "supportsShort_yes": {
         "en-US": "Yes",
+        "zh-CN": "有",
         "de"   : "Ja",
         "es"   : "Si",
         "fr"   : "Oui",
@@ -58,6 +65,7 @@
     },
     "supportsShort_no": {
         "en-US": "No",
+        "zh-CN": "无",
         "de"   : "Nein",
         "es"   : "No",
         "fr"   : "Non",
@@ -66,6 +74,7 @@
     },
     "supportsShort_partial": {
         "en-US": "Partial",
+        "zh-CN": "部分",
         "de"   : "Teilweise",
         "es"   : "Parcial",
         "fr"   : "Partiel",
@@ -75,6 +84,7 @@
 
     "supportsLong_yes": {
         "en-US": "Full support",
+        "zh-CN": "全面支持",
         "de"   : "Vollständige Unterstützung",
         "es"   : "Soporte completo",
         "fr"   : "Support complet",
@@ -83,6 +93,7 @@
     },
     "supportsLong_no": {
         "en-US": "No support",
+        "zh-CN": "不支持",
         "de"   : "Keine Unterstützung",
         "es"   : "Sin soporte",
         "fr"   : "Aucun support",
@@ -91,6 +102,7 @@
     },
     "supportsLong_partial": {
         "en-US": "Partial support",
+        "zh-CN": "部分支持",
         "de"   : "Teilweise Unterstützung",
         "es"   : "Soporte parcial",
         "fr"   : "Support partiel",
@@ -99,24 +111,28 @@
     },
     "supportsShort_unknown": {
         "en-US": "?",
+        "zh-CN": "?",
         "fr"   : "?",
         "ja"   : "?",
         "ru"   : "?"
     },
     "supportsShort_unknown_title": {
         "en-US": "Compatibility unknown; please update this.",
+        "zh-CN": "兼容性未知；请更新此项。",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
         "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию."
     },
     "feature": {
         "en-US": "Feature",
+        "zh-CN": "特性",
         "fr"   : "Fonctionnalité",
         "ja"   : "機能",
         "ru"   : "Возможность"
     },
     "feature_basicsupport": {
         "en-US": "Basic Support",
+        "zh-CN": "基本支持",
         "de"   : "Grundlegende Unterstützung",
         "es"   : "Soporte básico",
         "fr"   : "Support simple",
@@ -125,6 +141,7 @@
     },
     "feature_experimental": {
         "en-US": "Experimental",
+        "zh-CN": "实验性",
         "de"   : "Experimentell",
         "es"   : "Experimental",
         "fr"   : "Expérimentale",
@@ -133,6 +150,7 @@
     },
     "feature_experimentalLong": {
         "en-US": "Experimental. Expect behavior to change in the future.",
+        "zh-CN": "实验性。行为预期将在未来改变。",
         "de"   : "Experimentell. Das Verhalten kann sich zukünftig ändern.",
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité experimentale. Celle-ci peut être amenée à changer par la suite.",
@@ -141,6 +159,7 @@
     },
     "feature_nonstandard": {
         "en-US": "Non-standard",
+        "zh-CN": "非标准",
         "de"   : "Nicht standardisiert",
         "es"   : "No estándar",
         "fr"   : "Non-standard",
@@ -149,6 +168,7 @@
     },
     "feature_nonstandardLong": {
         "en-US": "Non-standard. Expect poor cross-browser support.",
+        "zh-CN": "非标准。预期跨浏览器支持很差。",
         "de"   : "Nicht standardisiert. Erwarte schlechte browserübergreifende Unterstützung.",
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
@@ -157,6 +177,7 @@
     },
     "feature_obsolete": {
         "en-US": "Obsolete",
+        "zh-CN": "过时",
         "de"   : "Veraltet",
         "es"   : "Obsoleto",
         "fr"   : "Obsolète",
@@ -165,6 +186,7 @@
     },
     "feature_obsoleteLong": {
         "en-US": "Obsolete. Not for use in new websites.",
+        "zh-CN": "过时。不应再在新设网站中使用。",
         "de"   : "Veraltet. Nicht zur Verwendung in neuen Webseiten geeignet.",
         "es"   : "Obsoleto . No para uso en sitios web.",
         "fr"   : "Fonctionnalité obsolète. Celle-ci ne doit pas être utilisée pour de nouveaux sites web.",
@@ -174,6 +196,7 @@
 
     "requirement_prefix": {
         "en-US": "Prefixed",
+        "zh-CN": "有前缀",
         "de"   : "mit Präfix",
         "es"   : "Prefijado",
         "fr"   : "Préfixée",
@@ -182,6 +205,7 @@
     },
     "requirement_prefixLong": {
         "en-US": "Requires the vendor prefix: <code>$prefix$</code>",
+        "zh-CN": "需要供应商前缀：<code>$prefix$</code>",
         "de"   : "Benötigt das Herstellerpräfix: <code>$prefix$</code>",
         "es"   : "Requiere de un prefijo de vendedor : <code>$prefix$</code>",
         "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: <code>$prefix$</code>",
@@ -190,6 +214,7 @@
     },
     "requirement_note": {
         "en-US": "Notes",
+        "zh-CN": "注记",
         "de"   : "Hinweise",
         "es"   : "Notas",
         "fr"   : "Notes",
@@ -198,6 +223,7 @@
     },
     "requirement_noteLong": {
         "en-US": "See implementation notes",
+        "zh-CN": "见实现注记",
         "de"   : "Siehe Implementierungshinweise",
         "es"   : "Ver notas de implementación",
         "fr"   : "Voir les notes d'implémentation",
@@ -206,6 +232,7 @@
     },
     "requirement_alternate": {
         "en-US": "Alternate Name",
+        "zh-CN": "代替名称",
         "de"   : "Alternativer Name",
         "es"   : "Nombre alternativo",
         "fr"   : "Autre nom",
@@ -214,6 +241,7 @@
     },
     "requirement_alternateLong": {
         "en-US": "Uses the non-standard name: <code>$name$</code>",
+        "zh-CN": "使用非标准名称：<code>$name$</code>",
         "de"   : "Verwendet den nicht standardisierten Namen: <code>$name$</code>",
         "es"   : "Usa un nombre no estandar : <code>$name</code> ",
         "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$name$</code>",
@@ -222,6 +250,7 @@
     },
     "requirement_protected": {
         "en-US": "Protected",
+        "zh-CN": "受保护",
         "de"   : "Geschützt",
         "es"   : "Protegido",
         "fr"   : "Protégée",
@@ -230,6 +259,7 @@
     },
     "requirement_protectedLong": {
         "en-US": "Protected. Additonal steps are required to get permission or certification for use.",
+        "zh-CN": "受保护。需要额外步骤才能取得使用权限或认可。",
         "de"   : "Geschützt. Zusätzliche Schritte werden benötigt, um die Erlaubnis oder die Zertifizierung für den Gebrauch zu erhalten.",
         "es"   : "Protegido. Se requiere de pasos adicionales para obtener permiso o certificación para su uso.",
         "fr"   : "Cette fonctionnalité est protégée. Des étapes supplémentaires sont nécessaires pour pouvoir l'utiliser.",
@@ -238,6 +268,7 @@
     },
     "requirement_disabled": {
         "en-US": "Disabled",
+        "zh-CN": "已禁用",
         "de"   : "Deaktiviert",
         "es"   : "Deshabilitado",
         "fr"   : "Désactivée",
@@ -246,6 +277,7 @@
     },
     "requirement_disabledRequires": {
         "en-US": "The user must change <code>$default$</code> to <code>$requires$</code> to enable this feature.",
+        "zh-CN": "用户必须更改 <code>$default$</code> 为 <code>$requires$</code> 才能启用此特性。",
         "de"   : "Der Benutzer muss <code>$default$</code> ändern, um <code>$requires$</code> dieses Feature zu aktivieren.",
         "es"   : "El usuario debe de cambiar <code>$default$</code>  a <code>$requires$</code> para habilitar esta característica.",
         "fr"   : "L'utilisateur doit changer $default$ à $requires$ afin d'activer cette fonctionnalité.",
@@ -254,6 +286,7 @@
     },
     "requirement_disabledDefault": {
         "en-US": "The user must change <code>$default$</code> to enable this feature.",
+        "zh-CN": "用户必须更改 <code>$default$</code> 才能启用此特性。",
         "de"   : "Der Benutzer muss <code>$default$</code> ändern, um dieses Feature zu aktivieren.",
         "es"   : "El usuario debe de cambiar <code>$default$</code>  para habilitar esta característica.",
         "fr"   : "L'utilisateur doit changer $default$ afin d'activer cette fonctionnalité.",
@@ -263,6 +296,7 @@
 
     "legend": {
         "en-US": "Legend",
+        "zh-CN": "说明",
         "de"   : "Legende",
         "es"   : "Leyenda",
         "fr"   : "Légende",
@@ -271,6 +305,7 @@
     },
     "legend_prefixLong": {
         "en-US": "Requires a vendor prefix or different name for use.",
+        "zh-CN": "需要供应商前缀或另一个名称才能使用。",
         "de"   : "Benötigt ein Herstellerpräfix oder einen anderen Namen zur Verwendung.",
         "es"   : "Requiere de un prefijo de proveedor o un de nombre diferente para su uso.",
         "fr"   : "Cette fonctionnalité nécessite un préfixe particulier ou utilise un autre nom.",
@@ -279,6 +314,7 @@
     },
     "legend_alternateLong": {
         "en-US": "Uses a non-standard name.",
+        "zh-CN": "使用非标准名称。",
         "de"   : "Verwendet einen nicht standardisierten Namen.",
         "es"   : "Usa un nombre no estandar.",
         "fr"   : "Cette fonctionnalité utilise un nom non-standard.",
@@ -287,6 +323,7 @@
     },
     "legend_disabledLong": {
         "en-US": "User must explicitly enable this feature.",
+        "zh-CN": "用户必须明确启用此特性。",
         "de"   : "Benutzer muss dieses Feature explizit aktivieren.",
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
