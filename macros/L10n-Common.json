@@ -54,6 +54,7 @@
         "it"   : "Costruttore",
         "ca"   : "Constructor",
         "ja"   : "コンストラクター",
+        "zh-CN": "构造器",
         "ru"   : "Конструктор"
     },
     
@@ -63,7 +64,7 @@
         "es"   : "Herencia",
         "fr"   : "Héritage&nbsp;:",
         "ru"   : "Наследование:",
-        "zh-CN": "继承",
+        "zh-CN": "继承：",
         "ca"   : "Herència",
         "ja"   : "継承"
     },
@@ -75,6 +76,7 @@
         "fr"   : "Implémenté par&nbsp;:",
         "it"   : "Implementato da:",
         "ca"   : "Implementat per",
+        "zh-CN": "实现于：",
         "ru"   : "Выполняется:"
     },
     
@@ -86,6 +88,7 @@
         "it"   : "Pagine correlate du $1",
         "ca"   : "Pàgines similars a $1",
         "ru"   : "Похожие страницы для $1",
+        "zh-CN": "$1 的相关页面",
         "ja"   : "$1 に関連するページ"
     },
     
@@ -97,6 +100,7 @@
         "it"   : "Pagine correlate:",
         "ca"   : "Pàgines similars",
         "ru"   : "Похожие страницы:",
+        "zh-CN": "相关页面：",
         "ja"   : "関連するページ"
     },
     
@@ -107,7 +111,7 @@
         "fr"   : "Référence",
         "ja"   : "リファレンス",
         "pt-BR": "Referência",
-        "zh-CN": "参考",
+        "zh-CN": "参考资料",
         "pl"   : "Referencje",
         "ca"   : "Referència",
         "ru"   : "Руководство"
@@ -117,6 +121,7 @@
         "en-US": "section",
         "fr"   : "section",
         "ru"   : "секция",
+        "zh-CN": "章节",
         "ja"   : "セクション"
     },
     
@@ -137,7 +142,7 @@
         "de": "Unsere Freiwilligen haben diesen Artikel noch nicht in Deutsch übersetzt. Machen Sie mit und helfen Sie, das zu erledigen!",
         "es": "Nuestros voluntarios aún no han traducido este artículo al Español. ¡Únete a nosotros y ayuda a traducirlo!",
         "fr": "Nos volontaires n'ont pas encore traduit cet article en français. Rejoignez-nous et aidez-nous à le faire&nbsp;!",
-        "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
+        "zh-CN": "此页面尚未被本地化；期待您的翻译！",
         "ca" : "Els nostres voluntaris encara no han traduït aquest article al Català. Uneix-te a nosaltres i ajuda-ns a acabar la feina!",
         "ru" : "Наши волонтёры ещё не перевели данную статью на Русский. Присоединяйтесь к нам и помогите закончить эту работу!",
         "ja" : "まだボランティアによって日本語に翻訳されていない記事です。MDNに参加して、翻訳してみませんか？"
@@ -149,6 +154,7 @@
         "es"   : "Guías",
         "fr"   : "Guides",
         "ru"   : "Руководства",
+        "zh-CN": "指南",
         "ja"   : "ガイド"
     },
     
@@ -158,6 +164,7 @@
         "es"   : "Eventos",
         "fr"   : "Événements",
         "ru"   : "События",
+        "zh-CN": "事件",
         "ja"   : "イベント"
     },
     
@@ -167,6 +174,7 @@
         "es"   : "Interfaces",
         "fr"   : "Interfaces",
         "ru"   : "Интерфейсы",
+        "zh-CN": "接口",
         "ja"   : "インターフェイス"
     },
 
@@ -176,6 +184,7 @@
         "es"   : ", ",
         "fr"   : ", ",
         "ja"   : " 、 ",
+        "zh-CN": "、",
         "ru"   : ", "
     }
 }

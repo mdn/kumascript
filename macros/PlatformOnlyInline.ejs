@@ -15,26 +15,28 @@ if($1) {
     str = mdn.localString({
         "de": "Nur " + $0 + " "  + $1,
         "en-US": $0 + " "  + $1 + " Only",
-        "zh-CN": "只支持Gecko移动设备" + "(Gecko" + $1 + "以上)",
+        "zh-CN": "仅 " + $0 + " "  + $1,
         "ru": "Только " + $0 + " "  + $1
     });
 
     title = mdn.localString({
         "de": "Nur verfügbar in " + $0 + " "  + $1,
         "en-US": "Available only in " + $0 + " " + $1,
-        "zh-CN": "只在内核为 " + $1 + "的" + $0 + "中可用",
+        "zh-CN": "仅在 " + $0 + " " + $1 + "中可用",
         "ru": "Доступно только в " + $0 + " " + $1
     });
 } else {
     str = mdn.localString({
         "de": "Nur " + $0,
         "en-US": $0 + " Only",
+        "zh-CN": "仅 " + $0,
         "ru": "Только " + $0
     });
 
     title = mdn.localString({
         "de": "Nur " + $0,
         "en-US": $0 + " Only",
+        "zh-CN": "仅 " + $0,
         "ru": "Только " + $0
     });
 }

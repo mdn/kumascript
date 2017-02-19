@@ -1,23 +1,14 @@
 <%
-var s_inherited = "Inherited from XUL element";
-
-switch (env.locale) {
-    case "de":
-        s_inherited = "Geerbt von XUL-Element"; break;
-    case "es":
-        s_inherited = "Heredados desde el elemento XUL"; break;
-    case "fr":
-        s_inherited = "Hérités de XUL element"; break;
-    case "ja":
-        s_inherited = "XUL 要素からの継承"; break;
-    case "pl":
-        s_inherited = "Dziedziczy z elementu XUL"; break;
-    case "ru":
-        s_inherited = "Наследуется с XUL элемента"; break;
-}
-
-
-
+var s_inherited = mdn.localString({
+    "en-US": "Inherited from XUL element",
+    "de": "Geerbt von XUL-Element",
+    "es": "Heredados desde el elemento XUL",
+    "fr": "Hérités de XUL element",
+    "ja": "XUL 要素からの継承",
+    "pl": "Dziedziczy z elementu XUL",
+    "ru": "Наследуется с XUL элемента",
+    "zh-CN": "从 XUL 元素继承"
+});
 %><table style="border: 1px solid rgb(204, 204, 204); margin: 0 0 10px 10px; padding: 0 10px; background: rgb(238, 238, 238);">
 <tbody>
 <tr>

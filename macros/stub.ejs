@@ -1,12 +1,7 @@
 <%
-switch(env.locale) {
-    case "ja":
-        str = "この記事は一部分のみ作成されている書きかけの記事です。作成にご協力ください。<br />（新たな内容を書き加える場合、できれば英語版の記事の方にも反映してくださるようお願いします）";
-        break;
-    default:
-        str = "This article is a stub--an article which is only partly developed. Please help to develop it.";
-        break;
-}
-
-
+var str = mdn.localString({
+    "en-US": "This article is a stub--an article which is only partly developed. Please help to develop it.",
+    "ja": "この記事は一部分のみ作成されている書きかけの記事です。作成にご協力ください。<br />（新たな内容を書き加える場合、できれば英語版の記事の方にも反映してくださるようお願いします）",
+    "zh-CN": "这篇文章还不完整，有待发展。欢迎帮忙改善它。"
+});
 %><div class="overheadIndicator"><%-str%></div>

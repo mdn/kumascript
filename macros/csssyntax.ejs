@@ -37,12 +37,13 @@ var s_missing = mdn.localString({
     "en-US": "Syntax not found in DB!",
     "fr"   : "La syntaxe n'a pas été trouvée !",
     "de"   : "Syntax nicht in der Datenbank gefunden!",
-    "zh-CN": "该属性的语法尚未添加",
+    "zh-CN": "数据库中未找到该语法！",
     "ru"   : "Синтаксис не найден в базе данных"
 });
 
 var s_where = mdn.localString({
     "en-US": "where ",
+    "zh-CN": "问号 ",
     "de"   : "wobei ",
     "fr"   : "où ",
     "ru"   : "где "
@@ -56,6 +57,7 @@ var s_syntax_value_definition = mdn.localString({
 						 
 var s_and = mdn.localString({
     "en-US": "and ",
+    "zh-CN": "且 ",
     "de"   : "und ",
     "fr"   : "et ",
 	"ja"   : "と",
@@ -64,12 +66,14 @@ var s_and = mdn.localString({
 
 var s_or = mdn.localString({
     "en-US": "or",
+    "zh-CN": "或",
     "de"   : "oder",
     "ru"   : "или"
 });
 
 var s_possible_values = mdn.localString({
     "en-US": "Possible values: ",
+    "zh-CN": "可能的值：",
     "de"   : "Mögliche Werte: ",
     "ru"   : "Возможные значения: "
 });
@@ -77,10 +81,12 @@ var s_possible_values = mdn.localString({
 var s_number_followed_by = mdn.localString({
     "en-US": "a number followed by",
     "de"   : "eine Nummer gefolgt von",
+    "zh-CN": "紧随数字"
 });
 
 var s_like = mdn.localString({
     "en-US": "like",
+    "zh-CN": "像是",
     "de"   : "wie",
     "ru"   : "как"
 });
@@ -134,6 +140,7 @@ var operators = [
         regexp: /\#/g,
         title: mdn.localString({
             "en-US": "Hash mark: the entity is repeated one or several times, each occurence separated by a comma",
+            "zh-CN": "井号：该实体重复一次或多次，每次出现以逗号分隔",
             "de": "Rautensymbol: Die Entität wird einmal oder mehrmals wiederholt, wobei jedes Vorkommen durch ein Komma getrennt wird"
         }),
         anchor: mdn.localString({
@@ -145,6 +152,7 @@ var operators = [
         regexp: /\|\|/g,
         title: mdn.localString({
             "en-US": "Double bar: one or several of the entities must be present, in any order",
+            "zh-CN": "双竖线：该实体出现一次或多次，以任何顺序",
             "de"   : "Doppelter Balken: Eine oder mehrere der Entitäten muss angegeben werden, in beliebiger Reihenfolge"
         }),
         anchor: mdn.localString({
@@ -156,6 +164,7 @@ var operators = [
         regexp: /[^\|](\|)[^\|]/g,
         title: mdn.localString({
             "en-US": "Single bar: exactly one of the entities must be present",
+            "zh-CN": "单竖线：该实体只能出现一次",
             "de"   : "Einfacher Balken: Genau eine der Entitäten muss angegeben werden"
         }),
         anchor: mdn.localString({
@@ -167,6 +176,7 @@ var operators = [
         regexp: /&amp;&amp;/g,
         title: mdn.localString({
             "en-US": "Double ampersand: all of the entities must be present, in any order",
+            "zh-CN": "双和符号：所有实体都必须存在，以任何顺序",
             "de"   : "Doppeltes Und-Zeichen: Alle Entitäten müssen angegeben werden, in beliebiger Reihenfolge"
         }),
         anchor: mdn.localString({
@@ -178,6 +188,7 @@ var operators = [
         regexp: /\?/g,
         title: mdn.localString({
             "en-US": "Question mark: the entity is optional",
+            "zh-CN": "问号：该实体为可选",
             "de"   : "Fragezeichen: Die Entität ist optional"
         }),
         anchor: mdn.localString({
@@ -189,6 +200,7 @@ var operators = [
         regexp: /([^\/])\*(?!\/)/g,
         title: mdn.localString({
             "en-US": "Asterisk: the entity may occur zero, one or several times",
+            "zh-CN": "星号：该实体可能出现零次、一次或多次",
             "de"   : "Asterisk: Die Entität kann keinmal, einmal oder mehrmals vorkommen"
         }),
         anchor: mdn.localString({
@@ -200,6 +212,7 @@ var operators = [
         regexp: /\+/g,
         title: mdn.localString({
             "en-US": "Plus: the entity may occur one or several times",
+            "zh-CN": "加号：该实体可能出现一次或多次",
             "de"   : "Plus: Die Entität kann einmal oder mehrmals vorkommen"
         }),
         anchor: mdn.localString({
@@ -211,10 +224,12 @@ var operators = [
         regexp: /\[|\]/g,
         title: mdn.localString({
             "en-US": "Brackets: enclose several entities, combinators, and multipliers to transform them as a single component",
+            "zh-CN": "括号：包含多个实体、组合器或倍增器，将它们转换为单个元件",
             "de"   : "Eckige Klammern: umschließen mehrere Entitäten, Kombinatoren und Multiplikatoren, um diese als eine gesamte Komponente zu behandeln"
         }),
         anchor: mdn.localString({
             "en-US": "Brackets",
+            "zh-CN": "括号",
             "de"   : "Eckige_Klammern"
         })
     },
@@ -222,6 +237,7 @@ var operators = [
         regexp: /\{(?!\s)|(\d)\}/g,
         title: mdn.localString({
             "en-US": "Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity",
+            "zh-CN": "花括号：包含两个整数，定义实体的最小和最大出现次数",
             "de"   : "Geschweifte Klammern: umschließen zwei Ganzzahlen, die die Minimal- und Maximalanzahl an Vorkommen der Entität angeben"
         }),
         anchor: mdn.localString({
@@ -233,6 +249,7 @@ var operators = [
         regexp: /!/g,
         title: mdn.localString({
             "en-US": "Exclamation point: the group must produce at least one value",
+            "zh-CN": "感叹号：该组必须产生至少一个值",
             "de"   : "Ausrufezeichen: die Gruppe muss mindestens einen Wert erzeugen"
         }),
         anchor: mdn.localString({

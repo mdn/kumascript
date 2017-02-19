@@ -1,14 +1,15 @@
 <%
-var path = 'en-US/XUL/Property';
-switch (env.locale) {
-    case 'de':    path = 'de/XUL/Eigenschaften'; break;
-    case 'es':    path = 'es/XUL/Property'; break;
-    case 'fr':    path = 'fr/XUL/Propriétés'; break;
-    case 'ja':    path = 'ja/XUL/Property'; break;
-    case 'ko':    path = 'ko/XUL/Property'; break;
-    case 'pl':    path = 'pl/XUL/Własność'; break;
-    case 'zh-CN': path = 'zh-CN/XUL/Property'; break;
-    case 'ru':    path = 'ru/XUL/Property'; break;
-}
+// todo: path = '/' + env.locale + '/XUL/Property' maybe work?
+var path = mdn.localString({
+    "en-US": 'en-US/XUL/Property',
+    'de':    'de/XUL/Eigenschaften',
+    'es':    'es/XUL/Property',
+    'fr':    'fr/XUL/Propriétés',
+    'ja':    'ja/XUL/Property',
+    'ko':    'ko/XUL/Property',
+    'pl':    'pl/XUL/Własność',
+    'ru':    'ru/XUL/Property',
+    'zh-CN': 'zh-CN/XUL/Property'
+});
 %>
 <div id="<%='p-' + $0%>"><%- wiki.page(path + '/' + $0) %></div>

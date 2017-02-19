@@ -1,11 +1,10 @@
 <%
-var s = ["en-US/XUL", "/en-US/docs/XUL", "XUL Reference"];
-switch (env.locale) {
-    case 'es': s = ["es/XUL", "/es/docs/XUL", "Referencia de XUL"];  break;
-    case 'de': s = ["de/XUL", "/de/docs/XUL", "XUL Referenz"];  break;
-    case 'ja': s = ["ja/XUL", "/ja/docs/XUL", "XUL リファレンス"];  break;
-    case 'ru': s = ["ru/XUL", "/ru/docs/XUL", "Руководство по XUL"];  break;
-}
-
-
+var s = mdn.localString({
+    'en-US': ["en-US/XUL", "/en-US/docs/XUL", "XUL Reference"],
+    'es': ["es/XUL", "/es/docs/XUL", "Referencia de XUL"],
+    'de': ["de/XUL", "/de/docs/XUL", "XUL Referenz"],
+    'ja': ["ja/XUL", "/ja/docs/XUL", "XUL リファレンス"],
+    'ru': ["ru/XUL", "/ru/docs/XUL", "Руководство по XUL"],
+    'zh-CN': ["zh-CN/XUL", "/zh-CN/docs/XUL", "XUL 参考资料"]
+});
 %>« <a title="<%=s[0]%>" href="<%=s[1]%>"><%=s[2]%></a> «

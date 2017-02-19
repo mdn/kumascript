@@ -1,13 +1,8 @@
 <%
-var path = '/en/docs/XPIDL/Syntax#' + $1;
- 
-switch(env.locale) {
-  case 'fr':
-    path = '/en/docs/XPIDL/Syntaxe#' + $1;
-    break;
-  case 'pl':
-    path = '/en/docs/XPIDL/Składnia#' + $1;
-    break;
-}
+var path = mdn.localString({
+    "en-US": '/en/docs/XPIDL/Syntax#' + $1,
+    "fr": '/en/docs/XPIDL/Syntaxe#' + $1,
+    "pl": '/en/docs/XPIDL/Składnia#' + $1
+});
 %>
 <%- web.link(wiki.uri(path), $0) %>

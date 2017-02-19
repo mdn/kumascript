@@ -5,23 +5,20 @@
 
 var lang = env.locale;
 
-var refName = "XBL 1.0 Reference";
-var elemName = "DOM Interfaces";
-
-switch(lang) {
-  case 'fr':
-    refName = "Référence XBL 1.0";
-    elemName = "Éléments";
-    break;
-  case 'pl':
-    refName = "Dokumentacja XBL 1.0";
-    elemName = "Interfejsy DOM";
-    break;
-  case 'ru':
-    refName = "Документация XBL 1.0";
-    elemName = "Элементы";
-    break;
-}
+var refName = mdn.localString({
+    'en-US': "XBL 1.0 Reference",
+    'fr': "Référence XBL 1.0",
+    'pl': "Dokumentacja XBL 1.0",
+    'ru': "Документация XBL 1.0",
+    'zh-CN': 'XBL 1.0 参考资料'
+});
+var elemName = mdn.localString({
+    'en-US': "DOM Interfaces",
+    'fr': "Éléments",
+    'pl': "Interfejsy DOM",
+    'ru': "Элементы",
+    'zh-CN': 'DOM 接口'
+});
 var destOldType = "/" + lang + '/docs/XBL:' + refName + ':' + elemName;
 var destNewType = "/" + lang + '/docs/XBL/' + refName + '/' + elemName;
 var url = "";

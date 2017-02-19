@@ -34,8 +34,10 @@ function getExamplesForAPI(module, api) {
   return examplesForAPI;
 }
 
-var lang = env.locale;
-
+var jsAPI = mdn.localString({
+    "en-US": "JavaScript APIs",
+    "zh-CN": "JavaScript API"
+});
 function writeExampleDetails(examples) {
   var output = "";
   for (var i = 0; i < examples.length; i++) {
@@ -47,10 +49,10 @@ function writeExampleDetails(examples) {
     output += '<p>' + example.description + '</p>';
     
     if (example.javascript_apis.length > 0) {
-      output += "<h3>" + "JavaScript APIs" + "</h3>";
+      output += "<h3>" + jsAPI + "</h3>";
         output += "<ul>";
         for (var k = 0; k < example.javascript_apis.length; k++) {
-          var link = "/" + lang + "/Add-ons/WebExtensions/API/" + example.javascript_apis[k].replace(".", "/");
+          var link = "/" + env.locale + "/Add-ons/WebExtensions/API/" + example.javascript_apis[k].replace(".", "/");
           output += '<li><a href="' + link + '"><code>' + example.javascript_apis[k] + '</code></a>';
           output += "</li>";
         }
@@ -60,11 +62,14 @@ function writeExampleDetails(examples) {
   return output;
 }
 
-
+var example = mdn.localString({
+    "en-US": "Example add-ons",
+    "zh-CN": "附加组件示例"
+});
 function writeExampleLinks(examples) {
   var output = "";
   if (examples.length > 0) {
-    output = "<" + examplesInAPIHeading + ">Example add-ons</" + examplesInAPIHeading + ">";
+    output = "<" + examplesInAPIHeading + "><%=example%></" + examplesInAPIHeading + ">";
     output += "<ul>";
     for (var i = 0; i < examples.length; i++) {
       var example = examples[i];
