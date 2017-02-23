@@ -51,6 +51,7 @@ var inheritanceData = {
     "Proxy": [],
     "SIMD": ["Object"],
     "Atomics": ["Object"],
+    "WebAssembly": ["Object"],
 };
 if (typeof inheritanceData[mainObj] != 'undefined') {
     inheritance = inheritanceData[mainObj];
@@ -65,6 +66,8 @@ var groupData = {
     "Proxy": ["Proxy", "handler"],
     "SIMD": ["SIMD", "Float32x4", "Float64x2", "Int8x16", "Int16x8", "Int32x4", "Uint8x16", "Uint16x8", "Uint32x4",
              "Bool8x16", "Bool16x8", "Bool32x4", "Bool64x2"],
+    "WebAssembly": ["WebAssembly", "WebAssembly.Module", "WebAssembly.Instance", "WebAssembly.Memory", "WebAssembly.Table",
+                    "WebAssembly.CompileError", "WebAssembly.LinkError", "WebAssembly.RuntimeError"],
 };
 
 // Exceptions, we want the main object in the sidebar (e.g. Int8Array -> TypedArray)
@@ -136,7 +139,7 @@ for (var object in source) {
         }
         if (containsTag(pageList[aPage], 'Method') && includeme) {
             result[object].methods.push(pageList[aPage]);
-        } 
+        }
     }
 }
 
@@ -159,12 +162,12 @@ function buildSublist(pages, title, opened) {
   for (var i in pages) {
     var aPage = pages[i];
     result += '<li>';
-    
+
     var summary = escapeQuotes(aPage.summary) || '';
     var url = aPage.url.replace('en-US', locale);
     var title = aPage.title;
     var translated = false;
-    
+
     if (locale != 'en-US') {
         aPage.translations.forEach(function(translation){
             if(translation.locale === locale) {
@@ -175,12 +178,12 @@ function buildSublist(pages, title, opened) {
             }
         });
     }
-    
+
     var cta = '';
      if (!translated && locale != 'en-US') {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['translationCTA'] + '">' + text['translate'] + '</a>';
     }
-    
+
     if (containsTag(aPage, 'Experimental')) {
         result += badges.ExperimentalBadge;
     }
@@ -197,11 +200,11 @@ function buildSublist(pages, title, opened) {
         result += badges.ObsoleteBadge;
         result += '<s class="obsoleteElement">';
     }
-    
+
     if (rtlLocales.indexOf(locale) != -1) {
         result += '<bdi>';
     }
-    
+
     if (slug == aPage.slug) {
         result += '<em><code>' + aPage.title + '</code></em>'
     } else {
@@ -210,15 +213,15 @@ function buildSublist(pages, title, opened) {
                + '" title="' + summary
                + '"><code>' + title + '</code></a>' + cta;
     }
-    
+
     if (rtlLocales.indexOf(locale) != -1) {
         result += '</bdi>';
     }
-    
+
     if (containsTag(aPage, 'Obsolete')) {
         result += '</s>';
     }
-    
+
     result += '</li>';
   }
 
@@ -262,7 +265,7 @@ output += '<li><strong><a href="'+slug_stdlib+'">'+text['stdlib']+'</a></strong>
         if (len == 1 && group.length > 0) {
             output += '<li><strong>'+text['Related']+'</strong></li>';
             for (var i = 0; i < group.length; i++) {
-              output += '<li><strong><a href="'+slug_stdlib + group[i]+'"><code>'+group[i]+'</code></a></strong></li>';
+              output += '<li><strong><a href="'+ slug_stdlib + group[i].replace(".", "/") +'"><code>'+group[i]+'</code></a></strong></li>';
             }
         }
 
