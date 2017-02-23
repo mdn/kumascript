@@ -1,7 +1,5 @@
 <%
-var currentSection = $0;
 var locale = env.locale;
-var slug = env.slug;
 var baseURL = "/" + locale + "/docs/WebAssembly/";
 
 var text = mdn.localString({
@@ -39,14 +37,14 @@ var text = mdn.localString({
   </li>
   <li data-default-state="open"><a href="<%=baseURL%>"><%=text['Object_reference']%></a>
     <ol>
-      <li><%- template("jsxref", ["Global_objects/WebAssembly", "WebAssembly"]) %></li>
-      <li><%- template("jsxref", ["Global_objects/WebAssembly/Module", "WebAssembly.Module()"]) %></li>
-      <li><%- template("jsxref", ["Global_objects/WebAssembly/Instance", "WebAssembly.Instance()"]) %></li>
-      <li><%- template("jsxref", ["Global_objects/WebAssembly/Memory", "WebAssembly.Memory()"]) %></li>
-      <li><%- template("jsxref", ["Global_objects/WebAssembly/Table", "WebAssembly.Table()"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.CompileError()"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.LinkError()"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.RuntimeError()"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.Module"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.Instance"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.Memory"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.Table"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.CompileError"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.LinkError"]) %></li>
+      <li><%- template("jsxref", ["WebAssembly.RuntimeError"]) %></li>
     </ol>
   </li>
 </ol>
