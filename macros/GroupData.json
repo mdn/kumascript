@@ -271,12 +271,6 @@
                             "error",
                             "contactchange" ]
         },
-        "Console API": {
-            "interfaces": [ "Console" ],
-            "methods": [],
-            "properties": [],
-            "events": []
-        },
         "CSS Counter Styles": {
             "overview":   [ "CSS Counter Styles" ],
             "interfaces": [ "CSSCounterStyleRule" ],
