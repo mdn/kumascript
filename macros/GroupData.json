@@ -1701,6 +1701,7 @@
                             "AudioNode",
                             "AudioParam",
                             "AudioProcessingEvent",
+                            "AudioTimestamp",
                             "BaseAudioContext",
                             "BiquadFilterNode",
                             "ChannelMergerNode",
