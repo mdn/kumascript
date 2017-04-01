@@ -3,15 +3,13 @@ var style = "color: rgb(255, 153, 0);";
 
 // Localizers: add your language to the switch statement below!
 
-switch(env.locale) {
-    case 'ru':
-        title = "Совместимость неизвестна; пожалуйста, обновите информацию.";
-        str = "?";
-        break;
-    default:
-        title = "Compatibility unknown; please update this.";
-        str = "?";
-        break;
-}
+var title = mdn.localString({
+    "en-US": "Compatibility unknown; please update this.",
+    "ru": "Совместимость неизвестна; пожалуйста, обновите информацию.",
+    "zh-CN": "兼容性未知。请更新。"
+});
+var str = mdn.localString({
+    "en-US": "?"
+});
 %>
 <span title="<%-title%>" style="<%-style%>"><%-str%></span>

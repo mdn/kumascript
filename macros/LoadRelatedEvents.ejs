@@ -1,16 +1,5 @@
 <%
-var el = env.locale;
-var path = "";
-
-switch (el) {
-    case "ja":
-    case "zh-TW":
-        path = "/" + el + "/docs/";
-        break;
-    default:
-        path = "/en-US/docs/"
-}
-
+var path = "/" + env.locale + "/docs/";
 var path2 = mdn.localString({
     "en-US" : "Web/Reference/Events/"
 });

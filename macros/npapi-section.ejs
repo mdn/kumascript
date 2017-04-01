@@ -5,22 +5,14 @@
 //  $1 - section name
 
 var el = env.locale;
-var slug = "Gecko Plugin API Reference"; // en-US and Default
-
-switch(el) {
-    case 'de':
-        slug = "Gecko Plugin API Referenz";
-        break;
-    case 'fr':
-        slug = "Documentation API Greffons Gecko";
-        break;
-    case 'pl':
-        slug = "Dokumentacja wtyczek Gecko";
-        break;
-    case 'ru':
-        slug = "Документация по API для плагинов Gecko";
-        break;
-}
+var slug = mdn.localString({
+    "en-US": "Gecko Plugin API Reference",
+    'de': "Gecko Plugin API Referenz",
+    'fr': "Documentation API Greffons Gecko",
+    'pl': "Dokumentacja wtyczek Gecko",
+    'ru': "Документация по API для плагинов Gecko",
+    "zh-CN": "Gecko 插件 API 参考资料"
+});
 
 var destOldType = "/" + el + '/docs/' + slug + ':' + $0;
 var destNewType = "/" + el + '/docs/' + slug + '/' + $0;

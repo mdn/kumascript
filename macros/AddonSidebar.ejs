@@ -11,9 +11,164 @@ function currentPageIsUnder(root) {
   }
   return "closed";
 }
+switch(env.locale) {
+  case "zh-CN":
+%><section class="Quick_links" id="Quick_Links">
+  <ol>
+    <li><a href="<%=baseURL%>WebExtensions"><strong>WebExtension</strong></a></li>
 
+    <li><a href="<%=baseURL%>WebExtensions#Getting_started">入门</a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/What_are_WebExtensions_">什么是 WebExtension？</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Your_first_WebExtension">你的第一个 WebExtension</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Your_second_WebExtension">你的第二个 WebExtension</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Anatomy_of_a_WebExtension">WebExtension 剖析</a>
+        <li><a href="<%=baseURL%>WebExtensions/Examples">WebExtension 例子</a>
+      </ol>
+    </li>
+    
+    <li><a href="<%=baseURL%>WebExtensions#How_to">如何</a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/Intercept_HTTP_requests">截听 HTTP 请求</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Modify_a_web_page">修改网页</a>
+        <li><a href="<%=baseURL%>WebExtensions/Add_a_button_to_the_toolbar">添加按钮到工具栏</a>
+        <li><a href="<%=baseURL%>WebExtensions/Implement_a_settings_page">实现一个设置页面</a></li>
+      </ol>
+    </li>
+
+    <li><a href="<%=baseURL%>WebExtensions#Concepts">概念</a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/Using_the_JavaScript_APIs">使用 JavaScript API</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/User_interface_components">用户界面组件</a>
+        <li><a href="<%=baseURL%>WebExtensions/Content_scripts">内容脚本</a>
+        <li><a href="<%=baseURL%>WebExtensions/Match_patterns">匹配模式</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Internationalization">国际化</a>
+        <li><a href="<%=baseURL%>WebExtensions/Content_Security_Policy">内容安全策略</a>
+        <li><a href="<%=baseURL%>WebExtensions/Native_messaging">原生消息</a></li>
+      </ol>
+    </li>  
+
+    <li><a href="<%=baseURL%>WebExtensions#Porting">移植</a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/Porting_a_Google_Chrome_extension">移植一个 Google Chrome 扩展</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Porting_a_legacy_Firefox_add-on">移植一个旧式 Firefox 附加组件</a>
+        <li><a href="<%=baseURL%>WebExtensions/Embedded_WebExtensions">嵌入式 WebExtension</a>
+        <li><a href="<%=baseURL%>WebExtensions/Comparison_with_the_Add-on_SDK">与 Add-on SDK 比较</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Comparison_with_XUL_XPCOM_extensions">与 XUL/XPCOM 扩展比较</a>
+        <li><a href="<%=baseURL%>WebExtensions/Chrome_incompatibilities">Chrome 的不兼容</a></li>
+      </ol>
+    </li>  
+
+    <li><a href="<%=baseURL%>WebExtensions#Firefox_workflow">Firefox 工作流程</a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/Temporary_Installation_in_Firefox">临时安装到 Firefox</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Debugging">调试</a>
+        <li><a href="<%=baseURL%>WebExtensions/Getting_started_with_web-ext">web-ext 使用入门</a>
+        <li><a href="<%=baseURL%>WebExtensions/web-ext_command_reference">web-ext 命令参考</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/WebExtensions_and_the_Add-on_ID">WebExtension 与附加组件 ID</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Publishing_your_WebExtension">发布你的 WebExtension</a></li>
+
+      </ol>
+    </li>  
+    
+    <li data-default-state="<%=currentPageIsUnder('WebExtensions/API')%>"><a href="<%=baseURL%>WebExtensions/API">JavaScript API</a>
+     <%-template("WebExtAPISidebar", [])%>
+    </li>
+    
+    <li><a href="<%=baseURL%>WebExtensions/manifest.json">清单文件键值</a>
+    <%-
+      wiki.tree(baseURL + "WebExtensions/manifest.json", 1, 0, 0, 1)
+    %>
+    </li>
+    
+    <li><a href="<%=baseURL%>SDK"><strong>Add-on SDK</strong></a></li>
+    <li><a href="<%=baseURL%>WebExtensions#Getting_started">入门</a>
+      <ol>
+        <li><a href="<%=baseURL%>SDK/Tutorials/Installation">安装</a></li>
+        <li><a href="<%=baseURL%>SDK/Tutorials/Getting_started">开始使用</a></li>
+        <li><a href="<%=baseURL%>SDK/Tutorials/Troubleshooting">故障排除</a></li>
+      </ol>
+    </li>
+    
+    <li data-default-state="<%=currentPageIsUnder('SDK/High-Level_APIs')%>"><a href="<%=baseURL%>SDK/High-Level_APIs">高层 API</a>
+      <%-
+        wiki.tree(baseURL + "SDK/High-Level_APIs", 1, 0, 0, 1)
+      %>
+    </li>
+    <li data-default-state="<%=currentPageIsUnder('SDK/Low-Level_APIs')%>"><a href="<%=baseURL%>SDK/Low-Level_APIs">底层 API</a>
+      <%-
+        wiki.tree(baseURL + "SDK/Low-Level_APIs", 1, 0, 0, 1)
+      %>
+    </li> 
+
+    <li><a href="<%=baseURL%>Firefox_for_Android"><strong>Firefox for Android</strong></a></li>
+    <li><a href="<%=baseURL%>Firefox_for_Android">入门</a>
+      <ol>
+        <li><a href="<%=baseURL%>Firefox_for_Android/Walkthrough">演练</a></li>
+        <li><a href="<%=locale%>/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE">调试</a></li>
+        <li><a href="<%=baseURL%>Firefox_for_Android/Code_snippets">代码片段</a></li>
+      </ol>
+    </li>
+
+    <li><a href="<%=baseURL%>Firefox_for_Android/API">API</a>
+      <%-
+        wiki.tree(baseURL + "Firefox_for_Android/API", 1, 0, 0, 1)
+      %>
+    </li> 
+
+    <li><a href="<%=baseURL%>Overlay_Extensions"><strong>旧式</strong></a></li>
+    
+    <li><a href="<%=baseURL%>Bootstrapped_Extensions">无需重启扩展</a>
+      <ol>
+        <li><a href="<%=baseURL%>Bootstrapped_extensions">概述</a></li>
+      </ol>
+    </li>
+    <li><a href="<%=baseURL%>Overlay_Extensions">覆盖式扩展</a>
+      <ol>
+        <li><a href="<%=baseURL%>Overlay_Extensions">概述</a></li>
+      </ol>
+    </li>
+
+    <li><a href="<%=baseURL%>Themes"><strong>主题</strong></a></li>
+    
+    <li><a href="<%=baseURL%>Themes/Background">轻量级主题</a>
+      <ol>
+        <li><a href="<%=baseURL%>Themes/Background">概述</a></li>
+      </ol>
+    </li>
+    <li><a href="<%=baseURL%>Themes/Complete_themes">完成主题</a>
+      <ol>
+        <li><a href="<%=baseURL%>Themes">概述</a></li>
+      </ol>
+    </li>
+
+    <li><a href="<%=baseURL%>Distribution"><strong>发布附加组件</strong></a></li>
+    <li><a href="<%=baseURL%>Distribution">指南</a>
+      <ol>
+        <li><a href="<%=baseURL%>Distribution">签名和发布概述</a></li>
+        <li><a href="https://addons.mozilla.org/developers/addon/submit/">提交附加组件</a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Reviews">审核策略</a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Agreement">开发者协议</a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Featured">精选附加组件</a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Contact">联系 addons.mozilla.org</a></li>
+      </ol>
+    </li>
+
+    <li><a href="https://discourse.mozilla-community.org/c/add-ons"><strong>社区和支持</a></strong></li>
+    <li><a href="<%=baseURL%>Channels">渠道</a>
+      <ol>
+        <li><a href="https://blog.mozilla.org/addons">附加组件博客（英文）</a></li>
+        <li><a href="https://discourse.mozilla-community.org/c/add-ons">附加组件论坛（英文）</a></li>
+        <li><a href="http://stackoverflow.com/questions/tagged/firefox-addon">Stack Overflow（英文）</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/mozilla.dev.extensions">开发者新闻组（英文）</a></li>
+        <li><a href="irc://irc.mozilla.org/extdev">IRC 频道（英文）</a></li>
+      </ol>
+    </li>
+  </ol>
+</section><%
+    break;
+  default:
 %>
-
 <section class="Quick_links" id="Quick_Links">
   <ol>
     <li><a href="<%=baseURL%>WebExtensions"><strong>WebExtensions</strong></a></li>
@@ -166,4 +321,6 @@ function currentPageIsUnder(root) {
       </ol>
     </li>
   </ol>
-</section>
+</section><%
+    break;
+}%>

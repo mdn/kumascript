@@ -374,11 +374,10 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
     }
 
     var result = output[obj];
-    switch(env.locale) {
-    default:
-        amount = "Found " + metrics[obj].counter + " pages.";
-        break;
-    }
+    var amount = mdn.localString({
+        "en-US": "Found " + metrics[obj].counter + " pages.",
+        "zh-CN": "找到 " + metrics[obj].counter + " 个页面。"
+    });
 %>
 
 <p><strong><%=amount%></strong> <%-metrics[obj].help%></p>

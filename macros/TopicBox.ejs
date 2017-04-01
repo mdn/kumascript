@@ -84,6 +84,12 @@ switch(env.locale) {
         topicDriverStr = "Pengarah topik : <a href='/en-US/profiles/" + driver.mdnPseudo + "'>" + driver.name + "</a> (IRC pseudo: " + driver.ircPseudo + ")";
         ircStr = "Jangan ragu untuk menghubungi kami di " + ircLink + " atau di mailing-list <em>" + mlName + "</em>:";
         break;
+    case "zh-CN":  // Simplified Chinese
+        headingStr = "帮助 " + $0 + " 文档项目…";
+        statusStr = "查看当前 " + $0 + " 文档的" + "<a href='/zh-CN/docs/" + driver.docStatus + "'>状态</a>";
+        topicDriverStr = "主题主管：<a href='/zh-CN/profiles/" + driver.mdnPseudo + ">" + driver.name + "</a>（IRC 昵称：" + driver.ircPseudo + "）";
+        ircStr = "不要犹豫，联系我们：" + ircLink + " 或 <em>" + mlName + "</em> 邮件列表：";
+        break;
     default:    // English
         headingStr = "Help the '" + $0 + "' documentation project…";
         statusStr = "Look at the current <a href='/en-US/docs/" + driver.docStatus + "'>status</a> of the '" + $0 +"' documentation.";

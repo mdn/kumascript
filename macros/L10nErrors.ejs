@@ -1,23 +1,30 @@
 <%
- switch(env.locale) {
-    case "ru":
-        translatedStr = "Переведено";
-        errorsStr = "Ошибки Kumascript";
-        inprogressStr = "Частично переведено";
-        woParentStr = "Не связано со страницей en-US";
-    break;
-    case "fr":
-        translatedStr = "Pages traduites";
-        errorsStr = "Erreurs Kumascript";
-        inprogressStr = "Partiellement traduites";
-        woParentStr = "Non liées à une page en-US";
-    break;
-    default:
-        translatedStr = "Translated";
-        errorsStr = "Kumascript errors";
-        inprogressStr = "Partially translated";
-        woParentStr = "Not linked to an en-US page";
- }
+var str = mdn.localString({
+    "en-US": {
+        "translatedStr": "Translated",
+        "errorsStr": "Kumascript errors",
+        "inprogressStr": "Partially translated",
+        "woParentStr": "Not linked to an en-US page"
+     },
+    "ru": [
+        "translatedStr": "Переведено",
+        "errorsStr": "Ошибки Kumascript",
+        "inprogressStr": "Частично переведено",
+        "woParentStr": "Не связано со страницей en-US"
+    },
+    "fr": [
+        "translatedStr": "Pages traduites",
+        "errorsStr": "Erreurs Kumascript",
+        "inprogressStr": "Partiellement traduites",
+        "woParentStr": "Non liées à une page en-US"
+    },
+    "zh-CN": {
+        "translatedStr": "已翻译",
+        "errorsStr": "Kumascript 错误",
+        "inprogressStr": "已部分翻译",
+        "woParentStr": "未与英语页面绑定"
+    }
+});
  allURL = "/" + env.locale + "/docs/all";
  errorsURL = "/" + env.locale + "/docs/with-errors";
  inprogressURL = "/" + env.locale + "/docs/localization-tag/inprogress";
@@ -39,10 +46,10 @@
 <table class="standard-table">
     <thead>
         <tr>
-            <th><%- translatedStr%></th>
-            <th><%- errorsStr%></th>
-            <th><%- inprogressStr%></th>
-            <th><%- woParentStr%></th>
+            <th><%- str['translatedStr']%></th>
+            <th><%- str['errorsStr']%></th>
+            <th><%- str['inprogressStr']%></th>
+            <th><%- str['woParentStr']%></th>
         </tr>
     </thead>
     <tbody>

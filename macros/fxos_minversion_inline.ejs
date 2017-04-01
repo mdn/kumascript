@@ -5,34 +5,17 @@
 */%>
 <%
 /* one parameter: Firefox OS version */
-/* get the page language */
-var lang = env.locale;
 
-var str = "Requires Firefox OS " + $0;
- 
-switch(lang) {
-    case 'fr':
-        str = "Nécessite Firefox OS " + $0;
-    break;
-    case 'ja':
-        str = "Firefox OS " + $0 + " ???";
-    break;
-    case 'pl':
-        str = "Wymaga Firefox OS " + $0;
-    break;
-    case 'pt':
-        str = "Requer Firefox OS " + $0;
-    break;
-    case 'de':
-        str = "Ab Firefox OS " + $0;
-        break;
-    case 'es':
-        str = "Requiere Firefox OS " + $0;
-    break;
-    case 'ru':
-        str = "Требуется Firefox OS " + $0;
-    break;
-    defaut: break;
-}
+var str = mdn.localString({
+    'en-US': "Requires Firefox OS " + $0,
+    'fr': "Nécessite Firefox OS " + $0,
+    'ja': "Firefox OS " + $0 + " ???",
+    'pl': "Wymaga Firefox OS " + $0,
+    'pt': "Requer Firefox OS " + $0,
+    'de': "Ab Firefox OS " + $0,
+    'es': "Requiere Firefox OS " + $0,
+    'ru': "Требуется Firefox OS " + $0,
+    'zh-CN': "需要 Firefox OS " + $0
+});
 %>
 <span class="inlineIndicator geckoMinVer standardNote standardNoteInline"><%=str%></span>

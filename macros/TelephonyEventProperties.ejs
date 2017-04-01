@@ -1,34 +1,17 @@
 <%
-var el = env.locale;
-
-switch (el) {
-
-    case "ja":
-
-%><tr>
-  <td><code>state</code> <%-template("readOnlyInline")%></td>
-  <td>DOMString (string)</td>
-  <td>現在の通話状態</td>
-</tr>
-<tr>
-  <td><code>call</code> <%-template("readOnlyInline")%></td>
-  <td>Call</td>
-  <td>The call concerned by the event.</td>
-</tr><%
-
-        break;
-    default:
+var s = mdn.localString({
+    'en-US': ['DOMString (string)','The current state of the call.','Call','The call concerned by the event.'],
+    'ja': ['DOMString (string)','現在の通話状態','Call','The call concerned by the event.'],
+    'zh-CN': ['DOMString (字符串)','当前的通话状态。','Call','与事件相关的通话。']
+});
 
 %><tr>
   <td><code>state</code> <%-template("readOnlyInline")%></td>
-  <td>DOMString (string)</td>
-  <td>The current state of the call.</td>
+  <td><%=s[0]%></td>
+  <td><%=s[1]%></td>
 </tr>
 <tr>
   <td><code>call</code> <%-template("readOnlyInline")%></td>
-  <td>Call</td>
-  <td>The call concerned by the event.</td>
-</tr><%
-
-        break;
-}%>
+  <td><%=s[2]%></td>
+  <td><%=s[3]%></td>
+</tr>

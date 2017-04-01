@@ -3,25 +3,14 @@ var lang = env.locale;
 
 
 /* set up the page name based on language */
-var methodName = "Method";
-
-switch(lang) {
-    case 'de':
-        methodName = "Methoden";
-        break;
-    case 'fr':
-        methodName = "Méthodes";
-        break;
-    case 'pl':
-        methodName = "Metoda";
-        break;
-    case 'ru':
-        methodName = "Методы";
-        break;
-    default:
-        break;
-}
-
+var methodName = mdn.localString({
+    'en-US': "Method",
+    'de': "Methoden",
+    'fr': "Méthodes",
+    'pl': "Metoda",
+    'ru': "Методы",
+    'zh-CN': '方法'
+});
 
 /* get the method name */
 var api = $0;

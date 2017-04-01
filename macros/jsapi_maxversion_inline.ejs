@@ -1,20 +1,11 @@
 <%
 /* one parameter: Gecko version */
-/* get the page language */
-var lang = env.locale;
-var str = "";
- 
-switch(lang) {
-    case "ja":
-        str = "JSAPI " + $0 + " まで";
-        break;
-    case "ru":
-        str = "JSAPI " + $0 + " и старее";
-        break;
-    default:
-        str = "JSAPI " + $0 + " and earlier";
-        break;
-}
 
+var str = mdn.localString({
+    "en-US": "JSAPI " + $0 + " and earlier",
+    "ja": "JSAPI " + $0 + " まで",
+    "ru": "JSAPI " + $0 + " и старее",
+    "zh-CN": "JSAPI " + $0 + " 及更早"
+});
 
 %><span class="standardNoteInline"><%=str%></span>

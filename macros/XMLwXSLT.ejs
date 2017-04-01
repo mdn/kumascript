@@ -1,25 +1,12 @@
 <%
-var link = '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Transforming XML with XSLT</a>';
-
-switch (env.locale) {
-    case "es":
-        link = '<a href="/es/docs/Transformando_XML_con_XSLT">&laquo; Transformando XML con XSLT</a>';
-        break;
-    case "fr":
-        link = '<a href="/fr/docs/Transformations_XML_avec_XSLT">&laquo; Transformations XML avec XSLT</a>';
-        break;
-    case "ko":
-        link = '<a href="/ko/docs/Transforming_XML_with_XSLT">&laquo; Transforming XML with XSLT</a>';
-        break;
-    case "pl":
-        link = '<a href="/pl/docs/Transformacje_XML_z_XSLT">&laquo; Transformacje XML z XSLT</a>';
-        break;
-    case "ru":
-        link = '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Преобразование XML с помощью XSLT</a>';
-        break;
-    case "cs":
-        link = '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Transformace XML pomocí XSLT</a>';
-        break;
-};
-
+var link = mdn.localString({
+    'en-US': '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Transforming XML with XSLT</a>',
+    "es": '<a href="/es/docs/Transformando_XML_con_XSLT">&laquo; Transformando XML con XSLT</a>',
+    "fr": '<a href="/fr/docs/Transformations_XML_avec_XSLT">&laquo; Transformations XML avec XSLT</a>',
+    "ko": '<a href="/ko/docs/Transforming_XML_with_XSLT">&laquo; Transforming XML with XSLT</a>',
+    "pl": '<a href="/pl/docs/Transformacje_XML_z_XSLT">&laquo; Transformacje XML z XSLT</a>',
+    "ru": '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Преобразование XML с помощью XSLT</a>',
+    "cs": '<a href="/en-US/docs/Transforming_XML_with_XSLT">&laquo; Transformace XML pomocí XSLT</a>'
+    'zh-CN': '<a href="/zh-CN/docs/Transforming_XML_with_XSLT">&laquo; 使用 XSLT 转换 XML</a>',
+});
 %><%- link %>

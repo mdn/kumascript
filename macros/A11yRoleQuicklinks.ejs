@@ -1,25 +1,6 @@
 <%
 // Inserts quicklinks for the accessibility roles.
-var lang = env.locale;
-var url = "";
-
-switch(lang) {
-    case "de":
-        url = "/de/docs/Web/Accessibility/AT-APIs/Gecko/Rollen";
-        break;
-    case "fr":
-        url = "/fr/docs/Web/Accessibility/AT-APIs/Gecko/Roles";
-        break;
-    case "ja":
-        url = "/ja/docs/Web/Accessibility/AT-APIs/Gecko/Roles";
-        break;
-    case "ru":
-        url = "/ru/docs/Web/Accessibility/AT-APIs/Gecko/Roles";
-        break;
-    default:
-        url = "/en-US/docs/Web/Accessibility/AT-APIs/Gecko/Roles";
-        break;
-}
+var url = "/" + env.locale + "/docs/Web/Accessibility/AT-APIs/Gecko/Roles";
 %>
 <section class="Quick_links" id="Quick_Links">
 <%-wiki.tree(url, 2, 0, 0, 1)%>

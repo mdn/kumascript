@@ -15,6 +15,7 @@ if (minVersion < 4) { minVersion = 4 }
 // for href attr
 var slug = mdn.localString({
     "en-US" : "Releases",
+    "zh-CN" : "发布",
     "fr" : "Versions",
     "ru" : "Версии"
 });
@@ -23,21 +24,14 @@ var slug = mdn.localString({
 var str = mdn.localString({
     "fr" : ["Firefox OS ", " pour les développeurs"],
     "en-US": ["Firefox OS ", " for developers"],
+    "zh-CN": ["Firefox OS ", " 面向开发者"],
     "ru": ["Firefox OS ", " для разработчиков"]
-});
-
-var loc = mdn.localString({
-    "en-US" : "en-US",
-    "fr" : "fr",
-    "ja": "ja",
-    "zh-CN": "zh-CN",
-    "ru": "ru"
 });
 
 /*
 // for newer version
 for (var i = maxVersion; i >= minVersion; i--) {
-    %><li><a href="/<%-loc%>/docs/Mozilla/Firefox_OS/<%- slug %>/<%- i %>"><%- str[0] %><%- i %><%- str[1] %></a></li><%
+    %><li><a href="/<%-env.locale%>/docs/Mozilla/Firefox_OS/<%- slug %>/<%- i %>"><%- str[0] %><%- i %><%- str[1] %></a></li><%
 }
 */
 // for older version
@@ -49,7 +43,7 @@ for (var i = maxVersion; i >= minVersion; i--) {
     ovStart = 0;
   }
   for(var i = ovStart; i < ov.length; i++) {
-      %><li><a href="/<%-loc%>/docs/Mozilla/Firefox_OS/<%- slug %>/<%- ov[i] %>"><%- str[0] %><%-ov[i]%><%- str[1] %></a></li><%
+      %><li><a href="/<%-env.locale%>/docs/Mozilla/Firefox_OS/<%- slug %>/<%- ov[i] %>"><%- str[0] %><%-ov[i]%><%- str[1] %></a></li><%
   }
 /* } */
  

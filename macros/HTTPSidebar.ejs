@@ -45,7 +45,58 @@ var text = mdn.localString({
     'Status': 'HTTP response status codes',
     'CSPDirectives': 'CSP directives',
     'Security': 'HTTP security',
-    'Authentication': 'HTTP authentication'
+    'Authentication', 'HTTP authentication',
+    'CSP': 'Content Security Policy (CSP)',
+    'HPKP': 'HTTP Public Key Pinning (HPKP)',
+    'HSTS': 'HTTP Strict Transport Security (HSTS)',
+    'Cookie security': 'Cookie security',
+    'X-Content-Type-Options': 'X-Content-Type-Options',
+    'X-Frame-Options': 'X-Frame-Options',
+    'X-XSS-Protection': 'X-XSS-Protection',
+    'Mozilla web security guidelines': 'Mozilla web security guidelines',
+    'Mozilla Observatory': 'Mozilla Observatory'
+  },
+  'zh-CN': {
+    'HTTP': 'HTTP',
+    'Basics': 'HTTP 基础',
+    'Overview': 'HTTP 概述',
+    'Evolution': 'HTTP 的演化',
+    'ResourcesURI': '资源和 URI',
+    'Identifying': '标识 Web 上的资源',
+    'DataURIs': '数据 URI',
+    'MIMETypes': '介绍 MIME 类型',
+    'ListMIMETypes': 'MIME 类型完整列表',
+    'WWWorNotWWW': '选择 www 与非 www URL',
+    'Messages': 'HTTP 消息',
+    'Session': '典型的 HTTP 会话',
+    'Connection1x': 'HTTP/1.x 中的连接管理',
+    'Ranges': 'HTTP 范围请求',
+    'Redirects': 'HTTP 重定向',
+    'Conditionals': 'HTTP 有条件请求',
+    'ContentNego': 'HTTP 内容协商',
+    'Headers': 'HTTP 报头',
+    'Response_codes': '响应代码',
+    'Compression': 'HTTP 压缩',
+    'Cookies': 'HTTP Cookie',
+    'Caching': 'HTTP 缓存',
+    'CORS': 'HTTP 访问控制（CORS）',
+    'Resources': 'HTTP 规范',
+    'Guides': '指南：',
+    'Reference': '参考资料：',
+    'Methods': 'HTTP 请求方法',
+    'Status': 'HTTP 响应的状态代码',
+    'CSPDirectives': 'CSP 指示',
+    'Security': 'HTTP 安全',
+    'Authentication', 'HTTP 身份验证',
+    'CSP': '内容安全策略（CSP）',
+    'HPKP': 'HTTP 公钥固定（HPKP）',
+    'HSTS': 'HTTP 严格传输安全（HSTS）',
+    'Cookie security': 'Cookie 安全',
+    'X-Content-Type-Options': 'X-Content-Type-Options',
+    'X-Frame-Options': 'X-Frame-Options',
+    'X-XSS-Protection': 'X-XSS-Protection',
+    'Mozilla web security guidelines': 'Mozilla Web 安全指南（英文）',
+    'Mozilla Observatory': 'Mozilla Observatory（英文）'
   },
   'ru': {
     'HTTP': 'HTTP',
@@ -84,15 +135,15 @@ var text = mdn.localString({
     </li>
     <li><a href="#"><%=text['Security']%></a>
     <ol>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/CSP">Content Security Policy (CSP)</a></li>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/Public_Key_Pinning">HTTP Public Key Pinning (HPKP)</a></li>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/Strict-Transport-Security">HTTP Strict Transport Security (HSTS)</a></li>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies">Cookie security</a></li>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a></li>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a></li>
-        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a></li>
-        <li><a href="https://wiki.mozilla.org/Security/Guidelines/Web_Security">Mozilla web security guidelines</a></li>
-        <li><a href="https://observatory.mozilla.org/">Mozilla Observatory</a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/CSP"><%=text['CSP']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Public_Key_Pinning"><%=text['HPKP']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/Strict-Transport-Security"><%=text['HSTS']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies"><%=text['Cookie security']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-Content-Type-Options"><%=text['X-Content-Type-Options']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-Frame-Options"><%=text['X-Frame-Options']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Headers/X-XSS-Protection"><%=text['X-XSS-Protection']%></a></li>
+        <li><a href="https://wiki.mozilla.org/Security/Guidelines/Web_Security"><%=text['Mozilla web security guidelines']%></a></li>
+        <li><a href="https://observatory.mozilla.org/"><%=text['Mozilla Observatory']%></a></li>
     </ol>
     </li>
     <li><a href="/<%=locale%>/docs/Web/HTTP/Access_control_CORS"><%=text['CORS']%></a></li>
