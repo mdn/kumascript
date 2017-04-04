@@ -3,6 +3,8 @@
 [![Dependency Status](https://david-dm.org/mozilla/kumascript.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript)
 [![devDependency Status](https://david-dm.org/mozilla/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript#info=devDependencies)
 
+[What's Deployed](https://whatsdeployed.io/s-FHK)
+
 ## Overview
 
 The KumaScript service takes requests to render raw documents (documents that
