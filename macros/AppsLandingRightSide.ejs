@@ -74,6 +74,40 @@ switch(env.locale) {
 <p><span class="alllinks"><a rel="external" href="http://www.catb.org/~esr/faqs/smart-questions.html"><em>অনলাইন আচরণবিধি</em> ভুলে গেলে চলবে না...</a></span></p><%
 
     break;
+    case "zh-CN":
+
+%><h5 class="Tools" id="Tools" name="Tools">面向应用开发者的工具</h5>
+<ul>
+    <li><a href="https://marketplace.firefox.com/developers/">访问 Firefox 应以市场开发者中心</a></li>
+    <li><a href="/zh-CN/docs/Mozilla/Firefox_OS/Using_Firefox_OS_Simulator">Firefox OS 模拟器</a></li>
+    <li><a href="/zh-CN/docs/Apps/App_developer_tools">应用开发者工具</a></li>
+</ul>
+<h5 class="Documentation" id="Documentation" name="Documentation">技术参考文档</h5>
+<div class="twocolumns">
+    <ul>
+        <li><a href="/zh-CN/docs/Web/CSS">CSS</a></li>
+        <li><a href="/zh-CN/docs/DOM">DOM</a></li>
+        <li><a href="/zh-CN/docs/Web/HTML">HTML</a></li>
+        <li><a href="/zh-CN/docs/JavaScript">JavaScript</a></li>
+        <li><a href="/zh-CN/docs/WebAPI">WebAPI</a></li>
+        <li><a href="/zh-CN/docs/Web/WebGL">WebGL</a></li>
+        <li><a href="/zh-CN/docs/SVG">SVG</a></li>
+        <li><a href="https://www.mozilla.org/zh-CN/apps/">开放网络应用 概览网站</a></li>
+        <li><a href="https://wiki.mozilla.org/Apps">应用项目 wiki 页面</a></li>
+    </ul>
+</div>
+<h5 class="Community" id="Community" name="Community">从社区获取帮助</h5>
+<p>如果您还不确定该做的事，欢迎随时加入讨论。</p>
+<ul>
+    <li>咨询 webapps 论坛：<%- template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
+        <ul>
+            <li>在 Open Web Apps IRC 频道上提问和讨论：<a class="link-irc" href="irc://irc.mozilla.org/openwebapps">#openwebapps</a></li>
+        </ul>
+    </li>
+</ul>
+<p><span class="alllinks"><a rel="external" href="http://www.catb.org/~esr/faqs/smart-questions.html">别忘记<em>网络礼仪</em>...</a></span></p><%
+
+    break;
     default:
 
 %><h5 class="Tools" id="Tools" name="Tools">Tools for app developers</h5>
