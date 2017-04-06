@@ -9,7 +9,7 @@ before_script:
   - make build
 
 script:
-  - make test
+  - make test && make lint-macros
 
 notifications:
   email:
