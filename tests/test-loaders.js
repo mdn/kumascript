@@ -79,6 +79,24 @@ module.exports = nodeunit.testCase({
         });
     },
 
+    "FileLoader can return the macros loaded": function (test) {
+        var loader = new ks_loaders.FileLoader({
+            root_dir: 'tests/fixtures/templates'
+        }),
+            data = loader.macros_data(),
+            macro_len = data['macros'].length,
+            cssxref_found = false;
+        test.ok(data['can_list_macros']);
+        for (var i=0; i < macro_len; i++) {
+            if (data['macros'][i]['name'] == 'cssxref') {
+                cssxref_found = true;
+                test.equal('cssxref.ejs', data['macros'][i]['filename']);
+            }
+        }
+        test.ok(cssxref_found, data['macros']);
+        test.done();
+    },
+
     "Template loading via HTTP should work": function (test) {
         var test_server = ks_test_utils.createTestServer();
         var loader = new ks_loaders.HTTPLoader({
@@ -218,6 +236,14 @@ module.exports = nodeunit.testCase({
             test.done();
         });
 
+    },
+
+    "TemplateLoader cannot return the macros": function (test) {
+        var loader = new ks_loaders.HTTPLoader({}),
+            data = loader.macros_data();
+        test.ok(!data['can_list_macros']);
+        test.equals(0, data['macros'].length);
+        test.done();
     }
 
 });
