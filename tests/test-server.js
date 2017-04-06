@@ -50,6 +50,17 @@ module.exports = nodeunit.testCase({
         next();
     },
 
+    "Fetching the root returns the homepage": function (test) {
+        var expected_fn = __dirname + '/fixtures/homepage-expected.html',
+            result_url  = 'http://localhost:9000/';
+        fs.readFile(expected_fn, 'utf8', function (err, expected) {
+            request(result_url, function (err, resp, result) {
+                test.equal(result.trim(), expected.trim());
+                test.done();
+            });
+        });
+    },
+
     "Fetching document1 from service should be processed as expected": function (test) {
         var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
             result_url  = 'http://localhost:9000/docs/document1';
@@ -234,6 +245,19 @@ module.exports = nodeunit.testCase({
             });
             test.ok(found_it);
             test.done();
+        });
+    },
+
+    "Fetching /macros returns macro details": function (test) {
+        var expected_fn = __dirname + '/fixtures/macros-expected.json',
+            result_url  = 'http://localhost:9000/macros';
+        fs.readFile(expected_fn, 'utf8', function (err, expected_json) {
+            request(result_url, function (err, resp, result) {
+                var expected = JSON.parse(expected_json),
+                    actual = JSON.parse(result);
+                test.deepEqual(actual, expected);
+                test.done();
+            });
         });
     }
 
