@@ -10,6 +10,7 @@ before_script:
 
 script:
   - make test
+  - make lint-macros
 
 notifications:
   email:

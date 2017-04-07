@@ -65,6 +65,10 @@ summary:
       login, create a new document that uses your new or modified macro(s), and
       test that it renders correctly.
 
+    * Run the macro linter to check for JavaScript syntax errors:
+
+          make lint-macros
+
 4. Open a pull request to merge your branch on your forked repository into
    the main Mozilla kumascript repository
 
@@ -134,6 +138,8 @@ more before you run your local development version of MDN.
     * `make test`
 * To check your code (using JSHint):
     * `make lint`
+* To check for JavaScript syntax errors within all macros (using ejslint):
+    * `make lint-macros`
 * To run the service:
     * `make run`
 
