@@ -32,7 +32,8 @@ lint:
 	    /node_modules/.bin/jshint --show-non-errors lib tests
 
 lint-macros:
-	docker run ${DOCKER_RUN_ARGS} ${IMAGE} scripts/ejslint
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    /node_modules/.bin/ejslint "macros/**/*.ejs"
 
 bash:
 	docker run -it ${DOCKER_RUN_ARGS} ${IMAGE} bash
