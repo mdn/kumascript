@@ -34,6 +34,8 @@ lint:
 lint-macros:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
 	    /node_modules/.bin/ejslint "macros/**/*.ejs"
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    /node_modules/.bin/jsonlint-cli "macros/**/*.json"
 
 bash:
 	docker run -it ${DOCKER_RUN_ARGS} ${IMAGE} bash

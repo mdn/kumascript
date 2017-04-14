@@ -65,7 +65,7 @@ summary:
       login, create a new document that uses your new or modified macro(s), and
       test that it renders correctly.
 
-    * Run the macro linter to check for JavaScript syntax errors:
+    * Run the macro linter to check for syntax errors:
 
           make lint-macros
 
@@ -138,7 +138,8 @@ more before you run your local development version of MDN.
     * `make test`
 * To check your code (using JSHint):
     * `make lint`
-* To check for JavaScript syntax errors within all macros (using ejslint):
+* To check for JavaScript syntax errors within the EJS macros (using `ejslint`)
+  and JSON syntax errors within the JSON data files (using `jsonlint-cli`):
     * `make lint-macros`
 * To run the service:
     * `make run`

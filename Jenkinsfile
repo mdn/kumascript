@@ -8,10 +8,11 @@ node {
         }
 
         stage('Test') {
+          sh 'make lint-macros'
           try {
-              sh 'make test VERSION=latest TEST_RUN_ARGS="--reporter=junit --output=junit-results"'
+            sh 'make test VERSION=latest TEST_RUN_ARGS="--reporter=junit --output=junit-results"'
           } finally {
-              junit 'junit-results/*.xml'
+            junit 'junit-results/*.xml'
           }
         }
 
@@ -27,10 +28,11 @@ node {
         }
 
         stage('Test') {
+          sh 'make lint-macros'
           try {
-              sh 'make test TEST_RUN_ARGS="--reporter=junit --output=junit-results"'
+            sh 'make test TEST_RUN_ARGS="--reporter=junit --output=junit-results"'
           } finally {
-              junit 'junit-results/*.xml'
+            junit 'junit-results/*.xml'
           }
         }
 
