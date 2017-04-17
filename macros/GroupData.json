@@ -271,6 +271,24 @@
                             "error",
                             "contactchange" ]
         },
+        "Credential Management API": {
+            "overview":   [ "Credential Management API" ],
+            "interfaces": [ "Credential",
+                            "CredentialsContainer",
+                            "FederatedCredential",
+                            "PasswordCredential" ],
+            "methods":     [ "CredentialsContainer.get()",
+                             "CredentialsContainer.requireUserMediation()",
+                             "CredentialsContainer.store()" ],
+            "properties":  [ "Credential.iconURL",
+                             "Credential.id",
+                             "Credential.name",
+                             "Credentialtype",
+                             "FederatedCredential.provider",
+                             "PasswordCredential.additionalData",
+                             "PasswordCredential.idName",
+                             "PasswordCredential.passwordName" ]
+        },
         "CSS Counter Styles": {
             "overview":   [ "CSS Counter Styles" ],
             "interfaces": [ "CSSCounterStyleRule" ],
