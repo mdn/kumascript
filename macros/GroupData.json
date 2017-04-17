@@ -1004,7 +1004,7 @@
         "Media Session API": {
             "overview":     [ "Media Session API" ],
             "interfaces":   [ "MediaMetadata",
-                              "MediaSessiohn"],
+                              "MediaSession"],
             "methods":      ["MediaSession.setActionHandler()"],
             "properties":   ["MediaMetadata.album",
                              "MediaMetadata.artist",
