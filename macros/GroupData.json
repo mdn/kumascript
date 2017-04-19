@@ -271,6 +271,25 @@
                             "error",
                             "contactchange" ]
         },
+        "Credential Management API": {
+            "overview":   [ "Credential Management API" ],
+            "interfaces": [ "Credential",
+                            "CredentialsContainer",
+                            "FederatedCredential",
+                            "PasswordCredential" ],
+            "methods":     [ "CredentialsContainer.get()",
+                             "CredentialsContainer.requireUserMediation()",
+                             "CredentialsContainer.store()" ],
+            "properties":  [ "Credential.iconURL",
+                             "Credential.id",
+                             "Credential.name",
+                             "Credentialtype",
+                             "FederatedCredential.provider",
+                             "PasswordCredential.additionalData",
+                             "PasswordCredential.idName",
+                             "PasswordCredential.passwordName" ],
+            "events":       []
+        },
         "CSS Counter Styles": {
             "overview":   [ "CSS Counter Styles" ],
             "interfaces": [ "CSSCounterStyleRule" ],
@@ -949,6 +968,23 @@
             "methods":    [],
             "properties": [],
             "events":     [ "message" ]
+        },
+        "Intersection Observer API": {
+            "interfaces": [ "IntersectionObserver",
+                            "IntersectionObserverEntry" ],
+            "methods":    [ "IntersectionObserver.disconnect()",
+                            "IntersectionObserver.observe()",
+                            "IntersectionObserver.takeRecords()",
+                            "IntersectionObserver.unobserve()"],
+            "properties": [ "IntersectionObserver.root",
+                            "IntersectionObserver.rootMargin",
+                            "IntersectionObserver.thresholds",
+                            "IntersectionObserverEntry.boundingClientRect",
+                            "IntersectionObserverEntry.intersectionRatio",
+                            "IntersectionObserverEntry.intersectionRect",
+                            "IntersectionObserverEntry.rootBounds",
+                            "IntersectionObserverEntry.time" ],
+            "events":     []
         },
         "Kill Switch API": {
             "interfaces": [ "KillSwitch" ],
