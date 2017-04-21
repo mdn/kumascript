@@ -17,7 +17,7 @@ var escapeQuotes = mdn.escapeQuotes;
 // slug is not available in preview mode.
 if (slug && group) {
 
-var webAPIGroups = string.deserialize(template("GroupData"));
+var webAPIGroups = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/data/master/api/groups.json");
 
 var commonl10n = string.deserialize(template('L10n:Common'));
 
@@ -31,17 +31,17 @@ var text = {
     'title': mdn.getLocalString(commonl10n, 'TranslationCTA'),
 };
 
-if (webAPIGroups[0][group]) {
+if (webAPIGroups[group]) {
 
-var interfaces = webAPIGroups[0][group].interfaces || [];
-var methods = webAPIGroups[0][group].methods || [];
-var properties = webAPIGroups[0][group].properties || [];
-var events = webAPIGroups[0][group].events || [];
+var interfaces = webAPIGroups[group].interfaces || [];
+var methods = webAPIGroups[group].methods || [];
+var properties = webAPIGroups[group].properties || [];
+var events = webAPIGroups[group].events || [];
 var guides = [];
 
-if (webAPIGroups[0][group].overview) {
-    guides = page.subpagesExpand('/en-US/docs/Mozilla/Firefox_OS/API/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_'));
-    var otherGuides = webAPIGroups[0][group].guides || [];
+if (webAPIGroups[group].overview) {
+    guides = page.subpagesExpand('/en-US/docs/Mozilla/Firefox_OS/API/' + webAPIGroups[group].overview[0].replace(/ /g, '_'));
+    var otherGuides = webAPIGroups[group].guides || [];
     guides = guides.concat(otherGuides);
 }
 
@@ -53,7 +53,7 @@ function buildSublist(pages, title) {
     var summary = escapeQuotes(aPage.summary || '');
     var url = aPage.url.replace('en-US', locale);
     var title = htmlEscape(aPage.title);
-    
+
     var translated = false;
     if (locale != 'en-US' && aPage.translations) {
         aPage.translations.forEach(function(translation){
@@ -65,12 +65,12 @@ function buildSublist(pages, title) {
             }
         });
     }
-    
+
     var cta = '';
      if (!translated && locale != 'en-US' && aPage.translations) {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['title'] + '">' + text['translate'] + '</a>';
     }
-    
+
     result += '<li>';
     result += '<a href="' + url + '" title="' + summary + '">' + title + '</a>' + cta;
     result += '</li>';
@@ -115,8 +115,8 @@ function buildEventList(events, title) {
 // output
 output = '<section class="Quick_links" id="Quick_Links"><ol>';
 
-if (webAPIGroups[0][group].overview) {
-  output += '<li><strong><a href="' +  APIHref + '/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_') + '">' + webAPIGroups[0][group].overview[0] + '</a></strong></li>';
+if (webAPIGroups[group].overview) {
+  output += '<li><strong><a href="' +  APIHref + '/' + webAPIGroups[group].overview[0].replace(/ /g, '_') + '">' + webAPIGroups[group].overview[0] + '</a></strong></li>';
 }
 
 if (guides.length > 0) {

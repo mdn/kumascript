@@ -1,8 +1,8 @@
 <%
 // Variables and data
 
-// $0 is the API whose properties/methods you want listed on the page, as listed in the GroupData macro
-// see https://developer.mozilla.org/en-US/docs/Template:GroupData
+// $0 is the API whose properties/methods you want listed on the page, as listed in the group data
+// see https://github.com/mdn/data/blob/master/api/groups.json
 
 var slug = $0;
 
@@ -10,10 +10,10 @@ var locale = env.locale;
 var finalSlugList = [];
 var output = '';
 
-var webAPIGroups = string.deserialize(template('GroupData'));
-var webAPIInterfaces = webAPIGroups[0][slug]['interfaces'];
-var webAPIMethods = webAPIGroups[0][slug]['methods'];
-var webAPIProperties = webAPIGroups[0][slug]['properties'];
+var webAPIGroups = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/data/master/api/groups.json");
+var webAPIInterfaces = webAPIGroups[slug]['interfaces'];
+var webAPIMethods = webAPIGroups[slug]['methods'];
+var webAPIProperties = webAPIGroups[slug]['properties'];
 
 // Populating the output
 
@@ -30,7 +30,7 @@ for(i = 0; i < webAPIInterfaces.length ; i++) {
     for(j = 0; j < childPages.length ; j++) {
       var fixedTitle = childPages[j].title.replace('.','/');
       finalSlugList.push('/' + locale + '/docs/Web/API/' + fixedTitle);
-    } 
+    }
   }
 }
 
@@ -50,21 +50,21 @@ output += '<h2 id="Methods_and_properties_list">Methods and properties list</h2>
 
 finalSlugList.sort();
 
-for(l = 0 ; l < finalSlugList.length ; l++) {   
+for(l = 0 ; l < finalSlugList.length ; l++) {
   var currentSlug = finalSlugList[l];
   var linkText;
-  
+
   var slugSplit = currentSlug.split('/');
   if(slugSplit[slugSplit.length-2]) {
     linkText = slugSplit[slugSplit.length-2] + '.' + slugSplit[slugSplit.length-1];
   } else {
-    linkText = slugSplit[slugSplit.length-1];      
-  }   
-  
+    linkText = slugSplit[slugSplit.length-1];
+  }
+
   if(finalSlugList[l].indexOf('()') !== -1) {
     currentSlug = finalSlugList[l].replace('()','');
   }
-  
+
   output += '<li><code><a href="' + currentSlug + '">' + linkText + '</a></code></li>';
 }
 
