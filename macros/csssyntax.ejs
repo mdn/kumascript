@@ -14,12 +14,32 @@ var syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxe
 var unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
 // List types for which we want to link to a description instead of
 // including it in the formal syntax block
+var s_named_color_link = mdn.localString({
+    "en-US": "/docs/Web/CSS/color_value#Color_keywords",
+    "fr"   : "/docs/Web/CSS/Type_color#Les_mots-clés",
+    "de"   : "/docs/Web/CSS/Farben#Farbschlüsselwörter",
+    "es"   : "/docs/Web/CSS/color_value#Color_keywords",
+    "ja"   : "/docs/Web/CSS/color_value#Color_keywords",
+    "nl"   : "/docs/Web/CSS/kleur_waarde#Color_keywords",
+    "pt-BR": "/docs/Web/CSS/color_value#Palavras-chave_de_cores",
+    "zh-CN": "/docs/Web/CSS/color_value#色彩关键字"
+});
+var s_system_color_link = mdn.localString({
+  "en-US": "/docs/Web/CSS/color_value#Color_keywords",
+  "fr"   : "/docs/Web/CSS/Type_color#Couleurs_système",
+  "de"   : "/docs/Web/CSS/Farben#Systemfarben",
+  "es"   : "/docs/Web/CSS/color_value#Colores_de_Sistema",
+  "ja"   : "/docs/Web/CSS/color_value#System_Colors",
+  "nl"   : "/docs/Web/CSS/kleur_waarde#System_Colors",
+  "pt-BR": "/docs/Web/CSS/color_value#System_Colors",
+  "zh-CN": "/docs/Web/CSS/color_value#系统颜色"
+});
 var externallyDescribedTypesData = {
   "named-color": {
-    link: "/docs/Web/CSS/color_value#Color_keywords"
+    link: s_named_color_link
   },
   "deprecated-system-color": {
-    link: "/docs/Web/CSS/color_value#System_Colors"
+    link: s_system_color_link
   }
 };
 var data = {
@@ -281,7 +301,7 @@ function buildLink(match, type) {
 
     // Handle types which we want to describe using a link to a different page
     }  else if (data.externallyDescribedTypes.hasOwnProperty(type)) {
-             return "<a href=\"https://developer.mozilla.org/" + locale + data.externallyDescribedTypes[type].link + "\">&lt;" + type + "&gt;</a>";
+             return "<a href=\"/" + locale + data.externallyDescribedTypes[type].link + "\">&lt;" + type + "&gt;</a>";
 
     // Handle advanced types having their syntax defined within the 'CSSData' template
     } else if (data.syntaxes[type]) {
