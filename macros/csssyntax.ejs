@@ -12,13 +12,24 @@ var selectorsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/select
 var typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json";
 var syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
 var unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
+// List types for which we want to link to a description instead of
+// including it in the formal syntax block
+var externallyDescribedTypesData = {
+  "named-color": {
+    link: "/docs/Web/CSS/color_value#Color_keywords"
+  },
+  "deprecated-system-color": {
+    link: "/docs/Web/CSS/color_value#System_Colors"
+  }
+};
 var data = {
     properties: mdn.fetchJSONResource(propertiesUrl),
     atRules: mdn.fetchJSONResource(atRulesUrl),
     selectors: mdn.fetchJSONResource(selectorsUrl),
     types: mdn.fetchJSONResource(typesUrl),
     syntaxes: mdn.fetchJSONResource(syntaxesUrl),
-    units: mdn.fetchJSONResource(unitsUrl)
+    units: mdn.fetchJSONResource(unitsUrl),
+    externallyDescribedTypes: externallyDescribedTypesData
 };
 var slug = env.slug;
 var locale = env.locale;
@@ -268,6 +279,10 @@ function buildLink(match, type) {
                 localize(commonLocalStrings, "summary");
         }
 
+    // Handle types which we want to describe using a link to a different page
+    }  else if (data.externallyDescribedTypes.hasOwnProperty(type)) {
+             return "<a href=\"https://developer.mozilla.org/" + locale + data.externallyDescribedTypes[type].link + "\">&lt;" + type + "&gt;</a>";
+
     // Handle advanced types having their syntax defined within the 'CSSData' template
     } else if (data.syntaxes[type]) {
         return "<a href=\"#" + type + "\">&lt;" + type + "&gt;</a>";
@@ -337,7 +352,10 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
                 // Some data type page names have '_value' appended,
                 // which needs to be removed in order to find the syntax
                 var subType = type[1].replace("_value", "");
-                if (data.syntaxes.hasOwnProperty(subType)) {
+                // Describe this type if it exists in "syntaxes" and
+                // it *does not* exist in externallyDescribedTypes
+                if ((data.syntaxes.hasOwnProperty(subType)) &&
+                    (!data.externallyDescribedTypes.hasOwnProperty(subType))) {
                     types.push(subType);
                 }
             }
