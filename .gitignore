@@ -11,6 +11,5 @@ docs
 *.a
 *.dylib
 *.un~
-node_modules/fibers
-node_modules/underscore/raw
+node_modules/
 npm-debug.log
