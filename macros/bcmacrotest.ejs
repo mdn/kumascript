@@ -14,7 +14,7 @@ if (compatData.version.substring(0,4) != '1.0.') {
 
 // Look for the compat data associated to the given feature
 var featureId = $0.split('.');
-var featureBC = compatData;
+var featureBC = compatData.data;
 for (id of featureId) {
   featureBC = featureBC[id];
   if (!featureBC) {
