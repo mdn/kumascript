@@ -35,10 +35,23 @@ switch(string.tolower($3)) {
     url = "https://www.mozilla.org/en-US/firefox/channel/#firefox";
     break;
 };
-var str = "<p>Firefox " + $0 + ", based on Gecko " + $1 + ", will ship in " + 
-           $2 + ". This article provides information about the changes in " +
+var preposition = "in";
+var spaceCount = 0;
+
+for (var i=0; i<$2.length; i++) {
+  if ($2[i] === " ") {
+    spaceCount++;
+  }
+}
+if (spaceCount >=2) {
+  preposition = "on";
+}
+
+var str = "<p>Firefox " + $0 + ", based on Gecko " + $1 + ", will ship " +
+           preposition + " " + $2 + ". This article provides information about "+
+           "the changes in " +
            "this release that will affect developers. Nightly builds of what " +
-           "will become Firefox " + $0 + " are " + 
+           "will become Firefox " + $0 + " are " +
            web.link(url, 'currently available') + " on the " +
            string.ToUpperFirst($3) + " channel. Some experimental features " +
            "whose release dates are uncertain or undecided are discussed on the " +
