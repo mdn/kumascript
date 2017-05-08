@@ -748,7 +748,7 @@
     "impl" : ["LegacyQueryInterface"]
   },
   "AudioBufferSourceNode": {
-    "inh"  : "AudioNode",
+    "inh"  : "AudioScheduledSourceNode",
     "impl" : ["AudioNodePassThrough"]
   },
   "MozNFCTagEvent": {
