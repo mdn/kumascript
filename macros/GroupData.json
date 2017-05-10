@@ -1063,7 +1063,8 @@
                              "MediaMetadata.artwork",
                              "MediaMetadata.title",
                              "MediaSession.metadata",
-                             "MediaSession.playbackState"]
+                             "MediaSession.playbackState"],
+            "events":        []
         },
         "Media Source Extensions": {
             "interfaces": [ "MediaSource",
