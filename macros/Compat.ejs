@@ -64,8 +64,6 @@ const mobileBrowsers = {
   safari_ios: "iOS Safari",
 }
 
-const lang = "en-US" //env.locale;
-
 var notesArray = [];
 
 /*
@@ -104,6 +102,9 @@ function getVersionString(versionInfo) {
   }
 }
 
+/*
+  Create the note for a browser flag or preference
+*/
 function generateFlagsNote(supportData, browserId) {
   var versions = '';
   if (typeof(supportData.version_added) === 'string') {
@@ -135,7 +136,7 @@ function generateFlagsNote(supportData, browserId) {
 
 
 /*
-  Do all the magic that to get the content of a support cell in the table
+  Do all the magic needed to get the content of a support cell in the table
 */
 function getSupportInfo(supportData, browser, compatNotes) {
   let supportInfo = '';
@@ -360,7 +361,7 @@ function writeNotes(json_subfeature_set) {
 }
 
 /*
-Get compat data using sing a query string like "webextensions.api.alarms"
+Get compat data using a query string like "webextensions.api.alarms"
 */
 function getData(queryString, obj) {
   return query.split('.').reduce(function(prev, curr) {
@@ -386,14 +387,11 @@ if (!data) {
            </div>`
 }
 
-var mode = '';
 if (data.hasOwnProperty("__compat")) {
-  mode = 'feature';
   output += writeFeatureTable(data["__compat"], "desktop", desktopBrowsers);
   output += writeFeatureTable(data["__compat"], "mobile", mobileBrowsers);
   output += writeNotes(data["__compat"]);
 } else {
-  mode = 'aggregate';
   output += writeAggregateTable(data, "desktop", desktopBrowsers);
   output += writeAggregateTable(data, "mobile", mobileBrowsers);
 }
