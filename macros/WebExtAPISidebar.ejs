@@ -1,6 +1,6 @@
 <%
 
-var sidebarUtils = require("SidebarUtilities");
+var sidebarUtils = require_macro("SidebarUtilities");
 var output = "";
 var pageModule = page;
 var hasTag = page.hasTag;
@@ -16,7 +16,7 @@ function classifyPages(subpages) {
       events: [],
       types: []
   }
-  
+
   subpages.forEach(function(subpage) {
     if (hasTag(subpage, "Property")) {
       collection.properties.push(subpage);
@@ -41,7 +41,7 @@ function buildSidebarForSingleAPI(apiPath) {
 var subpages = pageModule.subpagesExpand(apiPath);
 
   var pageCollection = classifyPages(subpages);
-  
+
   if (pageCollection.methods.length > 0) {
     output += sidebarUtils.buildSublist(pageCollection.methods, "Methods", true);
   }
@@ -54,7 +54,7 @@ var subpages = pageModule.subpagesExpand(apiPath);
   if (pageCollection.events.length > 0) {
     output += sidebarUtils.buildSublist(pageCollection.events, "Events", true);
   }
-  
+
 output += '</ol>';
 }
 

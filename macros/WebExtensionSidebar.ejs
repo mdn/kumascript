@@ -1,6 +1,6 @@
 <%
 
-var sidebarUtils = require("SidebarUtilities");
+var sidebarUtils = require_macro("SidebarUtilities");
 var hasTag = page.hasTag;
 var pageModule = page;
 
@@ -15,7 +15,7 @@ function classifyPages(subpages) {
       events: [],
       types: []
   }
-  
+
   subpages.forEach(function(subpage) {
     if (hasTag(subpage, "Property")) {
       collection.properties.push(subpage);
@@ -38,12 +38,12 @@ function buildSidebar(slug) {
   if (!slug) {
     return;
   }
-  
+
   var pathComponents = slug.split("/");
   if (pathComponents < 2) {
     return;
   }
-  
+
   // find out where we are in the tree
   var leafDocument = pathComponents[pathComponents.length-1];
   // 1) we are at the root
@@ -76,10 +76,10 @@ function buildSidebarForRoot(path) {
 function buildSidebarForAPI(path, parent) {
   output = '<section class="Quick_links" id="Quick_Links"><ol>';
   output += '<li><strong><a href="' +  "/en-US/docs/" + path + '"><code>' + parent + '</a></code></strong></li>';
-  
+
   var subpages = pageModule.subpagesExpand("/en-US/docs/" + path);
   var pageCollection = classifyPages(subpages);
-  
+
   if (pageCollection.methods.length > 0) {
     output += sidebarUtils.buildSublist(pageCollection.methods, "Methods");
   }

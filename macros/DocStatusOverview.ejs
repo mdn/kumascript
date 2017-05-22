@@ -6,10 +6,10 @@
  *  $0  (optional) Title string filter; if this is specified, pages whose title
  *      don't contain this string are ignored
  */
- 
- 
+
+
 /*** Collect doc status data ***/
-var MDN = require("MDN:Common");
+var MDN = require_macro("MDN:Common");
 var result = {};
 var totalPages = 0,
     totalNoTags = 0,
@@ -33,7 +33,7 @@ function getPages(pageList, filterString) {
                     result[pageList[aPage].title].metrics = JSON.parse(resource);
                     result[pageList[aPage].title].url = pageList[aPage].url;
                 }
-                
+
                 var subpage = getPages(pageList[aPage].subpages, filterString);
             }
         }
@@ -59,9 +59,9 @@ getPages(pageList, $0);
     </tr>
   </thead>
   <tbody>
-    <% 
+    <%
     var columns = ['noTags', 'needsTags', 'editorialReviews', 'technicalReviews', 'outdated', 'ddn', 'dr'];
-    
+
         for (var key in result) {
         totalPages += result[key].metrics.pages.counter;
         totalNeedsTags += result[key].metrics.needsTags.counter;

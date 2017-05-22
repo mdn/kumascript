@@ -12,7 +12,7 @@
 //  $6  -  (optional) Tags that all pages should have. (OR logic)
 
 /*** Module loading ***/
-var MDN = require("MDN:Common");
+var MDN = require_macro("MDN:Common");
 
 /*** Variables ***/
 var slug = $0;
@@ -159,7 +159,7 @@ function missingTags(tagList, requiredTags) {
       if (tagList[i] == 'Index') return 0;
       for (var j = 0; j < requiredTags.length; j++) {
           if (tagList[i].toLowerCase() == requiredTags[j].toLowerCase()) {
-              yay++;                                                                     
+              yay++;
           }
       }
    }
@@ -195,8 +195,8 @@ function daysBetween(date1, date2) {
   var d1ms = date1.getTime();
   var d2ms = date2.getTime();
   var diff = d2ms - d1ms;
-    
-  return Math.round(diff/aDay); 
+
+  return Math.round(diff/aDay);
 }
 
 
@@ -207,9 +207,9 @@ function collect(page) {
     var cleanTitle = page.title.replace('<','&lt;').replace('>','&gt;');
     var pageurl = page.url;
     var rgx = /needs[A-Za-z0-9]+/gi;
-            
+
     if (hasNoTags(page.tags)) {
-        metrics.noTags.counter++; 
+        metrics.noTags.counter++;
         output.noTags.push({title: cleanTitle, url: pageurl});
     }
     if (containsNeedsWorkTag(page.tags)) {
@@ -221,7 +221,7 @@ function collect(page) {
             }
         });
     }
-    if (hasReviewTag(page.review_tags, 'editorial')) { 
+    if (hasReviewTag(page.review_tags, 'editorial')) {
         metrics.editorialReviews.counter++;
         output.editorialReviews.push({title: cleanTitle, url: pageurl});
     }
@@ -252,7 +252,7 @@ function getPages(pageList) {
             } else {
                 collect(pageList[i]);
             }
-            
+
             var subpage = getPages(pageList[i].subpages);
         }
     }
@@ -341,7 +341,7 @@ if (metrics.hasOwnProperty(obj) && typeof metrics[obj] !== 'undefined') {
     var color = "rgb(204, 255, 153)";
     if (percent >= 5) { color = "rgb(255, 255, 153)" }
     if (percent >= 10) { color = "rgb(255, 204, 204)" }
-    if (obj == 'pages') { 
+    if (obj == 'pages') {
 %>
     <td><%=metrics.pages.counter%></td>
 <% } else { %>
@@ -358,7 +358,7 @@ if (metrics.hasOwnProperty(obj) && typeof metrics[obj] !== 'undefined') {
 <% /*** page metrics ***/ %>
 
 
-<% 
+<%
 
 for (var obj in output) {
 if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[obj].counter > 0) {
@@ -387,8 +387,8 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
 <% if (Array.isArray(result)) {
     for (i=0; i < result.length; i++) { %>
     <li><a href='<%=result[i].url%>'><%=result[i].title%></a><% if (result[i].note != undefined) { %><br/><small><%=result[i].note%></small><% } %></li>
-<%  } 
-} else { 
+<%  }
+} else {
     for (ntag in result) {
         if (result.hasOwnProperty(ntag)) {
 %>
@@ -411,13 +411,13 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
 
 <% /*** Bug lists ***/ %>
 
-<% if (bzddn && bzddn != '') { 
+<% if (bzddn && bzddn != '') {
     if (ddnBugs.bugs.length > 0) {
         var bzLink = 'https://bugzilla.mozilla.org/buglist.cgi?bug_id=';
 %>
     <h2 id="Dev-doc-needed_bugs">Dev-doc-needed bugs</h2>
     <p><strong>Found <%=ddnBugs.bugs.length%> bugs.</strong> Learn more about <a href="https://developer.mozilla.org/en-US/docs/MDN/Contribute/Howto/Resolve_a_dev-doc-needed_bug">how to resolve a dev-doc-needed bug</a>.</p>
-    
+
     <table class="standard-table">
         <thead>
             <tr>
@@ -427,7 +427,7 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
             </tr>
         </thead>
     <tbody>
-    
+
     <% for (var i=0; i < ddnBugs.bugs.length; i++) {
         bzLink += ddnBugs.bugs[i].id + ',';
     %>
@@ -437,19 +437,19 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
         <td><%= ddnBugs.bugs[i].target_milestone %></td>
     </tr>
     <% } %>
-    
+
     </tbody>
     </table>
     <p>Browse as <a href="<%=bzLink%>">bug list</a>.</p>
 <% } } %>
 
-<% if (bzdr && bzdr != '') { 
+<% if (bzdr && bzdr != '') {
     if (drBugs.bugs.length > 0) {
         var bzLink = 'https://bugzilla.mozilla.org/buglist.cgi?bug_id=';
 %>
     <h2 id="Documentation_requests">Documentation requests</h2>
     <p><strong>Found <%=drBugs.bugs.length%> bugs.</strong> Documentation request bugs can contain various kinds work related to MDN pages. Read through the bug and ask questions in the bug if in doubt.</p>
-    
+
     <table class="standard-table">
         <thead>
             <tr>
@@ -458,8 +458,8 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
             </tr>
         </thead>
     <tbody>
-    
-    <% for (var i=0; i < drBugs.bugs.length; i++) { 
+
+    <% for (var i=0; i < drBugs.bugs.length; i++) {
         bzLink += drBugs.bugs[i].id + ',';
     %>
     <tr>
@@ -467,7 +467,7 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
         <td><%= drBugs.bugs[i].summary %></td>
     </tr>
     <% } %>
-    
+
     </tbody>
     </table>
     <p>Browse as <a href="<%=bzLink%>">bug list</a>.</p>
@@ -489,10 +489,10 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
     </tr>
   </thead>
   <tbody>
-    <%     
+    <%
         for (var key in l10nResult) {
         if (l10nResult.hasOwnProperty(key) && typeof key != 'undefined') {
-        
+
         var translationPercent = Math.floor((l10nResult[key].metrics.translations.counter / l10nResult[key].metrics.pages.counter) * 100);
         var uptodatePercent = l10nResult[key].metrics.translations.counter == 0 ? 0 : Math.floor((l10nResult[key].metrics.updateNeeded.counter / l10nResult[key].metrics.translations.counter) * 100);
     %>

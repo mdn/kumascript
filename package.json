@@ -40,6 +40,7 @@
     "nodeunit": "0.10.2",
     "jshint": "2.9.4",
     "ejs-lint": "0.3.0",
-    "jsonlint-cli": "1.0.1"
+    "jsonlint-cli": "1.0.1",
+    "mdn-browser-compat-data": "0.x"
   }
 }

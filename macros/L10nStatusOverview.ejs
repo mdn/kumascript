@@ -46,7 +46,7 @@ var statusStr = mdn.localString({
 });
 
 /*** Collect doc status data ***/
-var MDN = require("MDN:Common");
+var MDN = require_macro("MDN:Common");
 var result = {};
 var totalPages = 0,
     totalTranslated = 0,
@@ -84,20 +84,20 @@ getPages(pageList);
     </tr>
   </thead>
   <tbody>
-    <%     
+    <%
         for (var key in result) {
         if (result.hasOwnProperty(key) && typeof key != 'undefined') {
             var pageCounter = result[key].metrics.pages.counter || 0;
             var translationCounter = result[key].metrics.translations.counter || 0;
             var updateCounter = result[key].metrics.updateNeeded.counter || 0;
-       
+
             totalPages += pageCounter;
             totalTranslated += translationCounter;
             totalUpToDate += updateCounter;
-        
+
             var translationPercent = Math.floor((translationCounter / pageCounter) * 100);
             var uptodatePercent = Math.floor((updateCounter / pageCounter) * 100);
-        
+
             var totalTranslatedPercent = Math.floor((totalTranslated / totalPages) * 100);
             var totalUpToDatePercent = Math.floor((totalUpToDate / totalPages) * 100);
     %>
