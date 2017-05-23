@@ -1,138 +1,135 @@
 /*jshint node: true, expr: false, boss: true */
 
-var util = require('util'),
-    fs = require('fs'),
+var fs = require('fs'),
+    path = require('path'),
     _ = require('underscore'),
-    nodeunit = require('nodeunit'),
+    assert = require('chai').assert,
     request = require('request'),
-
     kumascript = require('..'),
     ks_macros = kumascript.macros,
     ks_server = kumascript.server,
-    ks_test_utils = kumascript.test_utils;
+    ks_test_utils = kumascript.test_utils,
+    testRequest = ks_test_utils.testRequest,
+    readTestFixture = ks_test_utils.readTestFixture,
+    testRequestExpected = ks_test_utils.testRequestExpected;
 
-module.exports = nodeunit.testCase({
+function getURL(uri) {
+    return 'http://localhost:9000' + uri;
+}
 
-    // Build both a service instance and a document server for test fixtures.
-    setUp: function (next) {
+describe('test-server', function () {
+    beforeEach(function() {
+        // Build both a kumascript instance and a document server for tests.
         this.test_server = ks_test_utils.createTestServer();
-        try {
-            this.macro_processor = new ks_macros.MacroProcessor({
-                macro_timeout: 500,
-                loader: {
-                    module: __dirname + '/../lib/kumascript/loaders',
-                    class_name: 'FileLoader',
-                    options: {
-                        root_dir: "tests/fixtures/templates",
-                    }
+        this.macro_processor = new ks_macros.MacroProcessor({
+            macro_timeout: 500,
+            loader: {
+                module: __dirname + '/../lib/kumascript/loaders',
+                class_name: 'FileLoader',
+                options: {
+                    root_dir: "tests/fixtures/templates",
                 }
-            });
-            this.server = new ks_server.Server({
-                port: 9000,
-                logging: false,
-                document_url_template: "http://localhost:9001/documents/{path}.txt",
-                macro_processor: this.macro_processor
-            });
-            this.server.listen();
-        } catch (e) {
-            util.debug("ERROR STARTING TEST SERVER " + e);
-            throw e;
+            }
+        });
+        this.server = new ks_server.Server({
+            port: 9000,
+            logging: false,
+            document_url_template: "http://localhost:9001/documents/{path}.txt",
+            macro_processor: this.macro_processor
+        });
+        this.server.listen();
+    })
+
+    afterEach(function () {
+        // Kill all the servers on teardown.
+        this.server.close();
+        this.test_server.close();
+    })
+
+    it('Fetching the root returns the homepage', function (done) {
+        testRequestExpected(
+            getURL('/'),
+            'homepage-expected.html',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
+
+    it('Fetching document1 from service should be processed as expected', function (done) {
+        testRequestExpected(
+            getURL('/docs/document1'),
+            'documents/document1-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
+
+    it('Fetching 시작하기 from service should be processed as expected', function (done) {
+        testRequestExpected(
+            getURL('/docs/' + encodeURI('시작하기')),
+            'documents/시작하기-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
+
+    it('POSTing document to service should be processed as expected', function (done) {
+        var source_filename = 'documents/document1.txt';
+        readTestFixture(source_filename, done, function(source) {
+            testRequestExpected(
+                { method: 'POST', url: getURL('/docs/'), body: source },
+                'documents/document1-expected.txt',
+                done,
+                function(resp, result, expected) {
+                    assert.equal(result.trim(), expected.trim());
+                }
+            );
+        });
+    })
+
+    it('Variables passed in request headers should be made available to templates', function (done) {
+        function makeHeader(value, key) {
+            var h_key = 'x-kumascript-env-' + key,
+                d_json = JSON.stringify(value),
+                data = (new Buffer(d_json, 'utf8')).toString('base64');
+            return [h_key, data];
         }
-        next();
-    },
 
-    // Kill all the servers on teardown.
-    tearDown: function (next) {
-        try {
-            this.server.close();
-            this.test_server.close();
-        } catch (e) { /* no-op */ }
-        next();
-    },
+        var env = {
+                'locale': "en-US",
+                'alpha':  "This is the alpha value",
+                'beta':   "Consultez les forums dédiés de Mozilla",
+                'gamma':  "コミュニティ",
+                'delta':  "커뮤니티",
+                'foo':    ['one', 'two', 'three'],
+                'bar':    {'a':1, 'b':2, 'c':3}
+            },
+            headers = _.chain(env).map(makeHeader).object().value(),
+            source_filename = 'documents/request-variables.txt';
 
-    "Fetching the root returns the homepage": function (test) {
-        var expected_fn = __dirname + '/fixtures/homepage-expected.html',
-            result_url  = 'http://localhost:9000/';
-        fs.readFile(expected_fn, 'utf8', function (err, expected) {
-            request(result_url, function (err, resp, result) {
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
+        readTestFixture(source_filename, done, function(source) {
+            testRequestExpected(
+                { method: 'GET',
+                  url: getURL('/docs/request-variables'),
+                  body: source,
+                  headers: headers
+                },
+                'documents/request-variables-expected.txt',
+                done,
+                function(resp, result, expected) {
+                    assert.equal(result.trim(), expected.trim());
+                }
+            );
         });
-    },
+    })
 
-    "Fetching document1 from service should be processed as expected": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
-            result_url  = 'http://localhost:9000/docs/document1';
-        fs.readFile(expected_fn, 'utf8', function (err, expected) {
-            request(result_url, function (err, resp, result) {
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
-        });
-    },
-
-    "Fetching 시작하기 from service should be processed as expected": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/시작하기-expected.txt',
-            result_url  = 'http://localhost:9000/docs/' + encodeURI('시작하기');
-        fs.readFile(expected_fn, 'utf8', function (err, expected) {
-            request(result_url, function (err, resp, result) {
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
-        });
-    },
-
-    "POSTing document to service should be processed as expected": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/document1-expected.txt',
-            source_fn   = __dirname + '/fixtures/documents/document1.txt',
-            result_url  = 'http://localhost:9000/docs/';
-        fs.readFile(expected_fn, 'utf8', function (err, expected) {
-            fs.readFile(source_fn, 'utf8', function (err, source) {
-                request.post(
-                    { url: result_url, body: source },
-                    function (err, resp, result) {
-                        test.equal(result.trim(), expected.trim());
-                        test.done();
-                    }
-                );
-            });
-        });
-    },
-
-    "Variables passed in request headers should be made available to templates": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/request-variables-expected.txt',
-            source_fn   = __dirname + '/fixtures/documents/request-variables.txt',
-            result_url  = 'http://localhost:9000/docs/request-variables';
-        fs.readFile(expected_fn, 'utf8', function (err, expected) {
-            fs.readFile(source_fn, 'utf8', function (err, source) {
-                var env = {
-                    'locale': "en-US",
-                    'alpha':  "This is the alpha value",
-                    'beta':   "Consultez les forums dédiés de Mozilla",
-                    'gamma':  "コミュニティ",
-                    'delta':  "커뮤니티",
-                    'foo':    ['one', 'two', 'three'],
-                    'bar':    {'a':1, 'b':2, 'c':3}
-                };
-                var headers = _.chain(env).map(function (v, k) {
-                    var h_key = 'x-kumascript-env-' + k,
-                        d_json = JSON.stringify(v),
-                        data = (new Buffer(d_json,'utf8')).toString('base64');
-                    return [h_key, data];
-                }).object().value();
-                request.get(
-                    { url: result_url, body: source, headers: headers },
-                    function (err, resp, result) {
-                        test.equal(result.trim(), expected.trim());
-                        test.done();
-                    }
-                );
-            });
-        });
-    },
-
-    "Errors in macro processing should be included in response headers": function (test) {
+    it('Errors in macro processing should be included in response headers', function (done) {
 
         var mp = this.server.macro_processor = new ks_macros.MacroProcessor({
             macro_timeout: 500,
@@ -152,113 +149,117 @@ module.exports = nodeunit.testCase({
             }
         });
 
+        function extractErrors(resp) {
+            // First pass, assemble all the base64 log fragments
+            // from headers into buckets by UID.
+            var logs_pieces = {};
+            _.each(resp.headers, function (value, key) {
+                if (key.indexOf('firelogger-') !== 0) {
+                    return;
+                }
+                var parts = key.split('-'),
+                    uid = parts[1],
+                    seq = parts[2];
+                if (!(uid in logs_pieces)) {
+                    logs_pieces[uid] = [];
+                }
+                logs_pieces[uid][seq] = value;
+            });
+
+            // Second pass, decode the base64 log fragments in each bucket.
+            var logs = {};
+            _.each(logs_pieces, function (pieces, uid) {
+                var d_b64 = pieces.join(''),
+                    d_json = (new Buffer(d_b64, 'base64')).toString('utf-8');
+                logs[uid] = JSON.parse(d_json).logs;
+            });
+
+            // Third pass, extract all kumascript error messages.
+            var errors = {};
+            _.each(logs, function (messages, uid) {
+                _.each(messages, function (m) {
+                    if (m.name == 'kumascript' && m.level == 'error') {
+                        errors[m.args[2].name] = m.args.slice(0, 2);
+                    }
+                });
+            });
+
+            return errors
+        }
+
         mp.startup(function () {
-            var expected_fn = __dirname + '/fixtures/documents/document2-expected.txt',
-                result_url  = 'http://localhost:9000/docs/document2';
-            fs.readFile(expected_fn, 'utf8', function (err, expected) {
-                var req_opts = {
+            var req_opts = {
                     method: "GET",
-                    uri: result_url,
+                    uri: getURL('/docs/document2'),
                     headers: {
                         "X-FireLogger": "1.2"
                     }
-                };
-                request(req_opts, function (err, resp, result) {
+                },
+                expected_errors = {
+                    'broken1': ["TemplateLoadingError",
+                                "NOT FOUND"],
+                    'broken2': ["TemplateLoadingError",
+                                "ERROR INITIALIZING broken2"],
+                    'broken3': ["TemplateExecutionError",
+                                "ERROR EXECUTING broken3"]
+                },
+                expected_filename = 'documents/document2-expected.txt';
 
-                    test.equal(result.trim(), expected.trim());
-                    test.equal(resp.headers['vary'], 'X-FireLogger');
+            testRequestExpected(req_opts, expected_filename, done,
+                function(resp, result, expected) {
+                    assert.equal(result.trim(), expected.trim());
+                    assert.equal(resp.headers['vary'], 'X-FireLogger');
 
-                    var expected_errors = {
-                        'broken1': ["TemplateLoadingError", "NOT FOUND"],
-                        'broken2': ["TemplateLoadingError", "ERROR INITIALIZING broken2"],
-                        'broken3': ["TemplateExecutionError", "ERROR EXECUTING broken3"]
-                    };
+                    var errors = extractErrors(resp);
 
-                    // First pass, assemble all the base64 log fragments from
-                    // headers into buckets by UID.
-                    var logs_pieces = {};
-                    _.each(resp.headers, function (value, key) {
-                        if (key.indexOf('firelogger-') !== 0) { return; }
-                        var parts = key.split('-'),
-                            uid = parts[1],
-                            seq = parts[2];
-                        if (!(uid in logs_pieces)) {
-                            logs_pieces[uid] = [];
-                        }
-                        logs_pieces[uid][seq] = value;
-                    });
-
-                    // Second pass, decode the base64 log fragments in each bucket.
-                    var logs = {};
-                    _.each(logs_pieces, function (pieces, uid) {
-                        var d_b64 = pieces.join(''),
-                            d_json = (new Buffer(d_b64, 'base64')).toString('utf-8');
-                        logs[uid] = JSON.parse(d_json).logs;
-                    });
-
-                    // Third pass, extract all kumascript error messages.
-                    var errors = {};
-                    _.each(logs, function (messages, uid) {
-                        _.each(messages, function (m) {
-                            if (m.name == 'kumascript' && m.level == 'error') {
-                                errors[m.args[2].name] = m.args.slice(0, 2);
-                            }
-                        });
-                    });
-
-                    // Finally, assert that the extracted errors match expectations.
+                    // Ensure that we saw the same expected errors.
+                    assert.sameMembers(_.keys(errors),
+                                       _.keys(expected_errors));
+                    // Check the error values against what is expected.
                     _.each(expected_errors, function (expected, name) {
-                        test.ok(name in errors);
                         var error = errors[name];
-                        test.equal(error[0], expected[0]);
-                        test.ok(error[1].indexOf(expected[1]) !== -1);
+                        assert.equal(error[0], expected[0]);
+                        assert.isTrue(error[1].indexOf(expected[1]) !== -1);
                     });
-
-                    test.done();
-
-                });
-            });
+                }
+            );
         });
+    })
 
-    },
-
-    "Error fetching source document should be logged": function (test) {
-        var $this = this;
-
+    it('Error fetching source document should be logged', function (done) {
         // Induce error condition by closing down the test server.
-        $this.test_server.close();
-        var expected_err = 'Problem fetching source document: connect ECONNREFUSED';
+        this.test_server.close();
 
-        var req_opts = {
-            method: "GET",
-            uri: 'http://localhost:9000/docs/error-doc',
-            headers: {
-                "X-FireLogger": "plaintext"
-            }
-        };
-        request.get(req_opts, function (err, resp, result) {
-            // Look for the expected error message in headers
+        var expected_err =
+                'Problem fetching source document: connect ECONNREFUSED',
+            req_opts = {
+                method: "GET",
+                uri: getURL('/docs/error-doc'),
+                headers: {
+                    "X-FireLogger": "plaintext"
+                }
+            };
+
+        testRequest(req_opts, done, function (resp, result) {
+            // Look for the expected error message in the headers.
             var found_it = false;
             _.each(resp.headers, function (value, key) {
-                if (key.indexOf('firelogger-') === -1) { return; }
-                if (value.indexOf(expected_err) !== -1) { found_it = true; }
+                if (key.indexOf('firelogger-') === -1) {
+                    return;
+                }
+                if (value.indexOf(expected_err) !== -1) {
+                    found_it = true;
+                }
             });
-            test.ok(found_it);
-            test.done();
+            assert.isTrue(found_it);
         });
-    },
+    })
 
-    "Fetching /macros returns macro details": function (test) {
-        var expected_fn = __dirname + '/fixtures/macros-expected.json',
-            result_url  = 'http://localhost:9000/macros';
-        fs.readFile(expected_fn, 'utf8', function (err, expected_json) {
-            request(result_url, function (err, resp, result) {
-                var expected = JSON.parse(expected_json),
-                    actual = JSON.parse(result);
-                test.deepEqual(actual, expected);
-                test.done();
-            });
-        });
-    }
-
+    it('Fetching /macros returns macro details', function (done) {
+        testRequestExpected(getURL('/macros'), 'macros-expected.json', done,
+            function(resp, result, expected) {
+                assert.deepEqual(JSON.parse(result), JSON.parse(expected));
+            }
+        );
+    })
 });

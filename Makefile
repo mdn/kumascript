@@ -25,7 +25,7 @@ run:
 
 test:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	    /node_modules/.bin/nodeunit ${TEST_RUN_ARGS} tests
+	    /node_modules/.bin/mocha ${TEST_RUN_ARGS} tests
 
 lint:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \

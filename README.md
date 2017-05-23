@@ -155,7 +155,7 @@ more before you run your local development version of MDN.
 * To run the service:
     * `node run.js`
 * To run tests:
-    * `./node_modules/.bin/nodeunit tests`
+    * `./node_modules/.bin/mocha tests`
 * To check code quality:
     * `./node_modules/.bin/jshint --show-non-errors lib tests`
         * This will make a racket if it hits `parser.js`
@@ -169,6 +169,6 @@ On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
     kicker -e'./node_modules/.bin/jshint lib tests' \
-           -e'./node_modules/.bin/nodeunit tests' \
+           -e'./node_modules/.bin/mocha tests' \
            --no-growl \
            lib tests
