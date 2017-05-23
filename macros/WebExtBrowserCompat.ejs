@@ -23,31 +23,31 @@ The tableFromArgument() function takes a single argument, which must be
 a string that traces a path through the browser compat data.
 The string may be either of:
 
-    * "data.webextensions.manifest". In this case the function generates an
+    * "webextensions.manifest". In this case the function generates an
     agregate table for all manifest keys.
 
-    * "data.webextensions.manifest.<KEY-NAME>", where <KEY-NAME> is the name
+    * "webextensions.manifest.<KEY-NAME>", where <KEY-NAME> is the name
     of a manifest key, like "applications" or "content_scripts". In this case
     the function generates a table for the given manifest key.
 */
 function tableFromArgument(path) {
-  var path = $0; // "data.webextensions.manifest.applications"
+  var path = $0; // "webextensions.manifest.applications"
   var pathComponents = path.split(".");
   // first, validate the argument
-  // there must be at least "data", "webextensions", "manifest"
-  if (pathComponents.length < 3 ||
-    !((pathComponents[0] === "data") && (pathComponents[1] === "webextensions") && (pathComponents[2] === "manifest"))) {
+  // there must be at least "webextensions" and "manifest"
+  if (pathComponents.length < 2 ||
+    !((pathComponents[0] === "webextensions") && (pathComponents[1] === "manifest"))) {
     throw "If an argument is given it must point to WebExtensions manifest data.";
   }
   const manifestDataUrl = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/manifest-keys.json";
   // if the argument does not specify a manifest key, generate the aggregate table
-  if (pathComponents.length === 3) {
-    const manifestBaseUrl = "Add-ons/WebExtensions/manifest.json/";
+  if (pathComponents.length === 2) {
+    const manifestBaseUrl = "Add-ons/WebExtensions/manifest.json";
     compatJson = mdn.fetchJSONResource(manifestDataUrl).data.webextensions.manifest;
     return template("WebExtBrowserCompatTable", [compatJson, manifestBaseUrl]);
   } else {
   // otherwise, use the given manifest key to generate the feature table
-    compatJson = mdn.fetchJSONResource(manifestDataUrl).data.webextensions.manifest[pathComponents[3]];
+    compatJson = mdn.fetchJSONResource(manifestDataUrl).data.webextensions.manifest[pathComponents[2]];
     return template("WebExtBrowserCompatTable", [compatJson]);
   }
 }
