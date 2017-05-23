@@ -421,16 +421,16 @@ if (!data) {
                 <a href="javascript:;">${localize(compatStrings, 'browserType_mobile')}</a>
               </li>
               </ul>
-           </div>`
-}
+           </div>`;
 
-if (data.hasOwnProperty('__compat')) {
-  output += writeFeatureTable(data['__compat'], 'desktop', desktopBrowsers);
-  output += writeFeatureTable(data['__compat'], 'mobile', mobileBrowsers);
-  output += writeNotes(data['__compat']);
-} else {
-  output += writeAggregateTable(data, 'desktop', desktopBrowsers);
-  output += writeAggregateTable(data, 'mobile', mobileBrowsers);
+  if (data.hasOwnProperty('__compat')) {
+    output += writeFeatureTable(data['__compat'], 'desktop', desktopBrowsers);
+    output += writeFeatureTable(data['__compat'], 'mobile', mobileBrowsers);
+    output += writeNotes(data['__compat']);
+  } else {
+    output += writeAggregateTable(data, 'desktop', desktopBrowsers);
+    output += writeAggregateTable(data, 'mobile', mobileBrowsers);
+  }
 }
 %>
 <%-output%>
