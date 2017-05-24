@@ -135,15 +135,15 @@ function writeFlagsNote(supportData, browserId) {
 
   if (typeof(supportData.version_removed) === 'string') {
     if (output) {
-      output += ' until version '+ supportData.version_removed + ' (excluded): ';
+      output += ' until version '+ supportData.version_removed + ' (exclusive): ';
     } else {
-      output = 'Until version ' + supportData.version_removed + ' (excluded): ';
+      output = 'Until version ' + supportData.version_removed + ' (exclusive): ';
     }
   } else {
     output += ', ';
   }
 
-  let flagText = `This feature is behind the <code>${supportData.flag.name}</code>`;
+  let flagText = `this feature is behind the <code>${supportData.flag.name}</code>`;
 
   // value_to_set is optional
   let valueToSet = '';
@@ -249,7 +249,6 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
 Generate an aggregate table that summarises the support status for the
 individual features under the data it's passed.
 Each row in the table will contain the "basic_support" data for a single feature.
-The first cell in each the row will contain a link to the feature's page.
 
 `json_identifier` is an `identifier` JSON object.
 */
