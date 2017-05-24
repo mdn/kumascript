@@ -100,15 +100,21 @@ module.exports = {
         next();
     },
 
-    "A template can include the output of executing another template with kumascript.template()": function (test) {
+    "A template can include the output of executing another template with template()": function (test) {
         var expected_fn = __dirname + '/fixtures/documents/template-exec-expected.txt',
             result_url  = 'http://localhost:9000/docs/template-exec';
         performTestRequest(test, expected_fn, result_url);
     },
 
-    "A template can export methods and data to another template with kumascript.require()": function (test) {
+    "A template can import methods and data from another template with require_macro()": function (test) {
         var expected_fn = __dirname + '/fixtures/documents/library-test-expected.txt',
             result_url  = 'http://localhost:9000/docs/library-test';
+        performTestRequest(test, expected_fn, result_url);
+    },
+
+    "A template can import an npm module with require()": function (test) {
+        var expected_fn = __dirname + '/fixtures/documents/require-test-expected.txt',
+            result_url  = 'http://localhost:9000/docs/require-test';
         performTestRequest(test, expected_fn, result_url);
     },
 

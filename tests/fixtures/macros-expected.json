@@ -34,6 +34,9 @@
         "name": "reqlocale",
         "filename": "reqlocale.ejs"
     }, {
+        "name": "require-used",
+        "filename": "require-used.ejs"
+    }, {
         "name": "reqvar-json",
         "filename": "reqvar-json.ejs"
     }, {

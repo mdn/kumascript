@@ -1,8 +1,8 @@
 <% module.exports = buildAPI({
-    
+
     initialize: function (options) {
         BaseAPI.prototype.initialize.call(this, options);
-        
+
         // Incomplete list of Page vars, but probably good enough.
         // See also: <http://developer.mindtouch.com/en/docs/DekiScript/Reference/Wiki_Functions_and_Variables/Page>
         this.setVars({
@@ -16,15 +16,15 @@
             uri: env.url
         });
     },
-    
+
     // Determines whether or not the page has the specified tag. Returns true
     // if it does, otherwise false. This is case-insensitive.
     //
     // Parameters:
-    //  
-    hasTag: function(aPage, aTag) {        
+    //
+    hasTag: function(aPage, aTag) {
         // First, return false at once if there are no tags on the page
-        
+
         if (aPage.tags == undefined || aPage.tags == null || aPage.tags.length == 0) {
             return false;
         }
@@ -34,13 +34,13 @@
         var theTag = aTag.toLowerCase();
 
         // Now look for a match
-        
+
         for (var i=0; i<aPage.tags.length; i++) {
             if (aPage.tags[i].toLowerCase() == theTag) {
                 return true;
             }
         }
-        
+
         return false;
     },
 
@@ -60,7 +60,7 @@
         if(depth_check  >= 0) {
             url += '?depth=' + depth_check;
         }
-        var mdn = require('MDN:Common');
+        var mdn = require_macro('MDN:Common');
         var subpages = mdn.fetchJSONResource(url);
         var result = [];
         if (subpages != null) {
@@ -85,14 +85,14 @@
         } else {
             url = env.url + '$children';
         }
-        
+
         url += '?expand';
-        
+
         var depth_check = parseInt(depth);
         if(depth_check  >= 0) {
             url += '&depth=' + depth_check;
         }
-        var mdn = require('MDN:Common');
+        var mdn = require_macro('MDN:Common');
         var subpages = mdn.fetchJSONResource(url);
         var result = [];
         if (subpages != null) {
@@ -104,7 +104,7 @@
         }
         return result;
     },
-    
+
     // If reverse is non-zero, the sort is backward
     subPagesSort: function (pages, reverse) {
         if (reverse == 0) {
@@ -161,12 +161,12 @@
 			return aa.length - bb.length;
 		}
     },
-    
+
     // Flatten subPages list
     subPagesFlatten: function (pages) {
-        
+
         var output = [];
-        
+
         process_array(pages);
 
         return output;
@@ -186,7 +186,7 @@
             }
         }
     },
-    
+
     // If ordered is true, the output is an <ol> instead of <ul>
     //
     // Special note: If ordered is true, pages whose locale differs from
@@ -194,17 +194,17 @@
     // localizations showing up in navigation.
     subPagesFormatList: function (pages, ordered) {
         return process_array(pages, ordered != 0);
-        
+
         function process_array(arr, ordered) {
             var result = '';
             var openTag = '<ul>';
             var closeTag = '</ul>';
-            
+
             if (ordered) {
                 openTag = '<ol>';
                 closeTag = '</ol>';
             }
-            
+
             if(arr.length) {
                 result += openTag;
                 arr.forEach(function(item) {
@@ -217,15 +217,15 @@
                         result += item.title;
                     }
                     result += process_array(item.subpages || [], ordered) + '</li>';
-                    
+
                 });
                 result += closeTag;
             }
             return result;
         }
-        
+
     },
-    
+
     translations: function (path) {
         var url = '';
         if (path) {
@@ -234,7 +234,7 @@
         } else {
             url = env.url + '$json';
         }
-        var mdn = require('MDN:Common');
+        var mdn = require_macro('MDN:Common');
         var json = mdn.fetchJSONResource(url);
         var result = [];
         if (json != null) {
@@ -242,5 +242,5 @@
         }
         return result;
     },
-    
+
 }); %>

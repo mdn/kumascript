@@ -1,0 +1,4 @@
+Testing "require" of npm package:
+
+* First: Does "version" exist? yes!
+* Second: Does "data.css.properties" exist? yes!
