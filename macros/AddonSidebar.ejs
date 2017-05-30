@@ -117,28 +117,19 @@ function currentPageIsUnder(root) {
     </li> 
 
     <li><a href="<%=baseURL%>Firefox_for_Android"><strong>Firefox for Android</strong></a></li>
-    <ol>
-      <li><a href="<%=baseURL%>Firefox_for_Android/WebExtensions">WebExtensions</a></li>
+    <li><a href="<%=baseURL%>Firefox_for_Android">Getting started</a>
       <ol>
-        <li><a href="<%=baseURL%>Firefox_for_Android/WebExtensions/Differences_between_desktop_and_Android">Differences between desktop and Android</a></li>
+        <li><a href="<%=baseURL%>Firefox_for_Android/Walkthrough">Walkthrough</a></li>
+        <li><a href="<%=locale%>/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE">Debugging</a></li>
+        <li><a href="<%=baseURL%>Firefox_for_Android/Code_snippets">Code snippets</a></li>
       </ol>
-      <li>Legacy add-ons</li>
-      <ol>
-        <li><a href="<%=baseURL%>Firefox_for_Android">Getting started</a>
-          <ol>
-            <li><a href="<%=baseURL%>Firefox_for_Android/Walkthrough">Walkthrough</a></li>
-            <li><a href="<%=locale%>/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE">Debugging</a></li>
-            <li><a href="<%=baseURL%>Firefox_for_Android/Code_snippets">Code snippets</a></li>
-          </ol>
-        </li>
+    </li>
 
-        <li><a href="<%=baseURL%>Firefox_for_Android/API">APIs</a>
-        <%-
-          wiki.tree(baseURL + "Firefox_for_Android/API", 1, 0, 0, 1)
-        %>
-        </li>
-      </ol> 
-    </ol>
+    <li><a href="<%=baseURL%>Firefox_for_Android/API">APIs</a>
+      <%-
+        wiki.tree(baseURL + "Firefox_for_Android/API", 1, 0, 0, 1)
+      %>
+    </li> 
 
     <li><a href="<%=baseURL%>Overlay_Extensions"><strong>Legacy</strong></a></li>
     
