@@ -1,74 +1,21 @@
 /*jshint node: true, expr: false, boss: true */
 
 var fs = require('fs'),
-    // This also injects `Fiber` and `yield`
-    // Future = require('fibers/future'),
+    path = require('path'),
     request = require('request'),
-
-    // Loading kumascript modules can use index here, because the tests aren't
-    // a part of the package.
+    assert = require('chai').assert,
     kumascript = require('..'),
-    // ks_utils = kumascript.utils,
-    // ks_templates = kumascript.templates,
-    // ks_api = kumascript.api,
     ks_server = kumascript.server,
     ks_macros = kumascript.macros,
-    ks_test_utils = kumascript.test_utils;
+    ks_test_utils = kumascript.test_utils,
+    testRequestExpected = ks_test_utils.testRequestExpected;
 
-// // API that includes some things useful for testing.
-// var DemoAPI = ks_utils.Class(ks_api.BaseAPI, {
-//
-//     initialize: function (options) {
-//     },
-//
-//     echo: function (s) {
-//         return s;
-//     },
-//
-//     // snooze: demo of the fibers/future way to handle async in sync templates.
-//     snooze: function (ms) {
-//         var f = new Future(),
-//             s = new Date();
-//         setTimeout(function () {
-//             f['return'](); // HACK: Make jshint happy.
-//         }, ms);
-//         f.wait();
-//         return new Date() - s;
-//     },
-//
-//     random: function () {
-//         var content = '',
-//             f = new Future(),
-//             url = 'http://www.random.org/integers/?num=1&min=1&max=1000000&'+
-//                   'col=1&base=10&format=plain&rnd=new';
-//         request(url, function (error, resp, body) {
-//             content = body;
-//             f['return'](); // HACK: Make jshint happy.
-//         });
-//         f.wait();
-//         return content.trim();
-//     }
-//
-// });
-
-// Reusable fixture-based test runner
-function performTestRequest(test, expected_fn, result_url) {
-    fs.readFile(expected_fn, 'utf8', function (err, expected) {
-        var opts = {
-            url: result_url,
-            headers: { 'X-FireLogger': 'plaintext' }
-        };
-        request(opts, function (err, resp, result) {
-            test.equal(result.trim(), expected.trim());
-            test.done();
-        });
-    });
+function getURL(uri) {
+    return 'http://localhost:9000' + uri;
 }
 
-// Main test case starts here
-module.exports = {
-
-    setUp: function (next) {
+describe('test-api', function () {
+    beforeEach(function() {
         this.test_server = ks_test_utils.createTestServer();
         this.macro_processor = new ks_macros.MacroProcessor({
             macro_timeout: 500,
@@ -77,9 +24,9 @@ module.exports = {
             },
             loader: {
                 module: __dirname + '/../lib/kumascript/loaders',
-                class_name: 'HTTPLoader',
+                class_name: 'FileLoader',
                 options: {
-                    url_template: "http://localhost:9001/templates/{name}.ejs",
+                    root_dir: "tests/fixtures/templates",
                 }
             }
         });
@@ -90,93 +37,80 @@ module.exports = {
             macro_processor: this.macro_processor
         });
         this.server.listen();
-        next();
-    },
+    })
 
-    // Kill all the servers on teardown.
-    tearDown: function (next) {
+    afterEach(function () {
+        // Kill all the servers on teardown.
         this.server.close();
         this.test_server.close();
-        next();
-    },
+    })
 
-    "A template can include the output of executing another template with template()": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/template-exec-expected.txt',
-            result_url  = 'http://localhost:9000/docs/template-exec';
-        performTestRequest(test, expected_fn, result_url);
-    },
+    it('A template can include the output from another with template()', function (done) {
+        testRequestExpected(
+            getURL('/docs/template-exec'),
+            'documents/template-exec-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
 
-    "A template can import methods and data from another template with require_macro()": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/library-test-expected.txt',
-            result_url  = 'http://localhost:9000/docs/library-test';
-        performTestRequest(test, expected_fn, result_url);
-    },
+    it('A template can import functions and data from another with require_macro()', function (done) {
+        testRequestExpected(
+            getURL('/docs/library-test'),
+            'documents/library-test-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
 
-    "A template can import an npm module with require()": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/require-test-expected.txt',
-            result_url  = 'http://localhost:9000/docs/require-test';
-        performTestRequest(test, expected_fn, result_url);
-    },
+    it('A template can import an npm module with require()', function (done) {
+        testRequestExpected(
+            getURL('/docs/require-test'),
+            'documents/require-test-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
 
-    "The server can be configured to auto-require some templates": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/autorequire-expected.txt',
-            result_url  = 'http://localhost:9000/docs/autorequire';
-        performTestRequest(test, expected_fn, result_url);
-    },
+    it('The server can be configured to auto-require some templates', function (done) {
+        testRequestExpected(
+            getURL('/docs/autorequire'),
+            'documents/autorequire-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
 
-    "The API offers access to a cache for work done in templates": function (test) {
-        // This is not an integration test for memcache. Instead, it just ensures
-        // that the FakeMemcached stub gets used. If that works, then the right
-        // calls should get made to memcached.
-        var expected_fn = __dirname + '/fixtures/documents/memcache-expected.txt',
-            result_url  = 'http://localhost:9000/docs/memcache';
-        performTestRequest(test, expected_fn, result_url);
-    },
+    it('The API offers access to a cache for work done in templates', function (done) {
+        // This is not an integration test for memcache. Instead, it just
+        // ensures that the FakeMemcached stub gets used. If that works, then
+        // the right calls should get made to memcached.
+        testRequestExpected(
+            getURL('/docs/memcache'),
+            'documents/memcache-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
 
-    "The API offers access to an RSS/Atom feed parser": function (test) {
-        var expected_fn = __dirname + '/fixtures/documents/feeds-expected.txt',
-            result_url  = 'http://localhost:9000/docs/feeds';
-        performTestRequest(test, expected_fn, result_url);
-    }
-
-    /* TODO: Fix this test. It relies on in-process macro processing, breaks
-     * horribly with child processes
-
-    "A sub-API installed into APIContext should be usable in a template": function (test) {
-        var $this = this,
-            t_fn = 'api1.txt',
-            t_cls = ks_templates.EJSTemplate;
-
-        // TODO: Refactor this template testing pattern into ks_test_utils.
-        fs.readFile(__dirname + '/fixtures/' + t_fn, function (err, data) {
-            if (err) { throw err; }
-
-            var parts = (''+data).split('---'),
-                src = parts.shift(),
-                expected = parts.shift(),
-                templates = {
-                    t1: new t_cls({source: parts.shift()}),
-                    t2: new t_cls({source: parts.shift()}),
-                    t3: new t_cls({source: parts.shift()})
-                },
-                loader_class = ks_test_utils.LocalLoader,
-                loader_options = { templates: templates },
-                mp = new ks_macros.MacroProcessor({
-                    loader_class: loader_class,
-                    loader_options: loader_options
-                }),
-                api_ctx = new ks_api.APIContext();
-
-            api_ctx.installAPI(DemoAPI, 'demo');
-
-            mp.process(src, api_ctx, function (err, result) {
-                test.equal(result.trim(), expected.trim());
-                test.done();
-            });
-
-        });
-
-    }
-    */
-
-};
+    it('The API offers access to an RSS/Atom feed parser', function (done) {
+        testRequestExpected(
+            getURL('/docs/feeds'),
+            'documents/feeds-expected.txt',
+            done,
+            function(resp, result, expected) {
+                assert.equal(result.trim(), expected.trim());
+            }
+        );
+    })
+});

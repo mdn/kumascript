@@ -2,95 +2,146 @@
 
 var PEG = require("pegjs"),
     fs = require("fs"),
-    nodeunit = require('nodeunit'),
-
+    assert = require('chai').assert,
     ks_parser_fn = __dirname + '/../lib/kumascript/parser.pegjs',
     ks_parser_src = fs.readFileSync(ks_parser_fn, 'utf8'),
     ks_parser = PEG.buildParser(ks_parser_src);
 
-module.exports = nodeunit.testCase({
-  "JSON values are parsed correctly": function (test) {
-    "use strict";
-    var tokens = ks_parser.parse('{{ f({ "a": "x", "b": -1e2, "c": 0.5, "d": [1,2, 3] }) }}');
-    test.deepEqual(tokens,
-                   [{type: "MACRO",
-                     name: "f",
-                     args: [{a: "x", b: -1e2, c: 0.5, d: [1, 2, 3]}],
-                     offset: 0}],
-                   "The macro is parsed correctly");
-    test.done();
-  },
+describe('test-parser', function () {
+    it('JSON values are parsed correctly', function () {
+        "use strict";
+        var tokens = ks_parser.parse(
+            '{{ f({ "a": "x", "b": -1e2, "c": 0.5, "d": [1,2, 3] }) }}'
+        );
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{a: "x", b: -1e2, c: 0.5, d: [1, 2, 3]}],
+               offset: 0
+            }],
+            "The macro is parsed correctly"
+        );
+    })
 
-  "JSON parameter should allow a single-item list": function (test) {
-    "use strict";
-    var tokens = ks_parser.parse('{{ f({ "a": ["one"] }) }}');
-    test.deepEqual(tokens,
-                   [{type: "MACRO",
-                     name: "f",
-                     args: [{a: ["one"]}],
-                     offset: 0}],
-                   "The macro is parsed correctly");
-    test.done();
-  },
+    it('JSON parameter should allow a single-item list', function () {
+        "use strict";
+        var tokens = ks_parser.parse('{{ f({ "a": ["one"] }) }}');
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{a: ["one"]}],
+               offset: 0
+            }],
+            "The macro is parsed correctly"
+        );
+    })
 
-  "Invalid JSON should cause a syntax error": function (test) {
-    "use strict";
-    test.throws(function() {
-      ks_parser.parse('{{ f({ x: 1 }) }}');
-    }, PEG.parser.SyntaxError, "Quotes around property names are required");
+    it('Invalid JSON should cause a syntax error', function () {
+        "use strict";
+        assert.throws(
+            function() {
+                ks_parser.parse('{{ f({ x: 1 }) }}');
+            },
+            /^SyntaxError: .+$/,
+            "Quotes around property names are required"
+        );
 
-    test.throws(function() {
-      ks_parser.parse('{{ f({ "x": 01 }) }}');
-    }, PEG.parser.SyntaxError, "Octal literals are not allowed");
+        assert.throws(
+            function() {
+                ks_parser.parse('{{ f({ "x": 01 }) }}');
+            },
+            /^SyntaxError: .+$/,
+            "Octal literals are not allowed"
+         );
 
-    test.throws(function() {
-      ks_parser.parse('{{ f({ "x": [1,] }) }}');
-    }, PEG.parser.SyntaxError, "Trailing commas are not allowed");
+        assert.throws(
+            function() {
+                ks_parser.parse('{{ f({ "x": [1,] }) }}');
+            },
+            /^SyntaxError: .+$/,
+            "Trailing commas are not allowed"
+        );
+    })
 
-    test.done();
-  },
+    it("JSON strings should be able to contain ')'", function () {
+        "use strict";
+        var tokens = ks_parser.parse('{{ f({ "a": "f)" }) }}');
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{a: "f)"}],
+               offset: 0
+            }],
+            "The macro is parsed correctly"
+        );
+    })
 
-  "JSON strings should be able to contain ')'": function (test) {
-    "use strict";
-    var tokens = ks_parser.parse('{{ f({ "a": "f)" }) }}');
-    test.deepEqual(tokens,
-                   [{type: "MACRO", name: "f", args: [{a: "f)"}], offset: 0}],
-                   "The macro is parsed correctly");
-    test.done();
-  },
+    it('Empty JSON values are allowed', function () {
+        "use strict";
+        var tokens = ks_parser.parse('{{ f({}) }}');
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{}],
+               offset: 0
+            }],
+            "Empty JSON objects are parsed correctly"
+        );
 
-  "Empty JSON values are allowed": function (test) {
-    "use strict";
-    var tokens = ks_parser.parse('{{ f({}) }}');
-    test.deepEqual(tokens, [{type: "MACRO", name: "f", args: [{}], offset: 0}],
-                   "Empty JSON objects are parsed correctly");
+        tokens = ks_parser.parse('{{ f({ "a": [] }) }}');
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{a: []}],
+               offset: 0
+            }],
+            "Empty JSON objects are parsed correctly"
+        );
+    })
 
-    tokens = ks_parser.parse('{{ f({ "a": [] }) }}');
-    test.deepEqual(tokens, [{type: "MACRO", name: "f", args: [{a: []}], offset: 0}],
-                   "Empty JSON objects are parsed correctly");
-    test.done();
-  },
+    it('Escaped unicode codepoints are parsed correctly', function () {
+        "use strict";
+        var tokens = ks_parser.parse('{{ f({ "a": "\\u00f3" }) }}');
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{a: "\u00f3"}],
+               offset: 0
+            }],
+            "Lowercase hex digits are parsed correctly"
+        );
 
-  "Escaped Unicode codepoints are parsed correctly": function (test) {
-    "use strict";
-    var tokens = ks_parser.parse('{{ f({ "a": "\\u00f3" }) }}');
-    test.deepEqual(tokens,
-                   [{type: "MACRO", name: "f", args: [{a: "\u00f3"}], offset: 0}],
-                   "Lowercase hex digits are parsed correctly");
+        tokens = ks_parser.parse('{{ f({ "a": "\\u00F3" }) }}');
+        assert.deepEqual(
+            tokens,
+            [{ type: "MACRO",
+               name: "f",
+               args: [{a: "\u00f3"}],
+               offset: 0
+            }],
+            "Uppercase hex digits are parsed correctly"
+        );
 
-    tokens = ks_parser.parse('{{ f({ "a": "\\u00F3" }) }}');
-    test.deepEqual(tokens,
-                   [{type: "MACRO", name: "f", args: [{a: "\u00f3"}], offset: 0}],
-                   "Uppercase hex digits are parsed correctly");
+        assert.throws(
+            function() {
+                ks_parser.parse('{{ f({ "a": "\\uGHIJ" }) }}');
+            },
+            /^SyntaxError: .+$/,
+            "Non-hexadecimal characters are not allowed"
+        );
 
-    test.throws(function() {
-      ks_parser.parse('{{ f({ "a": "\\uGHIJ" }) }}');
-    }, PEG.parser.SyntaxError, "Non-hexadecimal characters are not allowed");
-
-    test.throws(function() {
-      ks_parser.parse('{{ f({ "a": "\\uFF" }) }}');
-    }, PEG.parser.SyntaxError, "Four digits are required");
-
-    test.done();
-  }
+        assert.throws(
+            function() {
+                ks_parser.parse('{{ f({ "a": "\\uFF" }) }}');
+            },
+            /^SyntaxError: .+$/,
+            "Four digits are required"
+        );
+    })
 });
