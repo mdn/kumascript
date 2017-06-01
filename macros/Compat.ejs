@@ -373,8 +373,8 @@ function writeFeatureTable(json_subfeature_set, browserPlatformType, browserName
   // then all the other sub-features, one per row
   for (let row of Object.keys(json_subfeature_set)) {
     if (row != 'basic_support') {
-      var desc = json_subfeature_set[row].desc || row;
-      output += `<tr><td><code>${desc}</code></td>`
+      var desc = json_subfeature_set[row].desc || `<code>${row}</code>`;
+      output += `<tr><td>${desc}</td>`
       output += `${writeSupportCells(json_subfeature_set[row], compatNotes, browserNames)}</tr>`;
     }
   }
