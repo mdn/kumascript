@@ -181,7 +181,12 @@ var releases = {
         version: "38",
         date: "2016-08-02",
         url: "https://developer.microsoft.com/en-us/microsoft-edge/platform/changelog/desktop/14393/"
-    }
+    },
+    "15.14986": {
+        version: "39",
+        date: "2016-12-14",
+        url: "https://developer.microsoft.com/en-us/microsoft-edge/platform/changelog/desktop/14986/"
+    },
 };
 
 var release = releases[edgeHTMLVersion];
@@ -190,6 +195,36 @@ if (!release) {
         release = {
             version: str20OrEarlier
         };
+    } else if (Math.floor(Number(edgeHTMLVersion)) >= 10049) {
+        if (Math.floor(Number(edgeHTMLVersion)) >= 10240) {
+            // attempt to handle build numbers
+            var HTMLVersion = 0;
+            var edgeVersion = 0;
+            var BuildNumber = 0;
+            var releaseFound = false;
+            for (var key of releases) {
+                if (releases.hasOwnProperty(key)) {
+                    edgeVersion = Math.floor(Number(releases[key].version));
+                    HTMLVersion = Math.floor(Number(key.split('.')[0]));
+                    BuildNumber = Math.floor(Number(key.split('.')[1]));
+                    if (String(BuildNumber) == edgeHTMLVersion) {
+                        edgeHTMLVersion = key;
+                        release = releases[key];
+                        releaseFound = true;
+                    }
+                }
+            }
+            // no guesses for now
+            if (!releaseFound) {
+                release = {
+                    version: strUnknown
+                };
+            }
+        } else {
+            release = {
+                version: str20OrEarlier
+            };
+        }
     } else {
         release = {
             version: strUnknown
