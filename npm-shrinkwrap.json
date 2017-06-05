@@ -238,7 +238,7 @@
     },
     "extend": {
       "version": "3.0.1",
-      "from": "extend@>=3.0.0 <3.1.0",
+      "from": "extend@3.0.1",
       "resolved": "https://registry.npmjs.org/extend/-/extend-3.0.1.tgz"
     },
     "extsprintf": {
@@ -463,6 +463,11 @@
       "version": "4.17.4",
       "from": "lodash@>=4.14.0 <5.0.0",
       "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.4.tgz"
+    },
+    "mdn-browser-compat-data": {
+      "version": "0.0.1",
+      "from": "mdn-browser-compat-data@>=0.0.0 <1.0.0",
+      "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.1.tgz"
     },
     "media-typer": {
       "version": "0.3.0",
