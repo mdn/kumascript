@@ -1,0 +1,275 @@
+
+<%
+// This macro generates an old-style compat table from an external json file.
+// $0 is the id of the feature to create a table for. It is a dot-separated strings (E.g. "css.properties.text-align-last")
+// $1 is the name of the json file containing the browser compat data
+
+// Basic checks and finding actual compat data
+var compatData = mdn.fetchJSONResource("https://raw.githubusercontent.com/teoli2003/browser-compat-data/schema-with-identifier/" + $1);
+
+// Check that the version of the data is compatible with this script
+if (compatData.version.substring(0,4) != '1.0.') {
+  return "<i>Incompatible schema version. Expected '1.0.x', found '" + compatData.version + "'.</i>";
+}
+
+// Look for the compat data associated to the given feature
+var featureId = $0.split('.');
+var featureBC = compatData.data;
+for (id of featureId) {
+  featureBC = featureBC[id];
+  if (!featureBC) {
+    return "<i>Compat data for " + featureId + " not found.</i>";
+  }
+}
+
+// Constants
+var desktopBrowsers = ['chrome', 'firefox', 'ie', 'opera', 'safari'];
+var desktopNames = ['Chrome', 'Firefox', 'Internet Explorer', 'Opera', 'Safari']
+var mobileBrowsers = ['webview_android', 'firefox_android', 'ie_mobile', 'opera_mobile', 'safari_ios'];
+var mobileNames = ['Webview Android', 'Firefox for Android', 'IE Mobile', 'Opera Mobile', 'Safari for iOS']
+
+
+
+var notesHTML = "";
+var noteCollection = new Array;
+var syntheticNotes = new Array; // Notes created by the macro that have to be on the *next* entry in the subfeature compat info
+
+// Look for an identical note in a note collection and returns the number to link to it.
+// If the note is not in the collection returns 0
+function findNote(noteCollection, noteContent) {
+  for (var i = 0; i < noteCollection.length; i++) {
+    var note = noteCollection[i];
+    if (note === noteContent) {
+      return i+1;
+    }
+  }
+  return 0;
+}
+
+function addNote(noteCollection, noteContent) {
+  var notePosition = findNote(noteCollection, noteContent);
+  if (!notePosition) {
+    noteCollection.push(noteContent);
+    return '<sup>[' + noteCollection.length + ']</sup>';
+  }
+
+  return '<sup>[' + notePosition + ']</sup>';
+}
+
+function generate_flags_note(entry, browserId) {
+  var flagNote = "";
+
+  return flagNote;
+}
+function generate_flags_note(entry, browserId) {
+
+  var versions;
+  if (typeof(entry.version_added) === 'string') {
+    versions = 'From version ' + entry.version_added;
+  }
+  if (typeof(entry.version_removed) === 'string') {
+    if (versions) {
+      versions += ' until version '+ entry.version_removed + ' (excluded), ';
+    }
+    else {
+      versions = 'Until version ' + entry.version_removed + ' (excluded), ';
+    }
+  }
+  else {
+    versions += ', ';
+  }
+
+  if ((browserId === 'firefox') || (browserId === 'firefox_android')) {
+    if (entry.flag.type === 'preference') {
+      action = 'this feature ' + ((typeof(entry.version_removed) === 'string')?'was':'is') + ' available behind the <i>about:config</i> preference <code>' + entry.flag.name + '</code> (Activated value: ' + entry.flag.value_to_set + '</code>).';
+    }
+    else {
+      action = 'this feature ' + ((typeof(entry.version_removed) === 'string')?'was':'is') + 'behind the compile flag <code>' + entry.flag.name + '</code> (value: <code>' + entry.flag.value_to_set + ')</code>.';
+    }
+  }
+  else if ((browserId === 'chrome') || (browserId === 'chrome_android')) {
+    if (entry.flag.type === 'preference') {
+      action = 'this feature '+ ((typeof(entry.version_removed) === 'string')?'was':'is') + ' available behind the <i>' + entry.flag.name + '</i> flag in <code>chrome://flags</code>.';
+    }
+  }
+  else {
+    action = 'this feature ' + ((typeof(entry.version_removed) === 'string')?'was':'is') + ' available behind the <code>' + entry.flag.name + '</code> flag to <code>' + entry.flag.value_to_set + '</code>.';
+  }
+  return versions + action;
+}
+
+// Display the compatibility info for a specific subfeature and a specific browser
+// compatInfo links to the relevant support information
+// browserId represents the browser this support relates to. It is needed to tailor
+// some specific messaging to it (like flag synthetic notes)
+function displayCompatInfo(compatInfo, browserId) {
+
+  var entries;
+  var entryResult = "";
+  if (compatInfo === undefined) { return '<span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span>'}
+
+  if (!Array.isArray(compatInfo)) {
+    entries = new Array;
+    entries.push(compatInfo);
+  }
+  else {
+    entries = compatInfo;
+  }
+
+  for (var entry in entries) {
+    if (!entries.hasOwnProperty(entry)) continue;
+
+    // Experimental and features behind flags are transformed into notes
+    if (entries[entry].flag) {
+      if (!syntheticNotes) { syntheticNotes = new Array; }
+      syntheticNotes.push(generate_flags_note(entries[entry],browserId));
+    }
+    else {
+      if (entryResult) {entryResult += "<br/>"; };
+
+      // Handling of first version added
+      // 'undefined' means that we don't know if subfeature has been added
+      if (entries[entry].version_added === undefined) {
+        entryResult += '<span title="Compatibility unknown; please update this." style="color: rgb(255, 153, 0);">?</span>';
+      }
+      // 'true' means that the feature is supported but not since when ('(Yes)' if no version_removed, '?' if version_removed)
+      else if (typeof(entries[entry].version_added) === 'boolean' && entries[entry].version_added) {
+        if (!entries[entry].version_removed) {
+          entryResult += '<span title="Please update this with the earliest version of support." style="color: #888;">(Yes)</span>';
+        }
+        else {
+          entryResult += '<span title="Please update this with the earliest version of support." style="color: #888;">?</span>';
+        }
+      }
+      // 'false' means no support and version_removed shouldn't exists
+      else if (!entries[entry].version_added) {
+        entryResult += '<span style="color: #f00;">No support</span>';
+      }
+      // <string> contains the version number
+      else {
+        entryResult += entries[entry].version_added;
+      }
+
+      // Handling of version removed
+
+      // Not 'undefined' and not 'false': subfeature has been removed
+      if (entries[entry].version_removed) {
+        // We don't know when
+        if (typeof(entries[entry].version_removed) === 'boolean' && entries[entry].version_removed) {
+          entryResult += '&nbsp;—?'
+        }
+        // We know when
+        else {
+          entryResult += '&nbsp;— ' + entries[entry].version_removed;
+        }
+      }
+
+      // Add prefix
+      if (entries[entry].prefix) {
+        entryResult += '<span title="prefix" class="inlineIndicator prefixBox prefixBoxInline"><a title="The name of this feature is prefixed with \'' + entries[entry].prefix + '\' as this browser considers it experimental" href="/en-US/docs/Web/Guide/Prefixes">' + entries[entry].prefix + '</a></span>';
+      }
+      // Add alternative name
+      if (entries[entry].alternative_name) {
+        entryResult += '(as ' + entries[entry].alternative_name + ')';
+      }
+
+      // Generate notes, if any
+      if (entries[entry].notes != undefined) {
+        if (!Array.isArray(entries[entry].notes)) {
+          entryResult += addNote(noteCollection, entries[entry].notes);
+        }
+        else {
+          for (note in entries[entry].notes) {
+            if (!entries[entry].notes.hasOwnProperty(note)) continue;
+            entryResult += addNote(noteCollection, entries[entry].notes[note]);
+          }
+        }
+      }
+
+      // Add synthetic notes
+      for (var note in syntheticNotes) {
+        if (!syntheticNotes.hasOwnProperty(note)) continue;
+        noteCollection.push(syntheticNotes[note]);
+        entryResult += addNote(noteCollection, syntheticNotes[note]);
+
+      }
+      syntheticNotes = new Array; // empty notes array
+    }
+  }
+  return entryResult;
+}
+
+// Create the top of the top of the table
+var top =  '<div class="htab">\n';
+top += '  <a name="AutoCompatibilityTable" id="AutoCompatibilityTable"></a>\n';
+top += '  <ul>\n';
+top += '    <li class="selected"><a>Desktop</a></li>\n';
+top += '    <li><a>Mobile</a></li>\n';
+top += '  </ul>\n';
+top += '</div>\n';
+
+// Create the top of the desktop div
+var desktop =  '<div id="compat-desktop">\n';
+desktop += '  <table class="compat-table">\n';
+desktop += '    <tbody>\n';
+desktop += '      <tr>\n';
+desktop += '        <th>Feature</th>\n';
+for (var browser in desktopBrowsers) {
+  desktop += '        <th>' + desktopNames[browser] + '</th>\n';
+}
+desktop += '      </tr>\n';
+
+// Create the top of the mobile div
+var mobile =  '<div id="compat-mobile">\n';
+mobile += '  <table class="compat-table">\n';
+mobile += '    <tbody>\n';
+mobile += '      <tr>\n';
+mobile += '        <th>Feature</th>\n';
+for (var browser in mobileBrowsers) {
+  mobile += '        <th>' + mobileNames[browser] + '</th>\n';
+}
+mobile += '      </tr>\n';
+
+// For each sub-feature, add a line in both the desktop and mobile divs
+for (var subfeat in featureBC.__compat ) {
+   // skip loop if the property is from prototype
+   if (!featureBC.__compat.hasOwnProperty(subfeat)) continue;
+
+   // Add subfeature compat info for desktop
+   desktop += '     <tr>\n';
+   desktop += '       <td>' + featureBC.__compat[subfeat].desc + '</td>\n';
+   for (var browser in desktopBrowsers) {
+     desktop += '       <td>' + displayCompatInfo(featureBC.__compat[subfeat].support[desktopBrowsers[browser]], desktopBrowsers[browser]) + '</td>\n';
+   }
+   desktop += '     </tr>\n';
+
+   // Add subfeature compat info for mobile
+   mobile += '   <tr>\n';
+   mobile += '     <td>' + featureBC.__compat[subfeat].desc + '</td>\n';
+   for (var browser in mobileBrowsers) {
+     mobile += '       <td>' + displayCompatInfo(featureBC.__compat[subfeat].support[mobileBrowsers[browser]], desktopBrowsers[browser]) + '</td>\n';
+   }
+   mobile += '     </tr>\n';
+}
+
+// Close the desktop div
+desktop += '    </tbody>\n';
+desktop += '  </table>\n';
+desktop += '</div>\n';
+
+// Close the desktop div
+mobile += '    </tbody>\n';
+mobile += '  </table>\n';
+mobile += '</div>\n';
+
+// List notes
+if (noteCollection.length) {
+  notesHTML = '<p>\n';
+  for (var note in noteCollection) {
+    notesHTML += '  [' + (Number(note)+1) + '] ' + noteCollection[note] + '<br/>';
+  }
+  notesHTML += '</p>\n';
+}
+
+%>
+<%- top + desktop + mobile + notesHTML; %>
