@@ -22,6 +22,9 @@ WORKDIR /
 # "npm-shrinkwrap.json" file (if it exists).
 COPY *.json ./
 RUN npm install
+# Update any top-level npm packages listed in package.json,
+# as allowed by each package's given "semver".
+RUN npm update
 ENV NODE_PATH=/node_modules
 RUN chown -R kumascript:kumascript $NODE_PATH
 
