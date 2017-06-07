@@ -12,6 +12,7 @@ DEIS_PROFILE ?= usw
 DEIS_APP ?= kumascript-dev
 PRIVATE_IMAGE ?= ${PRIVATE_REGISTRY}/${DEIS_APP}\:${VERSION}
 TEST_RUN_ARGS ?=
+TEST_RUN_TIMEOUT ?= 10000
 
 
 build:
@@ -25,7 +26,11 @@ run:
 
 test:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	    /node_modules/.bin/mocha ${TEST_RUN_ARGS} tests
+	    /node_modules/.bin/mocha --timeout=${TEST_RUN_TIMEOUT} ${TEST_RUN_ARGS} tests
+
+test-macros:
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    /node_modules/.bin/mocha --timeout=${TEST_RUN_TIMEOUT} ${TEST_RUN_ARGS} tests/macros
 
 lint:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
