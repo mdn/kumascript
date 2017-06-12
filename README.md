@@ -3,6 +3,8 @@
 [![Dependency Status](https://david-dm.org/mozilla/kumascript.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript)
 [![devDependency Status](https://david-dm.org/mozilla/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript#info=devDependencies)
 
+[What's Deployed](https://whatsdeployed.io/s-FHK)
+
 ## Overview
 
 The KumaScript service takes requests to render raw documents (documents that
@@ -62,6 +64,10 @@ summary:
     * If everything is OK, you can point your browser to http://localhost:8000,
       login, create a new document that uses your new or modified macro(s), and
       test that it renders correctly.
+
+    * Run the macro linter to check for syntax errors:
+
+          make lint-macros
 
 4. Open a pull request to merge your branch on your forked repository into
    the main Mozilla kumascript repository
@@ -132,6 +138,9 @@ more before you run your local development version of MDN.
     * `make test`
 * To check your code (using JSHint):
     * `make lint`
+* To check for JavaScript syntax errors within the EJS macros (using `ejslint`)
+  and JSON syntax errors within the JSON data files (using `jsonlint-cli`):
+    * `make lint-macros`
 * To run the service:
     * `make run`
 
@@ -146,7 +155,7 @@ more before you run your local development version of MDN.
 * To run the service:
     * `node run.js`
 * To run tests:
-    * `./node_modules/.bin/nodeunit tests`
+    * `./node_modules/.bin/mocha tests`
 * To check code quality:
     * `./node_modules/.bin/jshint --show-non-errors lib tests`
         * This will make a racket if it hits `parser.js`
@@ -160,6 +169,6 @@ On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
     kicker -e'./node_modules/.bin/jshint lib tests' \
-           -e'./node_modules/.bin/nodeunit tests' \
+           -e'./node_modules/.bin/mocha tests' \
            --no-growl \
            lib tests

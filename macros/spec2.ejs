@@ -85,13 +85,14 @@ var status = {
   'CSS4 Basic UI'              : 'WD',
   'CSS4 Cascade'               : 'WD',
   'CSS4 Colors'                : 'ED',
+  'CSS4 Fonts'                 : 'ED',
   'CSS4 Images'                : 'WD',
   'CSS4 Media Queries'         : 'WD',
   'CSS4 Pseudo-Elements'       : 'WD',
   'CSS4 Selectors'             : 'WD',
   'CSS4 Sizing'                : 'ED',
   'CSS4 Text'                  : 'WD',
-  'CSS Containment'            : 'ED',
+  'CSS Containment'            : 'WD',
   'CSS Exclusions'             : 'WD',
   'CSS Flexbox'                : 'CR',
   'CSS Font Rendering'         : 'ED',
@@ -105,6 +106,7 @@ var status = {
   'CSS Scroll Snap'            : 'CR',
   'CSS Shapes'                 : 'CR',
   'CSS Text Size Adjust'       : 'ED',
+  'CSS Timing 1'               : 'WD',
   'CSS Transforms 2'           : 'ED',
   'CSS Will Change'            : 'WD',
   'CSSOM'                      : 'WD',
@@ -133,7 +135,8 @@ var status = {
   'ES3'                        : 'Standard',
   'ES5.1'                      : 'Standard',
   'ES6'                        : 'Standard',
-  'ES7'                        : 'Standard',
+  'ES2016'                     : 'Standard',
+  'ES2017'                     : 'Standard',
   'ESDraft'                    : 'Draft',
   'ES Int 1.0'                 : 'Standard',
   'ES Int 2.0'                 : 'Standard',
@@ -161,6 +164,7 @@ var status = {
   'HTML5 Web Messaging'        : 'REC',
   'HTML5 W3C'                  : 'REC',
   'HTML5.1'                    : 'REC',
+  'HTML5.2'                    : 'ED',
   'HTML WHATWG'                : 'Living',
   'InputDeviceCapabilities'    : 'ED',
   'IndexedDB'                  : 'REC',
@@ -172,6 +176,7 @@ var status = {
   'MathML3'                    : 'REC',
   'Media Capture'              : 'ED',
   'Media Capture DOM Elements' : 'ED',
+  'Media Session'              : 'ED',
   'Media Source Extensions'    : 'CR',
   'MediaStream Recording'      : 'WD',
   'Mixed Content'              : 'CR',
@@ -197,6 +202,7 @@ var status = {
   'Proximity Events'           : 'WD',
   'Push API'                   : 'WD',
   'Referrer Policy'            : 'WD',
+  'Remote Playback'            : 'ED',
   'RequestAnimationFrame'      : 'CR',
   'Resource Hints'             : 'WD',
   'Resource Timing'            : 'ED',
@@ -237,11 +243,12 @@ var status = {
   'User Timing Level 2'        : 'ED',
   'vCard'                      : 'RFC',
   'Web Animations'             : 'WD',
+  'WebAssembly JS'             : 'Draft',
   'Web Audio API'              : 'WD',
   'Web Background Sync'        : 'Living',
   'Web Bluetooth'              : 'Draft',
   'Web Budget API'             : 'ED',
-  'Web Crypto API'             : 'CR',
+  'Web Crypto API'             : 'REC',
   'WebGL'                      : 'REC',
   'WebGL2'                     : 'ED',
   'WEBGL_lose_context'         : 'REC',
@@ -268,6 +275,7 @@ var status = {
   'WEBGL_compressed_texture_etc': 'Draft',
   'WEBGL_compressed_texture_pvrtc': 'Draft',
   'WEBGL_compressed_texture_etc1': 'Draft',
+  'WEBGL_compressed_texture_astc': 'REC',
   'WEBGL_compressed_texture_atc': 'Draft',
   'WEBGL_depth_texture'        : 'REC',
   'WEBGL_draw_buffers'         : 'REC',
@@ -280,7 +288,7 @@ var status = {
   'Web Storage'                : 'REC',
   'Web Telephony'              : 'Draft',
   'Web USB'                    : 'ED',
-  'WebVR'                      : 'ED',
+  'WebVR 1.1'                  : 'ED',
   'WebVTT'                     : 'Draft',
   'Web Workers'                : 'ED', /* This draft has been merged into HTML WHATWG */
   'Will-change'                : 'ED',
@@ -298,6 +306,9 @@ status['CSS4 UI'] = status['CSS4 Basic UI'];
 status['CSS Scroll Snap Points'] = status['CSS Scroll Snap'];
 status['WebSMS'] = status['Messaging'];
 status['Blending'] = status['Compositing'];
+status['ES2015'] = status['ES6'];
+status['ES7'] = status['ES2016'];
+status['ES8'] = status['ES2017'];
 
 var label = {
   'REC': mdn.localString({
@@ -305,56 +316,64 @@ var label = {
     'ja'    : '勧告',
     'de'    : 'Empfehlung',
     'ru'    : 'Рекомендация',
-    'fr'    : 'Recommendation'
+    'fr'    : 'Recommendation',
+    'pt-BR' : 'Recomendação'
   }),
   'PR' : mdn.localString({
     'en-US' : 'Proposed Recommendation',
     'ja'    : '勧告案',
     'de'    : 'Vorgeschlagene Empfehlung',
     'ru'    : 'Предложенная рекомендация',
-    'fr'    : 'Recommendation proposée'
+    'fr'    : 'Recommendation proposée',
+    'pt-BR' : 'Recomendação proposta'
   }),
   'CR' : mdn.localString({
     'en-US' : 'Candidate Recommendation',
     'ja'    : '勧告候補',
     'de'    : 'Anwärter Empfehlung',
     'ru'    : 'Кандидат в рекомендации',
-    'fr'    : 'Candidat au statut de recommandation'
+    'fr'    : 'Candidat au statut de recommandation',
+    'pt-BR' : 'Candidata a Recomendação'
   }),
   'RC' : mdn.localString({
     'en-US' : 'Release Candidate',
     'ja'    : '勧告候補',
     'de'    : 'Anwärter Empfehlung',
     'ru'    : 'Кандидат в рекомендации',
-    'fr'    : 'En cours de validation comme recommandation'
+    'fr'    : 'En cours de validation comme recommandation',
+    'pt-BR' : 'Recomendação em homologação'
   }),
   'WD' : mdn.localString({
     'en-US' : 'Working Draft',
     'ja'    : '草案',
     'de'    : 'Arbeitsentwurf',
     'ru'    : 'Рабочий черновик',
-    'fr'    : 'Version de travail'
+    'fr'    : 'Version de travail',
+    'pt-BR' : 'Rascunho atual'
   }),
   'ED' : mdn.localString({
     'en-US' : 'Editor\'s Draft',
     'ja'    : '勧告改訂案',
     'de'    : 'Bearbeiterentwurf',
     'ru'    : 'Редакторский черновик',
-    'fr'    : 'Brouillon de l\'éditeur'
+    'fr'    : 'Brouillon de l\'éditeur',
+    'pt-BR' : 'Rascunho editorial'
   }),
   'Old-Transforms' : mdn.localString({
     'en-US' : 'This has been merged in another draft. Please update.',
     'ja'    : 'この仕様は他のドラフトへ移動されました。アップデートしてください。',
     'de'    : 'Diese Spezifikation wurde mit einem anderen Entwurf zusammengeführt. Bitte aktualisieren.',
     'ru'    : 'Эта спецификация была слита с другим черновиком. Пожалуйста, обновите.',
-    'fr'    : 'Cette spécification a été fusionnée avec une autre. Veuillez mettre à jour cette mention.'
+    'fr'    : 'Cette spécification a été fusionnée avec une autre. Veuillez mettre à jour cette mention.',
+    'pt-BR' : 'Isso foi anexado a outro rascunho. Por favor, atualize.'
   }),
   'Living' : mdn.localString({
     'en-US' : 'Living Standard',
     'ja'    : '現行の標準',
     'de'    : 'Lebender Standard',
     'ru'    : 'Живой стандарт',
-    'fr'    : 'Standard évolutif'
+    'fr'    : 'Standard évolutif',
+    'pt-BR' : 'Padrão em tempo real'
   }),
   'RFC' : mdn.localString({
     'en-US'   : 'IETF RFC'
@@ -364,25 +383,29 @@ var label = {
     'ja'    : '標準',
     'de'    : 'Standard',
     'ru'    : 'Стандарт',
-    'fr'    : 'Standard'
+    'fr'    : 'Standard',
+    'pt-BR' : 'Padrão'
   }),
   'Draft'  : mdn.localString({
     'en-US' : 'Draft',
     'ja'    : 'ドラフト',
     'de'    : 'Entwurf',
     'ru'    : 'Черновик',
-    'fr'    : 'Projet'
+    'fr'    : 'Projet',
+    'pt-BR' : 'Rascunho'
   }),
   'Obsolete' : mdn.localString({
       'en-US' : 'Obsolete',
       'ja'    : '廃止された',
       'de'    : 'Veraltet',
-      'ru'    : 'Устаревшая'
+      'ru'    : 'Устаревшая',
+      'pt-BR' : 'Obsoleto'
   }),
   'LC' : mdn.localString({
       'en-US' : 'Last Call Working Draft',
       'ja'    : '草案の最終案',
-      'ru'    : 'Последнее изменение рабочего черновика'
+      'ru'    : 'Последнее изменение рабочего черновика',
+      'pt-BR' : 'Ultima chamada para rascunho'
   })
 }
 
@@ -391,7 +414,8 @@ var unknown_label = mdn.localString({
     'ja'    : '不明',
     'de'    : 'Unbekannt',
     'ru'    : 'Неизвестно',
-    'fr'    : 'Statut incoonu'
+    'fr'    : 'Statut incoonu',
+    'pt-BR' : 'Desconhecido'
 });
 
 %><span class="spec-<%- status[$0] || ''  %>"><%= (status[$0] && label[status[$0]]) || unknown_label %></span>

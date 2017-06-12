@@ -189,26 +189,26 @@ function getValueOutput(cssInfo, property, atRule) {
                 });
 
             return parseMacros(addAdditionalAppliesToOutput(parsedAnimationTypeValues.join(
-        		localize(localStrings, "listSeparator")), property, cssInfo));
+                localize(localStrings, "listSeparator")), property, cssInfo));
         } else {
-			var propMatches = value.match(/^'(.+?)'$/);
-			if (propMatches) {
-				return getValueOutput(data.properties[propMatches[1]], property);
-			} else {
-				if (property === "initial" && value[0] === "<") {
-					return value;
-				} else {
-					var keywords = value.split(", ");
-					var replacedKeywords = keywords.map(function(keyword) {
-						return localize(localStrings, keyword);
-					});
-			
-					var output = addAdditionalAppliesToOutput(
-						replacedKeywords.join(", "), property, cssInfo);
-					return parseMacros(output);
-				}
-			}
-		}
+            var propMatches = value.match(/^'(.+?)'$/);
+            if (propMatches) {
+                return getValueOutput(data.properties[propMatches[1]], property);
+            } else {
+                if (property === "initial" && !localStrings.hasOwnProperty(value)) {
+                    return '<code>' + value + '</code>';
+                } else {
+                    var keywords = value.split(", ");
+                    var replacedKeywords = keywords.map(function(keyword) {
+                        return localize(localStrings, keyword);
+                    });
+
+                    var output = addAdditionalAppliesToOutput(
+                        replacedKeywords.join(", "), property, cssInfo);
+                    return parseMacros(output);
+                }
+            }
+        }
     } else if (Array.isArray(value)) {
         var output = localize(localStrings, "asLonghands") + "<br/>" +
         "<ul>";
@@ -228,9 +228,9 @@ function getValueOutput(cssInfo, property, atRule) {
         var output = localizeString(value);
 
         return parseMacros(addAdditionalAppliesToOutput(output, property,
-            cssInfo)); 
+            cssInfo));
     } else if (typeof value === "boolean") {
-        return localize(localStrings, value ? "yes" : "no"); 
+        return localize(localStrings, value ? "yes" : "no");
     } else if (typeof value === "undefined") {
         return replacePlaceholders(formattedError, [localize(cssLocalStrings,
             "missing")]);

@@ -13,7 +13,7 @@
  * https://wiki.mozilla.org/Bugzilla:REST_API
  */
 
-var mdn = require("MDN:Common");
+var mdn = require_macro("MDN:Common");
 
 var type = $1 || 'bug';
 
@@ -63,7 +63,7 @@ if ($2 != undefined && !isNaN($2)) {
     var comment = parseInt($2, 10);
     if (!isNaN(comment)) {
         bugPageURL += "#c" + comment;
-        
+
         s_comment = mdn.localString({
             "en-US":    ", comment " + comment
         });

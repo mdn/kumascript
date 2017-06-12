@@ -1,6 +1,6 @@
 <% var wiki = module.exports = buildAPI({
     /*
-    * Given a MediaWiki path attempt to update it to a Kuma path 
+    * Given a MediaWiki path attempt to update it to a Kuma path
     * This is not a DekiScript function
     */
     kumaPath: function(in_path) {
@@ -12,7 +12,7 @@
         var path = '/' + pathLang + path_strip.replace(/^(\/?\w{2}(?:[-|_]\w{2})?)?\/(?:docs\/)?/i,'/docs/').replace(/ /g,'_').replace(/%20/g,'_');
         return path;
     },
-    
+
     //
     // Given a string, escape any quotes within it so it can be
     // passed to other functions.
@@ -40,8 +40,8 @@
         var base_url = p.protocol + '//' + p.host;
 
         if (path.indexOf('/docs') == -1) {
-            // HACK: If this looks like a legacy wiki URL, throw /en-US/docs 
-            // in front of it. That will trigger the proper redirection logic 
+            // HACK: If this looks like a legacy wiki URL, throw /en-US/docs
+            // in front of it. That will trigger the proper redirection logic
             // until/unless URLs are corrected in templates
             base_url += '/en-US/docs';
         }
@@ -55,22 +55,22 @@
 
         return base_url + path;
     },
-    
+
     // Check if the given wiki page exists.
     // [See also](http://developer.mindtouch.com/en/docs/DekiScript/Reference/Wiki_Functions_and_Variables/Wiki.PageExists)
     pageExists: function (path) {
         // Temporarily disabling this.
         // See: https://bugzilla.mozilla.org/show_bug.cgi?id=775590#c4
         return true;
-        
+
         var key = 'kuma:page_exists:' + md5(path.toLowerCase());
-        
-        // This is an experiment to exempt wiki.pageExists 
+
+        // This is an experiment to exempt wiki.pageExists
         // from shift-refresh cache busting:
-        var mdn = require('MDN:Common');
+        var mdn = require_macro('MDN:Common');
 
         //return cacheFn(key, 3600, function (next) {
-        return mdn.cacheFnIgnoreCacheControl(key, 3600, function (next) {            
+        return mdn.cacheFnIgnoreCacheControl(key, 3600, function (next) {
             var opts = { method: 'HEAD', url: wiki.buildAbsoluteURL(path) };
 
             try {
@@ -86,7 +86,7 @@
             }
         });
     },
-    
+
     // Adjusts the visibility and heading levels of the specified HTML.
     //
     // The show parameter indicates whether or not the top level heading/title
@@ -121,14 +121,14 @@
         }
 
         if (show) { return html; }
-        
+
         // Rip out the section header
         if (html) { html = html.replace(/^<h\d[^>]*>[^<]*<\/h\d>/ig,"") + ""; }
-        
+
         return html;
     },
-        
-    // Retrieve the content of a document for inclusion, optionally filtering 
+
+    // Retrieve the content of a document for inclusion, optionally filtering
     // for a single section.
     //
     // Doesn't support the revision parameter offered by DekiScript
@@ -141,7 +141,7 @@
         }
         var key = 'kuma:include:' + md5(key_text);
 
-        var regenerate = function (next) {            
+        var regenerate = function (next) {
             var params = ['raw=1', 'macros=1', 'include=1'];
 
             if (section) { params.push('section='+encodeURIComponent(section)); }
@@ -169,7 +169,7 @@
             }
         };
         if (ignore_cache_control) {
-            var mdn = require('MDN:Common');
+            var mdn = require_macro('MDN:Common');
             return mdn.cacheFnIgnoreCacheControl(key, 3600, regenerate);
         } else {
             return cacheFn(key, 3600, regenerate);
@@ -205,7 +205,7 @@
             }
         });
     },
-     
+
     // Returns a list of the headings for the specified page.
     // Each item in the returned list is an object with these fields:
     //
@@ -216,14 +216,14 @@
     //
     //  path    The path of the page whose headings should be returned
     //  depth   The maximum header level to return
-    
+
     getHeadings: function(path, depth) {
         var html = wiki.page(path);
-                
+
         if (!html || html.length == 0) {
             return NULL;
         }
-        
+
         if (!depth) {
             depth = 3;
         }
@@ -231,11 +231,11 @@
         var re = /\<h([1-6]).*?\>(.+)\<\/h[1-6]\>/gi;
         var result;
         var list = [];
-        
+
         while ((result = re.exec(html))) {
             var theLevel = result[1];
             var theTitle = result[2];
-            
+
             if (theLevel <= depth) {
                 var obj = {level: theLevel, title: theTitle };
                 list.push(obj);
@@ -253,7 +253,7 @@
 
         return out;
     },
- 
+
     // A link to the wiki page that you will add, that will be in a different language.
     // [See also](http://developer.mindtouch.com/en/docs/DekiScript/Reference/Wiki_Functions_and_Variables/Wiki.Languages)
     languages: function (langs) {
@@ -274,24 +274,24 @@
     // Special note: If ordered is true, pages whose locale differ from
     // the current page's locale are omitted, to work around misplaced
     // localizations showing up in navigation.
-    
+
     tree: function(path, depth, self, reverse, ordered) {
-        var page = require('DekiScript:Page');
-        
+        var page = require_macro('DekiScript:Page');
+
         // If the path ends with a slash, remove it.
-        
+
         if (path.substr(-1, 1) === '/') {
             path = path.slice(0, -1);
         }
-        
+
         var pages = page.subpages(path, depth, self);
-        
+
         if (reverse == 0) {
             pages.sort(alphanumForward);
         } else {
             pages.sort(alphanumBackward);
         }
-        
+
         return process_array(null, pages, ordered != 0);
 
     	function chunkify(t) {
@@ -344,12 +344,12 @@
             var result = '';
             var openTag = '<ul>';
             var closeTag = '</ul>';
-            
+
             if (ordered) {
                 openTag = '<ol>';
                 closeTag = '</ol>';
             }
-            
+
             if(arr.length) {
                 result += openTag;
 
@@ -358,20 +358,20 @@
                 if (folderItem != null && ordered) {
                     result += '<li><a href="' + folderItem.url + '">' + kuma.htmlEscape(folderItem.title) + '</a></li>';
                 }
-                
+
                 // Now dive into the child items
-                
+
                 arr.forEach(function(item) {
                     if (!item) { return; }
                     if (ordered && (item.locale != env.locale)) { return; }
                     result += '<li><a href="' + item.url + '">' + kuma.htmlEscape(item.title) + '</a>' +
                               process_array(item, item.subpages || [], ordered) + '</li>';
-                    
+
                 });
                 result += closeTag;
             }
             return result;
-        }   
+        }
     }
-     
+
 }); %>

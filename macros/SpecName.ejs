@@ -387,6 +387,10 @@ var specList = {
         name : 'CSS Mobile Text Size Adjustment Module Level&nbsp;1',
         url  : 'https://drafts.csswg.org/css-size-adjust/'
     },
+    'CSS Timing 1':{
+        name : 'CSS Timing Functions Level&nbsp;1',
+        url  : "https://drafts.csswg.org/css-timing-1/"
+    },
     'CSS Transforms 2':{
         name : 'CSS Transforms Level&nbsp;2',
         url  : "https://drafts.csswg.org/css-transforms-2/"
@@ -495,12 +499,16 @@ var specList = {
         name : 'ECMAScript 2015 (6th Edition, ECMA-262)',
         url  : 'http://www.ecma-international.org/ecma-262/6.0/'
     },
-    'ES7':{
+    'ES2016':{
         name : 'ECMAScript 2016 (ECMA-262)',
-        url  : 'https://tc39.github.io/ecma262/2016/'
+        url  : 'http://www.ecma-international.org/ecma-262/7.0/'
+    },
+    'ES2017': {
+        name : 'ECMAScript 2017 (ECMA-262)',
+        url  : 'https://tc39.github.io/ecma262/2017/'
     },
     'ESDraft':{
-        name : 'ECMAScript 2017 Draft (ECMA-262)',
+        name : 'ECMAScript Latest Draft (ECMA-262)',
         url  : 'https://tc39.github.io/ecma262/'
     },
     'ES Int 1.0':{
@@ -607,9 +615,13 @@ var specList = {
         name : 'HTML5',
         url  : 'http://www.w3.org/TR/html5/'
     },
+    'HTML5.2':{
+        name : 'HTML 5.2',
+        url  : 'http://w3c.github.io/html/'
+    },
     'HTML5.1':{
-        name : 'HTML5.1',
-        url  : 'http://www.w3.org/html/wg/drafts/html/master/'
+        name : 'HTML 5.1',
+        url  : 'https://www.w3.org/TR/2016/REC-html51-20161101/'
     },
     'HTML WHATWG':{
         name : 'WHATWG HTML Living Standard',
@@ -654,6 +666,10 @@ var specList = {
     'Media Capture DOM Elements':{
         name : 'Media Capture from DOM Elements',
         url  : 'https://w3c.github.io/mediacapture-fromelement/'
+    },
+    'Media Session' : {
+        name : 'Media Session Standard',
+        url  : 'https://wicg.github.io/mediasession/'
     },
     'Media Source Extensions':{
         name : 'Media Source Extensions',
@@ -801,7 +817,7 @@ var specList = {
     },
     'Service Workers':{
         name : 'Service Workers',
-        url  : 'https://www.w3.org/TR/service-workers/'
+        url  : 'https://w3c.github.io/ServiceWorker/v1/'
     },
     'Selectors API Level 1':{
         name : 'Selectors API Level 1',
@@ -923,6 +939,10 @@ var specList = {
         name : 'Web Animations',
         url  : 'https://w3c.github.io/web-animations/'
     },
+    'WebAssembly JS':{
+        name : 'Web Assembly JavaScript API',
+        url  : 'https://github.com/WebAssembly/design/blob/master/JS.md'
+    },
     'Web Audio API':{
         name : 'Web Audio API',
         url  : 'https://webaudio.github.io/web-audio-api/'
@@ -941,7 +961,7 @@ var specList = {
     },
     'Web Crypto API':{
         name : 'Web Cryptography API',
-        url  : 'https://dvcs.w3.org/hg/webcrypto-api/raw-file/tip/spec/Overview.html'
+        url  : 'https://www.w3.org/TR/WebCryptoAPI/'
     },
     'WebGL':{
         name : 'WebGL 1.0',
@@ -1035,6 +1055,10 @@ var specList = {
         name : 'WEBGL_compressed_texture_etc1',
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_etc1/'
     },
+    'WEBGL_compressed_texture_astc':{
+        name : 'WEBGL_compressed_texture_astc',
+        url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_astc/'
+    },
     'WEBGL_compressed_texture_atc':{
         name : 'WEBGL_compressed_texture_atc',
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_atc/'
@@ -1095,13 +1119,13 @@ var specList = {
         name : 'WebUSB',
         url  : 'http://reillyeon.github.io/webusb/'
     },
-    'WebVR':{
-        name : 'WebVR',
-        url  : 'https://mozvr.com/webvr-spec/'
+    'WebVR 1.1':{
+        name : 'WebVR 1.1',
+        url  : 'https://w3c.github.io/webvr/spec/1.1/'
     },
     'WebVTT':{
         name : 'WebVTT: The Web Video Text Tracks Format',
-        url  : 'http://dev.w3.org/html5/webvtt/'
+        url  : 'https://w3c.github.io/webvtt/'
     },
     'Web Workers':{ /* This draft has been merged into HTML WHATWG */
         name : 'Web Workers',
@@ -1133,6 +1157,9 @@ specList['CSS3 UI'] = specList['CSS3 Basic UI'];
 specList['CSS4 UI'] = specList['CSS4 Basic UI'];
 specList['CSS Scroll Snap Points'] = specList['CSS Scroll Snap'];
 specList['WebSMS'] = specList['Messaging'];
+specList['ES2015'] = specList['ES6'];
+specList['ES7'] = specList['ES2016'];
+specList['ES8'] = specList['ES2017'];
 
 // Pull out the name and URL (or use "unknown" if not available)
 

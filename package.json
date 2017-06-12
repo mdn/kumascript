@@ -27,7 +27,6 @@
     "express": "4.14.0",
     "feedparser": "1.1.5",
     "fibers": "1.0.15",
-    "firelogger": "0.1.0",
     "hirelings": "0.4.3",
     "memcached": "2.2.2",
     "morgan": "1.7.0",
@@ -37,10 +36,16 @@
     "pegjs": "0.7.0",
     "request": "2.79.0",
     "underscore": "1.8.3",
-    "winston": "2.3.0"
+    "winston": "2.3.0",
+    "mdn-browser-compat-data": "0.x"
   },
   "devDependencies": {
-    "nodeunit": "0.10.2",
-    "jshint": "2.9.4"
+    "mocha": "3.4.1",
+    "chai": "3.5.0",
+    "sinon": "2.3.1",
+    "mocha-junit-reporter": "1.13.0",
+    "jshint": "2.9.4",
+    "ejs-lint": "0.3.0",
+    "jsonlint-cli": "1.0.1"
   }
 }

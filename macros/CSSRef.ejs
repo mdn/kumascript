@@ -185,13 +185,13 @@ if (slug) {
       var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
       var code    = !noCodeTags ? '<code>'  : '';
       var endcode = !noCodeTags ? '</code>' : '';
-    
+
       for (var i in pages) {
         var aPage = pages[i];
         var summary = escapeQuotes(aPage.summary) || '';
         var url = aPage.url.replace('en-US', locale);
         var title = htmlEscape(aPage.title);
-    
+
         var translated = false;
         if (locale != 'en-US') {
             aPage.translations.forEach(function(translation){
@@ -203,54 +203,54 @@ if (slug) {
                 }
             });
         }
-    
+
         var cta = '';
          if (!translated && locale != 'en-US') {
             cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['title'] + '">' + text['translate'] + '</a>';
         }
-    
+
         result += '<li>';
-    
+
         if (hasTag(aPage, 'Experimental')) {
             result += badges.ExperimentalBadge;
         }
-    
+
         if (hasTag(aPage, 'Non-standard') || hasTag(aPage, 'Non Standard')) {
             result += badges.NonStandardBadge;
         }
-    
+
         if (hasTag(aPage, 'Deprecated')) {
             result += badges.DeprecatedBadge;
         }
-    
+
         if (hasTag(aPage, 'Obsolete')) {
             result += badges.ObsoleteBadge;
             result += '<s class="obsoleteElement">';
         }
-    
+
         if (rtlLocales.indexOf(locale) != -1) {
             result += '<bdi>';
         }
-    
+
         if (slug == aPage.slug) {
             result += '<em>' + code + title + endcode + '</em>'
         } else {
             result += '<a href="' + url + '" title="' + summary + '">' + code + title + endcode + '</a>' + cta;
         }
-    
+
         if (rtlLocales.indexOf(locale) != -1) {
             result += '</bdi>';
         }
-    
+
         if (hasTag(aPage, 'Obsolete')) {
             result += '</s>';
         }
-    
+
         result += '</li>';
       }
-    
+
       result += '</ol></li>';
-    
+
       return result;
     }
 

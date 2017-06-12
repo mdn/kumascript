@@ -68,7 +68,7 @@ function compareItems(itemA, itemB) {
 }
 
 function getItemsFromSyntax(syntax) {
-    var items = syntax.match(/[\w\-]+\([\w\-&;,#+*?\[\]\| ]*\)|@[\w\-]+/g) || [];
+    var items = syntax.match(/[\w\-]+\([\w\-<>,#+*?\[\]\| ]*\)|@[\w\-]+/g) || [];
     for (var i = 0; i < items.length; i++) {
         // Remove parameters
         items[i] = items[i].replace(/\(.*?\)/, "()");
@@ -132,7 +132,7 @@ if (types.some(function(type) { return type === "types"; })) {
             default:
                 item.urlPath = normalizedType;
         }
-        
+
         index[initial].push(item);
     }
 }

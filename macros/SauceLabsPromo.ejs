@@ -1,0 +1,38 @@
+<%
+var version = (arguments.length) ? $0 : 'a';
+
+if (version === 'a') { %>
+  <% // runs on /docs/Tools %>
+  <div class="wiki-promo-sauce-labs" id="wiki-promo-sauce-labs-a">
+    <div class="wiki-promo-copy">
+      <p><strong>See what your users see in their browsers. Test your sites in up to 800 browser and OS combinations with our cross-browser testing tutorial.</strong></p>
+      <p>Made just for you by Mozilla and Sauce labs.</p>
+    </div>
+
+    <div class="wiki-promo-cta">
+      <a href="https://www.saucelabs.com/cross-browser-testing-tutorial?utm_campaign=cbt&amp;utm_medium=banner&amp;utm_source=devtools-docs" class="wiki-promo-link ignore-external"><span>Test on Sauce Labs</span></a>
+    </div>
+  </div>
+<% } else if (version === 'b') { %>
+  <% // runs on /docs/Learn/Tools_and_testing/Cross_browser_testing %>
+  <div class="wiki-promo-sauce-labs" id="wiki-promo-sauce-labs-b">
+    <div class="wiki-promo-copy">
+      <p><strong>Level-up your cross-browser compat skills with the Mozilla and Sauce Labs Cross-browser Testing Tutorial.</strong></p>
+    </div>
+
+    <div class="wiki-promo-cta">
+      <a href="https://www.saucelabs.com/cross-browser-testing-tutorial?utm_campaign=cbt&amp;utm_medium=banner&amp;utm_source=cbt-docs" class="wiki-promo-link ignore-external"><span>Test on Sauce Labs</span></a>
+    </div>
+  </div>
+<% } else if (version === 'c') { %>
+  <% // runs on /docs/Learn/Tools_and_testing/Cross_browser_testing/Automated_testing#Using_Sauce_Labs_to_speed_up_browser_testing %>
+  <div class="wiki-promo-sauce-labs" id="wiki-promo-sauce-labs-c">
+    <div class="wiki-promo-copy">
+      <p><strong>Test your code on Firefox for free on more than 800 browser/OS combos with our partner Sauce Labs.</strong></p>
+    </div>
+
+    <div class="wiki-promo-cta">
+      <a href="https://www.saucelabs.com/cross-browser-testing-tutorial?utm_campaign=cbt&amp;utm_medium=banner&amp;utm_source=automated-testing-article">Try Sauce Labs now</a>
+    </div>
+  </div>
+<% } %>

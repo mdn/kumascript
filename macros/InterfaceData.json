@@ -111,6 +111,10 @@
     "inh"  : "SVGGeometryElement",
     "impl" : []
   },
+  "SVGCursorElement": {
+    "inh"  : "SVGElement",
+    "impl" : ["SVGURIReference"]
+  },
   "DOMDownload": {
     "inh"  : "EventTarget",
     "impl" : []
@@ -281,7 +285,7 @@
   },
   "Window": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface", "GlobalEventHandlers", "WindowEventHandlers", "WindowTimers", "WindowBase64", "IDBEnvironment", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "GlobalFetch", "ImageBitmapFactories"]
+    "impl" : ["LegacyQueryInterface", "GlobalEventHandlers", "WindowEventHandlers", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "WindowOrWorkerGlobalScope"]
   },
   "WindowClient": {
     "inh"  : "Client",
@@ -744,7 +748,7 @@
     "impl" : ["LegacyQueryInterface"]
   },
   "AudioBufferSourceNode": {
-    "inh"  : "AudioNode",
+    "inh"  : "AudioScheduledSourceNode",
     "impl" : ["AudioNodePassThrough"]
   },
   "MozNFCTagEvent": {
@@ -812,6 +816,18 @@
     "impl" : []
   },
   "RTCPeerConnectionIdentityErrorEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "RTCTrackEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "RTCDTMFSender": {
+    "inh"  : "EventTarget",
+    "impl" : []
+  },
+  "RTCDTMFToneChangeEvent": {
     "inh"  : "Event",
     "impl" : []
   },
@@ -897,7 +913,7 @@
   },
   "WorkerGlobalScope": {
     "inh"  : "EventTarget",
-    "impl" : ["WindowTimers", "WindowBase64", "GlobalFetch", "IDBEnvironment", "FontFaceSource", "ImageBitmapFactories"]
+    "impl" : ["GlobalCrypto", "WindowOrWorkerGlobalScope"]
   },
   "MouseEvent": {
     "inh"  : "UIEvent",
@@ -1002,6 +1018,18 @@
   "MediaStreamAudioSourceNode": {
     "inh"  : "AudioNode",
     "impl" : ["AudioNodePassThrough"]
+  },
+  "AudioScheduledSourceNode": {
+    "inh"  : "AudioNode",
+    "impl" : []
+  },
+  "ConstantSourceNode": {
+    "inh"  : "AudioScheduledSourceNode",
+    "impl" : []
+  },
+  "BaseAudioContext": {
+    "inh"  : "EventTarget",
+    "impl" : []
   },
   "AudioProcessingEvent": {
     "inh"  : "Event",

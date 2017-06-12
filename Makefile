@@ -25,11 +25,17 @@ run:
 
 test:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	    /node_modules/.bin/nodeunit ${TEST_RUN_ARGS} tests
+	    /node_modules/.bin/mocha ${TEST_RUN_ARGS} tests
 
 lint:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
 	    /node_modules/.bin/jshint --show-non-errors lib tests
+
+lint-macros:
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    /node_modules/.bin/ejslint "macros/**/*.ejs"
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	    /node_modules/.bin/jsonlint-cli "macros/**/*.json"
 
 bash:
 	docker run -it ${DOCKER_RUN_ARGS} ${IMAGE} bash
@@ -51,4 +57,4 @@ deis-pull-private:
 build-deploy: build push deis-pull
 build-private-deploy: build push-private-registry deis-pull-private
 
-.PHONY: build push run test bash deis-pull push-private-registry deis-pull-private build-deploy build-private-deploy
+.PHONY: build push run test lint lint-macros bash shrinkwrap deis-pull push-private-registry deis-pull-private build-deploy build-private-deploy

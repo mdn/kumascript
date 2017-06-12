@@ -26,7 +26,7 @@ var statusColumnTitle = mdn.localString({
 });
 
 var locale = $0;
-var MDN = require("MDN:Common");
+var MDN = require_macro("MDN:Common");
 var url = 'http://l10n.mozilla-community.org/~flod/webstatus/web_status.json';
 var mdnProjects = ["mdn", "mdn-js", "mdn-promote"];
 var result = [];
@@ -36,7 +36,7 @@ var locales = resource.locales;
 
 if (locales.hasOwnProperty(locale)) {
     var language = locales[locale];
-    
+
     for (var project in language) {
         if (language.hasOwnProperty(project) && mdnProjects.indexOf(project) >= 0) {
             result[project] = language[project];
@@ -52,13 +52,13 @@ if (locales.hasOwnProperty(locale)) {
         <th><%=statusColumnTitle%></th>
     </tr>
 
-<% 
+<%
 for (var project in result) {
     if (result.hasOwnProperty(project)) {
         var translatedPercent = Math.round(result[project].translated / result[project].total * 10000) / 100;
         var untranslatedPercent = Math.round(result[project].untranslated / result[project].total * 10000) / 100;
         var fuzzyPercent = 100 - translatedPercent - untranslatedPercent;
-%>    
+%>
 
     <tr>
         <td><%=result[project].name%></td>

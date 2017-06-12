@@ -1,4 +1,4 @@
-<% 
+<%
 /*
   Displays the syntax of a CSS property or descriptor
 
@@ -47,13 +47,13 @@ var s_where = mdn.localString({
     "fr"   : "où ",
     "ru"   : "где "
 });
-    					 
+
 var s_syntax_value_definition = mdn.localString({
     "en-US": "Value_definition_syntax",
     "de"   : "Wertdefinitionssyntax",
     "fr"   : "Syntaxe_de_d%C3%A9finition_des_valeurs"
 });
-						 
+
 var s_and = mdn.localString({
     "en-US": "and ",
     "de"   : "und ",
@@ -164,7 +164,7 @@ var operators = [
         })
     },
     {
-        regexp: /&amp;&amp;/g,
+        regexp: /&&/g,
         title: mdn.localString({
             "en-US": "Double ampersand: all of the entities must be present, in any order",
             "de"   : "Doppeltes Und-Zeichen: Alle Entitäten müssen angegeben werden, in beliebiger Reihenfolge"
@@ -319,7 +319,7 @@ function formatSyntax(rawSyntax) {
             return output;
         });
     });
-    formattedSyntax = formattedSyntax.replace(/&lt;([a-z0-9\(\)\'\-]+?)&gt;/gi,
+    formattedSyntax = formattedSyntax.replace(/<([a-z0-9\(\)\'\-]+?)>/gi,
         buildLink);
 
     return formattedSyntax;

@@ -1,0 +1,30 @@
+<%
+// General macro for inserting a secure context notice, i.e. to mark a
+// feature as only available on secure contexts. See the following page:
+// https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts
+//
+// Parameters:
+//  $0  The type of warning indicator: inline/header
+
+var lang = env.locale;
+
+var str_title = mdn.localString({
+  "en-US": "Secure context"
+});
+
+var str_tooltip = mdn.localString({
+  "en-US": "This feature is available only in secure contexts (HTTPS)"
+});
+
+var str_desc = mdn.localString({
+  "en-US": "This feature is available only in <a href='/" + lang + "/docs/Web/Security/Secure_Contexts'>secure contexts</a> (HTTPS), in some or all <a href='#Browser_compatibility'>supporting browsers</a>."
+});
+
+if($0 === 'inline') {
+  result = "<span class='inlineIndicator secureContexts' title='" + str_tooltip + "'>" + str_title + "</span>";
+} else if($0 === 'header') {
+  result = "<div class='overheadIndicator secureContexts'><p><strong>" + str_title + "</strong><br/>" + str_desc + "</p></div>";
+}
+%>
+
+<%- result %>
