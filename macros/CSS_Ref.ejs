@@ -114,9 +114,15 @@ if (types.some(function(type) { return type === "types"; })) {
             index[initial] = [];
         }
 
+        var label = type;
+        if (label.charAt(0) != "<") {
+            // https://github.com/mdn/data/pull/81 was merged
+            label =  "<" + type + ">";
+        }
+
         var item = {
             urlPath: "",
-            label: type
+            label: label
         };
 
         // Generate URL path regarding some special cases
