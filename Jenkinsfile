@@ -8,7 +8,7 @@ node {
         }
 
         stage('Test') {
-          sh 'make lint-macros'
+          sh 'make lint-macros VERSION=latest'
           try {
             sh 'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
           } finally {
