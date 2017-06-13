@@ -589,7 +589,7 @@ if (isNaN(uptodatePercent)) { uptodatePercent = 0; }
 
 <% for (var i = 0; i < l10nMacroDetails.length; i++) { %>
     <tr>
-    <td><a href='/en-US/docs/Template:L10n:<%=l10nMacroDetails[i].name%>'><%=l10nMacroDetails[i].name%></a></td>
+    <td><a href='https://github.com/mozilla/kumascript/blob/master/macros/L10n-<%=l10nMacroDetails[i].name%>.json'><%=l10nMacroDetails[i].name%></a></td>
     <td><%=l10nMacroDetails[i].total%></td>
     <% if (l10nMacroDetails[i].translated < l10nMacroDetails[i].total) { %>
         <td style="background-color: #FF9"><%=l10nMacroDetails[i].translated%></td>
