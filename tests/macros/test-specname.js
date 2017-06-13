@@ -54,49 +54,49 @@ describeMacro('specname', function () {
     });
     itMacro('Two arguments (en-US)', function (macro) {
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external" title="The \'Web Alarms API\' specification">Web Alarms API</a>`
+            macro.call('CSS3 Transitions', '#animatable-css'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external" title="The \'CSS Transitions\' specification">CSS Transitions</a>`
         );
     });
     itMacro('Three arguments (en-US)', function (macro) {
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX', 'YYY'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external">Web Alarms API<br><small lang="en-US">The definition of \'YYY\' in that specification.</small></a>`
+            macro.call('CSS3 Transitions', '#animatable-css', 'top'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external">CSS Transitions<br><small lang="en-US">The definition of \'top\' in that specification.</small></a>`
         );
     });
     itMacro('Three arguments (fr)', function (macro) {
         macro.ctx.env.locale = 'fr';
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX', 'YYY'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external">Web Alarms API<br><small lang="fr">La définition de \'YYY\' dans cette spécification.</small></a>`
+            macro.call('CSS3 Transitions', '#animatable-css', 'top'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external">CSS Transitions<br><small lang="fr">La définition de \'top\' dans cette spécification.</small></a>`
         );
     });
     itMacro('Three arguments (de)', function (macro) {
         macro.ctx.env.locale = 'de';
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX', 'YYY'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external">Web Alarms API<br><small lang="de">Die Definition von \'YYY\' in dieser Spezifikation.</small></a>`
+            macro.call('CSS3 Transitions', '#animatable-css', 'top'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external">CSS Transitions<br><small lang="de">Die Definition von \'top\' in dieser Spezifikation.</small></a>`
         );
     });
     itMacro('Three arguments (ru)', function (macro) {
         macro.ctx.env.locale = 'ru';
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX', 'YYY'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external">Web Alarms API<br><small lang="ru">Определение \'YYY\' в этой спецификации.</small></a>`
+            macro.call('CSS3 Transitions', '#animatable-css', 'top'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external">CSS Transitions<br><small lang="ru">Определение \'top\' в этой спецификации.</small></a>`
         );
     });
     itMacro('Three arguments (ja)', function (macro) {
         macro.ctx.env.locale = 'ja';
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX', 'YYY'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external">Web Alarms API<br><small lang="ja">YYY の定義</small></a>`
+            macro.call('CSS3 Transitions', '#animatable-css', 'top'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external">CSS Transitions<br><small lang="ja">top の定義</small></a>`
         );
     });
     itMacro('Three arguments (zh-CN)', function (macro) {
         macro.ctx.env.locale = 'zh-CN';
         return assert.eventually.equal(
-            macro.call('Alarm API', 'XXX', 'YYY'),
-            `<a href="https://www.w3.org/2012/sysapps/web-alarms/XXX" hreflang="en" lang="en" class="external">Web Alarms API<br><small lang="zh-CN">YYY</small></a>`
+            macro.call('CSS3 Transitions', '#animatable-css', 'top'),
+            `<a href="https://drafts.csswg.org/css-transitions/#animatable-css" hreflang="en" lang="en" class="external">CSS Transitions<br><small lang="zh-CN">top</small></a>`
         );
     });
     itMacro('Unknown (en-US)', function (macro) {
