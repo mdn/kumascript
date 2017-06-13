@@ -1,4 +1,3 @@
-
 <%
 
 /*
@@ -7,6 +6,10 @@ repository contains information about the examples living in that repository.
 
 This macro loads the "examples.json" file and uses it to build a table
 presenting that information.
+
+For example, the page at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples
+is generated using this macro.
+
 */
 
 const examplesBaseUrl = "https://github.com/mdn/webextensions-examples/tree/master/";
@@ -25,10 +28,14 @@ const s_javascript_apis = mdn.localString({
     "en-US": "JavaScript APIs"
 });
 
+const s_webextension_api_path = mdn.localString({
+    "en-US": "Add-ons/WebExtensions/API"
+});
+
 function writeJavaScriptAPIs(apisJSON) {
   let output = "";
   for (let jsAPI of apisJSON) {
-    var link = `/${lang}/Add-ons/WebExtensions/API/${jsAPI.replace(".", "/")}`;
+    var link = `/${lang}/${s_webextension_api_path}/${jsAPI.replace(".", "/")}`;
     output += `<a href="${link}"><code>${jsAPI}</code></a><br/>`;
   }
   return output;
