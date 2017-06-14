@@ -2088,6 +2088,10 @@
         },
         "WebVR API": {
             "overview":   [ "WebVR API" ],
+            "guides":     [ { "url":   "/docs/Web/API/WebVR_API/Using_the_WebVR_API",
+                              "title": "Using the WebVR API" },
+                            { "url":   "/docs/Web/API/WebVR_API/Concepts",
+                              "title": "WebVR Concepts" } ],
             "interfaces": [ "VRDisplay",
                             "VRDisplayCapabilities",
                             "VRDisplayEvent",
