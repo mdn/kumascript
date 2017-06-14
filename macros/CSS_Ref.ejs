@@ -145,7 +145,9 @@ if (types.some(function(type) { return type === "types"; })) {
 
 if (types.some(function(type) { return type === "syntaxes"; })) {
     // Add value syntaxes to index
-    for (var syntax in data.syntaxes) {
+
+    var syntaxes = data.syntaxes;
+    for (let syntax of Object.keys(syntaxes)) {
         if (syntax.match(/\(\)$/)) {
             var initial = normalize(syntax)[0].toUpperCase();
 
@@ -159,10 +161,12 @@ if (types.some(function(type) { return type === "syntaxes"; })) {
             });
         }
 
-        // Add items within at-rule syntax
-        var items = getItemsFromSyntax(data.syntaxes[syntax]);
+        // Add items within at-rule syntax (e.g. "@annotation")
+        // check whether https://github.com/mdn/data/pull/66 was merged
+        var items = getItemsFromSyntax(syntaxes[syntax].syntax || syntaxes[syntax]);
+
         for (var i = 0; i < items.length; i++) {
-            if (data.syntaxes[items[i]] && outputStatuses.indexOf(data.syntaxes[items[i]]) === -1) {
+            if (syntaxes[items[i]] && outputStatuses.indexOf(syntaxes[items[i]]) === -1) {
                 continue;
             }
 
