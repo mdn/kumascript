@@ -1017,6 +1017,17 @@
             "properties": [ "Navigator.mozL10n" ],
             "events":     []
         },
+        "Long Tasks": {
+            "interfaces": [ "PerformanceLongTaskTiming",
+                            "TaskAttributionTiming" ],
+            "methods":    [],
+            "properties": [ "PerformanceLongTaskTiming.attribution",
+                            "TaskAttributionTiming.containerType",
+                            "TaskAttributionTiming.containerSrc",
+                            "TaskAttributionTiming.containerId",
+                            "TaskAttributionTiming.containerName" ],
+            "events":      []
+        },
         "Media Capture and Streams": {
             "overview":   [ "Media Capture and Streams API (Media Streams)" ],
             "guides":     [ { "url":   "/en-US/docs/Web/API/Media_Streams_API/Constraints",

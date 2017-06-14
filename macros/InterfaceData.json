@@ -2098,5 +2098,13 @@
   "CSSCounterStyleRule": {
     "inh"  : "CSSRule",
     "impl" : []
+  },
+  "PerformanceLongTaskTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "TaskAttributionTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
   }
 }]
