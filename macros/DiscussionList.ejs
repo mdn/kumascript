@@ -175,7 +175,7 @@ var newsgroupFeedHTML = "";
 
 if($0.indexOf('mdn') !== -1 || $0.indexOf('mdc') !== -1) {
   mailingListURL = 'https://discourse.mozilla-community.org/c/mdn';
-  mailingHTML = "<li>" + web.link(mailingListURL, mailingList/newsgroup) + "</li>";
+  mailingHTML = "<li>" + web.link(mailingListURL, mailingList + '/' + newsgroup) + "</li>";
   newsgroupHTML = '';
   newsgroupFeedHTML = "<li>" + web.link('https://discourse.mozilla-community.org/c/mdn.rss', webFeed) + "</li>";
 } else {
