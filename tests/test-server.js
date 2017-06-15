@@ -1,10 +1,8 @@
-/*jshint node: true, expr: false, boss: true */
+/*jshint node: true, mocha: true, esversion: 6, expr: false, boss: true */
 
-var fs = require('fs'),
-    path = require('path'),
+var sinon = require('sinon'),
     _ = require('underscore'),
     assert = require('chai').assert,
-    request = require('request'),
     kumascript = require('..'),
     ks_macros = kumascript.macros,
     ks_server = kumascript.server,
@@ -21,6 +19,12 @@ describe('test-server', function () {
     beforeEach(function() {
         // Build both a kumascript instance and a document server for tests.
         this.test_server = ks_test_utils.createTestServer();
+        this.test_server.get('/healthz/?', function (req, res) {
+            res.sendStatus(204);
+        });
+        this.test_server.get('/readiness/?', function (req, res) {
+            res.sendStatus(204);
+        });
         this.macro_processor = new ks_macros.MacroProcessor({
             macro_timeout: 500,
             loader: {
@@ -262,4 +266,56 @@ describe('test-server', function () {
             }
         );
     })
+
+    it('Liveness endpoint returns 204 when live', function (done) {
+        testRequest(getURL('/healthz'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 204);
+        });
+    });
+
+    it('Readiness endpoint returns 204 when ready', function (done) {
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 204);
+        });
+    });
+
+    it('Readiness endpoint returns 503 when macro loader failure', function (done) {
+        this.macro_processor.makeLoader = sinon.stub();
+        this.macro_processor.makeLoader.throws('duplicate macros');
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 503);
+            assert.notEqual(result.indexOf('(macro loader error)'), -1);
+            assert.notEqual(result.indexOf('(duplicate macros)'), -1);
+        });
+    });
+
+    it('Readiness endpoint returns 503 when doc service failure', function (done) {
+        this.test_server.close();
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 503);
+            assert.notEqual(
+                result.indexOf('(document service is not ready)'),
+                -1
+            );
+        });
+    });
+
+    it('Readiness endpoint returns 503 when doc service not ready', function (done) {
+        this.test_server.close();
+        this.test_server = ks_test_utils.createTestServer();
+        this.test_server.get('/readiness/?', function (req, res) {
+            res.status(503).send('service unavailable due to database issue');
+        });
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 503);
+            assert.notEqual(
+                result.indexOf('(document service is not ready)'),
+                -1
+            );
+            assert.notEqual(
+                result.indexOf('(service unavailable due to database issue)'),
+                -1
+            );
+        });
+    });
 });
