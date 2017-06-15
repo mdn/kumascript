@@ -2,13 +2,13 @@
 <ul>
 <%
 /*
- * $0 max version to list
- *
+ * Parameters:
+ * $0 = max version to show in the list
  */
- 
-var CURRENT_MAX_VERSION = 50; 
- 
-var maxVersion = CURRENT_MAX_VERSION; /* was $0; replaced by this value to update after each release. */
+
+var CURRENT_MAX_VERSION = $0;
+
+var maxVersion = CURRENT_MAX_VERSION;
 var minVersion = maxVersion - 30;
 
 if (minVersion < 4) { minVersion = 4 }
@@ -49,7 +49,7 @@ if (minVersion == 4) {
     This template is difficult. Because, old "fr" page have other rule...
     If the URL of your country's page is the same as the English pages,
     You just have to add your country into the object in argument of mdn.localString.
-    
+
     And, some old pages have this link: "https://developer.mozilla.org/en-US/docs/Updating_web_applications_for_Firefox_3"
 */
 
