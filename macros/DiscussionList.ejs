@@ -151,6 +151,18 @@ if ($2) {
 
 listElem += ">"; //Final ">" of the open <ul> tag
 
+
+function makeListTarget(param) {
+    function startsWith (string, prefix) {
+        return string.slice(0, prefix.length) == prefix;
+    }
+    if (startsWith(param, 'https://') || startsWith(param, 'http://')) {
+        return param;
+    }
+    return  'https://lists.mozilla.org/listinfo/' + param;
+}
+
+
 // Specify a variable to contain the below link HTML
 
 var mailingListURL = "";
@@ -168,7 +180,7 @@ if($0.indexOf('mdn') !== -1 || $0.indexOf('mdc') !== -1) {
   newsgroupFeedHTML = "<li>" + web.link('https://discourse.mozilla-community.org/c/mdn.rss', webFeed) + "</li>";
 } else {
   mailingListURL = $0;
-  mailingHTML = "<li>" + web.link(mailingListURL, mailingList) + "</li>";
+  mailingHTML = "<li>" + web.link(makeListTarget(mailingListURL), mailingList) + "</li>";
   newsgroupHTML = "<li>" + web.link('http://groups.google.com/group/' + $1, newsGroup) + "</li>";
   newsgroupFeedHTML = "<li>" + web.link('http://groups.google.com/group/' + $1 + '/feeds', webFeed) + "</li>";
 }
