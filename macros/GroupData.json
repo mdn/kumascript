@@ -2091,7 +2091,7 @@
             "guides":     [ { "url":   "/docs/Web/API/WebVR_API/Using_the_WebVR_API",
                               "title": "Using the WebVR API" },
                             { "url":   "/docs/Web/API/WebVR_API/Concepts",
-                              "title": "WebVR Concepts" } ],
+                              "title": "WebVR concepts" } ],
             "interfaces": [ "VRDisplay",
                             "VRDisplayCapabilities",
                             "VRDisplayEvent",
