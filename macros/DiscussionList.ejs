@@ -175,13 +175,13 @@ var newsgroupFeedHTML = "";
 
 if($0.indexOf('mdn') !== -1 || $0.indexOf('mdc') !== -1) {
   mailingListURL = 'https://discourse.mozilla-community.org/c/mdn';
-  mailingHTML = "<li>" + web.link(mailingListURL, mailingList/newsGroup) + "</li>";
+  mailingHTML = "<li>" + web.link(mailingListURL, mailingList/newsgroup) + "</li>";
   newsgroupHTML = '';
   newsgroupFeedHTML = "<li>" + web.link('https://discourse.mozilla-community.org/c/mdn.rss', webFeed) + "</li>";
 } else {
   mailingListURL = $0;
   mailingHTML = "<li>" + web.link(makeListTarget(mailingListURL), mailingList) + "</li>";
-  newsgroupHTML = "<li>" + web.link('http://groups.google.com/group/' + $1, newsGroup) + "</li>";
+  newsgroupHTML = "<li>" + web.link('http://groups.google.com/group/' + $1, newsgroup) + "</li>";
   newsgroupFeedHTML = "<li>" + web.link('http://groups.google.com/group/' + $1 + '/feeds', webFeed) + "</li>";
 }
 
