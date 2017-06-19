@@ -19,9 +19,6 @@ describe('test-server', function () {
     beforeEach(function() {
         // Build both a kumascript instance and a document server for tests.
         this.test_server = ks_test_utils.createTestServer();
-        this.test_server.get('/healthz/?', function (req, res) {
-            res.sendStatus(204);
-        });
         this.test_server.get('/readiness/?', function (req, res) {
             res.sendStatus(204);
         });
