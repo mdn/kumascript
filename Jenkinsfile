@@ -14,6 +14,11 @@ node {
           } finally {
             junit 'test-results.xml'
           }
+          try {
+            sh 'make test-macros VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+          } finally {
+            junit 'test-results.xml'
+          }
         }
 
         stage('Push KumaScript Docker Image') {
@@ -31,6 +36,11 @@ node {
           sh 'make lint-macros'
           try {
             sh 'make test TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+          } finally {
+            junit 'test-results.xml'
+          }
+          try {
+            sh 'make test-macros TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
           } finally {
             junit 'test-results.xml'
           }
