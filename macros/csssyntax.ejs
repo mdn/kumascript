@@ -386,9 +386,11 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
             types.forEach(function(type, index, types) {
                 // Avoid recursions by checking whether a type was already
                 // described before
+                // check whether https://github.com/mdn/data/pull/66 was merged
+                var syntax = data.syntaxes[type].syntax || data.syntaxes[type];
                 if (describedTypes.indexOf(type) === -1) {
                     typesSyntax += "<span id=\"" + type + "\">&lt;" + type +
-                        "&gt;</span> = " + formatSyntax(data.syntaxes[type]);
+                        "&gt;</span> = " + formatSyntax(syntax);
                     if (index < types.length - 1) {
                         typesSyntax += "<br/>";
                     }
