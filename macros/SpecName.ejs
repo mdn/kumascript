@@ -72,7 +72,7 @@ var specList = {
         url  : "https://w3c.github.io/clipboard-apis/"
     },
     'Compat':{
-        name : "Web Compatibility Standard",
+        name : "Compatibility Standard",
         url  : "https://compat.spec.whatwg.org"
     },
     'Compositing':{
@@ -92,8 +92,8 @@ var specList = {
         url  : "https://tools.ietf.org/html/draft-west-cookie-prefixes-05"
     },
     'CORS':{
-        name : "CORS",
-        url  : "http://www.w3.org/TR/cors/"
+        name : "Fetch (CORS protocol)",
+        url  : "https://fetch.spec.whatwg.org/#http-cors-protocol"
     },
     'Credential Management':{
         name : "Credential Management Level 1",
@@ -408,8 +408,8 @@ var specList = {
         url  : 'https://drafts.csswg.org/cssom-view/'
     },
     'Custom Elements':{
-        name : 'Custom Elements',
-        url  : 'https://w3c.github.io/webcomponents/spec/custom/'
+        name : 'HTML (Custom Elements)',
+        url  : 'https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements'
     },
     'Custom Scroll Restoration':{
         name : 'Custom Scroll Restoration - History-based API',
@@ -467,10 +467,6 @@ var specList = {
         name : 'Document Object Model (DOM) Level 3 XPath Specification',
         url  : 'https://www.w3.org/TR/DOM-Level-3-XPath/'
     },
-    'DOM4': {
-        name : 'DOM4',
-        url  : 'https://www.w3.org/TR/dom/'
-    },
     'Element Traversal':{
         name : 'Element Traversal Specification',
         url  : 'http://www.w3.org/TR/ElementTraversal/'
@@ -481,7 +477,7 @@ var specList = {
     },
     'Encoding':{
         name : 'Encoding',
-        url  : 'http://www.w3.org/TR/encoding/'
+        url  : 'https://encoding.spec.whatwg.org/'
     },
     'ES1':{
         name : 'ECMAScript 1st Edition (ECMA-262)',
@@ -600,8 +596,8 @@ var specList = {
         url  : 'https://w3c.github.io/html-media-capture/'
     },
     'HTML Templates': { /* the draft has been merged in the HTML spec */
-        name : 'HTML Templates',
-        url  : 'http://www.w3.org/TR/html5/scripting-1.html#the-template-element'
+        name : 'HTML (template element)',
+        url  : 'https://html.spec.whatwg.org/multipage/scripting.html#the-template-element'
     },
     'HTML4.01':{
         name : 'HTML 4.01 Specification',
@@ -628,7 +624,7 @@ var specList = {
         url  : 'https://www.w3.org/TR/2016/REC-html51-20161101/'
     },
     'HTML WHATWG':{
-        name : 'WHATWG HTML Living Standard',
+        name : 'HTML Living Standard',
         url  : 'https://html.spec.whatwg.org/multipage/'
     },
     'IndexedDB':{
@@ -646,10 +642,6 @@ var specList = {
     'IntersectionObserver': {
         name : 'Intersection Observer',
         url  : 'https://wicg.github.io/IntersectionObserver/'
-    },
-    'JavaScript': {
-        name : 'JavaScript, a.k.a. Web ECMAScript',
-        url  : 'https://javascript.spec.whatwg.org/'
     },
     'Long Tasks': {
         name : 'Long Tasks API 1',
@@ -768,8 +760,8 @@ var specList = {
         url  : 'http://w3c.github.io/presentation-api/'
     },
     'Progress Events':{ /* Merged into XHR after REC status */
-        name : 'Progress Events',
-        url  : 'https://www.w3.org/TR/progress-events/'
+        name : 'XMLHttpRequest (ProgressEvent)',
+        url  : 'https://xhr.spec.whatwg.org/#interface-progressevent'
     },
     'Proximity Events':{
         name : 'Proximity Events',
@@ -828,16 +820,12 @@ var specList = {
         url  : 'http://w3c.github.io/selection-api/'
     },
     'Server-sent events':{
-        name : 'Server-Sent Events',
-        url  : 'http://www.w3.org/TR/eventsource/'
-    },
-    'Server-sent events 2':{ /* This draft has been merged into HTML WHATWG */
-        name : 'Server-Sent Events (2nd edition)',
-        url  : 'http://www.w3.org/TR/eventsource/'
+        name : 'HTML (Server-sent events)',
+        url  : 'https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events'
     },
     'Service Workers':{
         name : 'Service Workers',
-        url  : 'https://w3c.github.io/ServiceWorker/v1/'
+        url  : 'https://w3c.github.io/ServiceWorker/'
     },
     'Selectors API Level 1':{
         name : 'Selectors API Level 1',
@@ -848,16 +836,16 @@ var specList = {
         url  : 'http://dev.w3.org/2006/webapi/selectors-api2/'
     },
     'Shadow DOM':{
-        name : 'Shadow DOM',
-        url  : 'https://www.w3.org/TR/shadow-dom/'
+        name : 'DOM (Shadow trees)',
+        url  : 'https://dom.spec.whatwg.org/#shadow-trees'
     },
     'Shape Detection API': {
         name : 'Accelerated Shape Detection in Images',
         url  : 'https://wicg.github.io/shape-detection-api/'
     },
     'Shared Memory':{
-        name : 'ECMAScript Shared Memory and Atomics',
-        url  : 'http://tc39.github.io/ecmascript_sharedmem/shmem.html'
+        name : 'ECMAScript (Memory Model)',
+        url  : 'https://tc39.github.io/ecma262/#sec-memory-model'
     },
     'SIMD': {
         name : 'SIMD',
@@ -865,7 +853,7 @@ var specList = {
     },
     'Storage': {
         name : 'Storage',
-        url  : 'https://storage.spec.whatwg.org'
+        url  : 'https://storage.spec.whatwg.org/'
     },
     'Streams':{
         name : 'Streams',
@@ -1108,7 +1096,7 @@ var specList = {
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_lose_context/'
     },
     'WebIDL':{
-        name : 'Web IDL (Second Edition)',
+        name : 'Web IDL',
         url  : 'https://heycam.github.io/webidl/'
     },
     'WebMIDI API':{
@@ -1123,17 +1111,17 @@ var specList = {
         name : 'WebRTC 1.0: Real-time Communication Between Browsers',
         url  : 'https://w3c.github.io/webrtc-pc/'
     },
-    'Websockets':{ /* This draft has been merged into HTML WHATWG */
-        name : 'The WebSocket API',
-        url  : 'https://html.spec.whatwg.org/multipage/comms.html'
+    'Websockets':{
+        name : 'HTML (Web sockets)',
+        url  : 'https://html.spec.whatwg.org/multipage/web-sockets.html#network'
     },
     'Web Speech API':{
         name : 'Web Speech API',
         url  : 'https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi.html'
     },
     'Web Storage':{
-        name : 'Web Storage (Second edition)',
-        url  : 'https://html.spec.whatwg.org/multipage/webstorage.html'
+        name : 'HTML (Web storage)',
+        url  : 'https://html.spec.whatwg.org/multipage/webstorage.html#webstorage'
     },
     'Web Telephony':{
         name : 'Web Telephony',
@@ -1151,9 +1139,9 @@ var specList = {
         name : 'WebVTT: The Web Video Text Tracks Format',
         url  : 'https://w3c.github.io/webvtt/'
     },
-    'Web Workers':{ /* This draft has been merged into HTML WHATWG */
-        name : 'Web Workers',
-        url  : 'https://w3c.github.io/workers/'
+    'Web Workers':{
+        name : 'HTML (Web workers)',
+        url  : 'https://html.spec.whatwg.org/multipage/workers.html#workers'
     },
     'WOFF1.0':{
         name : 'WOFF File Format 1.0',
