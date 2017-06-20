@@ -1251,6 +1251,7 @@
                             "PaymentResponse.details",
                             "PaymentResponse.methodName",
                             "PaymentResponse.payerEmail",
+                            "PaymentResponse.payerName",
                             "PaymentResponse.payerphone",
                             "PaymentResponse.shippingAddress",
                             "PaymentResponse.shippingOption" ],
