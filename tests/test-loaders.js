@@ -1,6 +1,7 @@
-/*jshint node: true, expr: false, boss: true */
+/*jshint node: true, mocha: true, esversion: 6, expr: false, boss: true */
 
 var fs = require('fs'),
+    path = require('path'),
     assert = require('chai').assert,
     kumascript = require('..'),
     ks_loaders = kumascript.loaders,
@@ -53,13 +54,31 @@ describe('test-loaders', function () {
         assert.isTrue(cssxref_found, data['macros']);
     })
 
+    it('The FileLoader should detect no macros', function () {
+        var macro_dir = 'tests/no-macros-in-here';
+        fs.mkdirSync(macro_dir);
+        try {
+            assert.throws(
+                function() {
+                    new ks_loaders.FileLoader({
+                        root_dir: macro_dir
+                    });
+                },
+                /no macros could be found in .+/
+            );
+        } finally {
+            fs.rmdirSync(macro_dir);
+        }
+    });
+
     it('The FileLoader should detect duplicate macros', function () {
         assert.throws(
             function() {
                 new ks_loaders.FileLoader({
                     root_dir: 'tests/fixtures'
                 });
-            }
+            },
+            /duplicate macros:[\s\S]+/
         );
     })
 
