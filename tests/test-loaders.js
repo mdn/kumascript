@@ -3,6 +3,7 @@
 var fs = require('fs'),
     path = require('path'),
     assert = require('chai').assert,
+    tmp = require('tmp'),
     kumascript = require('..'),
     ks_loaders = kumascript.loaders,
     ks_test_utils = kumascript.test_utils,
@@ -54,21 +55,20 @@ describe('test-loaders', function () {
         assert.isTrue(cssxref_found, data['macros']);
     })
 
-    it('The FileLoader should detect no macros', function () {
-        var macro_dir = 'tests/no-macros-in-here';
-        fs.mkdirSync(macro_dir);
-        try {
-            assert.throws(
-                function() {
-                    new ks_loaders.FileLoader({
-                        root_dir: macro_dir
-                    });
-                },
-                /no macros could be found in .+/
-            );
-        } finally {
-            fs.rmdirSync(macro_dir);
-        }
+    it('The FileLoader should detect no macros', function (done) {
+        tmp.dir({template: '/tmp/tmp-XXXXXX'}, function (err, path) {
+            if (!err) {
+                assert.throws(
+                    function() {
+                        new ks_loaders.FileLoader({
+                            root_dir: path
+                        });
+                    },
+                    /no macros could be found in .+/
+                );
+            }
+            done(err);
+        });
     });
 
     it('The FileLoader should detect duplicate macros', function () {
