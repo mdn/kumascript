@@ -55,17 +55,19 @@ describe('test-loaders', function () {
         assert.isTrue(cssxref_found, data['macros']);
     })
 
-    it('The FileLoader should detect no macros', function () {
-        tmp.dir({ template: '/tmp/tmp-XXXXXX'}, function (err, path) {
-            if (err) throw err;
-            assert.throws(
-                function() {
-                    new ks_loaders.FileLoader({
-                        root_dir: path
-                    });
-                },
-                /no macros could be found in .+/
-            );
+    it('The FileLoader should detect no macros', function (done) {
+        tmp.dir({template: '/tmp/tmp-XXXXXX'}, function (err, path) {
+            if (!err) {
+                assert.throws(
+                    function() {
+                        new ks_loaders.FileLoader({
+                            root_dir: path
+                        });
+                    },
+                    /no macros could be found in .+/
+                );
+            }
+            done(err);
         });
     });
 
