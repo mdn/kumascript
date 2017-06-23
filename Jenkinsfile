@@ -7,8 +7,12 @@ node {
           sh 'make build VERSION=latest'
         }
 
-        stage('Test') {
+        stage('Lint') {
+          sh 'make lint VERSION=latest'
           sh 'make lint-macros VERSION=latest'
+        }
+
+        stage('Test') {
           try {
             sh 'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
           } finally {
@@ -32,8 +36,12 @@ node {
           sh 'make build'
         }
 
-        stage('Test') {
+        stage('Lint') {
+          sh 'make lint'
           sh 'make lint-macros'
+        }
+
+        stage('Test') {
           try {
             sh 'make test TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
           } finally {

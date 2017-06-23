@@ -9,8 +9,9 @@ before_script:
   - make build
 
 script:
-  - make test
+  - make lint
   - make lint-macros
+  - make test
   - make test-macros
 
 notifications:

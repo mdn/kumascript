@@ -1,4 +1,4 @@
-/*jshint node: true, expr: false, boss: true */
+/* jshint node: true, mocha: true, esversion: 6 */
 
 var _ = require('underscore'),
     async = require('async'),
@@ -18,11 +18,11 @@ describe('test-caching', function () {
     beforeEach(function () {
         this.app = ks_test_utils.createTestServer();
         this.cache = new ks_caching.ResponseCache({});
-    })
+    });
 
     afterEach(function () {
         this.app.close();
-    })
+    });
 
     it('Caching request should send headers from options, regardless of Cache-Control option', function (done) {
         var endpoint = '/headers-echo',
@@ -60,7 +60,7 @@ describe('test-caching', function () {
                 fe_next(err);
             });
         }, done);
-    })
+    });
 
     it('Should use Last-Modified from cached response if available', function (done) {
         var $this = this;
@@ -74,7 +74,7 @@ describe('test-caching', function () {
         testRequest(TEST_BASE_URL + '/test1', done, function (res, content) {
             assert.equal(res.headers['last-modified'], expected_modified);
         });
-    })
+    });
 
     it('Should supply Last-Modified if none available', function (done) {
         var $this = this;
@@ -86,7 +86,7 @@ describe('test-caching', function () {
         testRequest(TEST_BASE_URL + '/test1', done, function (res, content) {
             assert.isTrue('last-modified' in res.headers);
         });
-    })
+    });
 
     it('Should use ETag from cached response if available', function (done) {
         var $this = this;
@@ -99,7 +99,7 @@ describe('test-caching', function () {
         testRequest(TEST_BASE_URL + '/test1', done, function (res, content) {
             assert.equal(res.headers.etag, TEST_ETAG);
         });
-    })
+    });
 
     it('Should support conditional GET with If-Modified-Since', function (done) {
         var $this = this;
@@ -128,7 +128,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Should support conditional GET with If-None-Match', function (done) {
         var $this = this;
@@ -158,7 +158,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Should honor max-age = 0 with shortcircuit', function (done) {
         var $this = this;
@@ -194,7 +194,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Should honor max-age > 0', function (done) {
         // This test takes longer than the default 2000ms timeout.
@@ -244,7 +244,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Should honor no-cache', function (done) {
         var $this = this;
@@ -286,7 +286,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Should not cache a response with a status other than 200 OK', function (done) {
         var $this = this,
@@ -330,7 +330,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Should not cache a response for methods other than GET or HEAD', function (done) {
         var $this = this,
@@ -390,7 +390,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it('Cache internals should support some HTTP caching semantics', function (done) {
 
@@ -499,7 +499,7 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 
     it("If a 304 is returned but the body content isn't in cache, force a 200 from kuma", function (done) {
 
@@ -517,7 +517,7 @@ describe('test-caching', function () {
         function key(opts, name) {
             var base_key = 'kumascript:request:' + ks_utils.md5(opts.url);
             return base_key + ':' + name;
-        };
+        }
 
         // Step 1
         $this.app.get('/test1', function (req, res) {
@@ -603,5 +603,5 @@ describe('test-caching', function () {
                 });
             }
         ], done);
-    })
+    });
 });

@@ -1,8 +1,6 @@
-/*jshint node: true, expr: false, boss: true */
+/* jshint node: true, mocha: true, esversion: 6 */
 
-var fs = require('fs'),
-    path = require('path'),
-    _ = require('underscore'),
+var _ = require('underscore'),
     assert = require('chai').assert,
     kumascript = require('..'),
     ks_macros = kumascript.macros,
@@ -11,7 +9,7 @@ var fs = require('fs'),
 
 function processFixture(mp, fixture_relpath, done, next) {
     if (!next) {
-        function next(errors, result) {
+        next = function (errors, result) {
             assert.isOk(!errors, "There should be no errors");
             done();
         };
@@ -67,15 +65,15 @@ describe('test-macros', function () {
             }
         });
         this.mp.startup(done);
-    })
+    });
 
     afterEach(function (done) {
         this.mp.shutdown(done);
-    })
+    });
 
     it('Basic macro substitution should work', function (done) {
         processFixture(this.mp, 'macros1.txt', done);
-    })
+    });
 
     it('Errors in document parsing should be handled gracefully and reported', function (done) {
         processFixture(this.mp, 'macros-document-syntax-error.txt', done,
@@ -94,23 +92,23 @@ describe('test-macros', function () {
                     265, e.message.indexOf('-----------------------------^'));
                 done();
             });
-    })
+    });
 
     it('A numeric macro argument with a decimal point should not be trimmed to an integer', function (done) {
         processFixture(this.mp, 'macros-decimal-argument.txt', done);
-    })
+    });
 
     it('Escaped single and double quotes should work in any quoting context', function (done) {
         processFixture(this.mp, 'macros-document-escaped-quotes.txt', done);
-    })
+    });
 
     it('Empty parameters should be accepted', function (done) {
         processFixture(this.mp, 'macros-document-empty-parameter.txt', done);
-    })
+    });
 
     it('Double right brace in a document should not result in a syntax error', function (done) {
         processFixture(this.mp, 'macros-document-double-brace.txt', done);
-    })
+    });
 
     it('Errors in template loading, compilation, and execution should be handled gracefully and reported', function (done) {
 
@@ -170,7 +168,7 @@ describe('test-macros', function () {
                 }
             );
         });
-    })
+    });
 
     it('Check for unrecoverable errors during initialize', function (done) {
         assert.doesNotThrow(
@@ -202,11 +200,13 @@ describe('test-macros', function () {
             }
         );
         done();
-    })
+    });
 
     it('Errors in ArgumentsJSON should be reported with line and column numbers',
-        makeErrorHandlingTestcase('macros-syntax-error-argumentsjson.txt'))
+        makeErrorHandlingTestcase('macros-syntax-error-argumentsjson.txt')
+    );
 
     it('Errors in ArgumentList should be reported with line and column numbers',
-        makeErrorHandlingTestcase('macros-syntax-error-argumentlist.txt'))
+        makeErrorHandlingTestcase('macros-syntax-error-argumentlist.txt')
+    );
 });
