@@ -1,9 +1,6 @@
-/*jshint node: true, expr: false, boss: true */
+/* jshint node: true, mocha: true, esversion: 6 */
 
-var fs = require('fs'),
-    path = require('path'),
-    request = require('request'),
-    assert = require('chai').assert,
+var assert = require('chai').assert,
     kumascript = require('..'),
     ks_server = kumascript.server,
     ks_macros = kumascript.macros,
@@ -37,13 +34,13 @@ describe('test-api', function () {
             macro_processor: this.macro_processor
         });
         this.server.listen();
-    })
+    });
 
     afterEach(function () {
         // Kill all the servers on teardown.
         this.server.close();
         this.test_server.close();
-    })
+    });
 
     it('A template can include the output from another with template()', function (done) {
         testRequestExpected(
@@ -54,7 +51,7 @@ describe('test-api', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('A template can import functions and data from another with require_macro()', function (done) {
         testRequestExpected(
@@ -65,7 +62,7 @@ describe('test-api', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('A template can import an npm module with require()', function (done) {
         testRequestExpected(
@@ -76,7 +73,7 @@ describe('test-api', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('The server can be configured to auto-require some templates', function (done) {
         testRequestExpected(
@@ -87,7 +84,7 @@ describe('test-api', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('The API offers access to a cache for work done in templates', function (done) {
         // This is not an integration test for memcache. Instead, it just
@@ -101,7 +98,7 @@ describe('test-api', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('The API offers access to an RSS/Atom feed parser', function (done) {
         testRequestExpected(
@@ -112,5 +109,5 @@ describe('test-api', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 });
