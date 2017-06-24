@@ -8,7 +8,7 @@
 //  $0  Name of the topic
 
 var ircChannelName = "mdn";
-var mlName = "dev-mdc";
+var mlName = "mdn";
 var ngName = "mozilla.dev.mdc";
 var driver = {};
 
@@ -52,7 +52,7 @@ switch ($0) {
                         "docStatus" : "MDN/Doc_status"
                     };
 }
-                   
+
 var headingStr = "";
 var topicDriverStr = "";
 var ircStr = "";
@@ -88,7 +88,7 @@ switch(env.locale) {
         headingStr = "Help the '" + $0 + "' documentation project…";
         statusStr = "Look at the current <a href='/en-US/docs/" + driver.docStatus + "'>status</a> of the '" + $0 +"' documentation.";
         topicDriverStr = "Topic driver : <a href='/en-US/profiles/" + driver.mdnPseudo + "'>" + driver.name + "</a> (IRC nickname: " + driver.ircPseudo + ")";
-        ircStr = "Don't hesitate to contact us on " + ircLink + " or on the <em>" + mlName + "</em> mailing-list:";
+        ircStr = "Don't hesitate to contact us on " + ircLink + " or on the <em>" + mlName.toUpperCase() + "</em> discourse group/list:";
         break;
 }
 %>
