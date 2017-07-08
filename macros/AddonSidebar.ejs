@@ -97,54 +97,6 @@ function currentPageIsUnder(root) {
       wiki.tree(baseURL + "WebExtensions/manifest.json", 1, 0, 0, 1)
     %>
     </li>
-    
-    <li><a href="<%=baseURL%>SDK"><strong>Add-on SDK</strong></a></li>
-    <li><a href="<%=baseURL%>WebExtensions#Getting_started">Getting started</a>
-      <ol>
-        <li><a href="<%=baseURL%>SDK/Tutorials/Installation">Installation</a></li>
-        <li><a href="<%=baseURL%>SDK/Tutorials/Getting_started">Getting started</a></li>
-        <li><a href="<%=baseURL%>SDK/Tutorials/Troubleshooting">Troubleshooting</a></li>
-      </ol>
-    </li>
-    
-    <li data-default-state="<%=currentPageIsUnder('SDK/High-Level_APIs')%>"><a href="<%=baseURL%>SDK/High-Level_APIs">High-Level APIs</a>
-      <%-
-        wiki.tree(baseURL + "SDK/High-Level_APIs", 1, 0, 0, 1)
-      %>
-    </li>
-    <li data-default-state="<%=currentPageIsUnder('SDK/Low-Level_APIs')%>"><a href="<%=baseURL%>SDK/Low-Level_APIs">Low-Level APIs</a>
-      <%-
-        wiki.tree(baseURL + "SDK/Low-Level_APIs", 1, 0, 0, 1)
-      %>
-    </li> 
-
-    <li><a href="<%=baseURL%>Firefox_for_Android"><strong>Firefox for Android</strong></a></li>
-    <li><a href="<%=baseURL%>Firefox_for_Android">Getting started</a>
-      <ol>
-        <li><a href="<%=baseURL%>Firefox_for_Android/Walkthrough">Walkthrough</a></li>
-        <li><a href="/<%=locale%>/docs/Tools/Remote_Debugging/Debugging_Firefox_for_Android_with_WebIDE">Debugging</a></li>
-        <li><a href="<%=baseURL%>Firefox_for_Android/Code_snippets">Code snippets</a></li>
-      </ol>
-    </li>
-
-    <li><a href="<%=baseURL%>Firefox_for_Android/API">APIs</a>
-      <%-
-        wiki.tree(baseURL + "Firefox_for_Android/API", 1, 0, 0, 1)
-      %>
-    </li> 
-
-    <li><a href="<%=baseURL%>Overlay_Extensions"><strong>Legacy</strong></a></li>
-    
-    <li><a href="<%=baseURL%>Bootstrapped_Extensions">Restartless extensions</a>
-      <ol>
-        <li><a href="<%=baseURL%>Bootstrapped_extensions">Overview</a></li>
-      </ol>
-    </li>
-    <li><a href="<%=baseURL%>Overlay_Extensions">Overlay extensions</a>
-      <ol>
-        <li><a href="<%=baseURL%>Overlay_Extensions">Overview</a></li>
-      </ol>
-    </li>
 
     <li><a href="<%=baseURL%>Themes"><strong>Themes</strong></a></li>
 
@@ -169,6 +121,16 @@ function currentPageIsUnder(root) {
         <li><a href="http://stackoverflow.com/questions/tagged/firefox-addon">Stack Overflow</a></li>
         <li><a href="https://groups.google.com/forum/#!forum/mozilla.dev.extensions">Development newsgroup</a></li>
         <li><a href="irc://irc.mozilla.org/extdev">IRC Channel</a></li>
+      </ol>
+    </li>
+
+    <li><a href="<%=baseURL%>Legacy_add_ons"><strong>Legacy Add-ons</strong></a></li>
+    <li><a href="#">Legacy technologies</a>
+      <ol>
+        <li><a href="<%=baseURL%>SDK">Add-on SDK</a></li>
+        <li><a href="<%=baseURL%>Legacy_Firefox_for_Android">Legacy Firefox for Android</a></li>
+        <li><a href="<%=baseURL%>Bootstrapped_extensions">Bootstrapped extensions</a></li>
+        <li><a href="<%=baseURL%>Overlay_Extensions">Overlay extensions</a></li>
       </ol>
     </li>
   </ol>
