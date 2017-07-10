@@ -104,7 +104,7 @@ function getVersionString(versionInfo) {
       break;
     case true:
       return `<span title="${localize(compatStrings, 'supportsShort_yes_title')}"
-              style="color: #888">(${localize(compatStrings, 'supportsShort_yes')})</span>`;
+              style="color: #888">${localize(compatStrings, 'supportsShort_yes')}</span>`;
       break;
     case false:
       return `<span title="${localize(compatStrings, 'supportsLong_no')}"

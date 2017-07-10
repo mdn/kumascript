@@ -49,12 +49,12 @@
         "ru"   : "Замечания реализации"
     },
     "supportsShort_yes": {
-        "en-US": "Yes",
-        "de"   : "Ja",
-        "es"   : "Si",
-        "fr"   : "Oui",
-        "ja"   : "有り",
-        "ru"   : "Да"
+        "en-US": "(Yes)",
+        "de"   : "(Ja)",
+        "es"   : "(Si)",
+        "fr"   : "(Oui)",
+        "ja"   : "(有り)",
+        "ru"   : "(Да)"
     },
     "supportsShort_yes_title": {
         "en-US": "Please update this with the earliest version of support.",
