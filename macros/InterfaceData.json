@@ -2106,5 +2106,9 @@
   "TaskAttributionTiming": {
     "inh"  : "PerformanceEntry",
     "impl" : []
+  },
+  "BeforeInstallPromptEvent": {
+    "inh"  : "Event",
+    "impl" : []
   }
 }]
