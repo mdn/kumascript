@@ -103,10 +103,12 @@ function getVersionString(versionInfo) {
               style="color: rgb(255, 153, 0);">${localize(compatStrings, 'supportsShort_unknown')}</span>`;
       break;
     case true:
-      return `<span style="color: #888">(${localize(compatStrings, 'supportsShort_yes')})</span>`;
+      return `<span title="${localize(compatStrings, 'supportsShort_yes_title')}"
+              style="color: #888">${localize(compatStrings, 'supportsShort_yes')}</span>`;
       break;
     case false:
-      return `<span style="color: #f00">(${localize(compatStrings, 'supportsShort_no')})</span>`;
+      return `<span title="${localize(compatStrings, 'supportsLong_no')}"
+              style="color: #f00">${localize(compatStrings, 'supportsShort_no')}</span>`;
       break;
     default:
       return versionInfo;

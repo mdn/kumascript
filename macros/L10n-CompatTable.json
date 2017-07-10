@@ -49,12 +49,19 @@
         "ru"   : "Замечания реализации"
     },
     "supportsShort_yes": {
-        "en-US": "Yes",
-        "de"   : "Ja",
-        "es"   : "Si",
-        "fr"   : "Oui",
-        "ja"   : "有り",
-        "ru"   : "Да"
+        "en-US": "(Yes)",
+        "de"   : "(Ja)",
+        "es"   : "(Si)",
+        "fr"   : "(Oui)",
+        "ja"   : "(有り)",
+        "ru"   : "(Да)"
+    },
+    "supportsShort_yes_title": {
+        "en-US": "Please update this with the earliest version of support.",
+        "de"   : "Bitte mit der frühsten Version updaten in der Support vorhanden ist.",
+        "fr"   : "Veuillez mettre à jour avec la version minimale du support",
+        "ja"   : "最新の対応状況に更新してください。",
+        "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии."
     },
     "supportsShort_no": {
         "en-US": "No",
