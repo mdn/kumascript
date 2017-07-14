@@ -31,10 +31,12 @@ var lang = env.locale;
 //   where the ED draft described a further level of CSP and is far from the
 //   Recommendation status.
 //
-// * If both W3C and WHATWG publish specifications for an API, we list both
-//   specifications, with the WHATWG on top of the W3C as it is where the
-//   actual work happens and it is likely to be more up-to-date than the
-//   W3C one.
+// * If both W3C and WHATWG publish specifications for an API, we list any
+//   distinct specifications (e.g. W3C DOM 1/2/3 are distinct from the WHATWG
+//   DOM Living Standard). We do not list W3C specifications that are outdated
+//   forks of WHATWG specifications, per
+//   https://wiki.whatwg.org/wiki/Fork_tracking, except for certain historical
+//   exceptions.
 //
 // * Please use HTTPS links instead of HTTP links when possible.
 
@@ -90,10 +92,6 @@ var specList = {
     'Cookie Prefixes':{
         name : "Cookie Prefixes",
         url  : "https://tools.ietf.org/html/draft-west-cookie-prefixes-05"
-    },
-    'CORS':{
-        name : "Fetch (CORS protocol)",
-        url  : "https://fetch.spec.whatwg.org/#http-cors-protocol"
     },
     'Credential Management':{
         name : "Credential Management Level 1",
@@ -407,10 +405,6 @@ var specList = {
         name : 'CSS Object Model (CSSOM) View Module',
         url  : 'https://drafts.csswg.org/cssom-view/'
     },
-    'Custom Elements':{
-        name : 'HTML (Custom Elements)',
-        url  : 'https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements'
-    },
     'Custom Scroll Restoration':{
         name : 'Custom Scroll Restoration - History-based API',
         url  : 'https://majido.github.io/scroll-restoration-proposal/history-based-api.html'
@@ -466,6 +460,10 @@ var specList = {
     'DOM3 XPath':{
         name : 'Document Object Model (DOM) Level 3 XPath Specification',
         url  : 'https://www.w3.org/TR/DOM-Level-3-XPath/'
+    },
+    'DOM4': {
+        name : 'DOM4',
+        url  : 'https://www.w3.org/TR/dom/'
     },
     'Element Traversal':{
         name : 'Element Traversal Specification',
@@ -594,10 +592,6 @@ var specList = {
     'HTML Media Capture': {
         name : 'HTML Media Capture',
         url  : 'https://w3c.github.io/html-media-capture/'
-    },
-    'HTML Templates': { /* the draft has been merged in the HTML spec */
-        name : 'HTML (template element)',
-        url  : 'https://html.spec.whatwg.org/multipage/scripting.html#the-template-element'
     },
     'HTML4.01':{
         name : 'HTML 4.01 Specification',
@@ -759,10 +753,6 @@ var specList = {
         name : 'Presentation API',
         url  : 'http://w3c.github.io/presentation-api/'
     },
-    'Progress Events':{ /* Merged into XHR after REC status */
-        name : 'XMLHttpRequest (ProgressEvent)',
-        url  : 'https://xhr.spec.whatwg.org/#interface-progressevent'
-    },
     'Proximity Events':{
         name : 'Proximity Events',
         url  : 'https://w3c.github.io/proximity/'
@@ -819,10 +809,6 @@ var specList = {
         name : "Selection API",
         url  : 'http://w3c.github.io/selection-api/'
     },
-    'Server-sent events':{
-        name : 'HTML (Server-sent events)',
-        url  : 'https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events'
-    },
     'Service Workers':{
         name : 'Service Workers',
         url  : 'https://w3c.github.io/ServiceWorker/'
@@ -835,17 +821,13 @@ var specList = {
         name : 'Selectors API Level 2',
         url  : 'http://dev.w3.org/2006/webapi/selectors-api2/'
     },
-    'Shadow DOM':{
-        name : 'DOM (Shadow trees)',
-        url  : 'https://dom.spec.whatwg.org/#shadow-trees'
+    'Shadow DOM':{ /* Only use for portions of the spec that are not copied from other specs */
+        name : 'Shadow DOM',
+        url  : 'http://w3c.github.io/webcomponents/spec/shadow/'
     },
     'Shape Detection API': {
         name : 'Accelerated Shape Detection in Images',
         url  : 'https://wicg.github.io/shape-detection-api/'
-    },
-    'Shared Memory':{
-        name : 'ECMAScript (Memory Model)',
-        url  : 'https://tc39.github.io/ecma262/#sec-memory-model'
     },
     'SIMD': {
         name : 'SIMD',
@@ -1111,17 +1093,13 @@ var specList = {
         name : 'WebRTC 1.0: Real-time Communication Between Browsers',
         url  : 'https://w3c.github.io/webrtc-pc/'
     },
-    'Websockets':{
-        name : 'HTML (Web sockets)',
-        url  : 'https://html.spec.whatwg.org/multipage/web-sockets.html#network'
-    },
     'Web Speech API':{
         name : 'Web Speech API',
         url  : 'https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi.html'
     },
     'Web Storage':{
         name : 'HTML (Web storage)',
-        url  : 'https://html.spec.whatwg.org/multipage/webstorage.html#webstorage'
+        url  : 'https://html.spec.whatwg.org/multipage/webstorage.html'
     },
     'Web Telephony':{
         name : 'Web Telephony',
@@ -1141,7 +1119,7 @@ var specList = {
     },
     'Web Workers':{
         name : 'HTML (Web workers)',
-        url  : 'https://html.spec.whatwg.org/multipage/workers.html#workers'
+        url  : 'https://html.spec.whatwg.org/multipage/workers.html'
     },
     'WOFF1.0':{
         name : 'WOFF File Format 1.0',
