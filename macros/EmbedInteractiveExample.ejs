@@ -1,0 +1,28 @@
+<%
+// Embeds a live sample from a mdn.github.io GitHub page
+//
+// Parameters:
+//  $0 - The URL of mdn.github.io page (relative)
+//  $1 - Keyword indicating iframe size: small, medium, or large
+//
+//  Example call {{EmbedInteractiveExample("interactive-examples/pages/css/animation.html", "small")}}
+//
+
+let url = "https://mdn.github.io/" + $0;
+let classesList = Array();
+
+// figure out classes
+if($0.includes('/js/')){
+    classesList.push('interactive-js');
+}
+
+if($1) {
+    classesList.push('interactive-' + $1);
+}
+
+let classes = classesList.join(' ');
+
+let str = `<iframe class="interactive ${classes}" width="100%" height="250" frameborder="0" src="${url}"></iframe>`;
+
+%>
+<%- str %>
