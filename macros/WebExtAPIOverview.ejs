@@ -2,22 +2,28 @@
 
 var output = "";
 var apiPages;
-var apiSummaryId = "api-summary";
 
-if ($0) {
-  apiPages = page.subpagesExpand($0);
-}
-else {
-  apiPages = page.subpagesExpand();
-}
+apiPages = page.subpagesExpand('/en-US/Add-ons/WebExtensions/API');
+
+var apiLinkLabel = mdn.localString({
+    "en-US": "API reference documentation",
+    "zh-CN": "API 参考资料"
+});
 
 for (var i=0; i < apiPages.length; i++) {
   var apiPage = apiPages[i];
   var apiPageUrlPieces = apiPage.url.split("/");
   var apiName = apiPageUrlPieces[apiPageUrlPieces.length-1];
+  var localepath = '/' + env.locale + '/docs/Mozilla/Add-ons/WebExtensions/API/' + apiName;
+  var apiPage_new = wiki.getPage(localepath);
+  if (apiPage_new.length != 0) {
+    apiPage = apiPage_new;
+    apiPageUrlPieces = apiPage.url.split("/");
+    apiName = apiPageUrlPieces[apiPageUrlPieces.length-1];
+  }
   output += "<h2>" + apiName + "</h2>";
   output += '<p>' + apiPage.summary + '</p>';
-  output += '<p><a href="' + apiPage.url + '">API reference documentation</a></p>';
+  output += '<p><a href="' + apiPage.url + '">' + apiLinkLabel + '</a></p>';
 }
 
 %>
