@@ -1359,7 +1359,7 @@
                             "PresentationConnection.send()",
                             "PresentationConnection.terminate()",
                             "PresentationRequest.start()",
-                            "PresentationRequest.reconnect()"
+                            "PresentationRequest.reconnect()",
                             "PresentationRequest.getAvailability()" ],
             "properties": [ "Navigator.presentation",
                             "Navigator.mozPresentationDeviceInfo",
