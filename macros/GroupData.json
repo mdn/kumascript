@@ -1509,7 +1509,7 @@
                             "Client.url",
                             "Client.type",
                             "ExtendableMessageEvent.data",
-                            "ExtendableMessageEvent.lastEventId"
+                            "ExtendableMessageEvent.lastEventId",
                             "ExtendableMessageEvent.origin",
                             "ExtendableMessageEvent.ports",
                             "ExtendableMessageEvent.source",
