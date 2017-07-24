@@ -20,8 +20,12 @@ if (($2 !== false && $0.indexOf("#") === -1) || $2 === true) {
         summary = mdn.escapeQuotes(page.summary);
     } else {
         switch(lang) {
+            case "pt-BR": 
+                summary = "Este artigo ainda não foi escrito. Por favor, considere contribuir!";
+                break;
             default:
-            summary = "This article hasn't been written yet. Please consider contributing!";
+                summary = "This article hasn't been written yet. Please consider contributing!";
+                break;
         }
     }
 }
