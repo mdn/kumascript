@@ -93,6 +93,7 @@ describeMacro('dekiscript-page', function () {
                   fetch_url0 = fetch_url + '?depth=0',
                   fetch_url1 = fetch_url + '?depth=1',
                   fetch_url2 = fetch_url + '?depth=2';
+            macro.ctx.options.doc_base_url = base_url;
             macro.ctx.require_macro = require_macro_stub;
             require_macro_stub.withArgs('MDN:Common').returns({
                 fetchJSONResource: fetch_stub
@@ -177,6 +178,7 @@ describeMacro('dekiscript-page', function () {
                   fetch_url0 = fetch_url + '&depth=0',
                   fetch_url1 = fetch_url + '&depth=1',
                   fetch_url2 = fetch_url + '&depth=2';
+            macro.ctx.options.doc_base_url = base_url;
             macro.ctx.require_macro = require_macro_stub;
             require_macro_stub.withArgs('MDN:Common').returns({
                 fetchJSONResource: fetch_stub
@@ -271,6 +273,7 @@ describeMacro('dekiscript-page', function () {
                   require_macro_stub = sinon.stub(),
                   fetch_url = base_url + fix_url + '$json',
                   fetch_junk_url = base_url + '/en-US/docs/junk$json';
+            macro.ctx.options.doc_base_url = base_url;
             macro.ctx.require_macro = require_macro_stub;
             require_macro_stub.withArgs('MDN:Common').returns({
                 fetchJSONResource: fetch_stub

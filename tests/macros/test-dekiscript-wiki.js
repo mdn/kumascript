@@ -30,6 +30,7 @@ describeMacro('dekiscript-wiki', function () {
     });
     describe('test "buildAbsoluteURL"', function () {
         beforeEachMacro(function (macro) {
+            macro.ctx.options.doc_base_url = 'https://developer.mozilla.org';
             return macro.require().then(function (pkg) {
                 macro.buildAbsoluteURL = pkg.buildAbsoluteURL;
             });
