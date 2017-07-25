@@ -1029,7 +1029,7 @@
             "events":      []
         },
         "Media Capture and Streams": {
-            "overview":   [ "Media Capture and Streams API (Media Streams)" ],
+            "overview":   [ "Media Streams API" ],
             "guides":     [ { "url":   "/en-US/docs/Web/API/Media_Streams_API/Constraints",
                               "title": "Capabilities, constraints, and settings" } ],
             "interfaces": [ "AudioStreamTrack",
