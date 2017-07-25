@@ -17,12 +17,12 @@ The exception is the devtools APIs: these have a three-level structure
 "devtools.panels" the namespace. So for devtools APIs, we iterate into
 the devtools namespace to generate aggregated tables.
 
-This macro can be inserted anywhere, and takes not arguments.
+This macro can be inserted anywhere, and takes no arguments.
 */
 
 const compatDataUrl = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/javascript-apis.json";
 const compatJson = mdn.fetchJSONResource(compatDataUrl);
-const webExtAPIBaseUrl = "docs/Mozilla/Add-ons/WebExtensions/API";
+const webExtAPIBaseUrl = "docs/Mozilla/Add-ons/Extensions/API";
 
 function writeTableForModule(data, moduleName) {
   var table = `<h2>${moduleName}</h2>`;
