@@ -1266,8 +1266,6 @@
                               "title": "Long Tasks API" },
                             { "url": "/en-US/docs/Web/API/Navigation_timing_API",
                               "title": "Navigation Timing API" },
-                            { "url": "/en-US/docs/Web/API/Navigation_timing_API/Using_Navigation_Timing",
-                              "title": "Using Navigation Timing" },
                             { "url": "/en-US/docs/Web/API/Performance_Timeline",
                               "title": "Performance Timeline" },
                             { "url": "/en-US/docs/Web/API/Performance_Timeline/Using_Performance_Timeline",
@@ -1343,7 +1341,7 @@
                             "TaskAttributionTiming.containerName",
                             "TaskAttributionTiming.containerSrc",
                             "TaskAttributionTiming.containerType" ],
-            "events":     [ "Performance.onresourcetimingbufferfull" ]
+            "events":     [ "Performance.resourcetimingbufferfull" ]
         },
         "Performance Timeline API": {
             "overview":   [ "Performance Timeline" ],
