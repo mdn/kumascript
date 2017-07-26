@@ -1341,7 +1341,7 @@
                             "TaskAttributionTiming.containerName",
                             "TaskAttributionTiming.containerSrc",
                             "TaskAttributionTiming.containerType" ],
-            "events":     [ "Performance.resourcetimingbufferfull" ]
+            "events":     [ "resourcetimingbufferfull" ]
         },
         "Performance Timeline API": {
             "overview":   [ "Performance Timeline" ],
