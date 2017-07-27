@@ -42,7 +42,7 @@ function tableFromArgument(path) {
   const manifestDataUrl = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/manifest-keys.json";
   // if the argument does not specify a manifest key, generate the aggregate table
   if (pathComponents.length === 2) {
-    const manifestBaseUrl = "Add-ons/WebExtensions/manifest.json";
+    const manifestBaseUrl = "Add-ons/Extensions/manifest.json";
     compatJson = mdn.fetchJSONResource(manifestDataUrl).data.webextensions.manifest;
     return template("WebExtBrowserCompatTable", [compatJson, manifestBaseUrl]);
   } else {
@@ -76,7 +76,7 @@ This function may only be called from pages under "Add-ons/WebExtensions/API/".
 */
 function tableFromSlug() {
   const url = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/javascript-apis.json";
-  const webExtAPIBaseUrl = "Add-ons/WebExtensions/API/";
+  const webExtAPIBaseUrl = "Add-ons/Extensions/API/";
 
   // Pages that include this macro must be under
   // the "Add-ons/WebExtensions/API/" hierarchy.
