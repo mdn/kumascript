@@ -930,9 +930,17 @@
             "events":     []
         },
         "Image Capture API": {
-            "interfaces": [ "ImageCapture" ],
-            "methods":    [],
-            "properties": [],
+            "interfaces": [ "ImageCapture",
+                            "PhotoCapabilities" ],
+            "methods":    [ "ImageCapture.getPhotoCapabilities()",
+                            "ImageCapture.getPhotoSettings()",
+                            "ImageCapture.grabFrame()",
+                            "ImageCapture.takePhoto()" ],
+            "properties": [ "ImageCapture.track",
+                            "PhotoCapabilities.fillingLightMode",
+                            "PhotoCapabilities.imageHeight",
+                            "PhotoCapabilities.imageWidth",
+                            "PhotoCapabilities.redEyeReduction" ],
             "events":     []
         },
         "IndexedDB": {
