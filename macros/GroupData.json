@@ -1595,7 +1595,7 @@
                             "ReadableByteStreamController.enqueue()",
                             "ReadableByteStreamController.error()",
                             "ReadableStream.cancel()",
-                            "ReadableStream.getReader()"
+                            "ReadableStream.getReader()",
                             "ReadableStream.pipeThrough()",
                             "ReadableStream.pipeTo()",
                             "ReadableStream.tee()",
