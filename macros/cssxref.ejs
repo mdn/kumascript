@@ -13,7 +13,7 @@
 
   Examples:
   {{cssxref("background")}} =>
-      <a href="/en-US/docs/Web/CSS/background" title="The background CSS 
+      <a href="/en-US/docs/Web/CSS/background" title="The background CSS
       property is..."><code>background</code></a>
   {{cssxref("length")}} =>
       <a href="/en-US/docs/Web/CSS/length" title="The <length> CSS data type
@@ -22,7 +22,7 @@
       <a href="/en-US/docs/Web/CSS/linear-gradient" title="The CSS
       linear-gradient() function creates..."><code>linear-gradient()</code></a>
   {{cssxref("margin-top", "top margin")}} =>
-      <a href="/en-US/docs/Web/CSS/margin-top" title="The margin-top CSS 
+      <a href="/en-US/docs/Web/CSS/margin-top" title="The margin-top CSS
       property of an element sets..."><code>top margin</code></a>
   {{cssxref("filter", "", "#url")}} =>
       <a href="/en-US/docs/Web/CSS/filter#url()"><code>filter</code></a>
@@ -31,8 +31,9 @@
 var lang = env.locale;
 var url = "";
 var urlWithoutAnchor = "";
-var str = ($1 || $0);
+var linkText = ($1 || $0);
 var localStrings = string.deserialize(template("L10n:Common"));
+var summary = "";
 
 // Deal with CSS data types by removing <>
 var slug = $0.replace(/&lt;(.*)&gt;/g, '$1');
@@ -48,38 +49,37 @@ switch ($0) {
         break;
 }
 
-str = str.toLowerCase();
 urlWithoutAnchor = "/" + lang + "/docs/Web/CSS/" + slug;
 url = urlWithoutAnchor + $2;
 
-var thisPage = null; // Will be lazy evaluated
+var targetPage = wiki.getPage(urlWithoutAnchor);
+
+// If the link text parameter wasn't included, try to use the
+// title of the target page.
+
 if (!$1) {
-    thisPage = wiki.getPage(urlWithoutAnchor); // lazy evaluation
-
-    // Append parameter brackets to CSS functions
-    if (page.hasTag(thisPage, "CSS Function")) {
-        str += "()";
+    if (targetPage && targetPage.title) {
+        linkText = kuma.htmlEscape(targetPage.title);
     }
 
-    // Enclose CSS data types in arrow brackets
-    if (page.hasTag(thisPage, "CSS Data Type") && !/^&lt;.+&gt;$/.test(str)) {
-        str = "&lt;" + str + "&gt;";
-    }
-}
+    // If the link text has a space in it, we won't wrap it in
+    // <code>, since the text is obviously not an API term.
 
-var summary = "";
-
-if (!$2) {
-    //if (!thisPage) thisPage = wiki.getPage(url); // lazy evaluation // Disabled to test performance (we get a lot of Kumascript errors)
-
-    if (thisPage && thisPage.summary) {
-        summary = mdn.escapeQuotes(thisPage.summary);
-    } else {
-        summary = mdn.getLocalString(localStrings, "summary");
+    if (!linkText.includes(" ")) {
+        linkText = "<code>" + linkText + "</code>";
     }
 }
 
-var entry = "<a href=\"" + url + "\"" + (summary?" title=\""+summary+"\"":"") + "><code>" + str + "</code></a>";
+// If the page has a summary, grab it for the tooltip; otherwise,
+// use the default tooltip string.
+
+if (targetPage.summary) {
+    summary = mdn.escapeQuotes(targetPage.summary);
+} else {
+    summary = mdn.getLocalString(localStrings, "summary");
+}
+
+var entry = "<a href=\"" + url + "\"" + (summary?" title=\""+summary+"\"":"") + ">" + linkText + "</a>";
 
 
 %><%- entry %>
