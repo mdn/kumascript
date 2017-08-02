@@ -3,12 +3,12 @@
   "description": "Scripting for MDN",
   "version": "0.1.0",
   "license": "MPL-2.0",
-  "homepage": "https://github.com/mozilla/kumascript",
-  "bugs": "https://github.com/mozilla/kumascript/issues",
+  "homepage": "https://github.com/mdn/kumascript",
+  "bugs": "https://github.com/mdn/kumascript/issues",
   "author": "Les Orchard <lorchard@mozilla.com> (http://lmorchard.com/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla/kumascript.git"
+    "url": "https://github.com/mdn/kumascript.git"
   },
   "main": "./lib/kumascript/index",
   "scripts": {
