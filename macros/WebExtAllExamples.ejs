@@ -1,19 +1,19 @@
 <%
 
 /*
-The "examples.json" file from the https://github.com/mdn/webextensions-examples
+The "examples.json" file from the https://github.com/mdn/browser-extensions-examples
 repository contains information about the examples living in that repository.
 
 This macro loads the "examples.json" file and uses it to build a table
 presenting that information.
 
-For example, the page at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples
+For example, the page at https://developer.mozilla.org/en-US/Add-ons/Extensions/Examples
 is generated using this macro.
 
 */
 
-const examplesBaseUrl = "https://github.com/mdn/webextensions-examples/tree/master/";
-const allExamples = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/webextensions-examples/master/examples.json");
+const examplesBaseUrl = "https://github.com/mdn/browser-extensions-examples/tree/master/";
+const allExamples = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/browser-extensions-examples/master/examples.json");
 const lang = env.locale;
 
 const s_name = mdn.localString({
@@ -29,7 +29,7 @@ const s_javascript_apis = mdn.localString({
 });
 
 const s_webextension_api_path = mdn.localString({
-    "en-US": "Add-ons/WebExtensions/API"
+    "en-US": "Add-ons/Extensions/API"
 });
 
 function writeJavaScriptAPIs(apisJSON) {

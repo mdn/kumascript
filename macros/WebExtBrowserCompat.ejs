@@ -3,7 +3,7 @@
 /**
 WebExtBrowserCompat.ejs
 -----------------------
-Use this macro to insert the appropriate WebExtension compat table for the
+Use this macro to insert the appropriate Extension compat table for the
 current page.
 
 It takes one optional argument.
@@ -15,7 +15,7 @@ this function only supports tables for manifest.json keys.
 * If the argument is omitted, the macro calls tableFromSlug(), which uses
 the slug of the current page to get the right chunk of JSON data for the
 table. The no-argument form is only allowed on pages under
-"Add-ons/WebExtensions/API/".
+"Add-ons/Extensions/API/".
 */
 
 /**
@@ -42,7 +42,7 @@ function tableFromArgument(path) {
   const manifestDataUrl = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/manifest-keys.json";
   // if the argument does not specify a manifest key, generate the aggregate table
   if (pathComponents.length === 2) {
-    const manifestBaseUrl = "Add-ons/WebExtensions/manifest.json";
+    const manifestBaseUrl = "Add-ons/Extensions/manifest.json";
     compatJson = mdn.fetchJSONResource(manifestDataUrl).data.webextensions.manifest;
     return template("WebExtBrowserCompatTable", [compatJson, manifestBaseUrl]);
   } else {
@@ -57,33 +57,33 @@ This function transforms the URL of the current page into a path through
 the compat data, and uses this path to retrieve the appropriate bit of data.
 For example:
 
-https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/alarms
+https://developer.mozilla.org/en-US/Add-ons/Extensions/API/alarms
 ...would become data["alarms"]
 
-https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/alarms/get
+https://developer.mozilla.org/en-US/Add-ons/Extensions/API/alarms/get
 ...would become data["alarms"]["get"]
 
 One tricky detail is that it needs to handle the devtools APIs, which name
 themselves "devtools.thing":
 
-https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/devtools.panels
+https://developer.mozilla.org/en-US/Add-ons/Extensions/API/devtools.panels
 ...would become data["devtools"]["panels"]
 
-It then passes the compat data into "WebExtBrowserCompatTable", which
+It then passes the compat data into "ExtBrowserCompatTable", which
 builds the table.
 
-This function may only be called from pages under "Add-ons/WebExtensions/API/".
+This function may only be called from pages under "Add-ons/Extensions/API/".
 */
 function tableFromSlug() {
   const url = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/javascript-apis.json";
-  const webExtAPIBaseUrl = "Add-ons/WebExtensions/API/";
+  const webExtAPIBaseUrl = "Add-ons/Extensions/API/";
 
   // Pages that include this macro must be under
-  // the "Add-ons/WebExtensions/API/" hierarchy.
+  // the "Add-ons/Extensions/API/" hierarchy.
   // So first, let's get the part of the URL following that subpath, or fail.
   var components = env.slug.split(webExtAPIBaseUrl);
   if (components.length < 2) {
-    throw "If no arguments are given, then this macro can only be called from pages under \"Add-ons/WebExtensions/API/\"";
+    throw "If no arguments are given, then this macro can only be called from pages under \"Add-ons/Extensions/API/\"";
   }
 
   // Now we're looking at a subpath like:
