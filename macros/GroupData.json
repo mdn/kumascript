@@ -933,10 +933,7 @@
             "interfaces": [ "ImageCapture",
                             "PhotoCapabilities" ],
             "methods":    [],
-            "properties": [ "PhotoCapabilities.fillingLightMode",
-                            "PhotoCapabilities.imageHeight",
-                            "PhotoCapabilities.imageWidth",
-                            "PhotoCapabilities.redEyeReduction" ],
+            "properties": [],
             "events":     []
         },
         "IndexedDB": {
