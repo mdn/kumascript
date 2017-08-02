@@ -444,7 +444,7 @@ if (name === "preview-wiki-content") {
     } else if (data.properties[name]) {
         rawSyntax = data.properties[name].syntax;
     } else if (data.syntaxes[addBrackets(name)]) {
-        rawSyntax = data.syntaxes[addBrackets(name)];
+        rawSyntax = data.syntaxes[addBrackets(name)].syntax;
     }
 
     formattedSyntax = formatSyntax(rawSyntax);
