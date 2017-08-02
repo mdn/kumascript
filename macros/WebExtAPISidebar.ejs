@@ -7,7 +7,7 @@ var hasTag = page.hasTag;
 var slug = env.slug;
 var locale = env.locale;
 var baseURL = "/" + locale + "/docs/";
-var baseAPIPage = baseURL + "Mozilla/Add-ons/WebExtensions/API";
+var baseAPIPage = baseURL + "Mozilla/Add-ons/Extensions/API";
 
 function classifyPages(subpages) {
   var collection = {
@@ -60,7 +60,7 @@ output += '</ol>';
 
 function buildSidebarForAllAPIs() {
   output = "<ol>";
-  var browserSupportURL = baseURL + "Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs";
+  var browserSupportURL = baseURL + "Mozilla/Add-ons/Extensions/Browser_support_for_JavaScript_APIs";
   var browserSupportTitle = "Browser support for JavaScript APIs";
   output +=  '<li><a href="' +  browserSupportURL + '">' + browserSupportTitle + '</a>';
 
