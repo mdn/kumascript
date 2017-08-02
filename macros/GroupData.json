@@ -930,7 +930,8 @@
             "events":     []
         },
         "Image Capture API": {
-            "interfaces": [ "ImageCapture" ],
+            "interfaces": [ "ImageCapture",
+                            "PhotoCapabilities" ],
             "methods":    [],
             "properties": [],
             "events":     []
