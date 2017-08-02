@@ -3,13 +3,11 @@
 
 Retrieves MDN compat data for a given feature
 
-Differentiates between aggregate compat tables and feature compat tables.
-Aggregate tables use basic_support of the underlying features and have no notes
-Feature tables display sub features and display notes
-
 Parameters
 
-  $0 – A query string indicating for which feature to retrieve compat data for.
+$0 – A query string indicating for which feature to retrieve compat data for.
+$1 – A depth setting indicating how deep sub features should be added to the table
+(flattened, default: 1 level)
 
 Example calls
 
@@ -27,29 +25,28 @@ Example calls
   {{compat("api.WebGL2RenderingContext.beginQuery")}}
   {{compat("html.elements.input")}}
 
-  {{compat("css.properties.background-*")}}
-  (not implemented, just an idea for more advanced aggregate queries)
+  {{compat("html.elements.link", 2)}}
 
 */
 
 const bcd = require('mdn-browser-compat-data');
-
 var query = $0;
+var depth = $1 || 1;
 var output = '';
 
 var compatStrings = string.deserialize(template('L10n:CompatTable'));
 var localize = mdn.getLocalString;
 
 var s_no_data_found = mdn.localString({
-    'en-US': `No compatibility data found. Please contribute data for "${query}" to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.`
+  'en-US': `No compatibility data found. Please contribute data for "${query}" (depth: ${depth}) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.`
 });
 
 var s_firefox_android = mdn.localString({
-    'en-US': 'Firefox for Android'
+  'en-US': 'Firefox for Android'
 });
 
 var s_chrome_android = mdn.localString({
-    'en-US': 'Chrome for Android'
+  'en-US': 'Chrome for Android'
 });
 
 const desktopBrowsers = {
@@ -100,16 +97,16 @@ function getVersionString(versionInfo) {
   switch (versionInfo) {
     case null:
       return `<span title="${localize(compatStrings, 'supportsShort_unknown_title')}"
-              style="color: rgb(255, 153, 0);">${localize(compatStrings, 'supportsShort_unknown')}</span>`;
-      break;
+      style="color: rgb(255, 153, 0);">${localize(compatStrings, 'supportsShort_unknown')}</span>`;
+    break;
     case true:
       return `<span title="${localize(compatStrings, 'supportsShort_yes_title')}"
-              style="color: #888">${localize(compatStrings, 'supportsShort_yes')}</span>`;
-      break;
+      style="color: #888">${localize(compatStrings, 'supportsShort_yes')}</span>`;
+    break;
     case false:
       return `<span title="${localize(compatStrings, 'supportsLong_no')}"
-              style="color: #f00">${localize(compatStrings, 'supportsShort_no')}</span>`;
-      break;
+      style="color: #f00">${localize(compatStrings, 'supportsShort_no')}</span>`;
+    break;
     default:
       return versionInfo;
   }
@@ -158,18 +155,18 @@ function writeFlagsNote(supportData, browserId) {
       case 'firefox':
       case 'firefox_android':
         prefSettings = firefoxPrefs;
-        break;
+      break;
       case 'chrome':
       case 'chrome_android':
         prefSettings = chromePrefs;
-        break;
+      break;
     }
     output += `${flagText} preference${valueToSet}. ${prefSettings}`;
   }
 
   if (supportData.flag.type === 'compile_flag') {
     output += `${flagText} compile flag${valueToSet}.`;
-    }
+  }
 
   return output;
 }
@@ -205,9 +202,9 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
     // Add prefix
     if (supportData.prefix) {
       output += `<span title="prefix" class="inlineIndicator prefixBox prefixBoxInline">
-                      <a title="The name of this feature is prefixed with '${supportData.prefix}' as this
-                      browser considers it experimental" href="/en-US/docs/Web/Guide/Prefixes">${supportData.prefix}
-                      </a></span>`;
+      <a title="The name of this feature is prefixed with '${supportData.prefix}' as this
+      browser considers it experimental" href="/en-US/docs/Web/Guide/Prefixes">${supportData.prefix}
+      </a></span>`;
     }
 
     // Add alternative name
@@ -247,48 +244,10 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
 }
 
 /*
-Generate an aggregate table that summarises the support status for the
-individual features under the data it's passed.
-Each row in the table will contain the "basic_support" data for a single feature.
-
-`json_identifier` is an `identifier` JSON object.
-*/
-function writeAggregateTable(json_identifier, browserPlatformType, browserNames) {
-  let output = writeTableHead(browserPlatformType, browserNames);
-  output += '<tbody>';
-  // add a row for each feature
-  for (let featureName of Object.keys(json_identifier).sort()) {
-    output += '<tr>';
-    let featureData = json_identifier[featureName]['__compat'];
-    // the first cell is the name of the feature
-    output += `<td><code>${featureName}</code></td>`;
-    // then one cell for each browser
-    for (let browserNameKey of Object.keys(browserNames)) {
-      let supportData = featureData['basic_support']['support'][browserNameKey];
-      let supportInfo = '';
-      // if supportData is an array, there are multiple support statements
-      if (Array.isArray(supportData)) {
-        for (let entry of supportData) {
-          supportInfo += `<p>${writeSupportInfo(entry, browserNameKey)}</p>`;
-        }
-      } else { // there is just one support statement
-        supportInfo = writeSupportInfo(supportData, browserNameKey);
-      }
-      output += `<td>${supportInfo}</td>`;
-    }
-    output += '</tr>';
-  }
-  output += '</tbody></table></div>';
-  return output;
-}
-
-/*
 Iterate into all "support" objects, and all browsers under them,
 and collect all notes in an array, without duplicates.
-
-`json_subfeature_set` is a `subfeature_set` JSON object.
 */
-function collectCompatNotes(json_subfeature_set) {
+function collectCompatNotes() {
 
   function pushNotes(supportEntry, browserName) {
     // collect notes
@@ -314,16 +273,15 @@ function collectCompatNotes(json_subfeature_set) {
       }
     }
   }
-
-  for (let subfeature of Object.keys(json_subfeature_set)) {
-    let support = json_subfeature_set[subfeature]['support'];
+  for (let row of features) {
+    let support = Object.keys(row).map((k) => row[k])[0].support;
     for (let browserName of Object.keys(support)) {
       if (Array.isArray(support[browserName])) {
         for (let entry of support[browserName]) {
           pushNotes(entry, browserName);
         }
       } else {
-          pushNotes(support[browserName], browserName);
+        pushNotes(support[browserName], browserName);
       }
     }
   }
@@ -335,23 +293,22 @@ For a single row, write all the cells that contain support data.
 (That is, every cell in the row except the first, which contains
 an identifier for the row,  like "Basic support".
 
-`json_subfeature` is a `subfeature` JSON object.
 */
-function writeSupportCells(json_subfeature, compatNotes, browserNames) {
+function writeSupportCells(supportData, compatNotes, browserNames) {
   let output = '';
 
   for (let browserNameKey of Object.keys(browserNames)) {
-    let supportData = json_subfeature['support'][browserNameKey];
+    let support = supportData[browserNameKey];
     let supportInfo = '';
     // if supportData is an array, there are multiple support statements
-    if (Array.isArray(supportData)) {
-      for (let entry of supportData) {
+    if (Array.isArray(support)) {
+      for (let entry of support) {
         supportInfo += `<p>${writeSupportInfo(entry, browserNameKey, compatNotes)}</p>`;
       }
-    } else if (supportData) { // there is just one support statement
-      supportInfo = writeSupportInfo(supportData, browserNameKey, compatNotes);
+    } else if (support) { // there is just one support statement
+      supportInfo = writeSupportInfo(support, browserNameKey, compatNotes);
     } else { // this browser has no info, it's unknown
-      supportInfo = writeSupportInfo(null);
+    supportInfo = writeSupportInfo(null);
     }
     output += `<td>${supportInfo}</td>`;
   }
@@ -359,37 +316,28 @@ function writeSupportCells(json_subfeature, compatNotes, browserNames) {
 }
 
 /*
-Generate a table that contains the detailed compat data for a single feature.
-The first row will contain the "basic_support" data.
-Any subsequent rows will contain "sub-feature" support data.
-
-`json_subfeature_set` is a `subfeature_set` JSON object.
+ Write compat table
 */
-function writeFeatureTable(json_subfeature_set, browserPlatformType, browserNames) {
-  let compatNotes = collectCompatNotes(json_subfeature_set);
+function writeTable(browserPlatformType, browserNames) {
+  let compatNotes = collectCompatNotes();
   let output = writeTableHead(browserPlatformType, browserNames);
   output += '<tbody>';
-  // write basic support first
-  output += `<tr><td>${localize(compatStrings, 'feature_basicsupport')}</td>`;
-  output += `${writeSupportCells(json_subfeature_set["basic_support"], compatNotes, browserNames)}</tr>`;
-  // then all the other sub-features, one per row
-  for (let row of Object.keys(json_subfeature_set)) {
-    if (row != 'basic_support') {
-      var desc = json_subfeature_set[row].desc || `<code>${row}</code>`;
-      output += `<tr><td>${desc}</td>`
-      output += `${writeSupportCells(json_subfeature_set[row], compatNotes, browserNames)}</tr>`;
-    }
+  for (let row of features) {
+    let feature = Object.keys(row).map((k) => row[k])[0];
+    var desc = feature.description || `<code>${Object.keys(row)[0]}</code>`;
+    output += `<tr><td>${desc}</td>`
+    output += `${writeSupportCells(feature.support, compatNotes, browserNames)}</tr>`;
   }
   output += '</tbody></table></div>';
   return output;
 }
 
 /*
- Write each compat note, with an `id` so it will be linked from the table.
+Write each compat note, with an `id` so it will be linked from the table.
 */
-function writeNotes(json_subfeature_set) {
+function writeNotes() {
   let output = '';
-  let compatNotes = collectCompatNotes(json_subfeature_set);
+  let compatNotes = collectCompatNotes();
   for (let note of compatNotes) {
     let noteIndex = compatNotes.indexOf(note);
     output += `<p id=compatNote_${noteIndex+1}>${noteIndex+1}. ${note}</p>`;
@@ -406,31 +354,55 @@ function getData(queryString, obj) {
   }, obj);
 }
 
-var data = getData(query, bcd.data);
-
-if (!data) {
-  output = s_no_data_found;
-} else {
-  output = `<div class="htab">
-              <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
-              <ul>
-              <li class="selected">
-                <a href="javascript:;">${localize(compatStrings, 'browserType_desktop')}</a>
-              </li>
-              <li>
-                <a href="javascript:;">${localize(compatStrings, 'browserType_mobile')}</a>
-              </li>
-              </ul>
-           </div>`;
-
-  if (data.hasOwnProperty('__compat')) {
-    output += writeFeatureTable(data['__compat'], 'desktop', desktopBrowsers);
-    output += writeFeatureTable(data['__compat'], 'mobile', mobileBrowsers);
-    output += writeNotes(data['__compat']);
-  } else {
-    output += writeAggregateTable(data, 'desktop', desktopBrowsers);
-    output += writeAggregateTable(data, 'mobile', mobileBrowsers);
+/*
+Get features that should be displayed according to the query and the depth setting
+Flatten them into a features array
+*/
+function traverseFeatures(obj, depth, identifier) {
+  depth--;
+  if (depth >= 0) {
+    for (i in obj) {
+      if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
+        if (obj[i].__compat) {
+          // [identifier + '.' + i]
+          features.push({[i]: obj[i].__compat});
+        }
+        traverseFeatures(obj[i], depth, identifier + '.' + i);
+      }
+    }
   }
+}
+
+var compatData = getData(query, bcd);
+var features = [];
+var identifier = query.split(".").pop();
+
+if (!compatData) {
+  output = s_no_data_found;
+} else if (compatData.__compat) {
+  // get an optional main feature identifier and add it to the feature list
+  features.push({[identifier]: compatData.__compat});
+}
+
+traverseFeatures(compatData, depth, identifier);
+
+if (features.length > 0) {
+  output = `<div class="htab">
+  <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
+  <ul>
+  <li class="selected">
+  <a href="javascript:;">Desktop</a>
+  </li>
+  <li>
+  <a href="javascript:;">Mobile</a>
+  </li>
+  </ul>
+  </div>`;
+  output += writeTable('desktop', desktopBrowsers);
+  output += writeTable('mobile', mobileBrowsers);
+  output += writeNotes();
+} else {
+  output = s_no_data_found;
 }
 %>
 <%-output%>
