@@ -2,13 +2,13 @@
 // Embeds a live sample from a mdn.github.io GitHub page
 //
 // Parameters:
-//  $0 - The URL of mdn.github.io page (relative)
+//  $0 - The URL of interactive-examples.mdn.mozilla.net page (relative)
 //  $1 - Keyword indicating iframe size: small, medium, or large
 //
-//  Example call {{EmbedInteractiveExample("interactive-examples/pages/css/animation.html", "small")}}
+//  Example call {{EmbedInteractiveExample("pages/css/animation.html", "small")}}
 //
 
-let url = "https://mdn.github.io/" + $0;
+let url = "https://interactive-examples.mdn.mozilla.net/" + $0;
 let classesList = Array();
 
 // figure out classes
