@@ -11,13 +11,6 @@ DOCKER_PORT_ARGS ?= -p "${PORT}:${PORT}"
 TEST_RUN_ARGS ?=
 TEST_RUN_TIMEOUT ?= 10000
 
-
-build:
-	docker build -t ${IMAGE} .
-
-push:
-	docker push ${IMAGE}
-
 run:
 	docker run ${DOCKER_RUN_ARGS} ${DOCKER_PORT_ARGS} ${IMAGE} node run.js
 
@@ -46,4 +39,4 @@ shrinkwrap:
 	docker run -it -v ${MOUNT_DIR}\:${APP_DIR} -w / -u root ${IMAGE} \
 	    bash -c "npm shrinkwrap && cp npm-shrinkwrap.json ${APP_DIR}"
 
-.PHONY: build push run test test-macros lint lint-macros bash shrinkwrap
+.PHONY: run test test-macros lint lint-macros bash shrinkwrap
