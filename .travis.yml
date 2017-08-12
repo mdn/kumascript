@@ -6,8 +6,17 @@ services:
   - docker
 
 before_script:
-  - make build
-
+  # Move TravisCI's checkout of kumascript into a submodule of kuma
+  - cd ..
+  - git clone https://github.com/mozilla/kuma --depth 2
+  - cd kuma
+  - git submodule update --init locale
+  - rmdir kumascript
+  - mv ../kumascript .
+  # Build the kumascript image
+  - make build-kumascript
+  # Run remaining tasks from the kumascript submodule
+  - cd kumascript
 script:
   - make lint
   - make lint-macros
