@@ -7,7 +7,8 @@ Parameters
 
 $0 – A query string indicating for which feature to retrieve compat data for.
 $1 – A depth setting indicating how deep sub features should be added to the table
-(flattened, default: 1 level)
+(flattened, default: 1 level, meaning any compat data for the given feature,
+and compat data for any of its immediate children).
 $2 – A boolean setting whether to hide notes or not (defaults to false).
 
 Example calls
@@ -33,7 +34,8 @@ Example calls
 const bcd = require('mdn-browser-compat-data');
 var query = $0;
 var depth = $1 || 1;
-var hideNotes = $2;
+var showNotes = $2;
+if (typeof showNotes === 'undefined') { showNotes = true; }
 var output = '';
 
 var compatStrings = string.deserialize(template('L10n:CompatTable'));
@@ -51,31 +53,31 @@ var s_chrome_android = mdn.localString({
   'en-US': 'Chrome for Android'
 });
 
-const desktopBrowsers = {
-  chrome: 'Chrome',
-  edge: 'Edge',
-  firefox: 'Firefox',
-  ie: 'Internet Explorer',
-  opera: 'Opera',
-  safari: 'Safari'
-};
-
-const mobileBrowsers = {
-  webview_android: 'Android',
-  chrome_android: s_chrome_android,
-  edge_mobile: 'Edge mobile',
-  firefox_android: s_firefox_android,
-  ie_mobile: 'IE mobile',
-  opera_android: 'Opera Android',
-  safari_ios: 'iOS Safari',
-}
-
-const webExtBrowserNames = {
-  chrome: "Chrome",
-  edge: "Edge",
-  firefox: "Firefox",
-  firefox_android: s_firefox_android,
-  opera: "Opera"
+const browsers = {
+  "desktop": {
+    chrome: 'Chrome',
+    edge: 'Edge',
+    firefox: 'Firefox',
+    ie: 'Internet Explorer',
+    opera: 'Opera',
+    safari: 'Safari',
+  },
+  "mobile": {
+    webview_android: 'Android',
+    chrome_android: s_chrome_android,
+    edge_mobile: 'Edge mobile',
+    firefox_android: s_firefox_android,
+    ie_mobile: 'IE mobile',
+    opera_android: 'Opera Android',
+    safari_ios: 'iOS Safari',
+  },
+  "webextensions": {
+    chrome: "Chrome",
+    edge: "Edge",
+    firefox: "Firefox",
+    firefox_android: s_firefox_android,
+    opera: "Opera",
+  }
 };
 
 var notesArray = [];
@@ -84,23 +86,22 @@ var notesArray = [];
 Write the table header.
 
 `browserPlatformType` is either "mobile", "desktop" or "webextensions"
-`browserNames` is either the "mobileBrowsers", "desktopBrowsers" or "webExtBrowserNames" object
 */
-function writeTableHead(browserPlatformType, browserNames) {
-  let browserNameKeys = Object.keys(browserNames);
+function writeTableHead(browserPlatformType) {
+  let browserNameKeys = Object.keys(browsers[browserPlatformType]);
   let output = '';
   if (browserPlatformType === 'webextensions') {
     output = '<table class="webext-summary-compat-table"><thead><tr><th style="width: 40%"></th>'
     let browserColumnWidth = 60/browserNameKeys.length;
     for (let browserNameKey of browserNameKeys) {
-      output += `<th style="width:${browserColumnWidth}%">${webExtBrowserNames[browserNameKey]}</th>`;
+      output += `<th style="width:${browserColumnWidth}%">${browsers[browserPlatformType][browserNameKey]}</th>`;
     }
     output += "<tr></thead>";
   } else {
     output = `<div id="compat-${browserPlatformType}"><table class="compat-table"><thead><tr>`;
     output +=  `<th>${localize(compatStrings, 'feature')}</th>`
     for (let browserNameKey of browserNameKeys) {
-      output += `<th>${browserNames[browserNameKey]}</th>`;
+      output += `<th>${browsers[browserPlatformType][browserNameKey]}</th>`;
     }
     output += '</tr></thead>';
   }
@@ -116,20 +117,54 @@ a string to appear in the table cell, like "Yes", "No" or "?"
 function getVersionString(versionInfo) {
   switch (versionInfo) {
     case null:
-      return {class: 'unknown-support', text: `<span title="${localize(compatStrings, 'supportsShort_unknown_title')}"
-      style="color: rgb(255, 153, 0);">${localize(compatStrings, 'supportsShort_unknown')}</span>`};
+      return `<span title="${localize(compatStrings, 'supportsShort_unknown_title')}">
+      ${localize(compatStrings, 'supportsShort_unknown')}</span>`;
     break;
     case true:
-      return {class: 'full-support', text: `<span title="${localize(compatStrings, 'supportsShort_yes_title')}"
-      style="color: #888">${localize(compatStrings, 'supportsShort_yes')}</span>`};
+      return `<span title="${localize(compatStrings, 'supportsShort_yes_title')}">
+      ${localize(compatStrings, 'supportsShort_yes')}</span>`;
     break;
     case false:
-      return {class: 'no-support', text: `<span title="${localize(compatStrings, 'supportsLong_no')}"
-      style="color: #f00">${localize(compatStrings, 'supportsShort_no')}</span>`};
+      return `<span title="${localize(compatStrings, 'supportsLong_no')}">
+      ${localize(compatStrings, 'supportsShort_no')}</span>`;
     break;
     default:
-      return {class: 'full-support', text: versionInfo };
+      return versionInfo;
   }
+}
+
+/*
+Given the support information for a browser, this returns
+a CSS class to apply to the table cell.
+
+`supportData` is a (or an array of) support_statement(s)
+*/
+function getSupportClass(supportInfo) {
+  let cssClass = 'unknown-support';
+
+  if (Array.isArray(supportInfo)) {
+    // the first entry should be the most relevant/recent and will be treated as "the truth"
+    checkSupport(supportInfo[0].version_added, supportInfo[0].version_removed);
+  } else if (supportInfo) { // there is just one support statement
+    checkSupport(supportInfo.version_added, supportInfo.version_removed);
+  } else { // this browser has no info, it's unknown
+  return 'unknown-support';
+}
+
+function checkSupport(added, removed) {
+  if (added === null) {
+    cssClass = 'unknown-support';
+  } else if (added) {
+    cssClass = 'full-support';
+    if (removed) {
+      cssClass = 'no-support';
+    }
+  } else {
+    cssClass = 'no-support';
+  }
+}
+
+return cssClass;
 }
 
 /*
@@ -201,27 +236,27 @@ Main function responsible for the contents of a support cell in the table.
 
 */
 function writeSupportInfo(supportData, browserId, compatNotes) {
-  let output = { text: '', class: '' };
+  let output = '';
 
   // browsers are optional in the data, display them as "?" in our table
   if (!supportData) {
-    output = getVersionString(null);
+    output += getVersionString(null);
   // we have support data, lets go
   } else {
-    output = getVersionString(supportData.version_added);
+    output += getVersionString(supportData.version_added);
 
     if (supportData.version_removed) {
       // We don't know when
       if (typeof(supportData.version_removed) === 'boolean' && supportData.version_removed) {
-        output.text += '&nbsp;—?'
+        output += '&nbsp;—?'
       } else { // We know when
-        output.text += '&nbsp;— ' + supportData.version_removed;
+        output += '&nbsp;— ' + supportData.version_removed;
       }
     }
 
     // Add prefix
     if (supportData.prefix) {
-      output.text += `<span title="prefix" class="inlineIndicator prefixBox prefixBoxInline">
+      output += `<span title="prefix" class="inlineIndicator prefixBox prefixBoxInline">
       <a title="The name of this feature is prefixed with '${supportData.prefix}' as this
       browser considers it experimental" href="/en-US/docs/Web/Guide/Prefixes">${supportData.prefix}
       </a></span>`;
@@ -229,7 +264,7 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
 
     // Add alternative name
     if (supportData.alternative_name) {
-      output.text += ` (as <code>${supportData.alternative_name}</code>)`;
+      output += ` (as <code>${supportData.alternative_name}</code>)`;
     }
 
     // Add note anchors
@@ -257,8 +292,8 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
       noteAnchors.push(`<sup><a href="#compatNote_${noteIndex+1}">${noteIndex+1}</a></sup>`);
     }
     noteAnchors = noteAnchors.sort();
-    if (!hideNotes) {
-      output.text += noteAnchors.join(' ');
+    if (showNotes) {
+      output += noteAnchors.join(' ');
     }
 
   }
@@ -316,39 +351,44 @@ For a single row, write all the cells that contain support data.
 an identifier for the row,  like "Basic support".
 
 */
-function writeSupportCells(supportData, compatNotes, browserNames) {
+function writeSupportCells(supportData, compatNotes, browserPlatformType) {
   let output = '';
 
-  for (let browserNameKey of Object.keys(browserNames)) {
+  for (let browserNameKey of Object.keys(browsers[browserPlatformType])) {
     let support = supportData[browserNameKey];
-    let supportInfo = { text: '', class: '' };
+    let supportInfo = '';
     // if supportData is an array, there are multiple support statements
     if (Array.isArray(support)) {
       for (let entry of support) {
-        supportInfo.text += `<p>${writeSupportInfo(entry, browserNameKey, compatNotes).text}</p>`;
+        supportInfo += `<p>${writeSupportInfo(entry, browserNameKey, compatNotes)}</p>`;
       }
     } else if (support) { // there is just one support statement
       supportInfo = writeSupportInfo(support, browserNameKey, compatNotes);
     } else { // this browser has no info, it's unknown
     supportInfo = writeSupportInfo(null);
-    }
-    output += `<td class="${supportInfo.class}">${supportInfo.text}</td>`;
   }
-  return output;
+  output += `<td class="${getSupportClass(supportData[browserNameKey])}">${supportInfo}</td>`;
+}
+return output;
 }
 
 /*
- Write compat table
+Write compat table
 */
-function writeTable(browserPlatformType, browserNames) {
+function writeTable(browserPlatformType) {
   let compatNotes = collectCompatNotes();
-  let output = writeTableHead(browserPlatformType, browserNames);
+  let output = writeTableHead(browserPlatformType);
   output += '<tbody>';
   for (let row of features) {
     let feature = Object.keys(row).map((k) => row[k])[0];
-    var desc = feature.description || `<code>${Object.keys(row)[0]}</code>`;
+    let label = Object.keys(row)[0];
+    let desc = `<code>${label}</code>`;
+    if (feature.description) {
+      let prefix = label.slice(0, label.lastIndexOf('.'));
+      desc = `<code>${prefix}</code>:  ${feature.description}`;
+    }
     output += `<tr><td>${desc}</td>`
-    output += `${writeSupportCells(feature.support, compatNotes, browserNames)}</tr>`;
+    output += `${writeSupportCells(feature.support, compatNotes, browserPlatformType)}</tr>`;
   }
   output += '</tbody></table></div>';
   return output;
@@ -383,11 +423,10 @@ Flatten them into a features array
 function traverseFeatures(obj, depth, identifier) {
   depth--;
   if (depth >= 0) {
-    for (i in obj) {
+    for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
-          // [identifier + '.' + i]
-          features.push({[i]: obj[i].__compat});
+          features.push({[identifier + '.' + i]: obj[i].__compat});
         }
         traverseFeatures(obj[i], depth, identifier + '.' + i);
       }
@@ -411,8 +450,8 @@ traverseFeatures(compatData, depth, identifier);
 
 if (features.length > 0) {
   if (isWebExtensions) {
-    output += writeTable('webextensions', webExtBrowserNames);
-    if (!hideNotes) { output += writeNotes(); }
+    output += writeTable('webextensions');
+    if (showNotes) { output += writeNotes(); }
   } else {
     output = `<div class="htab">
     <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
@@ -425,9 +464,9 @@ if (features.length > 0) {
     </li>
     </ul>
     </div>`;
-    output += writeTable('desktop', desktopBrowsers);
-    output += writeTable('mobile', mobileBrowsers);
-    if (!hideNotes) { output += writeNotes(); }
+    output += writeTable('desktop');
+    output += writeTable('mobile');
+    if (showNotes) { output += writeNotes(); }
   }
 } else {
   output = s_no_data_found;
