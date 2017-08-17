@@ -9,7 +9,11 @@ $0 – A query string indicating for which feature to retrieve compat data for.
 $1 – A depth setting indicating how deep sub features should be added to the table
 (flattened, default: 1 level, meaning any compat data for the given feature,
 and compat data for any of its immediate children).
-$2 – A boolean setting whether to hide notes or not (defaults to false).
+$2 – A boolean setting whether to enable "aggregate mode" (defaults to false).
+    Aggregate mode means:
+      - Notes aren't displayed, instead an asterisk is shown.
+      - Features are linked to MDN pages (and thus aggregate mode tables should only
+        be used for features that have MDN pages)
 
 Example calls
 
@@ -29,17 +33,19 @@ Example calls
 
   {{compat("html.elements.link", 2)}}
 
+  {{compat("webextensions.api.alarms, 3, true")}}
+
 */
 
 const bcd = require('mdn-browser-compat-data');
 var query = $0;
 var depth = $1 || 1;
-var showNotes = $2;
-if (typeof showNotes === 'undefined') { showNotes = true; }
+var aggregateMode = $2 || false;
 var output = '';
 
 var compatStrings = string.deserialize(template('L10n:CompatTable'));
 var localize = mdn.getLocalString;
+
 
 var s_no_data_found = mdn.localString({
   'en-US': `No compatibility data found. Please contribute data for "${query}" (depth: ${depth}) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.`
@@ -292,10 +298,11 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
       noteAnchors.push(`<sup><a href="#compatNote_${noteIndex+1}">${noteIndex+1}</a></sup>`);
     }
     noteAnchors = noteAnchors.sort();
-    if (showNotes) {
+    if (noteAnchors.length > 0 && aggregateMode) {
+      output += ' *';
+    } else {
       output += noteAnchors.join(' ');
     }
-
   }
   return output;
 }
@@ -381,13 +388,21 @@ function writeTable(browserPlatformType) {
   output += '<tbody>';
   for (let row of features) {
     let feature = Object.keys(row).map((k) => row[k])[0];
-    let label = Object.keys(row)[0];
-    let desc = `<code>${label}</code>`;
-    if (feature.description) {
-      let prefix = label.slice(0, label.lastIndexOf('.'));
-      desc = `<code>${prefix}</code>:  ${feature.description}`;
+    let desc = `<code>${Object.keys(row)[0]}</code>`;
+    if (feature.mdn_url) {
+      desc = `<a href="${feature.mdn_url}"><code>${Object.keys(row)[0]}</code></a>`;
     }
-    output += `<tr><td>${desc}</td>`
+    if (feature.description) {
+      let label = Object.keys(row)[0];
+      // Basic support or unnested features need no prefixing
+      if (label.indexOf('.') === -1) {
+        desc = feature.description;
+        // otherwise add a prefix so that we know where this belongs to (e.g. "parse: ISO 8601 format")
+      } else {
+        desc = `<code>${label.slice(0, label.lastIndexOf('.'))}</code>: ${feature.description}`;
+      }
+    }
+    output += `<tr><td>${desc}</td>`;
     output += `${writeSupportCells(feature.support, compatNotes, browserPlatformType)}</tr>`;
   }
   output += '</tbody></table></div>';
@@ -426,9 +441,9 @@ function traverseFeatures(obj, depth, identifier) {
     for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
-          features.push({[identifier + '.' + i]: obj[i].__compat});
+          features.push({[identifier + i]: obj[i].__compat});
         }
-        traverseFeatures(obj[i], depth, identifier + '.' + i);
+        traverseFeatures(obj[i], depth, i + '.');
       }
     }
   }
@@ -442,16 +457,20 @@ var isWebExtensions = query.split(".")[0] === "webextensions";
 if (!compatData) {
   output = s_no_data_found;
 } else if (compatData.__compat) {
-  // get an optional main feature identifier and add it to the feature list
+  // get optional main feature, add it to the feature list
+  // call it "Basic support" if not aggregating
+  if (!aggregateMode) {
+    compatData.__compat.description = localize(compatStrings, 'feature_basicsupport');
+  }
   features.push({[identifier]: compatData.__compat});
 }
 
-traverseFeatures(compatData, depth, identifier);
+traverseFeatures(compatData, depth, '');
 
 if (features.length > 0) {
   if (isWebExtensions) {
     output += writeTable('webextensions');
-    if (showNotes) { output += writeNotes(); }
+    if (!aggregateMode) { output += writeNotes(); }
   } else {
     output = `<div class="htab">
     <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
@@ -466,7 +485,7 @@ if (features.length > 0) {
     </div>`;
     output += writeTable('desktop');
     output += writeTable('mobile');
-    if (showNotes) { output += writeNotes(); }
+    if (!aggregateMode) { output += writeNotes(); }
   }
 } else {
   output = s_no_data_found;

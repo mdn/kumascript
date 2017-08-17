@@ -21,10 +21,9 @@ This macro can be inserted anywhere, and takes no arguments.
 */
 
 const bcd = require('mdn-browser-compat-data');
-const webExtAPIBaseUrl = "docs/Mozilla/Add-ons/Extensions/API";
 
 function writeTableForModule(data, moduleName) {
-  var table = `<h2><a href="${webExtAPIBaseUrl}/${moduleName}">${moduleName}</a></h2>`;
+  var table = `<h2>${moduleName}</h2>`;
   table += template("compat", [`webextensions.api.${moduleName}`, 1, true]);
   return table;
 }
