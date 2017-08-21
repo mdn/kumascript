@@ -480,6 +480,17 @@ for (var i in characters) {
             case "hsla()":
                 item.urlPath = "color_value#" + item.label;
                 break;
+
+            case "inset()":
+            case "polygon()":
+            case "circle()":
+            case "ellipse()":
+                item.urlPath = "basic-shape#" + item.label;
+                break;
+
+            case "rect()":
+                item.urlPath = "shape#" + item.label;
+                break;
         }
     }
 }
