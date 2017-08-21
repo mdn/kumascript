@@ -16,6 +16,7 @@ function state(section) {
 var text = mdn.localStringMap({
   'en-US': {
     'HTTP': 'HTTP',
+    'HTTPGuide': 'HTTP guide',
     'Basics': 'Basics of HTTP',
     'Overview': 'Overview of HTTP',
     'Evolution': 'Evolution of HTTP',
@@ -45,7 +46,8 @@ var text = mdn.localStringMap({
     'Status': 'HTTP response status codes',
     'CSPDirectives': 'CSP directives',
     'Security': 'HTTP security',
-    'Authentication': 'HTTP authentication'
+    'Authentication': 'HTTP authentication',
+    'ProtocolUpgradeMech': 'Protocol upgrade mechanism'
   },
   'ru': {
     'HTTP': 'HTTP',
@@ -73,13 +75,15 @@ var text = mdn.localStringMap({
         <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types"><%=text['ListMIMETypes']%></a>
         <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Choosing_between_www_and_non-www_URLs"><%=text['WWWorNotWWW']%></a>
     </ol></li>
-    <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP"><%=text['Basics']%></a>
+    <li><a href="#"><%=text['HTTPGuide']%></a>
     <ol>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP"><%=text['Basics']%></a>
         <li><a href="/<%=locale%>/docs/Web/HTTP/Overview"><%=text['Overview']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP"><%=text['Evolution']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/HTTP/Messages"><%=text['Messages']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/HTTP/Session"><%=text['Session']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/HTTP/Connection_management_in_HTTP_1.x"><%=text['Connection1x']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/HTTP/Protocol_upgrade_mechanism"><%=text['ProtocolUpgradeMech']%></a></li>
     </ol>
     </li>
     <li><a href="#"><%=text['Security']%></a>
