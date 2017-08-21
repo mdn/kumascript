@@ -298,7 +298,7 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
       noteAnchors.push(`<sup><a href="#compatNote_${noteIndex+1}">${noteIndex+1}</a></sup>`);
     }
     noteAnchors = noteAnchors.sort();
-    if (noteAnchors.length > 0 && aggregateMode) {
+    if ((supportData.partial_support || noteAnchors.length > 0) && aggregateMode) {
       output += ' *';
     } else {
       output += noteAnchors.join(' ');
@@ -441,6 +441,25 @@ function traverseFeatures(obj, depth, identifier) {
     for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
+
+          let featureNames = Object.keys(obj[i]);
+          if (featureNames.length > 1) {
+            // there are sub features below this node,
+            // so we need to identify partial support for the main feature
+            for (let subfeatureName of featureNames) {
+              if (subfeatureName !== '__compat') {
+                let browserNames = Object.keys(obj[i].__compat.support);
+                for (let browser of browserNames) {
+                  if (obj[i].__compat.support[browser].version_added !=
+                      obj[i][subfeatureName].__compat.support[browser].version_added ||
+                      obj[i][subfeatureName].__compat.support[browser].notes) {
+                    obj[i].__compat.support[browser].partial_support = true;
+                  }
+                }
+              }
+            }
+          }
+
           features.push({[identifier + i]: obj[i].__compat});
         }
         traverseFeatures(obj[i], depth, i + '.');
