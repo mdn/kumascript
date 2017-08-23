@@ -54,9 +54,13 @@ function tableFromSlug() {
   // or even "devtools.panels/ExtensionPanel"
   // So split this subpath on either "/" or "."
   // and join all parts on "." again.
-  pathPieces = components[1].split(/[\.//]/).join('.');
+  pathPieces = components[1].split(/[\.//]/).join(".");
+  // If there is only one subpath, we are on an API main page,
+  // so turn on aggregate mode for the table.
+  // Don't split on "." this time, as there are main API pages like "devtools.panels"
+  let aggregate = components[1].split("/").length === 1;
 
-  return template("Compat", ['webextensions.api.' + pathPieces]);
+  return template("Compat", ["webextensions.api." + pathPieces, 1, aggregate]);
 }
 
 var output;
