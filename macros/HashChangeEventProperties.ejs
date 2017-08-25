@@ -4,7 +4,11 @@ var str = mdn.localString({
     "en-US" : [
         'The previous URL from which the window was navigated.',
         'The new URL to which the window is navigating.'
-    ] 
+    ],
+    "uk": [
+        'Попередній URL, з якого здійснили перехід.',
+        'Новий URL, на який здійснюється перехід.'
+    ]
 });
 
 
@@ -16,5 +20,5 @@ var str = mdn.localString({
 <tr>
   <td>newURL <%- template("readOnlyInline") %></td>
   <td>string</td>
-  <td><%- str[2] %></td>
+  <td><%- str[1] %></td>
 </tr>

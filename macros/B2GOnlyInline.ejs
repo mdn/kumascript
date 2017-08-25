@@ -8,6 +8,15 @@ var str = "";
 var title = "";
 
 switch(lang) {
+    case "uk":
+    str = "Доступно лише у Firefox OS";
+    if ($0) {
+        title = "Доступно лише у Firefox OS станом на Gecko " + $0 + " " + template("geckoRelease", [$0]);
+    } else {
+        title = "Цей API доступний лише у Firefox OS (B2G OS).";
+    }
+    break;
+
     default:
     if ($0) {
         str = "Only available on Firefox OS";

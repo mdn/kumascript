@@ -86,6 +86,10 @@ switch(lang) {
         str = "Przestarzały";
         if (string.length(ver)) { str = str + " " + ver; }
         break;
+    case 'uk':
+        str = "Застаріла";
+        if (string.length(ver)) { str = str + " з версії " + ver; }
+        break;
     case 'ru':
         str = "Вышла из употребления";
         if (string.length(ver)) { str = str + " с версии " + ver; }
@@ -110,6 +114,7 @@ var str_desc = mdn.localString({
   "fr":    "Cette fonctionnalité est obsolète. Bien qu'encore supportée par des navigateurs, son utilisation est découragée pour tout nouveau projet. Évitez de l'utiliser.",
   "es":    "Esta funcionalidad es obsoleta. Aunque puede aún funcionar en algunos navegadores, se desalienta su uso ya que puede ser removida en cualquier momento. Evite usarla.",
   "ja":    "この機能は廃止されました。まだいくつかのブラウザーで動作するかもしれませんが、いつ削除されてもおかしくないので、使わないようにしましょう。",
+  "uk":    "Ця можливість визнана застарілою. Попри те, що вона, можливо, досі працює в деяких переглядачах, її ужиток є небажаним, бо вона може бути видалена будь-якої миті. Уникайте її використання.",
   "ru":    "Эта возможность вышла из употребления. Хотя она может продолжать работать в некоторых браузерах, её использование не рекомендуется, поскольку она может быть удалена в любое время. Старайтесь избегать её использования."
 });
 

@@ -1,6 +1,10 @@
+<%
+var locale = env.locale;
+var path = "/" + locale + "/docs/Web/Events/";
+%>
 <ul>
-<li><a href="/en-US/Mozilla_event_reference/open_websocket"><code>open</code></a></li>
-<li><a href="/en-US/Mozilla_event_reference/close_websocket"><code>close</code></a></li>
-<li><a href="/en-US/Mozilla_event_reference/error_websocket"><code>error</code></a></li>
-<li><a href="/en-US/Mozilla_event_reference/message_websocket"><code>message</code></a></li>
+  <li><a href="<%- path %>open_websocket"><code>open</code></a></li>
+  <li><a href="<%- path %>close_websocket"><code>close</code></a></li>
+  <li><a href="<%- path %>error_websocket"><code>error</code></a></li>
+  <li><a href="<%- path %>message_websocket"><code>message</code></a></li>
 </ul>

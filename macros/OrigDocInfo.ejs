@@ -66,7 +66,17 @@ switch (env.locale) {
     s_original = "Оригинальное расположение: ";
     s_note = "Замечание: ";
     break;
-};
+  case 'uk':
+    s_title = "Інформація про оригінальний документ";
+    s_author = "Автор(и): ";
+    s_others = "Інші помічники: ";
+    s_date = "Дата останнього оновлення: ";
+    s_copyright = "Відомості про авторські права: ";
+    s_original = "Розташування оригіналу: ";
+    s_note = "Нотатки: ";
+    break;
+}
+
 var out = [];
 if ($0.author) {out.push('<li>' + s_author + $0.author + '</li>');}
 if ($0.others) {out.push('<li>' + s_others + $0.others + '</li>');}

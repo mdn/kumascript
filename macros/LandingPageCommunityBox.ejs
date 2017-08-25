@@ -57,6 +57,13 @@ switch(env.locale) {
             channelStr = "另外，也欢迎加入我们的 " + ircLink + " 频道 " + ircInfoLink + " 。";
         }
         break;
+    case "uk":
+        headingStr = "Спільнота";
+        messageStr = "Приєднуйтесь до " + $0 + " через наші розсилки або групу новини:";
+        if ($3) {
+            channelStr = "Беріть участь також в обговореннях у каналі " + ircLink + " на " + ircInfoLink + ".";
+        }
+        break;
     default:
         headingStr = "Community";
         messageStr = "Join the " + $0 + " community on our mailing list or newsgroup:";

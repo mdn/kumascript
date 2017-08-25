@@ -55,10 +55,12 @@ for (var char in obj) {
     obj[char].sort(compare);
 }
 
+var counterLastDigit = counter % 10;
 var found = mdn.localString({
     "en-US": 'Found ' + counter + ' pages with the tag "' + tag + '":',
     "fr"   : 'Trouvé ' + counter + ' pages avec le tag "' + tag + '":',
     "ru"   : 'Найдено ' + counter + ' страниц с меткой "' + tag + '":',
+    "uk"   : 'Знайдено ' + counter + (counterLastDigit == 1 ? ' сторінку' : (counterLastDigit >= 2 && counterLastDigit <= 4 ? ' сторінки' : ' сторінок')) + ' з міткою «' + tag + '»:'
 });
 
 

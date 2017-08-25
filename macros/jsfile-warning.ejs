@@ -1,7 +1,15 @@
 <%
+var locale = env.locale;
 var text = "This section describes the <code>File</code> component of the SpiderMonkey JavaScript interpreter. " +
            "<code>File</code> is non-standard, not generally compiled into distributions, is a potential source " +
            "of huge security holes, and not well tested.";
 
+switch (locale) {
+  case "uk":
+    text = "Цей розділ описує <code>File</code> — компонент JavaScript-інтерпретатора SpiderMonkey. " +
+           "<code>File</code> є нестандартним, зазвичає його не включено до збірок, він є потенційним " +
+           "джерелом істотних загроз безпеці, а крім того не протестований достатньою мірою.";
+    break;
+}
 
 %><%-template("Warning", [text])%>

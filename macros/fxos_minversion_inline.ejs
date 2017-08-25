@@ -32,7 +32,10 @@ switch(lang) {
     case 'ru':
         str = "Требуется Firefox OS " + $0;
     break;
-    defaut: break;
+    case 'uk':
+        str = "Потребує Firefox OS " + $0;
+    break;
+    default: break;
 }
 %>
 <span class="inlineIndicator geckoMinVer standardNote standardNoteInline"><%=str%></span>

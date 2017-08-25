@@ -25,6 +25,25 @@ switch (el) {
 </tr><%
 
         break;
+    case "uk":
+
+%><tr>
+  <td><code>mozChannels</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>Кількість каналів.</td>
+</tr>
+<tr>
+  <td><code>mozSampleRate</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>Частота оновлення (значень на секунду).</td>
+</tr>
+<tr>
+  <td><code>mozFrameBufferLength</code> <%-template("readOnlyInline")%></td>
+  <td>int</td>
+  <td>Кількість значень, зібраних в усіх каналах.</td>
+</tr><%
+
+  break;
     default:
 
 %><tr>

@@ -75,6 +75,18 @@ function showJapanese() {%>
     <p>より多くの情報を得るには『<a href="/ja/docs/Web/Guide/DOM/Whitespace_in_the_DOM">DOM 中の空白文字</a>』と『<a class="external" href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Why are some Text nodes empty?</a>』を参照してください。</p>
 <%}
 
+function showUkrainian() {
+%>
+    <p>Засновані на Gecko веб-переглядачі вставляють у документ текстові вузли, подаючи таким чином пробіли в розмітці.
+    А тому вузол, що його отримано з використанням <%-linkFirstChild%> або <%-linkPrevSib%>, може стосуватися саме таких
+    пробілів, а не того елемента, що автор мав на меті отримати.</p>
+
+    <p>Див. <a href="/uk/docs/Web/API/Document_Object_Model/Whitespace_in_the_DOM">Пробіли в DOM</a> та
+    <a href="http://www.w3.org/DOM/faq.html#emptytext">W3C DOM 3 FAQ: Чому деякі текстові вузли є порожніми?</a>
+    щоб дізнатись більше.</p>
+<%
+}
+
 function showRussian() {
 %>
     <p>Браузеры, основанные на Gecko, вставляют текстовые узлы в документ для представления пробелов в разметке.
@@ -102,6 +114,9 @@ switch(lang) {
         break;
     case 'ja':
         showJapanese();
+        break;
+    case 'uk':
+        showUkrainian();
         break;
     case 'ru':
         showRussian();

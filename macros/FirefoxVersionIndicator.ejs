@@ -89,6 +89,13 @@ if ((parseInt(currentGecko, 10) - parseInt($1, 10) < 9) || ($0==3)) {
             link = lang + '/docs/Mozilla/Firefox/Releases/' + version;
             newIn = "Нововведение в ";
             break;
+        case 'uk':
+            articleName = productVersion + " для розробників";
+            link = lang + '/docs/Mozilla/Firefox/Releases/' + version;
+            text = "Ця стаття стосується функціональності, запровадженої в " + versionLink;
+            note = "Заувага щодо Firefox " + version;
+            newIn = "Нове у ";
+            break;
         case 'zh-CN':
             articleName = productVersion + " for developers";
             link = lang + '/docs/Mozilla/Firefox/Releases/' + version;

@@ -8,6 +8,9 @@ switch(env.locale) {
   case 'pl':
     path = '/en/docs/XPIDL/Składnia#' + $1;
     break;
+  case 'uk':
+    path = '/uk/docs/Mozilla/XPIDL/Syntax#' + $1;
+    break;
 }
 %>
 <%- web.link(wiki.uri(path), $0) %>

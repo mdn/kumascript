@@ -18,6 +18,21 @@ switch (el) {
 </tr><%
 
         break;
+
+    case "uk" :
+
+%><tr>
+  <td><code>newVersion</code> <%- template("readOnlyInline") %></td>
+  <td>unsigned long (int)</td>
+  <td>Нова версія бази даних.</td>
+</tr>
+<tr>
+  <td><code>oldVersion</code> <%- template("readOnlyInline") %></td>
+  <td>unsigned long (int)</td>
+  <td>Стара версія бази даних.</td>
+</tr><%
+
+        break;
     default:
 
 %><tr>

@@ -2,6 +2,11 @@
 var lang = env.locale;
 var str = 'The <a href="/' + lang + '/docs/JSAPI_User_Guide#Compiled_scripts">JSAPI User Guide</a> contains example code using compiled scripts.';
 
+switch (lang) {
+    case "uk":
+      str = '<a href="/' + lang + '/docs/JSAPI_User_Guide#Compiled_scripts">Посібник користувача JSAPI</a> містить зразки коду з використанням компільованих скриптів.';
+      break;
+}
 
 
 %><%-str%>

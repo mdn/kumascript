@@ -17,9 +17,18 @@
 
 <%-template("IFSummaryStart", [$0, $2])%>
 <%
+var locale = env.locale;
 var summary = $4;
 if (!$4) {
-  summary = "<i>Please add a summary to this article.</i>";
+  switch (locale) {
+    case "uk":
+      summary = "<i>Будь ласка, додайте кілька змістовних рядків до цієї статті.</i>";
+      break;
+
+    default:
+      summary = "<i>Please add a summary to this article.</i>";
+      break;
+  }
 }
 %>
 <%-summary%>

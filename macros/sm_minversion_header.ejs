@@ -57,6 +57,10 @@ switch(lang) {
     articleName = "SeaMonkey " + $0 + " для разработчиков";
     text = "Статья покрывает возможности, представленные в " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
     break;
+  case 'uk':
+    articleName = "SeaMonkey " + $0 + " для розробників";
+    text = "Ця стаття охоплює можливості, запроваджені у " + web.link(web.spacesToUnderscores(wiki.uri(lang + '/docs/' + articleName)), "SeaMonkey " + $0);
+    break;
 }
 %>
 

@@ -112,6 +112,11 @@ switch(env.locale) {
         if (captionText === "Methods") { captionText = "Методы"; }
         titleString = captionText  + ', унаследованные из <a href="' + pageuri + '"><code>' + $0 + '</code></a>:';
         break;
+    case "uk":
+        if (captionText === "Properties") { captionText = "Властивості"; }
+        if (captionText === "Methods") { captionText = "Методи"; }
+        titleString = captionText  + ', успадковані від <a href="' + pageuri + '"><code>' + $0 + '</code></a>:';
+        break;
     default:
         titleString = captionText  + ' inherited from <a href="' + pageuri + '"><code>' + $0 + '</code></a>:';
         break;
