@@ -6,6 +6,11 @@ services:
   - docker
 
 before_script:
+  # Remove the local, Travis-generated "node_modules" directory, because when
+  # we run the linters and tests, the local directory will be mounted into the
+  # container and its "node_modules" directory would override the one we want
+  # used, which is the one located at the root-level of the container.
+  - rm -rf node_modules
   # Move TravisCI's checkout of kumascript into a submodule of kuma
   - cd ..
   - git clone https://github.com/mozilla/kuma --depth 2

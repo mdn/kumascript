@@ -1,4 +1,4 @@
 Testing "require" of npm package:
 
-* First: {{ require-used("version") }}
-* Second: {{ require-used("data.css.properties") }}
+* First: {{ require-used("http.headers.Accept") }}
+* Second: {{ require-used("css.properties") }}
