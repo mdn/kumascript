@@ -47,7 +47,7 @@ node {
         }
 
         stage('Push KumaScript Docker Image') {
-          sh 'echo make push-kumascript VERSION=latest'
+          sh 'make push-kumascript VERSION=latest'
         }
 
         break
