@@ -2110,5 +2110,13 @@
   "BeforeInstallPromptEvent": {
     "inh"  : "Event",
     "impl" : []
+  },
+  "PerformanceNavigationTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "PerformancePaintTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
   }
 }]
