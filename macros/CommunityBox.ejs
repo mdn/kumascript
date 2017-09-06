@@ -6,8 +6,10 @@
 //
 // Parameters:
 //  $0  Name of the topic/community
-//  $1  Name of the mailing list for the community
+//  $1  Name of the mailing list for the community.
+//      If this is an mdc/mdn list, it will be changed to https://discourse.mozilla-community.org/c/mdn in the DiscussionList macro
 //  $2  Name of the newsgroup for the community
+//      If this is an mdc/mdn newsgroup, it will be changed to https://discourse.mozilla-community.org/c/mdn in the DiscussionList macro
 //  $3  IRC channel name
 //  $4  String containing a list of URLs and descriptions for additional
 //      links (null if none).
@@ -105,7 +107,7 @@ switch(env.locale) {
         }
         break;
     case "ja":
-        headingStr = $0 + "コミュニティに参加してください"; 
+        headingStr = $0 + "コミュニティに参加してください";
         messageStr = "メーリングリスト／ニュースグループ:";
         messageNoteStr = "あなたの好きな方法でディスカッションに参加してください";
         if ($3) {
@@ -128,35 +130,35 @@ var haveExtra = $4 && ($4 != undefined);
 
 if (haveExtra || ircLink.length) {
     var list;
-        
+
     extraLinks = "<ul class='communitycontact'>";
-    
+
     if (ircLink.length) {
         extraLinks += "<li><strong>IRC: </strong>" + ircLink + " " + ircInfoStr + "</li>";
     }
-    
+
     if (haveExtra) {
         list = $4.split("||");      // a list of each item in "url|description" format
-        
+
         for (var i=0; i<list.length; i++) {
             // First, get the heading off the row and remove it
-            
+
             var headingEnd = list[i].indexOf("|");
             var heading = list[i].substr(0, headingEnd);
             var row = list[i].slice(headingEnd+1);
-            
+
             // Add the heading to the HTML
-            
+
             extraLinks += "<li><strong>" + heading + ": </strong>";
-            
+
             // Now split it up into all the terms for the heading
-            
+
             var links = row.split("++");
-            
+
             // Loop over all the links, adding them to the HTML
-        
+
             for (var j=0; j<links.length; j++) {
-                
+
                 // If the next entry in the list starts with a space, it's really part of
                 // this entry; this should fix cases of things like "C++" being in the
                 // text
@@ -166,24 +168,24 @@ if (haveExtra || ircLink.length) {
                         links.splice(j+1, 1);
                     }
                 }
-                
+
                 var comp = links[j].split("|");  // comp[0] is URL, 1 is text, 2 is description
                 var tooltipPart = "";
-            
+
                 if (comp[2]) {
                     tooltipPart = " title='" + comp[2] + "'";
                 }
                 extraLinks += "<a href='" + comp[0] + "'" + tooltipPart + ">" + comp[1] + "</a>";
-                
+
                 if (j < (links.length-1)) {
                     extraLinks += ", ";
                 }
             }
-            
+
             extraLinks += "</li>";
         }
     }
-    
+
     extraLinks += "</ul>";
 }
 

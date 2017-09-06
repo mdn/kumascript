@@ -31,10 +31,12 @@ var lang = env.locale;
 //   where the ED draft described a further level of CSP and is far from the
 //   Recommendation status.
 //
-// * If both W3C and WHATWG publish specifications for an API, we list both
-//   specifications, with the WHATWG on top of the W3C as it is where the
-//   actual work happens and it is likely to be more up-to-date than the
-//   W3C one.
+// * If both W3C and WHATWG publish specifications for an API, we list any
+//   distinct specifications (e.g. W3C DOM 1/2/3 are distinct from the WHATWG
+//   DOM Living Standard). We do not list W3C specifications that are outdated
+//   forks of WHATWG specifications, per
+//   https://wiki.whatwg.org/wiki/Fork_tracking, except for certain historical
+//   exceptions.
 //
 // * Please use HTTPS links instead of HTTP links when possible.
 
@@ -47,6 +49,14 @@ var specList = {
         name : "Ambient Light Sensor",
         url  : "https://w3c.github.io/ambient-light/"
     },
+    'ARIA': {
+        name : "Accessible Rich Internet Applications (WAI-ARIA)",
+        url  : "https://www.w3.org/TR/wai-aria-1.1/"
+    },
+    'ARIA in HTML': {
+        name : "ARIA in HTML",
+        url  : "https://w3c.github.io/html-aria/"
+    },
     'Async Function':{
         name : "ECMAScript Async Functions",
         url  : "https://tc39.github.io/ecmascript-asyncawait/"
@@ -58,6 +68,10 @@ var specList = {
     'Background Tasks':{
         name : "Cooperative Scheduling of Background Tasks",
         url  : "https://www.w3.org/TR/requestidlecallback/"
+    },
+    'Basic Card Payment':{
+        name : "Basic Card Payment",
+        url  : "https://w3c.github.io/payment-method-basic-card/"
     },
     'Battery API':{
         name : "Battery Status API",
@@ -72,7 +86,7 @@ var specList = {
         url  : "https://w3c.github.io/clipboard-apis/"
     },
     'Compat':{
-        name : "Web Compatibility Standard",
+        name : "Compatibility Standard",
         url  : "https://compat.spec.whatwg.org"
     },
     'Compositing':{
@@ -90,10 +104,6 @@ var specList = {
     'Cookie Prefixes':{
         name : "Cookie Prefixes",
         url  : "https://tools.ietf.org/html/draft-west-cookie-prefixes-05"
-    },
-    'CORS':{
-        name : "CORS",
-        url  : "http://www.w3.org/TR/cors/"
     },
     'Credential Management':{
         name : "Credential Management Level 1",
@@ -144,8 +154,8 @@ var specList = {
         url  : "https://drafts.csswg.org/css-box-3/"
     },
     'CSS3 Box Alignment':{
-        name : 'CSS Box Alignment Module',
-        url  : "https://drafts.csswg.org/css-align/"
+        name : 'CSS Box Alignment Module Level 3',
+        url  : "https://drafts.csswg.org/css-align-3/"
     },
     'CSS3 Cascade':{
         name : 'CSS Cascading and Inheritance Level&nbsp;3',
@@ -367,6 +377,10 @@ var specList = {
         name : 'CSS Logical Properties Level&nbsp;1',
         url  : 'https://drafts.csswg.org/css-logical-props/'
     },
+    'CSS Rhythmic Sizing':{
+        name : 'CSS Rhythmic Sizing',
+        url  : 'https://drafts.csswg.org/css-rhythm/'
+    },
     'CSS Round Display':{
         name : 'CSS Round Display Level&nbsp;1',
         url  : 'https://drafts.csswg.org/css-round-display/'
@@ -406,10 +420,6 @@ var specList = {
     'CSSOM View':{
         name : 'CSS Object Model (CSSOM) View Module',
         url  : 'https://drafts.csswg.org/cssom-view/'
-    },
-    'Custom Elements':{
-        name : 'Custom Elements',
-        url  : 'https://w3c.github.io/webcomponents/spec/custom/'
     },
     'Custom Scroll Restoration':{
         name : 'Custom Scroll Restoration - History-based API',
@@ -481,7 +491,7 @@ var specList = {
     },
     'Encoding':{
         name : 'Encoding',
-        url  : 'http://www.w3.org/TR/encoding/'
+        url  : 'https://encoding.spec.whatwg.org/'
     },
     'ES1':{
         name : 'ECMAScript 1st Edition (ECMA-262)',
@@ -549,7 +559,7 @@ var specList = {
     },
     'Frame Timing':{
         name : 'Frame Timing',
-        url  : 'https://w3c.github.io/frame-timing/'
+        url  : 'http://wicg.github.io/frame-timing/'
     },
     'Fullscreen':{
         name : 'Fullscreen API',
@@ -559,6 +569,10 @@ var specList = {
         name : 'Gamepad',
         url  : 'https://w3c.github.io/gamepad/'
     },
+    'GamepadExtensions':{
+        name : 'Gamepad Extensions',
+        url  : 'https://w3c.github.io/gamepad/extensions.html'
+    },
     'Geolocation': {
         name : 'Geolocation API',
         url  : 'https://dev.w3.org/geo/api/spec-source.html'
@@ -567,21 +581,21 @@ var specList = {
         name : 'Geometry Interfaces Module Level 1',
         url  : 'https://drafts.fxtf.org/geometry/'
     },
-    'Highres Time':{
+    'Highres Time': {
         name : 'High Resolution Time',
-        url  : 'http://www.w3.org/TR/hr-time/'
+        url  : 'https://www.w3.org/TR/hr-time-1/'
     },
-    'Highres Time Level 2':{
+    'Highres Time Level 2': {
         name : 'High Resolution Time Level 2',
+        url  : 'https://www.w3.org/TR/hr-time/'
+    },
+    'Highres Time Level 3': {
+        name : 'High Resolution Time Level 3',
         url  : 'https://w3c.github.io/hr-time/'
     },
     'HSTS': {
         name : 'HTTP Strict Transport Security (HSTS)',
         url  : 'https://tools.ietf.org/html/rfc6797/'
-    },
-    'HTML Canvas 2D Context W3C': {
-        name : 'HTML Canvas 2D Context (W3C)',
-        url  : 'http://www.w3.org/html/wg/drafts/2dcontext/html5_canvas_CR/'
     },
     'HTML Editing': {
         name : 'HTML Editing APIs',
@@ -595,21 +609,9 @@ var specList = {
         name : 'HTML Media Capture',
         url  : 'https://w3c.github.io/html-media-capture/'
     },
-    'HTML Templates': { /* the draft has been merged in the HTML spec */
-        name : 'HTML Templates',
-        url  : 'http://www.w3.org/TR/html5/scripting-1.html#the-template-element'
-    },
     'HTML4.01':{
         name : 'HTML 4.01 Specification',
         url  : 'http://www.w3.org/TR/html401/'
-    },
-    'HTML5 Web Messaging':{
-        name : 'HTML5 Web Messaging',
-        url  : 'https://w3c.github.io/webmessaging/'
-    },
-    'HTML5 Web application':{ /* This is a subset of HTML5/HTML5.1 and must replaced by these */
-        name : 'HTML5 Web application',
-        url  : 'http://www.w3.org/html/wg/drafts/html/master/webappapis.html'
     },
     'HTML5 W3C':{
         name : 'HTML5',
@@ -624,7 +626,7 @@ var specList = {
         url  : 'https://www.w3.org/TR/2016/REC-html51-20161101/'
     },
     'HTML WHATWG':{
-        name : 'WHATWG HTML Living Standard',
+        name : 'HTML Living Standard',
         url  : 'https://html.spec.whatwg.org/multipage/'
     },
     'IndexedDB':{
@@ -639,13 +641,17 @@ var specList = {
         name : 'InputDeviceCapabilities',
         url  : 'http://wicg.github.io/InputDeviceCapabilities/'
     },
+    'InputEvents2': {
+        name : 'Input Events Level 2',
+        url  : 'https://w3c.github.io/input-events/index.html'
+    },
     'IntersectionObserver': {
         name : 'Intersection Observer',
         url  : 'https://wicg.github.io/IntersectionObserver/'
     },
-    'JavaScript': {
-        name : 'JavaScript, a.k.a. Web ECMAScript',
-        url  : 'https://javascript.spec.whatwg.org/'
+    'Long Tasks': {
+        name : 'Long Tasks API 1',
+        url  : 'https://w3c.github.io/longtasks/'
     },
     'Manifest': {
         name : 'Web App Manifest',
@@ -683,6 +689,10 @@ var specList = {
         name : 'MediaStream Recording',
         url  : 'https://w3c.github.io/mediacapture-record/MediaRecorder.html'
     },
+    'MediaStreamTrackHint':{
+        name : 'MediaStreamTrack Content Hints',
+        url  : 'https://wicg.github.io/mst-content-hint'
+    },
     'Messaging':{
         name : 'Messaging API',
         url  : 'https://www.w3.org/2012/sysapps/messaging/'
@@ -715,17 +725,21 @@ var specList = {
         name : 'OpenGL ES 3.0',
         url  : 'https://www.khronos.org/opengles/sdk/docs/man3/html/'
     },
+    'Paint Timing':{
+        name : 'Paint Timing',
+        url  : 'https://w3c.github.io/paint-timing'
+    },
     'Page Visibility API':{
         name : 'Page Visibility (Second Edition)',
         url  : 'http://www.w3.org/TR/page-visibility/'
     },
     'Payment':{
         name : 'Payment Request API',
-        url  : 'https://w3c.github.io/browser-payment-api/'
+        url  : 'https://w3c.github.io/payment-request/'
     },
     'Permissions API':{
         name : 'Permissions API',
-        url  : 'https://w3c.github.io/permissions/'
+        url  : 'https://www.w3.org/TR/performance-timeline/'
     },
     'Performance Timeline':{
         name : 'Performance Timeline',
@@ -743,21 +757,21 @@ var specList = {
         name : 'Pointer Events – Level 2',
         url  : 'https://w3c.github.io/pointerevents/'
     },
+    'Pointer Events 2 Ext': {
+        name : 'Pointer Events - Level 2 Extensions',
+        url  : 'https://w3c.github.io/pointerevents/extension.html'
+    },
     'Pointer Lock':{
         name : 'Pointer Lock',
         url  : 'https://w3c.github.io/pointerlock/'
     },
     'Preload':{
         name : 'Preload',
-        url  : 'http://www.w3.org/TR/preload/'
+        url  : 'https://w3c.github.io/preload/'
     },
     'Presentation':{
         name : 'Presentation API',
         url  : 'http://w3c.github.io/presentation-api/'
-    },
-    'Progress Events':{ /* Merged into XHR after REC status */
-        name : 'Progress Events',
-        url  : 'https://www.w3.org/TR/progress-events/'
     },
     'Proximity Events':{
         name : 'Proximity Events',
@@ -788,7 +802,15 @@ var specList = {
         url  : 'http://www.w3.org/TR/resource-hints/'
     },
     'Resource Timing':{
-        name : 'Resource Timing',
+        name : 'Resource Timing Level 1',
+        url  : 'https://www.w3.org/TR/resource-timing-1/'
+    },
+    'Resource Timing 2': {
+        name : 'Resource Timing Level 2',
+        url  : 'https://www.w3.org/TR/resource-timing-2/'
+    },
+    'Resource Timing 3': {
+        name : 'Resource Timing Level 3',
         url  : 'https://w3c.github.io/resource-timing/'
     },
     'Screen Orientation':{
@@ -807,17 +829,9 @@ var specList = {
         name : "Selection API",
         url  : 'http://w3c.github.io/selection-api/'
     },
-    'Server-sent events':{
-        name : 'Server-Sent Events',
-        url  : 'http://www.w3.org/TR/eventsource/'
-    },
-    'Server-sent events 2':{ /* This draft has been merged into HTML WHATWG */
-        name : 'Server-Sent Events (2nd edition)',
-        url  : 'http://www.w3.org/TR/eventsource/'
-    },
     'Service Workers':{
         name : 'Service Workers',
-        url  : 'https://w3c.github.io/ServiceWorker/v1/'
+        url  : 'https://w3c.github.io/ServiceWorker/'
     },
     'Selectors API Level 1':{
         name : 'Selectors API Level 1',
@@ -827,17 +841,13 @@ var specList = {
         name : 'Selectors API Level 2',
         url  : 'http://dev.w3.org/2006/webapi/selectors-api2/'
     },
-    'Shadow DOM':{
+    'Shadow DOM':{ /* Only use for portions of the spec that are not copied from other specs */
         name : 'Shadow DOM',
-        url  : 'https://www.w3.org/TR/shadow-dom/'
+        url  : 'http://w3c.github.io/webcomponents/spec/shadow/'
     },
     'Shape Detection API': {
         name : 'Accelerated Shape Detection in Images',
         url  : 'https://wicg.github.io/shape-detection-api/'
-    },
-    'Shared Memory':{
-        name : 'ECMAScript Shared Memory and Atomics',
-        url  : 'http://tc39.github.io/ecmascript_sharedmem/shmem.html'
     },
     'SIMD': {
         name : 'SIMD',
@@ -845,7 +855,7 @@ var specList = {
     },
     'Storage': {
         name : 'Storage',
-        url  : 'https://storage.spec.whatwg.org'
+        url  : 'https://storage.spec.whatwg.org/'
     },
     'Streams':{
         name : 'Streams',
@@ -924,7 +934,7 @@ var specList = {
         url  : 'http://www.w3.org/TR/user-timing/'
     },
     'User Timing Level 2':{
-        name : 'User Timing',
+        name : 'User Timing Level 2',
         url  : 'https://w3c.github.io/user-timing/'
     },
     'vCard':{
@@ -1043,6 +1053,10 @@ var specList = {
         name : 'WEBGL_compressed_texture_s3tc',
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_s3tc/'
     },
+    'WEBGL_compressed_texture_s3tc_srgb':{
+        name : 'WEBGL_compressed_texture_s3tc_srgb',
+        url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_s3tc_srgb/'
+    },
     'WEBGL_compressed_texture_etc':{
         name : 'WEBGL_compressed_texture_etc',
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_etc/'
@@ -1084,7 +1098,7 @@ var specList = {
         url  : 'https://www.khronos.org/registry/webgl/extensions/WEBGL_lose_context/'
     },
     'WebIDL':{
-        name : 'Web IDL (Second Edition)',
+        name : 'Web IDL',
         url  : 'https://heycam.github.io/webidl/'
     },
     'WebMIDI API':{
@@ -1099,17 +1113,9 @@ var specList = {
         name : 'WebRTC 1.0: Real-time Communication Between Browsers',
         url  : 'https://w3c.github.io/webrtc-pc/'
     },
-    'Websockets':{ /* This draft has been merged into HTML WHATWG */
-        name : 'The WebSocket API',
-        url  : 'https://html.spec.whatwg.org/multipage/comms.html'
-    },
     'Web Speech API':{
         name : 'Web Speech API',
         url  : 'https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi.html'
-    },
-    'Web Storage':{
-        name : 'Web Storage (Second edition)',
-        url  : 'https://html.spec.whatwg.org/multipage/webstorage.html'
     },
     'Web Telephony':{
         name : 'Web Telephony',
@@ -1126,10 +1132,6 @@ var specList = {
     'WebVTT':{
         name : 'WebVTT: The Web Video Text Tracks Format',
         url  : 'https://w3c.github.io/webvtt/'
-    },
-    'Web Workers':{ /* This draft has been merged into HTML WHATWG */
-        name : 'Web Workers',
-        url  : 'https://w3c.github.io/workers/'
     },
     'WOFF1.0':{
         name : 'WOFF File Format 1.0',

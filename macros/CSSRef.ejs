@@ -81,8 +81,15 @@ if (slug) {
             group = group.concat(data.atRules[name].groups);
         } else if (data.properties[name] && data.properties[name].groups) {
             group = group.concat(data.properties[name].groups);
-        } else if (isType(title) && data.types[title] && data.types[title].groups) {
-            group = group.concat(data.types[title].groups);
+        } else if (isType(title)) {
+            var cleanType = title;
+            if (!(cleanType in data.types)) {
+                // https://github.com/mdn/data/pull/81 was merged
+                cleanType = title.replace('<', '').replace('>', '');
+            }
+            if (data.types[cleanType] && data.types[cleanType].groups) {
+                group = group.concat(data.types[cleanType].groups);
+            }
         }
     }
 

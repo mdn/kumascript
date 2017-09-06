@@ -2098,5 +2098,25 @@
   "CSSCounterStyleRule": {
     "inh"  : "CSSRule",
     "impl" : []
+  },
+  "PerformanceLongTaskTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "TaskAttributionTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "BeforeInstallPromptEvent": {
+    "inh"  : "Event",
+    "impl" : []
+  },
+  "PerformanceNavigationTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
+  },
+  "PerformancePaintTiming": {
+    "inh"  : "PerformanceEntry",
+    "impl" : []
   }
 }]

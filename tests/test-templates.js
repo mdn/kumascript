@@ -1,4 +1,4 @@
-/*jshint node: true, expr: false, boss: true */
+/* jshint node: true, mocha: true, esversion: 6 */
 
 var assert = require('chai').assert,
     kumascript = require('..'),
@@ -16,5 +16,5 @@ describe('test-templates', function () {
             }
             done(err);
         });
-    })
+    });
 });

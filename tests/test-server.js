@@ -1,10 +1,8 @@
-/*jshint node: true, expr: false, boss: true */
+/* jshint node: true, mocha: true, esversion: 6 */
 
-var fs = require('fs'),
-    path = require('path'),
+var sinon = require('sinon'),
     _ = require('underscore'),
     assert = require('chai').assert,
-    request = require('request'),
     kumascript = require('..'),
     ks_macros = kumascript.macros,
     ks_server = kumascript.server,
@@ -21,6 +19,9 @@ describe('test-server', function () {
     beforeEach(function() {
         // Build both a kumascript instance and a document server for tests.
         this.test_server = ks_test_utils.createTestServer();
+        this.test_server.get('/readiness/?', function (req, res) {
+            res.sendStatus(204);
+        });
         this.macro_processor = new ks_macros.MacroProcessor({
             macro_timeout: 500,
             loader: {
@@ -38,13 +39,13 @@ describe('test-server', function () {
             macro_processor: this.macro_processor
         });
         this.server.listen();
-    })
+    });
 
     afterEach(function () {
         // Kill all the servers on teardown.
         this.server.close();
         this.test_server.close();
-    })
+    });
 
     it('Fetching the root returns the homepage', function (done) {
         testRequestExpected(
@@ -55,7 +56,7 @@ describe('test-server', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('Fetching document1 from service should be processed as expected', function (done) {
         testRequestExpected(
@@ -66,7 +67,7 @@ describe('test-server', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('Fetching 시작하기 from service should be processed as expected', function (done) {
         testRequestExpected(
@@ -77,7 +78,7 @@ describe('test-server', function () {
                 assert.equal(result.trim(), expected.trim());
             }
         );
-    })
+    });
 
     it('POSTing document to service should be processed as expected', function (done) {
         var source_filename = 'documents/document1.txt';
@@ -91,7 +92,7 @@ describe('test-server', function () {
                 }
             );
         });
-    })
+    });
 
     it('Variables passed in request headers should be made available to templates', function (done) {
         function makeHeader(value, key) {
@@ -127,7 +128,7 @@ describe('test-server', function () {
                 }
             );
         });
-    })
+    });
 
     it('Errors in macro processing should be included in response headers', function (done) {
 
@@ -184,7 +185,7 @@ describe('test-server', function () {
                 });
             });
 
-            return errors
+            return errors;
         }
 
         mp.startup(function () {
@@ -208,7 +209,7 @@ describe('test-server', function () {
             testRequestExpected(req_opts, expected_filename, done,
                 function(resp, result, expected) {
                     assert.equal(result.trim(), expected.trim());
-                    assert.equal(resp.headers['vary'], 'X-FireLogger');
+                    assert.equal(resp.headers.vary, 'X-FireLogger');
 
                     var errors = extractErrors(resp);
 
@@ -224,7 +225,7 @@ describe('test-server', function () {
                 }
             );
         });
-    })
+    });
 
     it('Error fetching source document should be logged', function (done) {
         // Induce error condition by closing down the test server.
@@ -253,7 +254,7 @@ describe('test-server', function () {
             });
             assert.isTrue(found_it);
         });
-    })
+    });
 
     it('Fetching /macros returns macro details', function (done) {
         testRequestExpected(getURL('/macros'), 'macros-expected.json', done,
@@ -261,5 +262,65 @@ describe('test-server', function () {
                 assert.deepEqual(JSON.parse(result), JSON.parse(expected));
             }
         );
-    })
+    });
+
+    it('Liveness endpoint returns 204 when live', function (done) {
+        testRequest(getURL('/healthz'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 204);
+        });
+    });
+
+    it('Readiness endpoint returns 204 when ready', function (done) {
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 204);
+        });
+    });
+
+    it('Readiness endpoint returns 503 when macro loader failure', function (done) {
+        this.macro_processor.makeLoader = sinon.stub();
+        this.macro_processor.makeLoader.throws('duplicate macros');
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 503);
+            assert.notEqual(result.indexOf('(macro loader error)'), -1);
+            assert.notEqual(result.indexOf('(duplicate macros)'), -1);
+        });
+    });
+
+    it('Readiness endpoint returns 503 when doc service failure', function (done) {
+        this.test_server.close();
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 503);
+            assert.notEqual(
+                result.indexOf('(document service is not ready)'),
+                -1
+            );
+        });
+    });
+
+    it('Readiness endpoint returns 503 when doc service not ready', function (done) {
+        this.test_server.close();
+        this.test_server = ks_test_utils.createTestServer();
+        this.test_server.get('/readiness/?', function (req, res) {
+            res.status(503).send('service unavailable due to database issue');
+        });
+        testRequest(getURL('/readiness'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 503);
+            assert.notEqual(
+                result.indexOf('(document service is not ready)'),
+                -1
+            );
+            assert.notEqual(
+                result.indexOf('(service unavailable due to database issue)'),
+                -1
+            );
+        });
+    });
+
+    it('Revision endpoint returns git commit hash', function (done) {
+        testRequest(getURL('/revision'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 200);
+            assert.equal(result, process.env.REVISION_HASH);
+            assert.equal(resp.headers['content-type'], 'text/plain; charset=utf-8');
+        });
+    });
 });

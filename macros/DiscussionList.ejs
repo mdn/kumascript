@@ -10,13 +10,12 @@
 //  $4  Twitter ID (null if none)
 //  $5  Stack Overflow tag (null if none)
 
-var lang = env.locale; /* get the page language */ ; 
-var mailingList, newsgroup, googleGroup, webFeed, stackOverflow, twitter;
+var lang = env.locale; /* get the page language */ ;
+var mailingList, newsgroup, webFeed, stackOverflow, twitter;
 
 /* Translation Targets
     * " mailingList"
 	* " newsgroup"
-	* " googleGroup"
 	* " webFeed"
     * " stackOverflow"
     * " twitter"
@@ -25,7 +24,6 @@ switch(lang) {
 	case 'ca':
 		mailingList = " com una llista de correu";
 		newsgroup = " com un grup de discussió";
-		googleGroup = " com un grup de Google";
 		webFeed = " com un canal web";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -33,7 +31,6 @@ switch(lang) {
 	case 'cs':
 		mailingList = " e-mailovou konferenci";
 		newsgroup = " diskuzní skupinu";
-		googleGroup = " Google Group";
 		webFeed = " RSS kanál";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -41,7 +38,6 @@ switch(lang) {
 	case 'de':
 		mailingList = "Mailing-Liste";
 		newsgroup = "Newsgroup";
-		googleGroup = "Google Group";
 		webFeed = "Web-Feed";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -49,7 +45,6 @@ switch(lang) {
 	case 'es':
 		mailingList = " como lista de correo";
 		newsgroup = " como grupo de noticias";
-		googleGroup = " como grupo de Google";
 		webFeed = " como RSS";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -57,7 +52,6 @@ switch(lang) {
 	case 'fi':
 		mailingList = " sähköposti listana";
 		newsgroup = " uutisryhmänä";
-		googleGroup = " Google Rymänä";
 		webFeed = " RSS kanál";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -65,7 +59,6 @@ switch(lang) {
 	case 'fr':
 		mailingList = " Liste de diffusion";
 		newsgroup = " 		newsgroup";
-		googleGroup = " Groupe Google";
 		webFeed = " Flux de syndication";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -73,7 +66,6 @@ switch(lang) {
 	case 'it':
 		mailingList = " Mailing list";
 		newsgroup = " Newsgroup";
-		googleGroup = " Google Groups";
 		webFeed = " Feed RSS";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -81,7 +73,6 @@ switch(lang) {
 	case 'ja':
 		mailingList = " メーリングリストとして";
 		newsgroup = " ニュースグループとして";
-		googleGroup = " Google Group として";
 		webFeed = " フィードとして";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -89,7 +80,6 @@ switch(lang) {
 	case 'ko':
 		mailingList = " 메일링 리스트";
 		newsgroup = " 뉴스그룹";
-		googleGroup = " Google 그룹";
 		webFeed = " 웹 Feed";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -97,7 +87,6 @@ switch(lang) {
 	case 'pl':
 		mailingList = " jako listę dyskusyjna";
 		newsgroup = " jako 		newsgroup";
-		googleGroup = " jako grupę Google";
 		webFeed = " jako kanał";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -105,7 +94,6 @@ switch(lang) {
     case 'ru':
     	mailingList = " Почтовая рассылка";
 		newsgroup = " newsgroup";
-		googleGroup = " Группы Google";
 		webFeed = " Новостная лента";
         stackOverflow = " Stack Overflow";
         twitter = " Твиттер";
@@ -113,7 +101,6 @@ switch(lang) {
 	case 'zh-CN':
 		mailingList = " 邮件列表";
 		newsgroup = " 新闻组";
-		googleGroup = " Google Group（中文）";
 		webFeed = " Web feed";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -121,15 +108,20 @@ switch(lang) {
 	case 'zh-TW':
 		mailingList = " 郵件討論";
 		newsgroup = " 新聞群組";
-		googleGroup = " Google 群組";
 		webFeed = " feed 消息來源";
+        stackOverflow = " Stack Overflow";
+        twitter = " Twitter";
+		break;
+	case 'pt-BR':
+		mailingList = "Lista de E-mails";
+		newsgroup = "grupo de discussão";
+		webFeed = "RSS feed";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
 		break;
 	default:
 		mailingList = "Mailing list";
 		newsgroup = "Newsgroup";
-		googleGroup = "Google Group";
 		webFeed = "RSS feed";
         stackOverflow = " Stack Overflow";
         twitter = " Twitter";
@@ -156,16 +148,6 @@ if ($4) {
     twitHTML = "<li>" + web.link(twitterURL, twitter) + "</li>";
 }
 
-// Build the newsgroup and feed links, if newsgroup is given in $1
-
-var newsgroupHTML = "";
-var newsgroupFeedHTML = "";
-
-if ($1) {
-    newsgroupHTML = "<li>" + web.link('http://groups.google.com/group/' + $1, googleGroup) + "</li>";
-    newsgroupFeedHTML = "<li>" + web.link('http://groups.google.com/group/' + $1 + '/feeds', webFeed) + "</li>";
-}
-
 // Build the <ul> element
 
 var listElem = "<ul";
@@ -176,25 +158,44 @@ if ($2) {
 
 listElem += ">"; //Final ">" of the open <ul> tag
 
-// If the parameter looks like a complete URL, just return it.
-// Otherwise, prepend it with "https://lists.mozilla.org/listinfo/".
 
 function makeListTarget(param) {
-
     function startsWith (string, prefix) {
         return string.slice(0, prefix.length) == prefix;
     }
-
     if (startsWith(param, 'https://') || startsWith(param, 'http://')) {
         return param;
     }
     return  'https://lists.mozilla.org/listinfo/' + param;
 }
 
+
+// Specify a variable to contain the below link HTML
+
+var mailingListURL = "";
+var mailingHTML = "";
+var newsgroupHTML = "";
+var newsgroupFeedHTML = "";
+
+// If the mailing list URL ($0) contains mdn or mdc, set the mailing lists and feed URLs to
+// The discourse options. Otherwise, set them to $0 and $1 (for non-MDN communities)
+
+if($0.indexOf('mdn') !== -1 || $0.indexOf('mdc') !== -1) {
+  mailingListURL = 'https://discourse.mozilla-community.org/c/mdn';
+  mailingHTML = "<li>" + web.link(mailingListURL, mailingList + '/' + newsgroup) + "</li>";
+  newsgroupHTML = '';
+  newsgroupFeedHTML = "<li>" + web.link('https://discourse.mozilla-community.org/c/mdn.rss', webFeed) + "</li>";
+} else {
+  mailingListURL = $0;
+  mailingHTML = "<li>" + web.link(makeListTarget(mailingListURL), mailingList) + "</li>";
+  newsgroupHTML = "<li>" + web.link('http://groups.google.com/group/' + $1, newsgroup) + "</li>";
+  newsgroupFeedHTML = "<li>" + web.link('http://groups.google.com/group/' + $1 + '/feeds', webFeed) + "</li>";
+}
+
 %>
 
 <%-listElem %>
-  <li><%- web.link(makeListTarget($0), mailingList) %></li>
+  <%- mailingHTML %>
   <%- twitHTML %>
   <%- soHTML %>
   <%- newsgroupHTML %>

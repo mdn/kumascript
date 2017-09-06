@@ -49,18 +49,12 @@
     // Optional depth. Number of levels of children to include, 0 is the path page
     // Optional self, defaults to false. Include the path page in the results
     subpages: function (path, depth, self) {
-        var url = '';
-        if (path) {
-            var p = kuma.url.parse(env.url, true);
-            url = p.protocol + '//' + p.host + encodeURI(path) + '$children';
-        } else {
-            url = env.url + '$children';
-        }
+        var mdn = require_macro('MDN:Common');
+        var url = build_api_url((path ? path : env.url) + '$children');
         var depth_check = parseInt(depth);
-        if(depth_check  >= 0) {
+        if (depth_check >= 0) {
             url += '?depth=' + depth_check;
         }
-        var mdn = require_macro('MDN:Common');
         var subpages = mdn.fetchJSONResource(url);
         var result = [];
         if (subpages != null) {
@@ -78,21 +72,12 @@
     // Optional depth. Number of levels of children to include, 0 is the path page
     // Optional self, defaults to false. Include the path page in the results
     subpagesExpand: function (path, depth, self) {
-        var url = '';
-        if (path) {
-            var p = kuma.url.parse(env.url, true);
-            url = p.protocol + '//' + p.host + encodeURI(path) + '$children';
-        } else {
-            url = env.url + '$children';
-        }
-
-        url += '?expand';
-
+        var mdn = require_macro('MDN:Common');
+        var url = build_api_url((path ? path : env.url) + '$children?expand');
         var depth_check = parseInt(depth);
-        if(depth_check  >= 0) {
+        if (depth_check >= 0) {
             url += '&depth=' + depth_check;
         }
-        var mdn = require_macro('MDN:Common');
         var subpages = mdn.fetchJSONResource(url);
         var result = [];
         if (subpages != null) {
@@ -227,14 +212,8 @@
     },
 
     translations: function (path) {
-        var url = '';
-        if (path) {
-            var p = kuma.url.parse(env.url, true);
-            url = p.protocol + '//' + p.host + encodeURI(path) + '$json';
-        } else {
-            url = env.url + '$json';
-        }
         var mdn = require_macro('MDN:Common');
+        var url = build_api_url((path ? path : env.url) + '$json');
         var json = mdn.fetchJSONResource(url);
         var result = [];
         if (json != null) {

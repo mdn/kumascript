@@ -1,4 +1,4 @@
 Testing "require" of npm package:
 
-* First: Does "version" exist? yes!
-* Second: Does "data.css.properties" exist? yes!
+* First: Does "http.headers.Accept" exist? yes!
+* Second: Does "css.properties" exist? yes!

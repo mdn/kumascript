@@ -12,13 +12,44 @@ var selectorsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/select
 var typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json";
 var syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
 var unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
+// List types for which we want to link to a description instead of
+// including it in the formal syntax block
+var s_named_color_link = mdn.localString({
+    "en-US": "/docs/Web/CSS/color_value#Color_keywords",
+    "fr"   : "/docs/Web/CSS/Type_color#Les_mots-clés",
+    "de"   : "/docs/Web/CSS/Farben#Farbschlüsselwörter",
+    "es"   : "/docs/Web/CSS/color_value#Color_keywords",
+    "ja"   : "/docs/Web/CSS/color_value#Color_keywords",
+    "nl"   : "/docs/Web/CSS/kleur_waarde#Color_keywords",
+    "pt-BR": "/docs/Web/CSS/color_value#Palavras-chave_de_cores",
+    "zh-CN": "/docs/Web/CSS/color_value#色彩关键字"
+});
+var s_system_color_link = mdn.localString({
+  "en-US": "/docs/Web/CSS/color_value#Color_keywords",
+  "fr"   : "/docs/Web/CSS/Type_color#Couleurs_système",
+  "de"   : "/docs/Web/CSS/Farben#Systemfarben",
+  "es"   : "/docs/Web/CSS/color_value#Colores_de_Sistema",
+  "ja"   : "/docs/Web/CSS/color_value#System_Colors",
+  "nl"   : "/docs/Web/CSS/kleur_waarde#System_Colors",
+  "pt-BR": "/docs/Web/CSS/color_value#System_Colors",
+  "zh-CN": "/docs/Web/CSS/color_value#系统颜色"
+});
+var externallyDescribedTypesData = {
+  "named-color": {
+    link: s_named_color_link
+  },
+  "deprecated-system-color": {
+    link: s_system_color_link
+  }
+};
 var data = {
     properties: mdn.fetchJSONResource(propertiesUrl),
     atRules: mdn.fetchJSONResource(atRulesUrl),
     selectors: mdn.fetchJSONResource(selectorsUrl),
     types: mdn.fetchJSONResource(typesUrl),
     syntaxes: mdn.fetchJSONResource(syntaxesUrl),
-    units: mdn.fetchJSONResource(unitsUrl)
+    units: mdn.fetchJSONResource(unitsUrl),
+    externallyDescribedTypes: externallyDescribedTypesData
 };
 var slug = env.slug;
 var locale = env.locale;
@@ -268,6 +299,10 @@ function buildLink(match, type) {
                 localize(commonLocalStrings, "summary");
         }
 
+    // Handle types which we want to describe using a link to a different page
+    }  else if (data.externallyDescribedTypes.hasOwnProperty(type)) {
+             return "<a href=\"/" + locale + data.externallyDescribedTypes[type].link + "\">&lt;" + type + "&gt;</a>";
+
     // Handle advanced types having their syntax defined within the 'CSSData' template
     } else if (data.syntaxes[type]) {
         return "<a href=\"#" + type + "\">&lt;" + type + "&gt;</a>";
@@ -337,7 +372,10 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
                 // Some data type page names have '_value' appended,
                 // which needs to be removed in order to find the syntax
                 var subType = type[1].replace("_value", "");
-                if (data.syntaxes.hasOwnProperty(subType)) {
+                // Describe this type if it exists in "syntaxes" and
+                // it *does not* exist in externallyDescribedTypes
+                if ((data.syntaxes.hasOwnProperty(subType)) &&
+                    (!data.externallyDescribedTypes.hasOwnProperty(subType))) {
                     types.push(subType);
                 }
             }
@@ -348,9 +386,11 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
             types.forEach(function(type, index, types) {
                 // Avoid recursions by checking whether a type was already
                 // described before
+                // check whether https://github.com/mdn/data/pull/66 was merged
+                var syntax = data.syntaxes[type].syntax || data.syntaxes[type];
                 if (describedTypes.indexOf(type) === -1) {
                     typesSyntax += "<span id=\"" + type + "\">&lt;" + type +
-                        "&gt;</span> = " + formatSyntax(data.syntaxes[type]);
+                        "&gt;</span> = " + formatSyntax(syntax);
                     if (index < types.length - 1) {
                         typesSyntax += "<br/>";
                     }
@@ -404,7 +444,7 @@ if (name === "preview-wiki-content") {
     } else if (data.properties[name]) {
         rawSyntax = data.properties[name].syntax;
     } else if (data.syntaxes[addBrackets(name)]) {
-        rawSyntax = data.syntaxes[addBrackets(name)];
+        rawSyntax = data.syntaxes[addBrackets(name)].syntax;
     }
 
     formattedSyntax = formatSyntax(rawSyntax);

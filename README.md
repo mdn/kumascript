@@ -1,7 +1,7 @@
 # kumascript
-[![Build Status](https://secure.travis-ci.org/mozilla/kumascript.svg)](https://travis-ci.org/mozilla/kumascript)
-[![Dependency Status](https://david-dm.org/mozilla/kumascript.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript)
-[![devDependency Status](https://david-dm.org/mozilla/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mozilla/kumascript#info=devDependencies)
+[![Build Status](https://secure.travis-ci.org/mdn/kumascript.svg)](https://travis-ci.org/mdn/kumascript)
+[![Dependency Status](https://david-dm.org/mdn/kumascript.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript)
+[![devDependency Status](https://david-dm.org/mdn/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript#info=devDependencies)
 
 [What's Deployed](https://whatsdeployed.io/s-FHK)
 
@@ -54,12 +54,12 @@ summary:
 
     * Now you are ready to add, modify, and/or delete any macro (or other)
       files, and make commits. When you have made your changes and are ready
-      for testing, you will want to run your local development version of MDN.
-      Move up one level, back to the root directory of your kuma repository,
-      and do the following:
+      for testing, you will want to run your local development version of MDN:
 
+          cd ..
           docker-compose build
           docker-compose up -d
+          cd kumascript
 
     * If everything is OK, you can point your browser to http://localhost:8000,
       login, create a new document that uses your new or modified macro(s), and
@@ -88,12 +88,13 @@ more before you run your local development version of MDN.
   need to create a new KumaScript docker image as follows (assuming you are
   in the `kumascript` sub-directory):
 
-      make build
+      cd ..; make build-kumascipt; cd kumascript
 
-* Note the last line of output from your `make build` command above. It
-  should look something like this:
+* Note the last line of output from your `make build-kumascript` command
+  above. It should look something like this:
 
       Successfully built 48ddc354b3f4
+      Successfully tagged quay.io/mozmar/kumascript:e3870fd
 
   but of course with a different image ID, which is the hexadecimal number
   `48ddc354b3f4` in the example above. You'll need this KumaScript image ID
@@ -133,7 +134,7 @@ more before you run your local development version of MDN.
 
 * To build a Docker image (you will need to do this initially as well as after
   every `git commit`):
-    * `make build`      
+    * `cd ..; make build-kumascript; cd kumascript`
 * To run the tests:
     * `make test`
 * To check your code (using JSHint):

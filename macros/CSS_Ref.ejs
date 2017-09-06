@@ -114,9 +114,15 @@ if (types.some(function(type) { return type === "types"; })) {
             index[initial] = [];
         }
 
+        var label = type;
+        if (label.charAt(0) != "<") {
+            // https://github.com/mdn/data/pull/81 was merged
+            label =  "<" + type + ">";
+        }
+
         var item = {
             urlPath: "",
-            label: type
+            label: label
         };
 
         // Generate URL path regarding some special cases
@@ -139,7 +145,9 @@ if (types.some(function(type) { return type === "types"; })) {
 
 if (types.some(function(type) { return type === "syntaxes"; })) {
     // Add value syntaxes to index
-    for (var syntax in data.syntaxes) {
+
+    var syntaxes = data.syntaxes;
+    for (let syntax of Object.keys(syntaxes)) {
         if (syntax.match(/\(\)$/)) {
             var initial = normalize(syntax)[0].toUpperCase();
 
@@ -153,10 +161,12 @@ if (types.some(function(type) { return type === "syntaxes"; })) {
             });
         }
 
-        // Add items within at-rule syntax
-        var items = getItemsFromSyntax(data.syntaxes[syntax]);
+        // Add items within at-rule syntax (e.g. "@annotation")
+        // check whether https://github.com/mdn/data/pull/66 was merged
+        var items = getItemsFromSyntax(syntaxes[syntax].syntax || syntaxes[syntax]);
+
         for (var i = 0; i < items.length; i++) {
-            if (data.syntaxes[items[i]] && outputStatuses.indexOf(data.syntaxes[items[i]]) === -1) {
+            if (syntaxes[items[i]] && outputStatuses.indexOf(syntaxes[items[i]]) === -1) {
                 continue;
             }
 
@@ -469,6 +479,17 @@ for (var i in characters) {
             case "hsl()":
             case "hsla()":
                 item.urlPath = "color_value#" + item.label;
+                break;
+
+            case "inset()":
+            case "polygon()":
+            case "circle()":
+            case "ellipse()":
+                item.urlPath = "basic-shape#" + item.label;
+                break;
+
+            case "rect()":
+                item.urlPath = "shape#" + item.label;
                 break;
         }
     }

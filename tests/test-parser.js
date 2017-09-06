@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* jshint node: true, mocha: true, esversion: 6 */
 
 var PEG = require("pegjs"),
     fs = require("fs"),
@@ -22,7 +22,7 @@ describe('test-parser', function () {
             }],
             "The macro is parsed correctly"
         );
-    })
+    });
 
     it('JSON parameter should allow a single-item list', function () {
         "use strict";
@@ -36,7 +36,7 @@ describe('test-parser', function () {
             }],
             "The macro is parsed correctly"
         );
-    })
+    });
 
     it('Invalid JSON should cause a syntax error', function () {
         "use strict";
@@ -63,7 +63,7 @@ describe('test-parser', function () {
             /^SyntaxError: .+$/,
             "Trailing commas are not allowed"
         );
-    })
+    });
 
     it("JSON strings should be able to contain ')'", function () {
         "use strict";
@@ -77,7 +77,7 @@ describe('test-parser', function () {
             }],
             "The macro is parsed correctly"
         );
-    })
+    });
 
     it('Empty JSON values are allowed', function () {
         "use strict";
@@ -102,7 +102,7 @@ describe('test-parser', function () {
             }],
             "Empty JSON objects are parsed correctly"
         );
-    })
+    });
 
     it('Escaped unicode codepoints are parsed correctly', function () {
         "use strict";
@@ -143,5 +143,5 @@ describe('test-parser', function () {
             /^SyntaxError: .+$/,
             "Four digits are required"
         );
-    })
+    });
 });

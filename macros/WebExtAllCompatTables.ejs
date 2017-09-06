@@ -17,20 +17,18 @@ The exception is the devtools APIs: these have a three-level structure
 "devtools.panels" the namespace. So for devtools APIs, we iterate into
 the devtools namespace to generate aggregated tables.
 
-This macro can be inserted anywhere, and takes not arguments.
+This macro can be inserted anywhere, and takes no arguments.
 */
 
-const compatDataUrl = "https://raw.githubusercontent.com/mdn/browser-compat-data/master/webextensions/javascript-apis.json";
-const compatJson = mdn.fetchJSONResource(compatDataUrl);
-const webExtAPIBaseUrl = "docs/Mozilla/Add-ons/WebExtensions/API";
+const bcd = require('mdn-browser-compat-data');
 
 function writeTableForModule(data, moduleName) {
   var table = `<h2>${moduleName}</h2>`;
-  table += template("WebExtBrowserCompatTable", [data, `${webExtAPIBaseUrl}/${moduleName}`]);
+  table += template("compat", [`webextensions.api.${moduleName}`, 1, true]);
   return table;
 }
 
-var features = compatJson.data.webextensions.api;
+var features = bcd.webextensions.api;
 var featureList = Object.keys(features).sort();
 var output = "";
 
