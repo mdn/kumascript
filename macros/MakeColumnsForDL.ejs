@@ -19,33 +19,34 @@ switch (env.locale) {
 }
 
 if (len) {
-    var items = html.split("<dt ");
-    //items.shift();  // The first item is empty here since the string should start with "<dt"
+    var items = html.split("<dt>");
     var sum = 0;
+
+    // Get the lengths of each of the definitions
+
     var lengths = items.map(function(v) {
         sum += v.length;
         return v.length;
     });
-        
-    var n = 0;
+
+    var numItemsInColumn1 = 0;
     var ts = 0;
-    
+
     // Figure out how many items go in the first column. If there are only
     // two items in the list, this is always 1, to be sure both columns
     // have content.
-    
+
     if (items.length <= 2) {
-        n = 1;
+        numItemsInColumn1 = 1;
     } else {
         while (ts < sum/2) {
-            ts += lengths[n++];
+            ts += lengths[numItemsInColumn1++];
         }
     }
-    
-    //var col1 = ""; //items[0];
-    var col1 = items[0] + "<dt " + items.slice(1, n).join("<dt ");
-    var col2 = "<dt " + items.slice(n, items.length).join("<dt ");
-    
+
+    var col1 = items[0] + "<dt>" + items.slice(1, numItemsInColumn1).join("<dt>");
+    var col2 = "<dt>" + items.slice(numItemsInColumn1, items.length).join("<dt>");
+
     %>
     <div class="row topicpage-table">
     <div class="section"><dl><%-col1%></dl></div>

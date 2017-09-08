@@ -68,7 +68,7 @@ URL_ROOTS.forEach(function (root) {
             ARTICLES.push({
                 title   : p.title,
                 url     : p.url,
-                summary : p.summary
+                summary : p.summary.replace(/<img[^>]*>/g," ")
             });
         }
     });
@@ -86,7 +86,7 @@ if (ARTICLES.length > 0) {
 <%
     for (n in ARTICLES) {
 %>
-    <dt><a href="<%= ARTICLES[n].url %>"><%- ARTICLES[n].title %></a></dt>
+    <dt><a href="<%= ARTICLES[n].url %>"><%= ARTICLES[n].title %></a></dt>
     <dd><%- ARTICLES[n].summary %></dd>
 <%
     }
