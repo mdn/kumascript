@@ -52,6 +52,42 @@ node {
 
         break
 
+        case 'ryan-test':
+          stage('Build') {
+            sh 'make build-kumascript KS_VERSION=latest'
+          }
+
+          stage('Lint') {
+            dir('kumascript') {
+              sh 'make lint VERSION=latest'
+              sh 'make lint-macros VERSION=latest'
+            }
+          }
+
+          stage('Test') {
+            dir('kumascript') {
+              try {
+                sh 'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+              } finally {
+                junit 'test-results.xml'
+              }
+              try {
+                sh 'make test-macros VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+              } finally {
+                junit 'test-results.xml'
+              }
+            }
+          }
+
+          stage('Push KumaScript Docker Image') {
+            sh 'make push-kumascript VERSION=latest'
+          }
+
+          break
+
+
+
+
       default:
         stage('Build') {
           sh 'make build-kumascript'
