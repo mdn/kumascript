@@ -21,7 +21,7 @@ node {
     switch (env.BRANCH_NAME) {
       case 'master':
         stage('Build') {
-          sh 'make build-kumascript VERSION=latest'
+          sh 'make build-kumascript KS_VERSION=latest'
         }
 
         stage('Lint') {
@@ -47,7 +47,7 @@ node {
         }
 
         stage('Push KumaScript Docker Image') {
-          sh 'make push-kumascript VERSION=latest'
+          sh 'make push-kumascript KS_VERSION=latest'
         }
 
         break
