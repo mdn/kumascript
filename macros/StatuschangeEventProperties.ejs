@@ -18,6 +18,21 @@ switch (el) {
 </tr><%
 
         break;
+
+    case "uk":
+
+%><tr>
+  <td><code>network</code> <%-template("readOnlyInline") %></td>
+  <td>nsIVariant (об'єкт)</td>
+  <td>Пов'язаний з мережею об'єкт, що має поле SSID.</td>
+</tr>
+<tr>
+  <td><code>status</code>  <%-template("readOnlyInline") %></td>
+  <td>DOMString (рядок)</td>
+  <td>Слово, що описує поточний статус WiFi-менеджера. Перелік можливих значень наведено вище.</td>
+</tr><%
+
+        break;
     default:
 
 %><tr>

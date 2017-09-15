@@ -17,6 +17,20 @@ switch (el) {
 </tr><%
 
         break;
+    case "uk":
+
+%><tr>
+  <td><code>state</code> <%-template("readOnlyInline")%></td>
+  <td>DOMString (рядок)</td>
+  <td>Поточний стан виклику.</td>
+</tr>
+<tr>
+  <td><code>call</code> <%-template("readOnlyInline")%></td>
+  <td>Call</td>
+  <td>Виклик, з яким пов'язана подія.</td>
+</tr><%
+
+        break;
     default:
 
 %><tr>

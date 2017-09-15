@@ -57,6 +57,14 @@ switch(env.locale) {
         yes = '可';
         no = '不可';
         break;
+    case "uk":
+        header = 'Property attributes of <code>' + env.title + '</code>';
+        writable_name = 'Змінювана';
+        enumerable_name = 'Перелічувана';
+        configurable_name = 'Налаштовувана';
+        yes = 'так';
+        no = 'ні';
+        break;
     default:
         header = 'Property attributes of <code>' + env.title + '</code>';
         writable_name = 'Writable';

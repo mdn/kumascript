@@ -5,7 +5,8 @@
         "es"   : "Imposible de contactar el servicio CompatTable.",
         "fr"   : "Impossible de contacter le service CompatTable.",
         "ja"   : "CompatTable サービスに接続できません。",
-        "ru"   : "Не удалось подключиться к сервису CompatTable"
+        "ru"   : "Не удалось подключиться к сервису CompatTable",
+        "uk"   : "Не вдалося зв'язатися зі службою таблиць сумісності."
     },
     "compatServiceError": {
         "en-US": "Compat service error returned: $error$",
@@ -13,7 +14,8 @@
         "es"   : "El servicio CompatTable regresó el error : $error$",
         "fr"   : "Le service de compatibilité a renvoyé l'erreur&nbsp;: $error$",
         "ja"   : "Compat サービスがエラーを返しました:  $error$",
-        "ru"   : "Сервис Compat вернул ошибку: $error$"
+        "ru"   : "Сервис Compat вернул ошибку: $error$",
+        "uk"   : "Служба таблиць сумісності повернула помилку: $error$"
     },
 
     "browserType_desktop": {
@@ -22,7 +24,8 @@
         "es"   : "Desktop",
         "fr"   : "Ordinateur",
         "ja"   : "デスクトップ",
-        "ru"   : "Компьютеры"
+        "ru"   : "Компьютеры",
+        "uk"   : "Настільні"
     },
     "browserType_mobile": {
         "en-US": "Mobile",
@@ -30,7 +33,8 @@
         "es"   : "Mobile",
         "fr"   : "Mobile",
         "ja"   : "モバイル",
-        "ru"   : "Мобильные"
+        "ru"   : "Мобильные",
+        "uk"   : "Мобільні"
     },
     "browserType_non": {
         "en-US": "Non-Browser Environment",
@@ -38,7 +42,8 @@
         "es"   : "Entorno no basado en navegadores",
         "fr"   : "Environnement non-navigateur",
         "ja"   : "非ブラウザー環境",
-        "ru"   : "Внебраузерная среда"
+        "ru"   : "Внебраузерная среда",
+        "uk"   : "Не переглядачі"
     },
 
     "bc_history_head": {
@@ -46,7 +51,8 @@
         "es"   : "Notas de implementación",
         "fr"   : "Notes d'implémentation",
         "ja"   : "実装ノート",
-        "ru"   : "Замечания реализации"
+        "ru"   : "Замечания реализации",
+        "uk"   : "Зауваги щодо реалізації"
     },
     "supportsShort_yes": {
         "en-US": "(Yes)",
@@ -54,14 +60,16 @@
         "es"   : "(Si)",
         "fr"   : "(Oui)",
         "ja"   : "(有り)",
-        "ru"   : "(Да)"
+        "ru"   : "(Да)",
+        "uk"   : "(Так)"
     },
     "supportsShort_yes_title": {
         "en-US": "Please update this with the earliest version of support.",
         "de"   : "Bitte mit der frühsten Version updaten in der Support vorhanden ist.",
         "fr"   : "Veuillez mettre à jour avec la version minimale du support",
         "ja"   : "最新の対応状況に更新してください。",
-        "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии."
+        "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии.",
+        "uk"   : "Будьте ласкаві, вкажіть найпершу підтримувану версію замість цього шаблона."
     },
     "supportsShort_no": {
         "en-US": "No",
@@ -69,7 +77,8 @@
         "es"   : "No",
         "fr"   : "Non",
         "ja"   : "無し",
-        "ru"   : "Нет"
+        "ru"   : "Нет",
+        "uk"   : "Ні"
     },
     "supportsShort_partial": {
         "en-US": "Partial",
@@ -77,7 +86,8 @@
         "es"   : "Parcial",
         "fr"   : "Partiel",
         "ja"   : "部分的",
-        "ru"   : "Частичная"
+        "ru"   : "Частичная",
+        "uk"   : "Частково"
     },
 
     "supportsLong_yes": {
@@ -86,7 +96,8 @@
         "es"   : "Soporte completo",
         "fr"   : "Support complet",
         "ja"   : "完全サポート",
-        "ru"   : "Полная поддержка"
+        "ru"   : "Полная поддержка",
+        "uk"   : "Повна підтримка"
     },
     "supportsLong_no": {
         "en-US": "No support",
@@ -94,7 +105,8 @@
         "es"   : "Sin soporte",
         "fr"   : "Aucun support",
         "ja"   : "サポートなし",
-        "ru"   : "Нет поддержки"
+        "ru"   : "Нет поддержки",
+        "uk"   : "Підтримка відсутня"
     },
     "supportsLong_partial": {
         "en-US": "Partial support",
@@ -102,25 +114,29 @@
         "es"   : "Soporte parcial",
         "fr"   : "Support partiel",
         "ja"   : "部分サポート",
-        "ru"   : "Частичная поддержка"
+        "ru"   : "Частичная поддержка",
+        "uk"   : "Часткова підтримка"
     },
     "supportsShort_unknown": {
         "en-US": "?",
         "fr"   : "?",
         "ja"   : "?",
-        "ru"   : "?"
+        "ru"   : "?",
+        "uk"   : "?"
     },
     "supportsShort_unknown_title": {
         "en-US": "Compatibility unknown; please update this.",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
-        "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию."
+        "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию.",
+        "uk"   : "Відомості про сумісність відсутні; надайте цю інформацію, коли ваша ласка."
     },
     "feature": {
         "en-US": "Feature",
         "fr"   : "Fonctionnalité",
         "ja"   : "機能",
-        "ru"   : "Возможность"
+        "ru"   : "Возможность",
+        "uk"   : "Підтримка"
     },
     "feature_basicsupport": {
         "en-US": "Basic Support",
@@ -128,7 +144,8 @@
         "es"   : "Soporte básico",
         "fr"   : "Support simple",
         "ja"   : "基本サポート",
-        "ru"   : "Базовая поддержка"
+        "ru"   : "Базовая поддержка",
+        "uk"   : "Базова підтримка"
     },
     "feature_experimental": {
         "en-US": "Experimental",
@@ -136,7 +153,8 @@
         "es"   : "Experimental",
         "fr"   : "Expérimentale",
         "ja"   : "実験的",
-        "ru"  : "Экспериментальная"
+        "ru"   : "Экспериментальная",
+        "uk"   : "Дослідна"
     },
     "feature_experimentalLong": {
         "en-US": "Experimental. Expect behavior to change in the future.",
@@ -144,7 +162,8 @@
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité experimentale. Celle-ci peut être amenée à changer par la suite.",
         "ja"   : "実験的。動作が変更される可能性があります。",
-        "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем."
+        "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем.",
+        "uk"   : "Дослідна. Зважайте, що поведінка може надалі змінюватися."
     },
     "feature_nonstandard": {
         "en-US": "Non-standard",
@@ -152,7 +171,8 @@
         "es"   : "No estándar",
         "fr"   : "Non-standard",
         "ja"   : "非標準",
-        "ru"   : "Нестандартная"
+        "ru"   : "Нестандартная",
+        "uk"   : "Нестандартна"
     },
     "feature_nonstandardLong": {
         "en-US": "Non-standard. Expect poor cross-browser support.",
@@ -160,7 +180,8 @@
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
-        "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка."
+        "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
+        "uk"   : "Нестандартна. Зважайте на імовірну несумісність між переглядачами."
     },
     "feature_obsolete": {
         "en-US": "Obsolete",
@@ -168,7 +189,8 @@
         "es"   : "Obsoleto",
         "fr"   : "Obsolète",
         "ja"   : "廃止",
-        "ru"   : "Устаревшая"
+        "ru"   : "Устаревшая",
+        "uk"   : "Застаріла"
     },
     "feature_obsoleteLong": {
         "en-US": "Obsolete. Not for use in new websites.",
@@ -176,7 +198,8 @@
         "es"   : "Obsoleto . No para uso en sitios web.",
         "fr"   : "Fonctionnalité obsolète. Celle-ci ne doit pas être utilisée pour de nouveaux sites web.",
         "ja"   : "廃止。新しいウェブサイトで使用しないでください。",
-        "ru"   : "Устаревшая. Не для использования в новых сайтах."
+        "ru"   : "Устаревшая. Не для использования в новых сайтах.",
+        "uk"   : "Застаріла. Не для нових сайтів."
     },
 
     "requirement_prefix": {
@@ -185,7 +208,8 @@
         "es"   : "Prefijado",
         "fr"   : "Préfixée",
         "ja"   : "接頭辞付き",
-        "ru"   : "С префиксом"
+        "ru"   : "С префиксом",
+        "uk"   : "З префіксом"
     },
     "requirement_prefixLong": {
         "en-US": "Requires the vendor prefix: <code>$prefix$</code>",
@@ -193,7 +217,8 @@
         "es"   : "Requiere de un prefijo de vendedor : <code>$prefix$</code>",
         "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: <code>$prefix$</code>",
         "ja"   : "ベンダー接頭辞が必要: <code>$prefix$</code>",
-        "ru"   : "Требует вендорный префикс: <code>$prefix$</code>"
+        "ru"   : "Требует вендорный префикс: <code>$prefix$</code>",
+        "uk"   : "Потребує префікса: <code>$prefix$</code>"
     },
     "requirement_note": {
         "en-US": "Notes",
@@ -201,7 +226,8 @@
         "es"   : "Notas",
         "fr"   : "Notes",
         "ja"   : "補足",
-        "ru"   : "Замечания"
+        "ru"   : "Замечания",
+        "uk"   : "Зауваги"
     },
     "requirement_noteLong": {
         "en-US": "See implementation notes",
@@ -209,7 +235,8 @@
         "es"   : "Ver notas de implementación",
         "fr"   : "Voir les notes d'implémentation",
         "ja"   : "実装ノートを見てください",
-        "ru"   : "Смотрите замечания реализации"
+        "ru"   : "Смотрите замечания реализации",
+        "uk"   : "Дивіться зауваги щодо реалізації"
     },
     "requirement_alternate": {
         "en-US": "Alternate Name",
@@ -217,7 +244,8 @@
         "es"   : "Nombre alternativo",
         "fr"   : "Autre nom",
         "ja"   : "代替名",
-        "ru"   : "Альтернативное имя"
+        "ru"   : "Альтернативное имя",
+        "uk"   : "Інше ім'я"
     },
     "requirement_alternateLong": {
         "en-US": "Uses the non-standard name: <code>$name$</code>",
@@ -225,7 +253,8 @@
         "es"   : "Usa un nombre no estandar : <code>$name</code> ",
         "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$name$</code>",
         "ja"   : "非標準の名前を使用: <code>$name$</code>",
-        "ru"   : "Использует нестандартное имя: <code>$name$</code>"
+        "ru"   : "Использует нестандартное имя: <code>$name$</code>",
+        "uk"   : "Вживає нестандартне ім'я: <code>$name$</code>"
     },
     "requirement_protected": {
         "en-US": "Protected",
@@ -233,7 +262,8 @@
         "es"   : "Protegido",
         "fr"   : "Protégée",
         "ja"   : "保護",
-        "ru"   : "Защищено"
+        "ru"   : "Защищено",
+        "uk"   : "Захищено"
     },
     "requirement_protectedLong": {
         "en-US": "Protected. Additonal steps are required to get permission or certification for use.",
@@ -241,7 +271,8 @@
         "es"   : "Protegido. Se requiere de pasos adicionales para obtener permiso o certificación para su uso.",
         "fr"   : "Cette fonctionnalité est protégée. Des étapes supplémentaires sont nécessaires pour pouvoir l'utiliser.",
         "ja"   : "保護されています。使用するには、許可または証明書を得るための追加の手順が必要です。",
-        "ru"   : "Защищено. Дополнительные шаги требуют получение разрешения или сертификат для использования."
+        "ru"   : "Защищено. Дополнительные шаги требуют получение разрешения или сертификат для использования.",
+        "uk"   : "Захищено. Щоб отримати дозвіл чи сертифікат на використання, необхідні додаткові кроки."
     },
     "requirement_disabled": {
         "en-US": "Disabled",
@@ -249,7 +280,8 @@
         "es"   : "Deshabilitado",
         "fr"   : "Désactivée",
         "ja"   : "無効",
-        "ru"   : "Отключено"
+        "ru"   : "Отключено",
+        "uk"   : "Вимкнено"
     },
     "requirement_disabledRequires": {
         "en-US": "The user must change <code>$default$</code> to <code>$requires$</code> to enable this feature.",
@@ -257,7 +289,8 @@
         "es"   : "El usuario debe de cambiar <code>$default$</code>  a <code>$requires$</code> para habilitar esta característica.",
         "fr"   : "L'utilisateur doit changer $default$ à $requires$ afin d'activer cette fonctionnalité.",
         "ja"   : "この機能を有効にするには、ユーザーが <code>$default$</code> を <code>$requires$</code> に変更しなければなりません。",
-        "ru"   : "Пользователь должен изменить <code>$default$</code> на <code>$requires$</code>, чтобы включить эту возможность."
+        "ru"   : "Пользователь должен изменить <code>$default$</code> на <code>$requires$</code>, чтобы включить эту возможность.",
+        "uk"   : "Користувач має змінити <code>$default$</code> на <code>$requires$</code>, щоб увімкнути цю можливість."
     },
     "requirement_disabledDefault": {
         "en-US": "The user must change <code>$default$</code> to enable this feature.",
@@ -265,7 +298,8 @@
         "es"   : "El usuario debe de cambiar <code>$default$</code>  para habilitar esta característica.",
         "fr"   : "L'utilisateur doit changer $default$ afin d'activer cette fonctionnalité.",
         "ja"   : "この機能を有効にするには、ユーザーが <code>$default$</code> を変更しなければなりません。",
-        "ru"   : "Пользователь должен изменить <code>$default$</code>, чтобы включить эту возможность."
+        "ru"   : "Пользователь должен изменить <code>$default$</code>, чтобы включить эту возможность.",
+        "uk"   : "Користувач має змінити <code>$default$</code>, щоб увімкнути цю можливість."
     },
 
     "legend": {
@@ -274,7 +308,8 @@
         "es"   : "Leyenda",
         "fr"   : "Légende",
         "ja"   : "凡例",
-        "ru"   : "Легенда"
+        "ru"   : "Легенда",
+        "uk"   : "Позначки"
     },
     "legend_prefixLong": {
         "en-US": "Requires a vendor prefix or different name for use.",
@@ -282,7 +317,8 @@
         "es"   : "Requiere de un prefijo de proveedor o un de nombre diferente para su uso.",
         "fr"   : "Cette fonctionnalité nécessite un préfixe particulier ou utilise un autre nom.",
         "ja"   : "使用するには、ベンダー接頭辞または異なる名前が必要です。",
-        "ru"   : "Требует вендорный префикс или другое имя для использования."
+        "ru"   : "Требует вендорный префикс или другое имя для использования.",
+        "uk"   : "Для використання потрібен префікс або інше ім'я."
     },
     "legend_alternateLong": {
         "en-US": "Uses a non-standard name.",
@@ -290,7 +326,8 @@
         "es"   : "Usa un nombre no estandar.",
         "fr"   : "Cette fonctionnalité utilise un nom non-standard.",
         "ja"   : "非標準の名前を使用します。",
-        "ru"   : "Использует нестандартное имя."
+        "ru"   : "Использует нестандартное имя.",
+        "uk"   : "Вживає нестандартне ім'я."
     },
     "legend_disabledLong": {
         "en-US": "User must explicitly enable this feature.",
@@ -298,6 +335,7 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
-        "ru"   : "Пользователь должен сам включить эту возможность."
+        "ru"   : "Пользователь должен сам включить эту возможность.",
+        "uk"   : "Користувач має сам увімкнути цю можливість."
     }
 }

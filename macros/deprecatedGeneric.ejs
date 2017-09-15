@@ -99,6 +99,10 @@ switch(lang) {
         str = "Wycofywany";
         if (ver.length) { str = str + " " + ver; }
         break;
+    case 'uk':
+        str = "Застаріло";
+        if (ver.length) { str = str + " з версії " + ver; }
+        break;
     case 'ru':
         str = "Устарело";
         if (ver.length) { str = str + " " + ver; }
@@ -124,6 +128,7 @@ var str_desc = mdn.localString({
   "fr":    "Cette fonctionnalité a été supprimée des standards du Web. Bien que quelques navigateurs puissent encore la supporter, elle est en cours d'éradication. Ne l'utilisez ni dans d'anciens projets, ni dans de nouveaux. Les pages et applications Web l'utilisant peuvent cesser de fonctionner à tout moment.",
   "ja":    "この機能は Web 標準から削除されました。まだサポートしているプラウザーがあるかもしれませんが、ゆくゆくはなくなるものです。新旧にかかわらず、プロジェクトでの使用をやめてください。この機能を使用するページ、Web アプリはいつ動かなくなってもおかしくありません。",
   "pl":    "This feature has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Do not use it in old or new projects. Pages or Web apps using it may break at any time.",
+  "uk":    "Цю можливість було видалено з веб-стандартів. Попри те, що вона, можливо, досі працює в деяких веб-переглядачах, її видалення вже триває. Уникайте її використання як в нових, так і в старих проектах. Залежні від неї сторінки чи веб-застосунки можуть зламатися будь-якої миті.",
   "ru":    "Эта возможность была удалена из веб-стандартов. Хотя некоторые браузеры по-прежнему могут поддерживать её, она находится в процессе удаления. Не используйте её ни в старых, ни в новых проектах. Страницы или веб-приложения, использующие её, могут в любой момент сломаться.",
   "zh-CN": "该特性已经从 Web 标准中删除，虽然一些浏览器目前仍然支持它，但也许会在未来的某个时间停止支持，请尽量不要使用该特性。",
   "zh-TW": "This feature has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Do not use it in old or new projects. Pages or Web apps using it may break at any time."

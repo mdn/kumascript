@@ -3,6 +3,10 @@ var str = "";
 var title = "";
 
 switch(env.locale) {
+  case "uk":
+    str = "Лише Mobile з Gecko " + $0;
+    title = "Підтримується лише в Firefox Mobile з Gecko " + $0 + " " + template("geckoRelease", [$0]);
+    break;
   default:
     str = "Mobile Only in Gecko " + $0;
     title = "Available only in Firefox Mobile as of Gecko " + $0 + " " + template("geckoRelease", [$0]);

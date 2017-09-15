@@ -29,7 +29,24 @@ var output = mdn.localString({
         'Firefox 的公测版（Beta）和正式版。我们准备了<a ' +
         'href="/zh-CN/Add-ons/Working_with_multiprocess_Firefox">制作多进程兼容的附加组件</a>的文档，但迁移到 WebExtension 是更加着眼于未来的选择。</p>' +
         '<p>有关的 wiki 页面写有协助开发人员过渡到新技术的<a href="https://wiki.mozilla.org/Add-ons/developer/communication">有关资源、迁移路径、办公时间等信息</a>'+
-        '。</div>'
+        '。</div>',
+    'uk': '<div class="warning">' +
+        '<p>Додатки, що використовують наведені у цій статті підходи, визнано застарілою технологією у Firefox. ' +
+        'Не використовуйте ці підходи для створення нових додатків. Натомість віддайте перевагу ' +
+        '<a href="/uk/Add-ons/WebExtensions">WebExtensions</a>. ' +
+        'Якщо ви обслуговуєте вже наявні додатки, які використовуть наведені в статті підходи, поміркуйте над переведенням їх на ' +
+        'WebExtensions.</p>' +
+        '<p><strong>Починаючи з <a href="https://wiki.mozilla.org/RapidRelease/Calendar">Firefox 53</a>, прийняття застарілих додатків на addons.mozilla.org (AMO) припиниться для настільного Firefox та Firefox для Android.</strong></p>' +
+        '<p><strong>Починаючи з <a href="https://wiki.mozilla.org/RapidRelease/Calendar">Firefox 57</a>, підтримуватимуться виключно розширення, створені за допомогою WebExtensions API, ' +
+        'для настільного Firefox та Firefox для Android. </strong></p>' +
+        '<p>Та навіть для версій Firefox старших за 57, подальші зміни до платформи можуть зламати чимало застарілих додатків. ' +
+        'Ці зміни стосуються, зокрема, multiprocess Firefox (e10s), sandboxing, та multiple content processes. ' +
+        'Застарілі додатки, що їх зачіпають ці зміни, мають переходити на використання WebExtensions API, якщо це можливо. ' +
+        'Подробиці шукайте в <a href="https://blog.mozilla.org/addons/2017/02/16/the-road-to-firefox-57-compatibility-milestones/">документі "Compatibility Milestones"</a>.</p>' +
+        '<p>Сторінка wiki, що містить <a href="https://wiki.mozilla.org/Add-ons/developer/communication">' +
+        'ресурси, шляхи міграції, офісні години тощо</a>, '+
+        'має допомогти розробникам перейти на нові технології.</p>' +
+        '</div>'
 });
 %>
 

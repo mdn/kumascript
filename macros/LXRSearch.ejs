@@ -11,6 +11,9 @@ switch(lang) {
   case 'ru':
     searchfor = ' Искать <code>' + $2 + '</code>';
     break;
+  case 'uk':
+    searchfor = ' Шукати <code>' + $2 + '</code>';
+    break;
 }
 %>
 <a href="http://mxr.mozilla.org/mozilla-central/<%= $0 + '?' + $1 + '=' + $2 %>"><%-

@@ -15,13 +15,14 @@ if(wiki.pageExists(lang + '/docs/SpiderMonkey/' + $0)) {
 }
 
 var str = 'Added in ' + link;
+var verJsapi;
 
 /* New JSAPI versions  */
 if ($0) {
-    var t = string.tolower($0);
-    if (string.startswith(t, "jsapi")) {
-        t = string.trim(string.substr(t, 5));
-        str = "Added in JSAPI " + t;
+    verJsapi = string.tolower($0);
+    if (string.startswith(verJsapi, "jsapi")) {
+        verJsapi = string.trim(string.substr(verJsapi, 5));
+        str = "Added in JSAPI " + verJsapi;
     }
 }
 
@@ -29,8 +30,17 @@ switch(lang) {
   case 'ja':
     str = link + ' の新機能';
     break;
+
   case 'ru':
     str = 'Добавлено в '+link;
+    break;
+
+  case 'uk':
+    if (verJsapi) {
+      str = 'З\'явилося у JSAPI ' + verJsapi;
+    } else {
+      str = 'З\'явилося у ' + link;
+    }
     break;
 }
 

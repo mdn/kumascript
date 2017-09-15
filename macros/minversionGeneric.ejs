@@ -66,6 +66,12 @@ switch(lang) {
         newIn = "Нововведение в ";
         note = "Замечание по "+productVersion;
         break;
+    case 'uk':
+        articleName = productVersion + " для розробників";
+        text = "Ця стаття стосується функціональності, запровадженої в " + web.link(wiki.uri(link), productVersion);
+        newIn = "Нове у ";
+        note = "Заувага щодо " + productVersion;
+        break;
     case 'zh-CN':
         articleName = productVersion + " for developers";
         text = "该条目记录了 " + web.link(wiki.uri(link), productVersion) + " 引入的新特性";

@@ -1,10 +1,15 @@
 <%
 var p1 = "/en-US/docs/";
-var p2 = "Web/Reference/Events/";
+var p2 = "Web/Events/";
 
-var el = env.locale;
+var locale = env.locale;
 
-if(el === "ja") p1 = "/" + el + "/docs/";
+switch (locale) {
+    case "ja":
+    case "uk":
+      p1 = "/" + locale + "/docs/";
+      break;
+}
 
 var path = p1 + p2;
 

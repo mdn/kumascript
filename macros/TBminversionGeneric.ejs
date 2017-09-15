@@ -59,6 +59,12 @@ switch(lang){
 		newIn = "Нововведение в ";
         note = "Замечание по Thunderbird " + version;
 	    break;
+	case 'uk':
+		articleName = "Thunderbird " + version + " для розробників";
+        text = "Ця стаття охоплює можливості, запроваджені у " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version);
+		newIn = "Нове у ";
+        note = "Заувага щодо Thunderbird " + version;
+	    break;
 	case 'zh-CN':
 		articleName = "Thunderbird " + version + " for developers";
 		text = "该条目记录了 " + web.link(wiki.uri(lang + '/docs/' + articleName), "Thunderbird " + version) + " 引入的新特性";

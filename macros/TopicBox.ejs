@@ -90,6 +90,12 @@ switch(env.locale) {
         topicDriverStr = "Pengarah topik : <a href='/id/profiles/" + driver.mdnPseudo + "'>" + driver.name + "</a> (IRC pseudo: " + driver.ircPseudo + ")";
         ircStr = "Jangan ragu untuk menghubungi kami di " + ircLink + " atau di mailing-list <em>" + mlName + "</em>:";
         break;
+    case "uk":  // Ukrainian
+        headingStr = "Допомогти проектові з документування «" + $0 + "»…";
+        statusStr = "Погляньте на поточний <a href='/uk/docs/" + driver.docStatus + "'>статус</a> документації з «" + $0 + "».";
+        topicDriverStr = "Очільник : <a href='/uk/profiles/" + driver.mdnPseudo + "'>" + driver.name + "</a> (прізвисько в IRC: " + driver.ircPseudo + ")";
+        ircStr = "Без вагань звертайтеся до нас у " + ircLink + " або групі з обговорень <em>" + mlName.toUpperCase() + "</em>:";
+        break;
     default:    // English
         headingStr = "Help the '" + $0 + "' documentation project…";
         statusStr = "Look at the current <a href='/en-US/docs/" + driver.docStatus + "'>status</a> of the '" + $0 +"' documentation.";

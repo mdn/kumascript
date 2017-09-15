@@ -72,6 +72,18 @@ function showJapanese() {
 <%
 }
 
+function showUkrainian() {
+    %>
+    <p>Вузли зовнішніх документів слід клонувати за допомогою <%-linkImport%> (чи прилаштувати з використанням <%-linkAdopt%>) перш ніж
+    їх можна буде вставити в поточний документ. По додаткові відомості щодо негараздів <%-linkOwner%>, звертайтеся до
+    <a href="http://www.w3.org/DOM/faq.html#ownerdoc">W3C DOM FAQ</a>.</p>
+
+    <p>Зараз Firefox не вимагає дотримання цього правила (деякий час впродовж розробки Firefox 3 він того вимагав, але забагато сайтів
+    виявилися поламаними через це). Ми закликаємо веб-розробників виправити їхній код та забезпечити дотримання цього правила з метою
+    поліпшення подальшої сумісності.</p>
+    <%
+}
+
 switch(lang) {
     case 'fr':
         showFrench();
@@ -84,6 +96,9 @@ switch(lang) {
         break;
     case 'ja':
         showJapanese();
+        break;
+    case 'uk':
+        showUkrainian();
         break;
     default:
         showEnglish();

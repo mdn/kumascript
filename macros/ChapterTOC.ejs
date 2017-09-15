@@ -17,14 +17,16 @@ var s_TOC = mdn.localString({
        "ja": "目次",
        "ru": "Краткое содержание",
     "zh-CN": "目录",
-       "fr": "Courte table des matières"
+       "fr": "Courte table des matières",
+       "uk": "Стислий зміст"
 });
 
 var s_Expanded_TOC = mdn.localString({
     "en-US": "Expanded Table of Contents",
        "ja": "追加コンテンツの目次",
        "ru": "Расширенное содержание",
-       "fr": "Table des matières complète"
+       "fr": "Table des matières complète",
+       "uk": "Розлогий зміст"
 });
 
 
@@ -38,6 +40,7 @@ switch (el) {
     case    "fr":
     case    "ru":
     case "zh-CN":
+    case    "uk":
         for (i = 0; i < cLen; ++i) { chapterList[i] = chapterList[i].replace(/en-US/, el); }
         break;
     default: break;

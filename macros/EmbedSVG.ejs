@@ -2,6 +2,16 @@
 var found,
     width  = $1 > 0 ? $1 : 250,
     height = $2 > 0 ? $2 : 250;
+
+var m1 = mdn.localString({
+    "en-US" : "Unable to find file ",
+    "uk"    : "Файлу «"
+});
+
+var m2 = mdn.localString({
+    "en-US" : "",
+    "uk"    : "» не знайдено"
+});
  
 env.files.forEach(function (aFile) {
     if(!found && $0 === aFile.filename) {
@@ -13,6 +23,6 @@ env.files.forEach(function (aFile) {
 });
  
 if (!found) {
-%><p>Unable to find file <em><%= $0 %></em></p><%
+%><p><%-m1%><em><%= $0 %></em><%-m2%></p><%
 }
 %>

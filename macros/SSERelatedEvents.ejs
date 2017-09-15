@@ -1,5 +1,10 @@
+<%
+var locale = env.locale;
+var path = "/" + locale + "/docs/Web/Events/";
+%>
+
 <ul>
-<li><a href="/en-US/Mozilla_event_reference/open_serversentevents"><code>open</code></a></li>
-<li><a href="/en-US/Mozilla_event_reference/error_serversentevents"><code>error</code></a></li>
-<li><a href="/en-US/Mozilla_event_reference/message_serversentevents"><code>message</code></a></li>
+  <li><a href="<%- path %>>open_serversentevents"><code>open</code></a></li>
+  <li><a href="<%- path %>>error_serversentevents"><code>error</code></a></li>
+  <li><a href="<%- path %>>message_serversentevents"><code>message</code></a></li>
 </ul>

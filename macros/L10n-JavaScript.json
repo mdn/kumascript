@@ -5,7 +5,8 @@
         "fr"   : "Reference/",
         "ca"   : "Referencia/",
         "pl"   : "Referencje/",
-        "ru"   : "Reference/"
+        "ru"   : "Reference/",
+        "uk"   : "Reference/"
     },
     
     "slug_global_objects": {
@@ -14,7 +15,8 @@
         "fr"   : "Objets_globaux/",
         "ca"   : "Objectes_globals/",
         "pl"   : "Obiekty/",
-        "ru"   : "Global_Objects/"
+        "ru"   : "Global_Objects/",
+        "uk"   : "Global_Objects/"
     },
     
     "stdlib": {
@@ -24,6 +26,7 @@
         "ru"   : "Стандартные встроенные объекты",
         "zh-CN": "JavaScript 标准库",
         "pl"   : "Obiekty" ,
-        "ca"   : "Objectes estandards"
+        "ca"   : "Objectes estandards",
+        "uk"   : "Стандартні вбудовані об'єкти"
     }
 }

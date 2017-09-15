@@ -1,12 +1,22 @@
 <%
 
+var locale = env.locale;
 var heading = $1 || "h3";
 
-var output = "<" + heading + ">Chrome incompatibilities</" + heading + ">";
+var headerText = mdn.localString({
+    "en-US": "Chrome incompatibilities",
+    "uk"   : "Несумісності з Chrome"
+});
+
+var none = mdn.localString({
+    "en-US": "None.",
+    "uk"   : "Жодної."
+});
+
+var output = "<" + heading + ">" + headerText + "</" + heading + ">";
 
 // source URL for incompatibilities
 var url = "/en-US/docs/Mozilla/Add-ons/WebExtensions/Chrome_incompatibilities";
-var none = "None."
 
 // API is either $0 or the name of the calling page
 var slug = env.slug;
