@@ -315,4 +315,12 @@ describe('test-server', function () {
             );
         });
     });
+
+    it('Revision endpoint returns git commit hash', function (done) {
+        testRequest(getURL('/revision'), done, function (resp, result) {
+            assert.equal(resp.statusCode, 200);
+            assert.equal(result, process.env.REVISION_HASH);
+            assert.equal(resp.headers['content-type'], 'text/plain; charset=utf-8');
+        });
+    });
 });
