@@ -59,6 +59,22 @@ var s_chrome_android = mdn.localString({
   'en-US': 'Chrome for Android'
 });
 
+var s_opera_android = mdn.localString({
+  'en-US': 'Opera for Android'
+});
+
+var s_desktop = mdn.localString({
+  'en-US': 'Desktop'
+});
+
+var s_mobile = mdn.localString({
+  'en-US': 'Mobile'
+});
+
+var s_server = mdn.localString({
+  'en-US': 'Server'
+});
+
 const browsers = {
   "desktop": {
     chrome: 'Chrome',
@@ -423,6 +439,335 @@ function writeNotes() {
 }
 
 /*
+  NEW
+  // TODO: can this handle removal of a browser?
+*/
+
+const browsersLookup = {
+  "webview_android": {
+    "name": "Android",
+    "platform": "mobile"
+  },
+  "chrome": {
+    "name": "Chrome",
+    "platform": "desktop"
+  },
+  "chrome_android": {
+    "name": s_chrome_android,
+    "platform": "mobile"
+  },
+  "edge": {
+    "name": "Edge",
+    "platform": "desktop"
+  },
+  "edge_mobile": {
+    "name": "Edge Mobile",
+    "platform": "mobile"
+  },
+  "firefox": {
+    "name": "Firefox",
+    "platform": "desktop"
+  },
+  "firefox_android": {
+    "name": s_firefox_android,
+    "platform": "mobile"
+  },
+  "ie": {
+    "name": "IE",
+    "platform": "desktop"
+  },
+  "ie_mobile": {
+    "name": "IE mobile",
+    "platform": "mobile"
+  },
+  "nodejs": {
+    "name": "Node.js",
+    "platform": "server"
+  },
+  "opera": {
+    "name": "Opera",
+    "platform": "desktop"
+  },
+  "opera_android": {
+    "name": s_opera_android,
+    "platform": "mobile"
+  },
+  "safari": {
+    "name": "Safari",
+    "platform": "desktop"
+  },
+  "safari_ios": {
+    "name": "Safari iOS",
+    "platform": "mobile"
+  },
+  "servo": {
+    "name": "Servo",
+    "platform": "desktop"
+  }
+};
+
+const platformsLookup = {
+  "desktop": {
+    "name": s_desktop,
+  },
+  "mobile": {
+    "name": s_mobile,
+  },
+  "server": {
+    "name": s_server,
+  }
+};
+
+const iconsLookup = {
+  "experimental": {
+    "name": "Experimental",
+    "desc": "Experimental. Expect behavior to change in the future."
+  },
+  "non-standard": {
+    "name": "Non-standard",
+    "desc": "Non-standard. Expect poor cross-browser support."
+  },
+  "obsolete": {
+    "name": "Obsolete",
+    "desc": "Obsolete. Not for use in new websites."
+  }
+};
+
+/*
+  "prefix": {
+    "name": "Prefixed",
+    "desc": "Requires the vendor prefix: {{supports.prefix}}.", // TODO
+    "legend": "Requires a <a href='https://developer.mozilla.org/docs/Glossary/Vendor_Prefix'>vendor prefix</a>.";
+  },
+  "altname": {
+    "name": "Alternate Name",
+    "desc": "Uses the non-standard name: {{alternate_name}}.", // TODO
+    "legend": "Uses a non-standard name."
+  },
+  "disabled": {
+    "name": "Disabled",
+    "desc": " if(support.requires_config && support.default_config) { The user must change {{default_config}} to {{requires_config}} to enable this featue. } else if(requires_config && default_config == ' ' ) { The user must change {{default_config}} to enable this feature. }", // TODO
+    "legend": "User must explicitly enable this feature."
+  },
+  "disabled": {
+    "name": "Disabled",
+    "desc": " if(support.requires_config && support.default_config) { The user must change {{default_config}} to {{requires_config}} to enable this featue. } else if(requires_config && default_config == ' ' ) { The user must change {{default_config}} to enable this feature. }", // TODO
+    "legend":
+  }
+*/
+
+const webBrowsers = [ "webview_android", "chrome", "chrome_android", "edge", "edge_mobile", "firefox", "firefox_android", "ie", "ie_mobile", "opera", "opera_android", "safari", "safari_ios" ];
+const webExtentionBrowsers =  [ "chrome", "edge", "firefox", "firefox_android", "opera" ];
+const allBrowsers = [ "webview_android", "chrome", "chrome_android", "edge", "edge_mobile", "firefox", "firefox_android", "ie", "ie_mobile", "nodejs", "opera", "opera_android", "safari", "safari_ios", "servo" ];
+
+var browsersArr = [];
+var platformsArr = [];
+
+function updateDefaults(theseBrowsers) {
+  // make array of platforms based on platforms of browsers
+  for (var browser of theseBrowsers) {
+    let platformSlug = browsersLookup[browser].platform;
+    if (platformsArr.indexOf(platformSlug) === -1){
+      platformsArr.push(platformSlug);
+    }
+  }
+  // sort platforms alphabetically
+  platformsArr.sort();
+  // make list of browsers sorted according to platform
+  for (var platform of platformsArr) {
+    for (var browserSlug of theseBrowsers) {
+      if(browsersLookup[browserSlug].platform == platform) {
+        browsersArr.push(browserSlug);
+      }
+    }
+  }
+}
+
+// TODO: fallback to text if no icon in lookup?
+// TODO: l10n
+function writeIcon(iconSlug, lookup) {
+  let iconName = lookup[iconSlug].name;
+  let iconTitle;
+  if (lookup[iconSlug].hasOwnProperty('desc')) {
+    iconTitle = lookup[iconSlug].desc;
+  } else {
+    iconTitle = lookup[iconSlug].name;
+  }
+  output = '';
+  output += `<abbr class="only-icon" title="${iconTitle}">`;
+  output += `<span>${iconName}</span>`;
+  output += `<i aria-hidden="true" class="ic-${iconSlug}"></i>`;
+  output += `</abbr>`;
+  return output;
+}
+
+function countBrowsersInplatform(platformSlug) {
+  let count = 0;
+  for (var browserSlug of browsersArr) {
+    if (browsersLookup[browserSlug].platform === platformSlug) {
+      count ++;
+    }
+  }
+  return count;
+}
+
+function writeCompatCell(browserSlug, supportData) {
+  let supportString = localize(compatStrings, 'supportsShort_unknown');
+  let supportStatus = 'unknown';
+  let supportIcons = '';
+  // TODO: this is quite complicated
+  // needs to take non-simple support into account
+  if (supportData.hasOwnProperty(browserSlug) && supportData[browserSlug].hasOwnProperty('version_added')) {
+    let versionInfo = supportData[browserSlug].version_added;
+    switch (versionInfo) {
+      case null:
+        supportStatus = 'unknown';
+        supportString = localize(compatStrings, 'supportsShort_unknown');
+        break;
+      case true:
+        supportStatus = 'yes';
+        supportString = localize(compatStrings, 'supportsShort_yes');
+        break;
+      case false:
+        supportStatus = 'no';
+        supportString = localize(compatStrings, 'supportsShort_no');
+        break;
+      default:
+        supportStatus = 'yes';
+        supportString = versionInfo;
+    }
+  }
+
+  let output = `<td class="bc-supports-${supportStatus} bc-browser-${browserSlug}">`;
+  output += supportString;
+  output += supportIcons;
+  output += `</td>`;
+  return output;
+}
+
+// TODO: need status data for featureName
+function getFeatureName(featureSlug, feature, singleFeature=false) {
+  let featureName = '';
+  let featureIcons = '';
+  let experimentalIcon = '';
+  let obsoleteIcon = '';
+
+  // display name
+  if(singleFeature && featureSlug === 'basic_support') {
+    featureName = localize(compatStrings, 'feature_basicsupport');
+  } else if (feature.hasOwnProperty('desc')) {
+    featureName = feature.desc;
+  } else {
+    featureName = `<code>${featureSlug}</code>`
+  }
+
+  // support icons
+  if(feature.hasOwnProperty('status')) {
+    if (feature.status.experimental === true) {
+      experimentalIcon = writeIcon('experimental', iconsLookup);
+    }
+    if (feature.status.obsolete === true) {
+      obsoleteIcon =  writeIcon('obsolete', iconsLookup);
+    }
+
+    if(experimentalIcon || obsoleteIcon) {
+      featureIcons += `<div class="bc-icons">`;
+      featureIcons += experimentalIcon;
+      featureIcons += obsoleteIcon;
+      featureIcons += `</div>`;
+    }
+  }
+
+  return featureName + featureIcons;
+}
+
+function writeCompatRow(featureName, supportData) {
+  let output = `<tr>`;
+  output += `<th scope="row">${featureName}</th>`;
+  for (var browserSlug of browsersArr) {
+    // TODO: need to add bc-platform-border to first cell in new platforms
+    output += writeCompatCell(browserSlug, supportData);
+  }
+  output += `</tr>`;
+  return output;
+}
+
+function writeCompatBody(data) {
+  let output = `<tbody>`;
+
+  // single feature
+  if (data.hasOwnProperty('__compat')) {
+      output += writeCompatRow(data['__compat']['description'], data['__compat']['support']);
+  }
+  /* else {
+    // multiple features
+    // TODO what if they have subfeatures?
+    // maybe use recursive function? Could that handle both single and multiple?
+    for (let featureSlug of Object.keys(data).sort()) {
+      var feature = data[featureSlug];
+      let featureName = getFeatureName(featureSlug, feature);
+      let featureSupport = feature['__compat']['basic_support']['support'];
+      output += writeCompatRow(featureName, featureSupport);
+    }
+
+  }
+  */
+  output += `</tbody>`;
+  return output;
+}
+
+function writeCompatplatformsRow() {
+  let output = `<tr class="bc-platforms">`;
+  output += `<td></td>`;
+
+  for (var platformSlug of platformsArr) {
+    var thisplatformCount = countBrowsersInplatform(platformSlug);
+    output += `<th colspan="${thisplatformCount}" class="bc-platform-${platformSlug}">`;
+    output += writeIcon(platformSlug, platformsLookup);
+    output += `</th>`;
+  }
+
+  output += `</tr>`;
+  return output;
+}
+
+function writeCompatBrowsersRow() {
+  let output = `<tr>`;
+  output += `<td></td>`;
+  for (var browserSlug of browsersArr) {
+    output += `<th class="bc-browser-${browserSlug}">`;
+    output += writeIcon(browserSlug, browsersLookup);
+    output += `</th>`;
+  }
+  output += `</tr>`;
+  return output;
+}
+
+function writeCompatHead() {
+  let output = `<thead>`;
+  output += writeCompatplatformsRow();
+  output += writeCompatBrowsersRow();
+  output += `</thead>`;
+  return output;
+}
+
+// TODO: figure out how to pass browsers into function.
+function writeCompatTable(data) {
+  let output = `<div class="bc-data hidden">`;
+  output += `<table class="bc-table bc-table-${browsersArr.length}">`;
+  output += writeCompatHead();
+  output += writeCompatBody(data);
+  output += `</table>`;
+  output += `</div>`;
+  return output;
+}
+
+
+/*
+  BOTH
+*/
+
+/*
 Get compat data using a query string like "webextensions.api.alarms"
 */
 function getData(queryString, obj) {
@@ -493,7 +838,7 @@ if (features.length > 0) {
     output += writeTable('webextensions');
     if (!aggregateMode) { output += writeNotes(); }
   } else {
-    output = `<div class="htab">
+    output = `<div class="bc-old"><div class="htab">
     <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
     <ul>
     <li class="selected">
@@ -507,7 +852,19 @@ if (features.length > 0) {
     output += writeTable('desktop');
     output += writeTable('mobile');
     if (!aggregateMode) { output += writeNotes(); }
+    output += `</div>`;
   }
+
+  if (!aggregateMode) {
+    if (isWebExtensions) {
+      updateDefaults(webExtentionBrowsers);
+    } else {
+      updateDefaults(webBrowsers);
+    }
+    output += writeCompatTable(compatData);
+  }
+
+
 } else {
   output = s_no_data_found;
 }
