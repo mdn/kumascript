@@ -9,8 +9,8 @@
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
         "ja"   : "この項目についての文書はまだ書かれていません。書いてみませんか？"
     },
-    
-    "Methods": { 
+
+    "Methods": {
         "en-US": "Methods",
         "de"   : "Methoden",
         "fr"   : "Méthodes",
@@ -22,7 +22,7 @@
         "ca"   : "Mètodes",
         "ja"   : "メソッド"
     },
-    
+
     "Properties": {
         "en-US": "Properties",
         "de"   : "Eigenschaften",
@@ -35,7 +35,7 @@
         "ca"   : "Propietats",
         "ja"   : "プロパティ"
     },
-    
+
     "Event_handlers": {
         "en-US": "Event handlers",
         "fr"   : "Gestionnaires d'évènements",
@@ -45,7 +45,7 @@
         "zh-CN": "事件句柄",
         "ru"   : "Обработчики событий"
     },
-    
+
     "Constructor": {
         "en-US": "Constructor",
         "de"   : "Konstruktor",
@@ -56,7 +56,7 @@
         "ja"   : "コンストラクター",
         "ru"   : "Конструктор"
     },
-    
+
     "Inheritance": {
         "en-US": "Inheritance:",
         "de"   : "Vererbung:",
@@ -67,7 +67,7 @@
         "ca"   : "Herència",
         "ja"   : "継承"
     },
-    
+
     "Implemented_by": {
         "en-US": "Implemented by:",
         "de"   : "Implementiert von:",
@@ -77,7 +77,7 @@
         "ca"   : "Implementat per",
         "ru"   : "Выполняется:"
     },
-    
+
     "Related_pages": {
         "en-US": "Related pages for $1",
         "de"   : "Ähnliche Seiten zu $1",
@@ -88,7 +88,7 @@
         "ru"   : "Похожие страницы для $1",
         "ja"   : "$1 に関連するページ"
     },
-    
+
     "Related_pages_wo_group": {
         "en-US": "Related pages:",
         "de"   : "Ähnliche Seiten:",
@@ -99,7 +99,7 @@
         "ru"   : "Похожие страницы:",
         "ja"   : "関連するページ"
     },
-    
+
     "Reference": {
         "en-US": "Reference",
         "de"   : "Referenz",
@@ -112,14 +112,14 @@
         "ca"   : "Referència",
         "ru"   : "Руководство"
     },
-    
+
     "section": {
         "en-US": "section",
         "fr"   : "section",
         "ru"   : "секция",
         "ja"   : "セクション"
     },
-    
+
     "[Translate]": {
         "en-US": "[Translate]",
         "de"   : "[Übersetzen]",
@@ -129,9 +129,9 @@
         "ca"   : "[Traduir]",
         "ru"   : "[Перевести]",
         "ja"   : "[翻訳する]"
-        
+
     },
-    
+
     "TranslationCTA": {
         "en-US": "Our volunteers haven't translated this article into your language yet. Join us and help get the job done!",
         "de": "Unsere Freiwilligen haben diesen Artikel noch nicht in Deutsch übersetzt. Machen Sie mit und helfen Sie, das zu erledigen!",
@@ -142,7 +142,7 @@
         "ru" : "Наши волонтёры ещё не перевели данную статью на Русский. Присоединяйтесь к нам и помогите закончить эту работу!",
         "ja" : "まだボランティアによって日本語に翻訳されていない記事です。MDNに参加して、翻訳してみませんか？"
     },
-    
+
     "Guides": {
         "en-US": "Guides",
         "de"   : "Anleitungen",
@@ -151,7 +151,7 @@
         "ru"   : "Руководства",
         "ja"   : "ガイド"
     },
-    
+
     "Events": {
         "en-US": "Events",
         "de"   : "Ereignisse",
@@ -160,7 +160,7 @@
         "ru"   : "События",
         "ja"   : "イベント"
     },
-    
+
     "Interfaces": {
         "en-US": "Interfaces",
         "de"   : "Schnittstellen",
@@ -177,5 +177,9 @@
         "fr"   : ", ",
         "ja"   : " 、 ",
         "ru"   : ", "
+    },
+
+    "MissingPage": {
+        "en-US": "[Page not yet written]"
     }
 }
