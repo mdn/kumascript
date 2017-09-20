@@ -33,10 +33,10 @@ var featureList = Object.keys(features).sort();
 var output = "";
 
 for (featureName of featureList) {
-  if (featureName === "devtools") {
-    devtoolsApiNames = Object.keys(features[featureName]).sort();
-    for (devtoolsApiName of devtoolsApiNames) {
-      output += writeTableForModule(features[featureName][devtoolsApiName], featureName + "." + devtoolsApiName);
+  if (featureName === "devtools" || featureName === "privacy") {
+    subApiNames = Object.keys(features[featureName]).sort();
+    for (subApiName of subApiNames) {
+      output += writeTableForModule(features[featureName][subApiName], featureName + "." + subApiName);
     }
   } else {
     output += writeTableForModule(features[featureName], featureName);
