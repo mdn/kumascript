@@ -1,0 +1,41 @@
+{
+    "webextensions": {
+        "api": {
+            "menus": {
+                "ContextType": {
+                    "__compat": {
+                        "support": {
+                            "chrome": {
+                                "alternative_name": "contextMenus.ContextType",
+                                "version_added": true
+                            },
+                            "edge": {
+                                "alternative_name": "contextMenus.ContextType",
+                                "version_added": true
+                            },
+                            "firefox": [
+                                {
+                                    "notes": [
+                                        "'The 'editable' context does not include password fields. Use the 'password' context for this."
+                                    ],
+                                    "version_added": "55"
+                                },
+                                {
+                                    "alternative_name": "contextMenus.ContextType",
+                                    "version_added": "48"
+                                }
+                            ],
+                            "firefox_android": {
+                                "version_added": false
+                            },
+                            "opera": {
+                                "alternative_name": "contextMenus.ContextType",
+                                "version_added": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

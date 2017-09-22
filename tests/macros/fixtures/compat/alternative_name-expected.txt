@@ -1,0 +1,40 @@
+<table class="webext-summary-compat-table">
+ <thead>
+  <tr>
+   <th style="width: 40%">&nbsp;</th>
+   <th style="width:12%">Chrome</th>
+   <th style="width:12%">Edge</th>
+   <th style="width:12%">Firefox</th>
+   <th style="width:12%">Firefox for Android</th>
+   <th style="width:12%">Opera</th>
+  </tr>
+  <tr>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>Basic support</td>
+   <td class="full-support">
+     <span title="Please update this with the earliest version of support.">(Yes)</span>
+     <sup><a href="#compatNote_1">1</a></sup>
+    </td>
+   <td class="full-support">
+     <span title="Please update this with the earliest version of support.">(Yes)</span>
+     <sup><a href="#compatNote_1">1</a></sup>
+    </td>
+   <td class="full-support">
+    <p>55<sup><a href="#compatNote_2">2</a></sup></p>
+    <p>48<sup><a href="#compatNote_1">1</a></sup></p>
+   </td>
+   <td class="no-support">
+     <span title="No support">No</span>
+   </td>
+   <td class="full-support">
+     <span title="Please update this with the earliest version of support.">(Yes)</span>
+     <sup><a href="#compatNote_1">1</a></sup>
+   </td>
+  </tr>
+ </tbody>
+</table>
+<p id="compatNote_1">1. Supported as <code>contextMenus.ContextType</code>.</p>
+<p id="compatNote_2">2. 'The 'editable' context does not include password fields. Use the 'password' context for this.</p>
