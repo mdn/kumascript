@@ -1107,6 +1107,7 @@
         "MediaStream Recording": {
             "overview":   [ "MediaStream Recording API" ],
             "interfaces": [ "MediaRecorder",
+                            "MediaRecorderErrorEvent",
                             "BlobEvent" ],
             "methods":    [],
             "properties": [],
