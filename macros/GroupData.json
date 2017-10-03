@@ -406,7 +406,9 @@
         },
         "DOM": {
             "overview":   [ "Document Object Model" ],
-            "interfaces": [ "Attr",
+            "interfaces": [ "AbortController",
+                            "AbortSignal",
+                            "Attr",
                             "ByteString",
                             "CDATASection",
                             "CharacterData",
@@ -563,11 +565,7 @@
             "interfaces": [ "Body",
                             "Headers",
                             "Request",
-                            "Response",
-                            "FetchController",
-                            "FetchObserver",
-                            "FetchSignal",
-                            "ObserverCallback" ],
+                            "Response" ],
             "methods":    [ "WindowOrWorkerGlobalScope.fetch()" ],
             "properties": [],
             "events":     []
