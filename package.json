@@ -37,7 +37,8 @@
     "request": "2.79.0",
     "underscore": "1.8.3",
     "winston": "2.3.0",
-    "mdn-browser-compat-data": "0.x"
+    "mdn-browser-compat-data": "0.x",
+    "mdn-data": "1.x"
   },
   "devDependencies": {
     "mocha": "3.4.1",

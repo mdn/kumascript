@@ -469,6 +469,11 @@
       "from": "mdn-browser-compat-data@>=0.0.0 <1.0.0",
       "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.1.tgz"
     },
+    "mdn-data": {
+      "version": "1.0.0",
+      "from": "mdn-data@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-1.0.0.tgz"
+    },
     "media-typer": {
       "version": "0.3.0",
       "from": "media-typer@0.3.0",
