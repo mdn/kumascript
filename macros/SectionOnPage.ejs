@@ -5,23 +5,58 @@
 //
 // $0   Page path
 // $1   Section name
+// $2   Element name to wrap the page title (not the section name) in;
+//      leave blank or don't specify this parameter to not wrap the title.
+//      Don't include the angle brackets! Only specific tags are permitted;
+//      they're in the allowedWrappers array. OPTIONAL.
+//
+// Example:
+//
+// {{SectionOnPage("/en-US/docs/Web/API/RTCPeerConnection",
+//                 "RTCSignalingState enum", "code")}}
 
+var allowedWrappers = [
+    "code",
+    "kbd",
+];
+
+let section = $1;
 var lang = env.locale;
 var text = "";
 var page = wiki.getPage($0);
-var title = page.title;
+var title = kuma.htmlEscape(page.title);
 
-var url = $0 + "#" + $1;
+var commonLocalStrings = string.deserialize(template("L10n:Common"));
+var localize = mdn.getLocalString;
+
+var summary = (page && page.summary) ? mdn.escapeQuotes(page.summary) :
+    localize(commonLocalStrings, "summary");
+
+if (!title || title == undefined || title == "undefined") {
+    title = localize(commonLocalStrings, "MissingPage");
+}
+
+var elem = $2;
+
+if (elem && elem != "") {
+    elem = elem.toLowerCase();
+
+    if (allowedWrappers.includes(elem)) {
+        title = `<${elem}>${title}</${elem}>`;
+    }
+}
+
+var url = $0 + "#" + section;
 
 url = Web.spacesToUnderscores(url);
 url = url.replace(":", "");             // Remove colons
 
 switch(lang) {
     case "ru":
-        text = '"<a href="' + url + '">' + $1 + '</a>" в <a href="' + $0 + '">' + title + '</a>';
+        text = `<a href="${url}" title="${summary}">${section}</a> в <a href="${$0}" title="${summary}">${title}</a>`;
         break;
     default:
-        text = '"<a href="' + url + '">' + $1 + '</a>" in <a href="' + $0 + '">' + title + '</a>';
+        text = `<a href="${url}" title="${summary}">${section}</a> in <a href=${$0} title="${summary}">${title}</a>`;
         break;
 }
 %>
