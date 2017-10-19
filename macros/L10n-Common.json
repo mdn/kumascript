@@ -180,6 +180,7 @@
     },
 
     "MissingPage": {
-        "en-US": "[Page not yet written]"
+        "en-US": "[Page not yet written]",
+        "fr"   : "[Page qui reste à écrire]"
     }
 }
