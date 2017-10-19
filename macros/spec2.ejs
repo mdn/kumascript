@@ -6,12 +6,16 @@
 // List of all specifications and their current status.
 //
 // Possible values:
-//  ED          Editor's Draft
-//  WD          Working Draft
-//  CR          Candidate Recommendation
-//  REC         Recommendation
+//  ED          W3C Editor's Draft
+//  WD          W3C Working Draft
+//  CR          W3C Candidate Recommendation
+//  PR          W3C Proposed Recommendation
+//  REC         W3C Recommendation
+//  Draft       Drafts put out by groups other than W3C
 //  Living      A living specification (constantly maintained)
+//  Obsolete    An obsolete standard
 //  Standard    A long-time accepted standard, unspecified
+//  RFC         An IETF request for comment
 //
 
 var status = {
@@ -94,6 +98,8 @@ var status = {
   'CSS4 Selectors'             : 'WD',
   'CSS4 Sizing'                : 'ED',
   'CSS4 Text'                  : 'WD',
+  'CSS4 Values'                : 'ED',
+  'CSS4 Writing Modes'         : 'ED',
   'CSS Containment'            : 'WD',
   'CSS Exclusions'             : 'WD',
   'CSS Flexbox'                : 'CR',
@@ -130,7 +136,7 @@ var status = {
   'DOM3 XPath'                 : 'REC',
   'DOM4'                       : 'Obsolete',
   'Element Traversal'          : 'Obsolete',
-  'EME'                        : 'WD',
+  'EME'                        : 'REC',
   'Encoding'                   : 'Living',
   'ES1'                        : 'Standard',
   'ES2'                        : 'Standard',
@@ -171,11 +177,12 @@ var status = {
   'InputEvents2'               : 'WD',
   'IndexedDB'                  : 'REC',
   'IndexedDB 2'                : 'ED',
-  'IntersectionObserver'       : 'ED',
+  'IntersectionObserver'       : 'WD',
   'Long Tasks'                 : 'ED',
   'Manifest'                   : 'WD',
   'MathML2'                    : 'REC',
   'MathML3'                    : 'REC',
+  'Media Capabilities'         : 'Draft',
   'Media Capture'              : 'ED',
   'Media Capture DOM Elements' : 'ED',
   'Media Session'              : 'ED',
@@ -194,7 +201,7 @@ var status = {
   'Quota Management'           : 'ED',
   'Paint Timing'               : 'ED',
   'Page Visibility API'        : 'REC',
-  'Payment'                    : 'WD',
+  'Payment'                    : 'CR',
   'Performance Timeline'       : 'REC',
   'Performance Timeline Level 2' : 'ED',
   'Permissions API'            : 'ED',
@@ -247,6 +254,7 @@ var status = {
   'User Timing'                : 'REC',
   'User Timing Level 2'        : 'ED',
   'vCard'                      : 'RFC',
+  'Visual Viewport'            : 'Draft',
   'Web Animations'             : 'WD',
   'WebAssembly JS'             : 'Draft',
   'Web Audio API'              : 'WD',
@@ -288,6 +296,7 @@ var status = {
   'WebIDL'                     : 'CR',
   'WebMIDI API'                : 'WD',
   'Web Notifications'          : 'Living',
+  'Web Share API'              : 'ED',
   'Web Speech API'             : 'Draft',
   'WebRTC 1.0'                 : 'WD',
   'Web Telephony'              : 'Draft',

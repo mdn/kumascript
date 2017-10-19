@@ -9,38 +9,20 @@ one for each WebExtension namespace. For example, "runtime" or "browserAction".
 Each table gets an H2 heading whose content is the name of the namespace.
 
 It assumes, in general, that namespaces live directly under
-"data.webextensions.api" in the compat data: so it iterates through all the
+"webextensions.api" in the compat data: so it iterates through all the
 objects under that object, generating an aggregated table for each object.
-
-The exception is the devtools APIs: these have a three-level structure
-(for example, "devtools.panels.ExtensionPanel") and we choose to consider
-"devtools.panels" the namespace. So for devtools APIs, we iterate into
-the devtools namespace to generate aggregated tables.
 
 This macro can be inserted anywhere, and takes no arguments.
 */
 
 const bcd = require('mdn-browser-compat-data');
-
-function writeTableForModule(data, moduleName) {
-  var table = `<h2>${moduleName}</h2>`;
-  table += template("compat", [`webextensions.api.${moduleName}`, 1, true]);
-  return table;
-}
-
 var features = bcd.webextensions.api;
 var featureList = Object.keys(features).sort();
-var output = "";
+var output = '';
 
 for (featureName of featureList) {
-  if (featureName === "devtools") {
-    devtoolsApiNames = Object.keys(features[featureName]).sort();
-    for (devtoolsApiName of devtoolsApiNames) {
-      output += writeTableForModule(features[featureName][devtoolsApiName], featureName + "." + devtoolsApiName);
-    }
-  } else {
-    output += writeTableForModule(features[featureName], featureName);
-  }
+  output += `<h2>${featureName}</h2>`;
+  output += template("compat", [`webextensions.api.${featureName}`, 2, true]);
 }
 
 %>

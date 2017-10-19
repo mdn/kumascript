@@ -447,7 +447,7 @@ for (var i in characters) {
             case "opacity()":
             case "saturate()":
             case "sepia()":
-                item.urlPath = "filter#" + item.label;
+                item.urlPath = "filter-function/" + item.label.replace("()", "");
                 break;
 
             case "matrix()":
@@ -471,7 +471,7 @@ for (var i in characters) {
             case "translateX()":
             case "translateY()":
             case "translateZ()":
-                item.urlPath = "transform-function#" + item.label;
+                item.urlPath = "transform-function/" + item.label.replace("()", "");
                 break;
 
             case "rgb()":
