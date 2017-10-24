@@ -1029,17 +1029,12 @@
                             "devicechange" ]
         },
         "Media Session API": {
-            "overview":     [ "Media Session API" ],
-            "interfaces":   [ "MediaMetadata",
-                              "MediaSession"],
-            "methods":      ["MediaSession.setActionHandler()"],
-            "properties":   ["MediaMetadata.album",
-                             "MediaMetadata.artist",
-                             "MediaMetadata.artwork",
-                             "MediaMetadata.title",
-                             "MediaSession.metadata",
-                             "MediaSession.playbackState"],
-            "events":        []
+            "overview":   [ "Media Session API" ],
+            "interfaces": [ "MediaMetadata",
+                            "MediaSession"],
+            "methods":    [],
+            "properties": [],
+            "events":     []
         },
         "Media Source Extensions": {
             "interfaces": [ "MediaSource",
