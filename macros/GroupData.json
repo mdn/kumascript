@@ -985,11 +985,7 @@
             "interfaces": [ "PerformanceLongTaskTiming",
                             "TaskAttributionTiming" ],
             "methods":    [],
-            "properties": [ "PerformanceLongTaskTiming.attribution",
-                            "TaskAttributionTiming.containerType",
-                            "TaskAttributionTiming.containerSrc",
-                            "TaskAttributionTiming.containerId",
-                            "TaskAttributionTiming.containerName" ],
+            "properties": [],
             "events":      []
         },
         "Media Capture and Streams": {
