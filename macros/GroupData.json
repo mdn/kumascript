@@ -965,18 +965,8 @@
         "Intersection Observer API": {
             "interfaces": [ "IntersectionObserver",
                             "IntersectionObserverEntry" ],
-            "methods":    [ "IntersectionObserver.disconnect()",
-                            "IntersectionObserver.observe()",
-                            "IntersectionObserver.takeRecords()",
-                            "IntersectionObserver.unobserve()"],
-            "properties": [ "IntersectionObserver.root",
-                            "IntersectionObserver.rootMargin",
-                            "IntersectionObserver.thresholds",
-                            "IntersectionObserverEntry.boundingClientRect",
-                            "IntersectionObserverEntry.intersectionRatio",
-                            "IntersectionObserverEntry.intersectionRect",
-                            "IntersectionObserverEntry.rootBounds",
-                            "IntersectionObserverEntry.time" ],
+            "methods":    [],
+            "properties": [],
             "events":     []
         },
         "Kill Switch API": {
