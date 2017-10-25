@@ -1459,6 +1459,7 @@
             "events":     []
         },
         "Streams": {
+            "overview":   [ "Streams API" ],
             "interfaces": [ "ByteLengthQueuingStrategy",
                             "CountQueuingStrategy",
                             "ReadableByteStreamController",
@@ -1470,9 +1471,9 @@
                             "WritableStream",
                             "WritableStreamDefaultController",
                             "WritableStreamDefaultWriter" ],
-            "methods":    [],
-            "properties": [],
-            "events":     [  ]
+            "methods":    [ "WindowOrWorkerGlobalScope.fetch()" ],
+            "properties": [ "Body.body" ],
+            "events":     []
         },
         "SVG": {
             "interfaces": [ "SVGAElement",
