@@ -491,6 +491,12 @@ for (var i in characters) {
             case "rect()":
                 item.urlPath = "shape#" + item.label;
                 break;
+
+            case "cubic-bezier()":
+            case "frames()":
+            case "steps()":
+                item.urlPath = "single-transition-timing-function#" + item.label;
+                break;
         }
     }
 }
