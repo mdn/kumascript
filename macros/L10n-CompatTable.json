@@ -1,22 +1,5 @@
 {
-    "connectionFailure": {
-        "en-US": "Unable to contact CompatTable service.",
-        "de"   : "Es ist nicht möglich, den CompatTable Service zu kontaktieren.",
-        "es"   : "Imposible de contactar el servicio CompatTable.",
-        "fr"   : "Impossible de contacter le service CompatTable.",
-        "ja"   : "CompatTable サービスに接続できません。",
-        "ru"   : "Не удалось подключиться к сервису CompatTable"
-    },
-    "compatServiceError": {
-        "en-US": "Compat service error returned: $error$",
-        "de"   : "Compat Service hat einen Fehler zurückgeliefert: $error$",
-        "es"   : "El servicio CompatTable regresó el error : $error$",
-        "fr"   : "Le service de compatibilité a renvoyé l'erreur&nbsp;: $error$",
-        "ja"   : "Compat サービスがエラーを返しました:  $error$",
-        "ru"   : "Сервис Compat вернул ошибку: $error$"
-    },
-
-    "browserType_desktop": {
+    "bc_icon_name_desktop": {
         "en-US": "Desktop",
         "de"   : "Desktop",
         "es"   : "Desktop",
@@ -24,7 +7,7 @@
         "ja"   : "デスクトップ",
         "ru"   : "Компьютеры"
     },
-    "browserType_mobile": {
+    "bc_icon_name_mobile": {
         "en-US": "Mobile",
         "de"   : "Mobile",
         "es"   : "Mobile",
@@ -32,15 +15,55 @@
         "ja"   : "モバイル",
         "ru"   : "Мобильные"
     },
-    "browserType_non": {
-        "en-US": "Non-Browser Environment",
-        "de"   : "Nicht-Browser-Umgebung",
-        "es"   : "Entorno no basado en navegadores",
-        "fr"   : "Environnement non-navigateur",
-        "ja"   : "非ブラウザー環境",
-        "ru"   : "Внебраузерная среда"
+    "bc_icon_name_server": {
+        "en-US": "Server",
+        "de"   : "Server"
     },
-
+    "bc_icon_name_webview_android": {
+         "en-US": "Android webview"
+    },
+    "bc_icon_name_chrome": {
+         "en-US": "Chrome"
+    },
+    "bc_icon_name_chrome_android": {
+         "en-US": "Chrome for Android",
+         "de": "Chrome für Android"
+    },
+    "bc_icon_name_edge": {
+         "en-US": "Edge"
+    },
+    "bc_icon_name_edge_mobile": {
+         "en-US": "Edge Mobile"
+    },
+    "bc_icon_name_firefox": {
+         "en-US": "Firefox"
+    },
+    "bc_icon_name_firefox_android": {
+         "en-US": "Firefox for Android",
+         "de": "Firefox für Android"
+    },
+    "bc_icon_name_ie": {
+         "en-US": "Internet Explorer"
+    },
+    "bc_icon_name_ie_mobile": {
+         "en-US": "IE mobile"
+    },
+    "bc_icon_name_nodejs": {
+         "en-US": "Node.js"
+    },
+    "bc_icon_name_opera": {
+         "en-US": "Opera"
+    },
+    "bc_icon_name_opera_android": {
+         "en-US": "Opera for Android",
+         "de": "Opera für Android"
+    },
+    "bc_icon_name_safari": {
+         "en-US": "Safari"
+    },
+    "bc_icon_name_safari_ios": {
+         "en-US": "iOS Safari"
+    },
     "bc_history_head": {
         "en-US": "Implementation Notes",
         "es"   : "Notas de implementación",
@@ -49,12 +72,12 @@
         "ru"   : "Замечания реализации"
     },
     "supportsShort_yes": {
-        "en-US": "(Yes)",
-        "de"   : "(Ja)",
-        "es"   : "(Si)",
-        "fr"   : "(Oui)",
-        "ja"   : "(有り)",
-        "ru"   : "(Да)"
+        "en-US": "Yes",
+        "de"   : "Ja",
+        "es"   : "Si",
+        "fr"   : "Oui",
+        "ja"   : "有り",
+        "ru"   : "Да"
     },
     "supportsShort_yes_title": {
         "en-US": "Please update this with the earliest version of support.",
@@ -123,14 +146,14 @@
         "ru"   : "Возможность"
     },
     "feature_basicsupport": {
-        "en-US": "Basic Support",
+        "en-US": "Basic support",
         "de"   : "Grundlegende Unterstützung",
         "es"   : "Soporte básico",
         "fr"   : "Support simple",
         "ja"   : "基本サポート",
         "ru"   : "Базовая поддержка"
     },
-    "feature_experimental": {
+    "bc_icon_name_experimental": {
         "en-US": "Experimental",
         "de"   : "Experimentell",
         "es"   : "Experimental",
@@ -138,7 +161,7 @@
         "ja"   : "実験的",
         "ru"  : "Экспериментальная"
     },
-    "feature_experimentalLong": {
+    "bc_icon_title_experimental": {
         "en-US": "Experimental. Expect behavior to change in the future.",
         "de"   : "Experimentell. Das Verhalten kann sich zukünftig ändern.",
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
@@ -146,7 +169,7 @@
         "ja"   : "実験的。動作が変更される可能性があります。",
         "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем."
     },
-    "feature_nonstandard": {
+    "bc_icon_name_non-standard": {
         "en-US": "Non-standard",
         "de"   : "Nicht standardisiert",
         "es"   : "No estándar",
@@ -154,7 +177,7 @@
         "ja"   : "非標準",
         "ru"   : "Нестандартная"
     },
-    "feature_nonstandardLong": {
+    "bc_icon_title_non-standard": {
         "en-US": "Non-standard. Expect poor cross-browser support.",
         "de"   : "Nicht standardisiert. Erwarte schlechte browserübergreifende Unterstützung.",
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
@@ -162,24 +185,14 @@
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
         "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка."
     },
-    "feature_obsolete": {
-        "en-US": "Obsolete",
-        "de"   : "Veraltet",
-        "es"   : "Obsoleto",
-        "fr"   : "Obsolète",
-        "ja"   : "廃止",
-        "ru"   : "Устаревшая"
+    "bc_icon_name_deprecated": {
+        "en-US": "Deprecated"
     },
-    "feature_obsoleteLong": {
-        "en-US": "Obsolete. Not for use in new websites.",
-        "de"   : "Veraltet. Nicht zur Verwendung in neuen Webseiten geeignet.",
-        "es"   : "Obsoleto . No para uso en sitios web.",
-        "fr"   : "Fonctionnalité obsolète. Celle-ci ne doit pas être utilisée pour de nouveaux sites web.",
-        "ja"   : "廃止。新しいウェブサイトで使用しないでください。",
-        "ru"   : "Устаревшая. Не для использования в новых сайтах."
+    "bc_icon_title_deprecated": {
+        "en-US": "Deprecated. Not for use in new websites."
     },
 
-    "requirement_prefix": {
+    "bc_icon_name_prefix": {
         "en-US": "Prefixed",
         "de"   : "mit Präfix",
         "es"   : "Prefijado",
@@ -187,15 +200,15 @@
         "ja"   : "接頭辞付き",
         "ru"   : "С префиксом"
     },
-    "requirement_prefixLong": {
-        "en-US": "Requires the vendor prefix: <code>$prefix$</code>",
-        "de"   : "Benötigt das Herstellerpräfix: <code>$prefix$</code>",
-        "es"   : "Requiere de un prefijo de vendedor : <code>$prefix$</code>",
-        "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: <code>$prefix$</code>",
-        "ja"   : "ベンダー接頭辞が必要: <code>$prefix$</code>",
-        "ru"   : "Требует вендорный префикс: <code>$prefix$</code>"
+    "bc_icon_title_prefix": {
+        "en-US": "Requires the vendor prefix: $1$",
+        "de"   : "Benötigt das Herstellerpräfix: $1$",
+        "es"   : "Requiere de un prefijo de vendedor : $1$",
+        "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: $1$",
+        "ja"   : "ベンダー接頭辞が必要: $1$",
+        "ru"   : "Требует вендорный префикс: $1$"
     },
-    "requirement_note": {
+    "bc_icon_name_footnote": {
         "en-US": "Notes",
         "de"   : "Hinweise",
         "es"   : "Notas",
@@ -203,7 +216,7 @@
         "ja"   : "補足",
         "ru"   : "Замечания"
     },
-    "requirement_noteLong": {
+    "bc_icon_title_footnote": {
         "en-US": "See implementation notes",
         "de"   : "Siehe Implementierungshinweise",
         "es"   : "Ver notas de implementación",
@@ -211,7 +224,7 @@
         "ja"   : "実装ノートを見てください",
         "ru"   : "Смотрите замечания реализации"
     },
-    "requirement_alternate": {
+    "bc_icon_name_altname": {
         "en-US": "Alternate Name",
         "de"   : "Alternativer Name",
         "es"   : "Nombre alternativo",
@@ -219,15 +232,15 @@
         "ja"   : "代替名",
         "ru"   : "Альтернативное имя"
     },
-    "requirement_alternateLong": {
-        "en-US": "Uses the non-standard name: <code>$name$</code>",
-        "de"   : "Verwendet den nicht standardisierten Namen: <code>$name$</code>",
-        "es"   : "Usa un nombre no estandar : <code>$name</code> ",
-        "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$name$</code>",
-        "ja"   : "非標準の名前を使用: <code>$name$</code>",
-        "ru"   : "Использует нестандартное имя: <code>$name$</code>"
+    "bc_icon_title_altname": {
+        "en-US": "Uses the non-standard name: <code>$1$</code>",
+        "de"   : "Verwendet den nicht standardisierten Namen: <code>$1$</code>",
+        "es"   : "Usa un nombre no estandar : <code>$1$</code> ",
+        "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$1$</code>",
+        "ja"   : "非標準の名前を使用: <code>$1$</code>",
+        "ru"   : "Использует нестандартное имя: <code>$1$</code>"
     },
-    "requirement_protected": {
+    "bc_icon_title_protected": {
         "en-US": "Protected",
         "de"   : "Geschützt",
         "es"   : "Protegido",
@@ -235,7 +248,7 @@
         "ja"   : "保護",
         "ru"   : "Защищено"
     },
-    "requirement_protectedLong": {
+    "bc_icon_title_protectedLong": {
         "en-US": "Protected. Additonal steps are required to get permission or certification for use.",
         "de"   : "Geschützt. Zusätzliche Schritte werden benötigt, um die Erlaubnis oder die Zertifizierung für den Gebrauch zu erhalten.",
         "es"   : "Protegido. Se requiere de pasos adicionales para obtener permiso o certificación para su uso.",
@@ -243,7 +256,7 @@
         "ja"   : "保護されています。使用するには、許可または証明書を得るための追加の手順が必要です。",
         "ru"   : "Защищено. Дополнительные шаги требуют получение разрешения или сертификат для использования."
     },
-    "requirement_disabled": {
+    "bc_icon_name_disabled": {
         "en-US": "Disabled",
         "de"   : "Deaktiviert",
         "es"   : "Deshabilitado",
@@ -251,23 +264,14 @@
         "ja"   : "無効",
         "ru"   : "Отключено"
     },
-    "requirement_disabledRequires": {
-        "en-US": "The user must change <code>$default$</code> to <code>$requires$</code> to enable this feature.",
-        "de"   : "Der Benutzer muss <code>$default$</code> ändern, um <code>$requires$</code> dieses Feature zu aktivieren.",
-        "es"   : "El usuario debe de cambiar <code>$default$</code>  a <code>$requires$</code> para habilitar esta característica.",
-        "fr"   : "L'utilisateur doit changer $default$ à $requires$ afin d'activer cette fonctionnalité.",
-        "ja"   : "この機能を有効にするには、ユーザーが <code>$default$</code> を <code>$requires$</code> に変更しなければなりません。",
-        "ru"   : "Пользователь должен изменить <code>$default$</code> на <code>$requires$</code>, чтобы включить эту возможность."
+    "bc_icon_title_disabled": {
+        "en-US": "User must explicitly enable this feature.",
+        "de"   : "Benutzer muss dieses Feature explizit aktivieren.",
+        "es"   : "El usuario debe de habilitar explícitamente esta característica.",
+        "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
+        "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
+        "ru"   : "Пользователь должен сам включить эту возможность."
     },
-    "requirement_disabledDefault": {
-        "en-US": "The user must change <code>$default$</code> to enable this feature.",
-        "de"   : "Der Benutzer muss <code>$default$</code> ändern, um dieses Feature zu aktivieren.",
-        "es"   : "El usuario debe de cambiar <code>$default$</code>  para habilitar esta característica.",
-        "fr"   : "L'utilisateur doit changer $default$ afin d'activer cette fonctionnalité.",
-        "ja"   : "この機能を有効にするには、ユーザーが <code>$default$</code> を変更しなければなりません。",
-        "ru"   : "Пользователь должен изменить <code>$default$</code>, чтобы включить эту возможность."
-    },
-
     "legend": {
         "en-US": "Legend",
         "de"   : "Legende",

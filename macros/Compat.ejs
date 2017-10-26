@@ -497,9 +497,7 @@ var features = [];
 var identifier = query.split(".").pop();
 var isWebExtensions = query.split(".")[0] === "webextensions";
 
-if (!compatData) {
-  output = s_no_data_found;
-} else if (compatData.__compat) {
+if (compatData && compatData.__compat) {
   // get optional main feature, add it to the feature list
   // call it "Basic support" if not aggregating
   if (!aggregateMode) {
@@ -511,11 +509,14 @@ if (!compatData) {
 traverseFeatures(compatData, depth, '');
 
 if (features.length > 0) {
+  // compat beta switch
+  output += '<div class="bc-old">';
+
   if (isWebExtensions) {
     output += writeTable('webextensions');
     if (!aggregateMode) { output += writeNotes(); }
   } else {
-    output = `<div class="htab">
+    output += `<div class="htab">
     <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
     <ul>
     <li class="selected">
@@ -530,8 +531,13 @@ if (features.length > 0) {
     output += writeTable('mobile');
     if (!aggregateMode) { output += writeNotes(); }
   }
-} else {
-  output = s_no_data_found;
+  // compat beta switch
+  output += '</div>';
 }
+
+
+// compat beta
+output += template("CompatBeta", [$0, $1]);
+
 %>
 <%-output%>
