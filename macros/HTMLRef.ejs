@@ -27,6 +27,12 @@ switch (env.locale) {
     default: break;
 }
 
+var text = mdn.localStringMap({
+    'en-US': {
+        'Input_types': '<code>&lt;input&gt;</code> types'
+    }
+});
+
 // Find the section of HTML this page belongs to (that is the first tag of the form "HTML XYZ")
 var tags = env.tags;
 var found_tag = '';
@@ -108,6 +114,10 @@ var resultAPI = [];
             <li><%- template("domxref", [resultAPI[aTitle]]) %></li>
   <%    } 
     } %>
+    <% if (env.slug.includes("/HTML/Element/input")) { %>
+   <li data-default-state="open"><a href="/<%=env.locale%>/docs/Web/HTML/Element/input#Form_<input>_types"><%-text['Input_types']%></a>
+    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%></li>
+    <% } %>
    <li><a href="<%-s_html_href%>"><%-s_html_ref_title%></a><ol>
    <li>A
  <ol>
@@ -311,7 +321,7 @@ var resultAPI = [];
  </ol>
  </li><li>X Y Z 
  <ol>
-  <li><%-template("HTMLElement", ["xmp"])%></s></li>
+  <li><s class="obsoleteElement"><%-template("HTMLElement", ["xmp"])%></s></li>
  </ol>
     </li>  
    </ol></li>
