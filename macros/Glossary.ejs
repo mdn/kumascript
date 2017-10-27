@@ -14,13 +14,14 @@ var css = !$2 ? "glossaryLink" : "";
 // Terme location
 var URL_EN = "/en-US/docs/Glossary/";
 var URL    = mdn.localString({
-    "en-US": URL_EN,
+    "bg"   : "/bg/docs/Речник/",
     "de"   : "/de/docs/Glossary/",
+    "en-US": URL_EN,
     "fr"   : "/fr/docs/Glossaire/",
     "ja"   : "/ja/docs/Glossary/",
     "pt-BR": "/pt-BR/docs/Glossario/",
-    "uk"   : "/uk/docs/Glossary/",
-    "ru"   : "/ru/docs/Словарь/"
+    "ru"   : "/ru/docs/Словарь/",
+    "uk"   : "/uk/docs/Glossary/"
 });
 
 var sep = mdn.localString({
@@ -33,12 +34,13 @@ URL    += $0.replace(/\s+/g,'_');
 
 var page    = wiki.getPage(URL);
 var summary = mdn.localString({
-    "en-US": "The definition of that term (" + str + ") has not been written yet; please consider contributing it!",
+    "bg"   : "Все още няма определение за понятието „" + str + "“. Моля, създайте го.",
     "de"   : "Die Definition dieses Ausdrucks (" + str + ") wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!",
+    "en-US": "The definition of that term (" + str + ") has not been written yet; please consider contributing it!",
     "fr"   : "La définition de ce terme («&nbsp;"+ str +"&nbsp;») n'a pas encore été rédigée. Nous serions heureux de vous voir l'écrire&nbsp;!",
     "ja"   : "この用語 (" + str + ") の定義はまだ書かれていません。ぜひご寄稿ください！",
-    "uk"   : "Визначення терміна «" + str + "» на разі відсутнє. Додайте самі, коли ваша ласка.",
-    "ru"   : "Определение термина «" + str + "» ещё не написано; может быть, вы напишете?"
+    "ru"   : "Определение термина «" + str + "» ещё не написано; может быть, вы напишете?",
+    "uk"   : "Визначення терміна «" + str + "» на разі відсутнє. Додайте самі, коли ваша ласка."
 });
 
 if (page && page.summary) {
