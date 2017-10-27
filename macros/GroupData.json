@@ -1459,6 +1459,7 @@
             "events":     []
         },
         "Streams": {
+            "overview":   [ "Streams API" ],
             "interfaces": [ "ByteLengthQueuingStrategy",
                             "CountQueuingStrategy",
                             "ReadableByteStreamController",
@@ -1470,9 +1471,9 @@
                             "WritableStream",
                             "WritableStreamDefaultController",
                             "WritableStreamDefaultWriter" ],
-            "methods":    [],
-            "properties": [],
-            "events":     [  ]
+            "methods":    [ "WindowOrWorkerGlobalScope.fetch()" ],
+            "properties": [ "Body.body" ],
+            "events":     []
         },
         "SVG": {
             "interfaces": [ "SVGAElement",
@@ -1792,6 +1793,7 @@
             "interfaces": [ "AnalyserNode",
                             "AudioBuffer",
                             "AudioBufferSourceNode",
+                            "AudioChannelManager",
                             "AudioContext",
                             "AudioDestinationNode",
                             "AudioListener",
@@ -1807,16 +1809,17 @@
                             "DelayNode",
                             "DynamicsCompressorNode",
                             "GainNode",
-                            "IIRFilterNode",
                             "MediaElementAudioSourceNode",
                             "MediaStreamAudioDestinationNode",
                             "MediaStreamAudioSourceNode",
+                            "NotifyAudioAvailableEvent",
                             "OfflineAudioCompletionEvent",
                             "OfflineAudioContext",
                             "OscillatorNode",
                             "PannerNode",
                             "PeriodicWave",
                             "WaveShaperNode",
+                            "ScriptProcessorNode",
                             "StereoPannerNode" ],
             "methods":    [],
             "properties": [],
