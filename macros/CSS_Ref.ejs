@@ -502,6 +502,25 @@ for (var i in characters) {
                 item.urlPath = "shape#" + item.label;
                 break;
 
+            case "@top-left-corner":
+            case "@top-left":
+            case "@top-center":
+            case "@top-right":
+            case "@top-right-corner":
+            case "@bottom-left-corner":
+            case "@bottom-left":
+            case "@bottom-center":
+            case "@bottom-right":
+            case "@bottom-right-corner":
+            case "@left-top":
+            case "@left-middle":
+            case "@left-bottom":
+            case "@right-top":
+            case "@right-middle":
+            case "@right-bottom":
+                item.urlPath = "@page#page-margin-box-type";
+                break;
+
             case "cubic-bezier()":
             case "frames()":
             case "steps()":
