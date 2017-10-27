@@ -418,11 +418,21 @@ for (var i in characters) {
                 break;
 
             case "@annotation":
-                item.urlPath = "@font-feature-values#@annotation";
+            case "@character-variant":
+            case "@ornaments":
+            case "@styleset":
+            case "@stylistic":
+            case "@swash":
+                item.urlPath = "@font-feature-values#" + item.label;
                 break;
 
             case "annotation()":
-                item.urlPath = "font-variant-alternates#annotation()";
+            case "character-variant()":
+            case "ornaments()":
+            case "styleset()":
+            case "stylistic()":
+            case "swash()":
+                item.urlPath = "font-variant-alternates#" + item.label;
                 break;
 
             case "format()":
