@@ -37,10 +37,14 @@ var localStrings = string.deserialize(template("L10n:Common"));
 // Deal with CSS data types by removing <>
 var slug = $0.replace(/&lt;(.*)&gt;/g, '$1');
 
-// Special case <color> and <position>
+// Special case <color>, <flex>, and <position>
 switch ($0) {
     case '&lt;color&gt;':
         slug = 'color_value';
+        break;
+
+    case '&lt;flex&gt;':
+        slug = 'flex_value';
         break;
 
     case '&lt;position&gt;':
