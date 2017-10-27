@@ -37,6 +37,7 @@ var text = mdn.localStringMap({
     'Reference': 'References:',
     'HTML_Elements': 'HTML elements',
     'Global_attributes': 'Global attributes',
+    'Input_types': '<code>&lt;input&gt;</code> types',
     'Documentation': 'Documentation:',
     'Useful_lists': 'Useful lists',
     'Index': 'All pages index',
@@ -121,6 +122,9 @@ var text = mdn.localStringMap({
   </li>
   <li data-default-state="<%=state('Global_attributes')%>"><a href="/<%=locale%>/docs/Web/HTML/Global_attributes"><%=text['Global_attributes']%></a>
    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
+  </li>
+  <li data-default-state="<%=state('Input_types')%>"><a href="/<%=locale%>/docs/Web/HTML/Element/input#Form_<input>_types"><%-text['Input_types']%></a>
+    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
   <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>

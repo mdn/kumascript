@@ -418,11 +418,21 @@ for (var i in characters) {
                 break;
 
             case "@annotation":
-                item.urlPath = "@font-feature-values#@annotation";
+            case "@character-variant":
+            case "@ornaments":
+            case "@styleset":
+            case "@stylistic":
+            case "@swash":
+                item.urlPath = "@font-feature-values#" + item.label;
                 break;
 
             case "annotation()":
-                item.urlPath = "font-variant-alternates#annotation()";
+            case "character-variant()":
+            case "ornaments()":
+            case "styleset()":
+            case "stylistic()":
+            case "swash()":
+                item.urlPath = "font-variant-alternates#" + item.label;
                 break;
 
             case "format()":
@@ -492,6 +502,7 @@ for (var i in characters) {
                 item.urlPath = "shape#" + item.label;
                 break;
 
+
             case "@top-left-corner":
             case "@top-left":
             case "@top-center":
@@ -509,6 +520,12 @@ for (var i in characters) {
             case "@right-middle":
             case "@right-bottom":
                 item.urlPath = "@page#page-margin-box-type";
+                break;
+
+            case "cubic-bezier()":
+            case "frames()":
+            case "steps()":
+                item.urlPath = "single-transition-timing-function#" + item.label;
                 break;
         }
     }
