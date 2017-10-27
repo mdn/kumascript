@@ -325,6 +325,10 @@ if (types.some(function(type) { return type === "units"; })) {
                 unitInfo.urlPath = "angle#" + unit;
                 break;
 
+            case "CSS Flexible Lengths":
+                unitInfo.urlPath = "flex_value#" + unit;
+                break;
+
             case "CSS Frequencies":
                 unitInfo.urlPath = "frequency#" + unit;
                 break;
