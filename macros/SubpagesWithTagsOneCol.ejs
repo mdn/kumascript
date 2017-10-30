@@ -1,0 +1,137 @@
+<%
+// Outputs a one-column list of page titles and summaries for articles
+// which are subpages of the specified page and have one or more of the
+// specified tags.
+//
+// Parameters:
+//  $0  -   The page whose subpages are to be listed; if not specified, null,
+//          or empty, the current page is used.
+//  $1  -   (Optional) Comma-delineated list of tags to match, as a single
+//          string.
+function pageSorter(a, b) {
+    return a.title.localeCompare(b.title);
+}
+
+var termList;
+
+// Get the initial list of subpages
+
+if ($0 && ($0 !== undefined)) {
+    termList = page.subpagesExpand($0, 6);
+} else {
+    termList = page.subpagesExpand(null, 6);
+}
+
+termList = page.subPagesFlatten(termList);
+
+// Search the list and remove any pages that don't have any of the listed
+// tags.
+
+var requestedTags = [];
+
+if (termList.length && ($1 && $1 !== undefined)) {
+    requestedTags = $1.split(',');
+
+    for (var i=0; i<requestedTags.length; i++) {
+        requestedTags[i] = requestedTags[i].trim();
+    }
+
+    // We have a list of the tags now in array form, so start pruning the
+    // article list.
+
+    var prunedList = [];
+
+    for (var i=0; i<termList.length; i++) {
+        var curPage = termList[i];
+        var tags = curPage.tags;
+
+        var tagMatch = false;
+
+        if (tags) {
+            for (var tagIdx=0; tagIdx<requestedTags.length; tagIdx++) {
+                var thisTag = requestedTags[tagIdx];      // The next tag to keep for the list
+
+                // Does the page have this tag? If so, record the find and break out of loop
+
+                if (page.hasTag(curPage, thisTag)) {
+                    tagMatch = true;
+                    break;
+                }
+            }
+        }
+
+        // If the tag matched, push the page onto the list
+
+        if (tagMatch) {
+            prunedList.push(curPage);
+        }
+    }
+
+    // Now switch over to the pruned version of the list.
+
+    termList = prunedList;
+}
+
+var numTerms = termList.length;
+
+// Now take the remaining items, if any, and alphabetize the list, then
+// move any pages tagged "Important" to the top. Finally, output the result.
+
+if (numTerms) {
+    var importantList = [];
+    var regularList = [];
+
+    // Alphabetize the list
+
+    termList.sort(pageSorter);
+
+    // Now move the important items to the top; these are items tagged "Important".
+
+    for (var i=0; i<numTerms; i++) {
+        if (page.hasTag(termList[i], "Important")) {
+            importantList.push(termList[i]);
+        } else {
+            regularList.push(termList[i]);
+        }
+    }
+
+    termList = importantList.concat(regularList);
+
+    // Fetch common strings we need
+
+    var commonLocalStrings = string.deserialize(template("L10n:Common"));
+
+    var articleList = [];
+
+    termList.forEach(function(aPage) {
+        if (!page.hasTag(aPage, "junk") && (aPage.title != "Index")) {
+            var article = {
+                title: aPage.title,
+                url: aPage.url
+            };
+
+            var summary = aPage.summary;
+
+            if (summary && summary != undefined) {
+                summary = summary.replace(/<img[^>]*>/g," ");
+            } else {
+                summary = mdn.getLocalString(commonLocalStrings, "summary");
+            }
+
+            article.summary = summary;
+            articleList.push(article);
+        }
+    });
+}
+//<dl class="landingPageList">
+//</dl>
+
+%>
+<%
+    for (n in articleList) {
+%>
+        <dt><a href="<%= articleList[n].url %>"><%= articleList[n].title %></a></dt>
+        <dd><%- articleList[n].summary %></dd>
+<%
+    }
+%>
