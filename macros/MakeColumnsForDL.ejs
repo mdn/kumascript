@@ -19,37 +19,88 @@ switch (env.locale) {
 }
 
 if (len) {
-    var items = html.split("<dt ");
-    //items.shift();  // The first item is empty here since the string should start with "<dt"
-    var sum = 0;
-    var lengths = items.map(function(v) {
-        sum += v.length;
-        return v.length;
-    });
-        
-    var n = 0;
-    var ts = 0;
-    
-    // Figure out how many items go in the first column. If there are only
-    // two items in the list, this is always 1, to be sure both columns
-    // have content.
-    
-    if (items.length <= 2) {
-        n = 1;
-    } else {
-        while (ts < sum/2) {
-            ts += lengths[n++];
+	const dlRegex = /\s*<dl(?:\s+.*?)??>([^]*)<\/dl>/i;
+
+    // This regex gets the <dt>, the <dt>'s contents, and the <dd> through </dd>
+    // into three alternating sets of elements in the output from match():
+    //
+    // [dt, title-text, "<dd>...</dd>", ...]
+	const listRegex = /<dt(?:\s+.*?)??>[^]*?(?:<\/dt>)\s*<dd(?:\s+.*?)??>[^]*?<\/dd>/ig;
+
+    var output = html.match(dlRegex); // reduce to just the <dl>'s contents
+    var splitList = output[1].match(listRegex);    // alternate <dt>/title/<dd>
+
+    var items = [];
+    var lengths = [];
+    var totalMenuLength = 0;
+    var numItems = 0;
+
+    // Process the split list. After this, items is the text from after the <dt> opens
+    // up to and including the closing </dt>. dtTags is the corresponding <dt> tags,
+    // including the class if one was specified.
+
+    while (splitList.length) {
+        let item = splitList.shift();
+        items.push(item);
+
+        // We don't want to include non-printing stuff in our computation
+        // of the length of each item, so we do a quick strip of HTML tags
+        // then calculate the item's length, pushing it onto the lengths
+        // array. Then the total length of the text is updated along with
+        // the number of items in the list.
+
+        if (item) {
+            let itemTextOnly = item.replace(/(<([^>]+)>)/ig, "");
+            let itemLength = itemTextOnly.length;
+
+            lengths.push(itemLength);
+            totalMenuLength += itemLength;
+            numItems++;
         }
     }
+
+    // The number of items that will be placed in column 1.
+ 
+    var numItemsInColumn1 = 0;
+
+    // midpointIndex is used to locate the index to the first item after
+    // the halfway point through the menu.
+
+    var midpointIndex = 0;
+
+    // Figure out how many items go in the first column. If there are two
+    // or fewer items in the list, this is always 1, to be sure the right
+    // column doesn't wind up the only one with content. Otherwise, we
+    // keep adding 1 to the number of items in the first column until
+    // midpointIndex surpasses totalMenuLength/2.
     
-    //var col1 = ""; //items[0];
-    var col1 = items[0] + "<dt " + items.slice(1, n).join("<dt ");
-    var col2 = "<dt " + items.slice(n, items.length).join("<dt ");
-    
+    if (numItems <= 2) {
+        numItemsInColumn1 = 1;
+    } else {
+        while (midpointIndex < totalMenuLength/2) {
+            midpointIndex += lengths[numItemsInColumn1++];
+        }
+    }
+
+    // Build the strings containing HTML for each column. We build the
+    // HTML for each item, then if the current index into the list is
+    // less than the number of items for column 1, we place it there;
+    // otherwise we put it in column 2.
+
+    var col1 = "";
+    var col2 = "";
+
+    for (let i = 0; i < numItems; i++) {
+        if (i < numItemsInColumn1) {
+            col1 += items[i];
+        } else {
+            col2 += items[i];
+        }
+    }
     %>
     <div class="row topicpage-table">
-    <div class="section"><dl><%-col1%></dl></div>
-    <div class="section"><dl><%-col2%></dl></div>
+    <div class="section"><dl class="landingPageList"><%-col1%></dl></div>
+    <div class="section"><dl class="landingPageList"><%-col2%></dl></div>
     </div>
     <%
 } else {
