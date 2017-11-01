@@ -8,23 +8,23 @@ var str = "";
 var title = "";
 
 switch(lang) {
-    'es':
-    if ($0) {
-        str = "Solo disponible en Firefox OS";
-        title = "Solo disponible en Firefox OS para Gecko " + $0 + " " + template("geckoRelease", [$0]);
-    } else {
-        str = "Solo disponible en Firefox OS";
-        title = "Esta es una API específica de Firefox OS (Arranca con Gecko).";
-    }
-    break;
+    case 'es':
+        if ($0) {
+            str = "Solo disponible en Firefox OS";
+            title = "Solo disponible en Firefox OS para Gecko " + $0 + " " + template("geckoRelease", [$0]);
+        } else {
+            str = "Solo disponible en Firefox OS";
+            title = "Esta es una API específica de Firefox OS (Arranca con Gecko).";
+        }
+        break;
     default:
-    if ($0) {
-        str = "Only available on Firefox OS";
-        title = "Available only on Firefox OS as of Gecko " + $0 + " " + template("geckoRelease", [$0]);
-    } else {
-        str = "Only available on Firefox OS";
-        title = "This is a Firefox OS (Boot to Gecko) specific API.";
-    }
-    break;
+        if ($0) {
+            str = "Only available on Firefox OS";
+            title = "Available only on Firefox OS as of Gecko " + $0 + " " + template("geckoRelease", [$0]);
+        } else {
+            str = "Only available on Firefox OS";
+            title = "This is a Firefox OS (Boot to Gecko) specific API.";
+        }
+        break;
 }
 %><span title="<%=title%>" class="inlineIndicator projectSpecific projectSpecificInline"><%=str%></span>
