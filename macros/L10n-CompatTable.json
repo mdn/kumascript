@@ -2,7 +2,7 @@
     "connectionFailure": {
         "en-US": "Unable to contact CompatTable service.",
         "de"   : "Es ist nicht möglich, den CompatTable Service zu kontaktieren.",
-        "es"   : "Imposible de contactar el servicio CompatTable.",
+        "es"   : "No se ha podido contactar con el servicio CompatTable.",
         "fr"   : "Impossible de contacter le service CompatTable.",
         "ja"   : "CompatTable サービスに接続できません。",
         "ru"   : "Не удалось подключиться к сервису CompatTable"
@@ -10,7 +10,7 @@
     "compatServiceError": {
         "en-US": "Compat service error returned: $error$",
         "de"   : "Compat Service hat einen Fehler zurückgeliefert: $error$",
-        "es"   : "El servicio CompatTable regresó el error : $error$",
+        "es"   : "El servicio CompatTable devolvió el error : $error$",
         "fr"   : "Le service de compatibilité a renvoyé l'erreur&nbsp;: $error$",
         "ja"   : "Compat サービスがエラーを返しました:  $error$",
         "ru"   : "Сервис Compat вернул ошибку: $error$"
@@ -19,7 +19,7 @@
     "browserType_desktop": {
         "en-US": "Desktop",
         "de"   : "Desktop",
-        "es"   : "Desktop",
+        "es"   : "Escritorio",
         "fr"   : "Ordinateur",
         "ja"   : "デスクトップ",
         "ru"   : "Компьютеры"
@@ -27,7 +27,7 @@
     "browserType_mobile": {
         "en-US": "Mobile",
         "de"   : "Mobile",
-        "es"   : "Mobile",
+        "es"   : "Móvil",
         "fr"   : "Mobile",
         "ja"   : "モバイル",
         "ru"   : "Мобильные"
@@ -51,7 +51,7 @@
     "supportsShort_yes": {
         "en-US": "(Yes)",
         "de"   : "(Ja)",
-        "es"   : "(Si)",
+        "es"   : "(Sí)",
         "fr"   : "(Oui)",
         "ja"   : "(有り)",
         "ru"   : "(Да)"
@@ -59,6 +59,7 @@
     "supportsShort_yes_title": {
         "en-US": "Please update this with the earliest version of support.",
         "de"   : "Bitte mit der frühsten Version updaten in der Support vorhanden ist.",
+        "es"   : "Por favor actualiza esto con la versión mas reciente de soporte.",
         "fr"   : "Veuillez mettre à jour avec la version minimale du support",
         "ja"   : "最新の対応状況に更新してください。",
         "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии."
@@ -106,18 +107,21 @@
     },
     "supportsShort_unknown": {
         "en-US": "?",
+        "es"   : "?",
         "fr"   : "?",
         "ja"   : "?",
         "ru"   : "?"
     },
     "supportsShort_unknown_title": {
         "en-US": "Compatibility unknown; please update this.",
+        "es"   : "Compatibilidad desconocida; por favor actualiza esto.",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
         "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию."
     },
     "feature": {
         "en-US": "Feature",
+        "es"   : "Característica",
         "fr"   : "Fonctionnalité",
         "ja"   : "機能",
         "ru"   : "Возможность"
@@ -141,7 +145,7 @@
     "feature_experimentalLong": {
         "en-US": "Experimental. Expect behavior to change in the future.",
         "de"   : "Experimentell. Das Verhalten kann sich zukünftig ändern.",
-        "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
+        "es"   : "Experimental. Se espera que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité experimentale. Celle-ci peut être amenée à changer par la suite.",
         "ja"   : "実験的。動作が変更される可能性があります。",
         "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем."
@@ -157,7 +161,7 @@
     "feature_nonstandardLong": {
         "en-US": "Non-standard. Expect poor cross-browser support.",
         "de"   : "Nicht standardisiert. Erwarte schlechte browserübergreifende Unterstützung.",
-        "es"   : "No estandar . Esperar poco soporte entre navegadores.",
+        "es"   : "No estándar. Se espera poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
         "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка."
@@ -173,7 +177,7 @@
     "feature_obsoleteLong": {
         "en-US": "Obsolete. Not for use in new websites.",
         "de"   : "Veraltet. Nicht zur Verwendung in neuen Webseiten geeignet.",
-        "es"   : "Obsoleto . No para uso en sitios web.",
+        "es"   : "Obsoleto. No es para uso en sitios web.",
         "fr"   : "Fonctionnalité obsolète. Celle-ci ne doit pas être utilisée pour de nouveaux sites web.",
         "ja"   : "廃止。新しいウェブサイトで使用しないでください。",
         "ru"   : "Устаревшая. Не для использования в новых сайтах."
@@ -190,7 +194,7 @@
     "requirement_prefixLong": {
         "en-US": "Requires the vendor prefix: <code>$prefix$</code>",
         "de"   : "Benötigt das Herstellerpräfix: <code>$prefix$</code>",
-        "es"   : "Requiere de un prefijo de vendedor : <code>$prefix$</code>",
+        "es"   : "Requiere de un prefijo de vendedor: <code>$prefix$</code>",
         "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: <code>$prefix$</code>",
         "ja"   : "ベンダー接頭辞が必要: <code>$prefix$</code>",
         "ru"   : "Требует вендорный префикс: <code>$prefix$</code>"
@@ -222,7 +226,7 @@
     "requirement_alternateLong": {
         "en-US": "Uses the non-standard name: <code>$name$</code>",
         "de"   : "Verwendet den nicht standardisierten Namen: <code>$name$</code>",
-        "es"   : "Usa un nombre no estandar : <code>$name</code> ",
+        "es"   : "Usa un nombre no estándar: <code>$name$</code> ",
         "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$name$</code>",
         "ja"   : "非標準の名前を使用: <code>$name$</code>",
         "ru"   : "Использует нестандартное имя: <code>$name$</code>"
@@ -254,7 +258,7 @@
     "requirement_disabledRequires": {
         "en-US": "The user must change <code>$default$</code> to <code>$requires$</code> to enable this feature.",
         "de"   : "Der Benutzer muss <code>$default$</code> ändern, um <code>$requires$</code> dieses Feature zu aktivieren.",
-        "es"   : "El usuario debe de cambiar <code>$default$</code>  a <code>$requires$</code> para habilitar esta característica.",
+        "es"   : "El usuario debe de cambiar <code>$default$</code> a <code>$requires$</code> para habilitar esta característica.",
         "fr"   : "L'utilisateur doit changer $default$ à $requires$ afin d'activer cette fonctionnalité.",
         "ja"   : "この機能を有効にするには、ユーザーが <code>$default$</code> を <code>$requires$</code> に変更しなければなりません。",
         "ru"   : "Пользователь должен изменить <code>$default$</code> на <code>$requires$</code>, чтобы включить эту возможность."
@@ -262,7 +266,7 @@
     "requirement_disabledDefault": {
         "en-US": "The user must change <code>$default$</code> to enable this feature.",
         "de"   : "Der Benutzer muss <code>$default$</code> ändern, um dieses Feature zu aktivieren.",
-        "es"   : "El usuario debe de cambiar <code>$default$</code>  para habilitar esta característica.",
+        "es"   : "El usuario debe de cambiar <code>$default$</code> para habilitar esta característica.",
         "fr"   : "L'utilisateur doit changer $default$ afin d'activer cette fonctionnalité.",
         "ja"   : "この機能を有効にするには、ユーザーが <code>$default$</code> を変更しなければなりません。",
         "ru"   : "Пользователь должен изменить <code>$default$</code>, чтобы включить эту возможность."
@@ -287,7 +291,7 @@
     "legend_alternateLong": {
         "en-US": "Uses a non-standard name.",
         "de"   : "Verwendet einen nicht standardisierten Namen.",
-        "es"   : "Usa un nombre no estandar.",
+        "es"   : "Usa un nombre no estándar.",
         "fr"   : "Cette fonctionnalité utilise un nom non-standard.",
         "ja"   : "非標準の名前を使用します。",
         "ru"   : "Использует нестандартное имя."

@@ -6,18 +6,22 @@
 // Parameters:
 //  $0  The type of warning indicator: inline/header
 
-var lang = env.locale;
+var locale = env.locale;
+var contextsUrl = "/" + locale + "/docs/Web/Security/Secure_Contexts";
 
 var str_title = mdn.localString({
-  "en-US": "Secure context"
+  "en-US" : "Secure context",
+  "es"    : "Contexto seguro"
 });
 
 var str_tooltip = mdn.localString({
-  "en-US": "This feature is available only in secure contexts (HTTPS)"
+  "en-US" : "This feature is available only in secure contexts (HTTPS)",
+  "es"    : "Esta característica está disponible solo en contextos seguros (HTTPS)"
 });
 
 var str_desc = mdn.localString({
-  "en-US": "This feature is available only in <a href='/" + lang + "/docs/Web/Security/Secure_Contexts'>secure contexts</a> (HTTPS), in some or all <a href='#Browser_compatibility'>supporting browsers</a>."
+  "en-US" : "This feature is available only in <a href='" + contextsUrl + "'>secure contexts</a> (HTTPS), in some or all <a href='#Browser_compatibility'>supporting browsers</a>.",
+  "es"    : "Esta característica está disponible solo en <a href='" + contextsUrl + "'>contextos seguros</a> (HTTPS), en algunos o en todos los <a href='#Compatibilidad_con_navegadores'>navegadores soportados</a>."
 });
 
 if($0 === 'inline') {

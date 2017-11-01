@@ -1,20 +1,43 @@
 <%
 
-var el = env.locale;
-var path = "/" + el + "/docs/"
+var lang = env.locale;
+var path = "/" + lang + "/docs"
 
-switch (el) {
-
-    case "ja" :
-
-%><tr>
+switch (lang) {
+    case 'es' :
+%>
+<tr>
   <td><code>acceleration</code> <%-template("readOnlyInline")%></td>
-  <td><a href="<%- path %>Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
+  <td><a href="<%- path %>/Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
+  <td>La aceleración del dispositivo. Este valor ha tenido en cuenta el efecto de la gravedad y lo ha eliminado de las figuras. Este valor puede que no exista si el hardware no es capaz de eliminar la gravedad de los datos de aceleración.</td>
+</tr>
+<tr>
+  <td><code>accelerationIncludingGravity</code></td>
+  <td><a href="<%- path %>/Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
+  <td>La aceleración del dispositivo. Este valor incluye el efecto de la gravedad, y puede estar disponible solo en dispositivos que no tengan un giroscopio que permita eliminar adecuadamente la gravedad de los datos.</td>
+</tr>
+<tr>
+  <td><code>interval</code> <%-template("readOnlyInline")%></td>
+  <td>double</td>
+  <td>El intérvalo, en milisegundos, en el que el evento DeviceMotionEvent se ha emitido. El próximo evento será emitido en aproximadamente esta cantidad de tiempo</td>
+</tr>
+<tr>
+  <td><code>rotationRate</code> <%-template("readOnlyInline")%></td>
+  <td><a href="<%- path %>/Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
+  <td>El ratio de rotación del dispositivo sobre los tres ejes.</td>
+</tr>
+<%
+        break;
+    case 'ja' :
+%>
+<tr>
+  <td><code>acceleration</code> <%-template("readOnlyInline")%></td>
+  <td><a href="<%- path %>/Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
   <td>The acceleration of the device. This value has taken into account the effect of gravity and removed it from the figures. This value may not exist if the hardware doesn't know how to remove gravity from the acceleration data.</td>
 </tr>
 <tr>
   <td><code>accelerationIncludingGravity</code></td>
-  <td><a href="<%- path %>Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
+  <td><a href="<%- path %>/Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
   <td>The acceleration of the device. This value includes the effect of gravity, and may be the only value available on devices that don't have a gyroscope to allow them to properly remove gravity from the data.</td>
 </tr>
 <tr>
@@ -24,21 +47,21 @@ switch (el) {
 </tr>
 <tr>
   <td><code>rotationRate</code> <%-template("readOnlyInline")%></td>
-  <td><a href="<%- path %>Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
+  <td><a href="<%- path %>/Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
   <td>The rates of rotation of the device about all three axes.</td>
-</tr><%
-
+</tr>
+<%
         break;
     default:
-
-%><tr>
+%>
+<tr>
   <td><code>acceleration</code> <%-template("readOnlyInline")%></td>
-  <td><a href="/en-US/docs/Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
+  <td><a href="<%- path %>/Web/API/DeviceAcceleration">DeviceAcceleration</a></td>
   <td>The acceleration of the device. This value has taken into account the effect of gravity and removed it from the figures. This value may not exist if the hardware doesn't know how to remove gravity from the acceleration data.</td>
 </tr>
 <tr>
   <td><code>accelerationIncludingGravity</code></td>
-  <td><a href="/en-US/docs/Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
+  <td><a href="<%- path %>/Web/API/DeviceAcceleration">DeviceAcceleration</a> <%-template("readOnlyInline")%></td>
   <td>The acceleration of the device. This value includes the effect of gravity, and may be the only value available on devices that don't have a gyroscope to allow them to properly remove gravity from the data.</td>
 </tr>
 <tr>
@@ -48,9 +71,10 @@ switch (el) {
 </tr>
 <tr>
   <td><code>rotationRate</code> <%-template("readOnlyInline")%></td>
-  <td><a href="/en-US/docs/Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
+  <td><a href="<%- path %>/Web/API/DeviceRotationRate">DeviceRotationRate</a></td>
   <td>The rates of rotation of the device about all three axes.</td>
-</tr><%
-
+</tr>
+<%
         break;
-} %>
+}
+%>
