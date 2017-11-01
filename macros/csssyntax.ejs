@@ -15,24 +15,24 @@ var unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json
 // List types for which we want to link to a description instead of
 // including it in the formal syntax block
 var s_named_color_link = mdn.localString({
-    "en-US": "/docs/Web/CSS/color_value#Color_keywords",
-    "fr"   : "/docs/Web/CSS/Type_color#Les_mots-clés",
-    "de"   : "/docs/Web/CSS/Farben#Farbschlüsselwörter",
-    "es"   : "/docs/Web/CSS/color_value#Color_keywords",
-    "ja"   : "/docs/Web/CSS/color_value#Color_keywords",
-    "nl"   : "/docs/Web/CSS/kleur_waarde#Color_keywords",
-    "pt-BR": "/docs/Web/CSS/color_value#Palavras-chave_de_cores",
-    "zh-CN": "/docs/Web/CSS/color_value#色彩关键字"
+    "de"    : "/docs/Web/CSS/Farben#Farbschlüsselwörter",
+    "en-US" : "/docs/Web/CSS/color_value#Color_keywords",
+    "es"    : "/docs/Web/CSS/color_value#Color_keywords",
+    "fr"    : "/docs/Web/CSS/Type_color#Les_mots-clés",
+    "ja"    : "/docs/Web/CSS/color_value#Color_keywords",
+    "nl"    : "/docs/Web/CSS/kleur_waarde#Color_keywords",
+    "pt-BR" : "/docs/Web/CSS/color_value#Palavras-chave_de_cores",
+    "zh-CN" : "/docs/Web/CSS/color_value#色彩关键字"
 });
 var s_system_color_link = mdn.localString({
-  "en-US": "/docs/Web/CSS/color_value#Color_keywords",
-  "fr"   : "/docs/Web/CSS/Type_color#Couleurs_système",
-  "de"   : "/docs/Web/CSS/Farben#Systemfarben",
-  "es"   : "/docs/Web/CSS/color_value#Colores_de_Sistema",
-  "ja"   : "/docs/Web/CSS/color_value#System_Colors",
-  "nl"   : "/docs/Web/CSS/kleur_waarde#System_Colors",
-  "pt-BR": "/docs/Web/CSS/color_value#System_Colors",
-  "zh-CN": "/docs/Web/CSS/color_value#系统颜色"
+    "de"    : "/docs/Web/CSS/Farben#Systemfarben",
+    "en-US" : "/docs/Web/CSS/color_value#Color_keywords",
+    "es"    : "/docs/Web/CSS/color_value#Colores_de_Sistema",
+    "fr"    : "/docs/Web/CSS/Type_color#Couleurs_système",
+    "ja"    : "/docs/Web/CSS/color_value#System_Colors",
+    "nl"    : "/docs/Web/CSS/kleur_waarde#System_Colors",
+    "pt-BR" : "/docs/Web/CSS/color_value#System_Colors",
+    "zh-CN" : "/docs/Web/CSS/color_value#系统颜色"
 });
 var externallyDescribedTypesData = {
   "named-color": {
@@ -65,55 +65,63 @@ var commonLocalStrings = string.deserialize(template("L10n:Common"));
 var localStrings = string.deserialize(template("L10n:CSS"));
 
 var s_missing = mdn.localString({
-    "en-US": "Syntax not found in DB!",
-    "fr"   : "La syntaxe n'a pas été trouvée !",
-    "de"   : "Syntax nicht in der Datenbank gefunden!",
-    "zh-CN": "该属性的语法尚未添加",
-    "ru"   : "Синтаксис не найден в базе данных"
+    "en-US" : "Syntax not found in DB!",
+    "es"    : "¡Sintaxis no encontrada en la base de datos!",
+    "fr"    : "La syntaxe n'a pas été trouvée !",
+    "de"    : "Syntax nicht in der Datenbank gefunden!",
+    "zh-CN" : "该属性的语法尚未添加",
+    "ru"    : "Синтаксис не найден в базе данных"
 });
 
 var s_where = mdn.localString({
-    "en-US": "where ",
-    "de"   : "wobei ",
-    "fr"   : "où ",
-    "ru"   : "где "
+    "de"    : "wobei ",
+    "en-US" : "where ",
+    "es"    : "donde ",
+    "fr"    : "où ",
+    "ru"    : "где "
 });
 
 var s_syntax_value_definition = mdn.localString({
-    "en-US": "Value_definition_syntax",
-    "de"   : "Wertdefinitionssyntax",
-    "fr"   : "Syntaxe_de_d%C3%A9finition_des_valeurs"
+    "en-US" : "Value_definition_syntax",
+    "es"    : "Value_definition_syntax",
+    "de"    : "Wertdefinitionssyntax",
+    "fr"    : "Syntaxe_de_d%C3%A9finition_des_valeurs"
 });
 
 var s_and = mdn.localString({
-    "en-US": "and ",
-    "de"   : "und ",
-    "fr"   : "et ",
-	"ja"   : "と",
-    "ru"   : "и "
+    "de"    : "und ",
+    "en-US" : "y ",
+    "es"    : "and ",
+    "fr"    : "et ",
+	"ja"    : "と",
+    "ru"    : "и "
 });
 
 var s_or = mdn.localString({
-    "en-US": "or",
-    "de"   : "oder",
-    "ru"   : "или"
+    "de"    : "oder",
+    "en-US" : "or",
+    "es"    : "o",
+    "ru"    : "или"
 });
 
 var s_possible_values = mdn.localString({
-    "en-US": "Possible values: ",
-    "de"   : "Mögliche Werte: ",
-    "ru"   : "Возможные значения: "
+    "de"    : "Mögliche Werte: ",
+    "en-US" : "Possible values: ",
+    "es"    : "Posibles valores: ",
+    "ru"    : "Возможные значения: "
 });
 
 var s_number_followed_by = mdn.localString({
-    "en-US": "a number followed by",
-    "de"   : "eine Nummer gefolgt von",
+    "de"    : "eine Nummer gefolgt von",
+    "en-US" : "a number followed by",
+    "es"    : "un número seguido de",
 });
 
 var s_like = mdn.localString({
-    "en-US": "like",
-    "de"   : "wie",
-    "ru"   : "как"
+    "de"    : "wie",
+    "en-US" : "like",
+    "es"    : "como",
+    "ru"    : "как"
 });
 
 var typeInfo = {
@@ -167,111 +175,131 @@ var operators = [
     {
         regexp: /\#/g,
         title: mdn.localString({
-            "en-US": "Hash mark: the entity is repeated one or several times, each occurence separated by a comma",
-            "de": "Rautensymbol: Die Entität wird einmal oder mehrmals wiederholt, wobei jedes Vorkommen durch ein Komma getrennt wird"
+            "de"    : "Rautensymbol: Die Entität wird einmal oder mehrmals wiederholt, wobei jedes Vorkommen durch ein Komma getrennt wird",
+            "en-US" : "Hash mark: the entity is repeated one or several times, each occurence separated by a comma",
+            "es"    : "Marca hash: la entidad es repetida una o varias veces, cada ocurrencia separada por una coma",
         }),
         anchor: mdn.localString({
-            "en-US": "Hash_mark_()",
-            "de"   : "Rautensymbol_()"
+            "de"    : "Rautensymbol_()",
+            "en-US" : "Hash_mark_()",
+            "es"    : "Hash_mark_()"
         })
     },
     {
         regexp: /\|\|/g,
         title: mdn.localString({
-            "en-US": "Double bar: one or several of the entities must be present, in any order",
-            "de"   : "Doppelter Balken: Eine oder mehrere der Entitäten muss angegeben werden, in beliebiger Reihenfolge"
+            "de"    : "Doppelter Balken: Eine oder mehrere der Entitäten muss angegeben werden, in beliebiger Reihenfolge",
+            "en-US" : "Double bar: one or several of the entities must be present, in any order",
+            "es"    : "Doble barra: una o varias entidades debe estar presente, en cualquier orden"
         }),
         anchor: mdn.localString({
-            "en-US": "Double_bar",
-            "de"   : "Doppelter_Balken"
+            "de"    : "Doppelter_Balken",
+            "en-US" : "Double_bar",
+            "es"    : "Double_bar"
         })
     },
     {
         regexp: /[^\|](\|)[^\|]/g,
         title: mdn.localString({
-            "en-US": "Single bar: exactly one of the entities must be present",
-            "de"   : "Einfacher Balken: Genau eine der Entitäten muss angegeben werden"
+            "de"    : "Einfacher Balken: Genau eine der Entitäten muss angegeben werden",
+            "en-US" : "Single bar: exactly one of the entities must be present",
+            "es"    : "Barra simple: únicamente una de las entidades debe estar presente"
         }),
         anchor: mdn.localString({
-            "en-US": "Single_bar",
-            "de"   : "Einfacher_Balken"
+            "de"    : "Einfacher_Balken",
+            "en-US" : "Single_bar",
+            "es"    : "Single_bar",
         })
     },
     {
         regexp: /&&/g,
         title: mdn.localString({
-            "en-US": "Double ampersand: all of the entities must be present, in any order",
-            "de"   : "Doppeltes Und-Zeichen: Alle Entitäten müssen angegeben werden, in beliebiger Reihenfolge"
+            "de"    : "Doppeltes Und-Zeichen: Alle Entitäten müssen angegeben werden, in beliebiger Reihenfolge",
+            "en-US" : "Double ampersand: all of the entities must be present, in any order",
+            "es"    : "Doble ampersand: todas las entidades deben estar presentes, en cualquier orden"
         }),
         anchor: mdn.localString({
-            "en-US": "Double_ampersand",
-            "de"   : "Doppeltes_Und-Zeichen"
+            "de"    : "Doppeltes_Und-Zeichen",
+            "en-US" : "Double_ampersand",
+            "es"    : "Double_ampersand"
         })
     },
     {
         regexp: /\?/g,
         title: mdn.localString({
-            "en-US": "Question mark: the entity is optional",
-            "de"   : "Fragezeichen: Die Entität ist optional"
+            "de"    : "Fragezeichen: Die Entität ist optional",
+            "en-US" : "Question mark: the entity is optional",
+            "es"    : "Signo de interrogación: la entidad es opcional"
         }),
         anchor: mdn.localString({
-            "en-US": "Question_mark_()",
-            "de"   : "Fragezeichen_()"
+            "de"    : "Fragezeichen_()",
+            "en-US" : "Question_mark_()",
+            "es"    : "Question_mark_()"
         })
     },
     {
         regexp: /([^\/])\*(?!\/)/g,
         title: mdn.localString({
-            "en-US": "Asterisk: the entity may occur zero, one or several times",
-            "de"   : "Asterisk: Die Entität kann keinmal, einmal oder mehrmals vorkommen"
+            "de"    : "Asterisk: Die Entität kann keinmal, einmal oder mehrmals vorkommen",
+            "en-US" : "Asterisk: the entity may occur zero, one or several times",
+            "es"    : "Asterisco: la entidad puede aparecer ninguna, una o más veces"
         }),
         anchor: mdn.localString({
-            "en-US": "Asterisk_(*)",
-            "de"   : "Asterisk_(*)"
+            "de"    : "Asterisk_(*)",
+            "en-US" : "Asterisk_(*)",
+            "es"    : "Asterisk_(*)"
         })
     },
     {
         regexp: /\+/g,
         title: mdn.localString({
-            "en-US": "Plus: the entity may occur one or several times",
-            "de"   : "Plus: Die Entität kann einmal oder mehrmals vorkommen"
+            "de"    : "Plus: Die Entität kann einmal oder mehrmals vorkommen",
+            "en-US" : "Plus: the entity may occur one or several times",
+            "es"    : "Signo mas: la entidad puede aparecer una o más veces"
         }),
         anchor: mdn.localString({
-            "en-US": "Plus_()",
-            "de"   : "Plus_()"
+            "de"    : "Plus_()",
+            "en-US" : "Plus_()",
+            "es"    : "Plus_()"
         })
     },
     {
         regexp: /\[|\]/g,
         title: mdn.localString({
-            "en-US": "Brackets: enclose several entities, combinators, and multipliers to transform them as a single component",
-            "de"   : "Eckige Klammern: umschließen mehrere Entitäten, Kombinatoren und Multiplikatoren, um diese als eine gesamte Komponente zu behandeln"
+            "de"    : "Eckige Klammern: umschließen mehrere Entitäten, Kombinatoren und Multiplikatoren, um diese als eine gesamte Komponente zu behandeln",
+            "en-US" : "Brackets: enclose several entities, combinators, and multipliers to transform them as a single component",
+            "es"    : "Corchetes: encierran varias entidades, combinadores, o multiplicadores para transformarlos en un único componente"
         }),
         anchor: mdn.localString({
-            "en-US": "Brackets",
-            "de"   : "Eckige_Klammern"
+            "de"    : "Eckige_Klammern",
+            "en-US" : "Brackets",
+            "es"    : "Brackets"
         })
     },
     {
         regexp: /\{(?!\s)|(\d)\}/g,
         title: mdn.localString({
-            "en-US": "Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity",
-            "de"   : "Geschweifte Klammern: umschließen zwei Ganzzahlen, die die Minimal- und Maximalanzahl an Vorkommen der Entität angeben"
+            "de"    : "Geschweifte Klammern: umschließen zwei Ganzzahlen, die die Minimal- und Maximalanzahl an Vorkommen der Entität angeben",
+            "en-US" : "Curly braces: encloses two integers defining the minimal and maximal numbers of occurrences of the entity",
+            "es"    : "Llaves: encierran dos números enteros que definen el número mínimo y máximo de ocurrencias de la entidad"
         }),
         anchor: mdn.localString({
-            "en-US": "Curly_braces_(_)",
-            "de"   : "Geschweifte_Klammern_(_)"
+            "de"    : "Geschweifte_Klammern_(_)",
+            "en-US" : "Curly_braces_(_)",
+            "es"    : "Curly_braces_(_)"
         })
     },
     {
         regexp: /!/g,
         title: mdn.localString({
-            "en-US": "Exclamation point: the group must produce at least one value",
-            "de"   : "Ausrufezeichen: die Gruppe muss mindestens einen Wert erzeugen"
+            "de"    : "Ausrufezeichen: die Gruppe muss mindestens einen Wert erzeugen",
+            "en-US" : "Exclamation point: the group must produce at least one value",
+            "es"    : "Signo de exclamación: el grupo debe producir al menos un valor"
         }),
         anchor: mdn.localString({
-            "en-US": "#Exclamation_point_(!)",
-            "de"   : "Ausrufezeichen_(!)"
+            "de"    : "Ausrufezeichen_(!)",
+            "en-US" : "#Exclamation_point_(!)",
+            "es"    : "#Exclamation_point_(!)"
         })
     },
 ];
