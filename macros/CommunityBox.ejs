@@ -53,6 +53,22 @@ switch(env.locale) {
             ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "mehr erfahren</a>)</span>";
         }
         break;
+    case "en":
+        headingStr = "Join the " + $0 + " community";
+        messageStr = "Mailing list/newsgroup:";
+        messageNoteStr = "Choose your preferred method for joining the discussion:";
+        if ($3) {
+            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "learn more</a>)</span>";
+        }
+        break;
+    case "es":
+        headingStr = "Unirse a la comunidad " + $0;
+        messageStr = "Lista de correo/grupo de noticias:";
+        messageNoteStr = "Elige tu método preferido para unirte al debate:";
+        if ($3) {
+            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + " saber mas</a>)</span>";
+        }
+        break;
     case "fr":
         headingStr = "Rejoignez la communauté " + $0 ;
         messageStr = "Liste de diffusion/newsgroup :";
@@ -61,12 +77,25 @@ switch(env.locale) {
             ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "en apprendre plus</a>)</span>";
         }
         break;
+    case "id":  // Bahasa Indonesia
+        headingStr = "Gabung dengan komunitas " + $0;
+        messageStr = "Mailing list/newsgroup:";
+        messageNoteStr = "Pilih metode untuk bergabung diskusi:";
+        break;
     case "it":
         headingStr = "Unisciti alla comunità " + $0;
         messageStr = "Mailing list/newsgroup:";
         messageNoteStr = "Scegli il metodo che preferisci per unirti alla discussione:";
         if ($3) {
             ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "maggiori informazioni</a>)</span>";
+        }
+        break;
+    case "ja":
+        headingStr = $0 + "コミュニティに参加してください";
+        messageStr = "メーリングリスト／ニュースグループ:";
+        messageNoteStr = "あなたの好きな方法でディスカッションに参加してください";
+        if ($3) {
+            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "さらに詳しく</a>)</span>";
         }
         break;
     case "pt-BR":
@@ -77,14 +106,6 @@ switch(env.locale) {
             ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "saiba mais</a>)</span>";
         }
         break;
-    case "zh-CN":
-        headingStr = "加入 " + $0 + " 社区";
-        messageStr = "邮件列表/新闻组：";
-        messageNoteStr = "请选择你喜欢的方式加入我们：";
-        if ($3) {
-            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "了解 IRC</a>)</span>";
-        }
-        break;
     case "ru":
         headingStr = "Присоединяйтесь к сообществу " + $0;
         messageStr = "Почтовая рассылка:";
@@ -93,25 +114,12 @@ switch(env.locale) {
             ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "Узнать больше</a>)</span>";
         }
         break;
-    case "id":  // Bahasa Indonesia
-        headingStr = "Gabung dengan komunitas " + $0;
-        messageStr = "Mailing list/newsgroup:";
-        messageNoteStr = "Pilih metode untuk bergabung diskusi:";
-        break;
-    case "en":
-        headingStr = "Join the " + $0 + " community";
-        messageStr = "Mailing list/newsgroup:";
-        messageNoteStr = "Choose your preferred method for joining the discussion:";
+    case "zh-CN":
+        headingStr = "加入 " + $0 + " 社区";
+        messageStr = "邮件列表/新闻组：";
+        messageNoteStr = "请选择你喜欢的方式加入我们：";
         if ($3) {
-            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "learn more</a>)</span>";
-        }
-        break;
-    case "ja":
-        headingStr = $0 + "コミュニティに参加してください";
-        messageStr = "メーリングリスト／ニュースグループ:";
-        messageNoteStr = "あなたの好きな方法でディスカッションに参加してください";
-        if ($3) {
-            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "さらに詳しく</a>)</span>";
+            ircInfoStr = "<span class='smaller'>(" + ircInfoLink + "了解 IRC</a>)</span>";
         }
         break;
     default: // Like English + info about ltr!
