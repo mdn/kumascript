@@ -1187,7 +1187,7 @@
                             "BasicCardRequest",
                             "BasicCardResponse" ],
             "methods":    [],
-            "properties": [],
+            "properties": ["HTMLIFrameElement.allowPaymentRequest"],
             "events":     [ "shippingaddresschange",
                             "shippingoptionchange" ]
         },
