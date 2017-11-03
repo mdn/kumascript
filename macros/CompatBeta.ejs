@@ -51,17 +51,19 @@ const browsers = {
   "webextensions-mobile": ['firefox_android']
 };
 
-let browserCount = browsers["desktop"].length + browsers["mobile"].length;
+let bcCategory = 'web';
+let platforms = ['desktop', 'mobile'];
 let displayBrowers = [...browsers["desktop"], ...browsers["mobile"]];
 
 if (category === 'javascript') {
-  browserCount +=  browsers["server"].length;
+  bcCategory = 'js';
   displayBrowers.push(...browsers["server"]);
+  platforms.push('server');
 }
 if (category === 'webextensions') {
-  browserCount = browsers["webextensions-desktop"].length +
-                 browsers["webextensions-mobile"].length;
+  bcCategory = 'ext';
   displayBrowers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
+  platforms = ['webextensions-desktop', 'webextensions-mobile'];
 }
 
 function writeIcon(iconSlug, replacer) {
@@ -141,28 +143,28 @@ function getCellString(added, removed, partial) {
     break;
     case true:
       output = `<abbr title="${localize(compatStrings, 'supportsLong_yes')}"
-                class="bc-level bc-level-yes only-icon">
+                class="bc-level-yes only-icon">
                 <span>${localize(compatStrings, 'supportsLong_yes')}</span>
               </abbr>
               ${localize(compatStrings, 'supportsShort_yes')}`;
     break;
     case false:
       output = `<abbr title="${localize(compatStrings, 'supportsLong_no')}"
-                class="bc-level bc-level-no only-icon">
+                class="bc-level-no only-icon">
                 <span>${localize(compatStrings, 'supportsLong_no')}</span>
               </abbr>
               ${localize(compatStrings, 'supportsShort_no')}`;
     break;
     default:
       output = `<abbr title="${localize(compatStrings, 'supportsLong_yes')}"
-                class="bc-level bc-level-yes only-icon">
+                class="bc-level-yes only-icon">
                 <span>${localize(compatStrings, 'supportsLong_yes')}</span>
               </abbr>
               ${added}`;
   }
   if (removed) {
     output = `<abbr title="${localize(compatStrings, 'supportsLong_no')}"
-              class="bc-level bc-level-no only-icon">
+              class="bc-level-no only-icon">
               <span>${localize(compatStrings, 'supportsLong_no')}</span>
             </abbr>`;
     // We don't know when supported started
@@ -181,7 +183,7 @@ function getCellString(added, removed, partial) {
     // removed wins over partial
   } else if (partial) {
     output = `<abbr title="${localize(compatStrings, 'supportsLong_partial')}"
-              class="bc-level bc-level-partial only-icon">
+              class="bc-level-partial only-icon">
               <span>${localize(compatStrings, 'supportsLong_partial')}</span>
             </abbr>`;
     // Display "Partial" instead of "Yes", "No", or "?" if we have no version string
@@ -244,6 +246,8 @@ for either a preference flag or a compile flag.
 // TODO handle array of flags (rename flag to flags)
 // see https://github.com/mdn/browser-compat-data/issues/546
 
+// TODO Need to localize this
+
 `supportData` is a support_statement
 `browserId` is a compat_block browser ID
 */
@@ -259,7 +263,8 @@ function writeFlagsNote(supportData, browserId) {
 
   if (typeof(supportData.version_removed) === 'string') {
     if (output) {
-      output += ` until version ${supportData.version_removed} (exclusive)`;
+      output += ' ';
+      output += `until version ${supportData.version_removed} (exclusive)`;
     } else {
       output = `Until version ${supportData.version_removed} (exclusive)`;
     }
@@ -489,13 +494,6 @@ function writeCompatPlatformsRow() {
   let output = '<tr class="bc-platforms">';
   output += '<td></td>';
 
-  let platforms = ['desktop', 'mobile'];
-  if (category === 'javascript') {
-    platforms.push('server');
-  }
-  if (category === 'webextensions') {
-    platforms = ['webextensions-desktop', 'webextensions-mobile'];
-  }
   for (let platform of platforms) {
     let platformCount = Object.keys(browsers[platform]).length;
     let platformId = platform.replace('webextensions-', '');
@@ -591,7 +589,7 @@ function traverseFeatures(obj, depth, identifier) {
 
   if (features.length > 0) {
     output = '<div class="bc-data hidden">';
-    output += `<table class="bc-table bc-table-${browserCount}">`;
+    output += `<table class="bc-table bc-table-${bcCategory}">`;
     output += writeCompatHead();
     output += writeCompatBody();
     output += '</table>';

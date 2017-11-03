@@ -427,7 +427,7 @@ function writeTable(browserPlatformType) {
     output += `<tr><td>${desc}</td>`;
     output += `${writeSupportCells(feature.support, compatNotes, browserPlatformType)}</tr>`;
   }
-  output += '</tbody></table></div>';
+  output += '</tbody></table>';
   return output;
 }
 
@@ -528,7 +528,9 @@ if (features.length > 0) {
     </ul>
     </div>`;
     output += writeTable('desktop');
+    output += '</div>';
     output += writeTable('mobile');
+    output += '</div>';
     if (!aggregateMode) { output += writeNotes(); }
   }
   // compat beta switch

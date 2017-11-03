@@ -46,7 +46,7 @@ describeMacro('Compat', function () {
         return macro.call('api.feature').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.include(Array.from(dom.querySelector('.bc-table').classList),
-              'bc-table-13');
+              'bc-table-web');
             assert.equal(dom.querySelector('.bc-platform-desktop').colSpan,
               '6');
             assert.equal(dom.querySelector('.bc-platform-mobile').colSpan,
@@ -57,7 +57,7 @@ describeMacro('Compat', function () {
         return macro.call('css.feature').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.include(Array.from(dom.querySelector('.bc-table').classList),
-              'bc-table-13');
+              'bc-table-web');
             assert.equal(dom.querySelector('.bc-platform-desktop').colSpan,
               '6');
             assert.equal(dom.querySelector('.bc-platform-mobile').colSpan,
@@ -68,7 +68,7 @@ describeMacro('Compat', function () {
         return macro.call('html.feature').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.include(Array.from(dom.querySelector('.bc-table').classList),
-              'bc-table-13');
+              'bc-table-web');
             assert.equal(dom.querySelector('.bc-platform-desktop').colSpan,
               '6');
             assert.equal(dom.querySelector('.bc-platform-mobile').colSpan,
@@ -79,7 +79,7 @@ describeMacro('Compat', function () {
         return macro.call('http.feature').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.include(Array.from(dom.querySelector('.bc-table').classList),
-              'bc-table-13');
+              'bc-table-web');
             assert.equal(dom.querySelector('.bc-platform-desktop').colSpan,
               '6');
             assert.equal(dom.querySelector('.bc-platform-mobile').colSpan,
@@ -90,7 +90,7 @@ describeMacro('Compat', function () {
         return macro.call('javascript.feature').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.include(Array.from(dom.querySelector('.bc-table').classList),
-              'bc-table-14');
+              'bc-table-js');
             assert.equal(dom.querySelector('.bc-platform-desktop').colSpan,
               '6');
             assert.equal(dom.querySelector('.bc-platform-mobile').colSpan,
@@ -103,7 +103,7 @@ describeMacro('Compat', function () {
         return macro.call('webextensions.feature').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.include(Array.from(dom.querySelector('.bc-table').classList),
-              'bc-table-5');
+              'bc-table-ext');
             assert.equal(dom.querySelector('.bc-platform-desktop').colSpan,
               '4');
             assert.equal(dom.querySelector('.bc-platform-mobile').colSpan,
