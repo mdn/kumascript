@@ -1187,7 +1187,11 @@
                             "BasicCardRequest",
                             "BasicCardResponse" ],
             "methods":    [],
-            "properties": ["HTMLIFrameElement.allowPaymentRequest"],
+            "properties": ["HTMLIFrameElement.allowPaymentRequest",
+                           "ServiceWorkerGlobalScope.onabortpayment",
+                           "ServiceWorkerGlobalScope.oncanmakepayment",
+                           "ServiceWorkerGlobalScope.onpaymentrequest",
+                           "ServiceWorkerRegistration.paymentManager"],
             "events":     [ "shippingaddresschange",
                             "shippingoptionchange" ]
         },
