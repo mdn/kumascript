@@ -1,21 +1,32 @@
+#!groovy
+
+@Library('github.com/mozmeao/jenkins-pipeline@master')
+
+utils = null
+
 node {
     stage("Prepare") {
       // Checkout Kuma project's master branch
-      checkout([$class: 'GitSCM',
-                userRemoteConfigs: [[url: 'https://github.com/mozilla/kuma']],
-                branches: [[name: 'refs/heads/master']],
-                extensions: [[$class: 'SubmoduleOption',
-                              disableSubmodules: false,
-                              parentCredentials: false,
-                              recursiveSubmodules: true,
-                              reference: '',
-                              trackingSubmodules: false]],
-                doGenerateSubmoduleConfigurations: false,
-                submoduleCfg: []
-               ])
+      checkout(
+        [$class: 'GitSCM',
+         userRemoteConfigs: [[url: 'https://github.com/mozilla/kuma']],
+         branches: [[name: 'refs/heads/master']],
+         extensions: [[$class: 'SubmoduleOption',
+                       disableSubmodules: false,
+                       parentCredentials: false,
+                       recursiveSubmodules: true,
+                       reference: '',
+                       trackingSubmodules: false]],
+         doGenerateSubmoduleConfigurations: false,
+         submoduleCfg: []
+        ]
+      )
+      // Load some utility functions defined in Kuma
+      utils = load 'Jenkinsfiles/utils.groovy'
       // Checkout KumaScript in subfolder
       dir('kumascript') {
         checkout scm
+        setGitEnvironmentVariables()
       }
     }
     switch (env.BRANCH_NAME) {
@@ -50,6 +61,30 @@ node {
         stage('Push KumaScript Docker Image') {
           sh 'make push-kumascript'
           sh 'make push-kumascript KS_VERSION=latest'
+        }
+
+        break
+
+      case utils.STAGE_BRANCH_NAME:
+        stage("Announce") {
+          utils.announce_push()
+        }
+
+        stage("Prepare Infra") {
+          // Checkout the "mozmeao/infra" repo's "master" branch into the
+          // "infra" sub-directory of the current working directory.
+          utils.checkout_repo(
+            'https://github.com/mozmeao/infra', 'master', 'infra'
+          )
+        }
+
+        stage('Push') {
+          dir('infra/apps/mdn/mdn-aws/k8s') {
+            // Start a rolling update of the Kumascript-based deployments.
+            utils.rollout()
+            // Monitor the rollout until it has completed.
+            utils.monitor_rollout()
+          }
         }
 
         break
