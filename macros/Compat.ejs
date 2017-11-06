@@ -430,7 +430,7 @@ function writeTable(browserPlatformType) {
     output += `<tr><td>${desc}</td>`;
     output += `${writeSupportCells(feature.support, compatNotes, browserPlatformType)}</tr>`;
   }
-  output += '</tbody></table></div>';
+  output += '</tbody></table>';
   return output;
 }
 
@@ -500,9 +500,7 @@ var features = [];
 var identifier = query.split(".").pop();
 var isWebExtensions = query.split(".")[0] === "webextensions";
 
-if (!compatData) {
-  output = s_no_data_found;
-} else if (compatData.__compat) {
+if (compatData && compatData.__compat) {
   // get optional main feature, add it to the feature list
   // call it "Basic support" if not aggregating
   if (!aggregateMode) {
@@ -514,11 +512,14 @@ if (!compatData) {
 traverseFeatures(compatData, depth, '');
 
 if (features.length > 0) {
+  // compat beta switch
+  output += '<div class="bc-old">';
+
   if (isWebExtensions) {
     output += writeTable('webextensions');
     if (!aggregateMode) { output += writeNotes(); }
   } else {
-    output = `<div class="htab">
+    output += `<div class="htab">
     <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
     <ul>
     <li class="selected">
@@ -530,11 +531,18 @@ if (features.length > 0) {
     </ul>
     </div>`;
     output += writeTable('desktop');
+    output += '</div>';
     output += writeTable('mobile');
+    output += '</div>';
     if (!aggregateMode) { output += writeNotes(); }
   }
-} else {
-  output = s_no_data_found;
+  // compat beta switch
+  output += '</div>';
 }
+
+
+// compat beta
+output += template("CompatBeta", [$0, $1]);
+
 %>
 <%-output%>

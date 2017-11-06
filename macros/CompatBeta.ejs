@@ -1,0 +1,601 @@
+<%
+/*
+
+Retrieves MDN compat data for a given feature
+
+Parameters
+
+$0 – A query string indicating for which feature to retrieve compat data for.
+$1 – A depth setting indicating how deep sub features should be added to the table
+(flattened, default: 1, first level of sub feature data will be included).
+
+Example calls
+
+{{compat("webextensions.api.alarms")}}
+{{compat("webextensions.api.alarms.Alarm")}}
+{{compat("webextensions.manifest")}}
+{{compat("webextensions.manifest.applications")}}
+{{compat("css.properties.background-attachment")}}
+{{compat("css.selectors.any-link")}}
+{{compat("css.at-rules.font-face")}}
+{{compat("http.headers.Cache-Control")}}
+{{compat("http.status.404")}}
+{{compat("http.method.CONNECT")}}
+{{compat("api.WebGL2RenderingContext")}}
+{{compat("api.WebGL2RenderingContext.beginQuery")}}
+{{compat("html.elements.input")}}
+
+{{compat("html.elements.link", 2)}}
+{{compat("webextensions.api.alarms", 3)}}
+
+*/
+
+const bcd = require('mdn-browser-compat-data');
+var query = $0;
+var depth = $1 || 1;
+var output = '';
+var category = query.split(".")[0];
+
+var compatStrings = string.deserialize(template('L10n:CompatTable'));
+var localize = mdn.getLocalString;
+
+var s_no_data_found = mdn.localString({
+  'en-US': `No compatibility data found. Please contribute data for "${query}" (depth: ${depth}) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.`
+});
+
+const browsers = {
+  "desktop": ['chrome', 'edge', 'firefox', 'ie', 'opera', 'safari'],
+  "mobile": ['webview_android', 'chrome_android', 'edge_mobile', 'firefox_android', 'ie_mobile', 'opera_android', 'safari_ios'],
+  "server": ['nodejs'],
+  "webextensions-desktop": ['chrome', 'edge', 'firefox', 'opera'],
+  "webextensions-mobile": ['firefox_android']
+};
+
+let bcCategory = 'web';
+let platforms = ['desktop', 'mobile'];
+let displayBrowers = [...browsers["desktop"], ...browsers["mobile"]];
+
+if (category === 'javascript') {
+  bcCategory = 'js';
+  displayBrowers.push(...browsers["server"]);
+  platforms.push('server');
+}
+if (category === 'webextensions') {
+  bcCategory = 'ext';
+  displayBrowers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
+  platforms = ['webextensions-desktop', 'webextensions-mobile'];
+}
+
+function writeIcon(iconSlug, replacer) {
+  let iconName = localize(compatStrings, 'bc_icon_name_' + iconSlug).replace('$1$', replacer);
+  let iconTitle = localize(compatStrings, 'bc_icon_title_' + iconSlug).replace('$1$', replacer);
+  // there is no iconTitle, fall back to iconName
+  if (iconTitle === 'bc_icon_title_' + iconSlug) {
+    iconTitle = iconName;
+  }
+  let output = '';
+  output += `<abbr class="only-icon" title="${iconTitle}">`;
+  output += `<span>${iconName}</span>`;
+  output += `<i aria-hidden="true" class="ic-${iconSlug}"></i>`;
+  output += '</abbr>';
+  return output;
+}
+
+function writeFeatureName(row, feature) {
+  let desc = '';
+  let featureIcons = '';
+  let experimentalIcon = '';
+  let deprecatedIcon = '';
+  let nonStandardIcon = '';
+  let label = Object.keys(row)[0];
+
+  if (feature.description) {
+    // Basic support or unnested features need no prefixing
+    if (label.indexOf('.') === -1) {
+      desc += feature.description;
+      // otherwise add a prefix so that we know where this belongs to (e.g. "parse: ISO 8601 format")
+    } else {
+      desc += `<code>${label.slice(0, label.lastIndexOf('.'))}</code>: ${feature.description}`;
+    }
+  } else {
+    desc += `<code>${Object.keys(row)[0]}</code>`;
+  }
+  // Add relative MDN url, but don't add it for "Basic support"
+  if (feature.mdn_url && label != identifier) {
+    desc = `<a href="${feature.mdn_url.replace('https://developer.mozilla.org', '')}">${desc}</a>`;
+  }
+
+  if (feature.hasOwnProperty('status')) {
+    if (feature.status.experimental === true) {
+      experimentalIcon = writeIcon('experimental');
+    }
+    if (feature.status.deprecated === true) {
+      deprecatedIcon = writeIcon('deprecated');
+    }
+    if (feature.status.standard_track === false) {
+      nonStandardIcon = writeIcon('non-standard');
+    }
+    if (experimentalIcon || deprecatedIcon || nonStandardIcon) {
+      featureIcons += ' <div class="bc-icons">';
+      featureIcons += experimentalIcon;
+      featureIcons += deprecatedIcon;
+      featureIcons += nonStandardIcon;
+      featureIcons += '</div>';
+    }
+  }
+  return desc + featureIcons;
+}
+
+/*
+Returns the string to appear in the table cell, like "Yes", "No" or "?", "Partial"
+or the version number
+
+`added` and `removed` are either null, true, false or a string containing a version number
+`partial` is either null, true, or false indicating partial_implementation
+*/
+function getCellString(added, removed, partial) {
+  let output = '';
+  switch (added) {
+    case null:
+      output = `<abbr title="${localize(compatStrings, 'supportsShort_unknown_title')}">
+                ${localize(compatStrings, 'supportsShort_unknown')}
+              </abbr>`;
+    break;
+    case true:
+      output = `<abbr title="${localize(compatStrings, 'supportsLong_yes')}"
+                class="bc-level-yes only-icon">
+                <span>${localize(compatStrings, 'supportsLong_yes')}</span>
+              </abbr>
+              ${localize(compatStrings, 'supportsShort_yes')}`;
+    break;
+    case false:
+      output = `<abbr title="${localize(compatStrings, 'supportsLong_no')}"
+                class="bc-level-no only-icon">
+                <span>${localize(compatStrings, 'supportsLong_no')}</span>
+              </abbr>
+              ${localize(compatStrings, 'supportsShort_no')}`;
+    break;
+    default:
+      output = `<abbr title="${localize(compatStrings, 'supportsLong_yes')}"
+                class="bc-level-yes only-icon">
+                <span>${localize(compatStrings, 'supportsLong_yes')}</span>
+              </abbr>
+              ${added}`;
+  }
+  if (removed) {
+    output = `<abbr title="${localize(compatStrings, 'supportsLong_no')}"
+              class="bc-level-no only-icon">
+              <span>${localize(compatStrings, 'supportsLong_no')}</span>
+            </abbr>`;
+    // We don't know when supported started
+    if (typeof(added) === 'boolean' && added) {
+      output += '?'
+    } else { // We know when
+      output += added
+    }
+    output += '&nbsp;— ';
+    // We don't know when supported ended
+    if (typeof(removed) === 'boolean' && removed) {
+      output += '?'
+    } else { // We know when
+      output += removed;
+    }
+    // removed wins over partial
+  } else if (partial) {
+    output = `<abbr title="${localize(compatStrings, 'supportsLong_partial')}"
+              class="bc-level-partial only-icon">
+              <span>${localize(compatStrings, 'supportsLong_partial')}</span>
+            </abbr>`;
+    // Display "Partial" instead of "Yes", "No", or "?" if we have no version string
+    if (typeof(added) !== 'string') {
+      output += localize(compatStrings, 'supportsShort_partial');
+    } else {
+      output += added;
+    }
+  }
+  return output;
+}
+
+/*
+Given the support information for a browser, this returns
+a CSS class to apply to the table cell.
+
+`supportData` is a (or an array of) support_statement(s)
+*/
+function getSupportClass(supportInfo) {
+  let cssClass = 'unknown';
+
+  if (Array.isArray(supportInfo)) {
+    // the first entry should be the most relevant/recent and will be treated as "the truth"
+    checkSupport(supportInfo[0].version_added,
+                 supportInfo[0].version_removed,
+                 supportInfo[0].partial_implementation);
+  } else if (supportInfo) { // there is just one support statement
+    checkSupport(supportInfo.version_added,
+                 supportInfo.version_removed,
+                 supportInfo.partial_implementation);
+  } else { // this browser has no info, it's unknown
+    return 'unknown';
+  }
+
+  function checkSupport(added, removed, partial) {
+    if (added === null) {
+      cssClass = 'unknown';
+    } else if (added) {
+      cssClass = 'yes';
+      if (removed) {
+        cssClass = 'no';
+      }
+    } else {
+      cssClass = 'no';
+    }
+    if (partial && !removed) {
+      cssClass = 'partial';
+    }
+  }
+
+  return cssClass;
+}
+
+/*
+Generate the note for a browser flag or preference
+First checks version_added and version_removed to create a string indicating when
+a preference setting is present. Then creates a (browser specific) string
+for either a preference flag or a compile flag.
+
+// TODO handle array of flags (rename flag to flags)
+// see https://github.com/mdn/browser-compat-data/issues/546
+
+// TODO Need to localize this
+
+`supportData` is a support_statement
+`browserId` is a compat_block browser ID
+*/
+function writeFlagsNote(supportData, browserId) {
+  let output = '';
+
+  const firefoxPrefs = 'To change preferences in Firefox, visit about:config.';
+  const chromePrefs = 'To change preferences in Chrome, visit chrome://flags.';
+
+  if (typeof(supportData.version_added) === 'string') {
+    output = `From version ${supportData.version_added}`;
+  }
+
+  if (typeof(supportData.version_removed) === 'string') {
+    if (output) {
+      output += ' ';
+      output += `until version ${supportData.version_removed} (exclusive)`;
+    } else {
+      output = `Until version ${supportData.version_removed} (exclusive)`;
+    }
+  }
+
+  let flagTextStart = 'This';
+  if (output) {
+    output += ':';
+    flagTextStart = ' this';
+  }
+
+  let flagText = `${flagTextStart} feature is behind the <code>${supportData.flag.name}</code>`;
+
+  // value_to_set is optional
+  let valueToSet = '';
+  if (supportData.flag.value_to_set) {
+    valueToSet = ` (needs to be set to <code>${supportData.flag.value_to_set}</code>)`;
+  }
+
+  if (supportData.flag.type === 'preference') {
+    let prefSettings = '';
+    switch (browserId) {
+      case 'firefox':
+      case 'firefox_android':
+        prefSettings = firefoxPrefs;
+      break;
+      case 'chrome':
+      case 'chrome_android':
+        prefSettings = chromePrefs;
+      break;
+    }
+    output += `${flagText} preference${valueToSet}. ${prefSettings}`;
+  }
+
+  if (supportData.flag.type === 'compile_flag') {
+    output += `${flagText} compile flag${valueToSet}.`;
+  }
+
+  return output;
+}
+
+/*
+Generates icons for the main cell
+`supportData` is a support_statement
+
+*/
+function writeCellIcons(support) {
+  let output = '<div class="bc-icons">';
+
+  if (support.prefix) {
+    output += writeIcon('prefix', support.prefix) + ' ';
+  }
+
+  if (support.notes) {
+    output += writeIcon('footnote') + ' ';
+  }
+
+  if (support.alternative_name) {
+    output += writeIcon('altname', support.alternative_name) + ' ';
+  }
+
+  if (support.flag) {
+    // TODO handle array of flags (rename flag to flags)
+    // see https://github.com/mdn/browser-compat-data/issues/546
+    output += writeIcon('disabled') + ' ';
+  }
+
+  output += '</div>';
+
+  return output;
+}
+
+/*
+Create notes section
+
+`supportData` is a support_statement
+`browserId` is a compat_block browser ID
+
+*/
+function writeNotes(support, browserId) {
+  let output = '<section class="bc-history" aria-hidden="true"><dl>';
+
+  if (Array.isArray(support)) {
+    for (supportItem of support) {
+      writeSingleNote(supportItem, browserId);
+    }
+  } else {
+    writeSingleNote(support, browserId);
+  }
+
+  function writeSingleNote(support) {
+    let notes = [];
+
+    output += `<dt class="bc-supports-${getSupportClass(support)} bc-supports">`;
+    output += getCellString(support.version_added,
+                            support.version_removed,
+                            support.partial_implementation);
+    output += writeCellIcons(support);
+    output += '</dt>';
+
+    if (support.prefix) {
+      notes.push({
+        icon: writeIcon('prefix', support.prefix),
+        text: localize(compatStrings, 'bc_icon_title_prefix').replace('$1$', support.prefix)
+      });
+    }
+
+    if (support.notes) {
+      if (Array.isArray(support.notes)) {
+        for (let note of support.notes) {
+          notes.push({
+            icon: writeIcon('footnote'),
+            text: note
+          });
+        }
+      } else {
+        notes.push({
+          icon: writeIcon('footnote'),
+          text: support.notes
+        });
+      }
+    }
+
+    if (support.alternative_name) {
+      notes.push({
+        icon: writeIcon('altname', support.alternative_name),
+        text: localize(compatStrings, 'bc_icon_title_altname').replace('$1$', support.alternative_name)
+      });
+    }
+
+    if (support.flag) {
+      // TODO handle array of flags (rename flag to flags)
+      // see https://github.com/mdn/browser-compat-data/issues/546
+      notes.push({
+        icon: writeIcon('disabled'),
+        text: writeFlagsNote(support, browserId)
+      });
+    }
+
+    if (notes.length > 0) {
+      for (let note of notes) {
+        output += '<dd>';
+        output += note.icon;
+        output += ' ' + note.text;
+        output += '</dd>';
+      }
+    } else {
+      output += '<dd></dd>';
+    }
+  }
+
+  output += '</dl></section>';
+
+  return output;
+}
+
+/*
+For a single row, write all the cells that contain support data.
+(That is, every cell in the row except the first, which contains
+an identifier for the row,  like "Basic support".
+
+*/
+function writeCompatCells(supportData) {
+  let output = '';
+
+  for (let browserNameKey of displayBrowers) {
+    let needsNotes = false;
+    let support = supportData[browserNameKey];
+    let supportInfo = '';
+    if (support) {
+      if (Array.isArray(support)) {
+        // Take first support data
+        supportInfo += getCellString(support[0].version_added,
+                                     support[0].version_removed,
+                                     support[0].partial_implementation);
+        needsNotes = true;
+      } else {
+        supportInfo += getCellString(support.version_added,
+                                     support.version_removed,
+                                     support.partial_implementation);
+        if (support.notes || support.prefix || support.flag || support.alternative_name) {
+          needsNotes = true;
+        }
+      }
+    } else { // browsers are optional in the data, display them as "?" in our table
+      supportInfo += getCellString(null);
+    }
+
+    output += `<td class="bc-supports-${getSupportClass(support)} bc-browser-${browserNameKey}`;
+
+    if (needsNotes) {
+      output += ' bc-has-history';
+    }
+
+    output += `">${supportInfo}`;
+
+    if (needsNotes) {
+      output += writeCellIcons(support);
+      output += writeNotes(support, browserNameKey);
+    }
+    output += '</td>';
+  }
+
+  return output;
+}
+
+function writeCompatFeatureRow() {
+  let output = '';
+  for (let row of features) {
+    output += '<tr>';
+    let feature = Object.keys(row).map((k) => row[k])[0];
+    output += `<th scope="row">${writeFeatureName(row, feature)}</th>`;
+    output += `${writeCompatCells(feature.support)}</tr>`;
+    output += '</tr>';
+  }
+  return output;
+}
+
+function writeCompatBody() {
+  let output = '<tbody>';
+  output += writeCompatFeatureRow()
+  output += '</tbody>';
+  return output;
+}
+
+function writeCompatPlatformsRow() {
+  let output = '<tr class="bc-platforms">';
+  output += '<td></td>';
+
+  for (let platform of platforms) {
+    let platformCount = Object.keys(browsers[platform]).length;
+    let platformId = platform.replace('webextensions-', '');
+    output += `<th colspan="${platformCount}" class="bc-platform-${platformId}">`;
+    output += writeIcon(platformId);
+    output += '</th>';
+  }
+
+  output += '</tr>';
+  return output;
+}
+
+function writeCompatBrowsersRow() {
+  let output = '<tr class="bc-browsers">';
+  output += '<td></td>';
+  for (let browser of displayBrowers) {
+    output += `<th class="bc-browser-${browser}">`;
+    output += writeIcon(browser);
+    output += '</th>';
+  }
+  output += '</tr>';
+  return output;
+}
+
+function writeCompatHead() {
+  let output = '<thead>';
+  output += writeCompatPlatformsRow();
+  output += writeCompatBrowsersRow();
+  output += '</thead>';
+  return output;
+}
+
+/*
+Get compat data using a query string like "webextensions.api.alarms"
+*/
+function getData(queryString, obj) {
+  return queryString.split('.').reduce(function(prev, curr) {
+    return prev ? prev[curr] : undefined
+  }, obj);
+}
+
+/*
+Get features that should be displayed according to the query and the depth setting
+Flatten them into a features array
+*/
+function traverseFeatures(obj, depth, identifier) {
+  depth--;
+  if (depth >= 0) {
+    for (let i in obj) {
+      if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
+        if (obj[i].__compat) {
+
+          let featureNames = Object.keys(obj[i]);
+          if (featureNames.length > 1) {
+            // there are sub features below this node,
+            // so we need to identify partial support for the main feature
+            for (let subfeatureName of featureNames) {
+              // if this is actually a subfeature (i.e. it is not a __compat object)
+              // and the subfeature has a __compat object
+              if ((subfeatureName !== '__compat') && (obj[i][subfeatureName].__compat)) {
+                let browserNames = Object.keys(obj[i].__compat.support);
+                for (let browser of browserNames) {
+                  if (obj[i].__compat.support[browser].version_added !=
+                    obj[i][subfeatureName].__compat.support[browser].version_added ||
+                    obj[i][subfeatureName].__compat.support[browser].notes) {
+                      obj[i].__compat.support[browser].partial_implementation = true;
+                    }
+                  }
+                }
+              }
+            }
+
+            features.push({[identifier + i]: obj[i].__compat});
+          }
+          traverseFeatures(obj[i], depth, i + '.');
+        }
+      }
+    }
+  }
+
+  var compatData = getData(query, bcd);
+  var features = [];
+  var identifier = query.split(".").pop();
+
+  if (!compatData) {
+    output = s_no_data_found;
+  } else if (compatData.__compat) {
+    compatData.__compat.description = localize(compatStrings, 'feature_basicsupport');
+    features.push({[identifier]: compatData.__compat});
+  }
+
+  traverseFeatures(compatData, depth, '');
+
+  if (features.length > 0) {
+    output = '<div class="bc-data hidden">';
+    output += `<table class="bc-table bc-table-${bcCategory}">`;
+    output += writeCompatHead();
+    output += writeCompatBody();
+    output += '</table>';
+    output += '</div>';
+  } else {
+    output = s_no_data_found;
+  }
+  %>
+  <%-output%>
