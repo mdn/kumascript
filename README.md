@@ -147,7 +147,7 @@ more before you run your local development version of MDN.
 
 ## Setup (Standalone)
 
-* Install [Node.js 6.9.2](https://nodejs.org/en/download/package-manager/)
+* Install [Node.js 6.x](https://nodejs.org/en/download/package-manager/)
 * Install the dependencies:
     * `npm install`
 
