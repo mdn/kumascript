@@ -118,7 +118,7 @@ var text = mdn.localStringMap({
   </li>
   <li><strong><a href="/<%=locale%>/docs/Web/HTML/Reference"><%=text['Reference']%></a></strong></li>
   <li data-default-state="<%=state('Elements')%>"><a href="/<%=locale%>/docs/Web/HTML/Element"><%=text['HTML_Elements']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 1])%>
+   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 0, 0, "<", ">"])%>
   </li>
   <li data-default-state="<%=state('Global_attributes')%>"><a href="/<%=locale%>/docs/Web/HTML/Global_attributes"><%=text['Global_attributes']%></a>
    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
