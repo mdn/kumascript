@@ -54,7 +54,7 @@ if (found_tag != undefined && found_tag != null && found_tag.length) {
 
     for (aPage in pageList) {
         if (containsTag(pageList[aPage].tags, found_tag)) {
-            resultHTML.push(pageList[aPage].title.replace(/[<>]/g, ""));
+            resultHTML.push(pageList[aPage].slug.split("/").pop(-1).toLowerCase());
         }
     }
 }
@@ -98,20 +98,20 @@ var resultAPI = [];
   %>
             <li><a href="<%-resultGuide[aPage].url%>"><%-resultGuide[aPage].title%></a></li>
   <%    }
-        for (aTitle in resultHTML) { // HTML entities matching 
-            if (resultHTML[aTitle] === "Heading elements") { // Special case for <h1>…<h6>
+        for (slugLeaf in resultHTML) { // HTML entities matching 
+            if (resultHTML[slugLeaf] === "heading_elements") { // Special case for <h1>…<h6>
   %>
-            <li><%- template("HTMLelement", ["Heading_elements", resultHTML[aTitle]]) %></li>
+            <li><%- template("HTMLelement", ["Heading_elements", "<code>&lt;h1&gt;-&lt;h6&gt;</code>"]) %></li>
   <%
             }
             else {
   %>
-            <li><%- template("HTMLelement", [resultHTML[aTitle]]) %></li>
+            <li><%- template("HTMLelement", [resultHTML[slugLeaf]]) %></li>
   <%        }
         } 
-        for (aTitle in resultAPI) { // HTML-DOM interfaces matching 
+        for (slugLeaf in resultAPI) { // HTML-DOM interfaces matching 
   %>
-            <li><%- template("domxref", [resultAPI[aTitle]]) %></li>
+            <li><%- template("domxref", [resultAPI[slugLeaf]]) %></li>
   <%    } 
     } %>
     <% if (env.slug.includes("/HTML/Element/input")) { %>
