@@ -101,7 +101,6 @@ var tag, badge,
                 : []
     },
     ForcedElements = $0 && $0.elements && Array.isArray($0.elements) ? $0.elements.map(lowerMe) : [],
-    RGXCleanTag    = /[<>]/g,
     HTMLRefBaseURL = "/docs/Web/HTML/Element",
     HTMLLocalBaseURL = "/" + env.locale + HTMLRefBaseURL + "/",
     HTMLDocPages   = page.subpagesExpand("/en-US" + HTMLRefBaseURL, 1),
@@ -111,11 +110,12 @@ var tag, badge,
 // BUSINESS LOGIC
 // --------------
 
-// Get the relevant pages for HTML Elements based on the template input
+// Get the relevant pages for HTML Elements based on the template input; include only
+// the part of the title that's actually the element name
 HTMLDocPages.forEach(function (page) {
-    var p,
-        t = lowerMe(page.title.replace(RGXCleanTag, "")),
-        tags = page.tags.map(lowerMe);
+    var p;
+    var t = lowerMe(page.slug.split("/").pop(-1));
+    var tags = page.tags.map(lowerMe);
 
     if (ForcedElements.indexOf(t) > -1
     || ((TagFilters.include.length === 0 ||  hasCommonTag(tags, TagFilters.include))
@@ -126,7 +126,7 @@ HTMLDocPages.forEach(function (page) {
             tagName      : t,
             
             // We need to special case the "Heading elements" article which stand for all hn elements.
-            tagLink      : t !== 'heading elements' ? template("HTMLelement", [t])
+            tagLink      : t !== 'heading_elements' ? template("HTMLelement", [t])
                          : ['h1','h2','h3','h4','h5','h6'].map(function (tg) { return template("HTMLelement", [tg]); }).join(', '),
             
             summary      : (p && p.summary) || "",
