@@ -2025,7 +2025,7 @@
                             "SpeechSynthesisErrorEvent",
                             "SpeechSynthesisEvent",
                             "SpeechSynthesisUtterance",
-                            "SpeechSynthehesisVoice" ],
+                            "SpeechSynthesisVoice" ],
             "methods":    [],
             "properties": [],
             "events":     [ "audiostart",
