@@ -88,7 +88,7 @@ more before you run your local development version of MDN.
   need to create a new KumaScript docker image as follows (assuming you are
   in the `kumascript` sub-directory):
 
-      cd ..; make build-kumascipt; cd kumascript
+      cd ..; make build-kumascript; cd kumascript
 
 * Note the last line of output from your `make build-kumascript` command
   above. It should look something like this:
