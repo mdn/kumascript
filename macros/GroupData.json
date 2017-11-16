@@ -1139,7 +1139,8 @@
             "overview":   [ "Navigation timing API" ],
             "interfaces": [ "Performance",
                             "PerformanceNavigation",
-                            "PerformanceTiming" ],
+                            "PerformanceTiming",
+                            "PerformanceNavigationTiming" ],
             "methods":    [],
             "properties": [ "Window.performance" ],
             "events":     []
