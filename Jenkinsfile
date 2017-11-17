@@ -32,26 +32,44 @@ node {
     switch (env.BRANCH_NAME) {
       case 'master':
         stage('Build') {
-          sh 'make build-kumascript'
-          sh 'make build-kumascript KS_VERSION=latest'
+          utils.sh_with_notify(
+            'make build-kumascript',
+            "Build of commit-tagged Kumascript image"
+          )
+          utils.sh_with_notify(
+            'make build-kumascript KS_VERSION=latest',
+            "Build of latest-tagged Kumascript image"
+          )
         }
 
         stage('Lint') {
           dir('kumascript') {
-            sh 'make lint VERSION=latest'
-            sh 'make lint-macros VERSION=latest'
+            utils.sh_with_notify(
+              'make lint VERSION=latest',
+              "Lint the Kumascript code"
+            )
+            utils.sh_with_notify(
+              'make lint-macros VERSION=latest',
+              "Lint the Kumascript macros"
+            )
           }
         }
 
         stage('Test') {
           dir('kumascript') {
             try {
-              sh 'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+              utils.sh_with_notify(
+                'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                "Test the Kumascript code"
+              )
             } finally {
               junit 'test-results.xml'
             }
             try {
-              sh 'make test-macros VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+              utils.sh_with_notify(
+                'make test-macros VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                "Test the Kumascript macros"
+              )
             } finally {
               junit 'test-results.xml'
             }
@@ -59,8 +77,14 @@ node {
         }
 
         stage('Push KumaScript Docker Image') {
-          sh 'make push-kumascript'
-          sh 'make push-kumascript KS_VERSION=latest'
+          utils.sh_with_notify(
+            'make push-kumascript',
+            "Push the commit-tagged Kumascript image"
+          )
+          utils.sh_with_notify(
+            'make push-kumascript KS_VERSION=latest',
+            "Push the latest-tagged Kumascript image"
+          )
         }
 
         break
@@ -91,25 +115,40 @@ node {
 
       default:
         stage('Build') {
-          sh 'make build-kumascript'
+          utils.sh_with_notify(
+            'make build-kumascript',
+            "Build of commit-tagged Kumascript image"
+          )
         }
 
         stage('Lint') {
           dir('kumascript') {
-            sh 'make lint'
-            sh 'make lint-macros'
+            utils.sh_with_notify(
+              'make lint',
+              "Lint the Kumascript code"
+            )
+            utils.sh_with_notify(
+              'make lint-macros',
+              "Lint the Kumascript macros"
+            )
           }
         }
 
         stage('Test') {
           dir('kumascript') {
             try {
-              sh 'make test TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+              utils.sh_with_notify(
+                'make test TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                "Test the Kumascript code"
+              )
             } finally {
               junit 'test-results.xml'
             }
             try {
-              sh 'make test-macros TEST_RUN_ARGS="--reporter mocha-junit-reporter"'
+              utils.sh_with_notify(
+                'make test-macros TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                "Test the Kumascript macros"
+              )
             } finally {
               junit 'test-results.xml'
             }
