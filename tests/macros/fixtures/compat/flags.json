@@ -12,6 +12,7 @@
                     },
                     "chrome_android": {
                         "version_added": "55",
+                        "version_removed": "60",
                         "flag": {
                             "type": "compile_flag",
                             "name": "--datetime-format-to-parts"
@@ -29,7 +30,14 @@
                                 "value_to_set": "true"
                             }
                         }
-                    ]
+                    ],
+                    "edge": {
+                        "version_added": "17",
+                        "flag": {
+                            "type": "runtime_flag",
+                            "name": "--number-format-to-parts"
+                        }
+                    }
                 }
             }
         }
