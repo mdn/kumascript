@@ -456,6 +456,34 @@ function getData(queryString, obj) {
   }, obj);
 }
 
+
+/*
+  Find out partial support for a main feature if
+  - there are notes present in sub features
+  - the sub features don't have the same support version as the main feature
+    (if the sub feature support is unknown, it is not flagged as partial support though)
+*/
+function identifyPartialSupport(featureNames, feature) {
+  for (let subfeatureName of featureNames) {
+    // if this is actually a subfeature (i.e. it is not a __compat object)
+    // and the subfeature has a __compat object
+    if ((subfeatureName !== '__compat') && (feature[subfeatureName].__compat)) {
+      let browserNames = Object.keys(feature.__compat.support);
+      for (let browser of browserNames) {
+        let mainFeatureSupport = feature.__compat.support[browser];
+        let subFeatureSupport = feature[subfeatureName].__compat.support[browser];
+        if (subFeatureSupport &&
+           (mainFeatureSupport.version_added != subFeatureSupport.version_added ||
+            subFeatureSupport.notes)) {
+          feature.__compat.support[browser].partial_support = true;
+        }
+      }
+    }
+  }
+  return feature;
+}
+
+
 /*
 Get features that should be displayed according to the query and the depth setting
 Flatten them into a features array
@@ -466,27 +494,12 @@ function traverseFeatures(obj, depth, identifier) {
     for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
-
+          // there are sub features below this node,
+          // so we need to identify partial support for the main feature
           let featureNames = Object.keys(obj[i]);
           if (featureNames.length > 1) {
-            // there are sub features below this node,
-            // so we need to identify partial support for the main feature
-            for (let subfeatureName of featureNames) {
-              // if this is actually a subfeature (i.e. it is not a __compat object)
-              // and the subfeature has a __compat object
-              if ((subfeatureName !== '__compat') && (obj[i][subfeatureName].__compat)) {
-                let browserNames = Object.keys(obj[i].__compat.support);
-                for (let browser of browserNames) {
-                  if (obj[i].__compat.support[browser].version_added !=
-                      obj[i][subfeatureName].__compat.support[browser].version_added ||
-                      obj[i][subfeatureName].__compat.support[browser].notes) {
-                    obj[i].__compat.support[browser].partial_support = true;
-                  }
-                }
-              }
-            }
+            obj[i] = identifyPartialSupport(featureNames, obj[i]);
           }
-
           features.push({[identifier + i]: obj[i].__compat});
         }
         traverseFeatures(obj[i], depth, i + '.');
