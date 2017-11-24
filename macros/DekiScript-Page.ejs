@@ -50,7 +50,7 @@
     // Optional self, defaults to false. Include the path page in the results
     subpages: function (path, depth, self) {
         var mdn = require_macro('MDN:Common');
-        var url = build_api_url((path ? path : env.url) + '$children');
+        var url = build_api_url((path ? encodeURI(path) : env.url) + '$children');
         var depth_check = parseInt(depth);
         if (depth_check >= 0) {
             url += '?depth=' + depth_check;
@@ -73,7 +73,7 @@
     // Optional self, defaults to false. Include the path page in the results
     subpagesExpand: function (path, depth, self) {
         var mdn = require_macro('MDN:Common');
-        var url = build_api_url((path ? path : env.url) + '$children?expand');
+        var url = build_api_url((path ? encodeURI(path) : env.url) + '$children?expand');
         var depth_check = parseInt(depth);
         if (depth_check >= 0) {
             url += '&depth=' + depth_check;
@@ -213,7 +213,7 @@
 
     translations: function (path) {
         var mdn = require_macro('MDN:Common');
-        var url = build_api_url((path ? path : env.url) + '$json');
+        var url = build_api_url((path ? encodeURI(path) : env.url) + '$json');
         var json = mdn.fetchJSONResource(url);
         var result = [];
         if (json != null) {
