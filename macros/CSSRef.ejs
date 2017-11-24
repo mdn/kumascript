@@ -177,7 +177,7 @@ if (slug) {
     // Load sub pages of the group
     var groupPages = [];
     for (var i = 0; i < group.length; i++) {
-        groupPages = groupPages.concat(page.subpagesExpand('/en-US/docs/Web/CSS/' + group[i].replace(/ /g, '_')));
+        groupPages = groupPages.concat(page.subpagesExpand('/' + locale + '/docs/Web/CSS/' + encodeURIComponent(group[i].replace(/ /g, '_'))));
     }
 
     // output helpers
