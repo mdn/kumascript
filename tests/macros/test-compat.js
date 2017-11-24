@@ -353,4 +353,22 @@ describeMacro('Compat', function () {
               'ic-prefix');
         });
     });
+
+
+    // Test flags
+    itMacro('Creates correct notes for flags', function (macro) {
+        return macro.call('flags.feature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            assert.equal(dom.querySelectorAll('section.bc-history dl dd')[0].textContent,
+              'Disabled From version 10: this feature is behind the Enable experimental Web Platform features preference. To change preferences in Chrome, visit chrome://flags.');
+            assert.equal(dom.querySelectorAll('section.bc-history dl dd')[1].textContent,
+              'Disabled From version 17: this feature is behind the --number-format-to-parts runtime flag.');
+            assert.equal(dom.querySelectorAll('section.bc-history dl dd')[2].textContent,
+               ''); // empty for the "version_added: 12" range that has no flag
+            assert.equal(dom.querySelectorAll('section.bc-history dl dd')[3].textContent,
+              'Disabled From version 5: this feature is behind the layout.css.vertical-text.enabled preference (needs to be set to true). To change preferences in Firefox, visit about:config.');
+            assert.equal(dom.querySelectorAll('section.bc-history dl dd')[4].textContent,
+              'Disabled From version 55 until version 60 (exclusive): this feature is behind the --datetime-format-to-parts compile flag.');
+        });
+    });
 });

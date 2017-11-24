@@ -303,6 +303,10 @@ function writeFlagsNote(supportData, browserId) {
     output += `${flagText} compile flag${valueToSet}.`;
   }
 
+  if (supportData.flag.type === 'runtime_flag') {
+    output += `${flagText} runtime flag${valueToSet}.`;
+  }
+
   return output;
 }
 
