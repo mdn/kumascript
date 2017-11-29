@@ -7,10 +7,19 @@
 //  $0 - The path of the page whose subpages should be listed.
 //  $1 - If true, do not put the text in <code></code>.
 //  $2 - If true, do add the parent page to the list
+//  $3 - Open delimiter: only text after this in the title will be used
+//  $4 - Close delimiter: only text before this is used
+//
+// Examples:
+//
+// {{ListSubpagesForSidebar("/en-US/docs/Web/API/WebRTC_API", 1)}}
+// {{ListSubpagesForSidebar("/en-US/docs/Web/HTML/Element", 0, 0, "<", ">")}}
 
 var path = $0;
 var locale = env.locale;
 var parent = $2 ? 1 : 0;
+var startDelim = $3;
+var endDelim = $4;
 
 // If the path ends with a slash, remove it.    
 if (path.substr(-1, 1) === '/') {
@@ -42,12 +51,38 @@ var badges = {
     ObsoleteBadge          : '<span class="sidebar-icon">' + template("ObsoleteBadge", [1]) + '</span>',
 };
 
+// Trims the title, returning only the text
+// between the start and end delimiter characters.
+// Does nothing if both are null or empty.
+function trimTitle(title) {
+    var startIndex;
+    var endIndex;
+
+    startIndex = 0;
+    if (startDelim) {
+        startIndex = title.indexOf(startDelim);
+        if (startIndex) {
+            startIndex += 1;
+        }
+    }
+
+    endIndex = 0;
+    if (endDelim) {
+        endIndex = title.indexOf(endDelim)+1;
+    }
+    if (!endIndex) {
+        endIndex = title.length;
+    }
+
+    return title.substring(startIndex, endIndex);
+}
+
 function createLink(item) {
     var result = '';
 
     var summary = escapeQuotes(item.summary) || '';
     var url = item.url.replace('en-US', locale);
-    var title = htmlEscape(item.title);
+    var title = htmlEscape(trimTitle(item.title));
 
     var translated = false;
     if (locale != 'en-US') {
@@ -55,7 +90,7 @@ function createLink(item) {
             if(translation.locale === locale) {
                 summary = escapeQuotes(translation.summary) || '';
                 url = translation.url;
-                title = htmlEscape(translation.title);
+                title = htmlEscape(trimTitle(translation.title));
                 translated = true;
             }
         });
