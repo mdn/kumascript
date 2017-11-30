@@ -113,7 +113,7 @@ describe('test-api', function () {
     });
 
     describe('The API offers a function to build absolute API URLs', function () {
-        const test_path = 'en-US/docs/<Web>?look=fancy&font=big#note';
+        const test_path = 'fr/docs/<Requêtes_média>?look=fancy&font=big#note';
         beforeEach(function() {
             this.doc_base_url = 'https://api:8000';
             this.api = new ks_api.APIContext({
