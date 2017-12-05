@@ -94,6 +94,11 @@ node {
           utils.announce_push()
         }
 
+        stage("Check Pull") {
+            // Ensure the image can be successfully pulled from the registry.
+            utils.ensure_pull()
+        }
+
         stage("Prepare Infra") {
           // Checkout the "mozmeao/infra" repo's "master" branch into the
           // "infra" sub-directory of the current working directory.
