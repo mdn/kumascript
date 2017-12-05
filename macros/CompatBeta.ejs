@@ -35,6 +35,7 @@ var query = $0;
 var depth = $1 || 1;
 var output = '';
 var category = query.split(".")[0];
+var legendItems = new Set(); // entries will be unique
 
 var compatStrings = string.deserialize(template('L10n:CompatTable'));
 var localize = mdn.getLocalString;
@@ -66,9 +67,13 @@ if (category === 'webextensions') {
   platforms = ['webextensions-desktop', 'webextensions-mobile'];
 }
 
-function writeIcon(iconSlug, replacer) {
+function writeIcon(iconSlug, replacer, isLegend) {
   let iconName = localize(compatStrings, 'bc_icon_name_' + iconSlug).replace('$1$', replacer);
   let iconTitle = localize(compatStrings, 'bc_icon_title_' + iconSlug).replace('$1$', replacer);
+  if (isLegend) {
+    iconName = localize(compatStrings, 'legend_' + iconSlug);
+    iconTitle = iconName;
+  }
   // there is no iconTitle, fall back to iconName
   if (iconTitle === 'bc_icon_title_' + iconSlug) {
     iconTitle = iconName;
@@ -108,12 +113,15 @@ function writeFeatureName(row, feature) {
   if (feature.hasOwnProperty('status')) {
     if (feature.status.experimental === true) {
       experimentalIcon = writeIcon('experimental');
+      legendItems.add('experimental');
     }
     if (feature.status.deprecated === true) {
       deprecatedIcon = writeIcon('deprecated');
+      legendItems.add('deprecated');
     }
     if (feature.status.standard_track === false) {
       nonStandardIcon = writeIcon('non-standard');
+      legendItems.add('non-standard');
     }
     if (experimentalIcon || deprecatedIcon || nonStandardIcon) {
       featureIcons += ' <div class="bc-icons">';
@@ -320,20 +328,24 @@ function writeCellIcons(support) {
 
   if (support.prefix) {
     output += writeIcon('prefix', support.prefix) + ' ';
+    legendItems.add('prefix');
   }
 
   if (support.notes) {
     output += writeIcon('footnote') + ' ';
+    legendItems.add('footnote');
   }
 
   if (support.alternative_name) {
     output += writeIcon('altname', support.alternative_name) + ' ';
+    legendItems.add('altname');
   }
 
   if (support.flag) {
     // TODO handle array of flags (rename flag to flags)
     // see https://github.com/mdn/browser-compat-data/issues/546
     output += writeIcon('disabled') + ' ';
+    legendItems.add('disabled');
   }
 
   output += '</div>';
@@ -457,7 +469,9 @@ function writeCompatCells(supportData) {
       supportInfo += getCellString(null);
     }
 
-    output += `<td class="bc-supports-${getSupportClass(support)} bc-browser-${browserNameKey}`;
+    let supportClass = getSupportClass(support);
+    output += `<td class="bc-supports-${supportClass} bc-browser-${browserNameKey}`;
+    legendItems.add('support_' + supportClass);
 
     if (needsNotes) {
       output += ' bc-has-history';
@@ -530,6 +544,41 @@ function writeCompatHead() {
   return output;
 }
 
+function writeLegend () {
+  let output = '<section class="bc-legend">';
+  output += `<h3 class="offscreen">${localize(compatStrings, 'legend')}</h3>`;
+  output += '<dl>';
+
+  let sortOrder = ['support_yes', 'support_partial', 'support_no', 'support_unknown',
+                   'experimental', 'non-standard', 'deprecated',
+                   'footnote', 'disabled', 'altname', 'prefix'];
+  let sortedLegendItems = Array.from(legendItems).sort(function(a, b) {
+    return sortOrder.indexOf(a) - sortOrder.indexOf(b);
+  });
+
+  for (let item of sortedLegendItems) {
+    // handle supprt cells
+    if (item.indexOf('support_') !== -1) {
+      let supportType = item.substring(item.indexOf('_') + 1);
+      output += `<dt><span class="bc-supports-${supportType} bc-supports">
+                <abbr title="${localize(compatStrings, 'supportsLong_' + supportType)}"
+                 class="bc-level bc-level-${supportType} only-icon">
+                 <span>${localize(compatStrings, 'supportsLong_' + supportType)}</span>
+                 &nbsp;
+                </abbr></span></dt>`;
+      output += `<dd>${localize(compatStrings, 'supportsLong_' + supportType)}</dd>`;
+    // handle icons
+    } else {
+      output += `<dt>${writeIcon(item, '', true)}</dt>`;
+      output += `<dd>${localize(compatStrings, 'legend_' + item)}</dd>`;
+    }
+  }
+
+  output += '</dl>';
+  output +='</section>';
+  return output;
+}
+
 /*
 Get compat data using a query string like "webextensions.api.alarms"
 */
@@ -597,6 +646,7 @@ function traverseFeatures(obj, depth, identifier) {
     output += writeCompatHead();
     output += writeCompatBody();
     output += '</table>';
+    output += writeLegend();
     output += '</div>';
   } else {
     output = s_no_data_found;
