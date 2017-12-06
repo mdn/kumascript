@@ -243,9 +243,6 @@ First checks version_added and version_removed to create a string indicating whe
 a preference setting is present. Then creates a (browser specific) string
 for either a preference flag or a compile flag.
 
-// TODO handle array of flags (rename flag to flags)
-// see https://github.com/mdn/browser-compat-data/issues/546
-
 // TODO Need to localize this
 
 `supportData` is a support_statement
@@ -254,8 +251,8 @@ for either a preference flag or a compile flag.
 function writeFlagsNote(supportData, browserId) {
   let output = '';
 
-  const firefoxPrefs = 'To change preferences in Firefox, visit about:config.';
-  const chromePrefs = 'To change preferences in Chrome, visit chrome://flags.';
+  const firefoxPrefs = ' To change preferences in Firefox, visit about:config.';
+  const chromePrefs = ' To change preferences in Chrome, visit chrome://flags.';
 
   if (typeof(supportData.version_added) === 'string') {
     output = `From version ${supportData.version_added}`;
@@ -270,42 +267,60 @@ function writeFlagsNote(supportData, browserId) {
     }
   }
 
-  let flagTextStart = 'This';
+  let start = 'This';
   if (output) {
     output += ':';
-    flagTextStart = ' this';
+    start = ' this';
   }
 
-  let flagText = `${flagTextStart} feature is behind the <code>${supportData.flag.name}</code>`;
+  start += ' feature is behind the ';
 
-  // value_to_set is optional
-  let valueToSet = '';
-  if (supportData.flag.value_to_set) {
-    valueToSet = ` (needs to be set to <code>${supportData.flag.value_to_set}</code>)`;
-  }
+  let flagsText = '';
+  let settings = '';
 
-  if (supportData.flag.type === 'preference') {
-    let prefSettings = '';
-    switch (browserId) {
-      case 'firefox':
-      case 'firefox_android':
-        prefSettings = firefoxPrefs;
-      break;
-      case 'chrome':
-      case 'chrome_android':
-        prefSettings = chromePrefs;
-      break;
+  for (i = 0; i < supportData.flags.length; i++) {
+    let flag = supportData.flags[i];
+    let nameString = `<code>${flag.name}</code>`;
+
+    // value_to_set is optional
+    let valueToSet = '';
+    if (flag.value_to_set) {
+      valueToSet = ` (needs to be set to <code>${flag.value_to_set}</code>)`;
     }
-    output += `${flagText} preference${valueToSet}. ${prefSettings}`;
+
+    let typeString = '';
+    if (flag.type === 'preference') {
+      switch (browserId) {
+        case 'firefox':
+        case 'firefox_android':
+          settings = firefoxPrefs;
+        break;
+        case 'chrome':
+        case 'chrome_android':
+          settings = chromePrefs;
+        break;
+      }
+      typeString = ` preference${valueToSet}`;
+    }
+
+    if (flag.type === 'compile_flag') {
+      typeString = ` compile flag${valueToSet}`;
+    }
+
+    if (flag.type === 'runtime_flag') {
+      typeString = ` runtime flag${valueToSet}`;
+    }
+
+    flagsText += nameString + typeString;
+
+    if (i != supportData.flags.length - 1) {
+      flagsText += ' and the ';
+    } else {
+      flagsText += '.';
+    }
   }
 
-  if (supportData.flag.type === 'compile_flag') {
-    output += `${flagText} compile flag${valueToSet}.`;
-  }
-
-  if (supportData.flag.type === 'runtime_flag') {
-    output += `${flagText} runtime flag${valueToSet}.`;
-  }
+  output += start + flagsText + settings;
 
   return output;
 }
@@ -330,9 +345,7 @@ function writeCellIcons(support) {
     output += writeIcon('altname', support.alternative_name) + ' ';
   }
 
-  if (support.flag) {
-    // TODO handle array of flags (rename flag to flags)
-    // see https://github.com/mdn/browser-compat-data/issues/546
+  if (support.flags) {
     output += writeIcon('disabled') + ' ';
   }
 
@@ -399,9 +412,7 @@ function writeNotes(support, browserId) {
       });
     }
 
-    if (support.flag) {
-      // TODO handle array of flags (rename flag to flags)
-      // see https://github.com/mdn/browser-compat-data/issues/546
+    if (support.flags) {
       notes.push({
         icon: writeIcon('disabled'),
         text: writeFlagsNote(support, browserId)
@@ -449,7 +460,7 @@ function writeCompatCells(supportData) {
         supportInfo += getCellString(support.version_added,
                                      support.version_removed,
                                      support.partial_implementation);
-        if (support.notes || support.prefix || support.flag || support.alternative_name) {
+        if (support.notes || support.prefix || support.flags || support.alternative_name) {
           needsNotes = true;
         }
       }

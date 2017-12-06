@@ -368,6 +368,8 @@ describeMacro('Compat', function () {
             assert.equal(dom.querySelectorAll('section.bc-history dl dd')[3].textContent,
               'Disabled From version 5: this feature is behind the layout.css.vertical-text.enabled preference (needs to be set to true). To change preferences in Firefox, visit about:config.');
             assert.equal(dom.querySelectorAll('section.bc-history dl dd')[4].textContent,
+              'Disabled From version 45: this feature is behind the foo.enabled preference and the bar.enabled preference.');
+            assert.equal(dom.querySelectorAll('section.bc-history dl dd')[5].textContent,
               'Disabled From version 55 until version 60 (exclusive): this feature is behind the --datetime-format-to-parts compile flag.');
         });
     });
