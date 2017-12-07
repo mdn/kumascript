@@ -89,14 +89,14 @@ node {
 
         break
 
-      case utils.STAGE_BRANCH_NAME:
+      case [utils.STAGE_BRANCH_NAME, utils.PROD_BRANCH_NAME]:
         stage("Announce") {
           utils.announce_push()
         }
 
         stage("Check Pull") {
-            // Ensure the image can be successfully pulled from the registry.
-            utils.ensure_pull()
+          // Ensure the image can be successfully pulled from the registry.
+          utils.ensure_pull()
         }
 
         stage("Prepare Infra") {
