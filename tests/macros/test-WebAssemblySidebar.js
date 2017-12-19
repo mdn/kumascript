@@ -14,8 +14,8 @@ var expected = `\
 <section class="Quick_links" id="Quick_Links">
 
 <ol>
-  <li data-default-state="open"><a href="/en-US/docs/WebAssembly/"><strong>WebAssembly home page</strong></a>
-  <li data-default-state="open"><a href="/en-US/docs/WebAssembly/">Tutorials</a>
+  <li data-default-state="open"><a href="/en-US/docs/WebAssembly"><strong>WebAssembly home page</strong></a>
+  <li data-default-state="open"><a href="/en-US/docs/WebAssembly">Tutorials</a>
     <ol>
       <li><a href="/en-US/docs/WebAssembly/Concepts">WebAssembly concepts</a></li>
       <li><a href="/en-US/docs/WebAssembly/C_to_wasm">Compiling from C/C++ to WebAssembly</a></li>
@@ -27,7 +27,7 @@ var expected = `\
       <li><a href="/en-US/docs/WebAssembly/Exported_functions">Exported WebAssembly functions</a></li>
     </ol>
   </li>
-  <li data-default-state="open"><a href="/en-US/docs/WebAssembly/">Object reference</a>
+  <li data-default-state="open"><a href="/en-US/docs/WebAssembly">Object reference</a>
     <ol>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly" title="Title for WebAssembly"><code>WebAssembly</code></a></li>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module" title="Title for WebAssembly.Module"><code>WebAssembly.Module</code></a></li>
