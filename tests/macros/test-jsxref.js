@@ -132,6 +132,7 @@ describeMacro('jsxref', function () {
     });
 
     itMacro('Three arguments (slug, name, anchor without hash) [ru]', function (macro) {
+        // When the # is omitted in the anchor, it is automatically added
         // Used on:
         // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
         // {{jsxref("Global_Objects/Array", "Array", "массива")}}
@@ -145,7 +146,7 @@ describeMacro('jsxref', function () {
                      ' объектом, который используется в создании массивов;' +
                      ' которые представляют собой спископодобные объекты' +
                      ' высокого уровня.'),
-            expected = ('<a href="' + glob_url + anchor +
+            expected = ('<a href="' + glob_url + '#' + anchor +
                         '" title="' + title + '">' +
                         '<code>' + name + '</code></a>');
 
