@@ -135,8 +135,10 @@ more before you run your local development version of MDN.
 * To build a Docker image (you will need to do this initially as well as after
   every `git commit`):
     * `cd ..; make build-kumascript; cd kumascript`
-* To run the tests:
+* To run the platform tests:
     * `make test`
+* To run the macro tests:
+    * `make test-macros`
 * To check your code (using JSHint):
     * `make lint`
 * To check for JavaScript syntax errors within the EJS macros (using `ejslint`)
