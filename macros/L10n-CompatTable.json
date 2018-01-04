@@ -56,10 +56,6 @@
          "en-US": "Internet Explorer",
          "nl"   : "Internet Explorer"
     },
-    "bc_icon_name_ie_mobile": {
-         "en-US": "IE mobile",
-         "nl"   : "IE mobile"
-    },
     "bc_icon_name_nodejs": {
          "en-US": "Node.js",
          "nl"   : "Node.js"
@@ -80,6 +76,10 @@
     "bc_icon_name_safari_ios": {
          "en-US": "iOS Safari",
          "nl"   : "iOS Safari"
+    },
+    "bc_icon_name_samsunginternet_android": {
+         "en-US": "Samsung Internet",
+         "nl"   : "Samsung Internet"
     },
     "bc_history_head": {
         "en-US": "Implementation Notes",
