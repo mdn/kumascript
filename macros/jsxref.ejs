@@ -47,8 +47,12 @@ if (page && page.summary) {
     summary = mdn.escapeQuotes(page.summary);
 }
 
+var anchor = $2 || '';
+if (anchor && anchor[0] != '#') {
+    anchor = "#" + anchor;
+}
 
 var code    = !$3 ? '<code>'  : '';
 var endcode = !$3 ? '</code>' : '';
 
-%><a href="<%- URL + $2 %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
+%><a href="<%- URL + anchor %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
