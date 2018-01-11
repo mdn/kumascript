@@ -5,18 +5,22 @@
                 "support": {
                     "chrome": {
                         "version_added": "10",
-                        "flag": {
-                            "type": "preference",
-                            "name": "Enable experimental Web Platform features"
-                        }
+                        "flags": [
+                            {
+                                "type": "preference",
+                                "name": "Enable experimental Web Platform features"
+                            }
+                        ]
                     },
                     "chrome_android": {
                         "version_added": "55",
                         "version_removed": "60",
-                        "flag": {
-                            "type": "compile_flag",
-                            "name": "--datetime-format-to-parts"
-                        }
+                        "flags": [
+                            {
+                                "type": "compile_flag",
+                                "name": "--datetime-format-to-parts"
+                            }
+                        ]
                     },
                     "firefox": [
                         {
@@ -24,19 +28,36 @@
                         },
                         {
                             "version_added": "5",
-                            "flag": {
-                                "type": "preference",
-                                "name": "layout.css.vertical-text.enabled",
-                                "value_to_set": "true"
-                            }
+                            "flags": [
+                                {
+                                    "type": "preference",
+                                    "name": "layout.css.vertical-text.enabled",
+                                    "value_to_set": "true"
+                                }
+                            ]
                         }
                     ],
                     "edge": {
                         "version_added": "17",
-                        "flag": {
-                            "type": "runtime_flag",
-                            "name": "--number-format-to-parts"
-                        }
+                        "flags": [
+                            {
+                                "type": "runtime_flag",
+                                "name": "--number-format-to-parts"
+                            }
+                        ]
+                    },
+                    "opera": {
+                        "version_added": "45",
+                        "flags": [
+                            {
+                                "type": "preference",
+                                "name": "foo.enabled"
+                            },
+                            {
+                                "type": "preference",
+                                "name": "bar.enabled"
+                            }
+                        ]
                     }
                 }
             }

@@ -188,8 +188,8 @@ for either a preference flag or a compile flag.
 function writeFlagsNote(supportData, browserId) {
   let output = '';
 
-  const firefoxPrefs = 'To change preferences in Firefox, visit about:config.';
-  const chromePrefs = 'To change preferences in Chrome, visit chrome://flags.';
+  const firefoxPrefs = ' To change preferences in Firefox, visit about:config.';
+  const chromePrefs = ' To change preferences in Chrome, visit chrome://flags.';
 
   if (typeof(supportData.version_added) === 'string') {
     output = `From version ${supportData.version_added}`;
@@ -197,48 +197,67 @@ function writeFlagsNote(supportData, browserId) {
 
   if (typeof(supportData.version_removed) === 'string') {
     if (output) {
-      output += ` until version ${supportData.version_removed} (exclusive)`;
+      output += ' ';
+      output += `until version ${supportData.version_removed} (exclusive)`;
     } else {
       output = `Until version ${supportData.version_removed} (exclusive)`;
     }
   }
 
-  let flagTextStart = 'This';
+  let start = 'This';
   if (output) {
     output += ':';
-    flagTextStart = ' this';
+    start = ' this';
   }
 
-  let flagText = `${flagTextStart} feature is behind the <code>${supportData.flag.name}</code>`;
+  start += ' feature is behind the ';
 
-  // value_to_set is optional
-  let valueToSet = '';
-  if (supportData.flag.value_to_set) {
-    valueToSet = ` (needs to be set to <code>${supportData.flag.value_to_set}</code>)`;
-  }
+  let flagsText = '';
+  let settings = '';
 
-  if (supportData.flag.type === 'preference') {
-    let prefSettings = '';
-    switch (browserId) {
-      case 'firefox':
-      case 'firefox_android':
-        prefSettings = firefoxPrefs;
-      break;
-      case 'chrome':
-      case 'chrome_android':
-        prefSettings = chromePrefs;
-      break;
+  for (i = 0; i < supportData.flags.length; i++) {
+    let flag = supportData.flags[i];
+    let nameString = `<code>${flag.name}</code>`;
+
+    // value_to_set is optional
+    let valueToSet = '';
+    if (flag.value_to_set) {
+      valueToSet = ` (needs to be set to <code>${flag.value_to_set}</code>)`;
     }
-    output += `${flagText} preference${valueToSet}. ${prefSettings}`;
+
+    let typeString = '';
+    if (flag.type === 'preference') {
+      switch (browserId) {
+        case 'firefox':
+        case 'firefox_android':
+          settings = firefoxPrefs;
+        break;
+        case 'chrome':
+        case 'chrome_android':
+          settings = chromePrefs;
+        break;
+      }
+      typeString = ` preference${valueToSet}`;
+    }
+
+    if (flag.type === 'compile_flag') {
+      typeString = ` compile flag${valueToSet}`;
+    }
+
+    if (flag.type === 'runtime_flag') {
+      typeString = ` runtime flag${valueToSet}`;
+    }
+
+    flagsText += nameString + typeString;
+
+    if (i != supportData.flags.length - 1) {
+      flagsText += ' and the ';
+    } else {
+      flagsText += '.';
+    }
   }
 
-  if (supportData.flag.type === 'compile_flag') {
-    output += `${flagText} compile flag${valueToSet}.`;
-  }
-
-  if (supportData.flag.type === 'runtime_flag') {
-    output += `${flagText} runtime flag${valueToSet}.`;
-  }
+  output += start + flagsText + settings;
 
   return output;
 }
@@ -304,7 +323,7 @@ function writeSupportInfo(supportData, browserId, compatNotes) {
     }
 
     // there is a flag and it needs a note, too
-    if (supportData.flag) {
+    if (supportData.flags) {
       let flagNote = writeFlagsNote(supportData, browserId);
       let noteIndex = compatNotes.indexOf(flagNote);
       noteAnchors.push(`<sup><a href="#compatNote_${noteIndex+1}">${noteIndex+1}</a></sup>`);
@@ -350,7 +369,7 @@ function collectCompatNotes() {
       }
     }
     // collect flags
-    if (supportEntry.hasOwnProperty('flag')) {
+    if (supportEntry.hasOwnProperty('flags')) {
       let flagNote = writeFlagsNote(supportEntry, browserName);
       if (notesArray.indexOf(flagNote) === -1) {
         notesArray.push(flagNote);
