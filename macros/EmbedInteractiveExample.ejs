@@ -3,10 +3,12 @@
 //
 // Parameters:
 //  $0 - The URL of interactive-examples.mdn.mozilla.net page (relative)
+//  $1 - Optional custom height class to set on iframe element
 //
-//  Example call {{EmbedInteractiveExample("pages/css/animation.html")}}
+//  Example call {{EmbedInteractiveExample("pages/css/animation.html", "taller")}}
 //
 
+let customHeightClass = "";
 let jsEditorClass = "";
 let url = kuma.url.resolve(env.interactive_examples.base_url, $0);
 
@@ -14,7 +16,11 @@ if ($0.includes('/js/')) {
     jsEditorClass = 'interactive-js';
 }
 
-let str = `<iframe class="interactive ${jsEditorClass}" width="100%" height="250" frameborder="0" src="${url}"></iframe>`;
+if ($1) {
+    customHeightClass = $1;
+}
+
+let str = `<iframe class="interactive ${jsEditorClass} ${customHeightClass}" width="100%" height="250" frameborder="0" src="${url}" title="MDN Web Docs Interactive Example"></iframe>`;
 
 %>
 <%- str %>

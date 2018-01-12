@@ -17,7 +17,7 @@ describeMacro('EmbedInteractiveExample', function () {
         };
         return assert.eventually.equal(
             macro.call('pages/css/animation.html'),
-            `<iframe class="interactive " width="100%" height="250" frameborder="0" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation.html"></iframe>`
+            `<iframe class="interactive  " width="100%" height="250" frameborder="0" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation.html" title="MDN Web Docs Interactive Example"></iframe>`
         );
     });
     itMacro('Changes in settings and argument are reflected', function (macro) {
@@ -26,7 +26,7 @@ describeMacro('EmbedInteractiveExample', function () {
         };
         return assert.eventually.equal(
             macro.call('pages/http/headers.html'),
-            `<iframe class="interactive " width="100%" height="250" frameborder="0" src="https://www.fleetwood-mac.com/pages/http/headers.html"></iframe>`
+            `<iframe class="interactive  " width="100%" height="250" frameborder="0" src="https://www.fleetwood-mac.com/pages/http/headers.html" title="MDN Web Docs Interactive Example"></iframe>`
         );
     });
     itMacro('Trailing slash in setting and leading slash in argument', function (macro) {
@@ -35,7 +35,7 @@ describeMacro('EmbedInteractiveExample', function () {
         };
         return assert.eventually.equal(
             macro.call('/pages/css/animation.html'),
-            `<iframe class="interactive " width="100%" height="250" frameborder="0" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation.html"></iframe>`
+            `<iframe class="interactive  " width="100%" height="250" frameborder="0" src="https://interactive-examples.mdn.mozilla.net/pages/css/animation.html" title="MDN Web Docs Interactive Example"></iframe>`
         );
     });
 });
