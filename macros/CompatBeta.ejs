@@ -341,6 +341,11 @@ Generates icons for the main cell
 function writeCellIcons(support) {
   let output = '<div class="bc-icons">';
 
+  if (Array.isArray(support)) {
+    // the first entry should be the most relevant/recent and will be used for the main cell
+    support = support[0];
+  }
+
   if (support.prefix) {
     output += writeIcon('prefix', support.prefix) + ' ';
     legendItems.add('prefix');

@@ -353,6 +353,13 @@ describeMacro('Compat', function () {
               'ic-prefix');
         });
     });
+    itMacro('Adds a note icon if the first element in a support array has a note', function (macro) {
+        return macro.call('notes.feature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            assert.include(Array.from(dom.querySelector('.bc-browser-firefox > .bc-icons > abbr > i').classList),
+              'ic-footnote');
+        });
+    });
 
 
     // Test flags
