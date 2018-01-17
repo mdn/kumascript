@@ -314,6 +314,19 @@ describeMacro('Compat', function () {
               '25');
         });
     });
+    itMacro('Creates correct cell content when the browser info is missing in a sub feature and doesn\'t mark it as partial support', function (macro) {
+        return macro.call('html.browser_info_missing_in_subfeature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            assert.include(Array.from(dom.querySelector('.bc-table tbody tr:nth-child(1) td:nth-child(4)').classList),
+              'bc-supports-yes');
+            assert.include(dom.querySelector('.bc-table tbody tr:nth-child(1) td:nth-child(4)').textContent,
+              '25');
+            assert.include(Array.from(dom.querySelector('.bc-table tbody tr:nth-child(2) td:nth-child(4)').classList),
+              'bc-supports-yes');
+            assert.include(dom.querySelector('.bc-table tbody tr:nth-child(2) td:nth-child(4)').textContent,
+              '25');
+        });
+    });
 
 
     // Test icons in main cells

@@ -144,6 +144,33 @@
                     }
                 }
             }
+        },
+        "browser_info_missing_in_subfeature": {
+            "__compat": {
+                "support": {
+                    "firefox": {
+                        "version_added": "25"
+                    }
+                }
+            },
+            "subfeature": {
+                "__compat": {
+                    "support": {
+                        "firefox": {
+                            "version_added": "25"
+                        }
+                    }
+                },
+                "subsubfeature_with_missing_browser_info": {
+                    "__compat": {
+                        "support": {
+                            "chrome": {
+                                "version_added": "35"
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
