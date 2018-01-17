@@ -489,27 +489,6 @@ function traverseFeatures(obj, depth, identifier) {
     for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
-
-          let featureNames = Object.keys(obj[i]);
-          if (featureNames.length > 1) {
-            // there are sub features below this node,
-            // so we need to identify partial support for the main feature
-            for (let subfeatureName of featureNames) {
-              // if this is actually a subfeature (i.e. it is not a __compat object)
-              // and the subfeature has a __compat object
-              if ((subfeatureName !== '__compat') && (obj[i][subfeatureName].__compat)) {
-                let browserNames = Object.keys(obj[i].__compat.support);
-                for (let browser of browserNames) {
-                  if (obj[i].__compat.support[browser].version_added !=
-                      obj[i][subfeatureName].__compat.support[browser].version_added ||
-                      obj[i][subfeatureName].__compat.support[browser].notes) {
-                    obj[i].__compat.support[browser].partial_support = true;
-                  }
-                }
-              }
-            }
-          }
-
           features.push({[identifier + i]: obj[i].__compat});
         }
         traverseFeatures(obj[i], depth, i + '.');

@@ -117,33 +117,6 @@
                     }
                 }
             }
-        },
-        "partial_support_due_to_subfeature": {
-            "__compat": {
-                "support": {
-                    "firefox": {
-                        "version_added": "25"
-                    }
-                }
-            },
-            "subfeature": {
-                "__compat": {
-                    "support": {
-                        "firefox": {
-                            "version_added": "25"
-                        }
-                    }
-                },
-                "subsubfeature_with_different_version_than_parent_feature": {
-                    "__compat": {
-                        "support": {
-                            "firefox": {
-                                "version_added": "35"
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }
