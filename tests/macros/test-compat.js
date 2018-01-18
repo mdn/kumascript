@@ -303,17 +303,6 @@ describeMacro('Compat', function () {
               '25 — 35');
         });
     });
-    itMacro('Creates correct cell content for partial support due to subfeature support with different version', function (macro) {
-        return macro.call('html.partial_support_due_to_subfeature').then(function(result) {
-            let dom = JSDOM.fragment(result);
-            assert.include(Array.from(dom.querySelector('.bc-table tbody tr:nth-child(2) td:nth-child(4)').classList),
-              'bc-supports-partial');
-            assert.equal(dom.querySelector('.bc-table tbody tr:nth-child(2) td:nth-child(4) abbr span').textContent,
-              'Partial support');
-            assert.include(dom.querySelector('.bc-table tbody tr:nth-child(2) td:nth-child(4)').textContent,
-              '25');
-        });
-    });
 
 
     // Test icons in main cells
