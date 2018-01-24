@@ -19,9 +19,7 @@ var title;
 var result;
 var lang = env.locale;
 
-var specListUrl = "https://raw.githubusercontent.com/mdn/data/master/specs/names.json";
-
-var specList = mdn.fetchJSONResource(specListUrl);
+var specList = string.deserialize(template('SpecData'));
 
 // Some APIs share specifications. Here we attend to that.
 

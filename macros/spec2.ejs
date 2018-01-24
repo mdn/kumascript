@@ -2,9 +2,13 @@
 /* parameters: */
 /* $0 = name of specification */
 
-var statusUrl = "https://raw.githubusercontent.com/mdn/data/master/specs/status.json";
+var specList = string.deserialize(template('SpecData'));
 
-var status = mdn.fetchJSONResource(statusUrl);
+var status = {};
+
+Object.keys(specList).forEach(function(name) {
+  status[name] = specList[name].status;
+});
 
 status['CSS3 2D Transforms'] = status['CSS3 Transforms'];
 status['CSS3 3D Transforms'] = status['CSS Transforms 2'];
