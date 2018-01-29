@@ -457,7 +457,7 @@
   "CSS Painting API": {
     "name": "CSS Painting API Level 1",
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
-    "status": "Draft"
+    "status": "WD"
   },
   "CSS Overscroll Behavior":{
     "name": "CSS Overscroll Behavior Module Level 1",
@@ -1446,7 +1446,7 @@
   "WebVTT": {
     "name": "WebVTT: The Web Video Text Tracks Format",
     "url": "https://w3c.github.io/webvtt/",
-    "status": "Draft"
+    "status": "WD"
   },
   "WOFF1.0": {
     "name": "WOFF File Format 1.0",
@@ -1461,7 +1461,7 @@
   "Worklets": {
     "name": "Worklets Level 1",
     "url": "https://drafts.css-houdini.org/worklets/",
-    "status": "Draft"
+    "status": "WD"
   },
   "XMLHttpRequest": {
     "name": "XMLHttpRequest",
