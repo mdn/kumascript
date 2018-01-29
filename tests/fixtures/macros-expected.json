@@ -10,9 +10,6 @@
         "name": "cssxref",
         "filename": "cssxref.ejs"
     }, {
-        "name": "fetch-feed",
-        "filename": "fetch-feed.ejs"
-    }, {
         "name": "interface",
         "filename": "interface.ejs"
     }, {
