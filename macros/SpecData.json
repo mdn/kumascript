@@ -322,7 +322,7 @@
   "CSS3 Variables": {
     "name": "CSS Custom Properties for Cascading Variables Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-variables/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS3 Writing Modes": {
     "name": "CSS Writing Modes Module Level&nbsp;3",
@@ -342,7 +342,7 @@
   "CSS4 Cascade": {
     "name": "CSS Cascading and Inheritance Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-cascade/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS4 Colors": {
     "name": "CSS Color Module Level&nbsp;4",
@@ -362,7 +362,7 @@
   "CSS4 Media Queries": {
     "name": "Media Queries Level&nbsp;4",
     "url": "https://drafts.csswg.org/mediaqueries-4/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS4 Pseudo-Elements": {
     "name": "CSS Pseudo-Elements Level&nbsp;4",
@@ -507,7 +507,7 @@
   "CSS Will Change": {
     "name": "CSS Will Change Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-will-change/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSSOM": {
     "name": "CSS Object Model (CSSOM)",
@@ -972,7 +972,7 @@
   "Preload": {
     "name": "Preload",
     "url": "https://w3c.github.io/preload/",
-    "status": "WD"
+    "status": "CR"
   },
   "Presentation": {
     "name": "Presentation API",
@@ -1041,7 +1041,7 @@
   "Secure Contexts": {
     "name": "Secure Contexts",
     "url": "https://w3c.github.io/webappsec-secure-contexts/",
-    "status": "WD"
+    "status": "CR"
   },
   "Selection API": {
     "name": "Selection API",
@@ -1151,7 +1151,7 @@
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
     "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
-    "status": "WD"
+    "status": "CR"
   },
   "Typed Array": {
     "name": "Typed Array Specification",
@@ -1416,7 +1416,7 @@
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
     "url": "https://w3c.github.io/webrtc-pc/",
-    "status": "WD"
+    "status": "CR"
   },
   "Web Share API": {
     "name": "Web Share API",
@@ -1456,7 +1456,7 @@
   "WOFF2.0": {
     "name": "WOFF File Format 2.0",
     "url": "https://www.w3.org/TR/WOFF2/",
-    "status": "CR"
+    "status": "PR"
   },
   "Worklets": {
     "name": "Worklets Level 1",
