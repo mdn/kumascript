@@ -877,7 +877,7 @@
   "Messaging": {
     "name": "Messaging API",
     "url": "https://www.w3.org/2012/sysapps/messaging/",
-    "status": "ED"
+    "status": "Obsolete"
   },
   "Mixed Content": {
     "name": "Mixed Content",
@@ -916,8 +916,8 @@
   },
   "Paint Timing": {
     "name": "Paint Timing",
-    "url": "https://w3c.github.io/paint-timing",
-    "status": "ED"
+    "url": "https://w3c.github.io/paint-timing/",
+    "status": "WD"
   },
   "Page Visibility API": {
     "name": "Page Visibility (Second Edition)",
@@ -992,7 +992,7 @@
   "Quota Management": {
     "name": "Quota Management API",
     "url": "https://w3c.github.io/quota-api/",
-    "status": "ED"
+    "status": "Obsolete"
   },
   "Referrer Policy": {
     "name": "Referrer Policy",
@@ -1051,7 +1051,7 @@
   "Service Workers": {
     "name": "Service Workers",
     "url": "https://w3c.github.io/ServiceWorker/",
-    "status": "ED"
+    "status": "WD"
   },
   "Selectors API Level 1": {
     "name": "Selectors API Level 1",
