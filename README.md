@@ -82,49 +82,40 @@ If you update either one or both of these files, you'll need to do a little
 more before you run your local development version of MDN.
 
 * If you modified the `package.json` file, particularly if you modified the
-  version of node or the dependencies section, remove the `npm-shrinkwrap.json`
-  file before you make your new docker image in the next step.
+  version of node or the dependencies section, replace `npm-shrinkwrap.json`
+  with one that has no version information:
+
+      echo '{}' > npm-shrinkwrap.json
+
 * When you have made your changes and are ready for testing, you will first
   need to create a new KumaScript docker image as follows (assuming you are
   in the `kumascript` sub-directory):
 
-      cd ..; make build-kumascript; cd kumascript
+      cd ..; KS_VERSION=latest make build-kumascript; cd kumascript
 
-* Note the last line of output from your `make build-kumascript` command
-  above. It should look something like this:
+  The last line of output from your `make build-kumascript` command should
+  look something like this:
 
       Successfully built 48ddc354b3f4
-      Successfully tagged quay.io/mozmar/kumascript:e3870fd
+      Successfully tagged quay.io/mozmar/kumascript:latest
 
-  but of course with a different image ID, which is the hexadecimal number
-  `48ddc354b3f4` in the example above. You'll need this KumaScript image ID
-  for the next step.
-* Now you need to configure `docker-compose` such that when it starts and
-  runs a KumaScript container as part of your local development version
-  of MDN, it uses your new KumaScript image and not, for example, the latest
-  released image (`quay.io/mozmar/kumascript`). To do this, move up one
-  level to the `kuma` directory and edit the `docker-compose.yml` file
-  there. Within `docker-compose.yml`, find the lines that specify the docker
-  image to use for creating the kumascript container. They will probably look
-  like this:
+* Test out the changes, and repeat building the image if unhappy:
 
-      kumascript:
-          image: quay.io/mozmar/kumascript
+      VERSION=latest make test
+      VERSION=latest make lint
 
-  Replace the current image identifier, in this case
-  `quay.io/mozmar/kumascript`, with your new KumaScript image ID, like this:
+* If you modified the `package.json` file, create a new `npm-shrinkwrap.json`:
 
-      kumascript:
-          image: 48ddc354b3f4
+      VERSION=latest make shrinkwrap
 
-* Now you are ready to run your local development version of MDN.
-* Once you're happy with your changes (e.g., `make test` and `make lint` both
-  run without any errors or warnings), and if, as mentioned above, you modified
-  the `package.json` file and removed the old `npm-shrinkwrap.json` file,
-  you'll need to create a new `npm-shrinkwrap.json` file and commit it,
-  You can create a new `npm-shrinkwrap.json` file like this:
+  Commit the new `npm-shrinkwrap.json` file.
 
-      make shrinkwrap
+* (Optional) You can use your built image as the kumascript image in the MDN
+  development environment, or you can remove it. To remove your local built
+  image, run one of the following:
+
+      docker rmi quay.io/mozmar/kumascript:latest  # Remove without replacing
+      docker pull quay.io/mozmar/kumascript:latest # or replace with server's version
 
 ## Setup (Docker)
 
