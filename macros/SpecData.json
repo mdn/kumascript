@@ -7,7 +7,7 @@
   "AmbientLight": {
     "name": "Ambient Light Sensor",
     "url": "https://w3c.github.io/ambient-light/",
-    "status": "ED"
+    "status": "WD"
   },
   "ARIA": {
     "name": "Accessible Rich Internet Applications (WAI-ARIA)",
@@ -52,7 +52,7 @@
   "Beacon": {
     "name": "Beacon",
     "url": "https://w3c.github.io/beacon/",
-    "status": "ED"
+    "status": "CR"
   },
   "Clipboard API": {
     "name": "Clipboard API and events",
@@ -102,12 +102,12 @@
   "CSP 3.0": {
     "name": "Content Security Policy Level 3",
     "url": "https://w3c.github.io/webappsec-csp/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSP Embedded": {
     "name": "Content Security Policy: Embedded Enforcement",
     "url": "https://w3c.github.io/webappsec-csp/embedded/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS1": {
     "name": "CSS Level&nbsp;1",
@@ -232,7 +232,7 @@
   "CSS3 Multicol": {
     "name": "CSS Multi-column Layout Module",
     "url": "https://drafts.csswg.org/css-multicol-1/",
-    "status": "CR"
+    "status": "WD"
   },
   "CSS3 Overflow": {
     "name": "CSS Overflow Module Level 3",
@@ -347,12 +347,12 @@
   "CSS4 Colors": {
     "name": "CSS Color Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-color/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Fonts": {
     "name": "CSS Fonts Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-fonts-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Images": {
     "name": "CSS Images Module Level&nbsp;4",
@@ -397,7 +397,7 @@
   "CSS4 Writing Modes": {
     "name": "CSS Writing Modes Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-writing-modes-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS Animation Worklet": {
     "name": "CSS Animation Worklet API",
@@ -406,8 +406,8 @@
   },
   "CSS Containment": {
     "name": "CSS Containment Module Level 1",
-    "url": "https://drafts.csswg.org/css-containment/",
-    "status": "WD"
+    "url": "https://drafts.csswg.org/css-contain/",
+    "status": "CR"
   },
   "CSS Exclusions": {
     "name": "CSS Exclusions Module Level&nbsp;1",
@@ -817,7 +817,7 @@
   "Long Tasks": {
     "name": "Long Tasks API 1",
     "url": "https://w3c.github.io/longtasks/",
-    "status": "ED"
+    "status": "WD"
   },
   "Manifest": {
     "name": "Web App Manifest",
@@ -842,12 +842,12 @@
   "Media Capture": {
     "name": "Media Capture and Streams",
     "url": "https://w3c.github.io/mediacapture-main/",
-    "status": "ED"
+    "status": "CR"
   },
   "Media Capture DOM Elements": {
     "name": "Media Capture from DOM Elements",
     "url": "https://w3c.github.io/mediacapture-fromelement/",
-    "status": "ED"
+    "status": "WD"
   },
   "Media Session": {
     "name": "Media Session Standard",
@@ -897,7 +897,7 @@
   "Navigation Timing Level 2": {
     "name": "Navigation Timing Level 2",
     "url": "https://w3c.github.io/navigation-timing/",
-    "status": "ED"
+    "status": "WD"
   },
   "Network Information": {
     "name": "Network Information API",
@@ -947,7 +947,7 @@
   "Performance Timeline Level 2": {
     "name": "Performance Timeline Time Level 2",
     "url": "https://w3c.github.io/performance-timeline/",
-    "status": "ED"
+    "status": "CR"
   },
   "Pointer Events": {
     "name": "Pointer Events",
@@ -957,7 +957,7 @@
   "Pointer Events 2": {
     "name": "Pointer Events – Level 2",
     "url": "https://w3c.github.io/pointerevents/",
-    "status": "ED"
+    "status": "WD"
   },
   "Pointer Events 2 Ext": {
     "name": "Pointer Events - Level 2 Extensions",
@@ -997,12 +997,12 @@
   "Referrer Policy": {
     "name": "Referrer Policy",
     "url": "https://w3c.github.io/webappsec-referrer-policy/",
-    "status": "ED"
+    "status": "CR"
   },
   "Remote Playback": {
     "name": "Remote Playback API",
     "url": "https://w3c.github.io/remote-playback/",
-    "status": "ED"
+    "status": "CR"
   },
   "RequestAnimationFrame": {
     "name": "Timing control for script-based animations",
@@ -1066,7 +1066,7 @@
   "Shadow DOM": {
     "name": "Shadow DOM",
     "url": "https://w3c.github.io/webcomponents/spec/shadow/",
-    "status": "ED"
+    "status": "WD"
   },
   "Shape Detection API": {
     "name": "Accelerated Shape Detection in Images",
@@ -1186,7 +1186,7 @@
   "User Timing Level 2": {
     "name": "User Timing Level 2",
     "url": "https://w3c.github.io/user-timing/",
-    "status": "ED"
+    "status": "WD"
   },
   "vCard": {
     "name": "vCard Format Specification",
