@@ -101,17 +101,6 @@ describe('test-api', function () {
         );
     });
 
-    it('The API offers access to an RSS/Atom feed parser', function (done) {
-        testRequestExpected(
-            getURL('/docs/feeds'),
-            'documents/feeds-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
-    });
-
     describe('The API offers a function to build absolute API URLs', function () {
         const test_path = 'fr/docs/<Requêtes_média>?look=fancy&font=big#note';
         beforeEach(function() {
