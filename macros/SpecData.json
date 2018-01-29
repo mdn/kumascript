@@ -2,7 +2,7 @@
   "Alarm API": {
     "name": "Web Alarms API",
     "url": "https://www.w3.org/2012/sysapps/web-alarms/",
-    "status": "WD"
+    "status": "Obsolete"
   },
   "AmbientLight": {
     "name": "Ambient Light Sensor",
@@ -77,7 +77,7 @@
   "Contacts": {
     "name": "Contacts Manager API",
     "url": "https://www.w3.org/2012/sysapps/contacts-manager-api/",
-    "status": "WD"
+    "status": "Obsolete"
   },
   "Cookie Prefixes": {
     "name": "Cookie Prefixes",
@@ -92,7 +92,7 @@
   "CSP 1.0": {
     "name": "Content Security Policy 1.0",
     "url": "https://www.w3.org/TR/CSP1/",
-    "status": "CR"
+    "status": "Obsolete"
   },
   "CSP 1.1": {
     "name": "Content Security Policy Level 2",
