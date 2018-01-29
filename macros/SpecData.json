@@ -866,7 +866,7 @@
   },
   "MediaStream Recording": {
     "name": "MediaStream Recording",
-    "url": "https://w3c.github.io/mediacapture-record/MediaRecorder.html",
+    "url": "https://w3c.github.io/mediacapture-record/",
     "status": "WD"
   },
   "MediaStreamTrackHint": {
@@ -1170,7 +1170,7 @@
   },
   "Upgrade Insecure Requests": {
     "name": "Upgrade Insecure Requests",
-    "url": "https://w3c.github.io/webappsec/specs/upgrade/",
+    "url": "https://w3c.github.io/webappsec-upgrade-insecure-requests/",
     "status": "CR"
   },
   "URL": {
