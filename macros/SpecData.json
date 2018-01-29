@@ -945,7 +945,7 @@
     "status": "REC"
   },
   "Performance Timeline Level 2": {
-    "name": "Performance Timeline Time Level 2",
+    "name": "Performance Timeline Level 2",
     "url": "https://w3c.github.io/performance-timeline/",
     "status": "CR"
   },
@@ -980,7 +980,7 @@
     "status": "CR"
   },
   "Proximity Events": {
-    "name": "Proximity Events",
+    "name": "Proximity Sensor",
     "url": "https://w3c.github.io/proximity/",
     "status": "WD"
   },
