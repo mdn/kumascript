@@ -19,7 +19,7 @@ describeMacro('spec2', function () {
     });
     itMacro('ED (en-US)', function (macro) {
         return assert.eventually.equal(
-            macro.call('AmbientLight'),
+            macro.call('FileSystem'),
             '<span class="spec-ED">Editor&#39;s Draft</span>'
         );
     });

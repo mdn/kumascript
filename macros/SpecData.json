@@ -2,12 +2,12 @@
   "Alarm API": {
     "name": "Web Alarms API",
     "url": "https://www.w3.org/2012/sysapps/web-alarms/",
-    "status": "WD"
+    "status": "Obsolete"
   },
   "AmbientLight": {
     "name": "Ambient Light Sensor",
     "url": "https://w3c.github.io/ambient-light/",
-    "status": "ED"
+    "status": "WD"
   },
   "ARIA": {
     "name": "Accessible Rich Internet Applications (WAI-ARIA)",
@@ -52,7 +52,7 @@
   "Beacon": {
     "name": "Beacon",
     "url": "https://w3c.github.io/beacon/",
-    "status": "ED"
+    "status": "CR"
   },
   "Clipboard API": {
     "name": "Clipboard API and events",
@@ -77,7 +77,7 @@
   "Contacts": {
     "name": "Contacts Manager API",
     "url": "https://www.w3.org/2012/sysapps/contacts-manager-api/",
-    "status": "WD"
+    "status": "Obsolete"
   },
   "Cookie Prefixes": {
     "name": "Cookie Prefixes",
@@ -86,13 +86,13 @@
   },
   "Credential Management": {
     "name": "Credential Management Level 1",
-    "url": "https://w3c.github.io/webappsec-credential-management",
-    "status": "ED"
+    "url": "https://w3c.github.io/webappsec-credential-management/",
+    "status": "WD"
   },
   "CSP 1.0": {
     "name": "Content Security Policy 1.0",
     "url": "https://www.w3.org/TR/CSP1/",
-    "status": "CR"
+    "status": "Obsolete"
   },
   "CSP 1.1": {
     "name": "Content Security Policy Level 2",
@@ -102,12 +102,12 @@
   "CSP 3.0": {
     "name": "Content Security Policy Level 3",
     "url": "https://w3c.github.io/webappsec-csp/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSP Embedded": {
     "name": "Content Security Policy: Embedded Enforcement",
     "url": "https://w3c.github.io/webappsec-csp/embedded/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS1": {
     "name": "CSS Level&nbsp;1",
@@ -232,7 +232,7 @@
   "CSS3 Multicol": {
     "name": "CSS Multi-column Layout Module",
     "url": "https://drafts.csswg.org/css-multicol-1/",
-    "status": "CR"
+    "status": "WD"
   },
   "CSS3 Overflow": {
     "name": "CSS Overflow Module Level 3",
@@ -322,7 +322,7 @@
   "CSS3 Variables": {
     "name": "CSS Custom Properties for Cascading Variables Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-variables/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS3 Writing Modes": {
     "name": "CSS Writing Modes Module Level&nbsp;3",
@@ -342,17 +342,17 @@
   "CSS4 Cascade": {
     "name": "CSS Cascading and Inheritance Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-cascade/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS4 Colors": {
     "name": "CSS Color Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-color/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Fonts": {
     "name": "CSS Fonts Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-fonts-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Images": {
     "name": "CSS Images Module Level&nbsp;4",
@@ -362,7 +362,7 @@
   "CSS4 Media Queries": {
     "name": "Media Queries Level&nbsp;4",
     "url": "https://drafts.csswg.org/mediaqueries-4/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS4 Pseudo-Elements": {
     "name": "CSS Pseudo-Elements Level&nbsp;4",
@@ -397,7 +397,7 @@
   "CSS4 Writing Modes": {
     "name": "CSS Writing Modes Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-writing-modes-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS Animation Worklet": {
     "name": "CSS Animation Worklet API",
@@ -406,8 +406,8 @@
   },
   "CSS Containment": {
     "name": "CSS Containment Module Level 1",
-    "url": "https://drafts.csswg.org/css-containment/",
-    "status": "WD"
+    "url": "https://drafts.csswg.org/css-contain/",
+    "status": "CR"
   },
   "CSS Exclusions": {
     "name": "CSS Exclusions Module Level&nbsp;1",
@@ -457,7 +457,7 @@
   "CSS Painting API": {
     "name": "CSS Painting API Level 1",
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
-    "status": "Draft"
+    "status": "WD"
   },
   "CSS Overscroll Behavior":{
     "name": "CSS Overscroll Behavior Module Level 1",
@@ -507,7 +507,7 @@
   "CSS Will Change": {
     "name": "CSS Will Change Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-will-change/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSSOM": {
     "name": "CSS Object Model (CSSOM)",
@@ -736,7 +736,7 @@
   },
   "Highres Time Level 2": {
     "name": "High Resolution Time Level 2",
-    "url": "https://www.w3.org/TR/hr-time/",
+    "url": "https://www.w3.org/TR/hr-time-2/",
     "status": "CR"
   },
   "Highres Time Level 3": {
@@ -817,7 +817,7 @@
   "Long Tasks": {
     "name": "Long Tasks API 1",
     "url": "https://w3c.github.io/longtasks/",
-    "status": "ED"
+    "status": "WD"
   },
   "Manifest": {
     "name": "Web App Manifest",
@@ -842,12 +842,12 @@
   "Media Capture": {
     "name": "Media Capture and Streams",
     "url": "https://w3c.github.io/mediacapture-main/",
-    "status": "ED"
+    "status": "CR"
   },
   "Media Capture DOM Elements": {
     "name": "Media Capture from DOM Elements",
     "url": "https://w3c.github.io/mediacapture-fromelement/",
-    "status": "ED"
+    "status": "WD"
   },
   "Media Session": {
     "name": "Media Session Standard",
@@ -866,7 +866,7 @@
   },
   "MediaStream Recording": {
     "name": "MediaStream Recording",
-    "url": "https://w3c.github.io/mediacapture-record/MediaRecorder.html",
+    "url": "https://w3c.github.io/mediacapture-record/",
     "status": "WD"
   },
   "MediaStreamTrackHint": {
@@ -877,7 +877,7 @@
   "Messaging": {
     "name": "Messaging API",
     "url": "https://www.w3.org/2012/sysapps/messaging/",
-    "status": "ED"
+    "status": "Obsolete"
   },
   "Mixed Content": {
     "name": "Mixed Content",
@@ -897,7 +897,7 @@
   "Navigation Timing Level 2": {
     "name": "Navigation Timing Level 2",
     "url": "https://w3c.github.io/navigation-timing/",
-    "status": "ED"
+    "status": "WD"
   },
   "Network Information": {
     "name": "Network Information API",
@@ -916,8 +916,8 @@
   },
   "Paint Timing": {
     "name": "Paint Timing",
-    "url": "https://w3c.github.io/paint-timing",
-    "status": "ED"
+    "url": "https://w3c.github.io/paint-timing/",
+    "status": "WD"
   },
   "Page Visibility API": {
     "name": "Page Visibility (Second Edition)",
@@ -945,9 +945,9 @@
     "status": "REC"
   },
   "Performance Timeline Level 2": {
-    "name": "Performance Timeline Time Level 2",
+    "name": "Performance Timeline Level 2",
     "url": "https://w3c.github.io/performance-timeline/",
-    "status": "ED"
+    "status": "CR"
   },
   "Pointer Events": {
     "name": "Pointer Events",
@@ -957,7 +957,7 @@
   "Pointer Events 2": {
     "name": "Pointer Events – Level 2",
     "url": "https://w3c.github.io/pointerevents/",
-    "status": "ED"
+    "status": "WD"
   },
   "Pointer Events 2 Ext": {
     "name": "Pointer Events - Level 2 Extensions",
@@ -972,7 +972,7 @@
   "Preload": {
     "name": "Preload",
     "url": "https://w3c.github.io/preload/",
-    "status": "WD"
+    "status": "CR"
   },
   "Presentation": {
     "name": "Presentation API",
@@ -980,7 +980,7 @@
     "status": "CR"
   },
   "Proximity Events": {
-    "name": "Proximity Events",
+    "name": "Proximity Sensor",
     "url": "https://w3c.github.io/proximity/",
     "status": "WD"
   },
@@ -992,17 +992,17 @@
   "Quota Management": {
     "name": "Quota Management API",
     "url": "https://w3c.github.io/quota-api/",
-    "status": "ED"
+    "status": "Obsolete"
   },
   "Referrer Policy": {
     "name": "Referrer Policy",
     "url": "https://w3c.github.io/webappsec-referrer-policy/",
-    "status": "ED"
+    "status": "CR"
   },
   "Remote Playback": {
     "name": "Remote Playback API",
     "url": "https://w3c.github.io/remote-playback/",
-    "status": "ED"
+    "status": "CR"
   },
   "RequestAnimationFrame": {
     "name": "Timing control for script-based animations",
@@ -1041,7 +1041,7 @@
   "Secure Contexts": {
     "name": "Secure Contexts",
     "url": "https://w3c.github.io/webappsec-secure-contexts/",
-    "status": "WD"
+    "status": "CR"
   },
   "Selection API": {
     "name": "Selection API",
@@ -1051,7 +1051,7 @@
   "Service Workers": {
     "name": "Service Workers",
     "url": "https://w3c.github.io/ServiceWorker/",
-    "status": "ED"
+    "status": "WD"
   },
   "Selectors API Level 1": {
     "name": "Selectors API Level 1",
@@ -1066,7 +1066,7 @@
   "Shadow DOM": {
     "name": "Shadow DOM",
     "url": "https://w3c.github.io/webcomponents/spec/shadow/",
-    "status": "ED"
+    "status": "WD"
   },
   "Shape Detection API": {
     "name": "Accelerated Shape Detection in Images",
@@ -1151,7 +1151,7 @@
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
     "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
-    "status": "WD"
+    "status": "CR"
   },
   "Typed Array": {
     "name": "Typed Array Specification",
@@ -1170,7 +1170,7 @@
   },
   "Upgrade Insecure Requests": {
     "name": "Upgrade Insecure Requests",
-    "url": "https://w3c.github.io/webappsec/specs/upgrade/",
+    "url": "https://w3c.github.io/webappsec-upgrade-insecure-requests/",
     "status": "CR"
   },
   "URL": {
@@ -1186,7 +1186,7 @@
   "User Timing Level 2": {
     "name": "User Timing Level 2",
     "url": "https://w3c.github.io/user-timing/",
-    "status": "ED"
+    "status": "WD"
   },
   "vCard": {
     "name": "vCard Format Specification",
@@ -1416,7 +1416,7 @@
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
     "url": "https://w3c.github.io/webrtc-pc/",
-    "status": "WD"
+    "status": "CR"
   },
   "Web Share API": {
     "name": "Web Share API",
@@ -1446,7 +1446,7 @@
   "WebVTT": {
     "name": "WebVTT: The Web Video Text Tracks Format",
     "url": "https://w3c.github.io/webvtt/",
-    "status": "Draft"
+    "status": "WD"
   },
   "WOFF1.0": {
     "name": "WOFF File Format 1.0",
@@ -1456,12 +1456,12 @@
   "WOFF2.0": {
     "name": "WOFF File Format 2.0",
     "url": "https://www.w3.org/TR/WOFF2/",
-    "status": "CR"
+    "status": "PR"
   },
   "Worklets": {
     "name": "Worklets Level 1",
     "url": "https://drafts.css-houdini.org/worklets/",
-    "status": "Draft"
+    "status": "WD"
   },
   "XMLHttpRequest": {
     "name": "XMLHttpRequest",
