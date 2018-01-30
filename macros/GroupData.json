@@ -790,8 +790,6 @@
             "methods":    [],
             "properties": [],
             "events":     [ "abort",
-                            "autocomplete",
-                            "autocompleteerror",
                             "DOMContentLoaded",
                             "afterprint",
                             "afterscriptexecute",
