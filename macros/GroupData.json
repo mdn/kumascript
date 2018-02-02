@@ -1017,7 +1017,6 @@
                             "active",
                             "ended",
                             "mute",
-                            "muted",
                             "unmute",
                             "overconstrained",
                             "ratechange",
