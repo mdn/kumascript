@@ -797,7 +797,7 @@
   "IndexedDB 2": {
     "name": "Indexed Database API 2.0",
     "url": "https://w3c.github.io/IndexedDB/",
-    "status": "PR"
+    "status": "REC"
   },
   "InputDeviceCapabilities": {
     "name": "InputDeviceCapabilities",
