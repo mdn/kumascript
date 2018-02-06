@@ -105,9 +105,12 @@ function writeFeatureName(row, feature) {
   } else {
     desc += `<code>${Object.keys(row)[0]}</code>`;
   }
-  // Add relative MDN url, but don't add it for "Basic support"
-  if (feature.mdn_url && label != identifier) {
-    desc = `<a href="${feature.mdn_url.replace('https://developer.mozilla.org', '')}">${desc}</a>`;
+  // Add relative MDN url, but don't link to the current page
+  if (feature.mdn_url) {
+    let href = feature.mdn_url.replace('https://developer.mozilla.org', '');
+    if (href !== '/docs/' + env.slug) {
+      desc = `<a href="${href}">${desc}</a>`;
+    }
   }
 
   if (feature.hasOwnProperty('status')) {

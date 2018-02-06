@@ -40,7 +40,7 @@
         },
         "feature_with_mdn_url": {
             "__compat": {
-                "mdn_url": "https://developer.mozilla.org/docs/basic-support-does-not-have-a-link-displayed-normally",
+                "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy",
                 "support": {
                     "firefox": {
                         "version_added": "1"

@@ -132,6 +132,7 @@ describeMacro('Compat', function () {
         });
     });
     itMacro('Creates correct feature labels for features with an MDN URL', function (macro) {
+        macro.ctx.env.slug = 'Web/HTTP/Headers/Content-Security-Policy';
         return macro.call('api.feature_with_mdn_url').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.equal(dom.querySelector('.bc-table tbody tr th').innerHTML,
@@ -141,6 +142,7 @@ describeMacro('Compat', function () {
         });
     });
     itMacro('Creates correct feature labels for features with an MDN URL and a description', function (macro) {
+        macro.ctx.env.slug = 'Web/HTTP/Headers/Content-Security-Policy';
         return macro.call('api.feature_with_mdn_url_and_description').then(function(result) {
             let dom = JSDOM.fragment(result);
             assert.equal(dom.querySelector('.bc-table tbody tr th').innerHTML,
