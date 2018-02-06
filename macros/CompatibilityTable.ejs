@@ -10,7 +10,23 @@ var s_header = mdn.localString({
     "fr":    [ "Ordinateur", "Mobile" ]
 });
 
-%><div class="htab">
+var repoLink = 'https://github.com/mdn/browser-compat-data';
+var migrationLink = '/' + env.locale + '/docs/MDN/Contribute/Structures/Compatibility_tables';
+var cta = mdn.localString({
+    "en-US": `This compatibility table is outdated.
+              Please help us to <a href="${migrationLink}">migrate</a> this data
+              to <a href="${repoLink}">github.com/mdn/browser-compat-data</a>
+              so the new compat table can be shown.`,
+    "de": `Diese Browserkompatibilitätstabelle ist veraltet.
+          Hilf mit die Daten in das <a href="${repoLink}">github.com/mdn/browser-compat-data</a> Repository
+          zu <a href="${migrationLink}">migrieren</a>, sodass die neue Tabelle angezeigt werden kann.`,
+});
+
+%>
+
+<p class="warning"><%-cta%></p>
+
+<div class="htab">
     <a id="AutoCompatibilityTable" name="AutoCompatibilityTable"></a>
     <ul>
         <li class="selected"><a href="javascript:;"><%- s_header[0] %></a></li>
