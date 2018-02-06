@@ -33,7 +33,8 @@
     "bc_icon_name_chrome_android": {
          "en-US": "Chrome for Android",
          "de": "Chrome für Android",
-         "nl": "Chrome voor Android"
+         "nl": "Chrome voor Android",
+         "ru": "Chrome для Android"
     },
     "bc_icon_name_edge": {
          "en-US": "Edge",
@@ -50,7 +51,8 @@
     "bc_icon_name_firefox_android": {
          "en-US": "Firefox for Android",
          "de": "Firefox für Android",
-         "nl": "Firefox voor Android"
+         "nl": "Firefox voor Android",
+         "ru": "Firefox для Android"
     },
     "bc_icon_name_ie": {
          "en-US": "Internet Explorer",
@@ -67,7 +69,8 @@
     "bc_icon_name_opera_android": {
          "en-US": "Opera for Android",
          "de": "Opera für Android",
-         "nl": "Opera voor Android"
+         "nl": "Opera voor Android",
+         "ru": "Opera для Android"
     },
     "bc_icon_name_safari": {
          "en-US": "Safari",
@@ -226,11 +229,13 @@
     },
     "bc_icon_name_deprecated": {
         "en-US": "Deprecated",
-        "nl"   : "Verouderd"
+        "nl"   : "Verouderd",
+        "ru"   : "Устаревшая"
     },
     "bc_icon_title_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
-        "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites"
+        "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
+        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах."
     },
     "bc_icon_name_prefix": {
         "en-US": "Prefixed",
@@ -346,7 +351,7 @@
         "es"   : "Ver notas de implementación.",
         "fr"   : "Voir les notes d'implémentation.",
         "ja"   : "実装ノートを見てください",
-        "ru"   : "Смотрите замечания реализации",
+        "ru"   : "Смотрите замечания реализации.",
         "nl"   : "Zie implementatieopmerkingen"
     },
     "legend_experimental": {
@@ -369,6 +374,7 @@
     },
     "legend_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
-        "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites"
+        "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
+        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах"
     }
 }
