@@ -13,17 +13,14 @@ var s_header = mdn.localString({
 var repoLink = 'https://github.com/mdn/browser-compat-data';
 var migrationLink = '/' + env.locale + '/docs/MDN/Contribute/Structures/Compatibility_tables';
 var cta = mdn.localString({
-    "en-US": `This compatibility table is outdated.
-              Please help us to <a href="${migrationLink}">migrate</a> this data
-              to <a href="${repoLink}">github.com/mdn/browser-compat-data</a>
-              so the new compat table can be shown.`,
-    "de": `Diese Browserkompatibilitätstabelle ist veraltet.
-          Hilf mit die Daten in das <a href="${repoLink}">github.com/mdn/browser-compat-data</a> Repository
-          zu <a href="${migrationLink}">migrieren</a>, sodass die neue Tabelle angezeigt werden kann.`,
-    "fr": `Ce tableau de compatibilité n'est plus à jour.
-           Vous pouvez nous aider à <a href="${migrationLink}">migrer</a>
-           ces données vers <a href="${repoLink}">github.com/mdn/browser-compat-data</a>
-           afin d'afficher le nouveau tableau de compatibilité.`,
+  "en-US": `<strong><a href="${repoLink}">We're converting our compatibility data into a machine-readable JSON format</a></strong>.
+            This compatibility table still uses the old format,
+            because we haven't yet converted the data it contains.
+            <strong><a href="${migrationLink}">Find out how you can help!</a></strong>`,
+  "de":     `<strong><a href="${repoLink}">Wir konvertieren die Kompatibilitätsdaten in ein maschinenlesbares JSON Format</a></strong>.
+            Diese Kompatibilitätstabelle liegt noch im alten Format vor,
+            denn die darin enthaltenen Daten wurden noch nicht konvertiert.
+            <strong><a href="${migrationLink}">Finde heraus wie du helfen kannst!</a></strong>`,
 });
 
 %>
