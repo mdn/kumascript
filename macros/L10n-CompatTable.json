@@ -251,7 +251,7 @@
         "en-US": "Deprecated. Not for use in new websites.",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах.",
-		"fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
+        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
     },
     "bc_icon_name_prefix": {
         "en-US": "Prefixed",
