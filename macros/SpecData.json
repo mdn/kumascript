@@ -429,6 +429,11 @@
     "url": "https://drafts.csswg.org/css-grid/",
     "status": "CR"
   },
+  "CSS Grid2": {
+    "name": "CSS Grid Layout Module Level 2",
+    "url": "https://www.w3.org/TR/css-grid-2/",
+    "status": "WD"
+  },
   "CSS Layout": {
     "name": "CSS Layout API Level 1",
     "url": "https://drafts.css-houdini.org/css-layout-api-1/",
