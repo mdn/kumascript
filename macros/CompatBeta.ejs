@@ -548,7 +548,7 @@ function writeCompatBrowsersRow() {
   output += '<td></td>';
   for (let browser of displayBrowers) {
     output += `<th class="bc-browser-${browser}">`;
-    output += writeIcon(browser);
+    output += localize(compatStrings, 'bc_icon_name_' + browser);
     output += '</th>';
   }
   output += '</tr>';
