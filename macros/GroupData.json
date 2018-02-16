@@ -1831,6 +1831,16 @@
                             "audioprocess",
                             "nodecreate"]
         },
+        "Web Authentication API": {
+            "overview":   [ "Web Authentication API" ],
+            "interfaces": [ "CredentialsContainer",
+                            "PublicKeyCredential",
+                            "AuthenticatorResponse",
+                            "AuthenticatorAttestationResponse",
+                            "AuthenticatorAssertionResponse" ],
+            "properties": [],
+            "events":     []
+        },
         "Web Components": {
             "overview":   [ "Web Components" ],
             "interfaces": [ "HTMLContentElement",
