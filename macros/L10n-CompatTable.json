@@ -18,71 +18,49 @@
         "nl"   : "Mobile"
     },
     "bc_icon_name_server": {
-        "en-US": "Server",
-        "de"   : "Server",
-        "nl"   : "Server"
+        "en-US": "Server"
     },
     "bc_icon_name_webview_android": {
-         "en-US": "Android webview",
-         "nl"   : "Android webview"
+         "en-US": "Android webview"
     },
     "bc_icon_name_chrome": {
-         "en-US": "Chrome",
-         "nl"   : "Chrome"
+         "en-US": "Chrome"
     },
     "bc_icon_name_chrome_android": {
-         "en-US": "Chrome for Android",
-         "de": "Chrome für Android",
-         "nl": "Chrome voor Android",
-         "ru": "Chrome для Android"
+         "en-US": "Chrome Android"
     },
     "bc_icon_name_edge": {
-         "en-US": "Edge",
-         "nl"   : "Edge"
+         "en-US": "Edge"
     },
     "bc_icon_name_edge_mobile": {
-         "en-US": "Edge Mobile",
-         "nl"   : "Edge Mobile"
+         "en-US": "Edge Mobile"
     },
     "bc_icon_name_firefox": {
-         "en-US": "Firefox",
-         "nl"   : "Firefox"
+         "en-US": "Firefox"
     },
     "bc_icon_name_firefox_android": {
-         "en-US": "Firefox for Android",
-         "de": "Firefox für Android",
-         "nl": "Firefox voor Android",
-         "ru": "Firefox для Android"
+         "en-US": "Firefox Android"
     },
     "bc_icon_name_ie": {
-         "en-US": "Internet Explorer",
-         "nl"   : "Internet Explorer"
+         "en-US": "Internet Explorer"
     },
     "bc_icon_name_nodejs": {
-         "en-US": "Node.js",
-         "nl"   : "Node.js"
+         "en-US": "Node.js"
     },
     "bc_icon_name_opera": {
-         "en-US": "Opera",
-         "nl"   : "Opera"
+         "en-US": "Opera"
     },
     "bc_icon_name_opera_android": {
-         "en-US": "Opera for Android",
-         "de": "Opera für Android",
-         "nl": "Opera voor Android",
-         "ru": "Opera для Android"
+         "en-US": "Opera Android"
     },
     "bc_icon_name_safari": {
-         "en-US": "Safari",
-         "nl"   : "Safari"
+         "en-US": "Safari"
     },
     "bc_icon_name_safari_ios": {
-         "en-US": "iOS Safari",
-         "nl"   : "iOS Safari"
+         "en-US": "Safari iOS"
     },
     "bc_icon_name_samsunginternet_android": {
-         "en-US": "Samsung Internet",
-         "nl"   : "Samsung Internet"
+         "en-US": "Samsung Internet"
     },
     "bc_history_head": {
         "en-US": "Implementation Notes",
