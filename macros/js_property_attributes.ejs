@@ -57,6 +57,14 @@ switch(env.locale) {
         yes = '可';
         no = '不可';
         break;
+    case "de":
+        header = 'Eigenschaftsattribute von <code>' + env.title + '</code>';
+        writable_name = 'Schreibbar';
+        enumerable_name = 'Aufzählbar';
+        configurable_name = 'Konfigurierbar';
+        yes = 'ja';
+        no = 'nein';
+        break;
     default:
         header = 'Property attributes of <code>' + env.title + '</code>';
         writable_name = 'Writable';
