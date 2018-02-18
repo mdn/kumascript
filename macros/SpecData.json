@@ -422,7 +422,7 @@
   "CSS Font Rendering": {
     "name": "CSS Font Rendering Controls Module Level 1",
     "url": "https://tabatkins.github.io/specs/css-font-display/",
-    "status": "ED"
+    "status": "Draft"
   },
   "CSS Grid": {
     "name": "CSS Grid Layout",
@@ -682,7 +682,7 @@
   "File System API": {
     "name": "File and Directory Entries API",
     "url": "https://wicg.github.io/entries-api/",
-    "status": "ED"
+    "status": "Draft"
   },
   "FileSystem": {
     "name": "FileSystem API",
@@ -702,7 +702,7 @@
   "Frame Timing": {
     "name": "Frame Timing",
     "url": "https://wicg.github.io/frame-timing/",
-    "status": "ED"
+    "status": "Draft"
   },
   "Fullscreen": {
     "name": "Fullscreen API",
@@ -802,7 +802,7 @@
   "InputDeviceCapabilities": {
     "name": "InputDeviceCapabilities",
     "url": "https://wicg.github.io/InputDeviceCapabilities/",
-    "status": "ED"
+    "status": "Draft"
   },
   "InputEvents2": {
     "name": "Input Events Level 2",
@@ -852,7 +852,7 @@
   "Media Session": {
     "name": "Media Session Standard",
     "url": "https://wicg.github.io/mediasession/",
-    "status": "ED"
+    "status": "Draft"
   },
   "Media Source Extensions": {
     "name": "Media Source Extensions",
@@ -872,7 +872,7 @@
   "MediaStreamTrackHint": {
     "name": "MediaStreamTrack Content Hints",
     "url": "https://wicg.github.io/mst-content-hint",
-    "status": "ED"
+    "status": "Draft"
   },
   "Messaging": {
     "name": "Messaging API",
@@ -902,7 +902,7 @@
   "Network Information": {
     "name": "Network Information API",
     "url": "https://w3c.github.io/netinfo/",
-    "status": "ED"
+    "status": "Draft"
   },
   "OpenGL ES 2.0": {
     "name": "OpenGL ES 2.0",
@@ -962,7 +962,7 @@
   "Pointer Events 2 Ext": {
     "name": "Pointer Events - Level 2 Extensions",
     "url": "https://w3c.github.io/pointerevents/extension.html",
-    "status": "ED"
+    "status": "Draft"
   },
   "Pointer Lock": {
     "name": "Pointer Lock",
@@ -1036,7 +1036,8 @@
   },
   "Scroll Anchoring": {
     "name": "Scroll Anchoring",
-    "url": "https://wicg.github.io/ScrollAnchoring/"
+    "url": "https://wicg.github.io/ScrollAnchoring/",
+    "status": "Draft"
   },
   "Secure Contexts": {
     "name": "Secure Contexts",
@@ -1071,7 +1072,7 @@
   "Shape Detection API": {
     "name": "Accelerated Shape Detection in Images",
     "url": "https://wicg.github.io/shape-detection-api/",
-    "status": "ED"
+    "status": "Draft"
   },
   "SIMD": {
     "name": "SIMD",
@@ -1146,7 +1147,7 @@
   "Touch Events 2": {
     "name": "Touch Events – Level 2",
     "url": "https://w3c.github.io/touch-events/",
-    "status": "ED"
+    "status": "Draft"
   },
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
@@ -1236,7 +1237,7 @@
   "Web Budget API": {
     "name": "Web Budget API",
     "url": "https://wicg.github.io/budget-api/",
-    "status": "ED"
+    "status": "Draft"
   },
   "Web Crypto API": {
     "name": "Web Cryptography API",
@@ -1426,7 +1427,7 @@
   "Web Share API": {
     "name": "Web Share API",
     "url": "https://wicg.github.io/web-share/",
-    "status": "ED"
+    "status": "Draft"
   },
   "Web Speech API": {
     "name": "Web Speech API",
@@ -1441,12 +1442,12 @@
   "Web USB": {
     "name": "WebUSB",
     "url": "https://wicg.github.io/webusb/",
-    "status": "ED"
+    "status": "Draft"
   },
   "WebVR 1.1": {
     "name": "WebVR 1.1",
     "url": "https://w3c.github.io/webvr/spec/1.1/",
-    "status": "ED"
+    "status": "Draft"
   },
   "WebVTT": {
     "name": "WebVTT: The Web Video Text Tracks Format",
