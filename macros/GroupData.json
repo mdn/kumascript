@@ -1832,13 +1832,39 @@
                             "nodecreate"]
         },
         "Web Components": {
-            "overview":   [ "Web Components" ],
-            "interfaces": [ "HTMLContentElement",
-                            "HTMLShadowElement",
-                            "ShadowRoot" ],
-            "methods":    [ "Document.register()" ],
-            "properties": [],
-            "events":     []
+            "overview":     [ "Web Components" ],
+            "guides":       [
+                              { "url":   "Web/Web_Components/Using_custom_elements",
+                                "title": "Using custom elements" },
+                              { "url":   "Web/Web_Components/Using_shadow_DOM",
+                                "title": "Using shadow DOM" },
+                              { "url":   "Web/Web_Components/Using_templates_and_slots",
+                                "title": "Using templates and slots" }
+                            ],
+            "interfaces":   [
+                              "CustomElementRegistry",
+                              "HTMLSlotElement",
+                              "HTMLTemplateElement",
+                              "ShadowRoot",
+                              "DocumentOrShadowRoot",
+                              "Slotable"
+                            ],
+            "methods":      [
+                              "Document.createElement()",
+                              "Element.attachShadow()",
+                              "Node.getRootNode()"
+                            ],
+            "properties":   [
+                              "Element.shadowRoot",
+                              "Element.slot",
+                              "Event.composed",
+                              "Event.composedPath",
+                              "Node.isConnected",
+                              "Window.customElements"
+                            ],
+            "events":       [
+                              "slotchange"
+                            ]
         },
         "Web Crypto API": {
             "overview":   [ "Web Crypto API" ],
