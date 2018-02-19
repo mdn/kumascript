@@ -21,83 +21,98 @@
         "en-US": "Server",
         "de"   : "Server",
         "ja"   : "サーバー",
-        "nl"   : "Server"
+        "nl"   : "Server",
+        "fr"   : "Serveur"
     },
     "bc_icon_name_webview_android": {
          "en-US": "Android webview",
          "ja"   : "Android webview",
-         "nl"   : "Android webview"
+         "nl"   : "Android webview",
+         "fr"   : "Webview Android"
     },
     "bc_icon_name_chrome": {
          "en-US": "Chrome",
          "ja"   : "Chrome",
-         "nl"   : "Chrome"
+         "nl"   : "Chrome",
+         "fr"   : "Chrome"
     },
     "bc_icon_name_chrome_android": {
          "en-US": "Chrome for Android",
          "de": "Chrome für Android",
          "ja": "Android 版 Chrome",
          "nl": "Chrome voor Android",
-         "ru": "Chrome для Android"
+         "ru": "Chrome для Android",
+         "fr": "Chrome pour Android"
     },
     "bc_icon_name_edge": {
          "en-US": "Edge",
          "ja"   : "Edge",
-         "nl"   : "Edge"
+         "nl"   : "Edge",
+         "fr"   : "Edge"
     },
     "bc_icon_name_edge_mobile": {
          "en-US": "Edge Mobile",
          "ja"   : "Edge Mobile",
-         "nl"   : "Edge Mobile"
+         "nl"   : "Edge Mobile",
+         "fr"   : "Edge Mobile"
     },
     "bc_icon_name_firefox": {
          "en-US": "Firefox",
          "ja"   : "Firefox",
-         "nl"   : "Firefox"
+         "nl"   : "Firefox",
+         "fr"   : "Firefox"
     },
     "bc_icon_name_firefox_android": {
          "en-US": "Firefox for Android",
          "de": "Firefox für Android",
          "ja": "Android 版 Firefox",
          "nl": "Firefox voor Android",
-         "ru": "Firefox для Android"
+         "ru": "Firefox для Android",
+         "fr": "Firefox pour Android"
     },
     "bc_icon_name_ie": {
          "en-US": "Internet Explorer",
          "ja"   : "Internet Explorer",
-         "nl"   : "Internet Explorer"
+         "nl"   : "Internet Explorer",
+         "fr"   : "Internet Explorer"
     },
     "bc_icon_name_nodejs": {
          "en-US": "Node.js",
          "ja"   : "Node.js",
-         "nl"   : "Node.js"
+         "nl"   : "Node.js",
+         "fr"   : "Node.js"
     },
     "bc_icon_name_opera": {
          "en-US": "Opera",
          "ja"   : "Opera",
-         "nl"   : "Opera"
+         "nl"   : "Opera",
+         "fr"   : "Opera"
     },
     "bc_icon_name_opera_android": {
          "en-US": "Opera for Android",
          "de": "Opera für Android",
          "ja": "Android 版 Opera",
          "nl": "Opera voor Android",
-         "ru": "Opera для Android"
+         "ru": "Opera для Android",
+         "fr": "Opera pour Android"
     },
     "bc_icon_name_safari": {
          "en-US": "Safari",
          "ja"   : "Safari",
-         "nl"   : "Safari"
+         "nl"   : "Safari",
+         "fr"   : "Safari"
     },
     "bc_icon_name_safari_ios": {
          "en-US": "iOS Safari",
          "ja"   : "iOS 版 Safari",
-         "nl"   : "iOS Safari"
+         "nl"   : "iOS Safari",
+         "fr"   : "Safari pour iOS"
     },
     "bc_icon_name_samsunginternet_android": {
          "en-US": "Samsung Internet",
          "ja"   : "Samsung Internet",
-         "nl"   : "Samsung Internet"
+         "nl"   : "Samsung Internet",
+         "fr"   : "Samsung Internet"
     },
     "bc_history_head": {
         "en-US": "Implementation Notes",
@@ -253,7 +268,8 @@
         "en-US": "Deprecated. Not for use in new websites.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
-        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах."
+        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах.",
+        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
     },
     "bc_icon_name_prefix": {
         "en-US": "Prefixed",
@@ -394,6 +410,7 @@
         "en-US": "Deprecated. Not for use in new websites.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
-        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах"
+        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах",
+        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
     }
 }
