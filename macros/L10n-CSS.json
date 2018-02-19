@@ -14,7 +14,7 @@
         "en-US": "At-Rules",
         "fr": "Règles @",
         "de": "At-Regeln",
-        "ja": "@-規則",
+        "ja": "@規則",
         "ru": "@-правила"
     },
     "types": {
@@ -35,6 +35,7 @@
         "en-US": "CSS info in preview not available",
         "de"   : "CSS-Info in der Vorschau nicht verfügbar",
         "fr"   : "CSS-Info n'est pas disponible en aperçu",
+        "ja"   : "プレビューの CSS info が利用できません",
         "ru"   : "CSS info недоступно в предпросмотре"
     },
     "tag_selectors": {
@@ -46,11 +47,13 @@
     "Basic Selectors": {
         "en-US": "Basic Selectors",
         "fr": "Sélecteurs simples",
+        "ja": "基本セレクター",
         "ru": "Базовые селекторы"
     },
     "Combinators": {
         "en-US": "Combinators",
         "fr": "Combinateurs",
+        "ja": "結合子",
         "ru": "Комбинаторы"
     },
     "Pseudo-classes": {
