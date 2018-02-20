@@ -1214,15 +1214,25 @@
     "url": "https://drafts.csswg.org/web-animations/",
     "status": "WD"
   },
+  "WebAssembly Core": {
+    "name": "WebAssembly Core Specification",
+    "url": "https://webassembly.github.io/spec/core/bikeshed/",
+    "status": "WD"
+  },
   "WebAssembly Embedding": {
     "name": "WebAssembly features for web embedding",
     "url": "https://github.com/WebAssembly/design/blob/master/Web.md",
     "status": "Draft"
   },
   "WebAssembly JS": {
-    "name": "WebAssembly JavaScript API",
-    "url": "https://github.com/WebAssembly/design/blob/master/JS.md",
-    "status": "Draft"
+    "name": "WebAssembly JavaScript Interface",
+    "url": "https://webassembly.github.io/spec/js-api/",
+    "status": "WD"
+  },
+  "WebAssembly Web API": {
+    "name": "WebAssembly Web API",
+    "url": "https://webassembly.github.io/spec/web-api/",
+    "status": "wd"
   },
   "Web Audio API": {
     "name": "Web Audio API",
