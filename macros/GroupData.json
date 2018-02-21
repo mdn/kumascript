@@ -1844,11 +1844,11 @@
         "Web Components": {
             "overview":     [ "Web Components" ],
             "guides":       [
-                              { "url":   "Web/Web_Components/Using_custom_elements",
+                              { "url":   "/docs/Web/API/Web_Components/Using_custom_elements",
                                 "title": "Using custom elements" },
-                              { "url":   "Web/Web_Components/Using_shadow_DOM",
+                              { "url":   "/docs/Web/API/Web_Components/Using_shadow_DOM",
                                 "title": "Using shadow DOM" },
-                              { "url":   "Web/Web_Components/Using_templates_and_slots",
+                              { "url":   "/docs/Web/API/Web_Components/Using_templates_and_slots",
                                 "title": "Using templates and slots" }
                             ],
             "interfaces":   [
