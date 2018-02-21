@@ -1232,7 +1232,7 @@
   "WebAssembly Web API": {
     "name": "WebAssembly Web API",
     "url": "https://webassembly.github.io/spec/web-api/",
-    "status": "wd"
+    "status": "WD"
   },
   "Web Audio API": {
     "name": "Web Audio API",
