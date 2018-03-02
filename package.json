@@ -16,7 +16,7 @@
     "test": "make test"
   },
   "engines": {
-    "node": "6.9.2"
+    "node": "8.10.0"
   },
   "directories": {
     "lib": "./lib"
