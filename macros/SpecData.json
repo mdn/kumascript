@@ -769,6 +769,11 @@
     "url": "https://w3c.github.io/html-media-capture/",
     "status": "REC"
   },
+  "HTML Microdata": {
+    "name": "HTML Microdata",
+    "url": "https://www.w3.org/TR/microdata/",
+    "status": "WD"
+  },
   "HTML4.01": {
     "name": "HTML 4.01 Specification",
     "url": "https://www.w3.org/TR/html401/",
