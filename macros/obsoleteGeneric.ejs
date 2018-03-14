@@ -76,7 +76,7 @@ switch(lang) {
         if (string.length(ver)) { str = str + " depuis " + ver; }
         break;
     case 'ja':
-        str = "廃止"; if (string.length(ver)) { str = str + " " + ver; }
+        str = "廃止"; if (string.length(ver)) { str = ver + " で" + str; }
         break;
     case 'ko':
         str = "안씀";
