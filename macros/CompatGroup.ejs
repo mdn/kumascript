@@ -1,0 +1,50 @@
+<%
+
+const bcd = require('mdn-browser-compat-data');
+
+const URL_PROPERTIES = "https://raw.githubusercontent.com/mdn/data/master/css/properties.json";
+const data = {
+    'css.properties': mdn.fetchJSONResource(URL_PROPERTIES)
+};
+
+/*
+Get compat data using a query string like "webextensions.api.alarms"
+*/
+function getData(queryString, obj) {
+  return queryString.split('.').reduce(function(prev, curr) {
+    return prev ? prev[curr] : undefined
+  }, obj);
+}
+
+let itemsForGroup = [];
+
+// Populate `itemsForGroup` with an array of BCD keys relevant
+// to the given group.
+Object.keys(data).forEach(type => {
+  Object.keys(data[type]).forEach(featureKey => {
+    let {groups} = data[type][featureKey];
+
+    if (groups && groups.includes($0)) {
+      itemsForGroup.push(`${type}.${featureKey}`)
+    }
+  })
+})
+
+const features = itemsForGroup.reduce((groupFeatures, query) => {
+  const compatData = getData(query, bcd);
+  const identifier = query.split(".").pop();
+
+  if (compatData && compatData.__compat) {
+    groupFeatures.push({
+      [identifier]: compatData.__compat
+    })
+  }
+
+  return groupFeatures
+}, [])
+
+output = template('CompatRender', [$0, 1, features])
+
+%>
+
+<%- output %>
