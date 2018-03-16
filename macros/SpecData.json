@@ -1354,6 +1354,11 @@
     "url": "https://w3c.github.io/webauthn/",
     "status": "WD"
   },
+  "WebDriver": {
+    "name": "WebDriver",
+    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
+    "status": "CR"
+  },
   "WEBGL_color_buffer_float": {
     "name": "WEBGL_color_buffer_float",
     "url": "https://www.khronos.org/registry/webgl/extensions/WEBGL_color_buffer_float/",
