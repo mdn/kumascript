@@ -1,9 +1,19 @@
 <%
 /*
 
-Renders flattened browser compat data.
+Builds a compat table, given an array of objects containing JSON compat data.
+Each object contains a single property whose name is an identifier for the
+particular item (e.g. "grid-gap") and whose value is the __compat object for
+that item.
 
-You probably don't want to call this directly. Check out Compat.js, CompatBeta.js instead.
+Each object in the array becomes a row in the table, the first cell containing
+the identifier, and the other cells containing the compat data.
+
+This is generally not called directly from MDN pages. It's more likely to be
+called from other macros that get collections of JSON compat objects based on
+queries they are given. For example:
+
+{{Compat("css.properties.grid-gap")}}
 
 Parameters:
 

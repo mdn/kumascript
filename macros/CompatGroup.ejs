@@ -1,14 +1,39 @@
 <%
 
-const bcd = require('mdn-browser-compat-data');
+/*
 
-const URL_PROPERTIES = "https://raw.githubusercontent.com/mdn/data/master/css/properties.json";
+Builds a compat table for all the properties in a CSS module.
+
+Parameters:
+
+$0 – The name of a CSS module, which should match one of the values of the
+`groups` property in https://github.com/mdn/data/blob/master/css/properties.json.
+This is based on the name of a CSS module, like:
+
+"CSS Color"
+"CSS Box Model"
+"CSS Backgrounds and Borders"
+"CSS Grid Layout"
+
+This macro uses https://github.com/mdn/data/blob/master/css/properties.json
+to retrieve JSON __compat objects the properties in the given module, then calls
+CompatRender to build a compat table containing those properties.
+
+Example calls:
+
+{{CompatGroup("CSS Grid Layout")}}
+{{CompatGroup("CSS Flexible Box Layout")}}
+
+*/
+
+const bcd = require('mdn-browser-compat-data');
+const urlProperties = 'https://raw.githubusercontent.com/mdn/data/master/css/properties.json';
 const data = {
-    'css.properties': mdn.fetchJSONResource(URL_PROPERTIES)
+  'css.properties': mdn.fetchJSONResource(urlProperties)
 };
 
 /*
-Get compat data using a query string like "webextensions.api.alarms"
+Get compat data using a query string like 'webextensions.api.alarms'
 */
 function getData(queryString, obj) {
   return queryString.split('.').reduce(function(prev, curr) {
@@ -18,8 +43,9 @@ function getData(queryString, obj) {
 
 let itemsForGroup = [];
 
-// Populate `itemsForGroup` with an array of BCD keys relevant
-// to the given group.
+/*
+Populate `itemsForGroup` with an array of BCD keys relevant to the given group.
+*/
 Object.keys(data).forEach(type => {
   Object.keys(data[type]).forEach(featureKey => {
     let {groups} = data[type][featureKey];
@@ -32,7 +58,7 @@ Object.keys(data).forEach(type => {
 
 const features = itemsForGroup.reduce((groupFeatures, query) => {
   const compatData = getData(query, bcd);
-  const identifier = query.split(".").pop();
+  const identifier = query.split('.').pop();
 
   if (compatData && compatData.__compat) {
     groupFeatures.push({
@@ -40,8 +66,8 @@ const features = itemsForGroup.reduce((groupFeatures, query) => {
     })
   }
 
-  return groupFeatures
-}, [])
+  return groupFeatures;
+}, []);
 
 output = template('CompatRender', [$0, 1, features])
 
