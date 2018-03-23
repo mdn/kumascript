@@ -1069,6 +1069,11 @@
     "url": "https://dev.w3.org/2006/webapi/selectors-api2/",
     "status": "Obsolete"
   },
+  "Server Timing": {
+    "name": "Server Timing",
+    "url": "https://w3c.github.io/server-timing/",
+    "status": "WD"
+  },
   "Shadow DOM": {
     "name": "Shadow DOM",
     "url": "https://w3c.github.io/webcomponents/spec/shadow/",
