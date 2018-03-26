@@ -1350,9 +1350,9 @@
     "status": "REC"
   },
   "WebAuthn": {
-    "name": "Web Authentication Level 1",
+    "name": "Web Authentication: An API for accessing Public Key Credentials Level 1",
     "url": "https://w3c.github.io/webauthn/",
-    "status": "WD"
+    "status": "CR"
   },
   "WebDriver": {
     "name": "WebDriver",
