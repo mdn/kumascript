@@ -3,7 +3,7 @@
 [![Dependency Status](https://david-dm.org/mdn/kumascript.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript)
 [![devDependency Status](https://david-dm.org/mdn/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript#info=devDependencies)
 
-[What's Deployed](https://whatsdeployed.io/s-4kW)
+[What's Deployed](https://whatsdeployed.io/s-SWJ)
 
 ## Overview
 
