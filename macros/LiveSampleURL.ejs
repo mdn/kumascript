@@ -25,10 +25,10 @@ base = base.replace('developer.mozilla.org', 'mdn.mozillademos.org');
 if (pageUrl.indexOf("developer.mozilla.org") != -1) {
   // Production
   base = base.replace('http://', 'https://');
-} else if (pageUrl.indexOf("stage.mdn.moz.works") != -1) {
+} else if (pageUrl.indexOf("developer.allizom.org") != -1) {
   // Staging
   base = base.replace('http://', 'https://');
-  base = base.replace('https://stage.mdn.moz.works',
+  base = base.replace('https://developer.allizom.org',
                       'https://stage-files.mdn.moz.works');
 } else {
   // Not production - use the same scheme as the main site
