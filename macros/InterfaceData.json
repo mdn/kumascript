@@ -25,11 +25,11 @@
   },
   "CSSStyleDeclaration": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "Selection": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "XULElement": {
     "inh"  : "Element",
@@ -37,7 +37,7 @@
   },
   "XMLHttpRequestUpload": {
     "inh"  : "XMLHttpRequestEventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "WindowRoot": {
     "inh"  : "EventTarget",
@@ -101,7 +101,7 @@
   },
   "WebSocket": {
     "inh"  : "EventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGDescElement": {
     "inh"  : "SVGElement",
@@ -149,7 +149,7 @@
   },
   "ProcessingInstruction": {
     "inh"  : "CharacterData",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "BeforeUnloadEvent": {
     "inh"  : "Event",
@@ -165,11 +165,11 @@
   },
   "MutationObserver": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "NodeList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "CloseEvent": {
     "inh"  : "Event",
@@ -189,7 +189,7 @@
   },
   "SVGPathSegList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGForeignObjectElement": {
     "inh"  : "SVGGraphicsElement",
@@ -201,7 +201,7 @@
   },
   "Performance": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLElement": {
     "inh"  : "Element",
@@ -221,7 +221,7 @@
   },
   "DocumentType": {
     "inh"  : "Node",
-    "impl" : ["ChildNode", "LegacyQueryInterface"]
+    "impl" : ["ChildNode"]
   },
   "SVGStopElement": {
     "inh"  : "SVGElement",
@@ -269,7 +269,7 @@
   },
   "DocumentFragment": {
     "inh"  : "Node",
-    "impl" : ["ParentNode", "LegacyQueryInterface"]
+    "impl" : ["ParentNode"]
   },
   "OfflineAudioCompletionEvent": {
     "inh"  : "Event",
@@ -277,7 +277,7 @@
   },
   "SVGPoint": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLTitleElement": {
     "inh"  : "HTMLElement",
@@ -285,7 +285,7 @@
   },
   "Window": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface", "GlobalEventHandlers", "WindowEventHandlers", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "WindowOrWorkerGlobalScope"]
+    "impl" : ["GlobalEventHandlers", "WindowEventHandlers", "GlobalCrypto", "SpeechSynthesisGetter", "WindowModal", "TouchEventHandlers", "OnErrorEventHandlerForWindow", "ChromeWindow", "WindowOrWorkerGlobalScope"]
   },
   "WindowClient": {
     "inh"  : "Client",
@@ -361,7 +361,7 @@
   },
   "Text": {
     "inh"  : "CharacterData",
-    "impl" : ["LegacyQueryInterface", "GeometryUtils"]
+    "impl" : ["GeometryUtils"]
   },
   "DOMApplication": {
     "inh"  : "EventTarget",
@@ -393,7 +393,7 @@
   },
   "SVGAnimatedInteger": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGFEDisplacementMapElement": {
     "inh"  : "SVGElement",
@@ -409,7 +409,7 @@
   },
   "Crypto": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "Response": {
     "inh"  : "",
@@ -441,7 +441,7 @@
   },
   "DOMStringMap": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGAnimateMotionElement": {
     "inh"  : "SVGAnimationElement",
@@ -473,7 +473,7 @@
   },
   "NodeIterator": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGAltGlyphElement": {
     "inh"  : "SVGTextPositioningElement",
@@ -493,15 +493,15 @@
   },
   "FileList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "Document": {
     "inh"  : "Node",
-    "impl" : ["XPathEvaluator", "GlobalEventHandlers", "TouchEventHandlers", "ParentNode", "OnErrorEventHandlerForNodes", "GeometryUtils", "FontFaceSource", "LegacyQueryInterface"]
+    "impl" : ["XPathEvaluator", "GlobalEventHandlers", "TouchEventHandlers", "ParentNode", "OnErrorEventHandlerForNodes", "GeometryUtils", "FontFaceSource"]
   },
   "SVGAnimatedEnumeration": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozStkCommandEvent": {
     "inh"  : "Event",
@@ -605,7 +605,7 @@
   },
   "SVGPointList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGFEDropShadowElement": {
     "inh"  : "SVGElement",
@@ -637,11 +637,11 @@
   },
   "Plugin": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGStringList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGRectElement": {
     "inh"  : "SVGGeometryElement",
@@ -653,7 +653,7 @@
   },
   "History": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SpeechRecognition": {
     "inh"  : "EventTarget",
@@ -673,7 +673,7 @@
   },
   "Range": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "CameraStateChangeEvent": {
     "inh"  : "Event",
@@ -709,7 +709,7 @@
   },
   "SVGLengthList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLDataListElement": {
     "inh"  : "HTMLElement",
@@ -745,7 +745,7 @@
   },
   "XPathEvaluator": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "AudioBufferSourceNode": {
     "inh"  : "AudioScheduledSourceNode",
@@ -765,7 +765,7 @@
   },
   "Element": {
     "inh"  : "Node",
-    "impl" : ["ChildNode", "NonDocumentTypeChildNode", "ParentNode", "Animatable", "GeometryUtils", "LegacyQueryInterface"]
+    "impl" : ["ChildNode", "NonDocumentTypeChildNode", "ParentNode", "Animatable", "GeometryUtils"]
   },
   "HTMLInputElement": {
     "inh"  : "HTMLElement",
@@ -773,7 +773,7 @@
   },
   "ValidityState": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGAElement": {
     "inh"  : "SVGGraphicsElement",
@@ -797,7 +797,7 @@
   },
   "StyleSheet": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "URL": {
     "inh"  : "",
@@ -805,7 +805,7 @@
   },
   "XMLHttpRequest": {
     "inh"  : "XMLHttpRequestEventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozMessageDeletedEvent": {
     "inh"  : "Event",
@@ -857,7 +857,7 @@
   },
   "NamedNodeMap": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGFEFloodElement": {
     "inh"  : "SVGElement",
@@ -889,7 +889,7 @@
   },
   "CSSValueList": {
     "inh"  : "CSSValue",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "VideoTrackList": {
     "inh"  : "EventTarget",
@@ -957,7 +957,7 @@
   },
   "SVGPreserveAspectRatio": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "TransitionEvent": {
     "inh"  : "Event",
@@ -1001,7 +1001,7 @@
   },
   "BoxObject": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "BluetoothAttributeEvent": {
     "inh"  : "Event",
@@ -1009,11 +1009,11 @@
   },
   "CSSPrimitiveValue": {
     "inh"  : "CSSValue",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "PaintRequestList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MediaStreamAudioSourceNode": {
     "inh"  : "AudioNode",
@@ -1037,7 +1037,7 @@
   },
   "Attr": {
     "inh"  : "Node",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLObjectElement": {
     "inh"  : "HTMLElement",
@@ -1049,7 +1049,7 @@
   },
   "SVGAnimatedString": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGGElement": {
     "inh"  : "SVGGraphicsElement",
@@ -1065,7 +1065,7 @@
   },
   "MutationRecord": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MediaKeySession": {
     "inh"  : "EventTarget",
@@ -1101,7 +1101,7 @@
   },
   "HTMLCollection": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "USSDReceivedEvent": {
     "inh"  : "Event",
@@ -1125,7 +1125,7 @@
   },
   "Navigator": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface", "NavigatorID", "NavigatorLanguage", "NavigatorOnLine", "NavigatorContentUtils", "NavigatorStorageUtils", "NavigatorFeatures", "NavigatorGeolocation", "NavigatorBattery", "NavigatorDataStore", "NavigatorMobileId"]
+    "impl" : ["NavigatorID", "NavigatorLanguage", "NavigatorOnLine", "NavigatorContentUtils", "NavigatorStorageUtils", "NavigatorFeatures", "NavigatorGeolocation", "NavigatorBattery", "NavigatorDataStore", "NavigatorMobileId"]
   },
   "OfflineAudioContext": {
     "inh"  : "AudioContext",
@@ -1137,7 +1137,7 @@
   },
   "SVGAnimatedPreserveAspectRatio": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozContactChangeEvent": {
     "inh"  : "Event",
@@ -1161,7 +1161,7 @@
   },
   "SVGTransformList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozSpeakerManager": {
     "inh"  : "EventTarget",
@@ -1213,7 +1213,7 @@
   },
   "Event": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLButtonElement": {
     "inh"  : "HTMLElement",
@@ -1269,7 +1269,7 @@
   },
   "Notification": {
     "inh"  : "EventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "DOMPoint": {
     "inh"  : "DOMPointReadOnly",
@@ -1317,7 +1317,7 @@
   },
   "TreeColumns": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGDocument": {
     "inh"  : "Document",
@@ -1405,7 +1405,7 @@
   },
   "TouchList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "DOMTransactionEvent": {
     "inh"  : "Event",
@@ -1421,7 +1421,7 @@
   },
   "DOMParser": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGEllipseElement": {
     "inh"  : "SVGGeometryElement",
@@ -1505,7 +1505,7 @@
   },
   "Touch": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozSettingsEvent": {
     "inh"  : "Event",
@@ -1553,7 +1553,7 @@
   },
   "Screen": {
     "inh"  : "EventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozClirModeEvent": {
     "inh"  : "Event",
@@ -1565,7 +1565,7 @@
   },
   "OfflineResourceList": {
     "inh"  : "EventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGPathSegClosePath": {
     "inh"  : "SVGPathSeg",
@@ -1609,7 +1609,7 @@
   },
   "PluginArray": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGFETurbulenceElement": {
     "inh"  : "SVGElement",
@@ -1621,7 +1621,7 @@
   },
   "SVGNumberList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozWifiStatusChangeEvent": {
     "inh"  : "Event",
@@ -1633,7 +1633,7 @@
   },
   "CaretPosition": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGPathSegCurvetoCubicRel": {
     "inh"  : "SVGPathSeg",
@@ -1645,7 +1645,7 @@
   },
   "SVGAnimatedNumber": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGFEDiffuseLightingElement": {
     "inh"  : "SVGElement",
@@ -1653,11 +1653,11 @@
   },
   "TreeWalker": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "BarProp": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLLinkElement": {
     "inh"  : "HTMLElement",
@@ -1697,7 +1697,7 @@
   },
   "Comment": {
     "inh"  : "CharacterData",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MozMmsEvent": {
     "inh"  : "Event",
@@ -1741,7 +1741,7 @@
   },
   "SVGAnimatedNumberList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "RTCPeerConnectionIceEvent": {
     "inh"  : "Event",
@@ -1749,7 +1749,7 @@
   },
   "PaintRequest": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLMenuElement": {
     "inh"  : "HTMLElement",
@@ -1789,11 +1789,11 @@
   },
   "UndoManager": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "XMLSerializer": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "SVGPathSegCurvetoQuadraticSmoothAbs": {
     "inh"  : "SVGPathSeg",
@@ -1809,7 +1809,7 @@
   },
   "DOMImplementation": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLTableCaptionElement": {
     "inh"  : "HTMLElement",
@@ -1829,7 +1829,7 @@
   },
   "Rect": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "DeviceStorageChangeEvent": {
     "inh"  : "Event",
@@ -1857,7 +1857,7 @@
   },
   "EventSource": {
     "inh"  : "EventTarget",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "StereoPannerNode": {
     "inh"  : "AudioNode",
@@ -1925,7 +1925,7 @@
   },
   "MimeTypeArray": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "HTMLIFrameElement": {
     "inh"  : "HTMLElement",
@@ -1933,7 +1933,7 @@
   },
   "FormData": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "MediaKeyMessageEvent": {
     "inh"  : "Event",
@@ -1949,7 +1949,7 @@
   },
   "DOMTokenList": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "XMLStylesheetProcessingInstruction": {
     "inh"  : "ProcessingInstruction",
@@ -2001,7 +2001,7 @@
   },
   "SVGRect": {
     "inh"  : "",
-    "impl" : ["LegacyQueryInterface"]
+    "impl" : []
   },
   "DOMSettableTokenList": {
     "inh"  : "DOMTokenList",
