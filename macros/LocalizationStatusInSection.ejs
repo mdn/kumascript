@@ -64,7 +64,7 @@ var l10nStateUnavailable = mdn.localString({
     "ja"   : "未訳です。",
     "pt-BR": "Indisponível.",
     "ru"   : "Перевод не доступен.",
-    "zh-CN": "还没有同学翻译过。。。"
+    "zh-CN": "未翻译。"
 });
 
 var l10nTranslateNow = mdn.localString({
@@ -84,7 +84,7 @@ var l10nStateUptodate = mdn.localString({
     "ja"   : "はい、最新の状態です。",
     "pt-BR": "Sim e atualizado.",
     "ru"   : "Перевод есть и актуален.",
-    "zh-CN": "翻译完成！哦耶～。"
+    "zh-CN": "翻译已更新到最新版本！。"
 });
 
 var l10nStateOutofdate = mdn.localString({
@@ -94,7 +94,7 @@ var l10nStateOutofdate = mdn.localString({
     "ja"   : "はい、ただし最新の状態ではありません ($1$前)。",
     "pt-BR": "Sim, mas desatualizado (há $1$).",
     "ru"   : "Перевод есть, но он не актуален (устарел на $1$).",
-    "zh-CN": "以前翻译过但现在没有与最新的英文文档保持同步（英文文档更新于 $1$）。"
+    "zh-CN": "翻译过但未与最新版英文文档保持同步（英文文档更新于 $1$）。"
 });
 
 var l10nStateInprogress = mdn.localString({
@@ -104,7 +104,7 @@ var l10nStateInprogress = mdn.localString({
     "ja"   : "はい、ただし翻訳途中です。",
     "pt-BR": "Sim, mas com tradução em andamento.",
     "ru"   : "Перевод есть, но он ещё не закончен.",
-    "zh-CN": "貌似某位同学的翻译工作半途而废了。。。"
+    "zh-CN": "是，但翻译正在进行。"
 });
 
 var l10nStateEditorial = mdn.localString({
@@ -113,7 +113,7 @@ var l10nStateEditorial = mdn.localString({
     "fr"   : "Oui, mais relecture éditoriale nécessaire.",
     "ja"   : "はい、ただし編集レビューが必要です。",
     "ru"   : "Перевод есть, но требуются редакторские правки.",
-    "zh-CN": "已经翻译完成，但需要有人做文档格式方面的 review。"
+    "zh-CN": "翻译完成，但需要进行文档格式检查。"
 });
 
 var l10nStateTechnical = mdn.localString({
@@ -122,7 +122,7 @@ var l10nStateTechnical = mdn.localString({
     "fr"   : "Oui, mais relecture technique nécessaire.",
     "ja"   : "はい、ただし技術レビューが必要です。",
     "ru"   : "Перевод есть, но требуются технические правки.",
-    "zh-CN": "已经翻译完成，但需要有人做技术方面的 review。"
+    "zh-CN": "翻译完成，但需要进行技术检查。"
 });
     
 var l10nEditTranslation = mdn.localString({
@@ -141,7 +141,7 @@ var l10nTranslated = mdn.localString({
     "ja"   : "翻訳済み",
     "pt-BR": "Traduzido",
     "ru"   : "Переведено",
-    "zh-CN": "翻译过的文档数量"
+    "zh-CN": "已翻译文档数"
 });
    
 var l10nTranslationStatus= mdn.localString({
@@ -151,7 +151,7 @@ var l10nTranslationStatus= mdn.localString({
     "ja"   : "翻訳状況",
     "pt-BR": "Traduzido",
     "ru"   : "Переведено?",
-    "zh-CN": "目前翻译状态"
+    "zh-CN": "当前翻译状态"
 }); 
 
 var l10nUptodate = mdn.localString({
@@ -161,7 +161,7 @@ var l10nUptodate = mdn.localString({
     "ja"   : "翻訳が更新済み",
     "pt-BR": "Traduções atualizadas",
     "ru"   : "Актуальных переводов",
-    "zh-CN": "翻译过并且与英文文档保持同步的文档数量"
+    "zh-CN": "翻译过并与英文文档同步的文档数量"
 });
 
 var l10nTechReviewed = mdn.localString({
@@ -170,7 +170,7 @@ var l10nTechReviewed = mdn.localString({
     "fr"   : "Relectures techniques réalisées",
     "ja"   : "翻訳が技術レビュー済み",
     "ru"   : "Технически одобренных",
-    "zh-CN": "翻译完成但需要技术性 review （技术上正确与否）的文档数量"
+    "zh-CN": "翻译完成但需要技术检查的文档数"
 });
 
 var l10nEditReviewed = mdn.localString({
@@ -179,7 +179,7 @@ var l10nEditReviewed = mdn.localString({
     "fr"   : "Relectures éditoriales réalisées",
     "ja"   : "翻訳が編集レビュー済み",
     "ru"   : "Редакторско одобренных",
-    "zh-CN": "翻译完成但需要文档格式方面 review （格式、样式等是否正确）的文档数量"
+    "zh-CN": "翻译完成但需要文档格式检查的文档数"
 });
 
 var l10nMacroName = mdn.localString({
@@ -187,7 +187,8 @@ var l10nMacroName = mdn.localString({
     "de"   : "Name",
     "fr"   : "Nom",
     "ja"   : "マクロ名",
-    "ru"   : "Имя"
+    "ru"   : "Имя",
+    "zh-CN"   : "名称"
 });
 
 var l10nStrings = mdn.localString({
@@ -195,7 +196,8 @@ var l10nStrings = mdn.localString({
     "de"   : "Strings",
     "fr"   : "Chaînes",
     "ja"   : "文字列数",
-    "ru"   : "Строки"
+    "ru"   : "字符串",
+    "zh-CN": ""
 });
 
 var l10nMacroStrings = mdn.localString({
@@ -203,7 +205,8 @@ var l10nMacroStrings = mdn.localString({
     "de"   : "Makrostrings",
     "fr"   : "Chaînes de macros",
     "ja"   : "マクロの文字列数",
-    "ru"   : "Строки макросов"
+    "ru"   : "Строки макросов",
+    "zh-CN": "宏字符串"
 });
 
 var l10nMacroStringsTranslated = mdn.localString({
@@ -211,7 +214,8 @@ var l10nMacroStringsTranslated = mdn.localString({
     "de"   : "Übersetzte Makrostrings",
     "fr"   : "Chaînes de macros traduites",
     "ja"   : "翻訳済みのマクロの文字列数",
-    "ru"   : "Переведённые строки макросов"
+    "ru"   : "Переведённые строки макросов",
+    "zh-CN": "已翻译的宏字符串"
 });
 
 var l10nMacrol10n = mdn.localString({
@@ -219,7 +223,8 @@ var l10nMacrol10n = mdn.localString({
     "de"   : "Makros",
     "fr"   : "Macros",
     "ja"   : "マクロ",
-    "ru"   : "Макросы"
+    "ru"   : "Макросы",
+    "zh-CN": "宏"
 });
 
 var l10nDays = mdn.localString({
@@ -230,7 +235,7 @@ var l10nDays = mdn.localString({
     "ja"   : "日",
     "pt-BR": "dias",
     "ru"   : "дня",
-    "zh-CN": "天前"
+    "zh-CN": "天"
 });
 
 var l10nDay = mdn.localString({
@@ -240,7 +245,8 @@ var l10nDay = mdn.localString({
     "fr"   : "jour",
     "ja"   : "日",
     "pt-BR": "dia",
-    "ru"   : "день"
+    "ru"   : "день",
+    "zh-CN": "天"
 });
 
 var l10nHours = mdn.localString({
@@ -249,7 +255,8 @@ var l10nHours = mdn.localString({
     "es"   : "horas",
     "fr"   : "heures",
     "ja"   : "時間",
-    "ru"   : "часов"
+    "ru"   : "часов",
+    "zh-CN": "小时"
 });
 
 var l10nHour = mdn.localString({
@@ -258,7 +265,8 @@ var l10nHour = mdn.localString({
     "es"   : "hora",
     "fr"   : "heure",
     "ja"   : "時間",
-    "ru"   : "час"
+    "ru"   : "час",
+    "zh-CN": "小时"
 });
 
 var l10nMinutes = mdn.localString({
@@ -267,7 +275,8 @@ var l10nMinutes = mdn.localString({
     "es"   : "minutos",
     "fr"   : "minutes",
     "ja"   : "分",
-    "ru"   : "минут"
+    "ru"   : "минут",
+    "zh-CN": "分"
 });
 
 var l10nMinute = mdn.localString({
@@ -276,7 +285,8 @@ var l10nMinute = mdn.localString({
     "es"   : "minuto",
     "fr"   : "minute",
     "ja"   : "分",
-    "ru"   : "минуту"
+    "ru"   : "минуту",
+    "zh-CN": "分"
 });
 
 var section = $0;
