@@ -14,6 +14,7 @@ var css = !$2 ? "glossaryLink" : "";
 // Terme location
 var URL_EN = "/en-US/docs/Glossary/";
 var URL    = mdn.localString({
+    "ar"   : "/ar/docs/Glossary/",
     "bg"   : "/bg/docs/Речник/",
     "de"   : "/de/docs/Glossary/",
     "en-US": URL_EN,
@@ -34,6 +35,7 @@ URL    += $0.replace(/\s+/g,'_');
 
 var page    = wiki.getPage(URL);
 var summary = mdn.localString({
+    "ar"   : "لم يتم تعريف المصطلح ("+ str +") بعد، يرجى النظر في المساهمة بتعريفه!",
     "bg"   : "Все още няма определение за понятието „" + str + "“. Моля, създайте го.",
     "de"   : "Die Definition dieses Ausdrucks (" + str + ") wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!",
     "en-US": "The definition of that term (" + str + ") has not been written yet; please consider contributing it!",
