@@ -38,7 +38,7 @@
 
     "Event_handlers": {
         "en-US": "Event handlers",
-        "de"   : "event Prozeduren",
+        "de"   : "Event-Handler",
         "fr"   : "Gestionnaires d'évènements",
         "ja"   : "イベントハンドラー",
         "ko"   : "이벤트 핸들러",
