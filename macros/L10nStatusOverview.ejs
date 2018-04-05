@@ -106,21 +106,19 @@ getPages(pageList);
                 totalPages += pageCounter;
                 totalTranslated += translationCounter;
                 totalUpToDate += updateCounter;
-
-                if (pageCounter === 0) {
-                    var translationPercent =  100;
-                    var uptodatePercent = 100;
-                } else {
-                     var translationPercent = Math.floor((translationCounter / pageCounter) * 100);
-                     var uptodatePercent = Math.floor((updateCounter / pageCounter) * 100);
+                
+                var translationPercent =  0;
+                var uptodatePercent = 0;
+                if (pageCounter !== 0) {
+                    translationPercent = Math.floor((translationCounter / pageCounter) * 100);
+                    uptodatePercent = Math.floor((updateCounter / pageCounter) * 100);
                 }
 
-                if (totalPages === 0) {
-                    var totalTranslatedPercent = 100;
-                    var totalUpToDatePercent = 100;
-                } else {
-                    var totalTranslatedPercent = Math.floor((totalTranslated / totalPages) * 100);
-                    var totalUpToDatePercent = Math.floor((totalUpToDate / totalPages) * 100);
+                var totalTranslatedPercent = 0;
+                var totalUpToDatePercent = 0;
+                if (totalPages !== 0) {
+                    totalTranslatedPercent = Math.floor((totalTranslated / totalPages) * 100);
+                    totalUpToDatePercent = Math.floor((totalUpToDate / totalPages) * 100);
                 }
     %>
         <tr>
