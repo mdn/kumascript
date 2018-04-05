@@ -260,6 +260,7 @@
     },
     "bc_icon_name_deprecated": {
         "en-US": "Deprecated",
+	"fr"   : "Obsolète",
         "ja"   : "非推奨",
         "nl"   : "Verouderd",
         "ru"   : "Устаревшая"
