@@ -98,20 +98,30 @@ getPages(pageList);
   <tbody>
     <%
         for (var key in result) {
-        if (result.hasOwnProperty(key) && typeof key != 'undefined') {
-            var pageCounter = result[key].metrics.pages.counter || 0;
-            var translationCounter = result[key].metrics.translations.counter || 0;
-            var updateCounter = result[key].metrics.updateNeeded.counter || 0;
+            if (result.hasOwnProperty(key) && typeof key != 'undefined') {
+                var pageCounter = result[key].metrics.pages.counter || 0;
+                var translationCounter = result[key].metrics.translations.counter || 0;
+                var updateCounter = result[key].metrics.updateNeeded.counter || 0;
 
-            totalPages += pageCounter;
-            totalTranslated += translationCounter;
-            totalUpToDate += updateCounter;
+                totalPages += pageCounter;
+                totalTranslated += translationCounter;
+                totalUpToDate += updateCounter;
 
-            var translationPercent = Math.floor((translationCounter / pageCounter) * 100);
-            var uptodatePercent = Math.floor((updateCounter / pageCounter) * 100);
+                if (pageCounter === 0) {
+                    var translationPercent =  100;
+                    var uptodatePercent = 100;
+                } else {
+                     var translationPercent = Math.floor((translationCounter / pageCounter) * 100);
+                     var uptodatePercent = Math.floor((updateCounter / pageCounter) * 100);
+                }
 
-            var totalTranslatedPercent = Math.floor((totalTranslated / totalPages) * 100);
-            var totalUpToDatePercent = Math.floor((totalUpToDate / totalPages) * 100);
+                if (totalPages === 0) {
+                    var totalTranslatedPercent = 100;
+                    var totalUpToDatePercent = 100;
+                } else {
+                    var totalTranslatedPercent = Math.floor((totalTranslated / totalPages) * 100);
+                    var totalUpToDatePercent = Math.floor((totalUpToDate / totalPages) * 100);
+                }
     %>
         <tr>
             <td><a href="<%=result[key].url%>"><%=key.replace(statusStr, "", "i")%></a></td>
