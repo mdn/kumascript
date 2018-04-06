@@ -25,18 +25,18 @@ var _  = mdn.localString;    // Handle one level object like { "en-US":"Foo" }
 var __ = mdn.getLocalString; // Handle two level object like { "foo": { "en-US": "Bar" }}
 
 // L10n Strings
-var localStrings       = string.deserialize(template("L10n:SVG"));
-var HTMLStrings        = string.deserialize(template("L10n:HTML"));
-var commonLocalStrings = string.deserialize(template("L10n:Common"));
+var SVGStrings    = string.deserialize(template("L10n:SVG"));
+var HTMLStrings   = string.deserialize(template("L10n:HTML"));
+var GlobalStrings = string.deserialize(template("L10n:Common"));
 
 var l10n = {
-    separator:        __(commonLocalStrings, "listSeparator"),
-    categories:       __(localStrings, "categories"),
+    separator:        __(GlobalStrings, "listSeparator"),
+    categories:       __(SVGStrings, "categories"),
     domInterface:     __(HTMLStrings, "domInterface"),
-    permittedContent: __(localStrings, "permittedContent"),
+    permittedContent: __(SVGStrings, "permittedContent"),
     error: name === isPreview ?
-        __(localStrings, "info_in_preview_not_available") :
-        __(localStrings, "missing")
+        __(SVGStrings, "info_in_preview_not_available") :
+        __(SVGStrings, "missing")
 }
 
 
@@ -50,7 +50,7 @@ if (svgInfo) {
 
     // Add categories
     var categories = svgInfo.categories.map(function(category) {
-        return __(localStrings, category);
+        return __(SVGStrings, category);
     });
 
     properties.push({
@@ -62,7 +62,7 @@ if (svgInfo) {
     var permittedContent = [];
 
     if (typeof svgInfo.content.description === "string") {
-        permittedContent.push(__(localStrings, svgInfo.content.description));
+        permittedContent.push(__(SVGStrings, svgInfo.content.description));
     } else {
         permittedContent.push(_(svgInfo.content.description));
     }
@@ -94,7 +94,7 @@ if (svgInfo) {
                 elementGroups.push([
                     "<a href=\"/", env.locale,
                     "/docs/Web/SVG/Element#", anchor, "\">",
-                    __(localStrings, element), "</a>"
+                    __(SVGStrings, element), "</a>"
                 ].join(''));
             }
         })
