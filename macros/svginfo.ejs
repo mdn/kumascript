@@ -10,9 +10,11 @@
 // Base macro set up
 // ----------------------------------------------------------------------------
 
+var isPreview = "preview-wiki-content";
+
 // Check params
 var slug = env.slug;
-var name = $0 || (slug ? slug.split("/").pop() : "preview-wiki-content");
+var name = $0 || (slug ? slug.split("/").pop() : isPreview);
 
 // Get data
 var data    = string.deserialize(template("SVGData"));
@@ -28,9 +30,11 @@ var commonLocalStrings = string.deserialize(template("L10n:Common"));
 
 var l10n = {
     separator:        __(commonLocalStrings, "listSeparator"),
-    preview:          __(localStrings, "info_in_preview_not_available"),
     categories:       __(localStrings, "categories"),
-    permittedContent: __(localStrings, "permittedContent")
+    permittedContent: __(localStrings, "permittedContent"),
+    error: name === isPreview ?
+        __(localStrings, "info_in_preview_not_available") :
+        __(localStrings, "missing")
 }
 
 
@@ -39,12 +43,7 @@ var l10n = {
 
 var result = "";
 
-// Handle the preview mode (we cannot use macro reliably there)
-if (name === "preview-wiki-content") {
-    result = "<span style=\"color:red;\">" + l10n.preview + "</span>";
-
-// Handle the case where we have info available
-} else if (svgInfo) {
+if (svgInfo) {
     var properties = [];
 
     // Add categories
@@ -97,7 +96,7 @@ if (name === "preview-wiki-content") {
     }
 
     properties.push({
-        label: __(localStrings, "permittedContent"),
+        label: l10n.permittedContent,
         value: permittedContent
     });
 
@@ -106,10 +105,7 @@ if (name === "preview-wiki-content") {
 
 // Handle the case where we haven't any info available
 } else {
-    result = mdn.replacePlaceholders(
-        "<span style=\"color:red;\">$1$</span>",
-        [l10n.permittedContent]
-    );
+    result = ["<span style=\"color:red;\">", l10n.error, "</span>"].join('')
 }
 
 // Display result
