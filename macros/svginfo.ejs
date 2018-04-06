@@ -15,19 +15,16 @@ var slug = env.slug;
 var name = $0 || (slug ? slug.split("/").pop() : "preview-wiki-content");
 
 // Get data
-var data                = string.deserialize(template("SVGData"));
-var svgInfo             = data.elements[name];
+var data    = string.deserialize(template("SVGData"));
+var svgInfo = data.elements[name];
 
 // Utilities
-var formattedError      = "<span style=\"color:red;\">$1$</span>";
-
 var _  = mdn.localString;    // Handle one level object like { "en-US":"Foo" }
 var __ = mdn.getLocalString; // Handle two level object like { "foo": { "en-US": "Bar" }}
-var replacePlaceholders = mdn.replacePlaceholders;
 
 // L10n Strings
-var localStrings        = string.deserialize(template("L10n:SVG"));
-var commonLocalStrings  = string.deserialize(template("L10n:Common"));
+var localStrings       = string.deserialize(template("L10n:SVG"));
+var commonLocalStrings = string.deserialize(template("L10n:Common"));
 
 var l10n = {
     separator:        __(commonLocalStrings, "listSeparator"),
@@ -109,7 +106,10 @@ if (name === "preview-wiki-content") {
 
 // Handle the case where we haven't any info available
 } else {
-    result = replacePlaceholders(formattedError, [l10n.permittedContent]);
+    result = mdn.replacePlaceholders(
+        "<span style=\"color:red;\">$1$</span>",
+        [l10n.permittedContent]
+    );
 }
 
 // Display result
