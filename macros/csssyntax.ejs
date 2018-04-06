@@ -391,13 +391,15 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
                 // described before
                 // check whether https://github.com/mdn/data/pull/66 was merged
                 var syntax = data.syntaxes[type].syntax || data.syntaxes[type];
-                if (describedTypes.indexOf(type) === -1) {
-                    typesSyntax += "<span id=\"" + type + "\">&lt;" + type +
-                        "&gt;</span> = " + formatSyntax(syntax);
-                    if (index < types.length - 1) {
-                        typesSyntax += "<br/>";
+                if (typeof syntax !== 'undefined') {
+                    if (describedTypes.indexOf(type) === -1) {
+                        typesSyntax += "<span id=\"" + type + "\">&lt;" + type +
+                            "&gt;</span> = " + formatSyntax(syntax);
+                        if (index < types.length - 1) {
+                            typesSyntax += "<br/>";
+                        }
+                        describedTypes.push(type);
                     }
-                    describedTypes.push(type);
                 }
             });
 
