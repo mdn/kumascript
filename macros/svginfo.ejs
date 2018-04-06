@@ -26,11 +26,13 @@ var __ = mdn.getLocalString; // Handle two level object like { "foo": { "en-US":
 
 // L10n Strings
 var localStrings       = string.deserialize(template("L10n:SVG"));
+var HTMLStrings        = string.deserialize(template("L10n:HTML"));
 var commonLocalStrings = string.deserialize(template("L10n:Common"));
 
 var l10n = {
     separator:        __(commonLocalStrings, "listSeparator"),
     categories:       __(localStrings, "categories"),
+    domInterface:     __(HTMLStrings, "domInterface"),
     permittedContent: __(localStrings, "permittedContent"),
     error: name === isPreview ?
         __(localStrings, "info_in_preview_not_available") :
@@ -109,6 +111,16 @@ if (svgInfo) {
     properties.push({
         label: l10n.permittedContent,
         value: permittedContent.join("<br/>")
+    });
+
+    // Add DOM Interface
+    var interfaces = svgInfo.interfaces.map(function (api) {
+        return template("domxref", [api]);
+    });
+
+    properties.push({
+        label: l10n.domInterface,
+        value: interfaces.join()
     });
 
     // Format properties as HTML
