@@ -57,47 +57,58 @@ if (svgInfo) {
     });
 
     // Add permitted content
-    var permittedContent = typeof svgInfo.content.description === "string" ?
-        __(localStrings, svgInfo.content.description) :
-        _(svgInfo.content.description);
+    var permittedContent = [];
+
+    if (typeof svgInfo.content.description === "string") {
+        permittedContent.push(__(localStrings, svgInfo.content.description));
+    } else {
+        permittedContent.push(_(svgInfo.content.description));
+    }
 
     if (svgInfo.content.elements) {
         var elementGroups = [];
         var elements = [];
 
-        for (var i = 0; i < svgInfo.content.elements.length; i++) {
-            var element = svgInfo.content.elements[i];
-            var link = "";
-
+        svgInfo.content.elements.forEach(function (element) {
+            // Handle single element
             if (element.indexOf("&lt;") !== -1) {
-                elements.push(template("SVGElement",
-                    [element.replace(/&lt;|&gt;/g, "")]));
+                elements.push(template(
+                    "SVGElement",
+                    [element.replace(/&lt;|&gt;/g, "")]
+                ));
 
+            // Handle named group of elements
             } else {
-                var anchor = element.replace(/[A-Z]/g, function(match) {
+                var anchor = element
+                    // Turn camelCase into snake_case
+                    .replace(/[A-Z]/g, function(match) {
                         return "_" + match.toLowerCase();
-                    }).replace(/^./, function(match) {
+                    })
+                    // Capitalize first letter
+                    .replace(/^./, function(match) {
                         return match.toUpperCase();
                     });
 
-                elementGroups.push("<a href=\"/" + env.locale +
-                    "/docs/Web/SVG/Element#" + anchor + "\">" +
-                    __(localStrings, element) + "</a>");
+                elementGroups.push([
+                    "<a href=\"/", env.locale,
+                    "/docs/Web/SVG/Element#", anchor, "\">",
+                    __(localStrings, element), "</a>"
+                ].join(''));
             }
-        }
+        })
 
         if (elementGroups.length !== 0) {
-          permittedContent += "<br/>" + elementGroups.join("<br/>");
+            permittedContent.push(elementGroups.join("<br/>"));
         }
 
         if (elements.length !== 0) {
-            permittedContent += "<br/>" + elements.join(l10n.separator);
+            permittedContent.push(elements.join(l10n.separator));
         }
     }
 
     properties.push({
         label: l10n.permittedContent,
-        value: permittedContent
+        value: permittedContent.join("<br/>")
     });
 
     // Format properties as HTML
