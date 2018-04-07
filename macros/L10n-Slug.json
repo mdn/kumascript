@@ -1,0 +1,45 @@
+{
+  "docs/Web/HTML/Element": {
+    "en-US": "docs/Web/HTML/Element",
+    "es"   : "docs/Web/HTML/Elemento",
+  },
+
+  "docs/Web/HTML/Global_attributes": {
+    "en-US": "docs/Web/HTML/Global_attributes",
+    "es"   : "docs/Web/HTML/Atributos_Globales",
+    "fr"   : "docs/Web/HTML/Attributs_universels",
+    "pt-PT": "docs/Web/HTML/Atributos_globais",
+    "ru"   : "docs/Web/HTML/Общие_атрибуты",
+    "uk"   : "docs/Web/HTML/Загальні_атрибути"
+  },
+
+  "docs/Web/HTTP/Headers": {
+    "en-US": "docs/Web/HTTP/Headers"
+  },
+
+  "docs/Web/JavaScript/Reference": {
+    "en-US": "docs/Web/JavaScript/Reference",
+    "es"   : "docs/Web/JavaScript/Referencia",
+    "ca"   : "docs/Web/JavaScript/Referencia",
+    "pl"   : "docs/Web/JavaScript/Referencje"
+  },
+
+  "docs/Web/JavaScript/Global_Objects": {
+    "en-US": "docs/Web/JavaScript/Global_Objects",
+    "ca"   : "docs/Web/JavaScript/Objectes_globals",
+    "es"   : "docs/Web/JavaScript/Objetos_globales",
+    "fr"   : "docs/Web/JavaScript/Objets_globaux",
+    "pl"   : "docs/Web/JavaScript/Obiekty"
+  },
+
+  "docs/Web/SVG/Element": {
+    "en-US": "docs/Web/SVG/Element",
+    "es"   : "docs/Web/SVG/Elemento",
+  },
+
+  "docs/Web/SVG/Attribut": {
+    "en-US": "docs/Web/SVG/Attribut",
+    "fr"   : "docs/Web/SVG/Attributs",
+    "pt-PT": "docs/Web/SVG/Atributo",
+  }
+}
