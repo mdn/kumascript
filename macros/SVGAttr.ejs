@@ -1,12 +1,23 @@
 <%
-/* one parameter: attribute name */
-var slug = mdn.localString({
-    "en-US": "Attribute",
-    "de"   : "Attribut",
-    "fr"   : "Attributs",
-    "pl"   : "Atrybut"
-});
+//    Outputs a link to an SVG Attribut's reference page.
+//
+//    Parameters:
+//        $0  SVG attribut name
 
-var URL = "/" + env.locale + "/docs/Web/SVG/" + slug + "/" + $0;
+var attrName     = $0;
+var slug         = string.deserialize(template("L10n:Slug"));
+var localStrings = string.deserialize(template("L10n:Common"));
+
+slug = mdn.getLocalString(slug, "docs/Web/SVG/Attribut");
+
+var URL = "/" + [env.locale, slug, attrName].join("/");
+
+// Gather the page summary
+var page = wiki.getPage(URL);
+var summary = mdn.getLocalString(localStrings, "summary");
+
+if (page && page.summary) {
+    summary = mdn.escapeQuotes(page.summary);
+}
 %>
-<code><a href="<%- URL %>"><%= $0 %></a></code>
+<a href="<%- URL %>" <%- wiki.pageExists(URL) ? '' : ' class="new"' %> title="<%-summary%>"><code><%= attrName %></code></a>
