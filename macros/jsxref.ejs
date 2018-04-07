@@ -17,10 +17,10 @@
 
 // Set up input parameters
 var str = $1 || $0;
-var api = $0.replace('()', '').replace('.prototype.', '.')//.replace('.', '/');
+var api = $0.replace('()', '').replace('.prototype.', '.');
 var anchor = $2 || '';
 
-if ((api.indexOf("..") === -1) && (api.indexOf(".") !== -1)) { // Handle try...catch case
+if (api.indexOf("..") === -1) { // Handle try...catch, for...in, etc.
   api = api.replace('.', '/');
 }
 
