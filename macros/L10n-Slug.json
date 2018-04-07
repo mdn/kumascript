@@ -14,7 +14,18 @@
   },
 
   "docs/Web/HTTP/Headers": {
-    "en-US": "docs/Web/HTTP/Headers"
+    "en-US": "docs/Web/HTTP/Headers",
+    "ru"   : "docs/Web/HTTP/Заголовки",
+    "uk"   : "docs/Web/HTTP/Заголовки"
+  },
+
+  "docs/Web/HTTP/Methods": {
+    "en-US": "docs/Web/HTTP/Methods",
+    "fr"   : "docs/HTTP/Méthode"
+  },
+
+  "docs/Web/HTTP/Status": {
+    "en-US": "docs/Web/HTTP/Status"
   },
 
   "docs/Web/JavaScript/Reference": {
