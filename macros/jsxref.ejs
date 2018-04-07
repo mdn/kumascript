@@ -14,45 +14,49 @@
 //  {{jsxref("Global_Objects/Date/getNumber", "Date.prototype.getNumber()")}}
 //
 
-var jsl10n = string.deserialize(template('L10n:JavaScript'));
-var commonl10n = string.deserialize(template('L10n:Common'));
 
-var l10n = {
-    refslug: mdn.getLocalString(jsl10n, 'slug_reference'),
-    slug: mdn.getLocalString(jsl10n, 'slug_global_objects'),
-    summary: mdn.getLocalString(commonl10n, 'summary'),
-};
-
+// Set up input parameters
 var str = $1 || $0;
-
-var URL = "/" + env.locale + "/docs/Web/JavaScript/" + l10n.refslug + '/';
-
-var api  = $0.replace('()', '').replace('.prototype.', '.');
-
-var page = wiki.getPage(URL + $0);
-var objectPage = wiki.getPage(URL + l10n.slug + '/' +  $0);
-
-if ((api.indexOf("..") === -1) && (api.indexOf(".") !== -1)) { // Handle try...catch case
-    URL += l10n.slug + '/' + api.replace('.', '/');
-} else if (!page.slug && objectPage.slug) {
-    URL += l10n.slug + '/' + $0;
-} else {
-    URL += $0;
-}
-
-var summary = l10n.summary;
-page = wiki.getPage(URL);
-
-if (page && page.summary) {
-    summary = mdn.escapeQuotes(page.summary);
-}
-
+var api = $0.replace('()', '').replace('.prototype.', '.').replace('.', '/');
 var anchor = $2 || '';
-if (anchor && anchor[0] != '#') {
+
+if (anchor && anchor[0] !== '#') {
     anchor = "#" + anchor;
 }
 
-var code    = !$3 ? '<code>'  : '';
-var endcode = !$3 ? '</code>' : '';
+if (!$3) {
+  str = ['<code>', str, '</code>'].join('');
+}
 
-%><a href="<%- URL + anchor %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
+// Get L10n strings
+var commonl10n = string.deserialize(template('L10n:Common'));
+var slug = string.deserialize(template('L10n:Slug'));
+
+var l10n = {
+    refslug: mdn.getLocalString(slug, 'docs/Web/JavaScript/Reference'),
+    objslug: mdn.getLocalString(slug, 'docs/Web/JavaScript/Reference/Global_Objects'),
+    summary: mdn.getLocalString(commonl10n, 'summary'),
+};
+
+// Set up document URL
+var URL_REF = "/" + [env.locale, l10n.refslug, api].join('/');
+var URL_OBJ = "/" + [env.locale, l10n.objslug, api].join('/');
+var URL = URL_REF;
+
+// Get target page summary
+var page       = wiki.getPage(URL_REF);
+var objectPage = wiki.getPage(URL_OBJ);
+
+var summary = l10n.summary;
+
+// If we get a Reference page we're good
+if (page && page.summary && page.slug) {
+    summary = mdn.escapeQuotes(page.summary);
+
+// Otherwise we look if we have a global object page
+} else if (objectPage && objectPage.summary) {
+    summary = mdn.escapeQuotes(objectPage.summary);
+    URL = URL_OBJ; // Change the target URL as it is a Global Object page
+}
+
+%><a href="<%- URL + anchor %>" title="<%- summary %>"><%- str %></a>

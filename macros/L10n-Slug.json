@@ -30,17 +30,17 @@
 
   "docs/Web/JavaScript/Reference": {
     "en-US": "docs/Web/JavaScript/Reference",
-    "es"   : "docs/Web/JavaScript/Referencia",
     "ca"   : "docs/Web/JavaScript/Referencia",
+    "es"   : "docs/Web/JavaScript/Referencia",
     "pl"   : "docs/Web/JavaScript/Referencje"
   },
 
-  "docs/Web/JavaScript/Global_Objects": {
-    "en-US": "docs/Web/JavaScript/Global_Objects",
-    "ca"   : "docs/Web/JavaScript/Objectes_globals",
-    "es"   : "docs/Web/JavaScript/Objetos_globales",
-    "fr"   : "docs/Web/JavaScript/Objets_globaux",
-    "pl"   : "docs/Web/JavaScript/Obiekty"
+  "docs/Web/JavaScript/Reference/Global_Objects": {
+    "en-US": "docs/Web/JavaScript/Reference/Global_Objects",
+    "ca"   : "docs/Web/JavaScript/Referencia/Objectes_globals",
+    "es"   : "docs/Web/JavaScript/Referencia/Objetos_globales",
+    "fr"   : "docs/Web/JavaScript/Reference/Objets_globaux",
+    "pl"   : "docs/Web/JavaScript/Referencje/Obiekty"
   },
 
   "docs/Web/SVG/Element": {
