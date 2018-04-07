@@ -17,8 +17,12 @@
 
 // Set up input parameters
 var str = $1 || $0;
-var api = $0.replace('()', '').replace('.prototype.', '.').replace('.', '/');
+var api = $0.replace('()', '').replace('.prototype.', '.')//.replace('.', '/');
 var anchor = $2 || '';
+
+if ((api.indexOf("..") === -1) && (api.indexOf(".") !== -1)) { // Handle try...catch case
+  api = api.replace('.', '/');
+}
 
 if (anchor && anchor[0] !== '#') {
     anchor = "#" + anchor;
@@ -41,7 +45,7 @@ var l10n = {
 // Set up document URL
 var URL_REF = "/" + [env.locale, l10n.refslug, api].join('/');
 var URL_OBJ = "/" + [env.locale, l10n.objslug, api].join('/');
-var URL = URL_REF;
+var URL = URL_OBJ; // By default we expect a global object url
 
 // Get target page summary
 var page       = wiki.getPage(URL_REF);
@@ -49,14 +53,14 @@ var objectPage = wiki.getPage(URL_OBJ);
 
 var summary = l10n.summary;
 
-// If we get a Reference page we're good
-if (page && page.summary && page.slug) {
-    summary = mdn.escapeQuotes(page.summary);
-
-// Otherwise we look if we have a global object page
-} else if (objectPage && objectPage.summary) {
+// If we get a global object page we're good
+if (objectPage && objectPage.summary) {
     summary = mdn.escapeQuotes(objectPage.summary);
-    URL = URL_OBJ; // Change the target URL as it is a Global Object page
+
+// Otherwise we look if we have another reference page
+} else if (page && page.summary) {
+    summary = mdn.escapeQuotes(page.summary);
+    URL = URL_REF;
 }
 
-%><a href="<%- URL + anchor %>" title="<%- summary %>"><%- str %></a>
+%><a href="<%- URL + anchor %>" title="<%-summary%>"><%- str %></a>
