@@ -1,7 +1,7 @@
 {
   "docs/Web/HTML/Element": {
     "en-US": "docs/Web/HTML/Element",
-    "es"   : "docs/Web/HTML/Elemento",
+    "es"   : "docs/Web/HTML/Elemento"
   },
 
   "docs/Web/HTML/Global_attributes": {
@@ -34,12 +34,12 @@
 
   "docs/Web/SVG/Element": {
     "en-US": "docs/Web/SVG/Element",
-    "es"   : "docs/Web/SVG/Elemento",
+    "es"   : "docs/Web/SVG/Elemento"
   },
 
   "docs/Web/SVG/Attribut": {
     "en-US": "docs/Web/SVG/Attribut",
     "fr"   : "docs/Web/SVG/Attributs",
-    "pt-PT": "docs/Web/SVG/Atributo",
+    "pt-PT": "docs/Web/SVG/Atributo"
   }
 }
