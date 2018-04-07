@@ -8,7 +8,6 @@ const chaiAsPromised = require('chai-as-promised')
 
 // Set up Chai
 chai.use(chaiAsPromised)
-const assert = chai.assert
 
 // Basic const
 const CSS_BASE_SLUG = '/en-US/docs/Web/CSS'
@@ -27,8 +26,8 @@ function makeExpect (url, summary, label) {
 // Mock Pages
 // ----------------------------------------------------------------------------
 // Those mock pages are expected data return by a call to wiki.getPage
-// The `url` is what is passed to wiki.getPage
-// The `data` is the object return by wiki.getPage
+// The `url` is what should be passed to wiki.getPage
+// The `data` is the object returned by wiki.getPage
 // ----------------------------------------------------------------------------
 
 const MOCK_PAGES = {
@@ -80,12 +79,12 @@ const MOCK_PAGES = {
 // Test cases definition
 // ----------------------------------------------------------------------------
 // Each test case is define by:
-// A `title` to make test understandable by human behing
+// A `title` to make the test understandable by a human behing
 // An `input` which is an Array of parameters that will be passed to the macro
 // An `output` which is the string that the macro should return
 //
 // NOTE: we could probably make that more generic by having a single test
-//       runner (see below) and a bunch of JSON file (one per macro) to
+//       runner (see below) and a bunch of JSON files (one per macro) to
 //       describe all the possible inputs and their expected outputs.
 // ----------------------------------------------------------------------------
 
@@ -180,7 +179,7 @@ describeMacro('cssxref', () => {
 
     TEST_CASE.forEach((test) => {
         itMacro(test.title, (macro) => {
-            return assert.eventually.equal(
+            return chai.assert.eventually.equal(
                 macro.call(...test.input),
                 test.output
             )
