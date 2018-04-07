@@ -24,12 +24,18 @@ switch (env.locale) {
     case 'ru':
         s_html_ref_title = 'HTML элементы';
         break;
+    case 'pt-BR':
+        s_html_ref_title = 'Elementos HTML';
+        break;
     default: break;
 }
 
 var text = mdn.localStringMap({
     'en-US': {
         'Input_types': '<code>&lt;input&gt;</code> types'
+    },
+    'pt-BR': {
+        'Input_types': 'Tipos de <code>&lt;input&gt;</code>'
     }
 });
 
@@ -114,7 +120,7 @@ var resultAPI = [];
             <li><%- template("domxref", [resultAPI[slugLeaf]]) %></li>
   <%    } 
     } %>
-    <% if (env.slug.includes("/HTML/Element/input")) { %>
+    <% if (env.slug && env.slug.includes("/HTML/Element/input")) { %>
    <li data-default-state="open"><a href="/<%=env.locale%>/docs/Web/HTML/Element/input#Form_<input>_types"><%-text['Input_types']%></a>
     <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%></li>
     <% } %>
