@@ -442,7 +442,7 @@ if (name === "preview-wiki-content") {
         if (data.atRules[name].syntax) {
             rawSyntax = data.atRules[name].syntax;
         }
-    } else if (name[0] === ":") {
+    } else if (name[0] === ":" && typeof data.selectors[name] !== 'undefined') {
         rawSyntax = data.selectors[name].syntax;
     } else if (data.properties[name]) {
         rawSyntax = data.properties[name].syntax;
