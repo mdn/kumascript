@@ -1,16 +1,16 @@
 /* jshint node: true, mocha: true, esversion: 6 */
 
 // Get necessary modules
-const sinon = require('sinon')
-const { itMacro, describeMacro, beforeEachMacro } = require('./utils')
-const chai = require('chai')
-const chaiAsPromised = require('chai-as-promised')
+const sinon = require('sinon');
+const { itMacro, describeMacro, beforeEachMacro } = require('./utils');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
 
 // Set up Chai
-chai.use(chaiAsPromised)
+chai.use(chaiAsPromised);
 
 // Basic const
-const CSS_BASE_SLUG = '/en-US/docs/Web/CSS'
+const CSS_BASE_SLUG = '/en-US/docs/Web/CSS';
 
 // Template utils
 function makeExpect (url, summary, label) {
@@ -73,7 +73,7 @@ const MOCK_PAGES = {
             tags: ["CSS", "Reference", "Web", "CSS Data Type", "Layout"]
         }
     }
-}
+};
 
 
 // Test cases definition
@@ -162,7 +162,7 @@ const TEST_CASE = [{
         MOCK_PAGES.position_value.data.summary,
         '&lt;position&gt;'
     ),
-}]
+}];
 
 
 // Test runner
@@ -176,15 +176,15 @@ describeMacro('cssxref', () => {
         Object.keys(MOCK_PAGES).forEach((key) => {
             const { url, data } = MOCK_PAGES[key];
             macro.ctx.wiki.getPage.withArgs(url).returns(data);
-        })
-    })
+        });
+    });
 
     TEST_CASE.forEach((test) => {
         itMacro(test.title, (macro) => {
             return chai.assert.eventually.equal(
                 macro.call(...test.input),
                 test.output
-            )
-        })
-    })
-})
+            );
+        });
+    });
+});
