@@ -1,19 +1,19 @@
 /* jshint node: true, mocha: true, esversion: 6 */
 
 // Get necessary modules
-const sinon = require('sinon');
-const { itMacro, describeMacro, beforeEachMacro } = require('./utils');
 const chai = require('chai');
+const sinon = require('sinon');
 const chaiAsPromised = require('chai-as-promised');
+const {itMacro, describeMacro, beforeEachMacro} = require('./utils');
 
 // Set up Chai
 chai.use(chaiAsPromised);
 
 // Basic const
+const SVG_DATA = require('../../macros/SVGData.json');
+const L10N_SVG = require('../../macros/L10n-SVG.json');
+const L10N_COMMON = require('../../macros/L10n-Common.json');
 const SVG_BASE_SLUG = 'docs/Web/SVG';
-const SVG_DATA      = require('../../macros/SVGData.json');
-const L10N_COMMON   = require('../../macros/L10n-Common.json');
-const L10N_SVG      = require('../../macros/L10n-SVG.json');
 
 
 // UTILITIES
@@ -88,9 +88,9 @@ function getSummary(key, locale, clean=true) {
 // ----------------------------------------------------------------------------
 // Set up expected output based on the expected input data
 function makeExpect (data, locale='en-US') {
-    const SEPARATOR   = _('listSeparator',          locale);
-    const CATEGORIES  = _('categories',             locale);
-    const CONTENT     = _('permittedContent',       locale);
+    const CONTENT = _('permittedContent', locale);
+    const SEPARATOR = _('listSeparator', locale);
+    const CATEGORIES = _('categories', locale);
     const DESCRIPTION = _(data.content.description, locale);
 
     // Set the list of categories that apply to the element
@@ -105,15 +105,15 @@ function makeExpect (data, locale='en-US') {
         // Regroup permitted content between named groups and standalone elements
         let { elements, groups } = data.content.elements.reduce((acc, value) => {
             if (value.indexOf('&lt;') !== -1) {
-                let key     = value.replace(/&lt;|&gt;/g, '');
-                let url     = URL(locale, SVG_BASE_SLUG, 'Element', key);
+                let key = value.replace(/&lt;|&gt;/g, '');
+                let url = URL(locale, SVG_BASE_SLUG, 'Element', key);
                 let summary = getSummary(key, locale);
 
                 acc.elements.push(`<a href="${url}"  title="${summary}"><code>${value}</code></a>`);
             } else {
                 let anchor = "#" + camelToSnake(value);
-                let url    = URL(locale, SVG_BASE_SLUG, 'Element') + anchor;
-                let label  = _(value, locale);
+                let label = _(value, locale);
+                let url = URL(locale, SVG_BASE_SLUG, 'Element') + anchor;
 
                 acc.groups.push(`<a href="${url}">${label}</a>`);
             }
@@ -122,7 +122,7 @@ function makeExpect (data, locale='en-US') {
         }, {elements: [], groups: []});
 
         // Named groups must be listed first (each on new lines)
-        if (groups.length   > 0) permittedContent.push(groups.join('<br/>'));
+        if (groups.length > 0) permittedContent.push(groups.join('<br/>'));
 
         // Standalone elements must be listed as a comma separated
         // list (the exact separator is l10n driven)
@@ -433,24 +433,24 @@ const TEST_CASE = [{
     input: [],
     output: '<span style="color:red;">SVG info in preview not available</span>'
 },{
-    title: 'Test unkown SVG element (param: foo)',
+    title: 'Test unknown SVG element (param: foo)',
     input: ['foo'],
     output: '<span style="color:red;">missing</span>'
 },{
     // Defs allows to test multiple category and a mix of groups and elements for permitted contents
-    title: 'Test explicite slug (param: defs)',
+    title: 'Test explicit slug (param: defs)',
     input: ['defs'],
     output: makeExpect(SVG_DATA.elements.defs)
 },{
     // altGlyphDef allows to test when description is an object rather than a string
-    title: 'Test implicite slug (no param, slug: /en-US/docs/Web/SVG/Element/altGlyphDef)',
+    title: 'Test implicit slug (no param, slug: /en-US/docs/Web/SVG/Element/altGlyphDef)',
     input: [],
     output: makeExpect(SVG_DATA.elements.altGlyphDef),
     env: {
         slug: URL('en-US', SVG_BASE_SLUG, 'Element', 'altGlyphDef')
     }
 },{
-    title: 'Test implicite non English slug (no param, slug: /zh-CN/docs/Web/SVG/Element/defs)',
+    title: 'Test implicit non English slug (no param, slug: /zh-CN/docs/Web/SVG/Element/defs)',
     input: [],
     output: makeExpect(SVG_DATA.elements.defs, 'zh-CN'),
     env: {
@@ -465,17 +465,20 @@ const TEST_CASE = [{
 
 describeMacro('svginfo', () => {
     beforeEachMacro((macro) => {
-        // let's make sure we have a clean calls to wiki.getPage
+        // let's make sure we have clean calls to wiki.getPage
         macro.ctx.wiki.getPage = sinon.stub();
+        macro.ctx.wiki.pageExists = sinon.stub();
 
         Object.keys(MOCK_PAGES['en-US']).forEach((key) => {
-            const { url, data } = MOCK_PAGES['en-US'][key];
+            const {url, data} = MOCK_PAGES['en-US'][key];
             macro.ctx.wiki.getPage.withArgs(url).returns(data);
+            macro.ctx.wiki.pageExists.withArgs(url).returns(true);
         });
 
         Object.keys(MOCK_PAGES['zh-CN']).forEach((key) => {
-            const { url, data } = MOCK_PAGES['zh-CN'][key];
+            const {url, data} = MOCK_PAGES['zh-CN'][key];
             macro.ctx.wiki.getPage.withArgs(url).returns(data);
+            macro.ctx.wiki.pageExists.withArgs(url).returns(true);
         });
     });
 
