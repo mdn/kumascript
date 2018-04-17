@@ -139,6 +139,8 @@ describeMacro('Compat', function () {
               'Basic support');
             assert.equal(dom.querySelector('.bc-table tbody tr:nth-child(2) th').innerHTML,
               '<a href="/docs/Web/HTTP/Headers/Content-Security-Policy/child-src"><code>subfeature_with_mdn_url</code></a>');
+            assert.equal(dom.querySelector('.bc-table tbody tr:nth-child(3) th').innerHTML,
+              '<a href="#Directives"><code>subfeature_with_same_mdn_url_and_fragment</code></a>');
         });
     });
     itMacro('Creates correct feature labels for features with an MDN URL and a description', function (macro) {
@@ -149,6 +151,8 @@ describeMacro('Compat', function () {
               'Basic support');
             assert.equal(dom.querySelector('.bc-table tbody tr:nth-child(2) th').innerHTML,
               '<a href="/docs/Web/HTTP/Headers/Content-Security-Policy/child-src">CSP: child-src</a>');
+            assert.equal(dom.querySelector('.bc-table tbody tr:nth-child(3) th').innerHTML,
+            '<a href="#Directives">CSP Directives</a>');
         });
     });
     itMacro('Creates correct labels for experimental/non-standard features', function (macro) {

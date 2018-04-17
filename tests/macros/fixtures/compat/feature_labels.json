@@ -56,6 +56,16 @@
                         }
                     }
                 }
+            },
+            "subfeature_with_same_mdn_url_and_fragment": {
+                "__compat": {
+                    "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy#Directives",
+                    "support": {
+                        "firefox": {
+                            "version_added": "1"
+                        }
+                    }
+                }
             }
         },
         "feature_with_mdn_url_and_description": {
@@ -72,6 +82,17 @@
                 "__compat": {
                     "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy/child-src",
                     "description": "CSP: child-src",
+                    "support": {
+                        "firefox": {
+                            "version_added": "1"
+                        }
+                    }
+                }
+            },
+            "subfeature_with_same_mdn_url_and_fragment": {
+                "__compat": {
+                    "mdn_url": "https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy#Directives",
+                    "description": "CSP Directives",
                     "support": {
                         "firefox": {
                             "version_added": "1"

@@ -124,6 +124,9 @@ function writeFeatureName(row, feature) {
   // Add relative MDN url, but don't link to the current page
   if (feature.mdn_url) {
     let href = feature.mdn_url.replace('https://developer.mozilla.org', '');
+    if (feature.mdn_url.includes('#') && href.split('#')[0] === '/docs/' + env.slug) {
+      href = feature.mdn_url.substring(feature.mdn_url.indexOf('#'))
+    }
     if (href !== '/docs/' + env.slug) {
       desc = `<a href="${href}">${desc}</a>`;
     }
