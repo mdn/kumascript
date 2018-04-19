@@ -92,7 +92,7 @@ if (slug) {
         for (var i in pageList) {
             var aPage = pageList[i];
             if (hasTag(aPage, 'Event Handler')) {
-              eventHandlers.push(aPage);
+                eventHandlers.push(aPage);
             } else if (hasTag(aPage, 'Property')) { // "else" because handlers are also properties
                 properties.push(aPage);
             }
@@ -201,6 +201,14 @@ if (slug) {
             }
         }
         
+        // If there are no child pages, it's time to return.
+
+        if (!pages.length) {
+            return result;
+        }
+
+        // Start building the section text.
+
         result += '<dl>';
 
         for (var i in pages) {
@@ -260,17 +268,11 @@ if (slug) {
 
             // Add badges. We need them, seriously.
 
-            if (hasTag(aPage, 'Experimental')) {
-                result += " " + badges.ExperimentalBadge;
-            }
             if (hasTag(aPage, 'Non-standard') || hasTag(aPage, 'Non Standard')) {
                 result += " " + badges.NonStandardBadge;
             }
-            if (hasTag(aPage, 'Deprecated')) {
+            if (hasTag(aPage, 'Deprecated') || hasTag(aPage, 'Obsolete')) {
                 result += " " + badges.DeprecatedBadge;
-            }
-            if (hasTag(aPage, 'Obsolete')) {
-                result += " " + badges.ObsoleteBadge;
             }
             if (hasTag(aPage, 'Read-only')) {
                 result += " " + badges.ReadOnlyBadge;
@@ -285,30 +287,22 @@ if (slug) {
             result += '<dd>' + summary + '</dd>';
         }
 
-        return result;
+        return result + "</dl>";
     }
-    
+
     // Time to do the output of the whole thing!
 
     if (ctors.length > 0) {
         output += buildSection(text['Constructor'], ctors);
     }
 
-//    if (properties.length > 0) {
-        output += buildSection(text['Properties'], properties);
-//    }
+    output += buildSection(text['Properties'], properties);
 
-      if (eventHandlers.length > 0) {
+    if (eventHandlers.length > 0) {
         output += buildSection(text['EventHandlers'], eventHandlers, 3);
-      }
+    }
 
-//    if (methods.length > 0) {
-        output += buildSection(text['Methods'], methods);
-//    }
-
-    // Wrap it up
-
-    output += '</dl>';
+    output += buildSection(text['Methods'], methods);
 }
 %>
 <%-output%>
