@@ -1,0 +1,39 @@
+{
+  "test-property-one": {
+    "groups": [
+      "Test Group"
+    ]
+  },
+  "test-property-two": {
+    "groups": [
+      "A Different Group"
+    ]
+  },
+  "test-property-three": {
+    "groups": [
+      "Test Group",
+      "A Different Group"
+    ]
+  },
+  "test-property-four": {
+    "groups": [
+      "Test Group"
+    ]
+  },
+  "test-property-five": {
+    "groups": [
+      "Test Group Not In BCD"
+    ]
+  },
+  "test-property-six": {
+    "groups": [
+    ]
+  },
+  "test-property-seven": {
+    "groups": [
+      123
+    ]
+  },
+  "test-property-eight": {
+  }
+}
