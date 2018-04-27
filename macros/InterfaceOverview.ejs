@@ -268,11 +268,17 @@ if (slug) {
 
             // Add badges. We need them, seriously.
 
+            if (hasTag(aPage, 'Experimental')) {
+               result += " " + badges.ExperimentalBadge;
+            }
             if (hasTag(aPage, 'Non-standard') || hasTag(aPage, 'Non Standard')) {
                 result += " " + badges.NonStandardBadge;
             }
             if (hasTag(aPage, 'Deprecated') || hasTag(aPage, 'Obsolete')) {
                 result += " " + badges.DeprecatedBadge;
+            }
+            if (hasTag(aPage, 'Obsolete')) {
+                result += " " + badges.ObsoleteBadge;
             }
             if (hasTag(aPage, 'Read-only')) {
                 result += " " + badges.ReadOnlyBadge;
