@@ -116,6 +116,7 @@
     },
     "bc_history_head": {
         "en-US": "Implementation Notes",
+        "de"   : "Implementierungshinweise",
         "es"   : "Notas de implementación",
         "fr"   : "Notes d'implémentation",
         "ja"   : "実装ノート",
@@ -194,6 +195,7 @@
     },
     "supportsShort_unknown_title": {
         "en-US": "Compatibility unknown; please update this.",
+        "de"   : "Kompatibilität unbekannt. Bitte aktualisiere das.",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
         "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию.",
@@ -201,6 +203,7 @@
     },
     "supportsLong_unknown": {
         "en-US": "Compatibility unknown",
+        "de"   : "Kompatibilität unbekannt",
         "fr"   : "Compatibilité inconnue",
         "ja"   : "実装状況不明",
         "ru"   : "Совместимость неизвестна",
@@ -208,6 +211,7 @@
     },
     "feature": {
         "en-US": "Feature",
+        "de"   : "Funktion",
         "fr"   : "Fonctionnalité",
         "ja"   : "機能",
         "ru"   : "Возможность",
@@ -260,6 +264,7 @@
     },
     "bc_icon_name_deprecated": {
         "en-US": "Deprecated",
+        "de"   : "Veraltet",
         "fr"   : "Obsolète",
         "ja"   : "非推奨",
         "nl"   : "Verouderd",
@@ -267,6 +272,7 @@
     },
     "bc_icon_title_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
+        "de"   : "Veraltet, Nicht für den Einsatz in neuen Webseiten.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах.",
@@ -409,6 +415,7 @@
     },
     "legend_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
+        "de"   : "Veraltet, Nicht für den Einsatz in neuen Webseiten.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах",
