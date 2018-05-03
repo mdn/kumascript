@@ -1842,7 +1842,6 @@
             "events":     []
         },
         "Web Components": {
-            "overview":     [ "Web Components" ],
             "guides":       [
                               { "url":   "/docs/Web/Web_Components/Using_custom_elements",
                                 "title": "Using custom elements" },
