@@ -65,6 +65,14 @@ switch(env.locale) {
         yes = 'ja';
         no = 'nein';
         break;
+    case "uk":
+        header = 'Атрибути поля <code>' + env.title + '</code>';
+        writable_name = 'Доступний для запису';
+        enumerable_name = 'Доступний для переліку';
+        configurable_name = 'Доступний для налаштування';
+        yes = 'так';
+        no = 'ні';
+        break;
     default:
         header = 'Property attributes of <code>' + env.title + '</code>';
         writable_name = 'Writable';
