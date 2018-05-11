@@ -272,7 +272,7 @@
     },
     "bc_icon_title_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
-        "de"   : "Veraltet, Nicht für den Einsatz in neuen Webseiten.",
+        "de"   : "Veraltet. Nicht für den Einsatz in neuen Webseiten gedacht.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах.",
@@ -415,7 +415,7 @@
     },
     "legend_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
-        "de"   : "Veraltet, Nicht für den Einsatz in neuen Webseiten.",
+        "de"   : "Veraltet. Nicht für den Einsatz in neuen Webseiten gedacht.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах",
