@@ -220,20 +220,27 @@ function getSupportClass(supportInfo) {
     // the first entry should be the most relevant/recent and will be treated as "the truth"
     checkSupport(supportInfo[0].version_added,
                  supportInfo[0].version_removed,
-                 supportInfo[0].partial_implementation);
+                 supportInfo[0].partial_implementation,
+                 supportInfo[0].flags);
   } else if (supportInfo) { // there is just one support statement
     checkSupport(supportInfo.version_added,
                  supportInfo.version_removed,
-                 supportInfo.partial_implementation);
+                 supportInfo.partial_implementation,
+                 supportInfo.flags);
   } else { // this browser has no info, it's unknown
     return 'unknown';
   }
 
-  function checkSupport(added, removed, partial) {
+  function checkSupport(added, removed, partial, flags) {
     if (added === null) {
       cssClass = 'unknown';
     } else if (added) {
-      cssClass = 'yes';
+      if (flags) {
+        cssClass = 'no';
+      }
+      else {
+        cssClass = 'yes';
+      }
       if (removed) {
         cssClass = 'no';
       }
