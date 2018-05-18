@@ -24,12 +24,18 @@ switch (env.locale) {
     case 'ru':
         s_html_ref_title = 'HTML элементы';
         break;
+    case 'pt-BR':
+        s_html_ref_title = 'Elementos HTML';
+        break;
     default: break;
 }
 
 var text = mdn.localStringMap({
     'en-US': {
         'Input_types': '<code>&lt;input&gt;</code> types'
+    },
+    'pt-BR': {
+        'Input_types': 'Tipos de <code>&lt;input&gt;</code>'
     }
 });
 
