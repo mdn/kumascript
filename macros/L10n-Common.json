@@ -2,7 +2,7 @@
     "summary": {
         "en-US": "The documentation about this has not yet been written; please consider contributing!",
         "ca"   : "Aquesta pàgina encara no ha estat traduïda. Si us plau considera contribuir-hi!",
-        "de"   : "Die Beschreibung hierüber wurde bisher noch nicht geschrieben; bitte erwäge, mitzuwirken!",
+        "de"   : "Die Beschreibung hierüber wurde bisher noch nicht geschrieben. Bitte überlege, mitzuwirken!",
         "es"   : "La documentación acerca de este tema no ha sido escrita todavía . ¡Por favor  considera contribuir !",
         "fr"   : "Cette documentation n'a pas encore été rédigée, vous pouvez aider en contribuant&nbsp;!",
         "pt-BR": "A documentação sobre isto ainda não foi escrita; por favor considere contribuir!",
@@ -126,6 +126,7 @@
 
     "section": {
         "en-US": "section",
+        "de"   : "Abschnitt",
         "fr"   : "section",
         "pt-BR": "sessão",
         "ru"   : "секция",
@@ -147,7 +148,7 @@
 
     "TranslationCTA": {
         "en-US": "Our volunteers haven't translated this article into your language yet. Join us and help get the job done!",
-        "de": "Unsere Freiwilligen haben diesen Artikel noch nicht in Deutsch übersetzt. Machen Sie mit und helfen Sie, das zu erledigen!",
+        "de": "Unsere Freiwilligen haben diesen Artikel noch nicht ins Deutsche übersetzt. Machen Sie mit und helfen Sie, das zu erledigen!",
         "es": "Nuestros voluntarios aún no han traducido este artículo al Español. ¡Únete a nosotros y ayuda a traducirlo!",
         "fr": "Nos volontaires n'ont pas encore traduit cet article en français. Rejoignez-nous et aidez-nous à le faire&nbsp;!",
         "pt-BR": "Nossos voluntários ainda não traduziram este artigo para sua linguagem. Junte-se a nós e nos ajude a traduzir!",
@@ -159,7 +160,7 @@
 
     "Guides": {
         "en-US": "Guides",
-        "de"   : "Anleitungen",
+        "de"   : "Handbuch",
         "es"   : "Guías",
         "fr"   : "Guides",
         "pt-BR": "Guias",
@@ -199,6 +200,7 @@
 
     "MissingPage": {
         "en-US": "[Page not yet written]",
+        "de"   : "[Seite noch nicht geschrieben]",
         "fr"   : "[Page qui reste à écrire]",
         "pt-BR": "[Página ainda não foi escrita]"
     }
