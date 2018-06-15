@@ -26,12 +26,14 @@
     },
     "bc_icon_name_webview_android": {
          "en-US": "Android webview",
+         "de"   : "Android Webview",
          "ja"   : "Android webview",
          "nl"   : "Android webview",
          "fr"   : "Webview Android"
     },
     "bc_icon_name_chrome": {
          "en-US": "Chrome",
+         "de"   : "Chrome",
          "ja"   : "Chrome",
          "nl"   : "Chrome",
          "fr"   : "Chrome"
@@ -46,18 +48,21 @@
     },
     "bc_icon_name_edge": {
          "en-US": "Edge",
+         "de"   : "Edge",
          "ja"   : "Edge",
          "nl"   : "Edge",
          "fr"   : "Edge"
     },
     "bc_icon_name_edge_mobile": {
          "en-US": "Edge Mobile",
+         "de"   : "Edge Mobile",
          "ja"   : "Edge Mobile",
          "nl"   : "Edge Mobile",
          "fr"   : "Edge Mobile"
     },
     "bc_icon_name_firefox": {
          "en-US": "Firefox",
+         "de"   : "Firefox",
          "ja"   : "Firefox",
          "nl"   : "Firefox",
          "fr"   : "Firefox"
@@ -72,18 +77,21 @@
     },
     "bc_icon_name_ie": {
          "en-US": "Internet Explorer",
+         "de"   : "Internet Explorer",
          "ja"   : "Internet Explorer",
          "nl"   : "Internet Explorer",
          "fr"   : "Internet Explorer"
     },
     "bc_icon_name_nodejs": {
          "en-US": "Node.js",
+         "de"   : "Node.js",
          "ja"   : "Node.js",
          "nl"   : "Node.js",
          "fr"   : "Node.js"
     },
     "bc_icon_name_opera": {
          "en-US": "Opera",
+         "de"   : "Opera",
          "ja"   : "Opera",
          "nl"   : "Opera",
          "fr"   : "Opera"
@@ -98,18 +106,21 @@
     },
     "bc_icon_name_safari": {
          "en-US": "Safari",
+         "de"   : "Safari",
          "ja"   : "Safari",
          "nl"   : "Safari",
          "fr"   : "Safari"
     },
     "bc_icon_name_safari_ios": {
          "en-US": "iOS Safari",
+         "de"   : "iOS Safari",
          "ja"   : "iOS 版 Safari",
          "nl"   : "iOS Safari",
          "fr"   : "Safari pour iOS"
     },
     "bc_icon_name_samsunginternet_android": {
          "en-US": "Samsung Internet",
+         "de"   : "Samsung Internet",
          "ja"   : "Samsung Internet",
          "nl"   : "Samsung Internet",
          "fr"   : "Samsung Internet"
@@ -134,7 +145,7 @@
     },
     "supportsShort_yes_title": {
         "en-US": "Please update this with the earliest version of support.",
-        "de"   : "Bitte mit der frühsten Version updaten in der Support vorhanden ist.",
+        "de"   : "Bitte mit der frühsten Version updaten in der Unterstützung vorhanden ist.",
         "fr"   : "Veuillez mettre à jour avec la version minimale du support",
         "ja"   : "対応する最も早いバージョン番号に更新してください。",
         "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии.",
@@ -188,6 +199,7 @@
     },
     "supportsShort_unknown": {
         "en-US": "?",
+        "de"   : "?",
         "fr"   : "?",
         "ja"   : "?",
         "ru"   : "?",
@@ -280,7 +292,7 @@
     },
     "bc_icon_name_prefix": {
         "en-US": "Prefixed",
-        "de"   : "mit Präfix",
+        "de"   : "Mit Präfix",
         "es"   : "Prefijado",
         "fr"   : "Préfixée",
         "ja"   : "接頭辞付き",
