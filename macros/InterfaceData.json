@@ -2118,5 +2118,9 @@
   "PerformancePaintTiming": {
     "inh"  : "PerformanceEntry",
     "impl" : []
+  },
+  "PaymentDetailsUpdate": {
+    "inh"  : "",
+    "impl" : ["PaymentDetailsBase"]
   }
 }]

@@ -1179,6 +1179,8 @@
         "Payment Request API": {
             "overview":   [ "Payment Request API" ],
             "interfaces": [ "PaymentAddress",
+                            "PaymentDetailsBase",
+                            "PaymentDetailsUpdate",
                             "PaymentRequest",
                             "PaymentRequestUpdateEvent",
                             "PaymentResponse",
