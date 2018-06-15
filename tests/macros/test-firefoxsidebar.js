@@ -21,7 +21,7 @@ function checkSidebarDom(dom, locale) {
   assert(section.classList.contains('Quick_links'), 'Section does not contain Quick_links class');
 
   let links = dom.querySelectorAll('a');
-  assert.equal(links[1].textContent,  locales[locale]['Firefox_developer_release_notes']);
+  assert.equal(links[1].textContent,  locales[locale].Firefox_developer_release_notes);
 }
 
 describeMacro('FirefoxSidebar', function () {
