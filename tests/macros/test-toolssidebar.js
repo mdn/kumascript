@@ -7,7 +7,6 @@ const sinon = require('sinon'),
       assert = chai.assert,
       itMacro = utils.itMacro,
       describeMacro = utils.describeMacro,
-      beforeEachMacro = utils.beforeEachMacro;
 
 const { JSDOM } = jsdom;
 
