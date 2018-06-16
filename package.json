@@ -28,6 +28,7 @@
     "fibers": "1.0.15",
     "hirelings": "0.4.3",
     "mdn-browser-compat-data": "0.x",
+    "mdn-browser-compat-toolkit": "git+https://github.com/mdn/browser-compat-toolkit.git",
     "memcached": "2.2.2",
     "morgan": "1.7.0",
     "nconf": "0.8.4",
