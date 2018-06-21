@@ -42,10 +42,10 @@ Get compat data using a query string like "webextensions.api.alarms"
 */
 function getData(queryString, obj) {
   return queryString.split('.').reduce(function(prev, curr) {
-    return prev ? prev[curr] : undefined
+    return prev ? prev[curr] : {};
   }, obj);
 }
 
-output = mdnFeatureTable(getData(query, bcd), {query, depth});
+output = mdnFeatureTable(getData(query, bcd), {query, depth, forMDNURL: 'https://developer.mozilla.org/docs/' + env.slug});
 %>
 <%-output%>

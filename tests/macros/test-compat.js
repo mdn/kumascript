@@ -31,6 +31,7 @@ describeMacro('Compat', function () {
     beforeEachMacro(function (macro) {
         macro.ctx.require = sinon.stub();
         macro.ctx.require.withArgs('mdn-browser-compat-data').returns(fixtureCompatData);
+        macro.ctx.require.withArgs('mdn-browser-compat-toolkit/src/renderers').returns(require('mdn-browser-compat-toolkit/src/renderers'));
     });
 
     itMacro('Outputs a message if there is no data for the query "foo.bar"', function (macro) {
