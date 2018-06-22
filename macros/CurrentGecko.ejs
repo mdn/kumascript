@@ -22,8 +22,6 @@ var channel = $0 || "release";
 channel = channel.toLowerCase();
 
 var versionID;
-var bumpToNightly = false;          // Set to true if we're pulling aurora version but need to increment it
-                                    // since nightly version isn't explicitly listed in the file
 
 switch(channel) {
     case 'release':
@@ -34,7 +32,8 @@ switch(channel) {
         break;
     case 'nightly':
     case 'central':
-        bumpToNightly = true;       // Flag that we'll need to increment, then fall through...
+        versionID = "FIREFOX_NIGHTLY";
+        break;
     case 'aurora':
         versionID = "FIREFOX_AURORA";
         break;
@@ -45,7 +44,7 @@ switch(channel) {
 
 // The URL to pull from
 
-var url = "http://svn.mozilla.org/libs/product-details/json/firefox_versions.json";
+var url = "https://product-details.mozilla.org/1.0/firefox_versions.json";
 
 // Fetch the versions JSON file from MXR.
 
@@ -54,12 +53,6 @@ var versionInfo = mdn.fetchJSONResource(url);
 // We now have a JSON object with the version information, so peel out the value we need
 
 var version = versionInfo[versionID];
-
-if (bumpToNightly) {
-    var major = parseInt(version, 10);  // Get major version number
-    major++;
-    version = major + version.slice(major.toString().length);
-}
 
 // Finally, remove the cruft at the end; we don't need beta numbers etc.
 
