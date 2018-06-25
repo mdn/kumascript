@@ -28,18 +28,18 @@ switch(channel) {
         versionID = "LATEST_FIREFOX_VERSION";
         break;
     case 'beta':
+    case 'aurora':
         versionID = "LATEST_FIREFOX_DEVEL_VERSION";
         break;
     case 'nightly':
     case 'central':
         versionID = "FIREFOX_NIGHTLY";
         break;
-    case 'aurora':
-        versionID = "FIREFOX_AURORA";
-        break;
     case 'esr':
         versionID = "FIREFOX_ESR";
         break;
+    default:
+        return 'undefined';
 }
 
 // The URL to pull from

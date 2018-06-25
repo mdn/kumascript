@@ -1,15 +1,14 @@
 /* jshint node: true, mocha: true, esversion: 6 */
 
-var utils = require('./utils'),
-    chai = require('chai'),
-    chaiAsPromised = require('chai-as-promised'),
-    sinon = require('sinon'),
-    assert = chai.assert,
-    itMacro = utils.itMacro,
-    describeMacro = utils.describeMacro,
-    beforeEachMacro = utils.beforeEachMacro;
-
-const ffURL = 'https://product-details.mozilla.org/1.0/firefox_versions.json';
+const utils = require('./utils'),
+      chai = require('chai'),
+      chaiAsPromised = require('chai-as-promised'),
+      sinon = require('sinon'),
+      assert = chai.assert,
+      itMacro = utils.itMacro,
+      describeMacro = utils.describeMacro,
+      beforeEachMacro = utils.beforeEachMacro,
+      ffURL = 'https://product-details.mozilla.org/1.0/firefox_versions.json';
 
 // Let's add "eventually" to assert so we can work with promises.
 chai.use(chaiAsPromised);
@@ -21,7 +20,7 @@ describeMacro('CurrentGecko', function () {
         fetch_stub.withArgs(ffURL).returns(
             {
                 'FIREFOX_NIGHTLY': '65.0a1',
-                'FIREFOX_AURORA': '49',
+                'FIREFOX_AURORA': '',
                 'FIREFOX_ESR': '52.8.1esr',
                 'FIREFOX_ESR_NEXT': '60.0.2esr',
                 'LATEST_FIREFOX_DEVEL_VERSION': '61.0b14',
@@ -49,9 +48,12 @@ describeMacro('CurrentGecko', function () {
         return assert.eventually.equal(macro.call('CENtral'), '65');
     });
     itMacro('Aurora', function (macro) {
-        return assert.eventually.equal(macro.call('aurora'), '49');
+        return assert.eventually.equal(macro.call('aurora'), '61');
     });
     itMacro('ESR', function (macro) {
         return assert.eventually.equal(macro.call('ESR'), '52.8.1');
+    });
+    itMacro('nonsense', function (macro) {
+        return assert.eventually.equal(macro.call('nonsense'), 'undefined');
     });
 });
