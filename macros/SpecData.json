@@ -1503,5 +1503,25 @@
     "name": "XMLHttpRequest",
     "url": "https://xhr.spec.whatwg.org",
     "status": "Living"
+  },
+  "XPath1": {
+    "name": "XPath 1.0",
+    "url": "https://www.w3.org/TR/xpath-10/",
+    "status": "REC"
+  },
+  "XPath2": {
+    "name": "XPath 2.0",
+    "url": "https://www.w3.org/TR/xpath-20/",
+    "status": "REC"
+  },
+  "XPath3": {
+    "name": "XPath 3.0",
+    "url": "https://www.w3.org/TR/xpath-30/",
+    "status": "REC"
+  },
+  "XPath3.1": {
+    "name": "XPath 3.1",
+    "url": "https://www.w3.org/TR/xpath-31/",
+    "status": "REC"
   }
 }
