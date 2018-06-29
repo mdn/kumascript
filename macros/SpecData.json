@@ -509,6 +509,11 @@
     "url": "https://drafts.csswg.org/css-transforms-2/",
     "status": "ED"
   },
+  "CSS Typed OM": {
+    "name": "CSS Typed OM Level 1",
+    "url": "https://drafts.css-houdini.org/css-typed-om-1/",
+    "status": "WD"
+  },
   "CSS Will Change": {
     "name": "CSS Will Change Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-will-change/",
