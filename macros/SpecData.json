@@ -1461,7 +1461,7 @@
   },
   "Web Speech API": {
     "name": "Web Speech API",
-    "url": "https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi.html",
+    "url": "https://w3c.github.io/speech-api/",
     "status": "Draft"
   },
   "Web Telephony": {
