@@ -408,6 +408,8 @@
                             "DOMObject",
                             "DOMParser",
                             "DOMPoint",
+                            "DOMPointInit",
+                            "DOMPointReadOnly",
                             "DOMRect",
                             "DOMString",
                             "DOMTimeStamp",
