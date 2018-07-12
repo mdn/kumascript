@@ -934,6 +934,11 @@
     "url": "https://www.khronos.org/opengles/sdk/docs/man3/html/",
     "status": "Standard"
   },
+  "Page Lifecycle 1": {
+    "name": "Page Lifecycle 1",
+    "url": "https://wicg.github.io/page-lifecycle/spec.html",
+    "status": "ED"
+  },
   "Paint Timing": {
     "name": "Paint Timing",
     "url": "https://w3c.github.io/paint-timing/",
