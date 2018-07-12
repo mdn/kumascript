@@ -829,6 +829,11 @@
     "url": "https://w3c.github.io/input-events/index.html",
     "status": "WD"
   },
+  "Intl PluralRules": {
+    "name": "Intl.PluralRules Spec Proposal",
+    "url": "https://rawgit.com/caridy/intl-plural-rules-spec/master/index.html",
+    "status": "WD"
+  },
   "IntersectionObserver": {
     "name": "Intersection Observer",
     "url": "https://w3c.github.io/IntersectionObserver/",
