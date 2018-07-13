@@ -7,7 +7,7 @@
   "AmbientLight": {
     "name": "Ambient Light Sensor",
     "url": "https://w3c.github.io/ambient-light/",
-    "status": "WD"
+    "status": "CR"
   },
   "ARIA": {
     "name": "Accessible Rich Internet Applications (WAI-ARIA)",
@@ -87,7 +87,7 @@
   "Cookie Prefixes": {
     "name": "Cookie Prefixes",
     "url": "https://tools.ietf.org/html/draft-west-cookie-prefixes-05",
-    "status": "WD"
+    "status": "Draft"
   },
   "Credential Management": {
     "name": "Credential Management Level 1",
@@ -142,7 +142,7 @@
   "CSS3 Basic UI": {
     "name": "CSS Basic User Interface Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-ui-3/",
-    "status": "PR"
+    "status": "REC"
   },
   "CSS3 Basic UI 4": {
     "name": "CSS Basic User Interface Module Level&nbsp;4",
@@ -392,7 +392,7 @@
   "CSS4 Text Decoration": {
     "name": "CSS Text Decoration Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-text-decor-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Values": {
     "name": "CSS Values and Units Module Level&nbsp;4",
@@ -442,7 +442,7 @@
   "CSS Layout": {
     "name": "CSS Layout API Level 1",
     "url": "https://drafts.css-houdini.org/css-layout-api-1/",
-    "status": "Draft"
+    "status": "WD"
   },
   "CSS Line Grid": {
     "name": "CSS Line Grid Module Level&nbsp;1",
@@ -537,7 +537,7 @@
   "Custom Scroll Restoration": {
     "name": "Custom Scroll Restoration - History-based API",
     "url": "https://majido.github.io/scroll-restoration-proposal/history-based-api.html",
-    "status": "ED"
+    "status": "Draft"
   },
   "Data Store API": {
     "name": "Data Store API",
@@ -937,7 +937,7 @@
   "Page Lifecycle 1": {
     "name": "Page Lifecycle 1",
     "url": "https://wicg.github.io/page-lifecycle/spec.html",
-    "status": "ED"
+    "status": "Draft"
   },
   "Paint Timing": {
     "name": "Paint Timing",
@@ -1032,7 +1032,7 @@
   "RequestAnimationFrame": {
     "name": "Timing control for script-based animations",
     "url": "https://www.w3.org/TR/animation-timing/",
-    "status": "CR"
+    "status": "Obsolete"
   },
   "Resource Hints": {
     "name": "Resource Hints",
@@ -1097,7 +1097,7 @@
   "Shadow DOM": {
     "name": "Shadow DOM",
     "url": "https://w3c.github.io/webcomponents/spec/shadow/",
-    "status": "WD"
+    "status": "Obsolete"
   },
   "Shape Detection API": {
     "name": "Accelerated Shape Detection in Images",
@@ -1382,7 +1382,7 @@
   "WebDriver": {
     "name": "WebDriver",
     "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
-    "status": "CR"
+    "status": "REC"
   },
   "WEBGL_color_buffer_float": {
     "name": "WEBGL_color_buffer_float",
@@ -1497,7 +1497,7 @@
   "WebVTT": {
     "name": "WebVTT: The Web Video Text Tracks Format",
     "url": "https://w3c.github.io/webvtt/",
-    "status": "WD"
+    "status": "CR"
   },
   "WOFF1.0": {
     "name": "WOFF File Format 1.0",
@@ -1507,7 +1507,7 @@
   "WOFF2.0": {
     "name": "WOFF File Format 2.0",
     "url": "https://www.w3.org/TR/WOFF2/",
-    "status": "PR"
+    "status": "REC"
   },
   "Worklets": {
     "name": "Worklets Level 1",
