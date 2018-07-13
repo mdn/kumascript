@@ -21,7 +21,7 @@ function checkSidebarDom(dom, locale) {
   assert(section.classList.contains('Quick_links'), 'Section does not contain Quick_links class');
 
   let links = dom.querySelectorAll('a');
-  assert.equal(links[1].textContent,  locales[locale].Page_Inspector);
+  assert.equal(links[1].textContent,  locales[locale].Introduction);
 }
 
 describeMacro('GamesSidebar', function () {
