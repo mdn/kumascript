@@ -1769,6 +1769,7 @@
                             "AnimationTimeline",
                             "AnimationPlaybackEvent",
                             "DocumentTimeline",
+                            "EffectTiming",
                             "KeyframeEffect" ],
             "methods":    [ "Document.getAnimations()",
                             "Element.animate()"],
