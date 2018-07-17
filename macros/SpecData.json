@@ -141,8 +141,8 @@
   },
   "CSS3 Basic UI": {
     "name": "CSS Basic User Interface Module Level&nbsp;3",
-    "url": "https://drafts.csswg.org/css-ui-3/",
-    "status": "PR"
+    "url": "https://www.w3.org/TR/css-ui-3/",
+    "status": "REC"
   },
   "CSS3 Basic UI 4": {
     "name": "CSS Basic User Interface Module Level&nbsp;4",
@@ -166,7 +166,7 @@
   },
   "CSS3 Colors": {
     "name": "CSS Color Module Level&nbsp;3",
-    "url": "https://drafts.csswg.org/css-color-3/",
+    "url": "https://www.w3.org/TR/css-color-3/",
     "status": "REC"
   },
   "CSS3 Conditional": {
