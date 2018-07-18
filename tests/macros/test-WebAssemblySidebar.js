@@ -31,6 +31,7 @@ var expected = `\
     <ol>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly" title="Title for WebAssembly"><code>WebAssembly</code></a></li>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module" title="Title for WebAssembly.Module"><code>WebAssembly.Module</code></a></li>
+      <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Global" title="Title for WebAssembly.Global"><code>WebAssembly.Global</code></a></li>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance" title="Title for WebAssembly.Instance"><code>WebAssembly.Instance</code></a></li>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory" title="Title for WebAssembly.Memory"><code>WebAssembly.Memory</code></a></li>
       <li><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Table" title="Title for WebAssembly.Table"><code>WebAssembly.Table</code></a></li>
@@ -50,6 +51,7 @@ describeMacro('WebAssemblySidebar', function () {
         var endpoints = [
                 'WebAssembly',
                 'WebAssembly.Module',
+                'WebAssembly.Global',
                 'WebAssembly.Instance',
                 'WebAssembly.Memory',
                 'WebAssembly.Table',
