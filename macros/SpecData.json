@@ -194,6 +194,11 @@
     "url": "https://drafts.csswg.org/css-display/",
     "status": "WD"
   },
+  "CSS3 Environment Variables": {
+    "name": "CSS Environment Variables Module Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-env-1/",
+    "status": "WD"
+  },
   "CSS3 Font Loading": {
     "name": "CSS Font Loading Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-font-loading/",
