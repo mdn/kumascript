@@ -39,10 +39,10 @@ const testExamplesJson = [
         'name': 'example-one'
     },
     {
-        'description': 'An example WebExtension.',
+        'description': 'Another example WebExtension.',
         'javascript_apis': [
         ],
-        'name': 'example-one'
+        'name': 'example-two'
     }
 ];
 
