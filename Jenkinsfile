@@ -109,10 +109,15 @@ node {
 
         stage('Push') {
           dir('infra/apps/mdn/mdn-aws/k8s') {
-            // Start a rolling update of the Kumascript-based deployments.
-            utils.rollout()
-            // Monitor the rollout until it has completed.
-            utils.monitor_rollout()
+            def current_revision_hash = utils.get_revision_hash()
+            withEnv(["FROM_REVISION_HASH=${current_revision_hash}"]) {
+              // Start a rolling update of the Kumascript-based deployments.
+              utils.rollout()
+              // Monitor the rollout until it has completed.
+              utils.monitor_rollout()
+              // Record the rollout in external services like New-Relic.
+              utils.record_rollout()
+            }
           }
         }
 
