@@ -1491,7 +1491,7 @@
   },
   "WebVR 1.1": {
     "name": "WebVR 1.1",
-    "url": "https://w3c.github.io/webvr/spec/1.1/",
+    "url": "https://immersive-web.github.io/webvr/spec/1.1/",
     "status": "Draft"
   },
   "WebVTT": {
