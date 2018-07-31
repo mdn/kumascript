@@ -659,6 +659,11 @@
     "url": "https://www.ecma-international.org/ecma-262/8.0/",
     "status": "Standard"
   },
+  "ES2018": {
+    "name": "ECMAScript 2018 (ECMA-262)",
+    "url": "https://www.ecma-international.org/ecma-262/9.0/",
+    "status": "Standard"
+  },
   "ESDraft": {
     "name": "ECMAScript Latest Draft (ECMA-262)",
     "url": "https://tc39.github.io/ecma262/",
