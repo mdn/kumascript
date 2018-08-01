@@ -108,15 +108,21 @@ node {
         }
 
         stage('Push') {
-          dir('infra/apps/mdn/mdn-aws/k8s') {
-            def current_revision_hash = utils.get_revision_hash()
-            withEnv(["FROM_REVISION_HASH=${current_revision_hash}"]) {
-              // Start a rolling update of the Kumascript-based deployments.
-              utils.rollout()
-              // Monitor the rollout until it has completed.
-              utils.monitor_rollout()
-              // Record the rollout in external services like New-Relic.
-              utils.record_rollout()
+          def kuma_image_tag = sh(
+            returnStdout: true,
+            script: 'git rev-parse --short=7 HEAD'
+          ).trim()
+          withEnv(["KUMA_IMAGE_TAG=${kuma_image_tag}"]) {
+            dir('infra/apps/mdn/mdn-aws/k8s') {
+              def current_revision_hash = utils.get_revision_hash()
+              withEnv(["FROM_REVISION_HASH=${current_revision_hash}"]) {
+                // Start a rolling update of the Kumascript-based deployments.
+                utils.rollout()
+                // Monitor the rollout until it has completed.
+                utils.monitor_rollout()
+                // Record the rollout in external services like New-Relic.
+                utils.record_rollout()
+              }
             }
           }
         }
