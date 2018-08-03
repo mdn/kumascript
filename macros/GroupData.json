@@ -986,6 +986,22 @@
             "properties": [],
             "events":      []
         },
+        "Media Capabilities API": {
+            "overview":   [ "Media Capabilities API" ],
+            "interfaces": [ "MediaCapabilities",
+                            "ScreenLuminance",
+                            "Screen",
+                            "MediaCapabilitiesInfo" ],
+            "methods":    [ "mediaCapabilities.decodingInfo()",
+                            "mediaCapabilities.encodingInfo()"],
+            "properties": [],
+            "events":     [],
+            "dictionaries": ["MediaConfiguration",
+                            "VideoConfiguration",
+                            "AudioConfiguration",
+                            "MediaDecodingConfiguration",
+                            "MediaEncodingConfiguration"]
+        },
         "Media Capture and Streams": {
             "overview":   [ "Media Streams API" ],
             "guides":     [ { "url":   "/en-US/docs/Web/API/Media_Streams_API/Constraints",
