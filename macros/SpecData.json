@@ -1459,6 +1459,11 @@
     "url": "https://heycam.github.io/webidl/",
     "status": "CR"
   },
+  "Web Locks": {
+    "name": "Web Locks API",
+    "url": "https://inexorabletash.github.io/web-locks/",
+    "status": "WD"
+  },
   "WebMIDI API": {
     "name": "Web MIDI API",
     "url": "https://webaudio.github.io/web-midi-api/",
