@@ -1461,7 +1461,7 @@
   },
   "Web Locks": {
     "name": "Web Locks API",
-    "url": "https://inexorabletash.github.io/web-locks/",
+    "url": "https://wicg.github.io/web-locks/",
     "status": "WD"
   },
   "WebMIDI API": {
