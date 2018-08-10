@@ -1104,11 +1104,6 @@
     "url": "https://wicg.github.io/shape-detection-api/",
     "status": "Draft"
   },
-  "SIMD": {
-    "name": "SIMD",
-    "url": "https://tc39.github.io/ecmascript_simd/",
-    "status": "Obsolete"
-  },
   "Static Range": {
     "name": "Static Range",
     "url": "https://w3c.github.io/staticrange/index.html",
