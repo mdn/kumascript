@@ -2,155 +2,330 @@
 var currentSection = $0;
 var locale = env.locale;
 var slug = env.slug;
-var baseURL = "/" + locale + "/docs/Mozilla/Add-ons/";
+var baseURL = '/' + locale + '/docs/Mozilla/Add-ons/';
 
 function currentPageIsUnder(root) {
-  rootSlug = "Mozilla/Add-ons/" + root;
+  rootSlug = 'Mozilla/Add-ons/' + root;
   if (slug && slug.indexOf(rootSlug) != -1) {
-    return "open";
+    return 'open';
   }
-  return "closed";
+  return 'closed';
 }
+
+var text = mdn.localStringMap({
+  'en-US': {
+    'WebExtensions': 'Browser extensions',
+    'WebExtensions#Getting_started': 'Getting started',
+    'WebExtensions/What_are_WebExtensions': 'What are extensions?',
+    'WebExtensions/Your_first_WebExtension': 'Your first extension',
+    'WebExtensions/Your_second_WebExtension': 'Your second extension',
+    'WebExtensions/Anatomy_of_a_WebExtension': 'Anatomy of an extension',
+    'WebExtensions/Examples': 'Example extensions',
+    'WebExtensions/What_next_': 'What next?',
+    'WebExtensions#Concepts': 'Concepts',
+    'WebExtensions/Using_the_JavaScript_APIs': 'Using the JavaScript APIs',
+    'WebExtensions/Content_scripts': 'Content scripts',
+    'WebExtensions/Match_patterns': 'Match patterns',
+    'WebExtensions/Working_with_files': 'Working with files',
+    'WebExtensions/Internationalization': 'Internationalization',
+    'WebExtensions/Security_best_practices': 'Security best practices',
+    'WebExtensions/Content_Security_Policy': 'Content Security Policy',
+    'WebExtensions/Native_messaging': 'Native messaging',
+    'WebExtensions#User_Interface': 'User interface',
+    'WebExtensions/user_interface': 'User Interface',
+    'WebExtensions/user_interface/Browser_action': 'Toolbar button',
+    'WebExtensions/user_interface/Page_actions': 'Address bar button',
+    'WebExtensions/user_interface/Sidebars': 'Sidebars',
+    'WebExtensions/user_interface/Context_menu_items': 'Context menu items',
+    'WebExtensions/user_interface/Options_pages': 'Options page',
+    'WebExtensions/user_interface/Extension_pages': 'Extension pages',
+    'WebExtensions/user_interface/Notifications': 'Notifications',
+    'WebExtensions/user_interface/Omnibox': 'Address bar suggestions',
+    'WebExtensions/user_interface/devtools_panels': 'Developer tools panels',
+    'WebExtensions#How_to': 'How to',
+    'WebExtensions/Intercept_HTTP_requests': 'Intercept HTTP requests',
+    'WebExtensions/Modify_a_web_page': 'Modify a web page',
+    'WebExtensions/Safely_inserting_external_content_into_a_page': 'Insert external content',
+    'WebExtensions/Add_a_button_to_the_toolbar': 'Add a button to the toolbar',
+    'WebExtensions/Implement_a_settings_page': 'Implement a settings page',
+    'WebExtensions/Working_with_the_Tabs_API': 'Work with the Tabs API',
+    'WebExtensions/Work_with_the_Bookmarks_API': 'Work with the Bookmarks API',
+    'WebExtensions/Work_with_the_Cookies_API': 'Work with the Cookies API',
+    'WebExtensions/Work_with_contextual_identities': 'Work with contextual identities',
+    'WebExtensions#Porting': 'Porting',
+    'WebExtensions/Porting_a_Google_Chrome_extension': 'Porting a Google Chrome extension',
+    'WebExtensions/Porting_a_legacy_Firefox_add-on': 'Porting a legacy Firefox extension',
+    'WebExtensions/Embedded_WebExtensions': 'Embedded WebExtensions',
+    'WebExtensions/Comparison_with_the_Add-on_SDK': 'Comparison with the Add-on SDK',
+    'WebExtensions/Comparison_with_XUL_XPCOM_extensions': 'Comparison with XUL/XPCOM extensions',
+    'WebExtensions/Chrome_incompatibilities': 'Chrome incompatibilities',
+    'WebExtensions/Differences_between_desktop_and_Android': 'Differences between desktop and Android',
+    'WebExtensions#Firefox_workflow': 'Firefox workflow',
+    'WebExtensions/User_experience_best_practices': 'User Experience',
+    'WebExtensions/Temporary_Installation_in_Firefox': 'Temporary Installation in Firefox',
+    'WebExtensions/Debugging': 'Debugging',
+    'WebExtensions/Testing_persistent_and_restart_features': 'Testing persistent and restart features',
+    'WebExtensions/Developing_WebExtensions_for_Firefox_for_Android': 'Developing for Firefox for Android',
+    'WebExtensions/Getting_started_with_web-ext': 'Getting started with web-ext',
+    'WebExtensions/web-ext_command_reference': 'web-ext command reference',
+    'WebExtensions/WebExtensions_and_the_Add-on_ID': 'Extensions and the Add-on ID',
+    'WebExtensions/Request_the_right_permissions': 'Request the right permissions',
+    'WebExtensions/API': 'JavaScript APIs',
+    'WebExtensions/manifest.json': 'Manifest keys',
+    'Themes': 'Themes',
+    'Themes/Theme_concepts': 'Browser themes',
+    'Themes/Theme_concepts_': 'Browser theme concepts',
+    'Themes/Lightweight_themes': 'Lightweight themes',
+    'Themes/Lightweight_Themes/FAQ': 'Lightweight themes FAQ',
+    'Distribution': 'Publishing and Distribution',
+    'Distribution/Publishing': 'Publishing add-ons',
+    'Distribution/Signing': 'Signing and distribution overview',
+    'WebExtensions/Package_your_extension_': 'Package your extension',
+    'Distribution/Submitting_an_add-on': 'Submit an add-on',
+    'Source_Code_Submission': 'Source code submission',
+    'Distribution/Resources_for_publishers': 'Resources for publishers',
+    'Listing': 'Creating an appealing listing',
+    'AMO/Policy/Reviews': 'Review policies',
+    'AMO/Policy/Agreement': 'Developer agreement',
+    'AMO/Policy/Featured': 'Featured add-ons',
+    'Distribution/Retiring_your_extension': 'Retiring your extension',
+    'WebExtensions/Alternative_distribution_options': 'Distributing add-ons',
+    'WebExtensions/Alternative_distribution_options/Sideloading_add-ons': 'For sideloading',
+    'WebExtensions/Alternative_distribution_options/Add-ons_for_desktop_apps': 'For desktop apps',
+    'WebExtensions/Alternative_distribution_options/Add-ons_in_the_enterprise': 'For an enterprise',
+    'Community_and_Support': 'Community and Support',
+    'Channels': 'Channels',
+    'Blog': 'Add-ons blog',
+    'Forums': 'Add-on forums',
+    '#Contact_us': 'Contact us'
+  },
+  'fr': {
+    'WebExtensions': 'WebExtensions',
+    'WebExtensions#Getting_started': 'Démarrage',
+    'WebExtensions/What_are_WebExtensions': 'Que sont les WebExtensions ?',
+    'WebExtensions/Your_first_WebExtension': 'Votre première WebExtension',
+    'WebExtensions/Your_second_WebExtension': 'Votre deuxième WebExtension',
+    'WebExtensions/Anatomy_of_a_WebExtension': 'Anatomie d\'une WebExtension',
+    'WebExtensions/Examples': 'Exemples de WebExtensions',
+    'WebExtensions/What_next_': 'Que faire ensuite ?',
+    'WebExtensions#Concepts': 'Concepts',
+    'WebExtensions/Using_the_JavaScript_APIs': 'Utilisation des API JavaScript',
+    'WebExtensions/Content_scripts': 'Scripts de contenu',
+    'WebExtensions/Match_patterns': 'Motifs de correspondance (Match patterns)',
+    'WebExtensions/Working_with_files': 'Travailler avec les fichiers',
+    'WebExtensions/Internationalization': 'Internationalisation',
+    'WebExtensions/Security_best_practices': 'Sécurité : bonnes pratiques',
+    'WebExtensions/Content_Security_Policy': 'Politique de sécurité du contenu',
+    'WebExtensions/Native_messaging': 'Message natifs',
+    'WebExtensions#User_Interface': 'Interface Utilisateur',
+    'WebExtensions/user_interface': 'Introduction',
+    'WebExtensions/user_interface/Browser_action': 'Bouton de la barre d\'outils',
+    'WebExtensions/user_interface/Page_actions': 'Bouton de la barre d\'adresse',
+    'WebExtensions/user_interface/Sidebars': 'Barres latérales',
+    'WebExtensions/user_interface/Context_menu_items': 'Éléments du menu contextuel',
+    'WebExtensions/user_interface/Options_pages': 'Page d\'options',
+    'WebExtensions/user_interface/Extension_pages': 'Pages pour l\'extension',
+    'WebExtensions/user_interface/Notifications': 'Notifications',
+    'WebExtensions/user_interface/Omnibox': 'Suggestions de la barre d\'adresse',
+    'WebExtensions/user_interface/devtools_panels': 'Panneaux d\'outils de développement',
+    'WebExtensions#How_to': 'Mode d\'emploi',
+    'WebExtensions/Intercept_HTTP_requests': 'Intercepter les requêtes HTTP',
+    'WebExtensions/Modify_a_web_page': 'Modifier une page web',
+    'WebExtensions/Safely_inserting_external_content_into_a_page': 'Insérer un contenu externe',
+    'WebExtensions/Add_a_button_to_the_toolbar': 'Ajouter un bouton à la barre d\'outils',
+    'WebExtensions/Implement_a_settings_page': 'Mettre en place une page de paramètres',
+    'WebExtensions/Working_with_the_Tabs_API': 'Travailler avec l\'API Tabs',
+    'WebExtensions/Work_with_the_Bookmarks_API': 'Travailler avec l\'API Bookmarks',
+    'WebExtensions/Work_with_the_Cookies_API': 'Travailler avec l\'API Cookies',
+    'WebExtensions/Work_with_contextual_identities': 'Travailler avec des identités contextuelles',
+    'WebExtensions#Porting': 'Portage',
+    'WebExtensions/Porting_a_Google_Chrome_extension': 'Porter une extension Google Chrome',
+    'WebExtensions/Porting_a_legacy_Firefox_add-on': 'Porter une ancienne extension Firefox',
+    'WebExtensions/Embedded_WebExtensions': 'WebExtensions intégrées',
+    'WebExtensions/Comparison_with_the_Add-on_SDK': 'Comparaison avec le SDK Add-on',
+    'WebExtensions/Comparison_with_XUL_XPCOM_extensions': 'Comparaison avec les extensions XUL/XPCOM',
+    'WebExtensions/Chrome_incompatibilities': 'Incompatibilités avec Chrome',
+    'WebExtensions/Differences_between_desktop_and_Android': 'Différence entre le bureau et Android',
+    'WebExtensions#Firefox_workflow': 'Déroulement avec Firefox',
+    'WebExtensions/User_experience_best_practices': 'Expérience utilisateur : bonnes pratiques',
+    'WebExtensions/Temporary_Installation_in_Firefox': 'Installation temporaire dans Firefox',
+    'WebExtensions/Debugging': 'Débogage',
+    'WebExtensions/Testing_persistent_and_restart_features': 'Test des fonctionnalités persistantes et de redémarrage',
+    'WebExtensions/Developing_WebExtensions_for_Firefox_for_Android': 'Écrire des extensions pour Firefox sur Android',
+    'WebExtensions/Getting_started_with_web-ext': 'Démarrer avec web-ext',
+    'WebExtensions/web-ext_command_reference': 'Détail de la commande web-ext',
+    'WebExtensions/WebExtensions_and_the_Add-on_ID': 'Les WebExtensions et l\'ID Add-on',
+    'WebExtensions/Request_the_right_permissions': 'Demander les bonnes permissions',
+    'WebExtensions/API': 'Les API JavaScript',
+    'WebExtensions/manifest.json': 'Clés de manifeste',
+    'Themes': 'Thèmes',
+    'Themes/Theme_concepts': 'Thème de navigateur',
+    'Themes/Theme_concepts_': 'Concepts des thèmes',
+    'Themes/Lightweight_themes': 'Thèmes légers',
+    'Themes/Lightweight_Themes/FAQ': 'FAQ sur les thèmes légers',
+    'Distribution': 'Publication et distribution',
+    'Distribution/Publishing': 'Publication de votre extension',
+    'Distribution/Signing': 'Signature et distribution de votre extension',
+    'WebExtensions/Package_your_extension_': 'Zipper votre extension',
+    'Distribution/Submitting_an_add-on': 'Soumettre une extension',
+    'Source_Code_Submission': 'Soumission du code source',
+    'Distribution/Resources_for_publishers': 'Ressources pour les développeurs',
+    'Listing': 'Créer une page attrayante pour votre extension',
+    'AMO/Policy/Reviews': 'Processus de revue',
+    'AMO/Policy/Agreement': 'Accord développeur',
+    'AMO/Policy/Featured': 'Extensions mises en avant',
+    'Distribution/Retiring_your_extension': 'Retrait de votre extension',
+    'WebExtensions/Alternative_distribution_options': 'Distribuer votre module',
+    'WebExtensions/Alternative_distribution_options/Sideloading_add-ons': 'Pour une installation manuelle',
+    'WebExtensions/Alternative_distribution_options/Add-ons_for_desktop_apps': 'En tant qu\'application de bureau',
+    'WebExtensions/Alternative_distribution_options/Add-ons_in_the_enterprise': 'Dans un contexte d\'entreprise',
+    'Community_and_Support': 'Communauté et Support',
+    'Channels': 'Canaux de discussions',
+    'Blog': 'Blog extensions',
+    'Forums': 'Forum extensions',
+    '#Contact_us': 'Nous contacter'
+  }
+});
 
 %>
 
 <section class="Quick_links" id="Quick_Links">
   <ol>
-    <li><a href="<%=baseURL%>WebExtensions"><strong>Browser extensions</strong></a></li>
+    <li><a href="<%=baseURL%>WebExtensions"><strong><%=text['WebExtensions']%></strong></a></li>
 
-    <li><a href="<%=baseURL%>WebExtensions#Getting_started">Getting started</a>
+    <li><a href="<%=baseURL%>WebExtensions#Getting_started"><%=text['WebExtensions#Getting_started']%></a>
       <ol>
-        <li><a href="<%=baseURL%>WebExtensions/What_are_WebExtensions">What are extensions?</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Your_first_WebExtension">Your first extension</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Your_second_WebExtension">Your second extension</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Anatomy_of_a_WebExtension">Anatomy of an extension</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Examples">Example extensions</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/What_next_">What next?</a></li>
-      </ol>
-    </li>
-    
-    <li><a href="<%=baseURL%>WebExtensions#Concepts">Concepts</a>
-      <ol>
-        <li><a href="<%=baseURL%>WebExtensions/Using_the_JavaScript_APIs">Using the JavaScript APIs</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Content_scripts">Content scripts</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Match_patterns">Match patterns</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Working_with_files">Working with files</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Internationalization">Internationalization</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Security_best_practices">Security best practices</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Content_Security_Policy">Content Security Policy</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Native_messaging">Native messaging</a></li>
-      </ol>
-    </li>  
-
-    <li><a href="<%=baseURL%>WebExtensions#How_to">User interface</a>
-      <ol>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface">Introduction</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Browser_action">Toolbar button</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Page_actions">Address bar button</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Sidebars">Sidebar</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Context_menu_items">Context menu items</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Options_pages">Options page</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Bundled_web_pages">Bundled web pages</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Notifications">Notifications</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/Omnibox">Address bar suggestions</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/user_interface/devtools_panels">Developer tools panels</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/What_are_WebExtensions"><%=text['WebExtensions/What_are_WebExtensions']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Your_first_WebExtension"><%=text['WebExtensions/Your_first_WebExtension']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Your_second_WebExtension"><%=text['WebExtensions/Your_second_WebExtension']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Anatomy_of_a_WebExtension"><%=text['WebExtensions/Anatomy_of_a_WebExtension']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Examples"><%=text['WebExtensions/Examples']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/What_next_"><%=text['WebExtensions/What_next_']%></a></li>
       </ol>
     </li>
 
-    <li><a href="<%=baseURL%>WebExtensions#How_to">How to</a>
+    <li><a href="<%=baseURL%>WebExtensions#Concepts"><%=text['WebExtensions#Concepts']%></a>
       <ol>
-        <li><a href="<%=baseURL%>WebExtensions/Intercept_HTTP_requests">Intercept HTTP requests</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Modify_a_web_page">Modify a web page</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Safely_inserting_external_content_into_a_page">Insert external content</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Add_a_button_to_the_toolbar">Add a button to the toolbar</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Implement_a_settings_page">Implement a settings page</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Working_with_the_Tabs_API">Work with the Tabs API</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Work_with_the_Bookmarks_API">Work with the Bookmarks API</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Work_with_the_Cookies_API">Work with the Cookies API</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Work_with_contextual_identities">Work with contextual identities</a></li>
-	  </ol>
+        <li><a href="<%=baseURL%>WebExtensions/Using_the_JavaScript_APIs"><%=text['WebExtensions/Using_the_JavaScript_APIs']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Content_scripts"><%=text['WebExtensions/Content_scripts']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Match_patterns"><%=text['WebExtensions/Match_patterns']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Working_with_files"><%=text['WebExtensions/Working_with_files']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Internationalization"><%=text['WebExtensions/Internationalization']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Security_best_practices"><%=text['WebExtensions/Security_best_practices']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Content_Security_Policy"><%=text['WebExtensions/Content_Security_Policy']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Native_messaging"><%=text['WebExtensions/Native_messaging']%></a></li>
+      </ol>
     </li>
 
-    <li><a href="<%=baseURL%>WebExtensions#Porting">Porting</a>
+    <li><a href="<%=baseURL%>WebExtensions#User_Interface"><%=text['WebExtensions#User_Interface']%></a>
       <ol>
-        <li><a href="<%=baseURL%>WebExtensions/Porting_a_Google_Chrome_extension">Porting a Google Chrome extension</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Porting_a_legacy_Firefox_add-on">Porting a legacy Firefox extension</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Embedded_WebExtensions">Embedded WebExtensions</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Comparison_with_the_Add-on_SDK">Comparison with the Add-on SDK</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Comparison_with_XUL_XPCOM_extensions">Comparison with XUL/XPCOM extensions</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Chrome_incompatibilities">Chrome incompatibilities</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Differences_between_desktop_and_Android">Differences between desktop and Android</a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface"><%=text['WebExtensions/user_interface']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Browser_action"><%=text['WebExtensions/user_interface/Browser_action']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Page_actions"><%=text['WebExtensions/user_interface/Page_actions']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Sidebars"><%=text['WebExtensions/user_interface/Sidebars']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Context_menu_items"><%=text['WebExtensions/user_interface/Context_menu_items']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Options_pages"><%=text['WebExtensions/user_interface/Options_pages']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Extension_pages"><%=text['WebExtensions/user_interface/Extension_pages']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Notifications"><%=text['WebExtensions/user_interface/Notifications']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/Omnibox"><%=text['WebExtensions/user_interface/Omnibox']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/user_interface/devtools_panels"><%=text['WebExtensions/user_interface/devtools_panels']%></a></li>
       </ol>
-    </li>  
+    </li>
 
-    <li><a href="<%=baseURL%>WebExtensions#Firefox_workflow">Firefox workflow</a>
+    <li><a href="<%=baseURL%>WebExtensions#How_to"><%=text['WebExtensions#How_to']%></a>
       <ol>
-        <li><a href="<%=baseURL%>WebExtensions/User_experience_best_practices">User Experience</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Temporary_Installation_in_Firefox">Temporary Installation in Firefox</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Debugging">Debugging</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Testing_persistent_and_restart_features">Testing persistent and restart features</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Developing_WebExtensions_for_Firefox_for_Android">Developing for Firefox for Android</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Getting_started_with_web-ext">Getting started with web-ext</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/web-ext_command_reference">web-ext command reference</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/WebExtensions_and_the_Add-on_ID">Extensions and the Add-on ID</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Request_the_right_permissions">Request the right permissions</a></li>
-		  
+        <li><a href="<%=baseURL%>WebExtensions/Intercept_HTTP_requests"><%=text['WebExtensions/Intercept_HTTP_requests']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Modify_a_web_page"><%=text['WebExtensions/Modify_a_web_page']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Safely_inserting_external_content_into_a_page"><%=text['WebExtensions/Safely_inserting_external_content_into_a_page']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Add_a_button_to_the_toolbar"><%=text['WebExtensions/Add_a_button_to_the_toolbar']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Implement_a_settings_page"><%=text['WebExtensions/Implement_a_settings_page']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Working_with_the_Tabs_API"><%=text['WebExtensions/Working_with_the_Tabs_API']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Work_with_the_Bookmarks_API"><%=text['WebExtensions/Work_with_the_Bookmarks_API']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Work_with_the_Cookies_API"><%=text['WebExtensions/Work_with_the_Cookies_API']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Work_with_contextual_identities"><%=text['WebExtensions/Work_with_contextual_identities']%></a></li>
       </ol>
-    </li>  
-    
-    <li data-default-state="<%=currentPageIsUnder('WebExtensions/API')%>"><a href="<%=baseURL%>WebExtensions/API">JavaScript APIs</a>
+    </li>
+
+    <li><a href="<%=baseURL%>WebExtensions#Porting"><%=text['WebExtensions#Porting']%></a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/Porting_a_Google_Chrome_extension"><%=text['WebExtensions/Porting_a_Google_Chrome_extension']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Porting_a_legacy_Firefox_add-on"><%=text['WebExtensions/Porting_a_legacy_Firefox_add-on']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Embedded_WebExtensions"><%=text['WebExtensions/Embedded_WebExtensions']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Comparison_with_the_Add-on_SDK"><%=text['WebExtensions/Comparison_with_the_Add-on_SDK']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Comparison_with_XUL_XPCOM_extensions"><%=text['WebExtensions/Comparison_with_XUL_XPCOM_extensions']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Chrome_incompatibilities"><%=text['WebExtensions/Chrome_incompatibilities']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Differences_between_desktop_and_Android"><%=text['WebExtensions/Differences_between_desktop_and_Android']%></a></li>
+      </ol>
+    </li>
+
+    <li><a href="<%=baseURL%>WebExtensions#Firefox_workflow"><%=text['WebExtensions#Firefox_workflow']%></a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/User_experience_best_practices"><%=text['WebExtensions/User_experience_best_practices']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Temporary_Installation_in_Firefox"><%=text['WebExtensions/Temporary_Installation_in_Firefox']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Debugging"><%=text['WebExtensions/Debugging']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Testing_persistent_and_restart_features"><%=text['WebExtensions/Testing_persistent_and_restart_features']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Developing_WebExtensions_for_Firefox_for_Android"><%=text['WebExtensions/Developing_WebExtensions_for_Firefox_for_Android']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Getting_started_with_web-ext"><%=text['WebExtensions/Getting_started_with_web-ext']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/web-ext_command_reference"><%=text['WebExtensions/web-ext_command_reference']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/WebExtensions_and_the_Add-on_ID"><%=text['WebExtensions/WebExtensions_and_the_Add-on_ID']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Request_the_right_permissions"><%=text['WebExtensions/Request_the_right_permissions']%></a></li>
+
+      </ol>
+    </li>
+
+    <li data-default-state="<%=currentPageIsUnder('WebExtensions/API')%>"><a href="<%=baseURL%>WebExtensions/API"><%=text['WebExtensions/API']%></a>
      <%-template("WebExtAPISidebar", [])%>
     </li>
-    
-    <li><a href="<%=baseURL%>WebExtensions/manifest.json">Manifest keys</a>
+
+    <li><a href="<%=baseURL%>WebExtensions/manifest.json"><%=text['WebExtensions/manifest.json']%></a>
     <%-
       wiki.tree(baseURL + "WebExtensions/manifest.json", 1, 0, 0, 1)
     %>
     </li>
 
-    <li><a href="<%=baseURL%>Themes"><strong>Themes</strong></a></li>
-    <li><a href="<%=baseURL%>Themes/Theme_concepts">Browser themes</a>
+    <li><a href="<%=baseURL%>Themes"><strong><%=text['Themes']%></strong></a></li>
+    <li><a href="<%=baseURL%>Themes/Theme_concepts"><%=text['Themes/Theme_concepts']%></a>
       <ol>
-        <li><a href="<%=baseURL%>Themes/Theme_concepts">Browser theme concepts</a></li>
+        <li><a href="<%=baseURL%>Themes/Theme_concepts"><%=text['Themes/Theme_concepts_']%></a></li>
       </ol>
     </li>
-    <li><a href="<%=baseURL%>Themes/Lightweight_themes">Lightweight themes</a>
+    <li><a href="<%=baseURL%>Themes/Lightweight_themes"><%=text['Themes/Lightweight_themes']%></a>
       <ol>
-        <li><a href="<%=baseURL%>Themes/Lightweight_themes">Lightweight themes</a></li>
-        <li><a href="<%=baseURL%>Themes/Lightweight_Themes/FAQ">Lightweight themes FAQ</a></li>
-      </ol>
-    </li>
-
-    <li><a href="<%=baseURL%>Distribution"><strong>Publishing and Distribution</strong></a></li>
-    <li><a href="<%=baseURL%>Distribution">Publishing add-ons</a>
-      <ol>
-        <li><a href="<%=baseURL%>Distribution">Signing and distribution overview</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Package_your_extension_">Package your extension</a></li>
-        <li><a href="<%=baseURL%>Distribution/Submitting_an_add-on">Submit an add-on</a></li>
-        <li><a href="<%=baseURL%>Source_Code_Submission">Source code submission</a></li>
-        <li><a href="<%=baseURL%>Distribution/Resources_for_publishers">Resources for publishers</a></li>
-        <li><a href="<%=baseURL%>Listing">Creating an appealing listing</a></li>
-        <li><a href="<%=baseURL%>AMO/Policy/Reviews">Review policies</a></li>
-        <li><a href="<%=baseURL%>AMO/Policy/Agreement">Developer agreement</a></li>
-        <li><a href="<%=baseURL%>AMO/Policy/Featured">Featured add-ons</a></li>
-        <li><a href="<%=baseURL%>Distribution/Retiring_your_extension">Retiring your extension</a></li>
-      </ol>
-    </li>
-    <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options">Distributing add-ons</a>
-      <ol>
-        <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options/Sideloading_add-ons">For sideloading</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options/Add-ons_for_desktop_apps">For desktop apps</a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options/Add-ons_in_the_enterprise">For an enterprise</a></li>
+        <li><a href="<%=baseURL%>Themes/Lightweight_themes"><%=text['Themes/Lightweight_themes']%></a></li>
+        <li><a href="<%=baseURL%>Themes/Lightweight_Themes/FAQ"><%=text['Themes/Lightweight_Themes/FAQ']%></a></li>
       </ol>
     </li>
 
-    <li><a href="https://discourse.mozilla.org/c/add-ons"><strong>Community and support</a></strong></li>
-    <li><a href="#">Channels</a>
+    <li><a href="<%=baseURL%>Distribution"><strong><%=text['Distribution']%><strong></a></li>
+    <li><a href="<%=baseURL%>Distribution"><%=text['Distribution/Publishing']%></a>
       <ol>
-        <li><a href="https://blog.mozilla.org/addons">Add-ons blog</a></li>
-        <li><a href="https://discourse.mozilla.org/c/add-ons">Add-on forums</a></li>
+        <li><a href="<%=baseURL%>Distribution"><%=text['Distribution/Signing']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Package_your_extension_"><%=text['WebExtensions/Package_your_extension_']%></a></li>
+        <li><a href="<%=baseURL%>Distribution/Submitting_an_add-on"><%=text['Distribution/Submitting_an_add-on']%></a></li>
+        <li><a href="<%=baseURL%>Source_Code_Submission"><%=text['Source_Code_Submission']%></a></li>
+        <li><a href="<%=baseURL%>Distribution/Resources_for_publishers"><%=text['Distribution/Resources_for_publishers']%></a></li>
+        <li><a href="<%=baseURL%>Listing"><%=text['Listing']%></a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Reviews"><%=text['AMO/Policy/Reviews']%></a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Agreement"><%=text['AMO/Policy/Agreement']%></a></li>
+        <li><a href="<%=baseURL%>AMO/Policy/Featured"><%=text['AMO/Policy/Featured']%></a></li>
+        <li><a href="<%=baseURL%>Distribution/Retiring_your_extension"><%=text['Distribution/Retiring_your_extension']%></a></li>
+      </ol>
+    </li>
+    <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options"><%=text['WebExtensions/Alternative_distribution_options']%></a>
+      <ol>
+        <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options/Sideloading_add-ons"><%=text['WebExtensions/Alternative_distribution_options/Sideloading_add-ons']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options/Add-ons_for_desktop_apps"><%=text['WebExtensions/Alternative_distribution_options/Add-ons_for_desktop_apps']%></a></li>
+        <li><a href="<%=baseURL%>WebExtensions/Alternative_distribution_options/Add-ons_in_the_enterprise"><%=text['WebExtensions/Alternative_distribution_options/Add-ons_in_the_enterprise']%></a></li>
+      </ol>
+    </li>
+
+    <li><a href="https://discourse.mozilla.org/c/add-ons"><strong><%=text['Community_and_Support']%></a></strong></li>
+    <li><a href="#"><%=text['Channels']%></a>
+      <ol>
+        <li><a href="https://blog.mozilla.org/addons"><%=text['Blog']%></a></li>
+        <li><a href="https://discourse.mozilla.org/c/add-ons"><%=text['Forums']%></a></li>
         <li><a href="http://stackoverflow.com/questions/tagged/firefox-addon">Stack Overflow</a></li>
-        <li><a href="<%=baseURL%>#Contact_us">Contact us</a></li>
+        <li><a href="<%=baseURL%>#Contact_us"><%=text['#Contact_us']%></a></li>
       </ol>
     </li>
 
