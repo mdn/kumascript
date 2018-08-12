@@ -1,14 +1,14 @@
 {
     "css_ref_title": {
         "en-US": "CSS Reference",
-        "fr": "Référence CSS",
         "de": "CSS Referenz",
-        "ja": "CSS リファレンス",
-        "zh-CN": "CSS 参考",
+        "fr": "Référence CSS",
         "es": "Referencia CSS",
+        "ja": "CSS リファレンス",
         "pl": "Dokumentacja CSS",
         "pt-PT": "Referência CSS",
-        "ru": "CSS документация"
+        "ru": "CSS документация",
+        "zh-CN": "CSS 参考"
     },
     "at_rules": {
         "en-US": "At-Rules",
