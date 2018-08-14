@@ -18,6 +18,8 @@ var str = $1 || $0;
 var rtlLocales = ['ar', 'he', 'fa'];
 var localStrings = string.deserialize(template("L10n:Common"));
 
+header = header.replace(/\./g, '/');
+
 // RTL locales
 if (rtlLocales.indexOf(lang) != -1) {
     str = '<bdi>' + str +'</bdi>';
