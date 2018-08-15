@@ -1,8 +1,7 @@
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD)
-REGISTRY ?= quay.io/
-IMAGE_PREFIX ?= mozmar
+IMAGE_PREFIX ?= quay.io/mozmar
 IMAGE_NAME ?= kumascript
-IMAGE ?= ${REGISTRY}${IMAGE_PREFIX}/${IMAGE_NAME}\:${VERSION}
+IMAGE ?= ${IMAGE_PREFIX}/${IMAGE_NAME}\:${VERSION}
 MOUNT_DIR ?= $(shell pwd)
 APP_DIR ?= /app
 PORT ?= 9080

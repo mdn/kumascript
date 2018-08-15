@@ -29,148 +29,153 @@ node {
         setGitEnvironmentVariables()
       }
     }
-    switch (env.BRANCH_NAME) {
-      case 'master':
-        stage('Build') {
-          utils.sh_with_notify(
-            'make build-kumascript',
-            "Build of commit-tagged Kumascript image"
-          )
-          utils.sh_with_notify(
-            'make build-kumascript KS_VERSION=latest',
-            "Build of latest-tagged Kumascript image"
-          )
-        }
-
-        stage('Lint') {
-          dir('kumascript') {
+    // TODO: After cutover to IT-owned cluster, make "mdnwebdocs" the default
+    //       value for IMAGE_PREFIX in the Makefile, and remove this code.
+    def image_prefix = utils.is_mozmeao_pipeline() ? 'quay.io/mozmar' : 'mdnwebdocs'
+    withEnv(["IMAGE_PREFIX=${image_prefix}"]) {
+      switch (env.BRANCH_NAME) {
+        case 'master':
+          stage('Build') {
             utils.sh_with_notify(
-              'make lint VERSION=latest',
-              "Lint the Kumascript code"
+              'make build-kumascript',
+              "Build of commit-tagged Kumascript image"
             )
             utils.sh_with_notify(
-              'make lint-macros VERSION=latest',
-              "Lint the Kumascript macros"
+              'make build-kumascript KS_VERSION=latest',
+              "Build of latest-tagged Kumascript image"
             )
           }
-        }
 
-        stage('Test') {
-          dir('kumascript') {
-            try {
+          stage('Lint') {
+            dir('kumascript') {
               utils.sh_with_notify(
-                'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
-                "Test the Kumascript code"
+                'make lint VERSION=latest',
+                "Lint the Kumascript code"
               )
-            } finally {
-              junit 'test-results.xml'
-            }
-            try {
               utils.sh_with_notify(
-                'make test-macros VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
-                "Test the Kumascript macros"
+                'make lint-macros VERSION=latest',
+                "Lint the Kumascript macros"
               )
-            } finally {
-              junit 'test-results.xml'
             }
           }
-        }
 
-        stage('Push KumaScript Docker Image') {
-          utils.sh_with_notify(
-            'make push-kumascript',
-            "Push the commit-tagged Kumascript image"
-          )
-          utils.sh_with_notify(
-            'make push-kumascript KS_VERSION=latest',
-            "Push the latest-tagged Kumascript image"
-          )
-        }
-
-        break
-
-      case [utils.PROD_BRANCH_NAME, utils.STAGE_BRANCH_NAME, utils.STANDBY_BRANCH_NAME]:
-        stage("Announce") {
-          utils.announce_push()
-        }
-
-        stage("Check Pull") {
-          // Ensure the image can be successfully pulled from the registry.
-          utils.ensure_pull()
-        }
-
-        stage("Prepare Infra") {
-          // Checkout the "mdn/infra" repo's "master" branch into the
-          // "infra" sub-directory of the current working directory.
-          utils.checkout_repo(
-            'https://github.com/mdn/infra', 'master', 'infra'
-          )
-        }
-
-        stage('Push') {
-          def kuma_image_tag = sh(
-            returnStdout: true,
-            script: 'git rev-parse --short=7 HEAD'
-          ).trim()
-          withEnv(["KUMA_IMAGE_TAG=${kuma_image_tag}"]) {
-            dir('infra/apps/mdn/mdn-aws/k8s') {
-              def current_revision_hash = utils.get_revision_hash()
-              withEnv(["FROM_REVISION_HASH=${current_revision_hash}"]) {
-                // Start a rolling update of the Kumascript-based deployments.
-                utils.rollout()
-                // Monitor the rollout until it has completed.
-                utils.monitor_rollout()
-                // Record the rollout in external services like New-Relic.
-                utils.record_rollout()
+          stage('Test') {
+            dir('kumascript') {
+              try {
+                utils.sh_with_notify(
+                  'make test VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                  "Test the Kumascript code"
+                )
+              } finally {
+                junit 'test-results.xml'
+              }
+              try {
+                utils.sh_with_notify(
+                  'make test-macros VERSION=latest TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                  "Test the Kumascript macros"
+                )
+              } finally {
+                junit 'test-results.xml'
               }
             }
           }
-        }
 
-        break
-
-      default:
-        stage('Build') {
-          utils.sh_with_notify(
-            'make build-kumascript',
-            "Build of commit-tagged Kumascript image"
-          )
-        }
-
-        stage('Lint') {
-          dir('kumascript') {
+          stage('Push KumaScript Docker Image') {
             utils.sh_with_notify(
-              'make lint',
-              "Lint the Kumascript code"
+              'make push-kumascript',
+              "Push the commit-tagged Kumascript image"
             )
             utils.sh_with_notify(
-              'make lint-macros',
-              "Lint the Kumascript macros"
+              'make push-kumascript KS_VERSION=latest',
+              "Push the latest-tagged Kumascript image"
             )
           }
-        }
 
-        stage('Test') {
-          dir('kumascript') {
-            try {
-              utils.sh_with_notify(
-                'make test TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
-                "Test the Kumascript code"
-              )
-            } finally {
-              junit 'test-results.xml'
-            }
-            try {
-              utils.sh_with_notify(
-                'make test-macros TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
-                "Test the Kumascript macros"
-              )
-            } finally {
-              junit 'test-results.xml'
+          break
+
+        case [utils.PROD_BRANCH_NAME, utils.STAGE_BRANCH_NAME, utils.STANDBY_BRANCH_NAME]:
+          stage("Announce") {
+            utils.announce_push()
+          }
+
+          stage("Check Pull") {
+            // Ensure the image can be successfully pulled from the registry.
+            utils.ensure_pull()
+          }
+
+          stage("Prepare Infra") {
+            // Checkout the "mdn/infra" repo's "master" branch into the
+            // "infra" sub-directory of the current working directory.
+            utils.checkout_repo(
+              'https://github.com/mdn/infra', 'master', 'infra'
+            )
+          }
+
+          stage('Push') {
+            def kuma_image_tag = sh(
+              returnStdout: true,
+              script: 'git rev-parse --short=7 HEAD'
+            ).trim()
+            withEnv(["KUMA_IMAGE_TAG=${kuma_image_tag}"]) {
+              dir('infra/apps/mdn/mdn-aws/k8s') {
+                def current_revision_hash = utils.get_revision_hash()
+                withEnv(["FROM_REVISION_HASH=${current_revision_hash}"]) {
+                  // Start a rolling update of the Kumascript-based deployments.
+                  utils.rollout()
+                  // Monitor the rollout until it has completed.
+                  utils.monitor_rollout()
+                  // Record the rollout in external services like New-Relic.
+                  utils.record_rollout()
+                }
+              }
             }
           }
-        }
 
-        break
+          break
+
+        default:
+          stage('Build') {
+            utils.sh_with_notify(
+              'make build-kumascript',
+              "Build of commit-tagged Kumascript image"
+            )
+          }
+
+          stage('Lint') {
+            dir('kumascript') {
+              utils.sh_with_notify(
+                'make lint',
+                "Lint the Kumascript code"
+              )
+              utils.sh_with_notify(
+                'make lint-macros',
+                "Lint the Kumascript macros"
+              )
+            }
+          }
+
+          stage('Test') {
+            dir('kumascript') {
+              try {
+                utils.sh_with_notify(
+                  'make test TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                  "Test the Kumascript code"
+                )
+              } finally {
+                junit 'test-results.xml'
+              }
+              try {
+                utils.sh_with_notify(
+                  'make test-macros TEST_RUN_ARGS="--reporter mocha-junit-reporter"',
+                  "Test the Kumascript macros"
+                )
+              } finally {
+                junit 'test-results.xml'
+              }
+            }
+          }
+
+          break
+      }
     }
 }
