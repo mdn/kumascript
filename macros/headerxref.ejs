@@ -1,0 +1,55 @@
+<%
+/* Used for generating cross-references within and to HTTP header pages.
+ * @param
+ *   The path of the page to link to, relative to the Web/Headers/ documentation path.
+ * @param [optional]
+ *   The text to use for the link.  If omitted, the value of the first
+ *   parameter will be used
+ * @param [optional]
+ *   An anchor to link to on the page. Link text will display as $0.$2 or $1.$2
+ * @param [optional]
+ *   If set, do not put the domxref text in code
+ */
+
+/* get a page's language (Don't use page.language!) */
+var lang = env.locale;
+var header = $0;
+var str = $1 || $0;
+var rtlLocales = ['ar', 'he', 'fa'];
+var localStrings = string.deserialize(template("L10n:Common"));
+
+header = header.replace(/\./g, '/');
+
+// RTL locales
+if (rtlLocales.indexOf(lang) != -1) {
+    str = '<bdi>' + str +'</bdi>';
+}
+
+
+var URL = "/" + lang + '/docs/Web/Headers/' + header;
+
+var anch = '';
+
+if ($2) {
+  str = str + '.' + $2;
+  anch = '#' + $2;
+}
+
+// Now that we have the URL, let's gather the page summary for our tooltip
+
+var page = wiki.getPage(URL);
+var summary = "";
+
+if (!$2) {
+    if (page && page.summary) {
+        summary = mdn.escapeQuotes(page.summary);
+    } else {
+        summary = mdn.getLocalString(localStrings, "summary");
+    }
+}
+
+var code = '';
+var endcode = '';
+if (!$3) { code = '<code>'; endcode = '</code>' }
+
+%><a href="<%- URL+anch %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
