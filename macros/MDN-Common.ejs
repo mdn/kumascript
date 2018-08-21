@@ -456,5 +456,12 @@
         var url = 'https://bugzilla.mozilla.org/jsonrpc.cgi?method=Bug.search&params=' + query;
         var resource = MDN.fetchJSONResource(url);
         return resource.result;
+    },
+
+    /* Derive the site URL from the request URL */
+    siteURL: function () {
+        var p = kuma.url.parse(env.url, true),
+            site_url = p.protocol + '//' + p.host;
+        return site_url;
     }
 } %>
