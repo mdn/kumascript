@@ -8,7 +8,7 @@
 //
 //  Example call {{EmbedGHLiveSample("canvas-raycaster", 900, 300)}}
 //
- 
+
 var str = "";
 var widthHeight = "";
 var url = "https://mdn.github.io/" + $0;
@@ -20,7 +20,5 @@ if ($2) {
     widthHeight += "height='" + $2 + "' ";
 }
 
-str = '<iframe class="live-sample-frame" frameborder="0" ' + widthHeight + 'src="' + url + '"></iframe>';
-
 %>
-<%- str %>
+<iframe class="live-sample-frame" frameborder="0" <%- widthHeight %>src="<%= url %>"></iframe>
