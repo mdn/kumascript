@@ -1,4 +1,9 @@
 {
+  "Accelerometer": {
+    "name": "Accelerometer",
+    "url": "https://www.w3.org/TR/accelerometer/",
+    "status": "CR"
+  },
   "Alarm API": {
     "name": "Web Alarms API",
     "url": "https://www.w3.org/2012/sysapps/web-alarms/",
@@ -739,6 +744,11 @@
     "url": "https://w3c.github.io/gamepad/extensions.html",
     "status": "ED"
   },
+  "Generic Sensor": {
+    "name": "Generic Sensor API",
+    "url": "https://www.w3.org/TR/generic-sensor/",
+    "status": "CR"
+  },
   "Geolocation": {
     "name": "Geolocation API",
     "url": "https://dev.w3.org/geo/api/spec-source.html",
@@ -747,6 +757,11 @@
   "Geometry Interfaces": {
     "name": "Geometry Interfaces Module Level 1",
     "url": "https://drafts.fxtf.org/geometry/",
+    "status": "CR"
+  },
+  "Gyroscope": {
+    "name": "Gyroscope",
+    "url": "https://www.w3.org/TR/gyroscope/",
     "status": "CR"
   },
   "Highres Time": {
@@ -844,6 +859,11 @@
     "url": "https://w3c.github.io/longtasks/",
     "status": "WD"
   },
+  "Magnetometer": {
+    "name": "Magnetometer",
+    "url": "https://www.w3.org/TR/magnetometer/",
+    "status": "CR"
+  },
   "Manifest": {
     "name": "Web App Manifest",
     "url": "https://w3c.github.io/manifest/",
@@ -938,6 +958,11 @@
     "name": "OpenGL ES 3.0",
     "url": "https://www.khronos.org/opengles/sdk/docs/man3/html/",
     "status": "Standard"
+  },
+  "Orientation Sensor": {
+    "name": "Orientation Sensor",
+    "url": "https://www.w3.org/TR/orientation-sensor/",
+    "status": "CR"
   },
   "Page Lifecycle 1": {
     "name": "Page Lifecycle 1",
