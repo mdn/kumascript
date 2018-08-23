@@ -20,6 +20,7 @@ before_script:
   - git submodule update --init locale
   - rmdir kumascript
   - mv ../kumascript .
+  - mv kumascript/docker/kumascript.dockerfile docker/images/kumascript/Dockerfile
   # Build the kumascript image
   - make build-kumascript
   # Run remaining tasks from the kumascript submodule
