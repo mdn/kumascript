@@ -27,7 +27,5 @@ if ($1) {
     iClass += " " + $1;
 }
 
-let str = `<iframe class="${iClass}" width="100%" height="250" frameborder="0" src="${url}" title="MDN Web Docs Interactive Example"></iframe>`;
-
 %>
-<%- str %>
+<iframe class="<%= iClass %>" width="100%" height="250" frameborder="0" src="<%= url %>" title="MDN Web Docs Interactive Example"></iframe>

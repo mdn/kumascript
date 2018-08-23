@@ -55,7 +55,7 @@ describeMacro('EmbedInteractiveExample', function () {
         macro.ctx.env.url = 'http://localhost:8000/en-US/docs/Web/HTTP/headers';
         return assert.eventually.equal(
             macro.call('pages/http/headers.html?foo=bar'),
-            `<iframe class="interactive" width="100%" height="250" frameborder="0" src="https://interactive-examples.mdn.mozilla.net/pages/http/headers.html?foo=bar&origin=http://localhost:8000" title="MDN Web Docs Interactive Example"></iframe>`
+            `<iframe class="interactive" width="100%" height="250" frameborder="0" src="https://interactive-examples.mdn.mozilla.net/pages/http/headers.html?foo=bar&amp;origin=http://localhost:8000" title="MDN Web Docs Interactive Example"></iframe>`
         );
     });
     itMacro('Javascript pages get an extra class by default', function (macro) {
