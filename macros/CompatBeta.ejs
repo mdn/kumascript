@@ -456,6 +456,42 @@ function writeNotes(support, browserId) {
   return output;
 }
 
+/**
+ * Formats the `browserNameKey` for display in the UI
+ * @param {String} browserNameKey - The browser name
+ * @returns Correctly formatted browser name
+ */
+function getFormattedBrowserName(browserNameKey) {
+    let firstChar;
+    switch(browserNameKey) {
+        case 'chrome':
+        case 'edge':
+        case 'firefox':
+        case 'opera':
+        case 'safari':
+            firstChar = browserNameKey.charAt(0);
+            return browserNameKey.replace(firstChar, firstChar.toUpperCase());
+        case 'ie':
+            return browserNameKey.toUpperCase();
+        case 'webview_android':
+            return 'Webview Android';
+        case 'chrome_android':
+            return 'Chrome Android';
+        case 'firefox_android':
+            return 'Firefox Android';
+        case 'opera_android':
+            return 'Opera Android';
+        case 'edge_mobile':
+            return 'Edge Mobile';
+        case 'safari_ios':
+            return 'Safari iOS';
+        case 'samsunginternet_android':
+            return 'Samsung Internet Android';
+        default:
+            return browserNameKey;
+    }
+}
+
 /*
 For a single row, write all the cells that contain support data.
 (That is, every cell in the row except the first, which contains
@@ -488,6 +524,7 @@ function writeCompatCells(supportData) {
       supportInfo += getCellString(null);
     }
 
+    let browserName = getFormattedBrowserName(browserNameKey);
     let supportClass = getSupportClass(support);
     output += `<td class="bc-supports-${supportClass} bc-browser-${browserNameKey}`;
     legendItems.add('support_' + supportClass);
@@ -496,7 +533,7 @@ function writeCompatCells(supportData) {
       output += ' bc-has-history';
     }
 
-    output += `">${supportInfo}`;
+    output += `"><span class="bc-browser-name">${browserName}</span>${supportInfo}`;
 
     if (needsNotes) {
       output += writeCellIcons(support);
