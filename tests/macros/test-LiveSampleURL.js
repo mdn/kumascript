@@ -11,6 +11,7 @@ chai.use(chaiAsPromised);
 
 describeMacro('LiveSampleURL', function () {
     itMacro('Production settings', function (macro) {
+        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p';
         macro.ctx.env.revision_id = 1393227;
         return assert.eventually.equal(
@@ -19,6 +20,7 @@ describeMacro('LiveSampleURL', function () {
         );
     });
     itMacro('Override page URL', function (macro) {
+        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_build_custom_form_widgets';
         macro.ctx.env.revision_id = 1351912;
         return assert.eventually.equal(
@@ -28,6 +30,7 @@ describeMacro('LiveSampleURL', function () {
         );
     });
     itMacro('Staging settings', function (macro) {
+        macro.ctx.env.live_samples = {'base_url': 'https://stage-files.mdn.moz.works'};
         macro.ctx.env.url = 'https://developer.allizom.org/en-US/docs/Web/CSS/background-color';
         macro.ctx.env.revision_id = 1291055;
         return assert.eventually.equal(
@@ -36,6 +39,7 @@ describeMacro('LiveSampleURL', function () {
         );
     });
     itMacro('Development default settings', function (macro) {
+        macro.ctx.env.live_samples = {'base_url': 'http://localhost:8000'};
         macro.ctx.env.url = 'http://localhost:8000/en-US/docs/Web/HTML/Element/p';
         macro.ctx.env.revision_id = 123;
         return assert.eventually.equal(
@@ -49,7 +53,16 @@ describeMacro('LiveSampleURL', function () {
         macro.ctx.env.revision_id = 1366760;
         return assert.eventually.equal(
             macro.call('例子'),
-            'https://mdn.mozillademos.org/zh-CN/docs/Web/CSS/flex-direction$samples/例子?revision=1366760'
+            'https://mdn.mozillademos.org/zh-CN/docs/Web/CSS/flex-direction$samples/%E4%BE%8B%E5%AD%90?revision=1366760'
+        );
+    });
+    itMacro('Development demo settings', function (macro) {
+        macro.ctx.env.live_samples = {'base_url': 'http://demos:8000'};
+        macro.ctx.env.url = 'http://localhost:8000/en-US/docs/Web/HTML/Element/p';
+        macro.ctx.env.revision_id = 123;
+        return assert.eventually.equal(
+            macro.call('Example'),
+            'http://demos:8000/en-US/docs/Web/HTML/Element/p$samples/Example?revision=123'
         );
     });
 });
