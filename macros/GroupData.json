@@ -238,17 +238,20 @@
             "interfaces": [ "MessageChannel",
                             "MessagePort",
                             "PortCollection" ],
+            "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
             "properties": [],
             "events":     [ "message" ]
         },
         "Clipboard API": {
-            "interfaces": [ "ClipboardEvent" ],
+            "interfaces": [ "Clipboard",
+                            "ClipboardEvent"],
             "methods":    [],
-            "properties": [],
+            "properties": [ "Navigator.clipboard" ],
             "events":     [ "beforecopy",
                             "beforecut",
                             "beforepaste",
+                            "clipboardchange",
                             "copy",
                             "cut",
                             "paste" ]
