@@ -238,7 +238,6 @@
             "interfaces": [ "MessageChannel",
                             "MessagePort",
                             "PortCollection" ],
-            "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
             "properties": [],
             "events":     [ "message" ]
@@ -246,6 +245,7 @@
         "Clipboard API": {
             "interfaces": [ "Clipboard",
                             "ClipboardEvent"],
+            "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
             "properties": [ "Navigator.clipboard" ],
             "events":     [ "beforecopy",
