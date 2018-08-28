@@ -30,10 +30,10 @@ sampleUrl = Web.spacesToUnderscores(sampleUrl);
  
 var widthHeight = "";
 if ($1) {
-    widthHeight = "width='" + $1 + "' ";
+    widthHeight = 'width="' + $1 + '" ';
 }
 if ($2) {
-    widthHeight += "height='" + $2 + "' ";
+    widthHeight += 'height="' + $2 + '" ';
 }
 
 var liveSample = '<iframe class="live-sample-frame ' + className +'" id="frame_'+ $0 +'" frameborder="0" ' + widthHeight + 'src="' + template('LiveSampleURL', [$0, sampleUrl]) + '"></iframe>';

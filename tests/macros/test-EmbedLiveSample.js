@@ -64,7 +64,7 @@ describeMacro('EmbedLiveSample', function () {
             macro.call('Example', '100%'),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_Example" frameborder="0"' +
-            " width='100%'" +
+            ' width="100%"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/border-top-width$samples/Example?revision=1352086">' +
             '</iframe>'
         );
@@ -76,7 +76,7 @@ describeMacro('EmbedLiveSample', function () {
             macro.call("Images", "100%", 250),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_Images" frameborder="0"' +
-            " width='100%' height='250'" +
+            ' width="100%" height="250"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/figure$samples/Images?revision=1397983">' +
             '</iframe>'
         );
@@ -88,7 +88,7 @@ describeMacro('EmbedLiveSample', function () {
             macro.call("增加关键帧","100%","250"),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_增加关键帧" frameborder="0"' +
-            " width='100%' height='250'" +
+            ' width="100%" height="250"' +
             ' src="https://mdn.mozillademos.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations$samples/增加关键帧?revision=1225673">' +
             '</iframe>'
         );
@@ -100,7 +100,7 @@ describeMacro('EmbedLiveSample', function () {
             macro.call("%E4%B8%80%E4%B8%AA%E6%A8%A1%E6%9D%BF%E9%AA%A8%E6%9E%B6", 160, 160),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_%E4%B8%80%E4%B8%AA%E6%A8%A1%E6%9D%BF%E9%AA%A8%E6%9E%B6" frameborder="0"' +
-            " width='160' height='160'" +
+            ' width="160" height="160"' +
             ' src="https://mdn.mozillademos.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage$samples/%E4%B8%80%E4%B8%AA%E6%A8%A1%E6%9D%BF%E9%AA%A8%E6%9E%B6?revision=1408763">' +
             '</iframe>'
         );
@@ -112,7 +112,7 @@ describeMacro('EmbedLiveSample', function () {
             macro.call('Adding_quotation_marks', '500', '50', ''),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_Adding_quotation_marks" frameborder="0"' +
-            " width='500' height='50'" +
+            ' width="500" height="50"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/::before$samples/Adding_quotation_marks?revision=1392665">' +
             '</iframe>'
         );
@@ -131,7 +131,7 @@ describeMacro('EmbedLiveSample', function () {
             '</td><td>' +
             '<iframe class="live-sample-frame sample-code-frame" ' +
             'id="frame_SVGLinearGradient" frameborder="0"' +
-            " width='120' height='240'" +
+            ' width="120" height="240"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/SVG/Tutorial/Gradients$samples/SVGLinearGradient?revision=1330830">' +
             '</iframe></td></tr></tbody></table>'
         );
@@ -139,7 +139,7 @@ describeMacro('EmbedLiveSample', function () {
     const same_slug_iframe = (
         '<iframe class="live-sample-frame sample-code-frame"' +
         ' id="frame_Examples" frameborder="0"' +
-        " width='700px' height='700px'" +
+        ' width="700px" height="700px"' +
         ' src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/flex-wrap$samples/Examples?revision=1367874">' +
         '</iframe>'
     );
@@ -177,7 +177,7 @@ describeMacro('EmbedLiveSample', function () {
             macro.call("sampleNone",100,50,"","", "nobutton"),
             '<iframe class="live-sample-frame nobutton"' +
             ' id="frame_sampleNone" frameborder="0"' +
-            " width='100' height='50'" +
+            ' width="100" height="50"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/-moz-appearance$samples/sampleNone?revision=1402877">' +
             '</iframe>'
         );
