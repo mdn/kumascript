@@ -49,11 +49,11 @@ switch(lang) {
 
 
 if ($0) {
-    strPrevious = '<a style="float:' + floatValue + ';" rel="prev" href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '">' + s_PreviousNext[0] + '</a>';
+    strPrevious = '<a style="float:' + floatValue + ';" href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '">' + s_PreviousNext[0] + '</a>';
 }
 
 if ($1) {
-    strNext = '<a rel="next" href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '">' + s_PreviousNext[1] + '</a>';
+    strNext = '<a href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '">' + s_PreviousNext[1] + '</a>';
 }
 
 
