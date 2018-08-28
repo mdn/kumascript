@@ -261,4 +261,30 @@ describeMacro('EmbedLiveSample', function () {
             '</iframe>'
         );
     });
+    itMacro('Seven arguments: ID, width, height, "", "", "", features', function (macro) {
+        macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API/Constraints';
+        macro.ctx.env.revision_id = 1401022;
+        return assert.eventually.equal(
+            macro.call("Example_Constraint_exerciser", 650, 800, "", "", "", "video; microphone"),
+            '<iframe class="live-sample-frame sample-code-frame"' +
+            ' id="frame_Example_Constraint_exerciser" frameborder="0"' +
+            ' width="650" height="800"' +
+            ' src="https://mdn.mozillademos.org/en-US/docs/Web/API/Media_Streams_API/Constraints$samples/Example_Constraint_exerciser?revision=1401022"' +
+            ' allow="video; microphone">' +
+            '</iframe>'
+        );
+    });
+    itMacro('Seven arguments: ID, width, height, "", "", "", XSS Attempt (failed)', function (macro) {
+        macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/API/Media_Streams_API/Constraints';
+        macro.ctx.env.revision_id = 1401022;
+        return assert.eventually.equal(
+            macro.call("Example_Constraint_exerciser", 650, 800, "", "", "", '"><script>alert("XSS");</script>'),
+            '<iframe class="live-sample-frame sample-code-frame"' +
+            ' id="frame_Example_Constraint_exerciser" frameborder="0"' +
+            ' width="650" height="800"' +
+            ' src="https://mdn.mozillademos.org/en-US/docs/Web/API/Media_Streams_API/Constraints$samples/Example_Constraint_exerciser?revision=1401022"' +
+            ' allow="&#34;&gt;&lt;script&gt;alert(&#34;XSS&#34;);&lt;/script&gt;">' +
+            '</iframe>'
+        );
+    });
 });

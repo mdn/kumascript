@@ -8,8 +8,9 @@
 //  $3 - The url of a screenshot of the sample working as intended (optional)
 //  $4 - The slug from which to load the sample (optional; current page used if not provided)
 //  $5 - The class name of the frame; defaults to "sample-code-frame". If you
-//  pass this parameter and give it a value other than "sample-code-frame",
-//  then the "Open in CodePen"/"Open in JSFiddle" buttons will not be displayed.
+//       pass this parameter and give it a value other than "sample-code-frame",
+//       then the "Open in CodePen"/"Open in JSFiddle" buttons will not be displayed.
+//  $6 - Allowed features, separated by semicolons (optional)
 //
 // See also : LiveSampleLink
 
@@ -19,6 +20,7 @@ var height = $2;
 var screenshotUrl = $3;
 var sampleSlug = $4;
 var className = $5 || "sample-code-frame";
+var allowedFeatures = $6;
 
 var hasScreenshot = (screenshotUrl && (screenshotUrl.length > 0));
 
@@ -52,5 +54,7 @@ if (hasScreenshot) {
 %> frameborder="0"<%
 if (width) { %> width="<%= width %>"<% }
 if (height) { %> height="<%= height %>"<% }
-%> src="<%- url %>"></iframe><%
+%> src="<%- url %>"<%
+if (allowedFeatures) { %> allow="<%= allowedFeatures %>"<% }
+%>></iframe><%
 if (hasScreenshot) { %></td></tr></tbody></table><% } %>
