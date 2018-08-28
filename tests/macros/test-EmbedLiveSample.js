@@ -32,7 +32,7 @@ describeMacro('EmbedLiveSample', function () {
         return assert.eventually.equal(
             macro.call('SVG_&lt;switch&gt;_example'),
             '<iframe class="live-sample-frame sample-code-frame"' +
-            ' id="frame_SVG_&lt;switch&gt;_example" frameborder="0"' +
+            ' id="frame_SVG_&amp;lt;switch&amp;gt;_example" frameborder="0"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/SVG/Element/switch$samples/SVG_&amp;lt;switch&amp;gt;_example?revision=1408880">' +
             '</iframe>'
         );
@@ -59,13 +59,13 @@ describeMacro('EmbedLiveSample', function () {
             '</iframe>'
         );
     });
-    itMacro('One argument: XSS attempt (success)', function (macro) {
+    itMacro('One argument: XSS attempt (failed)', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure';
         macro.ctx.env.revision_id = 1397983;
         return assert.eventually.equal(
             macro.call('"><script>alert("XSS");</script>'),
             '<iframe class="live-sample-frame sample-code-frame"' +
-            ' id="frame_"><script>alert("XSS");</script>" frameborder="0"' +
+            ' id="frame_&#34;&gt;&lt;script&gt;alert(&#34;XSS&#34;);&lt;/script&gt;" frameborder="0"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/figure$samples/%22%3E%3Cscript%3Ealert(%22XSS%22);%3C/script%3E?revision=1397983">' +
             '</iframe>'
         );
@@ -82,14 +82,14 @@ describeMacro('EmbedLiveSample', function () {
             '</iframe>'
         );
     });
-    itMacro('Two arguments: ID, XSS attempt (success)', function (macro) {
+    itMacro('Two arguments: ID, XSS attempt (failed)', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width';
         macro.ctx.env.revision_id = 1352086;
         return assert.eventually.equal(
             macro.call('Example', '"><script>alert("XSS");</script>'),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_Example" frameborder="0"' +
-            ' width=""><script>alert("XSS");</script>"' +
+            ' width="&#34;&gt;&lt;script&gt;alert(&#34;XSS&#34;);&lt;/script&gt;"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/border-top-width$samples/Example?revision=1352086">' +
             '</iframe>'
         );
@@ -130,14 +130,14 @@ describeMacro('EmbedLiveSample', function () {
             '</iframe>'
         );
     });
-    itMacro('Three arguments: ID, width, XSS attempt (success)', function (macro) {
+    itMacro('Three arguments: ID, width, XSS attempt (failed)', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure';
         macro.ctx.env.revision_id = 1397983;
         return assert.eventually.equal(
             macro.call("Images", "100%", '"><script>alert("XSS");</script>'),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_Images" frameborder="0"' +
-            ' width="100%" height=""><script>alert("XSS");</script>"' +
+            ' width="100%" height="&#34;&gt;&lt;script&gt;alert(&#34;XSS&#34;);&lt;/script&gt;"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/HTML/Element/figure$samples/Images?revision=1397983">' +
             '</iframe>'
         );
@@ -173,7 +173,7 @@ describeMacro('EmbedLiveSample', function () {
             '</iframe></td></tr></tbody></table>'
         );
     });
-    itMacro('Four arguments: ID, width, height, XSS attempt (success)', function (macro) {
+    itMacro('Four arguments: ID, width, height, XSS attempt (failed)', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients';
         macro.ctx.env.revision_id = 1330830;
         return assert.eventually.equal(
@@ -183,7 +183,7 @@ describeMacro('EmbedLiveSample', function () {
             '<th scope="col" style="text-align: center;">Live sample</th>' +
             '</tr></thead>' +
             '<tbody><tr><td>' +
-            '<img alt="" class="internal" src=""><script>alert("XSS");</script>" />' +
+            '<img alt="" class="internal" src="&#34;&gt;&lt;script&gt;alert(&#34;XSS&#34;);&lt;/script&gt;" />' +
             '</td><td>' +
             '<iframe class="live-sample-frame sample-code-frame" ' +
             'id="frame_SVGLinearGradient" frameborder="0"' +
@@ -249,12 +249,12 @@ describeMacro('EmbedLiveSample', function () {
             '</iframe>'
         );
     });
-    itMacro('Six arguments: ID, width, height, "", "", XSS attempt (success)', function (macro) {
+    itMacro('Six arguments: ID, width, height, "", "", XSS attempt (failed)', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance';
         macro.ctx.env.revision_id = 1402877;
         return assert.eventually.equal(
             macro.call("sampleNone",100,50,"","", '"><script>alert("XSS");</script>'),
-            '<iframe class="live-sample-frame "><script>alert("XSS");</script>"' +
+            '<iframe class="live-sample-frame &#34;&gt;&lt;script&gt;alert(&#34;XSS&#34;);&lt;/script&gt;"' +
             ' id="frame_sampleNone" frameborder="0"' +
             ' width="100" height="50"' +
             ' src="https://mdn.mozillademos.org/en-US/docs/Web/CSS/-moz-appearance$samples/sampleNone?revision=1402877">' +
