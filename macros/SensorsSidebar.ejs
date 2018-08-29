@@ -1,0 +1,69 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+
+function state(section) {
+  if (section == currentSection) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localStringMap({
+  'en-US': {
+    'Generic_Sensores_API': 'Generic Sensors API',
+    'Overview': 'Overview of Sensor interfaces',
+    'Sensor_guides': 'Sensor guides',
+    'Interfaces': 'Interfaces',
+    'Documentation': 'Documentation:',
+    'Useful_lists': 'Useful lists',
+    'Sensors_tag': 'Pages tagged "Sensors"',
+    'Contribute': 'Contribute',
+    'Doc_status': 'Sensors doc status',
+    'The_MDN_project': 'The MDN project',
+    'Using_Sensors': 'Using Sensors',
+    'Related_APIs': 'Related APIs',
+    'Accelerometer_API': 'Accelerometer API',
+    'Ambient_Light_Sensor_API': 'Ambient Light Sensor',
+    'Gyroscope_API': 'Gycroscope',
+    'Magnetometer_API': 'Magnetometer'
+    'Orientation_Sensor_API': 'Orientation Sensor',
+  }
+});
+%>
+<section id="Quick_Links">
+ <ol>
+  <li><a href="/<%=locale%>/docs/Web/API/Service_Worker_API"><strong><%=text['Generic_Sensores_API']%></strong></a></li>
+  <li data-default-state="open"><a href="#"><strong><%=text['Sensor_guides']%></strong></a>
+   <ol>
+     <li><a href="/<%=locale%>/docs/Web/API/Service_Worker_API/Using_Service_Workers"><%=text['Using_Sensors']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="open"><a href="#"><strong><%=text['Interfaces']%></strong></a>
+   <ol>
+    <li><%-template("domxref", ["AbsoluteOrientationSensor"])%></li>
+    <li><%-template("domxref", ["Accelerometer"])%></li>
+    <li><%-template("domxref", ["AmbientLightSensor"])%></li>
+    <li><%-template("domxref", ["Gyroscope"])%></li>
+    <li><%-template("domxref", ["LinearAcceleration"])%></li>
+    <li><%-template("domxref", ["Magnetometer"])%></li>
+    <li><%-template("domxref", ["OrientationSensor"])%></li>
+    <li><%-template("domxref", ["RelativeOrientationSensor"])%></li>
+    <li><%-template("domxref", ["Sensor"])%></li>
+    <li><%-template("domxref", ["SpatialSensor"])%></li>
+   </ol>
+  </li>
+  <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
+  <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/tag/Sensors"><%=text['Sensors_tag']%></a></li>
+   </ol>
+  </li>
+  <li data-default-state="<%=state('Contribute')%>"><a href="#"><%=text['Contribute']%></a>
+   <ol>
+    <li><a href="/<%=locale%>/docs/MDN/Doc_status/API/ServiceWorkers"><%=text['Doc_status']%></a></li>
+    <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
+   </ol>
+  </li>
+ </ol>
+</section>
