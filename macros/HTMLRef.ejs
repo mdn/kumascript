@@ -115,8 +115,8 @@ var resultAPI = [];
   <%    } 
     } %>
     <% if (env.slug.includes("/HTML/Element/input")) { %>
-   <li data-default-state="open"><a href="/<%=env.locale%>/docs/Web/HTML/Element/input#Form_<input>_types"><%-text['Input_types']%></a>
-    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%></li>
+   <li><details open><summary><%-text['Input_types']%></summary>
+    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%></details></li>
     <% } %>
    <li><a href="<%-s_html_href%>"><%-s_html_ref_title%></a><ol>
    <li>A

@@ -132,7 +132,7 @@ var badges = {
 }
 
 function buildSublist(pages, title) {
-  var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (var i in pages) {
     var aPage = pages[i];
@@ -200,7 +200,7 @@ function buildSublist(pages, title) {
     result += '</li>';
   }
 
-  result += '</ol></li>';
+  result += '</ol></details></li>';
 
   return result;
 }
@@ -208,26 +208,26 @@ function buildSublist(pages, title) {
 function buildIFList(interfaces, title, slug) {
 
   var slug = slug || APIHref;
-  var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (var i = 0; i < interfaces.length; i++) {
     var url = interfaces[i].replace('()', '').replace('.', '/');
     result += '<li><a href="' + slug + '/' + url + '"><code>' + interfaces[i] + '</code></a></li>';
   }
 
-  result += '</ol></li>';
+  result += '</ol></details></li>';
 
   return result;
 }
 
 function buildEventList(events, title) {
-  var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (var i = 0; i < events.length; i++) {
     result += '<li><a href="' + EventHref + '/' + events[i] + '"><code>' + events[i] + '</code></a></li>';
   }
 
-  result += '</ol></li>';
+  result += '</ol></details></li>';
 
   return result;
 }

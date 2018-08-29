@@ -66,7 +66,7 @@ var resultAPI = [];
             <li><%- template("domxref", [resultAPI[aTitle]]) %></li>
   <%    } 
     } %>
-   <li><a href="<%-s_svg_href%>"><%-s_svg_ref_title%></a><ol>
+   <li><details><summary><%-s_svg_ref_title%></summary><ol>
  <li>A
    <ol>
      <li><%-template("SVGElement", ["a"])%></li>

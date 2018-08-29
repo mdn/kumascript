@@ -486,46 +486,64 @@ const text = mdn.localStringMap({
 
 <section class="Quick_links" id="Quick_Links">
   <ol>
-    <li><a href="<%=baseURL%>About"><%=text["About_MDN"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>About"><%=text["About_MDN"]%></a></li>
-        <li><a href="<%=baseURL%>About/Reading"><%=text["MDN_guide_for_readers"]%></a></li>
-        <li><a href="<%=baseURL%>About/Promote"><%=text["Promote_MDN"]%></a></li>
-        <li><a href="<%=baseURL%>Feedback"><%=text["Send_feedback_about_MDN"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["About_MDN"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>About"><%=text["About_MDN"]%></a></li>
+              <li><a href="<%=baseURL%>About/Reading"><%=text["MDN_guide_for_readers"]%></a></li>
+              <li><a href="<%=baseURL%>About/Promote"><%=text["Promote_MDN"]%></a></li>
+              <li><a href="<%=baseURL%>Feedback"><%=text["Send_feedback_about_MDN"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="<%=baseURL%>Getting_started"><%=text["Get_started_on_MDN"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Getting_started"><%=text["Get_started_on_MDN"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Get_started_on_MDN"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Getting_started"><%=text["Get_started_on_MDN"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="<%=baseURL%>Contribute"><%=text["Help_improve_MDN"]%></a>
-     <ol>
-        <li><a href="<%=baseURL%>Contribute"><%=text["Help_improve_MDN"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Howto"><%=text["Things_you_can_do"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Localize"><%=text["Localizing_MDN"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Editor"><%=text["MDN_editor_UI"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Tools"><%=text["Tools_for_power_users"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Guidelines"><%=text["Guidelines"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Processes"><%=text["Work_processes"]%></a></li>
-        <li><a href="<%=baseURL%>Contribute/Structures"><%=text["Content_structures"]%></a></li>
-     </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Help_improve_MDN"]%></summary>
+            <ol>
+                <li><a href="<%=baseURL%>Contribute"><%=text["Help_improve_MDN"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Howto"><%=text["Things_you_can_do"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Localize"><%=text["Localizing_MDN"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Editor"><%=text["MDN_editor_UI"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Tools"><%=text["Tools_for_power_users"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Guidelines"><%=text["Guidelines"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Processes"><%=text["Work_processes"]%></a></li>
+                <li><a href="<%=baseURL%>Contribute/Structures"><%=text["Content_structures"]%></a></li>
+             </ol>
+        </details>
     </li>
-    <li><a href="<%=baseURL%>Kuma"><%=text["Kuma_the_MDN_wiki_platform"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Kuma"><%=text["Kuma_the_MDN_wiki_platform"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Kuma_the_MDN_wiki_platform"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Kuma"><%=text["Kuma_the_MDN_wiki_platform"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="<%=baseURL%>Community"><%=text["Join_the_MDN_community"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Community"><%=text["Join_the_MDN_community"]%></a></li>
-      </ol>
+    <li class="toggle">
+      <details>
+          <summary><%=text["Join_the_MDN_community"]%></summary>
+          <ol>
+            <li><a href="<%=baseURL%>Community"><%=text["Join_the_MDN_community"]%></a></li>
+          </ol>
+      </details>
     </li>
-    <li><a href="<%=baseURL%>Doc_status"><%=text["Doc_status_by_topic"]%></a>
-     <ol>
-      <li><a href="<%=baseURL%>Doc_status"><%=text["Doc_status_by_topic"]%></a></li>
-      <li><a href="<%=baseURL%>Doc_status/Overview"><%=text["Are_we_documented_yet"]%></a></li>
-     </ol>
+    <li class="toggle">
+      <details>
+          <summary><%=text["Doc_status_by_topic"]%></summary>
+          <ol>
+            <li><a href="<%=baseURL%>Doc_status"><%=text["Doc_status_by_topic"]%></a></li>
+            <li><a href="<%=baseURL%>Doc_status/Overview"><%=text["Are_we_documented_yet"]%></a></li>
+            </ol>
+      </details>
     </li>
   </ol>
 </section>

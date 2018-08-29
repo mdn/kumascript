@@ -613,60 +613,75 @@ const text = mdn.localStringMap({
 
 <section class="Quick_links" id="Quick_Links">
   <ol>
-    <li><a href="#"><%=text["Core_Tools"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Page_Inspector"><%=text["Page_Inspector"]%></a></li>
-        <li><a href="<%=baseURL%>Web_Console"><%=text["Web_Console"]%></a></li>
-        <li><a href="<%=baseURL%>Debugger"><%=text["JavaScript_Debugger"]%></a></li>
-        <li><a href="<%=baseURL%>Network_Monitor"><%=text["Network_Monitor"]%></a></li>
-        <li><a href="<%=baseURL%>Performance"><%=text["Performance"]%></a></li>
-        <li><a href="<%=baseURL%>Responsive_Design_Mode"><%=text["Responsive_Design_Mode"]%></a></li>
-        <li><a href="<%=baseURL%>Tips"><%=text["Tips"]%></a></li>
-      </ol>
+    <li class="toggle">
+      <details>
+        <summary><%=text['Core_Tools']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>Page_Inspector"><%=text["Page_Inspector"]%></a></li>
+          <li><a href="<%=baseURL%>Web_Console"><%=text["Web_Console"]%></a></li>
+          <li><a href="<%=baseURL%>Debugger"><%=text["JavaScript_Debugger"]%></a></li>
+          <li><a href="<%=baseURL%>Network_Monitor"><%=text["Network_Monitor"]%></a></li>
+          <li><a href="<%=baseURL%>Performance"><%=text["Performance"]%></a></li>
+          <li><a href="<%=baseURL%>Responsive_Design_Mode"><%=text["Responsive_Design_Mode"]%></a></li>
+          <li><a href="<%=baseURL%>Tips"><%=text["Tips"]%></a></li>
+        </ol>
+      </details>
+    </li>  
+    <li class="toggle">
+      <details>
+        <summary><%=text['More_Tools']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>Memory"><%=text["Memory"]%></a></li>
+          <li><a href="<%=baseURL%>Storage_Inspector"><%=text["Storage_Inspector"]%></a></li>
+          <li><a href="<%=baseURL%>DOM_Property_Viewer"><%=text["DOM_Property_Viewer"]%></a></li>
+          <li><a href="<%=baseURL%>GCLI"><%=text["Developer_Toolbar"]%></a></li>
+          <li><a href="<%=baseURL%>Accessibility_inspector"><%=text["Accessibility_inspector"]%></a></li>
+          <li><a href="<%=baseURL%>Eyedropper"><%=text["Eyedropper"]%></a></li>
+          <li><a href="<%=baseURL%>Taking_screenshots"><%=text["Screenshot"]%></a></li>
+          <li><a href="<%=baseURL%>Scratchpad"><%=text["Scratchpad"]%></a></li>
+          <li><a href="<%=baseURL%>Style_Editor"><%=text["Style_Editor"]%></a></li>
+          <li><a href="<%=baseURL%>Shader_Editor"><%=text["Shader_Editor"]%></a></li>
+          <li><a href="<%=baseURL%>Web_Audio_Editor"><%=text["Web_Audio_Editor"]%></a></li>
+          <li><a href="<%=baseURL%>Rulers"><%=text["Rulers"]%></a></li>
+          <li><a href="<%=baseURL%>Measure_a_portion_of_the_page"><%=text["Measure_a_portion_of_the_page"]%></a></li>
+          <li><a href="<%=baseURL%>View_source"><%=text["View_Source"]%></a></li>
+        </ol>
+      </details>
+    </li> 
+    <li class="toggle">
+      <details>
+        <summary><%=text['Connecting_the_devtools']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>about:debugging"><%=text["about:debugging"]%></a></li>
+          <li><a href="https://developer.mozilla.org<%=baseURL%>Remote_Debugging/Debugging_Firefox_for_Android_over_Wifi"><%=text["Connecting_to_Firefox_for_Android"]%></a></li>
+          <li><a href="https://developer.mozilla.org<%=baseURL%>Working_with_iframes"><%=text["Connecting_to_iframes"]%></a></li>
+          <li><a href="https://developer.mozilla.org<%=baseURL%>Valence"><%=text["Connecting_to_other_browsers"]%></a></li>
+        </ol>
+      </details>
     </li>
-    <li><a href="#"><%=text["More_Tools"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Memory"><%=text["Memory"]%></a></li>
-        <li><a href="<%=baseURL%>Storage_Inspector"><%=text["Storage_Inspector"]%></a></li>
-        <li><a href="<%=baseURL%>DOM_Property_Viewer"><%=text["DOM_Property_Viewer"]%></a></li>
-        <li><a href="<%=baseURL%>GCLI"><%=text["Developer_Toolbar"]%></a></li>
-        <li><a href="<%=baseURL%>Accessibility_inspector"><%=text["Accessibility_inspector"]%></a></li>
-        <li><a href="<%=baseURL%>Eyedropper"><%=text["Eyedropper"]%></a></li>
-        <li><a href="<%=baseURL%>Taking_screenshots"><%=text["Screenshot"]%></a></li>
-        <li><a href="<%=baseURL%>Scratchpad"><%=text["Scratchpad"]%></a></li>
-        <li><a href="<%=baseURL%>Style_Editor"><%=text["Style_Editor"]%></a></li>
-        <li><a href="<%=baseURL%>Shader_Editor"><%=text["Shader_Editor"]%></a></li>
-        <li><a href="<%=baseURL%>Web_Audio_Editor"><%=text["Web_Audio_Editor"]%></a></li>
-        <li><a href="<%=baseURL%>Rulers"><%=text["Rulers"]%></a></li>
-        <li><a href="<%=baseURL%>Measure_a_portion_of_the_page"><%=text["Measure_a_portion_of_the_page"]%></a></li>
-        <li><a href="<%=baseURL%>View_source"><%=text["View_Source"]%></a></li>
-      </ol>
-    </li>
-    <li><a href="#"><%=text["Connecting_the_devtools"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>about:debugging"><%=text["about:debugging"]%></a></li>
-        <li><a href="https://developer.mozilla.org<%=baseURL%>Remote_Debugging/Debugging_Firefox_for_Android_over_Wifi"><%=text["Connecting_to_Firefox_for_Android"]%></a></li>
-        <li><a href="https://developer.mozilla.org<%=baseURL%>Working_with_iframes"><%=text["Connecting_to_iframes"]%></a></li>
-        <li><a href="https://developer.mozilla.org<%=baseURL%>Valence"><%=text["Connecting_to_other_browsers"]%></a></li>
-      </ol>
-    </li>
-    <li><a href="#"><%=text["Debugging_the_browser"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Browser_Console"><%=text["Browser_Console"]%></a></li>
-        <li><a href="<%=baseURL%>Browser_Toolbox"><%=text["Browser_Toolbox"]%></a></li>
-      </ol>
-    </li>
-    <li><a href="#"><%=text["Extending_the_devtools"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Adding_a_panel_to_the_toolbox"><%=text["Adding_a_panel_to_the_toolbox"]%></a></li>
-        <li><a href="<%=baseURL%>Example_add-ons"><%=text["Example_devtools_add-ons"]%></a></li>
-        <li><a href="https://wiki.mozilla.org/Remote_Debugging_Protocol"><%=text["Remote_Debugging_Protocol"]%></a></li>
-        <li><a href="https://wiki.mozilla.org/Remote_Debugging_Protocol_Stream_Transport"><%=text["Stream_Transport"]%></a></li>
-        <li><a href="<%=baseURL%>Editor"><%=text["Source_Editor"]%></a></li>
-        <li><a href="<%=baseURL%>Debugger-API"><%=text["The_Debugger_Interface"]%></a></li>
-        <li><a href="<%=baseURL%>Web_Console/Custom_output"><%=text["Web_Console_custom_output"]%></a></li>
-      </ol>
-    </li>
+    <li class="toggle">
+      <details>
+        <summary><%=text['Debugging_the_browser']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>Browser_Console"><%=text["Browser_Console"]%></a></li>
+          <li><a href="<%=baseURL%>Browser_Toolbox"><%=text["Browser_Toolbox"]%></a></li>
+        </ol>
+      </details>
+    </li> 
+    <li class="toggle">
+      <details>
+        <summary><%=text['Extending_the_devtools']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>Adding_a_panel_to_the_toolbox"><%=text["Adding_a_panel_to_the_toolbox"]%></a></li>
+          <li><a href="<%=baseURL%>Example_add-ons"><%=text["Example_devtools_add-ons"]%></a></li>
+          <li><a href="https://wiki.mozilla.org/Remote_Debugging_Protocol"><%=text["Remote_Debugging_Protocol"]%></a></li>
+          <li><a href="https://wiki.mozilla.org/Remote_Debugging_Protocol_Stream_Transport"><%=text["Stream_Transport"]%></a></li>
+          <li><a href="<%=baseURL%>Editor"><%=text["Source_Editor"]%></a></li>
+          <li><a href="<%=baseURL%>Debugger-API"><%=text["The_Debugger_Interface"]%></a></li>
+          <li><a href="<%=baseURL%>Web_Console/Custom_output"><%=text["Web_Console_custom_output"]%></a></li>
+        </ol>
+      </details>
+    </li> 
     <li><a href="<%=baseURL%>Settings"><%=text["Settings"]%></a></li>
     <li><a href="<%=baseURL%>Release_notes"><%=text["Release_notes"]%></a></li>
   </ol>

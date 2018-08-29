@@ -573,81 +573,102 @@ const text = mdn.localStringMap({
 
 <section class="Quick_links" id="Quick_Links">
   <ol>
-    <li><a href="#"><%=text["Introduction"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Introduction"><%=text["Introduction"]%></a></li>
-        <li><a href="<%=baseURL%>Anatomy"><%=text["Anatomy"]%></a></li>
-        <li><a href="<%=baseURL%>Examples"><%=text["Examples"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Introduction"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Introduction"><%=text["Introduction"]%></a></li>
+              <li><a href="<%=baseURL%>Anatomy"><%=text["Anatomy"]%></a></li>
+              <li><a href="<%=baseURL%>Examples"><%=text["Examples"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["APIs_for_game_development"]%></a>
-      <ol>
-        <li><a href="<%=webURL%>API/Canvas_API"><%=text["Canvas"]%></a></li>
-        <li><a href="<%=webURL%>CSS"><%=text["CSS"]%></a></li>
-        <li><a href="<%=appsURL%>Fundamentals/User_notifications/Full_screen_api"><%=text["Full_Screen"]%></a></li>
-        <li><a href="<%=webURL%>API/Gamepad_API"><%=text["Gamepad"]%></a></li>
-        <li><a href="<%=webURL%>API/IndexedDB_API"><%=text["IndexedDB"]%></a></li>
-        <li><a href="<%=webURL%>JavaScript"><%=text["JavaScript"]%></a></li>
-        <li><a href="<%=webURL%>API/Pointer_Lock_API"><%=text["Pointer_Lock"]%></a></li>
-        <li><a href="<%=webURL%>SVG"><%=text["SVG"]%></a></li>
-        <li><a href="<%=webURL%>JavaScript/Reference/Global_Objects/TypedArray"><%=text["Typed_Arrays"]%></a></li>
-        <li><a href="<%=webURL%>API/Web_Audio_API"><%=text["Web_Audio"]%></a></li>
-        <li><a href="<%=webURL%>API/WebGL_API"><%=text["WebGL"]%></a></li>
-        <li><a href="<%=webURL%>API/WebRTC_API"><%=text["WebRTC"]%></a></li>
-        <li><a href="<%=webURL%>API/WebSockets_API"><%=text["Web_Sockets"]%></a></li>
-        <li><a href="<%=webURL%>API/WebVR_API"><%=text["WebVR"]%></a></li>
-        <li><a href="<%=webURL%>API/Web_Workers_API"><%=text["Web_Workers"]%></a></li>
-        <li><a href="<%=webURL%>API/XMLHttpRequest"><%=text["XMLHttpRequest"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["APIs_for_game_development"]%></summary>
+            <ol>
+              <li><a href="<%=webURL%>API/Canvas_API"><%=text["Canvas"]%></a></li>
+              <li><a href="<%=webURL%>CSS"><%=text["CSS"]%></a></li>
+              <li><a href="<%=appsURL%>Fundamentals/User_notifications/Full_screen_api"><%=text["Full_Screen"]%></a></li>
+              <li><a href="<%=webURL%>API/Gamepad_API"><%=text["Gamepad"]%></a></li>
+              <li><a href="<%=webURL%>API/IndexedDB_API"><%=text["IndexedDB"]%></a></li>
+              <li><a href="<%=webURL%>JavaScript"><%=text["JavaScript"]%></a></li>
+              <li><a href="<%=webURL%>API/Pointer_Lock_API"><%=text["Pointer_Lock"]%></a></li>
+              <li><a href="<%=webURL%>SVG"><%=text["SVG"]%></a></li>
+              <li><a href="<%=webURL%>JavaScript/Reference/Global_Objects/TypedArray"><%=text["Typed_Arrays"]%></a></li>
+              <li><a href="<%=webURL%>API/Web_Audio_API"><%=text["Web_Audio"]%></a></li>
+              <li><a href="<%=webURL%>API/WebGL_API"><%=text["WebGL"]%></a></li>
+              <li><a href="<%=webURL%>API/WebRTC_API"><%=text["WebRTC"]%></a></li>
+              <li><a href="<%=webURL%>API/WebSockets_API"><%=text["Web_Sockets"]%></a></li>
+              <li><a href="<%=webURL%>API/WebVR_API"><%=text["WebVR"]%></a></li>
+              <li><a href="<%=webURL%>API/Web_Workers_API"><%=text["Web_Workers"]%></a></li>
+              <li><a href="<%=webURL%>API/XMLHttpRequest"><%=text["XMLHttpRequest"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Techniques"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Techniques/Async_scripts"><%=text["Using_async_scripts_for_asm.js"]%></a></li>
-        <li><a href="<%=appsURL%>Developing/Optimizing_startup_performance"><%=text["Optimizing_startup_performance"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/WebRTC_data_channels"><%=text["Using_WebRTC_peer-to-peer_data_channels"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Efficient_animation_for_web_games"><%=text["Efficient_animation_for_web_games"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Audio_for_Web_Games"><%=text["Audio_for_Web_Games"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/2D_collision_detection"><%=text["2D_collision_detection"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Tilemaps"><%=text["Tiles_and_tilemaps_overview"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Techniques"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Techniques/Async_scripts"><%=text["Using_async_scripts_for_asm.js"]%></a></li>
+              <li><a href="<%=appsURL%>Developing/Optimizing_startup_performance"><%=text["Optimizing_startup_performance"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/WebRTC_data_channels"><%=text["Using_WebRTC_peer-to-peer_data_channels"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Efficient_animation_for_web_games"><%=text["Efficient_animation_for_web_games"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Audio_for_Web_Games"><%=text["Audio_for_Web_Games"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/2D_collision_detection"><%=text["2D_collision_detection"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Tilemaps"><%=text["Tiles_and_tilemaps_overview"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["3D_games_on_the_Web"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web"><%=text["3D_games_on_the_Web_overview"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Basic_theory"><%=text["Explaining_basic_3D_theory"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_A-Frame"><%=text["Building_up_a_basic_demo_with_A-Frame"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js"><%=text["Building_up_a_basic_demo_with_Babylon.js"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas"><%=text["Building_up_a_basic_demo_with_PlayCanvas"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js"><%=text["Building_up_a_basic_demo_with_Three.js"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_on_the_web/WebVR"><%=text["WebVR_guide"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_collision_detection"><%=text["3D_collision_detection"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js"><%=text["Bounding_volume_collision_detection_with_THREE.js"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["3D_games_on_the_Web"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web"><%=text["3D_games_on_the_Web_overview"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Basic_theory"><%=text["Explaining_basic_3D_theory"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_A-Frame"><%=text["Building_up_a_basic_demo_with_A-Frame"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js"><%=text["Building_up_a_basic_demo_with_Babylon.js"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas"><%=text["Building_up_a_basic_demo_with_PlayCanvas"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js"><%=text["Building_up_a_basic_demo_with_Three.js"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_on_the_web/WebVR"><%=text["WebVR_guide"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_collision_detection"><%=text["3D_collision_detection"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/3D_collision_detection/Bounding_volume_collision_detection_with_THREE.js"><%=text["Bounding_volume_collision_detection_with_THREE.js"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Implementing_game_control_mechanisms"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Techniques/Control_mechanisms"><%=text["Control_mechanisms"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Mobile_touch"><%=text["Mobile_touch"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard"><%=text["Desktop_with_mouse_and_keyboard"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Desktop_with_gamepad"><%=text["Desktop_with_gamepad"]%></a></li>
-        <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Other"><%=text["Other"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Implementing_game_control_mechanisms"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Techniques/Control_mechanisms"><%=text["Control_mechanisms"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Mobile_touch"><%=text["Mobile_touch"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard"><%=text["Desktop_with_mouse_and_keyboard"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Desktop_with_gamepad"><%=text["Desktop_with_gamepad"]%></a></li>
+              <li><a href="<%=baseURL%>Techniques/Control_mechanisms/Other"><%=text["Other"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Tutorials"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Tutorials/2D_Breakout_game_pure_JavaScript"><%=text["2D_breakout_game_using_pure_JavaScript"]%></a></li>
-        <li><a href="<%=baseURL%>Tutorials/2D_breakout_game_Phaser"><%=text["2D_breakout_game_using_Phaser"]%></a></li>
-        <li><a href="<%=baseURL%>Tutorials/HTML5_Gamedev_Phaser_Device_Orientation"><%=text["2D_maze_game_with_device_orientation"]%></a></li>
-        <li><a href="https://mozdevs.github.io/html5-games-workshop/en/guides/platformer/start-here/"><%=text["2D_platform_game_using_Phaser"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Tutorials"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Tutorials/2D_Breakout_game_pure_JavaScript"><%=text["2D_breakout_game_using_pure_JavaScript"]%></a></li>
+              <li><a href="<%=baseURL%>Tutorials/2D_breakout_game_Phaser"><%=text["2D_breakout_game_using_Phaser"]%></a></li>
+              <li><a href="<%=baseURL%>Tutorials/HTML5_Gamedev_Phaser_Device_Orientation"><%=text["2D_maze_game_with_device_orientation"]%></a></li>
+              <li><a href="https://mozdevs.github.io/html5-games-workshop/en/guides/platformer/start-here/"><%=text["2D_platform_game_using_Phaser"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Publishing_games"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Publishing_games"><%=text["Publishing_games_overview"]%></a></li>
-        <li><a href="<%=baseURL%>Publishing_games/Game_distribution"><%=text["Game_distribution"]%></a></li>
-        <li><a href="<%=baseURL%>Publishing_games/Game_promotion"><%=text["Game_promotion"]%></a></li>
-        <li><a href="<%=baseURL%>Publishing_games/Game_monetization"><%=text["Game_monetization"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Publishing_games"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Publishing_games"><%=text["Publishing_games_overview"]%></a></li>
+              <li><a href="<%=baseURL%>Publishing_games/Game_distribution"><%=text["Game_distribution"]%></a></li>
+              <li><a href="<%=baseURL%>Publishing_games/Game_promotion"><%=text["Game_promotion"]%></a></li>
+              <li><a href="<%=baseURL%>Publishing_games/Game_monetization"><%=text["Game_monetization"]%></a></li>
+            </ol>
+        </details>
     </li>
   </ol>
 </section>

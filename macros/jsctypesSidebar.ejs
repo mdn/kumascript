@@ -25,15 +25,23 @@ var text = mdn.localStringMap({
 <section class="Quick_links" id="Quick_Links">
  <ol>
   <li><a href="/<%=locale%>/docs/Mozilla/js-ctypes"><strong><em>js-ctypes</em></strong></a></li>
-
-  <li data-default-state="<%=state('Introduction')%>"><a href="/<%=locale%>/docs/Mozilla/js-ctypes/Using_js-ctypes"><%=text['Introduction']%></a>
-    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Using_js-ctypes', 1])%>
+  <li class="toggle">
+      <details <%=state('Introduction')%>>
+        <summary><%=text['Introduction']</summary>
+        <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Using_js-ctypes', 1])%>
+      </details>
   </li>
-  <li data-default-state="<%=state('References')%>"><a href="/<%=locale%>/docs/Mozilla/js-ctypes/js-ctypes_reference"><%=text['References']%></a>
-    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/js-ctypes_reference'])%>
+  <li class="toggle">
+      <details <%=state('References')%>>
+        <summary><%=text['References']</summary>
+        <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/js-ctypes_reference'])%>
+      </details>
   </li>
-  <li data-default-state="<%=state('Examples')%>"><a href="/<%=locale%>/docs/Mozilla/js-ctypes/Examples"><%=text['Examples']%></a>
-    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Examples', 1])%>
+  <li class="toggle">
+      <details <%=state('Examples')%>>
+        <summary><%=text['Examples']</summary>
+        <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Examples', 1])%>
+      </details>
   </li>
  </ol>
 </section>
