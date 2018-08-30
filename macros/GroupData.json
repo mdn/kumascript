@@ -243,12 +243,15 @@
             "events":     [ "message" ]
         },
         "Clipboard API": {
-            "interfaces": [ "ClipboardEvent" ],
+            "interfaces": [ "Clipboard",
+                            "ClipboardEvent"],
+            "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
-            "properties": [],
+            "properties": [ "Navigator.clipboard" ],
             "events":     [ "beforecopy",
                             "beforecut",
                             "beforepaste",
+                            "clipboardchange",
                             "copy",
                             "cut",
                             "paste" ]
