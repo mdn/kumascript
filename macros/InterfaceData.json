@@ -1000,7 +1000,7 @@
       "inh": "",
       "impl": []
     },
-    "Magnetomer": {
+    "Magnetometer": {
       "inh": "Sensor",
       "impl": []
     },
@@ -1477,7 +1477,7 @@
         "Body"
       ]
     },
-    "SensorEvent": {
+    "SensorErrorEvent": {
       "inh": "Event",
       "impl": []
     },
