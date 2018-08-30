@@ -23,11 +23,12 @@ var text = mdn.localStringMap({
     'The_MDN_project': 'The MDN project',
     'Using_Sensors': 'Using Sensors',
     'Related_APIs': 'Related APIs',
-    'Accelerometer_API': 'Accelerometer API',
-    'Ambient_Light_Sensor_API': 'Ambient Light Sensor',
-    'Gyroscope_API': 'Gycroscope',
-    'Magnetometer_API': 'Magnetometer'
-    'Orientation_Sensor_API': 'Orientation Sensor',
+
+    'Using_Accelerometers': 'Using Accelerometers',
+    'Using_Ambient_Light_Sensor': 'Using Ambient Light Sensors',
+    'Using_Gyroscopes': 'Using Gycroscopes',
+    'Using_Magnetometers': 'Using Magnetometers'
+    'Using_Orientation_Sensors': 'Using Orientation Sensors',
   }
 });
 %>
@@ -36,7 +37,12 @@ var text = mdn.localStringMap({
   <li><a href="/<%=locale%>/docs/Web/API/Service_Worker_API"><strong><%=text['Generic_Sensores_API']%></strong></a></li>
   <li data-default-state="open"><a href="#"><strong><%=text['Sensor_guides']%></strong></a>
    <ol>
-     <li><a href="/<%=locale%>/docs/Web/API/Service_Worker_API/Using_Service_Workers"><%=text['Using_Sensors']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Generic_Sensor_API/Using_Sensor_APIs"><%=text['Using_Sensors']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Using_Accelerometers"><%=text['Using_Accelerometers']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Using_Ambient_Light_Sensor"><%=text['Using_Ambient_Light_Sensor']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Using_Gyroscopes"><%=text['Using_Gyroscopes']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Using_Magnetometers"><%=text['Using_Magnetometers']%></a></li>
+     <li><a href="/<%=locale%>/docs/Web/API/Using_Orientation_Sensors"><%=text['Using_Orientation_Sensors']%></a></li>
    </ol>
   </li>
   <li data-default-state="open"><a href="#"><strong><%=text['Interfaces']%></strong></a>
