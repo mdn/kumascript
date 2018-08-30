@@ -1,5 +1,17 @@
 [
   {
+    "AbsoluteOrientationSensor": {
+      "inh": "OrientationSensor",
+      "impl": []
+    },
+    "Accelerometer": {
+      "inh": "Sensor",
+      "impl": []
+    },
+    "AmbientLightSensor": {
+      "inh": "Sensor",
+      "impl": []
+    },
     "AnalyserNode": {
       "inh": "AudioNode",
       "impl": [
@@ -541,6 +553,10 @@
       "inh": "Event",
       "impl": []
     },
+    "Gyroscope": {
+      "inh": "Sensor",
+      "impl": []
+    },
     "HMDVRDevice": {
       "inh": "VRDevice",
       "impl": []
@@ -971,6 +987,10 @@
         "KeyEvent"
       ]
     },
+    "LinearAccelerationSensor": {
+      "inh": "Accelerometer",
+      "impl": []
+    },
     "ListBoxObject": {
       "inh": "BoxObject",
       "impl": []
@@ -981,6 +1001,10 @@
     },
     "Location": {
       "inh": "",
+      "impl": []
+    },
+    "Magnetometer": {
+      "inh": "Sensor",
       "impl": []
     },
     "MediaDevices": {
@@ -1274,6 +1298,10 @@
       "inh": "EventTarget",
       "impl": []
     },
+    "OrientationSensor": {
+      "inh": "Sensor",
+      "impl": []
+    },
     "OscillatorNode": {
       "inh": "AudioNode",
       "impl": [
@@ -1384,6 +1412,10 @@
         "GeometryUtils"
       ]
     },
+    "RelativeOrientationSensor": {
+      "inh": "OrientationSensor",
+      "impl": []
+    },
     "RTCDTMFSender": {
       "inh": "EventTarget",
       "impl": []
@@ -1447,6 +1479,14 @@
       "impl": [
         "Body"
       ]
+    },
+    "SensorErrorEvent": {
+      "inh": "Event",
+      "impl": []
+    },
+    "Sensor": {
+      "inh": "EventTarget",
+      "impl": []
     },
     "SVGAElement": {
       "inh": "SVGGraphicsElement",
