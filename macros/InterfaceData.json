@@ -253,7 +253,8 @@
       "impl": []
     },
     "Clipboard": {
-      "inh": "EventTarget"
+      "inh": "EventTarget",
+      "impl": []
     },
     "ClipboardEvent": {
       "inh": "Event",
