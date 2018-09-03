@@ -479,7 +479,7 @@
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
     "status": "WD"
   },
-  "CSS Overscroll Behavior":{
+  "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
     "url": "https://wicg.github.io/overscroll-behavior/",
     "status": "Draft"
@@ -498,6 +498,11 @@
     "name": "CSS Scoping Module Level&nbsp;1",
     "url": "http://drafts.csswg.org/css-scoping/",
     "status": "WD"
+  },
+  "CSS Scrollbars": {
+    "name": "CSS Scrollbars Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scrollbars-1/",
+    "status": "ED"
   },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
