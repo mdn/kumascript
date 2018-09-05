@@ -859,6 +859,16 @@
     "url": "https://w3c.github.io/IntersectionObserver/",
     "status": "WD"
   },
+  "Keyboard Lock": {
+    "name": "Keyboard Lock",
+    "url": "http://www.w3.org/TR/keyboard-lock/",
+    "status": "ED"
+  },
+  "Keyboard Map": {
+    "name": "Long Tasks API 1",
+    "url": "http://www.w3.org/TR/keyboard-map/",
+    "status": "ED"
+  },
   "Long Tasks": {
     "name": "Long Tasks API 1",
     "url": "https://w3c.github.io/longtasks/",
