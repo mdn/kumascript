@@ -5,11 +5,15 @@ var utils = require('./utils'),
     chaiAsPromised = require('chai-as-promised'),
     assert = chai.assert,
     itMacro = utils.itMacro,
-    describeMacro = utils.describeMacro;
+    describeMacro = utils.describeMacro,
+    beforeEachMacro = utils.beforeEachMacro;
 
 chai.use(chaiAsPromised);
 
 describeMacro('EmbedLiveSample', function () {
+    beforeEachMacro(function (macro) {
+        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
+    });
     itMacro('One argument: ID', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure';
         macro.ctx.env.revision_id = 1397983;
@@ -34,7 +38,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('One argument: percent-encoded ID', function (macro) {
-        // Kuma doesn't serve the sample for the generated URL
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/switch';
         macro.ctx.env.revision_id = 1408886;
         return assert.eventually.equal(
@@ -46,14 +49,13 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('One argument: ID with percent-encoded page URL', function (macro) {
-        // Kuma doesn't serve the sample for the generated URL
         macro.ctx.env.url = 'https://developer.mozilla.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS';
         macro.ctx.env.revision_id = 1347968;
         return assert.eventually.equal(
             macro.call('Dégradés_linéaires_simples'),
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_Dégradés_linéaires_simples" frameborder="0"' +
-            ' src="https://mdn.mozillademos.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS$samples/Dégradés_linéaires_simples?revision=1347968">' +
+            ' src="https://mdn.mozillademos.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS$samples/D%C3%A9grad%C3%A9s_lin%C3%A9aires_simples?revision=1347968">' +
             '</iframe>'
         );
     });
@@ -89,7 +91,7 @@ describeMacro('EmbedLiveSample', function () {
             '<iframe class="live-sample-frame sample-code-frame"' +
             ' id="frame_增加关键帧" frameborder="0"' +
             ' width="100%" height="250"' +
-            ' src="https://mdn.mozillademos.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations$samples/增加关键帧?revision=1225673">' +
+            ' src="https://mdn.mozillademos.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations$samples/%E5%A2%9E%E5%8A%A0%E5%85%B3%E9%94%AE%E5%B8%A7?revision=1225673">' +
             '</iframe>'
         );
     });
