@@ -5,13 +5,16 @@ var utils = require('./utils'),
     chaiAsPromised = require('chai-as-promised'),
     assert = chai.assert,
     itMacro = utils.itMacro,
-    describeMacro = utils.describeMacro;
+    describeMacro = utils.describeMacro,
+    beforeEachMacro = utils.beforeEachMacro;
 
 chai.use(chaiAsPromised);
 
 describeMacro('EmbedLiveSample', function () {
-    itMacro('One argument: ID', function (macro) {
+    beforeEachMacro(function (macro) {
         macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
+    });
+    itMacro('One argument: ID', function (macro) {
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure';
         macro.ctx.env.revision_id = 1397983;
         return assert.eventually.equal(
@@ -24,7 +27,6 @@ describeMacro('EmbedLiveSample', function () {
     });
     itMacro('One argument: ID with HTML entities (bug?)', function (macro) {
         // Kuma doesn't serve the sample for the generated URL
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/switch';
         macro.ctx.env.revision_id = 1408880;
         return assert.eventually.equal(
@@ -36,7 +38,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('One argument: percent-encoded ID', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/SVG/Element/switch';
         macro.ctx.env.revision_id = 1408886;
         return assert.eventually.equal(
@@ -48,7 +49,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('One argument: ID with percent-encoded page URL', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/fr/docs/Web/CSS/Utilisation_de_d%C3%A9grad%C3%A9s_CSS';
         macro.ctx.env.revision_id = 1347968;
         return assert.eventually.equal(
@@ -60,7 +60,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Two arguments: ID, width', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width';
         macro.ctx.env.revision_id = 1352086;
         return assert.eventually.equal(
@@ -73,7 +72,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Three arguments: ID, width, height', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure';
         macro.ctx.env.revision_id = 1397983;
         return assert.eventually.equal(
@@ -86,7 +84,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Three arguments: unicode ID, width, height', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Animations/Using_CSS_animations';
         macro.ctx.env.revision_id = 1225673;
         return assert.eventually.equal(
@@ -99,7 +96,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Three arguments: url-encoded ID, width, height', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage';
         macro.ctx.env.revision_id = 1408763;
         return assert.eventually.equal(
@@ -112,7 +108,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Four arguments: ID, width, height, ""', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/::before';
         macro.ctx.env.revision_id = 1392665;
         return assert.eventually.equal(
@@ -125,7 +120,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Four arguments: ID, width, height, screenshot', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients';
         macro.ctx.env.revision_id = 1330830;
         return assert.eventually.equal(
@@ -152,7 +146,6 @@ describeMacro('EmbedLiveSample', function () {
         '</iframe>'
     );
     itMacro('Five arguments: ID, width, height, "", same slug', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap';
         macro.ctx.env.revision_id = 1367874;
         return assert.eventually.equal(
@@ -161,7 +154,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Three arguments: ID, width, height (same as Five arg, same slug)', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap';
         macro.ctx.env.revision_id = 1367874;
         return assert.eventually.equal(
@@ -170,7 +162,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Five arguments: ID, "", "", "", other slug', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/Events/focus';
         macro.ctx.env.revision_id = 1348946;
         return assert.eventually.equal(
@@ -182,7 +173,6 @@ describeMacro('EmbedLiveSample', function () {
         );
     });
     itMacro('Six arguments: ID, width, height, "", "", class', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://mdn.mozillademos.org'};
         macro.ctx.env.url = 'https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance';
         macro.ctx.env.revision_id = 1402877;
         return assert.eventually.equal(
