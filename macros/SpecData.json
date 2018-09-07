@@ -1216,7 +1216,7 @@
   },
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
-    "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
+    "url": "https://w3c.github.io/dnt/drafts/tracking-dnt.html",
     "status": "CR"
   },
   "Typed Array": {
