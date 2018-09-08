@@ -441,7 +441,8 @@ if (name === "preview-wiki-content") {
             rawSyntax = data.atRules[atRule].descriptors[name].syntax;
         }
     } else if (name[0] === "@") {
-        if (data.atRules[name].syntax) {
+        if (data.atRules[name] &&
+            data.atRules[name].syntax) {
             rawSyntax = data.atRules[name].syntax;
         }
     } else if (name[0] === ":" && typeof data.selectors[name] !== 'undefined') {
