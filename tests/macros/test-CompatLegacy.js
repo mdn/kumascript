@@ -88,3 +88,79 @@ describeMacro('CompatEdge', function () {
         return assert.eventually.equal(actual, expected);
     });
 });
+
+describeMacro('CompatNightly', function () {
+    itMacro('Correct DOM with no arguments', function (macro) {
+        return macro.call().then(function (result) {
+            let dom = JSDOM.fragment(result);
+            assert.equal(dom.firstElementChild.tagName, 'EM');
+            assert.equal(dom.firstElementChild.childElementCount, 0);
+            assert.equal(dom.textContent, 'Nightly build');
+        });
+    });
+
+    itMacro('Correct DOM for Firefox', function (macro) {
+        return macro.call('firefox').then(function (result) {
+            let dom = JSDOM.fragment(result);
+            let element = dom.firstElementChild;
+            assert.equal(element.tagName, 'EM');
+            assert.equal(element.childElementCount, 1);
+            element = element.firstElementChild;
+            assert.equal(element.tagName, 'A');
+            assert.equal(element.getAttribute('href'), 'https://nightly.mozilla.org/');
+            assert.equal(dom.textContent, 'Nightly build');
+        });
+    });
+
+    itMacro('Correct DOM for Firefox Android', function (macro) {
+        return macro.call('firefoxmobile').then(function (result) {
+            let dom = JSDOM.fragment(result);
+            let element = dom.firstElementChild;
+            assert.equal(element.tagName, 'EM');
+            assert.equal(element.childElementCount, 1);
+            element = element.firstElementChild;
+            assert.equal(element.tagName, 'A');
+            assert.equal(element.getAttribute('href'), 'https://wiki.mozilla.org/Mobile/Platforms/Android%23Download_Fennec_Nightly_Builds');
+            assert.equal(dom.textContent, 'Nightly build');
+        });
+    });
+
+    itMacro('Correct DOM for Safari', function (macro) {
+        return macro.call('safari').then(function (result) {
+            let dom = JSDOM.fragment(result);
+            let element = dom.firstElementChild;
+            assert.equal(element.tagName, 'EM');
+            assert.equal(element.childElementCount, 1);
+            element = element.firstElementChild;
+            assert.equal(element.tagName, 'A');
+            assert.equal(element.getAttribute('href'), 'https://nightly.webkit.org/');
+            assert.equal(dom.textContent, 'Nightly build');
+        });
+    });
+
+    itMacro('Correct DOM for Chrome', function (macro) {
+        return macro.call('chrome').then(function (result) {
+            let dom = JSDOM.fragment(result);
+            let element = dom.firstElementChild;
+            assert.equal(element.tagName, 'EM');
+            assert.equal(element.childElementCount, 1);
+            element = element.firstElementChild;
+            assert.equal(element.tagName, 'A');
+            assert.equal(element.getAttribute('href'), 'https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html');
+            assert.equal(dom.textContent, 'Nightly build');
+        });
+    });
+
+    itMacro('Correct DOM for Opera', function (macro) {
+        return macro.call('opera').then(function (result) {
+            let dom = JSDOM.fragment(result);
+            let element = dom.firstElementChild;
+            assert.equal(element.tagName, 'EM');
+            assert.equal(element.childElementCount, 1);
+            element = element.firstElementChild;
+            assert.equal(element.tagName, 'A');
+            assert.equal(element.getAttribute('href'), 'https://snapshot.opera.com/');
+            assert.equal(dom.textContent, 'Nightly build');
+        });
+    });
+});

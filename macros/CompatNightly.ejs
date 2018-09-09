@@ -17,29 +17,29 @@ var url = '';
 if ($0) {
     switch (string.tolower($0)) {
         case 'firefox':
-            url = 'http://nightly.mozilla.org/';
+            url = 'https://nightly.mozilla.org/';
             break;
-    
+
         case 'firefoxmobile':
             url = 'https://wiki.mozilla.org/Mobile/Platforms/Android%23Download_Fennec_Nightly_Builds';
             break;
-    
+
         case 'safari':
-            url = 'http://nightly.webkit.org/';
+            url = 'https://nightly.webkit.org/';
             break;
-    
+
         case 'chrome':
             url = 'https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html';
             break;
-    
+
         case 'opera':
-             url = 'http://snapshot.opera.com/';
-             break;
+            url = 'https://snapshot.opera.com/';
+            break;
     }
 }
 
-if (string.length(url)) {
-  str = web.link(url, str);
-}
-%>
-<em><%- str %></em>
+if (string.length(url)) {%>
+<em><a href="<%= url %>"><%= str %></a></em>
+<%} else {%>
+<em><%= str %></em>
+<%}%>
