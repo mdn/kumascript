@@ -46,3 +46,24 @@ describeMacro('CompatGeckoDesktop', function () {
         return assert.eventually.equal(actual, expected);
     });
 });
+
+describeMacro('CompatGeckoMobile', function () {
+
+    itMacro('Correct DOM for unknown Firefox Android versions', function (macro) {
+        let actual = macro.call('Unknown');
+        let expected = 'Unknown';
+        return assert.eventually.equal(actual, expected);
+    });
+
+    itMacro('Correct DOM for old Firefox Android versions', function (macro) {
+        let actual = macro.call('2');
+        let expected = '4 (2)';
+        return assert.eventually.equal(actual, expected);
+    });
+
+    itMacro('Correct DOM for modern Firefox Android versions', function (macro) {
+        let actual = macro.call('5');
+        let expected = '5';
+        return assert.eventually.equal(actual, expected);
+    });
+});

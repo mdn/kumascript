@@ -2,10 +2,11 @@
 var fxVer = '';
 var gecko = $0.split('.',1);
 if (gecko == '2') {
-    fxVer = '4.0';
+    fxVer = "4 (" + $0 + ")";
+} else if ((gecko - 0.0) >= 5) {
+    fxVer = gecko;
 } else {
-    fxVer = gecko + '.0';
+    fxVer = $0;
 }
-fxVer = fxVer + " (" + $0 + ")";
 %>
 <%= fxVer %>
