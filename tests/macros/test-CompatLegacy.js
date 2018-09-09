@@ -164,3 +164,35 @@ describeMacro('CompatNightly', function () {
         });
     });
 });
+
+describeMacro('CompatNo', function () {
+    itMacro('Correct DOM', function (macro) {
+        return macro.call().then(function (result) {
+            let dom = JSDOM.fragment(result);
+            assert.equal(dom.firstElementChild.tagName, 'SPAN');
+            assert.equal(dom.textContent, 'No\xA0support');
+        });
+    });
+});
+
+describeMacro('CompatVersionUnknown', function () {
+    itMacro('Correct DOM', function (macro) {
+        return macro.call().then(function (result) {
+            let dom = JSDOM.fragment(result);
+            assert.equal(dom.firstElementChild.tagName, 'SPAN');
+            assert.equal(dom.firstElementChild.getAttribute('title'), 'Please update this with the earliest version of support.');
+            assert.equal(dom.textContent, '(Yes)');
+        });
+    });
+});
+
+describeMacro('CompatUnknown', function () {
+    itMacro('Correct DOM', function (macro) {
+        return macro.call().then(function (result) {
+            let dom = JSDOM.fragment(result);
+            assert.equal(dom.firstElementChild.tagName, 'SPAN');
+            assert.equal(dom.firstElementChild.getAttribute('title'), 'Compatibility unknown; please update this.');
+            assert.equal(dom.textContent, '?');
+        });
+    });
+});
