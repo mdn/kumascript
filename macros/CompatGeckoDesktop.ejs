@@ -99,7 +99,7 @@ else {
         case '1.9.1':
             fxVer = '3.5';
             break;
-         case '1.9.1.4':
+        case '1.9.1.4':
             fxVer = '3.5.4';
             break;
         case '1.9.2':
@@ -122,20 +122,24 @@ else {
             fxVer = 'Unknown';
     }
 }
-release = fxVer - 0.0; // Convert to a number (so that when we convert back, it won't have the trailing '.0' if an integer.
-releaseDateStr = date[release];
-titleStr = ""; // Default value
-url = fxVer; // Default value
-if ((fxVer != "1.0") && (fxVer != "Unknown")) { // No release notes for 1.0
-    titleStr = mdn.localString({
+let release = fxVer - 0.0; // Convert to a number (so that when we convert back, it won't have the trailing '.0' if an integer.
+if (!Number.isNaN(release) && (geckoVer-0.0) >= 2) {
+    fxVer = release;
+}
+if (!Number.isNaN(release) && (release !== 1) && (fxVer !== "Unknown")) { // No release notes for 1.0
+    let releaseDateStr = date[release];
+    let titleStr = releaseDateStr && mdn.localString({
         "fr"    : "Sorti le " + releaseDateStr + ".",
         "en-US" : "Released on " + releaseDateStr + ".",
         "es"    : "Publicado en " + releaseDateStr + ".",
         "de"    : "Veröffentlicht am " + releaseDateStr + ".",
         "ru"    : "Выпущен " + releaseDateStr + "."
     });
-    url = '<a href="/en-US/Firefox/Releases/' + release + '"'+ (titleStr?' title="'+titleStr+'"':'') + '>'+ fxVer + '</a>';
+    %><a href="/<%= env.locale %>/docs/Mozilla/Firefox/Releases/<%= release %>" <%_ if (titleStr) {%> title="<%= titleStr %>" <%_}_%> ><%= fxVer %></a><%
+} else {
+    %><%= fxVer %><%
 }
-result = url + " (" + geckoVer + ")";
+if (!((geckoVer-0.0) >= 5)) {
+    %> (<%= geckoVer %>)<%
+}
 %>
-<%- result %>
