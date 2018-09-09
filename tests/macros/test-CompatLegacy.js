@@ -67,3 +67,24 @@ describeMacro('CompatGeckoMobile', function () {
         return assert.eventually.equal(actual, expected);
     });
 });
+
+describeMacro('CompatEdge', function () {
+
+    itMacro('Correct DOM for unknown Edge versions', function (macro) {
+        let actual = macro.call('Unknown');
+        let expected = 'Unknown (Unknown)';
+        return assert.eventually.equal(actual, expected);
+    });
+
+    itMacro('Correct DOM for EdgeHTML 14.14393', function (macro) {
+        let actual = macro.call('14.14393');
+        let expected = '<a href="https://developer.microsoft.com/en-us/microsoft-edge/platform/changelog/desktop/14393/" title="Released on 2016-08-02.">38</a> (14.14393)';
+        return assert.eventually.equal(actual, expected);
+    });
+
+    itMacro('Correct DOM for EdgeHTML 17', function (macro) {
+        let actual = macro.call('17');
+        let expected = 'Unknown (17)';
+        return assert.eventually.equal(actual, expected);
+    });
+});

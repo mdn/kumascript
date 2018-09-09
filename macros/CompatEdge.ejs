@@ -203,21 +203,11 @@ var result = "";
 
 if (release.url) {
     var titleStr = "";
-    if (release.version) {
-        titleStr = " title=\"" +
-            mdn.replacePlaceholders(title, {releaseDate: release.date}) +
-            "\"";
+    if (release.date) {
+        titleStr = mdn.replacePlaceholders(title, {releaseDate: release.date});
     }
-    result = mdn.replacePlaceholders('<a href="$url$"$title$>$version$</a>',
-        {
-            url: release.url,
-            title: titleStr,
-            version: release.version
-        });
+    %><a href="<%= release.url %>" <%_ if (release.date) {%> title="<%= titleStr %>" <%_}_%> ><%= release.version %></a><%
 } else {
-    result = release.version;
+    %><%= release.version %><%
 }
-
-result += " (" + edgeHTMLVersion + ")";
-%>
-<%- result %>
+%> (<%= edgeHTMLVersion %>)
