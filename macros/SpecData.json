@@ -197,7 +197,7 @@
   "CSS3 Display": {
     "name": "CSS Display Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-display/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS3 Environment Variables": {
     "name": "CSS Environment Variables Module Level&nbsp;1",
@@ -479,7 +479,7 @@
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
     "status": "WD"
   },
-  "CSS Overscroll Behavior":{
+  "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
     "url": "https://wicg.github.io/overscroll-behavior/",
     "status": "Draft"
