@@ -861,12 +861,12 @@
   },
   "Keyboard Lock": {
     "name": "Keyboard Lock",
-    "url": "http://www.w3.org/TR/keyboard-lock/",
+    "url": "https://w3c.github.io/keyboard-lock",
     "status": "ED"
   },
   "Keyboard Map": {
     "name": "Keyboard Map",
-    "url": "http://www.w3.org/TR/keyboard-map/",
+    "url": "https://wicg.github.io/keyboard-map/",
     "status": "ED"
   },
   "Long Tasks": {
