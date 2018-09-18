@@ -1301,8 +1301,8 @@
   },
   "Web Audio API": {
     "name": "Web Audio API",
-    "url": "https://webaudio.github.io/web-audio-api/",
-    "status": "WD"
+    "url": "https://www.w3.org/TR/2018/CR-webaudio-20180918/",
+    "status": "CR"
   },
   "Web Background Sync": {
     "name": "Web Background Synchronization",
