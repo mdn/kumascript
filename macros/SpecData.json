@@ -196,8 +196,8 @@
   },
   "CSS3 Display": {
     "name": "CSS Display Module Level&nbsp;3",
-    "url": "https://drafts.csswg.org/css-display/",
-    "status": "WD"
+    "url": "https://www.w3.org/TR/2018/CR-css-display-3-20180828/",
+    "status": "CR"
   },
   "CSS3 Environment Variables": {
     "name": "CSS Environment Variables Module Level&nbsp;1",
