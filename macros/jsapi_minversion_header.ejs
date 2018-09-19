@@ -1,10 +1,10 @@
 <%
 /* one parameter: SpiderMonkey version */
- 
+
 /* get the page language */
 var lang = env.locale;
 var link = '';
- 
+
 /* check if page exists, English for fall back */
 if(wiki.pageExists(lang + '/docs/SpiderMonkey/' + $0)) {
     link = web.link(wiki.uri(lang + '/docs/SpiderMonkey/' + $0), 'SpiderMonkey ' + $0);
@@ -26,6 +26,6 @@ switch(lang) {
 }
 
 
-%><div class="overheadIndicator jsMinVer jsMinVerHeader">
+%><div class="blockIndicator jsMinVer jsMinVerHeader">
     <p><%- str %></p>
 </div>
