@@ -261,7 +261,7 @@
         "de"   : "Nicht standardisiert",
         "es"   : "No estándar",
         "fr"   : "Non-standard",
-        "ja"   : "非標準",
+        "ja"   : "標準外",
         "ru"   : "Нестандартная",
         "nl"   : "Niet standaard"
     },
@@ -270,7 +270,7 @@
         "de"   : "Nicht standardisiert. Erwarte schlechte browserübergreifende Unterstützung.",
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
-        "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
+        "ja"   : "標準外。ブラウザー間の互換性が低い可能性があります。",
         "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
         "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers."
     },
@@ -340,7 +340,7 @@
         "de"   : "Verwendet den nicht standardisierten Namen: <code>$1$</code>",
         "es"   : "Usa un nombre no estandar : <code>$1$</code> ",
         "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$1$</code>",
-        "ja"   : "非標準の名前 <code>$1$</code> を使用しています。",
+        "ja"   : "標準外の名前 <code>$1$</code> を使用しています。",
         "ru"   : "Использует нестандартное имя: <code>$1$</code>",
         "nl"   : "Gebruikt de niet-standaard naam: <code>$1$</code>"
     },
@@ -385,7 +385,7 @@
         "de"   : "Verwendet einen nicht standardisierten Namen.",
         "es"   : "Usa un nombre no estandar.",
         "fr"   : "Cette fonctionnalité utilise un nom non-standard.",
-        "ja"   : "非標準の名前を使用しています。",
+        "ja"   : "標準外の名前を使用しています。",
         "ru"   : "Использует нестандартное имя.",
         "nl"   : "Gebruikt een niet-standaard naam."
     },
@@ -394,7 +394,7 @@
         "de"   : "Benutzer muss dieses Feature explizit aktivieren.",
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
-        "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
+        "ja"   : "ユーザーが明示的にこの機能を有効にする必要があります。",
         "ru"   : "Пользователь должен сам включить эту возможность.",
         "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
     },
@@ -421,7 +421,7 @@
         "de"   : "Nicht standardisiert. Erwarte schlechte browserübergreifende Unterstützung.",
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
-        "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
+        "ja"   : "標準外。ブラウザー間の互換性が低い可能性があります。",
         "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
         "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers."
     },
