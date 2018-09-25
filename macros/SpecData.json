@@ -501,8 +501,8 @@
   },
   "CSS Scrollbars": {
     "name": "CSS Scrollbars Level&nbsp;1",
-    "url": "https://drafts.csswg.org/css-scrollbars-1/",
-    "status": "ED"
+    "url": "https://www.w3.org/TR/2018/WD-css-scrollbars-1-20180925/",
+    "status": "WD"
   },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
