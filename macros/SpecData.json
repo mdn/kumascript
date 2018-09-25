@@ -561,8 +561,8 @@
   },
   "Device Memory": {
     "name": "Device Memory 1",
-    "url": "https://w3c.github.io/device-memory/",
-    "status": "ED"
+    "url": "https://www.w3.org/TR/2018/WD-device-memory-1-20180925/",
+    "status": "WD"
   },
   "Device Orientation": {
     "name": "Device Orientation Events",
