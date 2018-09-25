@@ -771,7 +771,7 @@
   },
   "Geolocation": {
     "name": "Geolocation API",
-    "url": "https://dev.w3.org/geo/api/spec-source.html",
+    "url": "https://www.w3.org/TR/geolocation-API",
     "status": "REC"
   },
   "Geometry Interfaces": {
