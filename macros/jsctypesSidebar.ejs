@@ -27,19 +27,19 @@ var text = mdn.localStringMap({
   <li><a href="/<%=locale%>/docs/Mozilla/js-ctypes"><strong><em>js-ctypes</em></strong></a></li>
   <li class="toggle">
       <details <%=state('Introduction')%>>
-        <summary><%=text['Introduction']</summary>
+        <summary><%=text['Introduction']%></summary>
         <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Using_js-ctypes', 1])%>
       </details>
   </li>
   <li class="toggle">
       <details <%=state('References')%>>
-        <summary><%=text['References']</summary>
+        <summary><%=text['References']%></summary>
         <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/js-ctypes_reference'])%>
       </details>
   </li>
   <li class="toggle">
       <details <%=state('Examples')%>>
-        <summary><%=text['Examples']</summary>
+        <summary><%=text['Examples']%></summary>
         <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/js-ctypes/Examples', 1])%>
       </details>
   </li>
