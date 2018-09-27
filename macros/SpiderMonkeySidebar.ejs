@@ -106,8 +106,8 @@ var text = mdn.localStringMap({
 
   <li><strong><%=text['Releases']%></strong></li>
   <li class="toggle">
-    <details <%=state('Releases')%>>
-      <summary><%=text['Releases']%></summary>
+    <details <%=state('Releases_notes)%>>
+      <summary><%=text['Releases_notes']%></summary>
       <%-template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Releases', 1, 1, 1])%>
     </details>
   </li>
