@@ -280,7 +280,7 @@ var text = mdn.localStringMap({
     <li><a href="<%=baseURL%>WebExtensions"><strong><%=text['WebExtensions']%></strong></a></li>
     <li class="toggle">
       <details>
-        <summary><%=text['WebExtensions']%></summary>
+        <summary><%=text['WebExtensions#Getting_started']%></summary>
         <ol>
           <li><a href="<%=baseURL%>WebExtensions/What_are_WebExtensions"><%=text['WebExtensions/What_are_WebExtensions']%></a></li>
           <li><a href="<%=baseURL%>WebExtensions/Your_first_WebExtension"><%=text['WebExtensions/Your_first_WebExtension']%></a></li>
@@ -376,16 +376,19 @@ var text = mdn.localStringMap({
       </details>
     </li>
 
-    <li><a href="<%=baseURL%>WebExtensions/manifest.json"><%=text['WebExtensions/manifest.json']%></a>
-    <%-
-      wiki.tree(baseURL + "WebExtensions/manifest.json", 1, 0, 0, 1)
-    %>
+    <li class="toggle">
+      <details>
+      <summary><%=text['WebExtensions/manifest.json']%></summary>
+      <%-
+        wiki.tree(baseURL + "WebExtensions/manifest.json", 1, 0, 0, 1)
+      %>
+      </details>
     </li>
 
     <li><a href="<%=baseURL%>Themes"><strong><%=text['Themes']%></strong></a></li>
     <li class="toggle">
       <details>
-        <summary><%=text['Themes/Theme_concepts_']%></summary>
+        <summary><%=text['Themes/Theme_concepts']%></summary>
         <ol>
           <li><a href="<%=baseURL%>Themes/Theme_concepts"><%=text['Themes/Theme_concepts_']%></a></li>
         </ol>
