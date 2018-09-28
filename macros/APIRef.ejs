@@ -55,7 +55,7 @@ if (group && webAPIGroups[0][group]) {
   related.sort();
   events = webAPIGroups[0][group].events || [];
 }
-    
+
 var pageList = mainIFPages;
 
 var properties = [];
@@ -113,11 +113,13 @@ getInheritance(inh);
 
 function getImplementedBy(data) {
   for (var key in data) {
-    if (data.hasOwnProperty(key) && data[key].impl.indexOf(mainIF) != -1) {
+    if (data.hasOwnProperty(key)
+        && data[key].impl
+        && data[key].impl.indexOf(mainIF) != -1) {
       implementedBy.push(key);
     }
   }
-  implementedBy.sort();  
+  implementedBy.sort();
 }
 getImplementedBy(webAPIData[0]);
 
@@ -139,7 +141,7 @@ function buildSublist(pages, title) {
     var url = aPage.url.replace('en-US', locale);
     var titleSplit = htmlEscape(aPage.title).split('.'); // Two cases, as sometimes the interface name is forgotten in the title:
     var title = titleSplit[titleSplit.length - 1];       // "WebGLRenderingContext.activeTexture()" and "activeTexture()" should both become "activeTexture()"
-    
+
     var translated = false;
     if (locale != 'en-US') {
         aPage.translations.forEach(function(translation){
@@ -152,15 +154,15 @@ function buildSublist(pages, title) {
             }
         });
     }
-    
+
     var cta = '';
      if (!translated && locale != 'en-US') {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['title'] + '">' + text['translate'] + '</a>';
     }
-    
-    
+
+
     result += '<li>';
-    
+
     if (hasTag(aPage, 'Experimental')) {
         result += badges.ExperimentalBadge;
     }
@@ -177,25 +179,25 @@ function buildSublist(pages, title) {
         result += badges.ObsoleteBadge;
         result += '<s class="obsoleteElement">';
     }
-    
+
     if (rtlLocales.indexOf(locale) != -1) {
         result += '<bdi>';
     }
-    
+
     if (slug == aPage.slug) {
         result += '<em><code>' + title + '</code></em>'
     } else {
         result += '<a href="' + url + '" title="' + summary + '"><code>' + title + '</code></a>' + cta;
     }
-    
+
     if (rtlLocales.indexOf(locale) != -1) {
         result += '</bdi>';
     }
-    
+
     if (hasTag(aPage, 'Obsolete')) {
         result += '</s>';
     }
-    
+
     result += '</li>';
   }
 
@@ -237,14 +239,14 @@ if (group && webAPIGroups[0][group] && webAPIGroups[0][group].overview) {
 }
 output += '<li><strong><a href="' +  APIHref + '/' + mainIF + '"><code>' + mainIF + '</a></code></strong></li>';
 
-if (ctors.length > 0) { 
+if (ctors.length > 0) {
   output += buildSublist(ctors, text['Constructor']);
 }
 
-if (properties.length > 0) { 
+if (properties.length > 0) {
   output += buildSublist(properties, text['Properties']);
 }
-if (methods.length > 0) { 
+if (methods.length > 0) {
   output += buildSublist(methods, text['Methods']);
 }
 if (inh.length > 0) {

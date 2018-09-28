@@ -15,9 +15,19 @@
     "status": "CR"
   },
   "ARIA": {
-    "name": "Accessible Rich Internet Applications (WAI-ARIA)",
+    "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.1",
     "url": "https://www.w3.org/TR/wai-aria-1.1/",
     "status": "REC"
+  },
+  "ARIA 1.2": {
+    "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+    "url": "https://www.w3.org/TR/wai-aria-1.2/",
+    "status": "WD"
+  },
+  "ARIA Authoring Practices": {
+    "name": "WAI-ARIA Authoring Practices 1.1",
+    "url": "https://w3c.github.io/aria-practices/",
+    "status": "Draft"
   },
   "ARIA in HTML": {
     "name": "ARIA in HTML",
@@ -479,7 +489,7 @@
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
     "status": "WD"
   },
-  "CSS Overscroll Behavior":{
+  "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
     "url": "https://wicg.github.io/overscroll-behavior/",
     "status": "Draft"
@@ -498,6 +508,11 @@
     "name": "CSS Scoping Module Level&nbsp;1",
     "url": "http://drafts.csswg.org/css-scoping/",
     "status": "WD"
+  },
+  "CSS Scrollbars": {
+    "name": "CSS Scrollbars Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scrollbars-1/",
+    "status": "ED"
   },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
@@ -667,6 +682,11 @@
   "ES2017": {
     "name": "ECMAScript 2017 (ECMA-262)",
     "url": "https://www.ecma-international.org/ecma-262/8.0/",
+    "status": "Standard"
+  },
+  "ES2018": {
+    "name": "ECMAScript 2018 (ECMA-262)",
+    "url": "https://www.ecma-international.org/ecma-262/9.0/",
     "status": "Standard"
   },
   "ESDraft": {
@@ -1033,6 +1053,11 @@
     "name": "Presentation API",
     "url": "https://w3c.github.io/presentation-api/",
     "status": "CR"
+  },
+  "Priority Hints": {
+    "name": "Priority Hints",
+    "url": "https://wicg.github.io/priority-hints/",
+    "status": "Draft"
   },
   "Proximity Events": {
     "name": "Proximity Sensor",
@@ -1493,6 +1518,11 @@
     "name": "Notifications API",
     "url": "https://notifications.spec.whatwg.org/",
     "status": "Living"
+  },
+  "WebRTC Statistics Identifiers": {
+    "name": "Identifiers for WebRTC's Statistics API",
+    "url": "https://w3c.github.io/webrtc-stats/",
+    "status": "CR"
   },
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
