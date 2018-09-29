@@ -1431,7 +1431,7 @@
   },
   "WebDriver": {
     "name": "WebDriver",
-    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
+    "url": "https://w3c.github.io/webdriver/",
     "status": "REC"
   },
   "WEBGL_color_buffer_float": {
