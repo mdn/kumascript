@@ -576,7 +576,7 @@
   },
   "Device Orientation": {
     "name": "Device Orientation Events",
-    "url": "https://w3c.github.io/deviceorientation/spec-source-orientation.html",
+    "url": "https://w3c.github.io/deviceorientation/",
     "status": "WD"
   },
   "DOM Parsing": {
