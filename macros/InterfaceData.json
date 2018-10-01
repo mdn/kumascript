@@ -6,7 +6,9 @@
     },
     "Accelerometer": {
       "inh": "Sensor",
-      "impl": []
+      "impl": [
+        "LinearAccelerationSensor"
+      ]
     },
     "AmbientLightSensor": {
       "inh": "Sensor",
@@ -296,6 +298,129 @@
     },
     "Crypto": {
       "inh": "",
+      "impl": []
+    },
+    "CSSImageValue": {
+      "inh": "CSSStyleValue",
+      "impl": []
+    },
+    "CSSKeywordValue": {
+      "inh": "CSSStyleValue",
+      "impl": []
+    },
+    "CSSMathInvert": {
+      "inh": "CSSMathValue",
+      "impl": []
+    },
+    "CSSMathMax": {
+      "inh": "CSSMathValue",
+      "impl": []
+    },
+    "CSSMathMin": {
+      "inh": "CSSMathValue",
+      "impl": []
+    },
+    "CSSMathNegate": {
+      "inh": "CSSMathValue",
+      "impl": []
+    },
+    "CSSMathProduct": {
+      "inh": "CSSMathValue",
+      "impl": []
+    },
+    "CSSMathSum": {
+      "inh": "CSSMathValue",
+      "impl": []
+    },
+    "CSSMathValue": {
+      "inh": "CSSNumericValue",
+      "impl": [
+        "CSSMathInvert",
+        "CSSMathMax",
+        "CSSMathMin",
+        "CSSMathNegate",
+        "CSSMathProduct",
+        "CSSMathSum"
+      ]
+    },
+    "CSSMatrixComponent": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSNumericValue": {
+      "inh": "CSSStyleValue",
+      "impl": [
+        "CSSMathValue",
+        "CSSUnitValue"
+      ]
+    },
+    "CSSPerspective": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSPositionValue": {
+      "inh": "CSSStyleValue",
+      "impl": []
+    },
+    "CSSRotate": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSScale": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSSkew": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSSkewX": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSSkewY": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSStyleValue": {
+      "inh": "",
+      "impl": [
+        "CSSImageValue",
+        "CSSKeywordValue",
+        "CSSNumericValue",
+        "CSSPositionValue",
+        "CSSTransformValue",
+        "CSSUnitValue",
+        "CSSUnparsedValue"
+      ]
+    },
+    "CSSTransformComponent": {
+      "inh": "",
+      "impl": [
+        "CSSMatrixComponent",
+        "CSSPerspective",
+        "CSSRotate",
+        "CSSScale",
+        "CSSSkew",
+        "CSSSkewX",
+        "CSSSkewY",
+        "CSSTranslate"
+      ]
+    },
+    "CSSTransformValue": {
+      "inh": "CSSStyleValue",
+      "impl": []
+    },
+    "CSSTranslate": {
+      "inh": "CSSTransformComponent",
+      "impl": []
+    },
+    "CSSUnitValue": {
+      "inh": "CSSNumericValue",
+      "impl": []
+    },
+    "CSSUnparsedValue": {
+      "inh": "CSSStyleValue",
       "impl": []
     },
     "CustomEvent": {
@@ -1305,7 +1430,10 @@
     },
     "OrientationSensor": {
       "inh": "Sensor",
-      "impl": []
+      "impl": [
+        "AbsoluteOrientationSensor",
+        "RelativeOrientationSensor"
+      ]
     },
     "OscillatorNode": {
       "inh": "AudioNode",
@@ -1505,13 +1633,39 @@
         "Body"
       ]
     },
+    "Sensor": {
+      "inh": "EventTarget",
+      "impl": [
+        "Accelerometer",
+        "AmbientLightSensor",
+        "Gyroscope",
+        "Magnetometer",
+        "OrientationSensor"
+      ]
+    },
     "SensorErrorEvent": {
       "inh": "Event",
       "impl": []
     },
-    "Sensor": {
-      "inh": "EventTarget",
+    "SensorOptions": {
+      "inh": "",
+      "impl": [
+        "SpatialSensorOptions"
+      ]
+    },
+    "SpatialSensorOptions": {
+      "inh": "SensorOptions",
       "impl": []
+    },
+    "StylePropertyMap": {
+      "inh": "StylePropertyMapReadOnly",
+      "impl": []
+    },
+    "StylePropertyMapReadOnly": {
+      "inh": "",
+      "impl": [
+        "StylePropertyMap"
+      ]
     },
     "SVGAElement": {
       "inh": "SVGGraphicsElement",
