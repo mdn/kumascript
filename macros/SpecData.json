@@ -778,7 +778,12 @@
     "name": "Geometry Interfaces Module Level 1",
     "url": "https://drafts.fxtf.org/geometry/",
     "status": "CR"
-  },
+	},
+	"Graphics Accessibility": {
+		"name": "Graphics Accessibility API Mappings",
+		"url": "https://www.w3.org/TR/2018/REC-graphics-aam-1.0-20181002/",
+    "status": "REC"
+	},
   "Gyroscope": {
     "name": "Gyroscope",
     "url": "https://www.w3.org/TR/gyroscope/",
@@ -1288,7 +1293,12 @@
     "name": "Web Animations",
     "url": "https://drafts.csswg.org/web-animations/",
     "status": "WD"
-  },
+	},
+	"WAI-ARIA Graphics Module": {
+		"name": "WAI-ARIA Graphics Module",
+    "url": "https://www.w3.org/TR/2018/REC-graphics-aria-1.0-20181002/",
+    "status": "REC"
+	},
   "WebAssembly Core": {
     "name": "WebAssembly Core Specification",
     "url": "https://webassembly.github.io/spec/core/bikeshed/",
