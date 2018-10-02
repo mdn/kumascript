@@ -779,12 +779,12 @@
     "url": "https://drafts.fxtf.org/geometry/",
     "status": "CR"
 	},
-	"Graphics Accessibility": {
-		"name": "Graphics Accessibility API Mappings",
-		"url": "https://www.w3.org/TR/2018/REC-graphics-aam-1.0-20181002/",
+  "Graphics Accessibility": {
+    "name": "Graphics Accessibility API Mappings",
+    "url": "https://www.w3.org/TR/2018/REC-graphics-aam-1.0-20181002/",
     "status": "REC"
-	},
-  "Gyroscope": {
+  },
+	"Gyroscope": {
     "name": "Gyroscope",
     "url": "https://www.w3.org/TR/gyroscope/",
     "status": "CR"
@@ -1294,11 +1294,11 @@
     "url": "https://drafts.csswg.org/web-animations/",
     "status": "WD"
 	},
-	"WAI-ARIA Graphics Module": {
-		"name": "WAI-ARIA Graphics Module",
+  "WAI-ARIA Graphics Module": {
+    "name": "WAI-ARIA Graphics Module",
     "url": "https://www.w3.org/TR/2018/REC-graphics-aria-1.0-20181002/",
     "status": "REC"
-	},
+  },
   "WebAssembly Core": {
     "name": "WebAssembly Core Specification",
     "url": "https://webassembly.github.io/spec/core/bikeshed/",
