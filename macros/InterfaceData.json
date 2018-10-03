@@ -360,10 +360,6 @@
         "DOMRequestShared"
       ]
     },
-    "DOMSettableTokenList": {
-      "inh": "DOMTokenList",
-      "impl": []
-    },
     "DOMStringMap": {
       "inh": "",
       "impl": []
