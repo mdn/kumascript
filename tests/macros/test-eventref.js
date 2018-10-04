@@ -20,11 +20,11 @@ function checkSidebarDom(dom, locale, expected_summary, found_one) {
     let details = dom.querySelectorAll('details');
     if (found_one) {
         assert.equal(details.length, 1);
-        assert.isTrue(details[0].hasAttribute('data-default-state'));
+        assert.isTrue(details[0].hasAttribute('open'));
     } else {
         assert.isAbove(details.length, 1);
         for (var detail of details.values()) {
-            assert.isFalse(detail.hasAttribute('data-default-state'));
+            assert.isFalse(detail.hasAttribute('open'));
         }
     }
 }
