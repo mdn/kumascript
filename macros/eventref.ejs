@@ -40,10 +40,10 @@ if (slug) {
     }
 
     if (collectedGroups.length === 1) {
-        output += buildEventList(collectedGroups[0].name.replace(/events/i, '') + ' events', collectedGroups[0].events, true);
+        output += buildEventList(collectedGroups[0].name.replace(/ events/i, '') + ' events', collectedGroups[0].events, true);
     } else if (collectedGroups.length > 1) {
         for (x in collectedGroups) {
-            output += buildEventList(collectedGroups[x].name.replace(/events/i, '') + ' events', collectedGroups[x].events, false);
+            output += buildEventList(collectedGroups[x].name.replace(/ events/i, '') + ' events', collectedGroups[x].events, false);
         }
     }
 
@@ -51,7 +51,7 @@ if (slug) {
         for (g in groups) {
             var aGroup = groups[g];
             if (aGroup.events.length > 0) {
-                output += buildEventList(g.replace(/events/i, '') + ' events', aGroup.events.sort(), false);
+                output += buildEventList(g.replace(/ events/i, '') + ' events', aGroup.events.sort(), false);
             }
         }
     }

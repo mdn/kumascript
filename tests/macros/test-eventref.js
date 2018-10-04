@@ -52,7 +52,7 @@ describeMacro('eventref', function () {
         macro.ctx.env.locale = 'fr';
         return macro.call().then(function(result) {
             let dom = jsdom.JSDOM.fragment(result);
-            checkSidebarDom(dom, 'fr', 'DOM  events', false);
+            checkSidebarDom(dom, 'fr', 'DOM events', false);
         });
     });
 
