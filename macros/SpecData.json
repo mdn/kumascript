@@ -1211,7 +1211,7 @@
   },
   "SVG2": {
     "name": "Scalable Vector Graphics (SVG) 2",
-    "url": "https://svgwg.org/svg2-draft/",
+    "url": "https://www.w3.org/TR/2018/CR-SVG2-20181004/",
     "status": "CR"
   },
   "Telephony API": {
