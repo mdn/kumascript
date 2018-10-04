@@ -1233,7 +1233,22 @@
     "name": "Tracking Preference Expression (DNT)",
     "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
     "status": "CR"
-  },
+	},
+	"Timed Text Markup Language 1": {
+		"name": "Timed Text Markup Language 1 (TTML1)",
+		"url": "https://www.w3.org/TR/2018/PR-ttml1-20181004/",
+		"status": "PR"
+	},
+	"Timed Text Markup Language 2": {
+		"name": "Timed Text Markup Language 2 (TTML2)",
+		"url": "https://www.w3.org/TR/2018/PR-ttml2-20181004/",
+		"status": "PR"
+	},
+	"TTML Profiles for Internet Media Subtitles and Captions": {
+		"name": "TTML Profiles for Internet Media Subtitles and Captions 1.1",
+		"url": "https://www.w3.org/TR/2018/PR-ttml-imsc1.1-20181004/",
+		"status": "PR"
+	},
   "Typed Array": {
     "name": "Typed Array Specification",
     "url": "https://www.khronos.org/registry/typedarray/specs/latest/",
