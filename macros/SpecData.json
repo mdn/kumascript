@@ -514,6 +514,11 @@
     "url": "https://drafts.csswg.org/css-scrollbars-1/",
     "status": "ED"
   },
+  "CSS Scroll Anchoring": {
+    "name": "CSS Scroll Anchoring Module Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scroll-anchoring/",
+    "status": "ED"
+  },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-scroll-snap-1/",
