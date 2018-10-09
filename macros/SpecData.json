@@ -575,9 +575,9 @@
     "status": "ED"
   },
   "Device Orientation": {
-    "name": "Device Orientation Events",
-    "url": "https://w3c.github.io/deviceorientation/spec-source-orientation.html",
-    "status": "WD"
+    "name": "DeviceOrientation Event Specification",
+    "url": "https://w3c.github.io/deviceorientation/",
+    "status": "ED"
   },
   "DOM Parsing": {
     "name": "DOM Parsing and Serialization",
