@@ -1,0 +1,4231 @@
+{
+  "json_modified": "2018-09-08T03:14:44.370913",
+  "subpages": [
+    {
+      "json_modified": "2018-09-07T23:03:31.336808",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "apply-imports"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "670e2837-76b3-4018-9523-ff55953f4797",
+          "title": "apply-imports",
+          "url": "/es/docs/Web/XSLT/apply-imports",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.723459",
+          "review_tags": []
+        },
+        {
+          "uuid": "1db2d35e-d247-4a63-930b-09c9f50bbd3b",
+          "title": "apply-imports",
+          "url": "/fr/docs/Web/XSLT/apply-imports",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:09.045652",
+          "review_tags": []
+        },
+        {
+          "uuid": "2ecbb5e3-1249-4365-9f24-a8dd9eb9e07e",
+          "title": "<xsl:apply-imports>",
+          "url": "/ja/docs/XSLT/Elements/apply-imports",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "apply-imports"
+          ],
+          "summary": "<code>&lt;xsl:apply-imports&gt;</code> 要素は非常に秘密で、複雑なスタイルシートで主に使用されます。インポートの優先順位では、メインスタイルシートのテンプレートルールは、インポートされたスタイルシートのテンプレートルールより優先される必要があります。ただし、メインスタイルシートの同等のルールではなく、(低い優先順位の) インポートされたスタイルシートからテンプレートルールを使用するようにプロセッサを強制することが可能な場合があります。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:03:30.661979",
+          "review_tags": []
+        },
+        {
+          "uuid": "8d653140-6c9e-4b14-9610-6a32f0477344",
+          "title": "apply-imports",
+          "url": "/ko/docs/Web/XSLT/apply-imports",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<br>\n <code>&lt;xsl:apply-imports&gt;</code> 요소는 꽤 불가사의하고 보통은 복잡한 스타일시트에 쓰입니다. 가져오기(import) 우선순위는 가져온 스타일시트 안 템플릿 규칙보다 주 스타일시트의 안 템플릿 규칙이 더 높기를 요구합니다. 그러나, 때로는 처리기(processor)가 주 스타일시트 안 규칙보다 (우선순위가 낮은) 가져온 스타일시트의 템플릿 규칙을 쓰도록 강제할 수 있는 게 유용합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:54.887511",
+          "review_tags": []
+        },
+        {
+          "uuid": "8f9b2633-61c7-4a8d-bf26-a97242075a84",
+          "title": "apply-imports",
+          "url": "/pl/docs/Web/XSLT/apply-imports",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:40.073535",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:apply-imports&gt;</code> element is fairly arcane, used mostly in complex stylesheets. Import precedence requires that template rules in main stylesheets have higher precedence than template rules in imported stylesheets. Sometimes, however, it is useful to be able to force the processor to use a template rule from the (lower precedence) imported stylesheet rather than an equivalent rule in the main stylesheet.",
+      "id": 41171,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/apply-imports",
+      "uuid": "0d876927-45e0-484e-8b89-46834cddff23",
+      "title": "<xsl:apply-imports>",
+      "url": "/en-US/docs/Web/XSLT/Element/apply-imports",
+      "modified": "2018-08-27T04:39:53.231129",
+      "label": "<xsl:apply-imports>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T04:39:33.149660",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:03:36.808020",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "apply-templates"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "d25466bc-7055-4042-8fe2-db2e8dd6c96c",
+          "title": "apply-templates",
+          "url": "/es/docs/Web/XSLT/apply-templates",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.862804",
+          "review_tags": []
+        },
+        {
+          "uuid": "a2a4b1c9-f553-4b16-84dd-a116ff39f2e3",
+          "title": "apply-templates",
+          "url": "/fr/docs/Web/XSLT/apply-templates",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:08.914789",
+          "review_tags": []
+        },
+        {
+          "uuid": "8188e126-1957-4fb3-97e9-b48f23aa6331",
+          "title": "<xsl:apply-templates>",
+          "url": "/ja/docs/XSLT/Elements/apply-templates",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "apply-templates"
+          ],
+          "summary": "<code>&lt;xsl:apply-templates&gt;</code> 要素は、入力ツリー内のノードのセットを選択し、適切なテンプレートを適用するようにプロセッサに指示します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:03:36.157696",
+          "review_tags": []
+        },
+        {
+          "uuid": "fd7033de-5862-4ae8-a88e-2e905aad4218",
+          "title": "apply-templates",
+          "url": "/ko/docs/Web/XSLT/apply-templates",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:apply-templates&gt;</code> 요소는 입력 트리 안 노드 집합을 선택하고 그 집합에 알맞은 템플릿을 적용하도록 처리기에게 지시합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:54.731076",
+          "review_tags": []
+        },
+        {
+          "uuid": "cacae1cb-c74c-468e-acb7-594c959dddd0",
+          "title": "apply-templates",
+          "url": "/pl/docs/Web/XSLT/apply-templates",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:35.584272",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:apply-templates&gt;</code> element selects a set of nodes in the input tree and instructs the processor to apply the proper templates to them.",
+      "id": 41172,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/apply-templates",
+      "uuid": "6cfe6e33-411d-4f99-9c53-72ffbef35602",
+      "title": "<xsl:apply-templates>",
+      "url": "/en-US/docs/Web/XSLT/Element/apply-templates",
+      "modified": "2018-08-27T04:41:14.158687",
+      "label": "<xsl:apply-templates>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T04:40:53.633211",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:03:47.005186",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "attribute-set",
+        "Reference"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "23c22642-aaab-417e-b3cf-5cf2c5d35259",
+          "title": "attribute-set",
+          "url": "/es/docs/Web/XSLT/attribute-set",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:02.324150",
+          "review_tags": []
+        },
+        {
+          "uuid": "e5f08ffc-6aab-46c7-9807-539f101d0b28",
+          "title": "attribute-set",
+          "url": "/fr/docs/Web/XSLT/attribute-set",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:11.053117",
+          "review_tags": []
+        },
+        {
+          "uuid": "0bbcdb93-9d1b-4347-8269-0e6ccac53cd8",
+          "title": "<xsl:attribute-set>",
+          "url": "/ja/docs/XSLT/Elements/attribute-set",
+          "tags": [
+            "XSLT",
+            "要素",
+            "attribute-set",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:attribute-set&gt;</code> 要素は名前付き属性のセットを作成します。属性のセットは、CSSの名前付きスタイルに類似した方法で出力ドキュメント全体に適用されます。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:03:46.234687",
+          "review_tags": []
+        },
+        {
+          "uuid": "0f7daba1-4881-4d57-bea8-d80ab119c687",
+          "title": "attribute-set",
+          "url": "/ko/docs/Web/XSLT/attribute-set",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:attribute-set&gt;</code> 요소는 CSS 안에 이름 붙인 스타일과 비슷한 방식으로 이름 붙인 속성 집합을 만듭니다. 그러면, 출력 문서에 전체로서 적용할 수 있습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:54.472032",
+          "review_tags": []
+        },
+        {
+          "uuid": "d589e568-394c-4f7e-b132-18f127fd7eab",
+          "title": "attribute-set",
+          "url": "/pl/docs/Web/XSLT/attribute-set",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.826688",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:attribute-set&gt;</code> element creates a named set of attributes, which can then be applied as whole to the output document, in a manner similar to named styles in CSS.",
+      "id": 41174,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/attribute-set",
+      "uuid": "75bbe670-0ec3-4cfb-81a9-779dcd97a594",
+      "title": "<xsl:attribute-set>",
+      "url": "/en-US/docs/Web/XSLT/Element/attribute-set",
+      "modified": "2018-08-27T06:28:56.732915",
+      "label": "<xsl:attribute-set>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:28:56.029090",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:03:53.143937",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "Attribute"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "cd2d5d0a-4411-436e-885c-6c4bdc5dfa68",
+          "title": "attribute",
+          "url": "/es/docs/Web/XSLT/attribute",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.982922",
+          "review_tags": []
+        },
+        {
+          "uuid": "c81b1816-10c8-4d36-98a1-8026e2bc8424",
+          "title": "attribute",
+          "url": "/fr/docs/Web/XSLT/attribute",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:10.876604",
+          "review_tags": []
+        },
+        {
+          "uuid": "2ae0e244-3862-48cb-a335-394e00a3725d",
+          "title": "<xsl:attribute>",
+          "url": "/ja/docs/XSLT/Elements/attribute",
+          "tags": [
+            "属性",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:attribute&gt;</code> 要素は、スタイルシートからアクセス可能な任意の値を使用して出力文書に属性を作成します。要素は属性値を設定する出力文書要素内の他の出力文書要素の前に定義する必要があります。しかし、( <code>&lt;xsl:choose&gt;</code> や <code>&lt;xsl:apply-templates&gt;</code> などのように) 出力の一部ではない要素の後または内部にある可能性があります。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:03:52.470918",
+          "review_tags": []
+        },
+        {
+          "uuid": "78b85041-24db-4dae-a065-64187be26dd0",
+          "title": "attribute",
+          "url": "/ko/docs/Web/XSLT/attribute",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:attribute&gt;</code> 요소는 스타일시트에서 접근할 수 있는 어떤 값을 써서 출력 문서에 속성을 만듭니다. 요소는 속성값을 자리 잡게 하는 출력 문서 요소 안에 정의한 것 가운데 처음이어야 합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:54.596841",
+          "review_tags": []
+        },
+        {
+          "uuid": "1051ffc2-7458-4c1b-a1e4-9dda91d8b9ae",
+          "title": "attribute",
+          "url": "/pl/docs/Web/XSLT/attribute",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.954752",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:attribute&gt;</code> element creates an attribute in the output document, using any values that can be accessed from the stylesheet. The element must be defined before any other output document element inside the output document element for which it establishes attribute values. But it may be after or inside elements that won't be part of the output (like <code>&lt;xsl:choose&gt;</code> or <code>&lt;xsl:apply-templates&gt;</code> etc.).",
+      "id": 41173,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/attribute",
+      "uuid": "f6e4a1c0-0cb5-4edf-b754-c2d2fa6ac58f",
+      "title": "<xsl:attribute>",
+      "url": "/en-US/docs/Web/XSLT/Element/attribute",
+      "modified": "2018-08-27T06:28:32.026954",
+      "label": "<xsl:attribute>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:28:31.206047",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:04:12.768906",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "call-template"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "5ad2ac54-dd76-416a-9014-1d16e9234105",
+          "title": "call-template",
+          "url": "/es/docs/Web/XSLT/call-template",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:02.608770",
+          "review_tags": []
+        },
+        {
+          "uuid": "df2585fc-1f70-4a3d-ac13-f0d46099cff3",
+          "title": "call-template",
+          "url": "/fr/docs/Web/XSLT/call-template",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:08.298855",
+          "review_tags": []
+        },
+        {
+          "uuid": "e389195a-9a13-4da0-9803-54880d57a65e",
+          "title": "<xsl:call-template>",
+          "url": "/ja/docs/XSLT/Elements/call-template",
+          "tags": [
+            "XSLT",
+            "call-template",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:call-template&gt;</code> 要素は名前付きテンプレートを呼び出します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:04:12.164821",
+          "review_tags": []
+        },
+        {
+          "uuid": "7760473c-b538-4c7b-9acc-500dbdfb42fe",
+          "title": "call-template",
+          "url": "/ko/docs/Web/XSLT/call-template",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:call-template&gt;</code> 요소는 이름 붙인 템플릿을 호출합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:54.355461",
+          "review_tags": []
+        },
+        {
+          "uuid": "63e56cc0-865f-41a2-a98b-2294e0d9dc91",
+          "title": "call-template",
+          "url": "/pl/docs/Web/XSLT/call-template",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.705713",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:call-template&gt;</code> element invokes a named template.",
+      "id": 41175,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/call-template",
+      "uuid": "44909e5c-cee7-4672-8f9c-8a537a4d2ada",
+      "title": "<xsl:call-template>",
+      "url": "/en-US/docs/Web/XSLT/Element/call-template",
+      "modified": "2018-08-27T06:29:17.143590",
+      "label": "<xsl:call-template>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:29:16.464291",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attribute",
+          "title": "Required Attribute"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:04:18.593418",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "choose"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "86fad277-7091-4146-8122-4a4a65b73aa2",
+          "title": "choose",
+          "url": "/es/docs/Web/XSLT/choose",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:02.785262",
+          "review_tags": []
+        },
+        {
+          "uuid": "5df65132-2bf5-4f48-a851-d8449dc6bb57",
+          "title": "choose",
+          "url": "/fr/docs/Web/XSLT/choose",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:09.584314",
+          "review_tags": []
+        },
+        {
+          "uuid": "7fe65562-c675-4fc5-81a5-0342f844356b",
+          "title": "<xsl:choose>",
+          "url": "/ja/docs/XSLT/Elements/choose",
+          "tags": [
+            "XSLT",
+            "要素",
+            "choose",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:choose&gt;</code> 要素はいくつかの選択肢の中から選択肢を定義します。 手続き型言語の switch 文のように振る舞います。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:04:17.941499",
+          "review_tags": []
+        },
+        {
+          "uuid": "05226ced-a385-4c96-be58-f3861dfa6238",
+          "title": "choose",
+          "url": "/ko/docs/Web/XSLT/choose",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:choose&gt;</code> 요소는 많은 선택 가운데 하나를 정의합니다. 그리고 절차형 언어(procedural language)의 스위치 문처럼 동작합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:54.186741",
+          "review_tags": []
+        },
+        {
+          "uuid": "4e8661a7-837a-4878-9c6d-e003e232687a",
+          "title": "choose",
+          "url": "/pl/docs/Web/XSLT/choose",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:34.244084",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:choose&gt;</code> element defines a choice among a number of alternatives. It behaves like a switch statement in procedural languages.",
+      "id": 35228,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/choose",
+      "uuid": "c77d1fba-61a3-4913-9d70-7ef0fa48db5c",
+      "title": "<xsl:choose>",
+      "url": "/en-US/docs/Web/XSLT/Element/choose",
+      "modified": "2018-08-27T06:29:38.521762",
+      "label": "<xsl:choose>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:29:37.854491",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:04:26.125693",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "Comment"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "77c301f7-5561-4c81-baac-02fafa13cd2c",
+          "title": "comment",
+          "url": "/es/docs/Web/XSLT/comment",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:02.910752",
+          "review_tags": []
+        },
+        {
+          "uuid": "e7abf3ad-b7d6-4665-a7f1-e14c0b2d7957",
+          "title": "comment",
+          "url": "/fr/docs/Web/XSLT/comment",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:09.857389",
+          "review_tags": []
+        },
+        {
+          "uuid": "7dfc3098-079c-40cd-b66c-f238342a7e0b",
+          "title": "<xsl:comment>",
+          "url": "/ja/docs/XSLT/Elements/comment",
+          "tags": [
+            "XSLT",
+            "Comment",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:comment&gt;</code> 要素は出力文書にコメントを書き込みます。テキストのみを含める必要があります。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:04:25.525619",
+          "review_tags": []
+        },
+        {
+          "uuid": "5cf53653-74ac-4e19-a5d0-8a8ce64f7e3c",
+          "title": "comment",
+          "url": "/ko/docs/Web/XSLT/comment",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:comment&gt;</code> 요소는 출력 문서에 주석을 작성합니다. 오직 텍스트만 포함해야 합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:53.808617",
+          "review_tags": []
+        },
+        {
+          "uuid": "9fd2fb3f-7d55-44fd-85aa-4bdacf529eeb",
+          "title": "comment",
+          "url": "/pl/docs/Web/XSLT/comment",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.535372",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:comment&gt;</code> element writes a comment to the output document. It must include only text.",
+      "id": 41176,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/comment",
+      "uuid": "cbf06fae-2d13-4250-ba12-fffbbc616912",
+      "title": "<xsl:comment>",
+      "url": "/en-US/docs/Web/XSLT/Element/comment",
+      "modified": "2018-08-27T06:30:05.269401",
+      "label": "<xsl:comment>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:30:04.675895",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:04:31.797494",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "copy-of"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "c152623f-e90a-458c-802f-386d583bb49f",
+          "title": "copy-of",
+          "url": "/es/docs/Web/XSLT/copy-of",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:03.177895",
+          "review_tags": []
+        },
+        {
+          "uuid": "fec78cd7-ede2-4982-8541-ed8e236232d2",
+          "title": "copy-of",
+          "url": "/fr/docs/Web/XSLT/copy-of",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:09.723780",
+          "review_tags": []
+        },
+        {
+          "uuid": "de502bee-b28b-494c-819e-4296efb6bdb0",
+          "title": "<xsl:copy-of>",
+          "url": "/ja/docs/XSLT/Elements/copy-of",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "copy-of"
+          ],
+          "summary": "<code>&lt;xsl:copy-of&gt;</code> 要素は、select 属性が出力文書に指定するものすべての深いコピー (子孫ノードを含む) を作成します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:04:31.161342",
+          "review_tags": []
+        },
+        {
+          "uuid": "5d53a241-eadb-4fc6-a613-78ed72c5042b",
+          "title": "copy-of",
+          "url": "/ko/docs/Web/XSLT/copy-of",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:copy-of&gt;</code> 요소는 select 속성이 출력 문서에 무엇을 지정하든지 (자손 노드를 포함하여) 깊게 복사(deep copy)합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:53.286387",
+          "review_tags": []
+        },
+        {
+          "uuid": "0ddf32a2-7f98-4547-88f7-c68f0197bf1d",
+          "title": "copy-of",
+          "url": "/pl/docs/Web/XSLT/copy-of",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:35.451999",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:copy-of&gt;</code> element makes a deep copy (including descendant nodes) of whatever the select attribute specifies to the output document.",
+      "id": 41178,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/copy-of",
+      "uuid": "6462d34f-fc65-4cb5-94c2-f74bf3fe4ce0",
+      "title": "<xsl:copy-of>",
+      "url": "/en-US/docs/Web/XSLT/Element/copy-of",
+      "modified": "2018-08-27T06:30:46.041369",
+      "label": "<xsl:copy-of>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:30:45.428481",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:04:38.923535",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "copy"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "565343bd-57e9-4a2e-b42f-43273163a582",
+          "title": "copy",
+          "url": "/es/docs/Web/XSLT/copy",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:03.051174",
+          "review_tags": []
+        },
+        {
+          "uuid": "8191b19e-0afe-4dad-b454-7515cf139a0e",
+          "title": "copy",
+          "url": "/fr/docs/Web/XSLT/copy",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:10.420968",
+          "review_tags": []
+        },
+        {
+          "uuid": "2b81eb05-f0ef-4240-8210-1354077434f5",
+          "title": "<xsl:copy>",
+          "url": "/ja/docs/XSLT/Elements/copy",
+          "tags": [
+            "XSLT",
+            "要素",
+            "copy",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:copy&gt;</code> 要素は、現在のノードの浅いコピー (ノードおよび関連する名前空間ノード) を出力ドキュメントに転送します。現在のノードの子または属性はコピーされません。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:04:38.255075",
+          "review_tags": []
+        },
+        {
+          "uuid": "e070ac5b-f4cb-4288-9bdb-7bd9e511978b",
+          "title": "copy",
+          "url": "/ko/docs/Web/XSLT/copy",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:copy&gt;</code> 요소는 출력 문서에 현재 노드의 노드와 어떤 관련 이름공간 노드만을 얕게 복사(shallow copy) 전달합니다. 속성이나 자식은 복사하지 않습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:53.415197",
+          "review_tags": []
+        },
+        {
+          "uuid": "8115e155-b5ef-4136-a12b-0f50749333fe",
+          "title": "copy",
+          "url": "/pl/docs/Web/XSLT/copy",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.197944",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:copy&gt;</code> element transfers a shallow copy (the node and any associated namespace node) of the current node to the output document. It does not copy any children or attributes of the current node.",
+      "id": 41177,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/copy",
+      "uuid": "d310e2c1-6bda-46ae-9fe8-6dbfe29ffd21",
+      "title": "<xsl:copy>",
+      "url": "/en-US/docs/Web/XSLT/Element/copy",
+      "modified": "2018-08-27T06:30:26.098687",
+      "label": "<xsl:copy>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:30:25.592851",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:02:45.785636",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "decimal-format"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "eff61847-815c-44b2-b78d-899caeea20f5",
+          "title": "decimal-format",
+          "url": "/es/docs/Web/XSLT/decimal-format",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:03.525184",
+          "review_tags": []
+        },
+        {
+          "uuid": "fa80a50b-e908-499a-b49f-2212f5a7e635",
+          "title": "decimal-format",
+          "url": "/fr/docs/Web/XSLT/decimal-format",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:09.444638",
+          "review_tags": []
+        },
+        {
+          "uuid": "9d1d383f-9298-4456-b61b-f36946a04664",
+          "title": "<xsl:decimal-format>",
+          "url": "/ja/docs/XSLT/Elements/decimal-format",
+          "tags": [
+            "XSLT",
+            "decimal-format",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:decimal-format&gt;</code> 要素は、<em><code>format-number( )</code></em> 関数を使用して数字を文字列に変換する際に使用される文字と記号を定義します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:02:44.975612",
+          "review_tags": []
+        },
+        {
+          "uuid": "3137868c-6cc8-4dcb-a85c-dadb265ace89",
+          "title": "decimal-format",
+          "url": "/ko/docs/Web/XSLT/decimal-format",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:decimal-format&gt;</code> 요소는\n <i>\n  <code>format-number( )</code></i>\n 함수를 써서 숫자를 문자열로 바꿀 때 쓰는 기호와 문자를 정의합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:53.148277",
+          "review_tags": []
+        },
+        {
+          "uuid": "32b40397-2c5b-4c8c-bc16-08ee5f6eaf17",
+          "title": "decimal-format",
+          "url": "/pl/docs/Web/XSLT/decimal-format",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.322384",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:decimal-format&gt;</code> element defines the characters and symbols that are to be used in converting numbers into strings using the<em><code>format-number( )</code></em> function.",
+      "id": 41179,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/decimal-format",
+      "uuid": "94c58c29-7b93-46b1-be37-1ad45d13efb3",
+      "title": "<xsl:decimal-format>",
+      "url": "/en-US/docs/Web/XSLT/Element/decimal-format",
+      "modified": "2018-08-27T06:33:55.152593",
+      "label": "<xsl:decimal-format>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:33:54.429050",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:05:27.161768",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "a4dbba34-8e60-4169-bb5a-2fabea046867",
+          "title": "Nová_stránka",
+          "url": "/cs/docs/Web/XSLT/Nov%C3%A1_str%C3%A1nka",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "On a related note, any attribute in an LRE and some attributes of a limited number of XSLT elements can also include what is known as an attribute value template. An attribute value template is simply a string that includes an embedded XPath expression which is used to specify the value of an attribute. At run-time the expression is evaluated and the result of the evaluation is substituted for the XPath expression. For example, assume that a variable \"<code>image-dir</code>\" is defined as follows:",
+          "localization_tags": [],
+          "locale": "cs",
+          "last_edit": "2017-12-04T06:59:36.763683",
+          "review_tags": []
+        },
+        {
+          "uuid": "c7492bcf-e360-4d69-b9e0-83de681e3f9d",
+          "title": "element",
+          "url": "/es/docs/Web/XSLT/element",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.004829",
+          "review_tags": []
+        },
+        {
+          "uuid": "02d377e7-9feb-4f55-bd63-45d33d50ad91",
+          "title": "element",
+          "url": "/fr/docs/Web/XSLT/element",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:03.645166",
+          "review_tags": []
+        },
+        {
+          "uuid": "5cdba846-097a-4dbc-b850-4aeca35356a2",
+          "title": "<xsl:element>",
+          "url": "/ja/docs/XSLT/Elements/element",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:element&gt;</code> 要素は、出力文書に要素を作成します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:05:26.447036",
+          "review_tags": []
+        },
+        {
+          "uuid": "a66f258f-f861-4a3b-869d-4f93c186c7d3",
+          "title": "element",
+          "url": "/ko/docs/Web/XSLT/element",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:element&gt;</code> 요소는 출력 문서에 요소를 만듭니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:53.001147",
+          "review_tags": []
+        },
+        {
+          "uuid": "f76b7a22-f1bc-4c5e-9bc0-a83657f7ddec",
+          "title": "element",
+          "url": "/pl/docs/Web/XSLT/element",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:35.875377",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:element&gt;</code> element creates an element in the output document.",
+      "id": 38891,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/element",
+      "uuid": "985b2302-767b-4839-9ff2-df554bb245dd",
+      "title": "<xsl:element>",
+      "url": "/en-US/docs/Web/XSLT/Element/element",
+      "modified": "2018-08-27T04:31:29.127055",
+      "label": "<xsl:element>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T04:31:28.612533",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:07:44.550341",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "fallback"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "8446a9fe-c9e4-4b8f-9ae7-e6919f5f2b06",
+          "title": "fallback",
+          "url": "/es/docs/Web/XSLT/fallback",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.333676",
+          "review_tags": []
+        },
+        {
+          "uuid": "c0783357-8ba9-431b-9926-61fb75f8f107",
+          "title": "fallback",
+          "url": "/fr/docs/Web/XSLT/fallback",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:08.154593",
+          "review_tags": []
+        },
+        {
+          "uuid": "b92f7867-a300-4e0f-981a-f59673c9acb1",
+          "title": "<xsl:fallback>",
+          "url": "/ja/docs/XSLT/Elements/fallback",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "fallback"
+          ],
+          "summary": "<code>&lt;xsl:fallback&gt;</code> 要素は指定された拡張子 (または、最終的には新しいバージョン) 要素がサポートされていない場合に使用するテンプレートを指定します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:07:43.834397",
+          "review_tags": []
+        },
+        {
+          "uuid": "ee3116a4-9fa5-4e0f-9a8b-7d098035a1fd",
+          "title": "fallback",
+          "url": "/ko/docs/Web/XSLT/fallback",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:fallback&gt;</code> 요소는 주어진 확장(이나 결국에는 새 버전) 요소에서 지원하지 않으면 쓸 템플릿을 지정합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:52.849799",
+          "review_tags": []
+        },
+        {
+          "uuid": "d11c3d5b-847a-4270-8b37-de731908c546",
+          "title": "fallback",
+          "url": "/pl/docs/Web/XSLT/fallback",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:39.070692",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:fallback&gt;</code> element specifies what template to use if a given extension (or, eventually, newer version) element is not supported.",
+      "id": 41114,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/fallback",
+      "uuid": "0cc22245-1293-4187-8e1e-2beed78d4df4",
+      "title": "<xsl:fallback>",
+      "url": "/en-US/docs/Web/XSLT/Element/fallback",
+      "modified": "2018-08-27T06:34:09.726075",
+      "label": "<xsl:fallback>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:34:08.974705",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:12:00.203611",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "for-each",
+        "Element",
+        "Reference",
+        "for"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "c242d581-1817-4b58-a38a-b080c3dc5de9",
+          "title": "for-each",
+          "url": "/es/docs/Web/XSLT/for-each",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.446489",
+          "review_tags": []
+        },
+        {
+          "uuid": "ac1bdf31-7530-4c5e-b1ea-7cc4188ca744",
+          "title": "for-each",
+          "url": "/fr/docs/Web/XSLT/for-each",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.963124",
+          "review_tags": []
+        },
+        {
+          "uuid": "e08dbdfc-5bc2-4ca9-ba58-23f6abd80dfe",
+          "title": "<xsl:for-each>",
+          "url": "/ja/docs/XSLT/Elements/for-each",
+          "tags": [
+            "for-each",
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "for"
+          ],
+          "summary": "<code>&lt;xsl:for-each&gt;</code> 要素は一連のノードを選択し、それぞれのノードを同じ方法で処理します。これはノードのセットを反復処理したり、現在のノードを変更したりするためによく使用されます。1つ以上の <code>&lt;xsl:sort&gt;</code> 要素がこの要素の子として表示される場合、処理の前にソートが行われます。それ以外の場合、ノードはドキュメント順に処理されます。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:11:59.430992",
+          "review_tags": []
+        },
+        {
+          "uuid": "bdbe42d0-92fd-4d65-96c0-bc86ff694a86",
+          "title": "for-each",
+          "url": "/ko/docs/Web/XSLT/for-each",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:for-each&gt;</code> 요소는 노드 집합을 선택하고 같은 방식으로 각 노드를 처리합니다. 노드 집합을 되풀이하(iterate)거나 현재 노드를 바꾸는데 자주 씁니다. 하나 이상의 <code>&lt;xsl:sort&gt;</code> 요소가 이 요소의 자식으로 나타나면, 처리에 앞서 정렬을 합니다. 그렇지 않으면, 노드는 문서 순으로 처리합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:52.710728",
+          "review_tags": []
+        },
+        {
+          "uuid": "844869f4-af5a-42c1-ab12-90a67504e960",
+          "title": "for-each",
+          "url": "/pl/docs/Web/XSLT/for-each",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.038118",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:for-each&gt;</code> element selects a set of nodes and processes each of them in the same way. It is often used to iterate through a set of nodes or to change the current node. If one or more <code>&lt;xsl:sort&gt;</code> elements appear as the children of this element, sorting occurs before processing. Otherwise, nodes are processed in document order.",
+      "id": 41115,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/for-each",
+      "uuid": "725bb217-3354-4b0b-b69b-7731b3db2c9a",
+      "title": "<xsl:for-each>",
+      "url": "/en-US/docs/Web/XSLT/Element/for-each",
+      "modified": "2018-08-27T06:35:03.093560",
+      "label": "<xsl:for-each>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:35:01.413847",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:18:10.408787",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "if"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "a8a7a4c7-32df-4cbe-a36d-04728db124bc",
+          "title": "if",
+          "url": "/es/docs/Web/XSLT/if",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:56:59.385948",
+          "review_tags": []
+        },
+        {
+          "uuid": "d0876378-011a-460d-a37c-6298e28a90f9",
+          "title": "if",
+          "url": "/fr/docs/Web/XSLT/if",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.810032",
+          "review_tags": []
+        },
+        {
+          "uuid": "433ed102-2e9b-4c8c-af52-a591aa4506d8",
+          "title": "<xsl:if>",
+          "url": "/ja/docs/XSLT/Elements/if",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "if"
+          ],
+          "summary": "<code>&lt;xsl:if&gt;</code> 要素にはテスト属性とテンプレートが含まれています。テストが真と評価された場合、テンプレートは処理されます。これは、他の言語のif文に似ています。ただし、if-then-elseステートメントの機能を実現するには、<code>&lt;xsl:when&gt;</code> と <code>&lt;xsl:otherwise&gt;</code> の子要素を1つずつ持つ <code>&lt;xsl:choose&gt;</code> 要素を使用します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:18:09.694345",
+          "review_tags": []
+        },
+        {
+          "uuid": "2263465f-bdb3-4fa9-9f3d-c6e6655902a2",
+          "title": "if",
+          "url": "/ko/docs/Web/XSLT/if",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:if&gt;</code> 요소는 test 속성과 템플릿을 포함합니다. test 속성을 참으로 평가하면, 템플릿을 처리합니다. 이것은 다른 언어의 if 문과 비슷합니다. 그러나, &lt;tt&gt;if-then-else&lt;/tt&gt; 문의 기능을 다하기 위해 <code>&lt;xsl:when&gt;</code>과 <code>&lt;xsl:otherwise&gt;</code> 자식이 하나씩 있는 <code>&lt;xsl:choose&gt;</code> 요소를 씁니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:52.205572",
+          "review_tags": []
+        },
+        {
+          "uuid": "a497c596-eab5-481e-adf2-707af1244ad3",
+          "title": "if",
+          "url": "/pl/docs/Web/XSLT/if",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.163295",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:if&gt;</code> element contains a test attribute and a template. If the test evaluates to true, the template is processed. In this it is similar to an if statement in other languages. To achieve the functionality of an if-then-else statement, however, use the <code>&lt;xsl:choose&gt;</code> element with one <code>&lt;xsl:when&gt;</code> and one <code>&lt;xsl:otherwise&gt;</code> children.",
+      "id": 41116,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/if",
+      "uuid": "7da6dd48-e4b9-4edf-ba3e-0a906e94bd98",
+      "title": "<xsl:if>",
+      "url": "/en-US/docs/Web/XSLT/Element/if",
+      "modified": "2018-08-27T06:35:16.311269",
+      "label": "<xsl:if>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:35:15.755901",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:25:09.243627",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "import"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "60bea278-911c-4a50-ba91-d46c3b0e60d4",
+          "title": "import",
+          "url": "/es/docs/Web/XSLT/import",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:01.598308",
+          "review_tags": []
+        },
+        {
+          "uuid": "02a7b2da-f9a0-431d-bbec-ef2a1ac68ef9",
+          "title": "import",
+          "url": "/fr/docs/Web/XSLT/import",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.644586",
+          "review_tags": []
+        },
+        {
+          "uuid": "6aa954cf-31fe-4a9a-bb73-f4045bebf55e",
+          "title": "<xsl:import>",
+          "url": "/ja/docs/XSLT/Elements/import",
+          "tags": [
+            "XSLT",
+            "要素",
+            "import",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:import&gt;</code> 要素はあるスタイルシートの内容を別のスタイルシートにインポートするための最上位要素です。一般に、インポートしたスタイルシートの内容は、インポートするスタイルシートの内容よりもインポートの優先度が低くなります。これは <code>&lt;xsl:include&gt;</code> とは対照的です。ここでインクルードされたスタイルシートの内容は、インクルードするスタイルシートの内容とまったく同じです。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:25:08.510756",
+          "review_tags": [
+            "editorial"
+          ]
+        },
+        {
+          "uuid": "e0805185-44f8-4d16-964b-0380923ce5a6",
+          "title": "import",
+          "url": "/ko/docs/Web/XSLT/import",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:import&gt;</code> 요소는 한 스타일시트의 컨텐트를 다른 스타일시트로 가져오는 역할을 하는 최상위 요소입니다. 대체로, 가져올 스타일시트의 컨텐트는 가져오는 스타일시트의 컨텐트보다 가져오기 우선순위가 낮습니다. 이는 포함되는 스타일시트의 컨텐트가 포함하는 스타일시트의 컨텐트와 우선순위가 정확히 같은 <code>&lt;xsl:include&gt;</code>와는 뚜렷이 다릅니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:52.339550",
+          "review_tags": []
+        },
+        {
+          "uuid": "de999718-912a-4862-ae7e-d7a6e65a6155",
+          "title": "import",
+          "url": "/pl/docs/Web/XSLT/import",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:38.936453",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:import&gt;</code> element is a top-level element that serves to import the contents of one stylesheet into another stylesheet. Generally speaking, the contents of the imported stylesheet have a lower import precedence than that of the importing stylesheet. This is in contrast to <code>&lt;xsl:include&gt;</code> where the contents of the included stylesheet have exactly the same precedence as the contents of the including stylesheet.",
+      "id": 41117,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/import",
+      "uuid": "1cc34165-9d25-40c2-9a3f-ad9ebcc0a59b",
+      "title": "<xsl:import>",
+      "url": "/en-US/docs/Web/XSLT/Element/import",
+      "modified": "2018-08-27T06:35:32.692040",
+      "label": "<xsl:import>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:35:32.008244",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:28:48.675799",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "include"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "53acafe8-800c-48c7-9032-41a4e854150d",
+          "title": "include",
+          "url": "/es/docs/Web/XSLT/include",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:00.322910",
+          "review_tags": []
+        },
+        {
+          "uuid": "f2ae4cd1-eb97-4569-8602-497b510dd10c",
+          "title": "include",
+          "url": "/fr/docs/Web/XSLT/include",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.505154",
+          "review_tags": []
+        },
+        {
+          "uuid": "2db8606b-db92-4c92-95ba-0ea5640ba3ec",
+          "title": "<xsl:include>",
+          "url": "/ja/docs/XSLT/Elements/include",
+          "tags": [
+            "include",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:include&gt;</code> 要素はあるスタイルシートの内容を別のスタイルシートにマージします。<code>&lt;xsl:import&gt;</code> の場合とは異なり、インクルードされたスタイルシートの内容はインクルードするスタイルシートの内容とまったく同じです。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:28:47.897212",
+          "review_tags": [
+            "editorial"
+          ]
+        },
+        {
+          "uuid": "83f6c2ad-57a4-47cd-855e-38b504092154",
+          "title": "include",
+          "url": "/ko/docs/Web/XSLT/include",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:include&gt;</code> 요소는 한 스타일시트의 컨텐트를 다른 스타일시트에 합칩니다. <code>&lt;xsl:import&gt;</code>와는 달리, 포함되는 스타일시트의 컨텐트는 포함하는 스타일시트의 컨텐트와 우선순위가 정확히 같습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:52.014688",
+          "review_tags": []
+        },
+        {
+          "uuid": "631755c8-b295-4320-9f0e-d5b875b535b2",
+          "title": "include",
+          "url": "/pl/docs/Web/XSLT/include",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:38.745423",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:include&gt;</code> element merges the contents of one stylesheet with another. Unlike the case of <code>&lt;xsl:import&gt;</code>, the contents of an included stylesheet have exactly the same precedence as the contents of the including stylesheet.",
+      "id": 41118,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/include",
+      "uuid": "1395feeb-dbe6-4da4-ad9c-d24aa0fe3476",
+      "title": "<xsl:include>",
+      "url": "/en-US/docs/Web/XSLT/Element/include",
+      "modified": "2018-08-27T06:35:48.020853",
+      "label": "<xsl:include>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:35:47.474571",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:31:31.740067",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "Key"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "853790df-aca3-4f90-9bff-eef7a3a0dcd5",
+          "title": "key",
+          "url": "/es/docs/Web/XSLT/key",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:00.472727",
+          "review_tags": []
+        },
+        {
+          "uuid": "24b30a7d-16fe-4dce-b5c1-bc908e25883c",
+          "title": "key",
+          "url": "/fr/docs/Web/XSLT/key",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.356727",
+          "review_tags": []
+        },
+        {
+          "uuid": "220d2ce9-6941-4be7-99f5-04a76d000fa9",
+          "title": "<xsl:key>",
+          "url": "/ja/docs/XSLT/Elements/key",
+          "tags": [
+            "XSLT",
+            "Key",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:key&gt;</code>要素は、<code>key( )</code>関数を使用してスタイルシートの他の場所で使用できる名前付きキーを宣言します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:31:30.911009",
+          "review_tags": []
+        },
+        {
+          "uuid": "4a94b135-3547-404a-a7a0-151a6fe3d23b",
+          "title": "key",
+          "url": "/ko/docs/Web/XSLT/key",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:key&gt;</code> 요소는 <code>key( )</code> 함수가 있는 스타일시트 어디서나 쓸 수 있는 이름 붙은 키를 선언합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.877872",
+          "review_tags": []
+        },
+        {
+          "uuid": "3374ff51-77da-47c0-9815-a33322a7adcd",
+          "title": "key",
+          "url": "/pl/docs/Web/XSLT/key",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:38.597749",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:key&gt;</code> element declares a named key which can be used elsewhere in the stylesheet with the <code>key( )</code> function.",
+      "id": 41119,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/key",
+      "uuid": "418acd1b-a633-4957-90d7-17f65f55f9e4",
+      "title": "<xsl:key>",
+      "url": "/en-US/docs/Web/XSLT/Element/key",
+      "modified": "2018-08-27T06:42:14.392620",
+      "label": "<xsl:key>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:42:13.745193",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:35:11.006695",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "message"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "f6d66c69-eb9a-4508-9267-8254aa49a03e",
+          "title": "message",
+          "url": "/es/docs/Web/XSLT/message",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:00.587570",
+          "review_tags": []
+        },
+        {
+          "uuid": "763501d9-555b-4e66-bac1-6f0f9832de28",
+          "title": "message",
+          "url": "/fr/docs/Web/XSLT/message",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.159874",
+          "review_tags": []
+        },
+        {
+          "uuid": "54187464-e6a7-42e1-a18e-332fa84b9e80",
+          "title": "<xsl:message>",
+          "url": "/ja/docs/XSLT/Elements/message",
+          "tags": [
+            "XSLT",
+            "要素",
+            "message",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:message&gt;</code> 要素は (NS の JavaScript コンソールに) メッセージを出力し、オプションでスタイルシートの実行を終了します。これはデバッグに便利です。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:35:10.260058",
+          "review_tags": []
+        },
+        {
+          "uuid": "fec723a4-e41a-43f0-ae9a-1b1f3c43e251",
+          "title": "message",
+          "url": "/ko/docs/Web/XSLT/message",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:message&gt;</code> 요소는 (NS에서 자바스크립트 콘솔에) 메시지를 출력하고 선택에 따라 스타일시트 실행을 끝냅니다. 디버깅에 유용할 수 있습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.737674",
+          "review_tags": []
+        },
+        {
+          "uuid": "30df16c6-f029-4ac8-8e60-a8b47de75f76",
+          "title": "message",
+          "url": "/pl/docs/Web/XSLT/message",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:35.280213",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:message&gt;</code> element outputs a message (to the JavaScript Console in NS) and optionally terminates execution of the stylesheet. It can be useful for debugging.",
+      "id": 41121,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/message",
+      "uuid": "a3388d55-3d76-4f74-85c1-82ae742184f6",
+      "title": "<xsl:message>",
+      "url": "/en-US/docs/Web/XSLT/Element/message",
+      "modified": "2018-08-27T06:42:54.181680",
+      "label": "<xsl:message>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:42:53.695486",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-07T23:41:31.158314",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "namespace-alias",
+        "Reference"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "6f8d798d-d3a3-46e8-81ac-e82f8aae5dcd",
+          "title": "namespace-alias",
+          "url": "/es/docs/Web/XSLT/namespace-alias",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:00.704647",
+          "review_tags": []
+        },
+        {
+          "uuid": "9265603d-c149-4ba4-a7f7-2d715be659cb",
+          "title": "namespace-alias",
+          "url": "/fr/docs/Web/XSLT/namespace-alias",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:07.022451",
+          "review_tags": []
+        },
+        {
+          "uuid": "69e516e2-9411-4ea9-a472-a88ceff3b243",
+          "title": "<xsl:namespace-alias>",
+          "url": "/ja/docs/XSLT/Elements/namespace-alias",
+          "tags": [
+            "XSLT",
+            "要素",
+            "namespace-alias",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:namespace-alias&gt;</code> 要素はスタイルシート内の名前空間を出力ツリー内の別の名前空間にマップする、めったに使用されないデバイスです。 この要素の最も一般的な使い方は、別のスタイルシートからスタイルシートを生成することです。通常は <code>xsl:</code>-prefixed リテラルの result 要素 (結果ツリーにそのままコピーする必要があります) がプロセッサによって誤解されるのを防ぐため、出力ツリーの XSLT 名前空間に適切に再変換される一時的な名前空間が割り当てられます。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-07T23:41:30.405712",
+          "review_tags": []
+        },
+        {
+          "uuid": "22936597-bc79-4316-acc2-b9e156b43d3f",
+          "title": "namespace-alias",
+          "url": "/ko/docs/Web/XSLT/namespace-alias",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:namespace-alias&gt;</code> 요소는 스타일시트 이름공간을 출력 트리의 다른 이름공간으로 매기는(map) 데 드물게 쓰는 방안(device)입니다. 이 요소의 가장 평범한 쓰임은 다른 스타일시트로부터 스타일시트를 만드는 것입니다. 보통 <code>xsl:</code>가 접두사로 붙은 (결과 트리에 단순히 복사해도 좋을) LRE(literal result element)를 처리기가 오해하는 것을 막기 위해, 결과 트리의 XSLT 이름공간에 적당하게 도로 다시 바꿀 임시 이름공간을 할당합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.601486",
+          "review_tags": []
+        },
+        {
+          "uuid": "34fe1909-7880-4445-8a93-1b9519956340",
+          "title": "namespace-alias",
+          "url": "/pl/docs/Web/XSLT/namespace-alias",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.354287",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:namespace-alias&gt;</code> element is a rarely used device that maps a namespace in the stylesheet to a different namespace in the output tree. The most common use for this element is in generating a stylesheet from another stylesheet. To prevent a normally <code>xsl:</code>-prefixed literal result element (which should simply be copied as-is to the result tree) from being misunderstood by the processor, it is assigned a temporary namespace which is appropriately re-converted back to the XSLT namespace in the output tree.",
+      "id": 41120,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/namespace-alias",
+      "uuid": "f20a4693-52a2-4abe-868a-646dc4b7978c",
+      "title": "<xsl:namespace-alias>",
+      "url": "/en-US/docs/Web/XSLT/Element/namespace-alias",
+      "modified": "2018-08-27T06:43:10.489848",
+      "label": "<xsl:namespace-alias>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:43:09.891955",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T00:21:45.404717",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Number",
+        "Reference",
+        "Element"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "64f99724-2641-4cd6-a472-e9d8b7fe910b",
+          "title": "number",
+          "url": "/es/docs/Web/XSLT/number",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:00.841842",
+          "review_tags": []
+        },
+        {
+          "uuid": "21f778f0-13f7-4fd0-935d-0528678d76a5",
+          "title": "number",
+          "url": "/fr/docs/Web/XSLT/number",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:06.739886",
+          "review_tags": []
+        },
+        {
+          "uuid": "2333d334-dfb1-4279-be64-510e9b0a5d9d",
+          "title": "<xsl:number>",
+          "url": "/ja/docs/XSLT/Elements/number",
+          "tags": [
+            "Number",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:number&gt;</code> 要素は物事を順番に数えます。 また、番号をすばやくフォーマットするためにも使用できます。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T00:21:44.324460",
+          "review_tags": [
+            "editorial"
+          ]
+        },
+        {
+          "uuid": "164a5605-6ad5-4005-a586-485590d2c039",
+          "title": "number",
+          "url": "/ko/docs/Web/XSLT/number",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:number&gt;</code> 요소는 숫자를 연속으로 셉니다. 또한 숫자를 빠르게 구성하는(format) 데도 쓸 수 있습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.436047",
+          "review_tags": []
+        },
+        {
+          "uuid": "e8f970f8-5ac2-43ad-87e7-cb3204071af0",
+          "title": "number",
+          "url": "/pl/docs/Web/XSLT/number",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:35.041015",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:number&gt;</code> element counts things sequentially. It can also be used to quickly format a number.",
+      "id": 41122,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/number",
+      "uuid": "1c683ac4-5e8b-447a-b0de-78ab4c40d93d",
+      "title": "<xsl:number>",
+      "url": "/en-US/docs/Web/XSLT/Element/number",
+      "modified": "2018-08-27T06:43:28.996748",
+      "label": "<xsl:number>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:43:28.219428",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T00:25:11.440973",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "otherwise"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "8863c856-6a6f-412f-b265-2a9ff2a86185",
+          "title": "otherwise",
+          "url": "/es/docs/Web/XSLT/otherwise",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:56:59.521545",
+          "review_tags": []
+        },
+        {
+          "uuid": "d18aea96-3ff2-47d6-8f52-bc60bf51f3c3",
+          "title": "otherwise",
+          "url": "/fr/docs/Web/XSLT/otherwise",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:06.598822",
+          "review_tags": []
+        },
+        {
+          "uuid": "9d78997f-84d9-4103-b3f2-cc7cd94217e4",
+          "title": "<xsl:otherwise>",
+          "url": "/ja/docs/XSLT/Elements/otherwise",
+          "tags": [
+            "XSLT",
+            "otherwise",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:otherwise&gt;</code> 要素は <code>&lt;xsl:when&gt;</code> 条件のいずれも適用されない場合に実行されるアクションを定義するために使用されます。他のプログラミング言語の <code>else</code> または <code>default</code> の場合と似ています。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T00:25:10.613256",
+          "review_tags": []
+        },
+        {
+          "uuid": "e507a005-d741-4b80-8ee6-1718ceb63334",
+          "title": "otherwise",
+          "url": "/ko/docs/Web/XSLT/otherwise",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:otherwise&gt;</code> 요소는 아무런 <code>&lt;xsl:when&gt;</code> 조건도 적용하지 않았을 때 취하면 좋을 동작을 정의하는 데 씁니다. 다른 프로그래밍 언어의 <code>else</code>나 <code>default</code> 경우와 비슷합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.315510",
+          "review_tags": []
+        },
+        {
+          "uuid": "4dde3e03-8bf1-487c-b45a-ae18e812f256",
+          "title": "otherwise",
+          "url": "/pl/docs/Web/XSLT/otherwise",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:38.442548",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:otherwise&gt;</code> element is used to define the action that should be taken when none of the <code>&lt;xsl:when&gt;</code> conditions apply. It is similar to the <code>else</code> or <code>default</code> case in other programing languages.",
+      "id": 41087,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/otherwise",
+      "uuid": "be42dd31-d0ff-4115-801c-eccc042627e9",
+      "title": "<xsl:otherwise>",
+      "url": "/en-US/docs/Web/XSLT/Element/otherwise",
+      "modified": "2018-08-27T06:43:44.586743",
+      "label": "<xsl:otherwise>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:43:43.623618",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T00:43:21.933982",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "output"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "e2fb32dc-f378-46cd-967b-3af9a1405d99",
+          "title": "output",
+          "url": "/fr/docs/Web/XSLT/output",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:06.434941",
+          "review_tags": []
+        },
+        {
+          "uuid": "e8f99916-ce75-46da-afd2-969f32649473",
+          "title": "<xsl:output>",
+          "url": "/ja/docs/XSLT/Elements/output",
+          "tags": [
+            "XSLT",
+            "要素",
+            "output",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:output&gt;</code> 要素は出力文書の特性を制御します。Netscape で正しく機能するには、method 属性を持つこの要素を使用する必要があります。 7.0より <code>method=\"text\"</code> は期待通りに機能します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T00:43:21.053082",
+          "review_tags": [
+            "editorial"
+          ]
+        },
+        {
+          "uuid": "3986eae6-7ead-430c-8918-823f3118f7fd",
+          "title": "output",
+          "url": "/ko/docs/Web/XSLT/output",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:output&gt;</code> 요소는 출력 문서의 특성을 조절합니다. method 속성이 있는 이 요소가 Netscape에서 정확하게 기능하도록 쓸 수 있어야 합니다. 7.0 현재, <code>method=\"text\"</code>는 기대한 대로 동작합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.172665",
+          "review_tags": []
+        },
+        {
+          "uuid": "39809fbc-767a-4be9-8d5a-3a0d5c547100",
+          "title": "output",
+          "url": "/pl/docs/Web/XSLT/output",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:38.251805",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:output&gt;</code> element controls the characteristics of the output document. To function correctly in Netscape, this element, with the method attribute, must be used. As of 7.0, <code>method=\"text\"</code> works as expected.",
+      "id": 41088,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/output",
+      "uuid": "0b8ad881-d259-4de4-908d-834637b39205",
+      "title": "<xsl:output>",
+      "url": "/en-US/docs/Web/XSLT/Element/output",
+      "modified": "2018-08-27T06:43:59.665298",
+      "label": "<xsl:output>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:43:58.568389",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T00:50:33.755178",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "param"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "81658b12-5319-4a71-aad3-65ae9e906bd8",
+          "title": "param",
+          "url": "/fr/docs/Web/XSLT/param",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:06.303279",
+          "review_tags": []
+        },
+        {
+          "uuid": "aeb24322-d157-4aa3-902e-ae268e4252e9",
+          "title": "<xsl:param>",
+          "url": "/ja/docs/XSLT/Elements/param",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "param"
+          ],
+          "summary": "<code>&lt;xsl:param&gt;</code> 要素はパラメータを名前で設定し、オプションでそのパラメータのデフォルト値を設定します。最上位要素として使用される場合、パラメータはグローバルです。<code>&lt;xsl:template&gt;</code> 要素内で使用される場合、パラメータはそのテンプレートに対してローカルです。この場合、テンプレートの最初の子要素でなければなりません。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T00:50:32.490149",
+          "review_tags": []
+        },
+        {
+          "uuid": "e6b13329-380a-4cea-8ada-5402eb74d851",
+          "title": "param",
+          "url": "/ko/docs/Web/XSLT/param",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:param&gt;</code> 요소는 이름과 선택에 따라 기본값으로 매개변수를 설정합니다. 최상위 요소로 쓸 때, 매개변수는 전역입니다. <code>&lt;xsl:template&gt;</code> 요소 안에서 쓰면, 매개변수는 그 템플릿에 대해 지역입니다. 이 경우에 요소는 템플릿의 첫 자식 요소여야 합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:51.032424",
+          "review_tags": []
+        },
+        {
+          "uuid": "e8418cd7-d8b3-476e-a99f-567308992dc1",
+          "title": "param",
+          "url": "/pl/docs/Web/XSLT/param",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:37.995989",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:param&gt;</code> element establishes a parameter by name and, optionally, a default value for that parameter. When used as a top-level element, the parameter is global . When used inside an <code>&lt;xsl:template&gt;</code> element, the parameter is local to that template. In this case it must be the first child element of the template.",
+      "id": 41089,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/param",
+      "uuid": "2dd17183-b4e7-44c9-b15b-f81c035f3f91",
+      "title": "<xsl:param>",
+      "url": "/en-US/docs/Web/XSLT/Element/param",
+      "modified": "2018-08-27T06:44:13.693667",
+      "label": "<xsl:param>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:44:13.099183",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:02:59.770043",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "preserve-space"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "dec578c6-b4cb-49ce-b159-37b8c318b929",
+          "title": "preserve-space",
+          "url": "/fr/docs/Web/XSLT/preserve-space",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:06.169647",
+          "review_tags": []
+        },
+        {
+          "uuid": "e3fcc08a-3896-4bf0-9284-175425a7733d",
+          "title": "<xsl:preserve-space>",
+          "url": "/ja/docs/XSLT/Elements/preserve-space",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "preserve-space"
+          ],
+          "summary": "<code>&lt;xsl:preserve-space&gt;</code> 要素は空白を保存する要素をソース文書内で定義します。複数の要素がある場合は、名前を空白文字で区切ります。空白を保持するのがデフォルト設定なので、この要素は <code>&lt;xsl:strip-space&gt;</code> 要素を打ち消すために使用する必要があります。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:02:59.032364",
+          "review_tags": []
+        },
+        {
+          "uuid": "2411b693-514f-40c4-b4b9-b1b5f9c1663e",
+          "title": "preserve-space",
+          "url": "/ko/docs/Web/XSLT/preserve-space",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:preserve-space&gt;</code> 요소는 공백을 보존하면 좋을 소스 문서의 요소를 정의합니다. 하나 이상의 요소가 있으면, 공백 문자로 이름을 구분하세요. 공백 보존하기가 기본 설정이므로 이 요소는 오직 <code>&lt;xsl:strip-space&gt;</code> 요소와 거꾸로 동작하기 위해 쓸 필요가 있습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:50.876201",
+          "review_tags": []
+        },
+        {
+          "uuid": "5f541fb2-9ca2-4b22-9159-27940b309419",
+          "title": "preserve-space",
+          "url": "/pl/docs/Web/XSLT/preserve-space",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:37.816235",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:preserve-space&gt;</code> element defines the elements in the source document for which whitespace should be preserved. If there is more than one element, separate the names with a whitespace character. Preserving whitespace is the default setting, so this element only needs to be used to counteract an <code>&lt;xsl:strip-space&gt;</code> element.",
+      "id": 41090,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/preserve-space",
+      "uuid": "881abd4a-8178-4f02-9f04-002123b769c4",
+      "title": "<xsl:preserve-space>",
+      "url": "/en-US/docs/Web/XSLT/Element/preserve-space",
+      "modified": "2018-08-27T06:44:32.945074",
+      "label": "<xsl:preserve-space>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:44:32.352116",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:10:26.542029",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "processing-instruction"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "4705353c-8a33-4bb4-83a4-94a8138852eb",
+          "title": "processing-instruction",
+          "url": "/fr/docs/Web/XSLT/processing-instruction",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:06.010555",
+          "review_tags": []
+        },
+        {
+          "uuid": "05224299-6165-4d8a-906d-f69c5ec8fb40",
+          "title": "<xsl:processing-instruction>",
+          "url": "/ja/docs/XSLT/Elements/processing-instruction",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "processing-instruction"
+          ],
+          "summary": "<code>&lt;xsl:processing-instruction&gt;</code> 要素は処理命令を出力文書に書き込みます。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:10:25.809554",
+          "review_tags": []
+        },
+        {
+          "uuid": "323d6661-ca47-4b87-aa23-7647b833649e",
+          "title": "processing-instruction",
+          "url": "/ko/docs/Web/XSLT/processing-instruction",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:processing-instruction&gt;</code> 요소는 출력 문서에 처리 명령을 씁니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:50.525301",
+          "review_tags": []
+        },
+        {
+          "uuid": "45cb8479-1444-4133-b5ba-98397318faea",
+          "title": "processing-instruction",
+          "url": "/pl/docs/Web/XSLT/processing-instruction",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:37.659848",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:processing-instruction&gt;</code> element writes a processing instruction to the output document.",
+      "id": 41091,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/processing-instruction",
+      "uuid": "9e285bcf-90f7-4d18-9ee1-ce59408f0575",
+      "title": "<xsl:processing-instruction>",
+      "url": "/en-US/docs/Web/XSLT/Element/processing-instruction",
+      "modified": "2018-08-27T06:48:33.083647",
+      "label": "<xsl:processing-instruction>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:48:32.488043",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:23:03.115104",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "sort",
+        "Element",
+        "Reference"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "a4b927e3-7c41-4dba-951a-555ff48a1487",
+          "title": "sort",
+          "url": "/fr/docs/Web/XSLT/sort",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:03.510719",
+          "review_tags": []
+        },
+        {
+          "uuid": "3d6240b5-7d48-4fa5-85ac-4623e6bc7ac3",
+          "title": "<xsl:sort>",
+          "url": "/ja/docs/XSLT/Elements/sort",
+          "tags": [],
+          "summary": "<code>&lt;xsl:sort&gt;</code> 要素は、<code>&lt;xsl:apply-templates&gt;</code> または <code>&lt;xsl:for-each&gt;</code> で選択されたノードのソートキーを定義し、それらが処理される順序を決定します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:23:02.310989",
+          "review_tags": []
+        },
+        {
+          "uuid": "4ce8cd51-f266-4205-b1ef-c95ab7fb3faf",
+          "title": "sort",
+          "url": "/ko/docs/Web/XSLT/sort",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:sort&gt;</code> 요소는 <code>&lt;xsl:apply-templates&gt;</code>나 <code>&lt;xsl:for-each&gt;</code>가 선택한 노드에 정렬키를 정의하고 노드를 처리할 순서를 결정합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:50.389502",
+          "review_tags": []
+        },
+        {
+          "uuid": "fc2aad8f-5a15-46fa-8942-f1ebac7ac1c3",
+          "title": "sort",
+          "url": "/pl/docs/Web/XSLT/sort",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:35.726347",
+          "review_tags": []
+        }
+      ],
+      "summary": "The<code> &lt;xsl:sort&gt;</code> element defines a sort key for nodes selected by <code>&lt;xsl:apply-templates&gt;</code> or <code>&lt;xsl:for-each&gt;</code> and determines the order in which they are processed.",
+      "id": 38821,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/sort",
+      "uuid": "9865cb15-e5f1-4e03-9736-e029b410001c",
+      "title": "<xsl:sort>",
+      "url": "/en-US/docs/Web/XSLT/Element/sort",
+      "modified": "2018-08-27T06:48:49.853934",
+      "label": "<xsl:sort>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:48:49.214305",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:27:26.685097",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "strip-space"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "1e767404-6812-4a85-bfd9-16c15d4f8c8c",
+          "title": "strip-space",
+          "url": "/fr/docs/Web/XSLT/strip-space",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:05.606933",
+          "review_tags": []
+        },
+        {
+          "uuid": "71d0a920-a5f4-4ea9-a7d3-c502044fd344",
+          "title": "<xsl:strip-space>",
+          "url": "/ja/docs/XSLT/Elements/strip-space",
+          "tags": [
+            "strip-space",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:strip-space&gt;</code> 要素は空白を削除する必要があるソースドキュメント内の要素を定義します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:27:25.979249",
+          "review_tags": []
+        },
+        {
+          "uuid": "cd4267a4-4647-4e65-8b0b-2aff0e2c2099",
+          "title": "strip-space",
+          "url": "/ko/docs/Web/XSLT/strip-space",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:strip-space&gt;</code> 요소는 공백을 지웠으면 하는 소스 문서의 요소를 정의합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:50.034112",
+          "review_tags": []
+        },
+        {
+          "uuid": "3c53c7d3-0417-4893-8ed4-5de8229ab2b3",
+          "title": "strip-space",
+          "url": "/pl/docs/Web/XSLT/strip-space",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:37.411413",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:strip-space&gt;</code> element defines the elements in the source document for which whitespace should be removed.",
+      "id": 41092,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/strip-space",
+      "uuid": "4b81461e-a9c1-4626-ba8f-903894d7af92",
+      "title": "<xsl:strip-space>",
+      "url": "/en-US/docs/Web/XSLT/Element/strip-space",
+      "modified": "2018-08-27T06:49:03.866754",
+      "label": "<xsl:strip-space>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:49:03.099189",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-10-11T15:45:34.178160",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "StyleSheet"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "503aa464-4eb1-4656-9c13-3daa28d30db6",
+          "title": "stylesheet",
+          "url": "/fr/docs/Web/XSLT/stylesheet",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:05.397999",
+          "review_tags": []
+        },
+        {
+          "uuid": "d2cefea8-17f4-4002-a49c-a63f97a54ac4",
+          "title": "<xsl:stylesheet>",
+          "url": "/ja/docs/XSLT/Elements/stylesheet",
+          "tags": [
+            "XSLT",
+            "要素",
+            "StyleSheet",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:stylesheet&gt;</code> 要素（または同等の <code>&lt;xsl:transform&gt;</code> 要素）は、スタイルシートの最も外側の要素です。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:58:49.652565",
+          "review_tags": []
+        },
+        {
+          "uuid": "fa01c75c-efd4-46d9-9e14-97ad0901eaf3",
+          "title": "stylesheet",
+          "url": "/ko/docs/Web/XSLT/stylesheet",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:stylesheet&gt;</code>(나 동등한 <code>&lt;xsl:transform&gt;</code>) 요소는 스타일시트의 최외곽 요소입니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:49.873980",
+          "review_tags": []
+        },
+        {
+          "uuid": "13db81bd-924f-4d60-96e6-6cc232e135f2",
+          "title": "stylesheet",
+          "url": "/pl/docs/Web/XSLT/stylesheet",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "Element <code>&lt;xsl:stylesheet&gt;</code> (lub odpowiadający mu element <code>&lt;xsl:transform&gt;</code>) jest najbardziej zewnętrznym elementem arkusza.",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:34.029523",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:stylesheet&gt;</code> element (or the equivalent <code>&lt;xsl:transform&gt;</code> element) is the outermost element of a stylesheet.",
+      "id": 41093,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/stylesheet",
+      "uuid": "8364dbc3-0278-4233-ab62-7df1278eba63",
+      "title": "<xsl:stylesheet>",
+      "url": "/en-US/docs/Web/XSLT/Element/stylesheet",
+      "modified": "2018-10-11T15:45:33.678128",
+      "label": "<xsl:stylesheet>",
+      "localization_tags": [],
+      "last_edit": "2018-10-11T15:45:31.728156",
+      "sections": [
+        {
+          "id": "Quick_Links",
+          "title": "\n"
+        },
+        {
+          "id": "Namespace_Declaration",
+          "title": "Namespace Declaration"
+        },
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Specifications",
+          "title": "Specifications"
+        },
+        {
+          "id": "Browser_compatibility",
+          "title": "Browser compatibility"
+        },
+        {
+          "id": "sect1",
+          "title": null
+        },
+        {
+          "id": "sect2",
+          "title": null
+        },
+        {
+          "id": "sect3",
+          "title": null
+        },
+        {
+          "id": "Legend",
+          "title": "Legend"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:46:05.407905",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "Template"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "56e8034c-2902-4af5-bd18-034ffcb19b3f",
+          "title": "template",
+          "url": "/fr/docs/Web/XSLT/template",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:04.285397",
+          "review_tags": []
+        },
+        {
+          "uuid": "3e086a6b-da4a-4849-88bf-c388b8024c57",
+          "title": "<xsl:template>",
+          "url": "/ja/docs/XSLT/Elements/template",
+          "tags": [
+            "XSLT",
+            "要素",
+            "リファレンス",
+            "Template"
+          ],
+          "summary": "<code>&lt;xsl:template&gt;</code> 要素は出力生成テンプレートを定義します。この要素は、match 属性または name 属性のいずれかを持つ必要があります。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:46:04.516501",
+          "review_tags": []
+        },
+        {
+          "uuid": "ec52fdef-9c3f-40ed-9ec3-4026ed794382",
+          "title": "template",
+          "url": "/ko/docs/Web/XSLT/template",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:template&gt;</code> 요소는 출력 생성 템플릿을 정의합니다. 이 요소는 match 속성이나 name 속성 집합이 있어야 합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:49.727435",
+          "review_tags": []
+        },
+        {
+          "uuid": "16583efe-2938-4fe3-a762-a43cdb519876",
+          "title": "template",
+          "url": "/pl/docs/Web/XSLT/template",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:34.817312",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:template&gt;</code> element defines an output producing template. This element must have either the match attribute or the name attribute set.",
+      "id": 41094,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/template",
+      "uuid": "6ce5e6c8-b02e-4aa5-ade4-50ab7fb10e75",
+      "title": "<xsl:template>",
+      "url": "/en-US/docs/Web/XSLT/Element/template",
+      "modified": "2018-08-27T06:51:21.876376",
+      "label": "<xsl:template>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:51:21.197651",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:53:06.600341",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Text",
+        "Reference",
+        "Element"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "dc7f06fa-7bcc-4e8f-8d8e-1e84cf1bcc2d",
+          "title": "text",
+          "url": "/fr/docs/Web/XSLT/text",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:05.230346",
+          "review_tags": []
+        },
+        {
+          "uuid": "df5dc179-c00c-4854-903e-8545a52f25ca",
+          "title": "<xsl:text>",
+          "url": "/ja/docs/XSLT/Elements/text",
+          "tags": [
+            "Text",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:text&gt;</code> 要素はリテラルテキストを出力ツリーに書き込みます。 <code>#PCDATA</code>、リテラルテキスト、およびエンティティ参照を含むことがあります。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:52:31.604100",
+          "review_tags": []
+        },
+        {
+          "uuid": "79f6eb3a-2a48-4212-8ad8-bae628b6798d",
+          "title": "text",
+          "url": "/ko/docs/Web/XSLT/text",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:text&gt;</code> 요소는 출력 트리에 리터럴(literal) 텍스트를 씁니다. <code>#PCDATA</code>, 리터럴 텍스트, 엔티티 참조를 포함할 지도 모릅니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:49.366778",
+          "review_tags": []
+        },
+        {
+          "uuid": "18bc8786-80d9-4922-9e8f-529101acda7b",
+          "title": "text",
+          "url": "/pl/docs/Web/XSLT/text",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:37.121009",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:text&gt;</code> element writes literal text to the output tree. It may contain <code>#PCDATA</code>, literal text, and entity references.",
+      "id": 41095,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/text",
+      "uuid": "e4505ae1-f6ba-448f-ac6a-b74df08ee7ff",
+      "title": "<xsl:text>",
+      "url": "/en-US/docs/Web/XSLT/Element/text",
+      "modified": "2018-08-27T06:51:35.308078",
+      "label": "<xsl:text>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:51:34.537144",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T01:59:15.816114",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "transform",
+        "Reference",
+        "Element"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "2a6ba761-b9b5-4dd4-b324-f31b0c3c28d9",
+          "title": "transform",
+          "url": "/fr/docs/Web/XSLT/transform",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:11.180076",
+          "review_tags": []
+        },
+        {
+          "uuid": "7f8688d3-9512-4dcd-a855-b05b163243b9",
+          "title": "<xsl:transform>",
+          "url": "/ja/docs/XSLT/Elements/transform",
+          "tags": [
+            "transform",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "The <code>&lt;xsl:transform&gt;</code> 要素は <code><a href=\"/ja/docs/XSLT/Elements/stylesheet\">&lt;xsl:stylesheet&gt;</a></code> 要素とまったく同じです。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T01:59:15.124621",
+          "review_tags": []
+        },
+        {
+          "uuid": "1da3fd86-5d64-473f-a8ec-d16c6af09741",
+          "title": "transform",
+          "url": "/ko/docs/Web/XSLT/transform",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:transform&gt;</code> 요소는 <code><a href=\"ko/XSLT/stylesheet\">&lt;xsl:stylesheet&gt;</a></code> 요소와 정확히 같습니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:56.195428",
+          "review_tags": []
+        },
+        {
+          "uuid": "8746d332-5194-44f5-b825-39478492acae",
+          "title": "transform",
+          "url": "/pl/docs/Web/XSLT/transform",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:34.643194",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:transform&gt;</code> element is exactly equivalent to the <code><a href=\"/Web/XSLT/stylesheet\">&lt;xsl:stylesheet&gt;</a></code> element.",
+      "id": 41096,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/transform",
+      "uuid": "0034524f-5590-4057-9062-c2b77da0e63f",
+      "title": "<xsl:transform>",
+      "url": "/en-US/docs/Web/XSLT/Element/transform",
+      "modified": "2018-08-27T06:51:52.883085",
+      "label": "<xsl:transform>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:51:52.335113",
+      "sections": [
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T00:58:52.456896",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "value-of",
+        "Reference"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "315af239-fe53-4fc2-84c8-b81e0dbbbdcf",
+          "title": "value-of",
+          "url": "/fr/docs/Web/XSLT/value-of",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:04.802145",
+          "review_tags": []
+        },
+        {
+          "uuid": "005d861c-5ad6-4145-8fb4-28ad1216ad75",
+          "title": "value-of",
+          "url": "/ja/docs/XSLT/value-of",
+          "tags": [
+            "XSLT_Reference",
+            "XSLT"
+          ],
+          "summary": "<code>&lt;xsl:value-of&gt;</code> 要素は XPath 式を評価し、それを文字列に変換し、その文字列を result tree に書きます。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T00:58:51.708022",
+          "review_tags": []
+        },
+        {
+          "uuid": "b02263ff-f89c-4bb5-9cbd-1d5c3368a6e1",
+          "title": "value-of",
+          "url": "/ko/docs/Web/XSLT/value-of",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:value-of&gt;</code> 요소는 XPath 식을 평가하여 그것을 문자열로 바꾸고 문자열을 결과 트리에 씁니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:49.219586",
+          "review_tags": []
+        },
+        {
+          "uuid": "48014430-04cf-4d5d-8066-98e4324ab14d",
+          "title": "value-of",
+          "url": "/pl/docs/Web/XSLT/value-of",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.937218",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:value-of&gt;</code> element evaluates an XPath expression, converts it to a string, and writes that string to the result tree.",
+      "id": 39632,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/value-of",
+      "uuid": "3734ec5c-b95c-4e44-b640-3c969a7e3860",
+      "title": "<xsl:value-of>",
+      "url": "/en-US/docs/Web/XSLT/Element/value-of",
+      "modified": "2018-08-27T06:52:09.460203",
+      "label": "<xsl:value-of>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:52:08.915800",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T02:36:09.088737",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "variable",
+        "Reference",
+        "Element"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "d72e00cd-9609-411e-96b0-80a214caeca0",
+          "title": "variable",
+          "url": "/fr/docs/Web/XSLT/variable",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:04.645539",
+          "review_tags": []
+        },
+        {
+          "uuid": "84b02a80-2d93-4f20-9e74-15dda5076392",
+          "title": "<xsl:variable>",
+          "url": "/ja/docs/XSLT/Elements/variable",
+          "tags": [
+            "variable",
+            "XSLT",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:variable&gt;</code> 要素はスタイルシートにグローバル変数またはローカル変数を宣言し、値を与えます。XSLT は副作用を許さないため、変数の値が設定されると、変数がスコープから外れるまでは変わりません",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T02:36:08.369415",
+          "review_tags": [
+            "editorial"
+          ]
+        },
+        {
+          "uuid": "569b89fb-7f25-4c11-bc1b-c82cf583e05f",
+          "title": "variable",
+          "url": "/ko/docs/Web/XSLT/variable",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:variable&gt;</code> 요소는 스타일시트에 전역 변수나 지역 변수를 선언하고 그 변수에 값을 줍니다. XSLT가 부작용(side-effect)을 허용하지 않기 때문에, 변수값을 한 번 주면 그 변수는 범위(scope)를 벗어날 때까지 같은 값입니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:49.090795",
+          "review_tags": []
+        },
+        {
+          "uuid": "bc60b71f-0c7c-47eb-98c2-5732e7a15fca",
+          "title": "variable",
+          "url": "/pl/docs/Web/XSLT/variable",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.814641",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:variable&gt;</code> element declares a global or local variable in a stylesheet and gives it a value. Because XSLT permits no side-effects, once the value of the variable has been established, it remains the same until the variable goes out of scope",
+      "id": 41097,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/variable",
+      "uuid": "3a1a8da1-876b-4f55-b84f-d39e9bbc08a1",
+      "title": "<xsl:variable>",
+      "url": "/en-US/docs/Web/XSLT/Element/variable",
+      "modified": "2018-08-27T06:52:27.982234",
+      "label": "<xsl:variable>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:52:27.223095",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T02:39:29.091808",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "when"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "02dadbc2-cbe4-40eb-8204-9692ef94f683",
+          "title": "when",
+          "url": "/es/docs/Web/XSLT/when",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:56:59.679818",
+          "review_tags": []
+        },
+        {
+          "uuid": "079a3e61-b950-4388-a940-70389c2fa81f",
+          "title": "when",
+          "url": "/fr/docs/Web/XSLT/when",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:04.486474",
+          "review_tags": []
+        },
+        {
+          "uuid": "108cfba8-763b-4d16-be05-fec2ca139fd1",
+          "title": "<xsl:when>",
+          "url": "/ja/docs/XSLT/Elements/when",
+          "tags": [
+            "XSLT",
+            "when",
+            "要素",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:when&gt;</code> 要素は <code>&lt;xsl:choose&gt;</code> 要素内に常に表示され、case 文のように動作します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T02:39:28.397455",
+          "review_tags": []
+        },
+        {
+          "uuid": "85729806-5f1c-42d7-8753-f7e02383de8b",
+          "title": "when",
+          "url": "/ko/docs/Web/XSLT/when",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:when&gt;</code> 요소는 항상 case 문처럼 동작하는 <code>&lt;xsl:choose&gt;</code> 요소 안에 나타납니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:48.955647",
+          "review_tags": []
+        },
+        {
+          "uuid": "891cb14b-9826-4429-a56c-c991b328203d",
+          "title": "when",
+          "url": "/pl/docs/Web/XSLT/when",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.655291",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:when&gt;</code> element always appears within an <code>&lt;xsl:choose&gt;</code> element, acting like a case statement.",
+      "id": 41098,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/when",
+      "uuid": "3761cab8-b3aa-4aa4-99f4-2f5388bb802a",
+      "title": "<xsl:when>",
+      "url": "/en-US/docs/Web/XSLT/Element/when",
+      "modified": "2018-08-27T06:52:45.507365",
+      "label": "<xsl:when>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:52:44.878208",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-09-08T02:43:44.089915",
+      "subpages": [],
+      "tags": [
+        "XSLT",
+        "Element",
+        "Reference",
+        "with-param"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "57b1b1b5-fdc1-4a19-8a43-1ed3a9fe41e6",
+          "title": "with-param",
+          "url": "/es/docs/Web/XSLT/with-param",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2017-12-04T06:57:00.113264",
+          "review_tags": []
+        },
+        {
+          "uuid": "d4a169fd-5258-46a5-9b63-f6ba9f9ad48d",
+          "title": "with-param",
+          "url": "/fr/docs/Web/XSLT/with-param",
+          "tags": [
+            "Référence_XSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T06:56:04.147783",
+          "review_tags": []
+        },
+        {
+          "uuid": "252faddc-b2e3-4f6f-89f1-5aff50955cdb",
+          "title": "<xsl:with-param>",
+          "url": "/ja/docs/XSLT/Elements/with-param",
+          "tags": [
+            "XSLT",
+            "要素",
+            "with-param",
+            "リファレンス"
+          ],
+          "summary": "<code>&lt;xsl:with-param&gt;</code> 要素はテンプレートに渡すパラメータの値を設定します。",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2018-09-08T02:43:43.326725",
+          "review_tags": []
+        },
+        {
+          "uuid": "524eab47-15e5-4111-b257-04a6ae1bf458",
+          "title": "with-param",
+          "url": "/ko/docs/Web/XSLT/with-param",
+          "tags": [
+            "XSLT_Reference"
+          ],
+          "summary": "<code>&lt;xsl:with-param&gt;</code> 요소는 템플릿에 건네는 매개변수 값을 지정합니다.",
+          "localization_tags": [],
+          "locale": "ko",
+          "last_edit": "2017-12-04T06:54:48.721806",
+          "review_tags": []
+        },
+        {
+          "uuid": "0de243de-1ea6-40f9-abdb-332f073551df",
+          "title": "with-param",
+          "url": "/pl/docs/Web/XSLT/with-param",
+          "tags": [
+            "XSLT",
+            "XSLT:Dokumentacje",
+            "Dokumentacje",
+            "Wszystkie_kategorie"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "pl",
+          "last_edit": "2017-12-04T06:53:36.531930",
+          "review_tags": []
+        }
+      ],
+      "summary": "The <code>&lt;xsl:with-param&gt;</code> element sets the value of a parameter to be passed into a template.",
+      "id": 41099,
+      "review_tags": [],
+      "slug": "Web/XSLT/Element/with-param",
+      "uuid": "9c2c0c20-fa8a-48bd-967f-9a67d2207c94",
+      "title": "<xsl:with-param>",
+      "url": "/en-US/docs/Web/XSLT/Element/with-param",
+      "modified": "2018-08-27T06:53:00.279153",
+      "label": "<xsl:with-param>",
+      "localization_tags": [],
+      "last_edit": "2018-08-27T06:52:59.685398",
+      "sections": [
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Required_Attributes",
+          "title": "Required Attributes"
+        },
+        {
+          "id": "Optional_Attributes",
+          "title": "Optional Attributes"
+        },
+        {
+          "id": "Type",
+          "title": "Type"
+        },
+        {
+          "id": "Defined",
+          "title": "Defined"
+        },
+        {
+          "id": "Gecko_support",
+          "title": "Gecko support"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "XSLT_Reference",
+    "XSLT"
+  ],
+  "locale": "en-US",
+  "translations": [
+    {
+      "uuid": "5985f906-a506-415f-9f9d-21c1c96d0fba",
+      "title": "XSLT elementy",
+      "url": "/cs/docs/Web/XSLT/XSLT_elementy",
+      "tags": [
+        "XSLT_Reference",
+        "XSLT",
+        "Potřebuje_zkontrolovat_překlad",
+        "Všechny_kategorie"
+      ],
+      "summary": "",
+      "localization_tags": [],
+      "locale": "cs",
+      "last_edit": "2017-12-04T06:59:36.616745",
+      "review_tags": []
+    },
+    {
+      "uuid": "a4d57bb0-1bcf-472c-96a1-a613196483d6",
+      "title": "Éléments",
+      "url": "/fr/docs/Web/XSLT/%C3%89l%C3%A9ments",
+      "tags": [
+        "Référence_XSLT"
+      ],
+      "summary": "",
+      "localization_tags": [],
+      "locale": "fr",
+      "last_edit": "2017-12-04T06:56:03.940750",
+      "review_tags": []
+    },
+    {
+      "uuid": "66888a34-f851-454d-ae62-32f5fc32e654",
+      "title": "XSLT - 要素",
+      "url": "/ja/docs/XSLT/Elements",
+      "tags": [
+        "XSLT_Reference",
+        "XSLT"
+      ],
+      "summary": "関連する注記では、LRE 内の任意の属性と限られた数の XSLT 要素の一部の属性には、属性値テンプレートとして知られているものも含めることができます。属性値テンプレートは、属性の値を指定するために使用される埋め込み XPath 式を含む文字列です。実行時に式が評価され、XPath 式の代わりに評価結果が使用されます。たとえば、変数 \"<code>image-dir</code>\" が次のように定義されているとします。",
+      "localization_tags": [],
+      "locale": "ja",
+      "last_edit": "2018-09-08T03:14:43.299229",
+      "review_tags": []
+    },
+    {
+      "uuid": "4c399513-8f7d-4550-a3db-4d55334623d6",
+      "title": "Elements",
+      "url": "/ko/docs/Web/XSLT/Elements",
+      "tags": [
+        "XSLT_Reference"
+      ],
+      "summary": "관련 기록에 따르면, LRE의 어떤 속성과 한정된 수의 XSLT 요소의 속성도 속성값 템플릿으로 알려진 것을 또한 포함할 수 있습니다. 속성값 템플릿은 단순히 속성값 지정에 쓰이는 임베드된 XPath 식을 포함하는 문자열입니다. 실행할 때 식을 평가하고 평가 결과는 XPath 식으로 바꾸어 놓습니다. 예를 들어, \"<tt>image-dir</tt>\" 변수를 다음처럼 정의했다고 하면,",
+      "localization_tags": [],
+      "locale": "ko",
+      "last_edit": "2017-12-04T06:54:56.430317",
+      "review_tags": []
+    },
+    {
+      "uuid": "af576d2a-8b80-44fb-9a2e-cbf60d19161c",
+      "title": "Elementy",
+      "url": "/pl/docs/Web/XSLT/Elementy",
+      "tags": [
+        "XSLT",
+        "XSLT:Dokumentacje",
+        "Dokumentacje",
+        "Wszystkie_kategorie"
+      ],
+      "summary": "",
+      "localization_tags": [],
+      "locale": "pl",
+      "last_edit": "2017-12-04T06:53:34.471230",
+      "review_tags": []
+    },
+    {
+      "uuid": "cf79911b-58c7-429f-aa65-1b896da325e6",
+      "title": "Elements",
+      "url": "/zh-CN/docs/Web/XSLT/Elements",
+      "tags": [
+        "XSLT_Reference"
+      ],
+      "summary": "On a related note, any attribute in an LRE and some attributes of a limited number of XSLT elements can also include what is known as an attribute value template. An attribute value template is simply a string that includes an embedded XPath expression which is used to specify the value of an attribute. At run-time the expression is evaluated and the result of the evaluation is substituted for the XPath expression. For example, assume that a variable \"<code>image-dir</code>\" is defined as follows:",
+      "localization_tags": [],
+      "locale": "zh-CN",
+      "last_edit": "2014-05-10T17:50:54",
+      "review_tags": []
+    }
+  ],
+  "summary": "On a related note, any attribute in an LRE and some attributes of a limited number of XSLT elements can also include what is known as an attribute value template. An attribute value template is simply a string that includes an embedded XPath expression which is used to specify the value of an attribute. At run-time the expression is evaluated and the result of the evaluation is substituted for the XPath expression. For example, assume that a variable \"<code>image-dir</code>\" is defined as follows:",
+  "id": 2839,
+  "review_tags": [],
+  "slug": "Web/XSLT/Element",
+  "uuid": "36702f2d-ef90-4a2e-8903-982759108071",
+  "title": "XSLT elements reference",
+  "url": "/en-US/docs/Web/XSLT/Element",
+  "modified": "2018-08-27T04:27:29.242936",
+  "label": "XSLT elements reference",
+  "localization_tags": [],
+  "last_edit": "2018-05-15T13:02:43.970747",
+  "sections": []
+}

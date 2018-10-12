@@ -21,11 +21,11 @@ var parent = $2 ? 1 : 0;
 var startDelim = $3;
 var endDelim = $4;
 
-// If the path ends with a slash, remove it.    
+// If the path ends with a slash, remove it.
 if (path.substr(-1, 1) === '/') {
     path = path.slice(0, -1);
 }
-    
+
 var pages = page.subpagesExpand(path, -1, parent);
 var containsTag = page.hasTag;
 var escapeQuotes = mdn.escapeQuotes;
@@ -55,26 +55,30 @@ var badges = {
 // between the start and end delimiter characters.
 // Does nothing if both are null or empty.
 function trimTitle(title) {
-    var startIndex;
-    var endIndex;
+    let startIndex;
+    let endIndex;
+    let result = '';
 
     startIndex = 0;
     if (startDelim) {
-        startIndex = title.indexOf(startDelim);
-        if (startIndex) {
-            startIndex += 1;
-        }
+        result += startDelim;
+        startIndex = title.indexOf(startDelim) + startDelim.length;
     }
 
     endIndex = 0;
     if (endDelim) {
-        endIndex = title.indexOf(endDelim)+1;
+        endIndex = title.indexOf(endDelim);
     }
     if (!endIndex) {
         endIndex = title.length;
     }
 
-    return title.substring(startIndex, endIndex);
+    result += title.substring(startIndex, endIndex);
+    if (endDelim) {
+        result += endDelim;
+    }
+
+    return result;
 }
 
 function createLink(item) {
@@ -95,42 +99,42 @@ function createLink(item) {
             }
         });
     }
-    
+
     var cta = '';
      if (!translated && locale != 'en-US') {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['title'] + '">' + text['translate'] + '</a>';
     }
-    
+
     result += '<li>';
-    
+
     if (containsTag(item, 'Experimental')) {
         result += badges.ExperimentalBadge;
     }
-    
+
     if (containsTag(item, 'Non-standard') || containsTag(item, 'Non Standard')) {
         result += badges.NonStandardBadge;
     }
-    
+
     if (containsTag(item, 'Deprecated')) {
         result += badges.DeprecatedBadge;
     }
-    
+
     if (containsTag(item, 'Obsolete')) {
         result += badges.ObsoleteBadge;
     }
-    
+
     result += '<a href="' + url + '" title="' + summary + '">' + code + title + endcode + '</a>' + cta + '</li>';
     return result;
 }
 
 if (pages.length) {
     output += openTag;
-    
+
     pages.forEach(function(item) {
         if (!item) { return; }
         output += createLink(item);
     });
-    
+
     output += closeTag;
 }
 %>
