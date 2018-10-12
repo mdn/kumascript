@@ -1,0 +1,113 @@
+<%
+// Generates and inserts the quicklinks box for the XSLT/XPath Reference.
+//
+// Parameters: None.
+
+const commonl10n = string.deserialize(template('L10n:Common'));
+
+var s_xslt_href  = `/${env.locale}/docs/Web/XSLT`;
+var s_xslt_title = 'XSLT';
+var s_xslt_ref_href  = `/${env.locale}/docs/Web/XSLT/Element`;
+var s_xslt_ref_title = 'XSLT Elements';
+
+var s_exslt_href  = `/${env.locale}/docs/Web/EXSLT`;
+var s_exslt_title = 'EXSLT Functions';
+
+var s_xpath_href  = `/${env.locale}/docs/Web/XPath`;
+var s_xpath_title = 'XPath';
+var s_xpath_func_href  = `/${env.locale}/docs/Web/XPath/Functions`;
+var s_xpath_func_title = 'XPath Functions';
+var s_xpath_axis_href  = `/${env.locale}/docs/Web/XPath/Axes`;
+var s_xpath_axis_title = 'XPath Axes';
+
+switch (env.locale) {
+    case 'es':
+        s_xslt_ref_href  = `/${env.locale}/docs/Web/XSLT/Elementos`;
+        s_xslt_ref_title = 'Elementos XSLT';
+        s_exslt_title    = 'Funciones EXSLT';
+
+        s_xpath_func_href  = `/${env.locale}/docs/Web/XPath/Funciones`;
+        s_xpath_func_title = 'XPath:Funciones';
+        s_xpath_axis_href  = `/${env.locale}/docs/Web/XPath/Ejes`;
+        s_xpath_axis_title = 'XPath:Ejes';
+        break;
+    case 'fr':
+        s_xslt_href = `/${env.locale}/docs/XSLT`;
+        s_xslt_ref_href  = `/${env.locale}/docs/XSLT/%c3%89l%c3%a9ments`;
+        s_xslt_ref_title = 'Éléments XSLT';
+
+        s_exslt_href  = `/${env.locale}/docs/EXSLT`;
+        s_exslt_title = 'Fonctions EXSLT';
+
+        s_xpath_func_href  = `/${env.locale}/docs/XPath/Fonctions`;
+        s_xpath_func_title = 'Fonctions XPath';
+        s_xpath_axis_href  = `/${env.locale}/docs/XPath/Axes`;
+        s_xpath_axis_title = 'Axes XPath';
+        break;
+    case 'ja':
+        s_xslt_ref_title   = 'XSLT 要素';
+        s_exslt_title      = 'EXSLT 関数';
+        s_xpath_func_title = 'XPath 関数';
+        s_xpath_axis_title = 'XPath 軸';
+    case 'ko':
+        s_xslt_ref_title   = 'XSLT 요소';
+        s_exslt_title      = 'EXSLT 함수';
+        s_xpath_func_title = 'XPath 함수';
+        s_xpath_axis_title = 'XPath 축';
+    case 'pl':
+        s_xslt_href  = `/${env.locale}/docs/XSLT`;
+        s_xslt_ref_href  = `/${env.locale}/docs/XSLT/Elementy`;
+        s_xslt_ref_title = 'Elementy XSLT';
+
+        s_exslt_href  = `/${env.locale}/docs/EXSLT`;
+        s_exslt_title = 'Funkcje EXSLT';
+
+        s_xpath_href  = `/${env.locale}/docs/XPath`;
+        s_xpath_func_href  = `/${env.locale}/docs/XPath/Funkcje`;
+        s_xpath_func_title = 'Funkcje XPath';
+        s_xpath_axis_href  = `/${env.locale}/docs/XPath/Osie`;
+        s_xpath_axis_title = 'Osie XPath';
+    default: break;
+}
+
+let text = {
+    'Guides': mdn.getLocalString(commonl10n, 'Guides'),
+}
+
+let category = (env.slug && env.slug.split('/docs/').replace(/^Web\//,'')) || '';
+%>
+<section id="Quick_Links"><ol>
+    <li><strong><a href="<%=s_xslt_href%>"><%=s_xslt_title%></a></strong></li>
+    <li><strong><a href="<%=s_exslt_href%>"><%=s_exslt_title%></a></strong></li>
+    <li><strong><a href="<%=s_xpath_href%>"><%=s_xpath_title%></a></strong></li>
+<%if (category.startsWith('XSLT')) {%>
+    <li class="toggle"><details open>
+        <summary><%=text['Guides']%></summary>
+        <%-template("ListSubpages", [s_xslt_href, 1, 0, 1])%>
+    </details></li>
+    <li class="toggle"><details open>
+        <summary><a href="<%-s_xslt_ref_href%>"><%-s_xslt_ref_title%></strong></summary>
+        <%-template("ListSubpagesForSidebar", [s_xslt_ref_href, false, false, '<xsl:', '>'])%>
+    </details></li>
+<%} else if (category.startsWith('EXSLT')) {
+    let categories = page.subpagesExpand(s_exslt_href, 1);
+    if (categories.length) {
+        for (const category of categories) {%>
+            <li class="toggle"><details open>
+                <summary><a href="<%-mdn.escapeQuotes(category.url)%>"><%=category.title%></a></summary>
+                    <%-template("ListSubpagesForSidebar", [category.url, false, false, `${category.slug.split('/').pop()}:`, '()'])%>
+                </details>
+            </li>
+        <%}
+    }
+} else if (category.startsWith('XPath')) {%>
+    <li class="toggle"><details open>
+        <summary><a href="<%-s_xpath_axis_href%>"><%-s_xpath_axis_title%></a></summary>
+        <%-template("ListSubpagesForSidebar", [s_xpath_axis_href])%>
+    </details></li>
+    <li class="toggle"><details open>
+        <summary><a href="<%-s_xpath_func_href%>"><%-s_xpath_func_title%></a></summary>
+        <%-template("ListSubpagesForSidebar", [s_xpath_func_href], false, false, '', '()')%>
+    </details></li>
+<%}%>
+</ol></section>
