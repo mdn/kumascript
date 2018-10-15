@@ -8,6 +8,7 @@ var text = mdn.localStringMap({
     'Tutorials' : 'Tutorials',
       'WebAssembly_concepts' : 'WebAssembly concepts',
       'Compiling_to_wasm' : 'Compiling from C/C++ to WebAssembly',
+      'Compiling_rust_to_wasm' : 'Compiling from Rust to WebAssembly',
       'JavaScript_API' : 'Using the WebAssembly JavaScript API',
       'Text_format' : 'Understanding WebAssembly text format',
       'Text_format_to_wasm' : 'Converting WebAssembly text format to wasm',
@@ -23,30 +24,37 @@ var text = mdn.localStringMap({
 
 <ol>
   <li data-default-state="open"><a href="<%=baseURL%>"><strong><%=text['WebAssembly_home_page']%></strong></a>
-  <li data-default-state="open"><a href="<%=baseURL%>"><%=text['Tutorials']%></a>
-    <ol>
-      <li><a href="<%=baseURL%>/Concepts"><%=text['WebAssembly_concepts']%></a></li>
-      <li><a href="<%=baseURL%>/C_to_wasm"><%=text['Compiling_to_wasm']%></a></li>
-      <li><a href="<%=baseURL%>/Using_the_JavaScript_API"><%=text['JavaScript_API']%></a></li>
-      <li><a href="<%=baseURL%>/Understanding_the_text_format"><%=text['Text_format']%></a></li>
-      <li><a href="<%=baseURL%>/Text_format_to_wasm"><%=text['Text_format_to_wasm']%></a></li>
-      <li><a href="<%=baseURL%>/Loading_and_running"><%=text['Loading_and_running']%></a></li>
-      <li><a href="<%=baseURL%>/Caching_modules"><%=text['Caching_modules']%></a></li>
-      <li><a href="<%=baseURL%>/Exported_functions"><%=text['Exported_functions']%></a></li>
-    </ol>
+  <li class="toggle">
+    <details open>
+      <summary><%=text['Tutorials']%></summary>
+      <ol>
+        <li><a href="<%=baseURL%>/Concepts"><%=text['WebAssembly_concepts']%></a></li>
+        <li><a href="<%=baseURL%>/C_to_wasm"><%=text['Compiling_to_wasm']%></a></li>
+        <li><a href="<%=baseURL%>/Rust_to_wasm"><%=text['Compiling_rust_to_wasm']%></a></li>
+        <li><a href="<%=baseURL%>/Using_the_JavaScript_API"><%=text['JavaScript_API']%></a></li>
+        <li><a href="<%=baseURL%>/Understanding_the_text_format"><%=text['Text_format']%></a></li>
+        <li><a href="<%=baseURL%>/Text_format_to_wasm"><%=text['Text_format_to_wasm']%></a></li>
+        <li><a href="<%=baseURL%>/Loading_and_running"><%=text['Loading_and_running']%></a></li>
+        <li><a href="<%=baseURL%>/Caching_modules"><%=text['Caching_modules']%></a></li>
+        <li><a href="<%=baseURL%>/Exported_functions"><%=text['Exported_functions']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="open"><a href="<%=baseURL%>"><%=text['Object_reference']%></a>
-    <ol>
-      <li><%- template("jsxref", ["WebAssembly"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.Module"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.Global"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.Instance"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.Memory"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.Table"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.CompileError"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.LinkError"]) %></li>
-      <li><%- template("jsxref", ["WebAssembly.RuntimeError"]) %></li>
-    </ol>
+  <li class="toggle">
+    <details open>
+      <summary><%=text['Object_reference']%></summary>
+      <ol>
+        <li><%- template("jsxref", ["WebAssembly"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.Module"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.Global"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.Instance"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.Memory"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.Table"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.CompileError"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.LinkError"]) %></li>
+        <li><%- template("jsxref", ["WebAssembly.RuntimeError"]) %></li>
+      </ol>
+    </details>
   </li>
 </ol>
 
