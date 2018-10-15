@@ -1492,6 +1492,17 @@
                             "WorkerNavigator.storage" ],
             "events":     []
         },
+        "Storage Access API": {
+            "overview":   [ "Storage Access API" ],
+            "guides":     [ { "url":   "/docs/Web/API/Storage_Access_API/Using",
+                              "title": "Using the Storage Access API" } ],
+            "interfaces": [],
+            "methods":    [ "Document.hasStorageAccess()",
+                             "Document.requestStorageAccess()"      
+            ],
+            "properties": [],
+            "events":     []
+        },
         "Streams": {
             "overview":   [ "Streams API" ],
             "interfaces": [ "ByteLengthQueuingStrategy",
