@@ -126,7 +126,7 @@
   },
   "CSP Embedded": {
     "name": "Content Security Policy: Embedded Enforcement",
-    "url": "https://w3c.github.io/webappsec-csp/embedded/",
+    "url": "https://w3c.github.io/webappsec-cspee/",
     "status": "WD"
   },
   "CSS1": {
