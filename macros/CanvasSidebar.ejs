@@ -102,54 +102,69 @@ var text = mdn.localStringMap({
 <section id="Quick_Links">
  <ol>
   <li><a href="/<%=locale%>/docs/Web/API/Canvas_API"><strong><%=text['Canvas_API']%></strong></a></li>
-  <li data-default-state="open"><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial"><strong><%=text['Canvas_tutorial']%></strong></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Basic_usage"><%=text['Basic_usage']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes"><%=text['Drawing_shapes']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors"><%=text['Applying']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Drawing_text"><%=text['Text']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Using_images"><%=text['Using_images']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Transformations"><%=text['Transformations']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Compositing"><%=text['Compositing']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Basic_animations"><%=text['Basic_animations']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Advanced_animations"><%=text['Advanced_animations']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas"><%=text['Pixel_manipulation']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"><%=text['Hitregions']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas"><%=text['Optimizing']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Finale"><%=text['Finale']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details open>
+      <summary><%=text['Canvas_tutorial']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Basic_usage"><%=text['Basic_usage']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes"><%=text['Drawing_shapes']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors"><%=text['Applying']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Drawing_text"><%=text['Text']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Using_images"><%=text['Using_images']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Transformations"><%=text['Transformations']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Compositing"><%=text['Compositing']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Basic_animations"><%=text['Basic_animations']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Advanced_animations"><%=text['Advanced_animations']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas"><%=text['Pixel_manipulation']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility"><%=text['Hitregions']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas"><%=text['Optimizing']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Tutorial/Finale"><%=text['Finale']%></a></li>
+        </ol>
+    </details>
   </li>
-  <li data-default-state="open"><a href="#"><strong><%=text['Examples']%></strong></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/A_basic_ray-caster"><%=text['raycaster']%></a></li>
-    <li><a href="/<%=locale%>/Add-ons/Code_snippets/Canvas"><%=text['snippets']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas"><%=text['dom_canvas']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Manipulating_video_using_canvas"><%=text['video_canvas']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details open>
+      <summary><%=text['Examples']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/A_basic_ray-caster"><%=text['raycaster']%></a></li>
+        <li><a href="/<%=locale%>/Add-ons/Code_snippets/Canvas"><%=text['snippets']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Drawing_DOM_objects_into_a_canvas"><%=text['dom_canvas']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/Canvas_API/Manipulating_video_using_canvas"><%=text['video_canvas']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="open"><a href="#"><strong><%=text['Interfaces']%></strong></a>
-   <ol>
-    <li><%-template("domxref", ["HTMLCanvasElement"])%></li>
-    <li><%-template("domxref", ["CanvasRenderingContext2D"])%></li>
-    <li><%-template("domxref", ["CanvasGradient"])%></li>
-    <li><%-template("domxref", ["CanvasPattern"])%></li>
-    <li><%-template("domxref", ["ImageBitmap"])%></li>
-    <li><%-template("domxref", ["ImageData"])%></li>
-    <li><%-template("domxref", ["TextMetrics"])%></li>
-    <li><span class="sidebar-icon"><%-template("ExperimentalBadge", [1])%></span> <%-template("domxref", ["Path2D"])%></li>
-   </ol>
+  <li class="toggle">
+    <details open>
+      <summary><%=text['Interfaces']%></summary>
+      <ol>
+        <li><%-template("domxref", ["HTMLCanvasElement"])%></li>
+        <li><%-template("domxref", ["CanvasRenderingContext2D"])%></li>
+        <li><%-template("domxref", ["CanvasGradient"])%></li>
+        <li><%-template("domxref", ["CanvasPattern"])%></li>
+        <li><%-template("domxref", ["ImageBitmap"])%></li>
+        <li><%-template("domxref", ["ImageData"])%></li>
+        <li><%-template("domxref", ["TextMetrics"])%></li>
+        <li><span class="sidebar-icon"><%-template("ExperimentalBadge", [1])%></span> <%-template("domxref", ["Path2D"])%></li>
+      </ol>
+    </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
-  <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/tag/Canvas"><%=text['Canvas_tag']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Useful_lists')%>>
+      <summary><%=text['Useful_lists']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/tag/Canvas"><%=text['Canvas_tag']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('Contribute')%>"><a href="#"><%=text['Contribute']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/MDN/Doc_status/API/Canvas"><%=text['Doc_status']%></a></li>
-    <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Contribute')%>>
+      <summary><%=text['Contribute']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/MDN/Doc_status/API/Canvas"><%=text['Doc_status']%></a></li>
+        <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
+      </ol>
+    </details>
   </li>
  </ol>
 </section>
