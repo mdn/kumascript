@@ -356,19 +356,22 @@ var text = mdn.localStringMap({
         </ol>
       </details>
     </li>
-    <li><a href="<%=baseURL%>WebExtensions#Firefox_workflow"><%=text['WebExtensions#Firefox_workflow']%></a>
-      <ol>
-        <li><a href="<%=baseURL%>WebExtensions/Development_Tools"><%=text['WebExtensions/Development_Tools']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/User_experience_best_practices"><%=text['WebExtensions/User_experience_best_practices']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Temporary_Installation_in_Firefox"><%=text['WebExtensions/Temporary_Installation_in_Firefox']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Debugging"><%=text['WebExtensions/Debugging']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Testing_persistent_and_restart_features"><%=text['WebExtensions/Testing_persistent_and_restart_features']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Developing_WebExtensions_for_Firefox_for_Android"><%=text['WebExtensions/Developing_WebExtensions_for_Firefox_for_Android']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Getting_started_with_web-ext"><%=text['WebExtensions/Getting_started_with_web-ext']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/web-ext_command_reference"><%=text['WebExtensions/web-ext_command_reference']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/WebExtensions_and_the_Add-on_ID"><%=text['WebExtensions/WebExtensions_and_the_Add-on_ID']%></a></li>
-        <li><a href="<%=baseURL%>WebExtensions/Request_the_right_permissions"><%=text['WebExtensions/Request_the_right_permissions']%></a></li>
-      </ol>
+    <li class="toggle">
+      <details>
+        <summary><a href="<%=baseURL%>WebExtensions#Firefox_workflow"><%=text['WebExtensions#Firefox_workflow']%></a></summary>
+        <ol>
+          <li><a href="<%=baseURL%>WebExtensions/Development_Tools"><%=text['WebExtensions/Development_Tools']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/User_experience_best_practices"><%=text['WebExtensions/User_experience_best_practices']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Temporary_Installation_in_Firefox"><%=text['WebExtensions/Temporary_Installation_in_Firefox']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Debugging"><%=text['WebExtensions/Debugging']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Testing_persistent_and_restart_features"><%=text['WebExtensions/Testing_persistent_and_restart_features']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Developing_WebExtensions_for_Firefox_for_Android"><%=text['WebExtensions/Developing_WebExtensions_for_Firefox_for_Android']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Getting_started_with_web-ext"><%=text['WebExtensions/Getting_started_with_web-ext']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/web-ext_command_reference"><%=text['WebExtensions/web-ext_command_reference']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/WebExtensions_and_the_Add-on_ID"><%=text['WebExtensions/WebExtensions_and_the_Add-on_ID']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Request_the_right_permissions"><%=text['WebExtensions/Request_the_right_permissions']%></a></li>
+        </ol>
+      </details>
     </li>
     <li class="toggle">
       <details <%=currentPageIsUnder('WebExtensions/API')%>>
