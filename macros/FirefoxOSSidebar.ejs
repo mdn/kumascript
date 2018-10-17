@@ -127,46 +127,54 @@ var text = mdn.localStringMap({
 <section class="Quick_links" id="Quick_Links">
 
 <ol>
- <li data-default-state="<%=currentPageIsUnder('Building_and_installing_B2G_OS')%>"><a href="<%=baseURL%>Building_and_installing_B2G_OS"><%=text['Build_and_install']%></a>
-  <ol>
-   <li><strong><a href="<%=baseURL%>Building_and_installing_B2G_OS"><%=text['Build_and_install_overview']%></a></strong></li>
-   <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_OS_build_process_summary"><%=text['B2G_OS_build_process_summary']%></a></li>
-   <li><a href="<%=baseURL%>B2G_OS_build_prerequisites"><%=text['Build_prerequisites']%></a></li>
-   <li><a href="<%=baseURL%>Preparing_for_your_first_B2G_build"><%=text['Preparing_for_your_first_build']%></a></li>
-   <li><a href="<%=baseURL%>Building"><%=text['Building_B2G_OS']%></a></li>
-   <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_installer_add-on"><%=text['B2G_installer_add-on']%></a></li>
-   <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/Building_for_Flame_on_OS_X"><%=text['Building_B2G_OS_for_Flame_on_Mac_OS_X']%></a></li>
-   <li><a href="<%=baseURL%>Choosing_how_to_run_Gaia_or_B2G"><%=text['Choosing_how_to_run_Gaia_or_B2G_OS']%></a></li>
-   <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/Compatible_Devices"><%=text['Compatible_Devices']%></a></li>
-   <li><a href="<%=baseURL%>Installing_on_a_mobile_device"><%=text['Installing_B2G_OS_on_a_mobile_device']%></a></li>
-   <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_OS_update_packages"><%=text['Creating_and_applying_B2G_OS_update_packages']%></a></li>
-   <li><a href="<%=baseURL%>Building/FOTA_community_builds"><%=text['Building_and_installing_FOTA_community_builds']%></a></li>
-   <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_Build_Variables_Reference_Sheet"><%=text['B2G_build_variables_reference_sheet']%></a></li>
-  </ol>
- </li>
- <li data-default-state="<%=currentPageIsUnder('Porting_B2G_OS')%>"><a href="<%=baseURL%>Porting_B2G_OS"><%=text['Porting_B2G_OS']%></a>
-  <ol>
-   <li><strong><a href="<%=baseURL%>Porting_B2G_OS"><%=text['Porting_overview']%></a></strong></li>
-   <li><a href="<%=baseURL%>Porting_B2G_OS/basics"><%=text['Porting_basics']%></a></li>
-   <li><a href="<%=baseURL%>Porting_B2G_OS/Porting_on_CyanogenMod"><%=text['Porting_on_CyanogenMod']%></a></li>
-  </ol>
- </li>
- <li data-default-state="<%=currentPageIsUnder('Developing_Gaia')%>"><a href="<%=baseURL%>Developing_Gaia">Developing Gaia</a>
-  <ol>
-   <li><strong><a href="<%=baseURL%>Developing_Gaia"><%=text['Developing_Gaia_overview']%></a></strong></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Running_the_Gaia_codebase"><%=text['Running_the_Gaia_codebase']%></a></li>
-   <li><a href="<%=baseURL%>Mulet"><%=text['Mulet']%></a></li>
-
-   <li><a href="<%=baseURL%>Developing_Gaia/Understanding_the_Gaia_codebase"><%=text['Understanding_the_Gaia_codebase']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Making_Gaia_code_changes"><%=text['Making_Gaia_code_changes']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Testing_Gaia_code_changes"><%=text['Testing_Gaia_code_changes']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Submitting_a_Gaia_patch"><%=text['Submitting_a_Gaia_patch']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Build_System_Primer"><%=text['Gaia_build_system_primer']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Different_ways_to_run_Gaia"><%=text['Different_ways_to_run_Gaia']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/make_options_reference"><%=text['Make_options_reference']%></a></li>
-   <li><a href="<%=baseURL%>Developing_Gaia/Gaia_tools_reference"><%=text['Gaia_tools_reference']%></a></li>
-  </ol>
- </li>
- <li><a href="<%=baseURL%>API"><%=text['B2G_OS_APIs']%></a></li>
+  <li class="toggle">
+      <details <%=currentPageIsUnder('Building_and_installing_B2G_OS')%>>
+          <summary><%=text['Build_and_install']%></summary>
+          <ol>
+            <li><strong><a href="<%=baseURL%>Building_and_installing_B2G_OS"><%=text['Build_and_install_overview']%></a></strong></li>
+            <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_OS_build_process_summary"><%=text['B2G_OS_build_process_summary']%></a></li>
+            <li><a href="<%=baseURL%>B2G_OS_build_prerequisites"><%=text['Build_prerequisites']%></a></li>
+            <li><a href="<%=baseURL%>Preparing_for_your_first_B2G_build"><%=text['Preparing_for_your_first_build']%></a></li>
+            <li><a href="<%=baseURL%>Building"><%=text['Building_B2G_OS']%></a></li>
+            <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_installer_add-on"><%=text['B2G_installer_add-on']%></a></li>
+            <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/Building_for_Flame_on_OS_X"><%=text['Building_B2G_OS_for_Flame_on_Mac_OS_X']%></a></li>
+            <li><a href="<%=baseURL%>Choosing_how_to_run_Gaia_or_B2G"><%=text['Choosing_how_to_run_Gaia_or_B2G_OS']%></a></li>
+            <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/Compatible_Devices"><%=text['Compatible_Devices']%></a></li>
+            <li><a href="<%=baseURL%>Installing_on_a_mobile_device"><%=text['Installing_B2G_OS_on_a_mobile_device']%></a></li>
+            <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_OS_update_packages"><%=text['Creating_and_applying_B2G_OS_update_packages']%></a></li>
+            <li><a href="<%=baseURL%>Building/FOTA_community_builds"><%=text['Building_and_installing_FOTA_community_builds']%></a></li>
+            <li><a href="<%=baseURL%>Building_and_installing_B2G_OS/B2G_Build_Variables_Reference_Sheet"><%=text['B2G_build_variables_reference_sheet']%></a></li>
+          </ol>
+      </details>
+  </li>
+  <li class="toggle">
+      <details <%=currentPageIsUnder('Porting_B2G_OS')%>>
+          <summary><%=text['Porting_B2G_OS']%></summary>
+          <ol>
+            <li><strong><a href="<%=baseURL%>Porting_B2G_OS"><%=text['Porting_overview']%></a></strong></li>
+            <li><a href="<%=baseURL%>Porting_B2G_OS/basics"><%=text['Porting_basics']%></a></li>
+            <li><a href="<%=baseURL%>Porting_B2G_OS/Porting_on_CyanogenMod"><%=text['Porting_on_CyanogenMod']%></a></li>
+          </ol>
+      </details>
+  </li>
+  <li class="toggle">
+      <details <%=currentPageIsUnder('Developing_Gaia')%>>
+          <summary>Developing Gaia</summary>
+          <ol>
+            <li><strong><a href="<%=baseURL%>Developing_Gaia"><%=text['Developing_Gaia_overview']%></a></strong></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Running_the_Gaia_codebase"><%=text['Running_the_Gaia_codebase']%></a></li>
+            <li><a href="<%=baseURL%>Mulet"><%=text['Mulet']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Understanding_the_Gaia_codebase"><%=text['Understanding_the_Gaia_codebase']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Making_Gaia_code_changes"><%=text['Making_Gaia_code_changes']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Testing_Gaia_code_changes"><%=text['Testing_Gaia_code_changes']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Submitting_a_Gaia_patch"><%=text['Submitting_a_Gaia_patch']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Build_System_Primer"><%=text['Gaia_build_system_primer']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Different_ways_to_run_Gaia"><%=text['Different_ways_to_run_Gaia']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/make_options_reference"><%=text['Make_options_reference']%></a></li>
+            <li><a href="<%=baseURL%>Developing_Gaia/Gaia_tools_reference"><%=text['Gaia_tools_reference']%></a></li>
+          </ol>
+      </details>
+  </li>
+  <li><a href="<%=baseURL%>API"><%=text['B2G_OS_APIs']%></a></li>
 </ol>
 </section>
