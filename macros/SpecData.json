@@ -1596,7 +1596,7 @@
   },
   "XPath2": {
     "name": "XPath 2.0",
-    "url": "https://www.w3.org/TR/xpath-20/",
+    "url": "https://www.w3.org/TR/xpath20/",
     "status": "REC"
   },
   "XPath3": {
