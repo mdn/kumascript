@@ -2017,7 +2017,6 @@
                               "title": "Taking still photos with WebRTC" },
                             { "url":   "/en-US/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample",
                               "title": "A simple RTCDataChannel example" } ],
-
             "interfaces": [ "RTCPeerConnection",
                             "RTCSessionDescription",
                             "RTCIceCandidate",
