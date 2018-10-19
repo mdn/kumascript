@@ -89,14 +89,20 @@ if (group && apiGroups[group]) {
   var rel_dict = [];
   var rel_types = [];
   var rel_callbacks = [];
-  if (options.includeDictionaries !== "no") {
-    rel_dict = apiGroups[group].dictionaries || [];
+  if (options.includeDictionaries === "yes") {
+    rel_dict = getImportantItems(apiGroups[group].dictionaries, "low");
+  } else if (options.includeDictionaries === "important") {
+    rel_dict = getImportantItems(apiGroups[group].dictionaries, "high");
   }
-  if (options.includeTypes !== "no") {
-    rel_types = apiGroups[group].types || [];
+  if (options.includeTypes === "yes") {
+    rel_types = getImportantItems(apiGroups[group].types, "low");
+  } else if (options.includeTypes === "important") {
+    rel_types = getImportantItems(apiGroups[group].types, "high");
   }
-  if (options.includeCallbacks !== "no") {
-    rel_callbacks = apiGroups[group].callbacks || [];
+  if (options.includeCallbacks === "yes") {
+    rel_callbacks = getImportantItems(apiGroups[group].callbacks, "low");
+  } else if (options.includeCallbacks === "important") {
+    rel_callbacks = getImportantItems(apiGroups[group].callbacks, "high");
   }
   related = rel_if.concat(rel_met, rel_prop, rel_dict, rel_types, rel_callbacks);
   related.splice(related.indexOf(mainIF), 1);
@@ -170,6 +176,31 @@ function getImplementedBy(data) {
   implementedBy.sort();
 }
 getImplementedBy(apiData);
+
+// A list of items is an array of objects like this instead of
+// an array of strings:
+//
+// { "name": itemname, "importance": "low|medium|high" }
+//
+// This function returns an array of strings where importance
+// is is at least minImportance.
+function getImportantItems(itemList, minImportance) {
+  var results = [];
+
+  if (!itemList) {
+    return results;
+  }
+
+  itemList.forEach(function(item) {
+    if ((item.importance === "high") ||
+        (minImportance === "medium" && (item.importance === "medium" || item.importance === "high")) ||
+        (minImportance === "low")) {
+      results.push(item.name);
+    }
+  });
+
+  return results;
+}
 
 // output helpers
 
