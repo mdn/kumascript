@@ -1,33 +1,67 @@
 <%
-// API Sidebar
+// APIRef
+//
+// Creates a standard API Reference sidebar for MDN using the GroupData.json
+// file, tags on pages, and other information.
 //
 // Parameters:
-//  $0  A tag for the API group (searches for related APIs)
+//  $0  A tag for the API group (searches for related APIs) [optional]
+//  $1  Options object; fields are as follows:
+//        includeTypes
 
 // Variables and data
-var slug = env.slug;
-var locale = env.locale;
-var APIHref = '/' + locale + '/docs/Web/API';
-var EventHref = '/' + locale + '/docs/Web/Events';
+const group = $0;
+const slug = env.slug;
+const locale = env.locale;
+const APIHref = '/' + locale + '/docs/Web/API';
+const EventHref = '/' + locale + '/docs/Web/Events';
 var output = "";
+
+// Default options
+//
+// Each option cna be one of these values:
+//
+//  "no"          Do not include the item in the sidebar
+//  "yes"         Include the item in the sidebar
+//  "important"   Include the item if tagged "Important"
+const defaultOptions = {
+  includeDictionaries: "important",
+  includeTypes: "important",
+  includeCallbacks: "no"
+};
+
+
 // slug is not available in preview mode.
 if (slug) {
 var mainIF = slug.replace('Web/API/','').split('/')[0];
 mainIF = mainIF.charAt(0).toUpperCase() + mainIF.slice(1);
-var group = $0;
+
+// Grab options parameter ($1)
+var options;
+try {
+  options = JSON.parse($1);
+} catch(e) {
+  options = defaultOptions;
+}
+
 var hasTag = page.hasTag;
 var escapeQuotes = mdn.escapeQuotes;
 var htmlEscape = kuma.htmlEscape;
 var rtlLocales = ['ar', 'he', 'fa'];
 
-var webAPIData = string.deserialize(template("InterfaceData"));
+const webAPIData = string.deserialize(template("InterfaceData"));
+const apiData = webAPIData[0];
+
 if (group) {
   var webAPIGroups = string.deserialize(template("GroupData"));
+  var apiGroups = webAPIGroups[0];
 }
 
-var commonl10n = string.deserialize(template('L10n:Common'));
+// Collect translations of strings we'll need
 
-var text = {
+const commonl10n = string.deserialize(template('L10n:Common'));
+
+const text = {
     'Methods': mdn.getLocalString(commonl10n, 'Methods'),
     'Properties': mdn.getLocalString(commonl10n, 'Properties'),
     'Constructor': mdn.getLocalString(commonl10n, 'Constructor'),
@@ -36,24 +70,38 @@ var text = {
     'Related': mdn.getLocalString(commonl10n, 'Related_pages').replace('$1', group),
     'translate': mdn.getLocalString(commonl10n, '[Translate]'),
     'title': mdn.getLocalString(commonl10n, 'TranslationCTA'),
-    'Events': mdn.getLocalString(commonl10n, 'Events'),
+    'Events': mdn.getLocalString(commonl10n, 'Events')
 };
 
 
 // Collect all the things
 var mainIFPages = page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
-var impl = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].impl : [];
-var inh = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].inh : '';
+var impl = apiData[mainIF] != undefined ? apiData[mainIF].impl : [];
+var inh = apiData[mainIF] != undefined ? apiData[mainIF].inh : '';
 var related = [];
 var events = []
-if (group && webAPIGroups[0][group]) {
-  var rel_if = webAPIGroups[0][group].interfaces || [];
-  var rel_met = webAPIGroups[0][group].methods || [];
-  var rel_prop = webAPIGroups[0][group].properties || [];
-  related = rel_if.concat(rel_met, rel_prop);
+if (group && apiGroups[group]) {
+  var rel_if = apiGroups[group].interfaces || [];
+  var rel_met = apiGroups[group].methods || [];
+  var rel_prop = apiGroups[group].properties || [];
+
+  // Optional data
+  var rel_dict = [];
+  var rel_types = [];
+  var rel_callbacks = [];
+  if (options.includeDictionaries !== "no") {
+    rel_dict = apiGroups[group].dictionaries || [];
+  }
+  if (options.includeTypes !== "no") {
+    rel_types = apiGroups[group].types || [];
+  }
+  if (options.includeCallbacks !== "no") {
+    rel_callbacks = apiGroups[group].callbacks || [];
+  }
+  related = rel_if.concat(rel_met, rel_prop, rel_dict, rel_types, rel_callbacks);
   related.splice(related.indexOf(mainIF), 1);
   related.sort();
-  events = webAPIGroups[0][group].events || [];
+  events = apiGroups[group].events || [];
 }
 
 var pageList = mainIFPages;
@@ -103,8 +151,8 @@ ctors.sort(APISort);
 function getInheritance(inh) {
   if (inh.length > 0) {
     inheritedIF.push(inh);
-    if (webAPIData[0].hasOwnProperty(inh)) {
-        var inh = webAPIData[0][inh].inh;
+    if (apiData.hasOwnProperty(inh)) {
+        var inh = apiData[inh].inh;
         getInheritance(inh);
     }
   }
@@ -121,7 +169,7 @@ function getImplementedBy(data) {
   }
   implementedBy.sort();
 }
-getImplementedBy(webAPIData[0]);
+getImplementedBy(apiData);
 
 // output helpers
 
@@ -234,8 +282,8 @@ function buildEventList(events, title) {
 
 // output
 output = '<section class="Quick_links" id="Quick_Links"><ol>';
-if (group && webAPIGroups[0][group] && webAPIGroups[0][group].overview) {
-  output += '<li><strong><a href="' +  APIHref + '/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_') + '">' + webAPIGroups[0][group].overview[0] + '</a></strong></li>';
+if (group && apiGroups[group] && apiGroups[group].overview) {
+  output += '<li><strong><a href="' +  APIHref + '/' + apiGroups[group].overview[0].replace(/ /g, '_') + '">' + apiGroups[group].overview[0] + '</a></strong></li>';
 }
 output += '<li><strong><a href="' +  APIHref + '/' + mainIF + '"><code>' + mainIF + '</a></code></strong></li>';
 

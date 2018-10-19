@@ -188,6 +188,14 @@
         "ja"   : "インターフェイス"
     },
 
+    "Data_types": {
+        "en-US": "Data types"
+    },
+
+    "Dictionaries": {
+        "en-US": "Dictionaries"
+    },
+
     "listSeparator": {
         "en-US": ", ",
         "de"   : ", ",
