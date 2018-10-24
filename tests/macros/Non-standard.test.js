@@ -37,6 +37,14 @@ function testInline(result) {
     assert.equal(dom.textContent.trim(), "Non-standard");
 }
 
+function testIcon(result) {
+    const dom = JSDOM.fragment(result);
+    expect(dom.childElementCount).toBeGreaterThanOrEqual(1);
+    assert.equal(dom.firstElementChild.getAttribute("title"), "This API has not been standardized.");
+    let icon = dom.querySelector("i.icon-warning-sign");
+    expect(icon).toEqual(expect.anything());
+}
+
 describeMacro("Non-standardGeneric", function() {
     itMacro("Correct result for 'inline'", macro => {
         return macro.call('inline').then(testInline);
@@ -80,5 +88,21 @@ describeMacro("Non-standard_Header", function() {
                 // Non-standard Header contains the string 'Firefox OS'
                 expect(dom.querySelector("p").textContent).toContain("Firefox OS");
             });
+    });
+});
+
+describeMacro("NonStandardBadge", function() {
+    itMacro("Correct result", macro => {
+        return macro.call().then(testInline);
+    });
+
+    itMacro("Correct result (icon)", macro => {
+        return macro.call(true).then(testIcon);
+    });
+});
+
+describeMacro("Non-standard_Inline", function() {
+    itMacro("Correct result", macro => {
+        return macro.call().then(testIcon);
     });
 });

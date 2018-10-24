@@ -40,7 +40,7 @@ if (env.tags && env.tags.includes("Firefox OS")) {
 
 switch($0) {
     case 'inline':
-        %><span class="inlineIndicator nonStandard"><%-str_inline%></span><%
+        %><%-await template("NonStandardBadge")%><%
         break;
     case 'header':
         %><div class="blockIndicator nonStandard">
