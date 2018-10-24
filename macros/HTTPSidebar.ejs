@@ -40,12 +40,14 @@ var text = mdn.localStringMap({
     'Caching': 'HTTP caching',
     'CORS': 'HTTP access control (CORS)',
     'Resources': 'HTTP specifications',
+    'Feature_policy': 'Feature policy',
     'Guides': 'Guides:',
     'Reference': 'References:',
     'Methods': 'HTTP request methods',
     'Status': 'HTTP response status codes',
     'CSPDirectives': 'CSP directives',
     'CORS_errors': 'CORS errors',
+    'FeaturePolicyDirectives': 'Feature-Policy directives',
     'Security': 'HTTP security',
     'Authentication': 'HTTP authentication',
     'ProtocolUpgradeMech': 'Protocol upgrade mechanism'
@@ -144,7 +146,7 @@ var text = mdn.localStringMap({
         </details>
     </li>
 
-    <li><a href="/<%=locale%>/docs/Web/HTTP/Access_control_CORS"><%=text['CORS']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/CORS"><%=text['CORS']%></a></li>
     <li><a href="/<%=locale%>/docs/Web/HTTP/Authentication"><%=text['Authentication']%></a></li>
     <li><a href="/<%=locale%>/docs/Web/HTTP/Caching"><%=text['Caching']%></a></li>
     <li><a href="/<%=locale%>/docs/Web/HTTP/Compression"><%=text['Compression']%></a></li>
@@ -154,6 +156,7 @@ var text = mdn.localStringMap({
     <li><a href="/<%=locale%>/docs/Web/HTTP/Range_requests"><%=text['Ranges']%></a></li>
     <li><a href="/<%=locale%>/docs/Web/HTTP/Redirections"><%=text['Redirects']%></a></li>
     <li><a href="/<%=locale%>/docs/Web/HTTP/Resources_and_specifications"><%=text['Resources']%></a></li>
+    <li><a href="/<%=locale%>/docs/Web/HTTP/Feature_Policy"><%=text['Feature_policy']%></a></li>
     <li><strong><%=text['Reference']%></strong></li>
     <li class="toggle">
         <details <%=state('Web/HTTP/Headers')%>>
@@ -174,7 +177,7 @@ var text = mdn.localStringMap({
         </details>
     </li>
     <li class="toggle">
-        <details <%=state('Web/HTTP/Content-Security-Policy')%>>
+        <details <%=state('Web/HTTP/Headers/Content-Security-Policy')%>>
           <summary><%=text['CSPDirectives']%></summary>
           <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Content-Security-Policy'])%>
         </details>
@@ -183,6 +186,12 @@ var text = mdn.localStringMap({
         <details <%=state('Web/HTTP/CORS/Errors')%>>
           <summary><%=text['CORS_errors']%></summary>
           <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/CORS/Errors', 1])%>
+        </details>
+    </li>
+    <li class="toggle">
+        <details <%=state('Web/HTTP/Headers/Feature-Policy')%>>
+          <summary><%=text['FeaturePolicyDirectives']%></summary>
+          <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Feature-Policy', 1])%>
         </details>
     </li>
   </ol>
