@@ -622,6 +622,7 @@
             "overview":   [ "Fullscreen API" ],
             "guides":     [],
             "interfaces": [],
+            "dictionaries": [ "FullscreenOptions" ],
             "methods":    [ "Document.exitFullscreen()",
                             "Element.requestFullscreen()" ],
             "properties": [ "Document.fullscreen",
