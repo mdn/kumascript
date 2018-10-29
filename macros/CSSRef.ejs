@@ -189,7 +189,7 @@ if (slug) {
     }
 
     function buildSublist(pages, title, noCodeTags) {
-      var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+      var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
       var code    = !noCodeTags ? '<code>'  : '';
       var endcode = !noCodeTags ? '</code>' : '';
 
@@ -256,7 +256,7 @@ if (slug) {
         result += '</li>';
       }
 
-      result += '</ol></li>';
+      result += '</ol></details></li>';
 
       return result;
     }

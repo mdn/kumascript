@@ -849,6 +849,16 @@
     "url": "https://html.spec.whatwg.org/multipage/",
     "status": "Living"
   },
+  "IMSC 1.0.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.0.1 (IMSC1)",
+    "url": "https://www.w3.org/TR/ttml-imsc1.0.1/",
+    "status": "REC"
+  },
+  "IMSC 1.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.1",
+    "url": "https://www.w3.org/TR/ttml-imsc1.1/",
+    "status": "PR"
+  },
   "IndexedDB": {
     "name": "Indexed Database API",
     "url": "https://www.w3.org/TR/IndexedDB/",
@@ -873,6 +883,16 @@
     "name": "Intersection Observer",
     "url": "https://w3c.github.io/IntersectionObserver/",
     "status": "WD"
+  },
+  "Keyboard Lock": {
+    "name": "Keyboard Lock",
+    "url": "https://w3c.github.io/keyboard-lock",
+    "status": "ED"
+  },
+  "Keyboard Map": {
+    "name": "Keyboard Map",
+    "url": "https://wicg.github.io/keyboard-map/",
+    "status": "ED"
   },
   "Long Tasks": {
     "name": "Long Tasks API 1",
@@ -1431,7 +1451,7 @@
   },
   "WebDriver": {
     "name": "WebDriver",
-    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
+    "url": "https://w3c.github.io/webdriver/",
     "status": "REC"
   },
   "WEBGL_color_buffer_float": {

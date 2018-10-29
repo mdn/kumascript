@@ -35,11 +35,11 @@ if ($1) {
         ver = "CSS ";
     } else if (string.startswith(t, "html")) {
         n = string.trim(string.substr(t, 4));
-        
-        var N = (n[0] === "4") ? "" : n; 
-        
+
+        var N = (n[0] === "4") ? "" : n;
+
         ver = "HTML";
-        
+
         if (string.length(N) > 0) {
             if(wiki.pageExists('/' + lang + '/docs/HTML/HTML' + N)) {
                 link = '/' + lang + '/docs/HTML/HTML' + N;
@@ -61,7 +61,7 @@ if ($1) {
         ver = "Gecko ";
         tip = template("geckoRelease", [n]);
     }
-    
+
     n = string.trim(n);
     ver = (string.length(n) > 0) ? ver + n : "";
 }
@@ -136,7 +136,7 @@ switch($0) {
         break;
     case 'header':
         if (tip.length) { str = str + " " + tip; }
-        %><div class="overheadIndicator deprecated deprecatedHeader">
+        %><div class="blockIndicator deprecated deprecatedHeader">
             <p><strong><%-template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p>
         </div><%
         break;

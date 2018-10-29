@@ -76,76 +76,74 @@ node {
             setGitEnvironmentVariables()
         }
     }
-    // TODO: After cutover to IT-owned cluster, make "mdnwebdocs" the default
-    //       value for IMAGE_PREFIX in the Makefile, and remove this code.
-    def image_prefix = utils.is_mozmeao_pipeline() ? 'quay.io/mozmar' : 'mdnwebdocs'
-    withEnv(["IMAGE_PREFIX=${image_prefix}"]) {
-        switch (env.BRANCH_NAME) {
-            case 'master':
-                stage('Build') {
-                    image('build')
-                    image('build', 'latest')
-                }
-                stage('Lint') {
-                    lint_kumascript('latest')
-                }
-                stage('Test') {
-                    test_kumascript('latest')
-                }
-                stage('Push KumaScript Docker Image') {
+    switch (env.BRANCH_NAME) {
+        case 'master':
+            stage('Build') {
+                image('build')
+                image('build', 'latest')
+            }
+            stage('Lint') {
+                lint_kumascript('latest')
+            }
+            stage('Test') {
+                test_kumascript('latest')
+            }
+            stage('Push KumaScript Docker Image') {
+                // TODO: After cutover to IT-owned services, remove this condition.
+                if (!utils.is_mozmeao_pipeline()) {
                     image('push')
                     image('push', 'latest')
                 }
-                break
+            }
+            break
 
-            case [utils.PROD_BRANCH_NAME, utils.STAGE_BRANCH_NAME, utils.STANDBY_BRANCH_NAME]:
-                stage("Announce") {
-                    utils.announce_push()
-                }
-                stage("Check Pull") {
-                    // Ensure the image can be successfully pulled from the registry.
-                    utils.ensure_pull()
-                }
-                stage("Prepare Infra") {
-                    // Checkout the "mdn/infra" repo's "master" branch into the
-                    // "infra" sub-directory of the current working directory.
-                    utils.checkout_repo(
-                        'https://github.com/mdn/infra', 'master', 'infra'
-                    )
-                }
-                stage('Push') {
-                    def kuma_image_tag = sh(
-                        returnStdout: true,
-                        script: 'git rev-parse --short=7 HEAD'
-                    ).trim()
-                    withEnv(["KUMA_IMAGE_TAG=${kuma_image_tag}"]) {
-                        dir('infra/apps/mdn/mdn-aws/k8s') {
-                            def current_revision_hash = utils.get_revision_hash()
-                            withEnv(["TO_REVISION_HASH=${env.GIT_COMMIT}",
-                                     "FROM_REVISION_HASH=${current_revision_hash}"]) {
-                                // Start a rolling update of the Kumascript-based deployments.
-                                utils.rollout()
-                                // Monitor the rollout until it has completed.
-                                utils.monitor_rollout()
-                                // Record the rollout in external services like New-Relic.
-                                utils.record_rollout()
-                            }
+        case [utils.PROD_BRANCH_NAME, utils.STAGE_BRANCH_NAME, utils.STANDBY_BRANCH_NAME]:
+            stage("Announce") {
+                utils.announce_push()
+            }
+            stage("Check Pull") {
+                // Ensure the image can be successfully pulled from the registry.
+                utils.ensure_pull()
+            }
+            stage("Prepare Infra") {
+                // Checkout the "mdn/infra" repo's "master" branch into the
+                // "infra" sub-directory of the current working directory.
+                utils.checkout_repo(
+                    'https://github.com/mdn/infra', 'master', 'infra'
+                )
+            }
+            stage('Push') {
+                def kuma_image_tag = sh(
+                    returnStdout: true,
+                    script: 'git rev-parse --short=7 HEAD'
+                ).trim()
+                withEnv(["KUMA_IMAGE_TAG=${kuma_image_tag}"]) {
+                    dir('infra/apps/mdn/mdn-aws/k8s') {
+                        def current_revision_hash = utils.get_revision_hash()
+                        withEnv(["TO_REVISION_HASH=${env.GIT_COMMIT}",
+                                 "FROM_REVISION_HASH=${current_revision_hash}"]) {
+                            // Start a rolling update of the Kumascript-based deployments.
+                            utils.rollout()
+                            // Monitor the rollout until it has completed.
+                            utils.monitor_rollout()
+                            // Record the rollout in external services like New-Relic.
+                            utils.record_rollout()
                         }
                     }
                 }
-                break
+            }
+            break
 
-            default:
-                stage('Build') {
-                    image('build')
-                }
-                stage('Lint') {
-                    lint_kumascript()
-                }
-                stage('Test') {
-                    test_kumascript()
-                }
-                break
-        }
+        default:
+            stage('Build') {
+                image('build')
+            }
+            stage('Lint') {
+                lint_kumascript()
+            }
+            stage('Test') {
+                test_kumascript()
+            }
+            break
     }
 }
