@@ -15,9 +15,19 @@
     "status": "CR"
   },
   "ARIA": {
-    "name": "Accessible Rich Internet Applications (WAI-ARIA)",
+    "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.1",
     "url": "https://www.w3.org/TR/wai-aria-1.1/",
     "status": "REC"
+  },
+  "ARIA 1.2": {
+    "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+    "url": "https://www.w3.org/TR/wai-aria-1.2/",
+    "status": "WD"
+  },
+  "ARIA Authoring Practices": {
+    "name": "WAI-ARIA Authoring Practices 1.1",
+    "url": "https://w3c.github.io/aria-practices/",
+    "status": "Draft"
   },
   "ARIA in HTML": {
     "name": "ARIA in HTML",
@@ -479,7 +489,7 @@
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
     "status": "WD"
   },
-  "CSS Overscroll Behavior":{
+  "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
     "url": "https://wicg.github.io/overscroll-behavior/",
     "status": "Draft"
@@ -496,8 +506,13 @@
   },
   "CSS Scope": {
     "name": "CSS Scoping Module Level&nbsp;1",
-    "url": "http://drafts.csswg.org/css-scoping/",
+    "url": "https://drafts.csswg.org/css-scoping/",
     "status": "WD"
+  },
+  "CSS Scrollbars": {
+    "name": "CSS Scrollbars Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scrollbars-1/",
+    "status": "ED"
   },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
@@ -834,6 +849,16 @@
     "url": "https://html.spec.whatwg.org/multipage/",
     "status": "Living"
   },
+  "IMSC 1.0.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.0.1 (IMSC1)",
+    "url": "https://www.w3.org/TR/ttml-imsc1.0.1/",
+    "status": "REC"
+  },
+  "IMSC 1.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.1",
+    "url": "https://www.w3.org/TR/ttml-imsc1.1/",
+    "status": "PR"
+  },
   "IndexedDB": {
     "name": "Indexed Database API",
     "url": "https://www.w3.org/TR/IndexedDB/",
@@ -858,6 +883,16 @@
     "name": "Intersection Observer",
     "url": "https://w3c.github.io/IntersectionObserver/",
     "status": "WD"
+  },
+  "Keyboard Lock": {
+    "name": "Keyboard Lock",
+    "url": "https://w3c.github.io/keyboard-lock",
+    "status": "ED"
+  },
+  "Keyboard Map": {
+    "name": "Keyboard Map",
+    "url": "https://wicg.github.io/keyboard-map/",
+    "status": "ED"
   },
   "Long Tasks": {
     "name": "Long Tasks API 1",
@@ -1038,6 +1073,11 @@
     "name": "Presentation API",
     "url": "https://w3c.github.io/presentation-api/",
     "status": "CR"
+  },
+  "Priority Hints": {
+    "name": "Priority Hints",
+    "url": "https://wicg.github.io/priority-hints/",
+    "status": "Draft"
   },
   "Proximity Events": {
     "name": "Proximity Sensor",
@@ -1411,7 +1451,7 @@
   },
   "WebDriver": {
     "name": "WebDriver",
-    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
+    "url": "https://w3c.github.io/webdriver/",
     "status": "REC"
   },
   "WEBGL_color_buffer_float": {
@@ -1498,6 +1538,11 @@
     "name": "Notifications API",
     "url": "https://notifications.spec.whatwg.org/",
     "status": "Living"
+  },
+  "WebRTC Statistics Identifiers": {
+    "name": "Identifiers for WebRTC's Statistics API",
+    "url": "https://w3c.github.io/webrtc-stats/",
+    "status": "CR"
   },
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",

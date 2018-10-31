@@ -97,7 +97,7 @@ more before you run your local development version of MDN.
   look something like this:
 
       Successfully built 48ddc354b3f4
-      Successfully tagged quay.io/mozmar/kumascript:latest
+      Successfully tagged mdnwebdocs/kumascript:latest
 
 * Test out the changes, and repeat building the image if unhappy:
 
@@ -114,8 +114,8 @@ more before you run your local development version of MDN.
   development environment, or you can remove it. To remove your local built
   image, run one of the following:
 
-      docker rmi quay.io/mozmar/kumascript:latest  # Remove without replacing
-      docker pull quay.io/mozmar/kumascript:latest # or replace with server's version
+      docker rmi mdnwebdocs/kumascript:latest  # Remove without replacing
+      docker pull mdnwebdocs/kumascript:latest # or replace with server's version
 
 ## Setup (Docker)
 
