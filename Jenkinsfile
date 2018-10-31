@@ -89,11 +89,8 @@ node {
                 test_kumascript('latest')
             }
             stage('Push KumaScript Docker Image') {
-                // TODO: After cutover to IT-owned services, remove this condition.
-                if (!utils.is_mozmeao_pipeline()) {
-                    image('push')
-                    image('push', 'latest')
-                }
+                image('push')
+                image('push', 'latest')
             }
             break
 
