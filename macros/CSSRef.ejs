@@ -11,7 +11,8 @@ var output = "";
 
 // slug is not available in preview mode.
 if (slug) {
-    var name = slug.replace('Web/CSS/','').split('/')[0];
+    var trimmedSlug = mdn.trimSlugStart(['Web', 'CSS'], slug);
+    var name = trimmedSlug.result[0];
     var hasTag = page.hasTag;
     var escapeQuotes = mdn.escapeQuotes;
     var htmlEscape = kuma.htmlEscape;
