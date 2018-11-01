@@ -336,6 +336,7 @@
             "interfaces": [ "MediaQueryList",
                             "MediaQueryListListener",
                             "Screen" ],
+            "dictionaries": [ "ScrollToOptions" ],
             "methods":    [],
             "properties": [],
             "events":     [ "resize",
