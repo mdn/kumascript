@@ -81,7 +81,7 @@
   },
   "Compat": {
     "name": "Compatibility Standard",
-    "url": "https://compat.spec.whatwg.org",
+    "url": "https://compat.spec.whatwg.org/",
     "status": "Living"
   },
   "Compositing": {
@@ -921,7 +921,7 @@
   },
   "Media Capabilities": {
     "name": "Media Capabilities",
-    "url": "https://wicg.github.io/media-capabilities",
+    "url": "https://wicg.github.io/media-capabilities/",
     "status": "Draft"
   },
   "Media Capture": {
@@ -1596,7 +1596,7 @@
   },
   "XMLHttpRequest": {
     "name": "XMLHttpRequest",
-    "url": "https://xhr.spec.whatwg.org",
+    "url": "https://xhr.spec.whatwg.org/",
     "status": "Living"
   },
   "XPath1": {
