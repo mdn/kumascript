@@ -30,12 +30,12 @@ describeMacro('LiveSampleURL', function () {
         );
     });
     itMacro('Staging settings', function (macro) {
-        macro.ctx.env.live_samples = {'base_url': 'https://stage-files.mdn.moz.works'};
+        macro.ctx.env.live_samples = {'base_url': 'https://files-stage.mdn.mozit.cloud'};
         macro.ctx.env.url = 'https://developer.allizom.org/en-US/docs/Web/CSS/background-color';
         macro.ctx.env.revision_id = 1291055;
         return assert.eventually.equal(
             macro.call('Examples'),
-            'https://stage-files.mdn.moz.works/en-US/docs/Web/CSS/background-color$samples/Examples?revision=1291055'
+            'https://files-stage.mdn.mozit.cloud/en-US/docs/Web/CSS/background-color$samples/Examples?revision=1291055'
         );
     });
     itMacro('Development default settings', function (macro) {

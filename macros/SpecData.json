@@ -81,7 +81,7 @@
   },
   "Compat": {
     "name": "Compatibility Standard",
-    "url": "https://compat.spec.whatwg.org",
+    "url": "https://compat.spec.whatwg.org/",
     "status": "Living"
   },
   "Compositing": {
@@ -126,7 +126,7 @@
   },
   "CSP Embedded": {
     "name": "Content Security Policy: Embedded Enforcement",
-    "url": "https://w3c.github.io/webappsec-csp/embedded/",
+    "url": "https://w3c.github.io/webappsec-cspee/",
     "status": "WD"
   },
   "CSS1": {
@@ -471,7 +471,7 @@
   },
   "CSS Logical Properties": {
     "name": "CSS Logical Properties and Values Level&nbsp;1",
-    "url": "https://drafts.csswg.org/css-logical-props/",
+    "url": "https://drafts.csswg.org/css-logical/",
     "status": "ED"
   },
   "CSS Masks": {
@@ -506,7 +506,7 @@
   },
   "CSS Scope": {
     "name": "CSS Scoping Module Level&nbsp;1",
-    "url": "http://drafts.csswg.org/css-scoping/",
+    "url": "https://drafts.csswg.org/css-scoping/",
     "status": "WD"
   },
   "CSS Scrollbars": {
@@ -849,6 +849,16 @@
     "url": "https://html.spec.whatwg.org/multipage/",
     "status": "Living"
   },
+  "IMSC 1.0.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.0.1 (IMSC1)",
+    "url": "https://www.w3.org/TR/ttml-imsc1.0.1/",
+    "status": "REC"
+  },
+  "IMSC 1.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.1",
+    "url": "https://www.w3.org/TR/ttml-imsc1.1/",
+    "status": "PR"
+  },
   "IndexedDB": {
     "name": "Indexed Database API",
     "url": "https://www.w3.org/TR/IndexedDB/",
@@ -866,13 +876,23 @@
   },
   "InputEvents2": {
     "name": "Input Events Level 2",
-    "url": "https://w3c.github.io/input-events/index.html",
+    "url": "https://w3c.github.io/input-events/",
     "status": "WD"
   },
   "IntersectionObserver": {
     "name": "Intersection Observer",
     "url": "https://w3c.github.io/IntersectionObserver/",
     "status": "WD"
+  },
+  "Keyboard Lock": {
+    "name": "Keyboard Lock",
+    "url": "https://w3c.github.io/keyboard-lock",
+    "status": "ED"
+  },
+  "Keyboard Map": {
+    "name": "Keyboard Map",
+    "url": "https://wicg.github.io/keyboard-map/",
+    "status": "ED"
   },
   "Long Tasks": {
     "name": "Long Tasks API 1",
@@ -901,7 +921,7 @@
   },
   "Media Capabilities": {
     "name": "Media Capabilities",
-    "url": "https://wicg.github.io/media-capabilities",
+    "url": "https://wicg.github.io/media-capabilities/",
     "status": "Draft"
   },
   "Media Capture": {
@@ -1161,7 +1181,7 @@
   },
   "Static Range": {
     "name": "Static Range",
-    "url": "https://w3c.github.io/staticrange/index.html",
+    "url": "https://w3c.github.io/staticrange/",
     "status": "ED"
   },
   "Storage": {
@@ -1431,8 +1451,8 @@
   },
   "WebDriver": {
     "name": "WebDriver",
-    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
-    "status": "REC"
+    "url": "https://w3c.github.io/webdriver/",
+    "status": "Living"
   },
   "WEBGL_color_buffer_float": {
     "name": "WEBGL_color_buffer_float",
@@ -1576,7 +1596,7 @@
   },
   "XMLHttpRequest": {
     "name": "XMLHttpRequest",
-    "url": "https://xhr.spec.whatwg.org",
+    "url": "https://xhr.spec.whatwg.org/",
     "status": "Living"
   },
   "XPath1": {
@@ -1586,7 +1606,7 @@
   },
   "XPath2": {
     "name": "XPath 2.0",
-    "url": "https://www.w3.org/TR/xpath-20/",
+    "url": "https://www.w3.org/TR/xpath20/",
     "status": "REC"
   },
   "XPath3": {
