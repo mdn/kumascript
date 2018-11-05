@@ -44,7 +44,7 @@ var titleAttrValue = mdn.localString({
 var str = "";
 
 if ($0) {
-    %><span title="<%=titleAttrValue%>"><i class="icon-warning-sign"> </i></span><%
+    %><span title="<%=titleAttrValue%>" aria-label="<%=titleAttrValue%>" role="region"><i class="icon-warning-sign"> </i></span><%
 } else {
     str = mdn.localString({
         "ca": "Non-standard",

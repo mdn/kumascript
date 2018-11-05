@@ -1,5 +1,17 @@
 <%
 
+const ariaLabel = mdn.localString({
+    "de"    : "Dies ist eine experimentelle Technologie",
+    "es"    : "Esta es una tecnología experimental",
+    "fr"    : "Cette fonction est expérimentale",
+    "ja"    : "これは実験的な機能",
+    "zh-CN" : "这是一个实验中的功能",
+    "zh-TW" : "這是一個實驗中的功能",
+    "en-US" : "This is an experimental technology",
+    "pt-BR" : "Esta é uma tecnologia experimental",
+    "ru"    : "Это экспериментальная технология"
+});
+
 var str = mdn.localString({
     "de"    : "<strong>Dies ist eine experimentelle Technologie</strong><br />Da diese Technologie noch nicht definitiv implementiert wurde, sollte die <a href='#Browser_compatibility'>Browserkompatibilität</a> beachtet werden. Es ist auch möglich, dass die Syntax in einer späteren Spezifikation noch geändert wird.",
     "es"    : "<strong>Esta es una <a href='/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental'>tecnología experimental</a></strong><br />Comprueba la <a href='#Browser_compatibility'>Tabla de compabilidad de navegadores</a> cuidadosamente antes de usarla en producción.",
@@ -12,6 +24,6 @@ var str = mdn.localString({
     "ru"    : "<strong>Это экспериментальная технология</strong><br />Так как спецификация этой технологии ещё не стабилизировалась, смотрите <a href='#Browser_compatibility'>таблицу совместимости</a> по поводу использования в различных браузерах. Также заметьте, что синтаксис и поведение экспериментальной технологии может измениться в будущих версиях браузеров, вслед за изменениями спецификации."
 });
 
-%><div class="blockIndicator experimental indicator-warning">
+%><div class="blockIndicator experimental indicator-warning" aria-label="<%=ariaLabel%>" role="region">
     <p><%-template("ExperimentalBadge", [1])%> <%- str %></p>
 </div>

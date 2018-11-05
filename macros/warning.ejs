@@ -15,6 +15,6 @@ var s_warning = mdn.localString({
     "zh-CN": "Warning:"
 });
 
-%><div class="blockIndicator warning">
+%><div class="blockIndicator warning" aria-label="<%=s_warning%>" role="region">
     <p><strong><%=s_warning%></strong> <%- $0 %></p>
 </div>
