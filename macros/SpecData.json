@@ -35,9 +35,9 @@
     "status": "WD"
   },
   "ARIA Authoring Practices": {
-    "name" : "WAI-ARIA Authoring Practices",
-    "url" : "https://www.w3.org/TR/wai-aria-practices-1.1/",
-    "status" : "WD"
+    "name": "WAI-ARIA Authoring Practices",
+    "url": "https://www.w3.org/TR/wai-aria-practices-1.1/",
+    "status": "WD"
   },
   "Async Function": {
     "name": "ECMAScript Async Functions",
@@ -522,7 +522,7 @@
   "CSS Scrollbars": {
     "name": "CSS Scrollbars Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-scrollbars-1/",
-    "status": "ED"
+    "status": "FPWD"
   },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
