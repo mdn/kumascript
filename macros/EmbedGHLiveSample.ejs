@@ -8,10 +8,13 @@
 //
 //  Example call {{EmbedGHLiveSample("canvas-raycaster", 900, 300)}}
 //
- 
+
 var str = "";
 var widthHeight = "";
 var url = "https://mdn.github.io/" + $0;
+var s_title = mdn.localString({
+    "en-US": "Live Sample."
+});
 
 if ($1) {
     widthHeight = "width='" + $1 + "' ";
@@ -20,7 +23,7 @@ if ($2) {
     widthHeight += "height='" + $2 + "' ";
 }
 
-str = '<iframe class="live-sample-frame" frameborder="0" ' + widthHeight + 'src="' + url + '"></iframe>';
+str = '<iframe title="' + s_title + '" class="live-sample-frame" frameborder="0" ' + widthHeight + 'src="' + url + '"></iframe>';
 
 %>
 <%- str %>

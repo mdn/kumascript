@@ -21,6 +21,9 @@ var screenshotUrl = $3;
 var sampleSlug = $4;
 var className = $5 || "sample-code-frame";
 var allowedFeatures = $6;
+var s_title = mdn.localString({
+    "en-US": 'Live Sample.'
+});
 
 var hasScreenshot = (screenshotUrl && (screenshotUrl.length > 0));
 
@@ -49,7 +52,7 @@ if (hasScreenshot) {
       %></td><%
       %><td><%
 } // end hasScreenshot
-%><iframe class="live-sample-frame <%= className %>"<%
+%><iframe title="<%= s_title %>" class="live-sample-frame <%= className %>"<%
 %> id="frame_<%= sampleId %>"<%
 %> frameborder="0"<%
 if (width) { %> width="<%= width %>"<% }
