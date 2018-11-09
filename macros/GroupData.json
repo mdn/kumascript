@@ -1378,6 +1378,16 @@
             "properties": [ "Navigator.syncManager"],
             "events":     []
         },
+        "Resize Observer API": {
+            "overview":   [ "Resize Observer API" ],
+            "interfaces": [ "ResizeObservation",
+                            "ResizeObserver",
+                            "ResizeObserverEntry" ],
+            "methods":    [],
+            "properties": [],
+            "events":     [],
+            "callbacks":  [ "ResizeObserverCallback" ]
+        },
         "Resource Statistics API": {
             "interfaces": [ "NetworkStatsData",
                             "PowerStatsData",
