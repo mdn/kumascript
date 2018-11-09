@@ -2,6 +2,8 @@
 
 // Get the modules we'll need
 
+const fs = require("fs");
+const path = require("path");
 const chai = require("chai");
 const sinon = require("sinon");
 const chaiAsPromised = require("chai-as-promised");
@@ -17,9 +19,12 @@ const jsonInterfaceData = require("../../macros/InterfaceData.json");
 const jsonGroupData = require("../../macros/GroupData.json");
 const jsonL10nCommon = require("../../macros/L10n-Common.json");
 
+const macrosDir = path.resolve(__dirname, "../../macros")
+
 // Basic constants
 
-const API_BASE_SLUG = require("docs/Web/API");
+const API_BASE_SLUG = "docs/Web/API";
+const WIKI_BASE_SLUG = "Web/API";
 
 // =============================================================================
 // UTILITY FUNCTIONS
@@ -61,6 +66,18 @@ function camelToSnake (str, upFirst=true) {
         str = str.replace(/^./, (match) => match.toUpperCase());
 
     return str;
+}
+
+// Load the specified macro file as text and return the string
+//
+// @param macrofilename
+// @return <macrostring>
+function fetchMacroString(macrofilename) {
+    let filename = path.resolve(macrosDir, macrofilename);
+
+    let macroText = fs.readFileSync(filename, "utf8");
+    console.log(`Loaded macro file ${macrofilename}: ${macroText.substring(0, 80)}`)
+    return macroText;
 }
 
 // =============================================================================
@@ -191,7 +208,11 @@ const testCases = [
     {
         title: "Correct output for APIRef on Intersection Observer API main page",
         input: ["Intersection Observer API"],
-        output: `<section class="Quick_links" id="Quick_Links"><ol><li><strong><a href="/en-US/docs/Web/API/Intersection_Observer_API"><code>Intersection_Observer_API</a></code></strong></li></ol></section>`;
+        env: {
+            locale: "en-US",
+            slug: [WIKI_BASE_SLUG, "Intersection_Observer_API"].join("/"),
+        },
+        output: `<section class="Quick_links" id="Quick_Links"><ol><li><strong><a href="/en-US/docs/Web/API/Intersection_Observer_API"><code>Intersection_Observer_API</a></code></strong></li></ol></section>`
     }
 ];
 
@@ -209,8 +230,14 @@ describeMacro("APIRef", () => {
     beforeEachMacro((macro) => {
         macro.ctx.page.hasTag = sinon.stub();
         macro.ctx.page.subpagesExpand = sinon.stub();
-        //macro.ctx.mdn.escapeQuotes = sinon.stub();
-        //macro.ctx.kuma.htmlEscape = sinon.stub();
+        macro.ctx.template = sinon.stub();
+
+        // Intercept calls to the template macro that are loading
+        // GroupData.json
+
+        macro.ctx.template.withArgs("template", ["GroupData"]).returns(jsonGroupData); //fetchMacroString("GroupData.json"));
+        macro.ctx.template.withArgs("template", ["InterfaceData"]).returns(jsonInterfaceData); //fetchMacroString("InterfaceData.json"));
+        macro.ctx.template.withArgs("template", ["L10n:Common"]).returns(jsonL10nCommon); //fetchMacroString("L10n-Common.json"));
 
         // Create fake functions for the stuff stubbed above
 
@@ -219,13 +246,10 @@ describeMacro("APIRef", () => {
 
             // Set up handlers for the hasTag() method for each
             // of the values
-
             data.tags.forEach(tag => {
                 macro.ctx.page.hasTag.withArgs(tag).returns(true);
                 macro.ctx.page.hasTag.returns(false);
             });
-
-            //
         });
     });
 
@@ -241,6 +265,7 @@ describeMacro("APIRef", () => {
                 });
             }
 
+            console.log(`Test case: ${test.input}`);
             return chai.assert.eventually.equal(
                 macro.call(...test.input),
                 test.output
