@@ -21,6 +21,10 @@ test-macros:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
 	    /node_modules/.bin/mocha --timeout=${TEST_RUN_TIMEOUT} ${TEST_RUN_ARGS} tests/macros
 
+test-debug:
+    docker run ${DOCKER_RUN_ARGS} -p 9229:9229 ${IMAGE} \
+        /node_modules/.bin/mocha --timeout=${TEST_RUN_TIMEOUT} --inspect-brk=0.0.0.0 ${TEST_RUN_ARGS} tests
+
 lint:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
 	    /node_modules/.bin/jshint --show-non-errors lib tests
