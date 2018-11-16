@@ -1044,6 +1044,11 @@
     "url": "https://w3c.github.io/payment-handler/",
     "status": "WD"
   },
+  "Payment Method Identifiers": {
+    "name": "Payment Method Identifiers",
+    "url": "https://w3c.github.io/payment-method-id/",
+    "status": "CR"
+  },
   "Permissions API": {
     "name": "Permissions",
     "url": "https://w3c.github.io/permissions/",
