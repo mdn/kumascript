@@ -404,4 +404,25 @@ describeMacro('Compat', function () {
             assert.equal(browserIcons[13].classList.contains('bc-head-icon-nodejs'), true);
         });
     });
+
+    itMacro('Adds correct text label for browsers to head of table', function (macro) {
+        return macro.call('javascript.feature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            let browserIcons = Array.from(dom.querySelectorAll('.bc-browsers span'));
+            assert.equal(browserIcons[0].textContent, 'Chrome');
+            assert.equal(browserIcons[1].textContent, 'Edge');
+            assert.equal(browserIcons[2].textContent, 'Firefox');
+            assert.equal(browserIcons[3].textContent, 'Internet Explorer');
+            assert.equal(browserIcons[4].textContent, 'Opera');
+            assert.equal(browserIcons[5].textContent, 'Safari');
+            assert.equal(browserIcons[6].textContent, 'Android webview');
+            assert.equal(browserIcons[7].textContent, 'Chrome for Android');
+            assert.equal(browserIcons[8].textContent, 'Edge Mobile');
+            assert.equal(browserIcons[9].textContent, 'Firefox for Android');
+            assert.equal(browserIcons[10].textContent, 'Opera for Android');
+            assert.equal(browserIcons[11].textContent, 'iOS Safari');
+            assert.equal(browserIcons[12].textContent, 'Samsung Internet');
+            assert.equal(browserIcons[13].textContent, 'Node.js');
+        });
+    });
 });
