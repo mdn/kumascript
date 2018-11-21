@@ -420,7 +420,7 @@ describeMacro('Compat', function () {
             assert.equal(browserIcons[8].textContent, 'Edge Mobile');
             assert.equal(browserIcons[9].textContent, 'Firefox for Android');
             assert.equal(browserIcons[10].textContent, 'Opera for Android');
-            assert.equal(browserIcons[11].textContent, 'iOS Safari');
+            assert.equal(browserIcons[11].textContent, 'Safari on iOS');
             assert.equal(browserIcons[12].textContent, 'Samsung Internet');
             assert.equal(browserIcons[13].textContent, 'Node.js');
         });
