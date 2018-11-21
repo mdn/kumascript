@@ -67,6 +67,22 @@ if (category === 'webextensions') {
   platforms = ['webextensions-desktop', 'webextensions-mobile'];
 }
 
+/**
+ * Writes the text label for each cell, and relevant icon/platform class
+ */
+function writeLabel(iconSlug, type, replacer) {
+    let iconTitle = localize(compatStrings, 'bc_icon_name_' + iconSlug).replace('$1$', replacer);
+    let output = '';
+
+    if (type === 'platform') {
+        output += `<span>${iconTitle}</span>`;
+    } else {
+        output += `<span class="bc-head-txt-label bc-head-icon-${iconSlug}">${iconTitle}</span>`;
+    }
+
+    return output;
+}
+
 function writeIcon(iconSlug, replacer, isLegend) {
   let iconName = localize(compatStrings, 'bc_icon_name_' + iconSlug).replace('$1$', replacer);
   let iconTitle = localize(compatStrings, 'bc_icon_title_' + iconSlug).replace('$1$', replacer);
@@ -572,7 +588,7 @@ function writeCompatPlatformsRow() {
     let platformCount = Object.keys(browsers[platform]).length;
     let platformId = platform.replace('webextensions-', '');
     output += `<th colspan="${platformCount}" class="bc-platform-${platformId}">`;
-    output += writeIcon(platformId);
+    output += writeLabel(platformId, 'platform');
     output += '</th>';
   }
 
@@ -585,7 +601,7 @@ function writeCompatBrowsersRow() {
   output += '<td></td>';
   for (let browser of displayBrowers) {
     output += `<th class="bc-browser-${browser}">`;
-    output += writeIcon(browser);
+    output += writeLabel(browser);
     output += '</th>';
   }
   output += '</tr>';

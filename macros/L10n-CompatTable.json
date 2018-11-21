@@ -112,11 +112,11 @@
          "fr"   : "Safari"
     },
     "bc_icon_name_safari_ios": {
-         "en-US": "iOS Safari",
-         "de"   : "iOS Safari",
-         "ja"   : "iOS 版 Safari",
-         "nl"   : "iOS Safari",
-         "fr"   : "Safari pour iOS"
+         "en-US": "Safari on iOS",
+         "de"   : "Safari auf iOS",
+         "ja"   : "iOSのSafari",
+         "nl"   : "Safari op iOS",
+         "fr"   : "Safari sur iOS"
     },
     "bc_icon_name_samsunginternet_android": {
          "en-US": "Samsung Internet",

@@ -371,4 +371,58 @@ describeMacro('Compat', function () {
               'Disabled From version 55 until version 60 (exclusive): this feature is behind the --datetime-format-to-parts compile flag.');
         });
     });
+
+    itMacro('Adds correct titles for platforms to head of table', function (macro) {
+        return macro.call('javascript.feature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            assert.equal(dom.querySelectorAll('.bc-platforms span')[0].textContent,
+              'Desktop');
+            assert.equal(dom.querySelectorAll('.bc-platforms span')[1].textContent,
+              'Mobile');
+            assert.equal(dom.querySelectorAll('.bc-platforms span')[2].textContent,
+              'Server');
+        });
+    });
+
+    itMacro('Adds correct classes for browsers to head of table', function (macro) {
+        return macro.call('javascript.feature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            let browserIcons = Array.from(dom.querySelectorAll('.bc-browsers span'));
+            assert.equal(browserIcons[0].classList.contains('bc-head-icon-chrome'), true);
+            assert.equal(browserIcons[1].classList.contains('bc-head-icon-edge'), true);
+            assert.equal(browserIcons[2].classList.contains('bc-head-icon-firefox'), true);
+            assert.equal(browserIcons[3].classList.contains('bc-head-icon-ie'), true);
+            assert.equal(browserIcons[4].classList.contains('bc-head-icon-opera'), true);
+            assert.equal(browserIcons[5].classList.contains('bc-head-icon-safari'), true);
+            assert.equal(browserIcons[6].classList.contains('bc-head-icon-webview_android'), true);
+            assert.equal(browserIcons[7].classList.contains('bc-head-icon-chrome_android'), true);
+            assert.equal(browserIcons[8].classList.contains('bc-head-icon-edge_mobile'), true);
+            assert.equal(browserIcons[9].classList.contains('bc-head-icon-firefox_android'), true);
+            assert.equal(browserIcons[10].classList.contains('bc-head-icon-opera_android'), true);
+            assert.equal(browserIcons[11].classList.contains('bc-head-icon-safari_ios'), true);
+            assert.equal(browserIcons[12].classList.contains('bc-head-icon-samsunginternet_android'), true);
+            assert.equal(browserIcons[13].classList.contains('bc-head-icon-nodejs'), true);
+        });
+    });
+
+    itMacro('Adds correct text label for browsers to head of table', function (macro) {
+        return macro.call('javascript.feature').then(function(result) {
+            let dom = JSDOM.fragment(result);
+            let browserIcons = Array.from(dom.querySelectorAll('.bc-browsers span'));
+            assert.equal(browserIcons[0].textContent, 'Chrome');
+            assert.equal(browserIcons[1].textContent, 'Edge');
+            assert.equal(browserIcons[2].textContent, 'Firefox');
+            assert.equal(browserIcons[3].textContent, 'Internet Explorer');
+            assert.equal(browserIcons[4].textContent, 'Opera');
+            assert.equal(browserIcons[5].textContent, 'Safari');
+            assert.equal(browserIcons[6].textContent, 'Android webview');
+            assert.equal(browserIcons[7].textContent, 'Chrome for Android');
+            assert.equal(browserIcons[8].textContent, 'Edge Mobile');
+            assert.equal(browserIcons[9].textContent, 'Firefox for Android');
+            assert.equal(browserIcons[10].textContent, 'Opera for Android');
+            assert.equal(browserIcons[11].textContent, 'Safari on iOS');
+            assert.equal(browserIcons[12].textContent, 'Samsung Internet');
+            assert.equal(browserIcons[13].textContent, 'Node.js');
+        });
+    });
 });
