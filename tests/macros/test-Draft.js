@@ -1,16 +1,17 @@
 /* jshint node: true, mocha: true, esversion: 6 */
 
-var utils = require('./utils'),
-    chai = require('chai'),
-    chaiAsPromised = require('chai-as-promised'),
-    assert = chai.assert,
-    itMacro = utils.itMacro,
-    describeMacro = utils.describeMacro;
+// Get necessary modules
+const { itMacro, describeMacro } = require('./utils');
+const chai = require('chai');
+const { assert } = chai;
+const chaiAsPromised = require('chai-as-promised');
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 
-// Let's add "eventually" to assert so we can work with promises.
+// Set up Chai
 chai.use(chaiAsPromised);
 
-describeMacro('draft', function () {
+describeMacro('Draft', function () {
     itMacro('No arguments (en-US)', function (macro) {
         return assert.eventually.equal(
             macro.call(),
@@ -93,10 +94,64 @@ describeMacro('draft', function () {
             `<div class="blockIndicator draft">\n    <p><strong>Draft</strong><br/>\n    This page is not complete.</p>\n    <em>The reason is shrouded in mystery (escattone).</em>\n</div>`
         );
     });
-    itMacro('One argument with embedded user profile (en-US)', function (macro) {
-        return assert.eventually.equal(
-            macro.call('The reason is shrouded in mystery (~~escattone).'),
-            `<div class="blockIndicator draft">\n    <p><strong>Draft</strong><br/>\n    This page is not complete.</p>\n    <em>The reason is shrouded in mystery (<a href=\'https://developer.mozilla.org/profiles/escattone\'>escattone</a>).</em>\n</div>`
-        );
+
+    itMacro('One argument with embedded user profile in the middle (escattone) (en-US)', macro => {
+        return macro.call('The reason is shrouded in mystery (~~escattone).').then(result => {
+            let dom = JSDOM.fragment(result);
+            chai.assert.isAtLeast(dom.childElementCount, 1);
+            chai.assert.isTrue(dom.firstElementChild.classList.contains("blockIndicator"),
+                "Root element is a 'blockIndicator'");
+            chai.assert.isTrue(dom.firstElementChild.classList.contains("draft"),
+                "Root element is a 'draft'");
+
+            let header = dom.querySelector("strong");
+            chai.assert.isNotNull(header, "Block indicator has a header");
+            chai.assert.equal(header.textContent.trim(), "Draft");
+
+            /** @type {HTMLAnchorElement} */
+            let anchor = dom.querySelector('a[href*="/profiles/"]');
+            chai.assert.isNotNull(anchor, "Draft details has a user profile link");
+            chai.assert.include(anchor.href, "/profiles/escattone");
+        });
+    });
+
+    itMacro('One argument with embedded user profile at the end (stephaniehobson) (en-US)', macro => {
+        return macro.call('{{Draft}} macro test. ~~stephaniehobson').then(result => {
+            let dom = JSDOM.fragment(result);
+            chai.assert.isAtLeast(dom.childElementCount, 1);
+            chai.assert.isTrue(dom.firstElementChild.classList.contains("blockIndicator"),
+                "Root element is a 'blockIndicator'");
+            chai.assert.isTrue(dom.firstElementChild.classList.contains("draft"),
+                "Root element is a 'draft'");
+
+            let header = dom.querySelector("strong");
+            chai.assert.isNotNull(header, "Block indicator has a header");
+            chai.assert.equal(header.textContent.trim(), "Draft");
+
+            /** @type {HTMLAnchorElement} */
+            let anchor = dom.querySelector('a[href*="/profiles/"]');
+            chai.assert.isNotNull(anchor, "Draft details has a user profile link");
+            chai.assert.include(anchor.href, "/profiles/stephaniehobson");
+        });
+    });
+
+    itMacro('One argument with embedded user profile at the end (ExE-Boss) (en-US)', macro => {
+        return macro.call('{{Draft}} macro test. ~~ExE-Boss').then(result => {
+            let dom = JSDOM.fragment(result);
+            chai.assert.isAtLeast(dom.childElementCount, 1);
+            chai.assert.isTrue(dom.firstElementChild.classList.contains("blockIndicator"),
+                "Root element is a 'blockIndicator'");
+            chai.assert.isTrue(dom.firstElementChild.classList.contains("draft"),
+                "Root element is a 'draft'");
+
+            let header = dom.querySelector("strong");
+            chai.assert.isNotNull(header, "Block indicator has a header");
+            chai.assert.equal(header.textContent.trim(), "Draft");
+
+            /** @type {HTMLAnchorElement} */
+            let anchor = dom.querySelector('a[href*="/profiles/"]');
+            chai.assert.isNotNull(anchor, "Draft details has a user profile link");
+            chai.assert.include(anchor.href, "/profiles/ExE-Boss");
+        });
     });
 });
