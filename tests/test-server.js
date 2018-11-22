@@ -319,7 +319,11 @@ describe('test-server', function () {
     it('Revision endpoint returns git commit hash', function (done) {
         testRequest(getURL('/revision'), done, function (resp, result) {
             assert.equal(resp.statusCode, 200);
-            assert.equal(result, process.env.REVISION_HASH);
+            // Passing `process.env.REVISION_HASH` to the String constructor
+            // ensures that this test case won't fail if it's undefined and
+            // `result` is 'undefined' (since `testResult` pre-wraps
+            // the result inside a String).
+            assert.equal(result, String(process.env.REVISION_HASH));
             assert.equal(resp.headers['content-type'], 'text/plain; charset=utf-8');
         });
     });

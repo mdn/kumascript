@@ -44,7 +44,7 @@ describe('test-parser', function () {
             function() {
                 ks_parser.parse('{{ f({ x: 1 }) }}');
             },
-            /^SyntaxError: .+$/,
+            /^Expected .+ but .+ found\.$/,
             "Quotes around property names are required"
         );
 
@@ -52,7 +52,7 @@ describe('test-parser', function () {
             function() {
                 ks_parser.parse('{{ f({ "x": 01 }) }}');
             },
-            /^SyntaxError: .+$/,
+            /^Expected .+ but .+ found\.$/,
             "Octal literals are not allowed"
          );
 
@@ -60,7 +60,7 @@ describe('test-parser', function () {
             function() {
                 ks_parser.parse('{{ f({ "x": [1,] }) }}');
             },
-            /^SyntaxError: .+$/,
+            /^Expected .+ but .+ found\.$/,
             "Trailing commas are not allowed"
         );
     });
@@ -132,7 +132,7 @@ describe('test-parser', function () {
             function() {
                 ks_parser.parse('{{ f({ "a": "\\uGHIJ" }) }}');
             },
-            /^SyntaxError: .+$/,
+            /^Expected .+ but .+ found\.$/,
             "Non-hexadecimal characters are not allowed"
         );
 
@@ -140,7 +140,7 @@ describe('test-parser', function () {
             function() {
                 ks_parser.parse('{{ f({ "a": "\\uFF" }) }}');
             },
-            /^SyntaxError: .+$/,
+            /^Expected .+ but .+ found\.$/,
             "Four digits are required"
         );
     });
