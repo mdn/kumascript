@@ -16,11 +16,11 @@ var str = $1 || $0;
  
 var URL = "/" + lang + "/docs/Web/Events/" + api + $2;
  
-// Locals that use the new location
-// Add your local when you have moved your pages
-var filter = ['en-US'];
+// Locals that don't use the new location yet
+// Remove your local when you have moved your pages
+var filter = ['es', 'ko'];
 
-if (filter.indexOf(lang) === -1) { URL = "/" + lang + '/docs/Web/Reference/Events/' + api + $2; }
+if (filter.indexOf(lang) > -1) { URL = "/" + lang + '/docs/Web/Reference/Events/' + api + $2; }
 
  
 var anch = '';
