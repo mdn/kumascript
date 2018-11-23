@@ -1,5 +1,5 @@
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD)
-IMAGE_PREFIX ?= quay.io/mozmar
+IMAGE_PREFIX ?= mdnwebdocs
 IMAGE_NAME ?= kumascript
 IMAGE ?= ${IMAGE_PREFIX}/${IMAGE_NAME}\:${VERSION}
 MOUNT_DIR ?= $(shell pwd)
