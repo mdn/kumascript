@@ -66,7 +66,7 @@
                             "mozinterruptend" ]
         },
         "Background Tasks": {
-              "overview":     [ "Cooperative Scheduling of Background Tasks API" ],
+              "overview":     [ "Background Tasks API" ],
               "interfaces":   [ "IdleDeadline" ],
               "methods":      [ "Window.cancelIdleCallback()",
                                 "Window.requestIdleCallback()" ],
