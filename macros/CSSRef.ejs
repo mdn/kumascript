@@ -144,7 +144,9 @@ if (slug) {
         if (aPage.slug.split("/").pop() === groupData[x].replace(/ /g, '_')) {
           if (isAtRule(groupData[x])) {
             atRules.push(aPage);
-          } else if (aPage.slug.indexOf('selectors') !== -1 || aPage.slug.indexOf(':') !== -1 ) {
+          } else if (aPage.slug.indexOf('selectors') !== -1 ||
+                aPage.slug.indexOf('combinator') !== -1 ||
+                aPage.slug.indexOf(':') !== -1 ) {
             selectors.push(aPage);
           } else {
             properties.push(aPage);
