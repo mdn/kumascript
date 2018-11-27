@@ -949,6 +949,11 @@
     "url": "https://w3c.github.io/mediacapture-fromelement/",
     "status": "WD"
   },
+  "Media Playback Quality": {
+    "name": "Media Playback Quality",
+    "url": "https://wicg.github.io/media-playback-quality/",
+    "status": "ED"
+  },
   "Media Session": {
     "name": "Media Session Standard",
     "url": "https://wicg.github.io/mediasession/",
