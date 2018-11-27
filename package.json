@@ -16,7 +16,7 @@
     "test": "make test"
   },
   "engines": {
-    "node": "8.10.0"
+    "node": "10.14.2"
   },
   "directories": {
     "lib": "./lib"
@@ -25,7 +25,7 @@
     "async": "2.1.4",
     "ejs": "2.5.7",
     "express": "4.14.0",
-    "fibers": "1.0.15",
+    "fibers": "3.1.1",
     "hirelings": "0.4.3",
     "mdn-browser-compat-data": "0.x",
     "memcached": "2.2.2",
