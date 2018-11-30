@@ -448,75 +448,76 @@ const stringPrototype = {
         return strings.join('');
     },
 
-    StartsWith(str, sub_str) {
-        return ('' + str).indexOf(sub_str) === 0;
+    startsWith(str, sub_str) {
+        return String(str).startsWith(sub_str);
     },
 
-    EndsWith(str, suffix) {
-        str = '' + str;
+    endsWith(str, suffix) {
+        str = String(str);
         return str.indexOf(suffix, str.length - suffix.length) !== -1;
     },
 
-    Contains(str, sub_str) {
-        return ('' + str).indexOf(sub_str) !== -1;
+    contains(str, sub_str) {
+        return String(str).indexOf(sub_str) !== -1;
     },
 
-    Deserialize(str) {
+    deserialize(str) {
         return JSON.parse(str);
     },
 
     /* Check if first character in string is a decimal digit. */
-    IsDigit(str) {
-        return /^\d/.test('' + str);
+    isDigit(str) {
+        return /^\d/.test(str);
     },
 
     /* Check if first character in string is an alphabetic character. */
-    IsLetter(str) {
-        return /^[a-zA-Z]/.test('' + str);
+    isLetter(str) {
+        return /^[a-zA-Z]/.test(str);
     },
 
-    Serialize(val) {
+    serialize(val) {
         return JSON.stringify(val);
     },
 
-    Substr(str, start, length) {
+    substr(str, start, length) {
         if (length) {
-            return ('' + str).substr(start, length);
+            return String(str).substr(start, length);
         } else {
-            return ('' + str).substr(start);
+            return String(str).substr(start);
         }
     },
 
     toLower(str) {
-        return ('' + str).toLowerCase();
+        return String(str).toLowerCase();
     },
 
-    ToUpperFirst(str) {
-        return ('' + str).charAt(0).toUpperCase() + ('' + str).slice(1);
+    toUpperFirst(str) {
+        return String(str).charAt(0).toUpperCase() + ('' + str).slice(1);
     },
 
-    Trim(str) {
-        return ('' + str).trim();
+    trim(str) {
+        return String(str).trim();
     },
 
-    Remove(str, index, count) {
-        var out = '' + str.substring(0, Number(index));
+    remove(str, index, count) {
+        str = String(str);
+        var out = str.substring(0, Number(index));
         if (count) {
-            out += '' + str.substring(Number(index) + Number(count));
+            out += str.substring(Number(index) + Number(count));
         }
         return out;
     },
 
-    Replace(str, from, to) {
-        return ('' + str).replace(RegExp(from, 'g'), to);
+    replace(str, from, to) {
+        return String(str).replace(RegExp(from, 'g'), to);
     },
 
-    Join(list, sep) {
+    join(list, sep) {
         return list.join(sep);
     },
 
-    Length(str) {
-        return ('' + str).length;
+    length(str) {
+        return String(str).length;
     }
 };
 
