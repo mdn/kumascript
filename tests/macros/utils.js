@@ -120,6 +120,9 @@ function createMacroTestObject(name, done) {
  * This is the essential function for testing macros. Use it as
  * you would use mocha's "describe", with the exception that the
  * first argument must be the name of the macro being tested.
+ *
+ * @param {string} macroName
+ * @param {function():void} runTests
  */
 function describeMacro(macroName, runTests) {
     describe(`test "${macroName}"`, function () {
@@ -135,6 +138,9 @@ function describeMacro(macroName, runTests) {
  * Use this function as you would use mocha's "it", with the exception
  * that the callback function ("runTest" in this case) should accept a
  * single argument that is the macro test object.
+ *
+ * @param {string} title
+ * @param {function(Macro):void} runTest
  */
 function itMacro(title, runTest) {
     it(title, function () {
@@ -149,6 +155,8 @@ function itMacro(title, runTest) {
  * this function as you would use mocha's "beforeEach", with the exception
  * that the callback function ("setup" in this case) should accept a single
  * argument that is the macro test object.
+ *
+ * @param {function(Macro):void} setup
  */
 function beforeEachMacro(setup) {
     beforeEach(function () {
@@ -163,6 +171,8 @@ function beforeEachMacro(setup) {
  * this function as you would use mocha's "afterEach", with the exception
  * that the callback function ("teardown" in this case) should accept a single
  * argument that is the macro test object.
+ *
+ * @param {function(Macro):void} teardown
  */
 function afterEachMacro(teardown) {
     afterEach(function () {
