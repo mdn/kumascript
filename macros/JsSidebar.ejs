@@ -388,108 +388,213 @@ var text = mdn.localStringMap({
     'Doc_status': 'JavaScript 文書化状況',
     'The_MDN_project': 'MDN プロジェクト',
   },
+  'pt-BR': {
+    'Overview': 'Visão geral das Tecnologias JavaScript',
+    'Tutorials': 'Tutoriais:',
+    'Guide': 'Guia de JavaScript',
+    'Guide_Introduction': 'Introdução',
+    'Guide_Grammar': 'Gramática e tipos',
+    'Guide_Control_flow': 'Controle de fluxo e tratamento de erros',
+    'Guide_Loops': 'Repetiço e iteração',
+    'Guide_Functions': 'Funçes',
+    'Guide_Expressions': 'Expressões e operadores',
+    'Guide_Numbers': 'Números e datas',
+    'Guide_Text': 'Formatação de texto',
+    'Guide_RegExp': 'Expressões Regulares',
+    'Guide_Indexed_collections': 'Coleções indexadas',
+    'Guide_keyed_collections': 'Coleções com chave (chave-valor)',
+    'Guide_Objects': 'Trabalhando com objetos',
+    'Guide_OOP': 'Detalhes do modelo de objetos',
+    'Guide_promises' : 'Usando "promises"',
+    'Guide_Iterators_Generators': 'Iteradores e geradores',
+    'Guide_Meta': 'Metaprogramação',
+    'Complete_beginners': 'Completos iniciantes',
+    'Basics': 'O básico de JavaScript',
+    'First_steps': 'Primeiros passos com JavaScript',
+    'Building_blocks': 'Blocos de construção de JavaScript',
+    'Intermediate': 'Intermediário',
+    'Introducing_objects': 'Introdução a objetos JavaScript',
+    'Client-side_APIs': 'APIs Web para aplicações Cliente',
+    'Re-introduction': 'Uma reintrodução a JavaScript',
+    'Data_structures': 'Estruturas de dados de JavaScript',
+    'Equality': 'Comparadores de igualdade e semelhança',
+    'Closures': 'Closures',
+    'Advanced': 'Avançado',
+    'Inheritance': 'Herança e a cadeia de "prototype"',
+    'Strict_mode': 'Strict mode - Modo estrito',
+    'Typed_arrays': 'Arranjos tipados em JavaScript',
+    'Memory_Management': 'Gerenciamento de memória',
+    'Event_Loop': 'Modelo de concorrência e Loop de Eventos',
+    'Reference': 'Referências:',
+    'Global_Objects': 'Objetos pré-definidos',
+    'Operators': 'Expressões e operadores',
+    'Statements': 'Afirmações e declarações',
+    'Functions': 'Funções',
+    'Classes': 'Classes',
+    'Errors': 'Erros',
+    'More': 'Mais conteúdo',
+    'New_in_JS': 'Novidades em JavaScript',
+    'Lexical_grammar': 'Gramática léxica',
+    'Enumerability':'Enumerabilidade e domínio de propriedades',
+    'Data_types': 'Tipos de dados e estruturas de dados',
+    'Iteration_protocols': 'Protocolos de iteração',
+    'Transitioning_to_strict_mode': 'Migrando para o "strict mode"',
+    'Template_strings': 'Template literals',
+    'Deprecated_features': 'Funcionalidades depreciadas',
+    'Documentation': 'Documentação:',
+    'Useful_lists': 'Listas úteis',
+    'Index': 'Índice para todas as páginas',
+    'Methods_Index': 'Índice de Métodos',
+    'Properties_Index': 'Índice de Propriedades',
+    'JavaScript_tag': 'Páginas com a tag "JavaScript"',
+    'Contribute': 'Contribua!',
+    'Doc_status': 'Estado da documentação de JavaScript',
+    'The_MDN_project': 'O projeto MDN',
+  },
 });
 %>
 <section class="Quick_links" id="Quick_Links">
  <ol>
   <li><a href="/<%=locale%>/docs/Web/JavaScript"><strong><em>JavaScript</em></strong></a></li>
   <li><a href="/<%=locale%>/docs/Web/JavaScript/Tutorials"><strong><%=text['Tutorials']%></strong></a></li>
-  <li data-default-state="<%=state('Complete_beginners')%>"><a href="#"><%=text['Complete_beginners']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Learn/Getting_started_with_the_web/JavaScript_basics"><%=text['Basics']%></a></li>
-    <li><a href="/<%=locale%>/docs/Learn/JavaScript/First_steps"><%=text['First_steps']%></a></li>
-    <li><a href="/<%=locale%>/docs/Learn/JavaScript/Building_blocks"><%=text['Building_blocks']%></a></li>
-    <li><a href="/<%=locale%>/docs/Learn/JavaScript/Objects"><%=text['Introducing_objects']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Complete_beginners')%>>
+      <summary><%=text['Complete_beginners']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Learn/Getting_started_with_the_web/JavaScript_basics"><%=text['Basics']%></a></li>
+        <li><a href="/<%=locale%>/docs/Learn/JavaScript/First_steps"><%=text['First_steps']%></a></li>
+        <li><a href="/<%=locale%>/docs/Learn/JavaScript/Building_blocks"><%=text['Building_blocks']%></a></li>
+        <li><a href="/<%=locale%>/docs/Learn/JavaScript/Objects"><%=text['Introducing_objects']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('JavaScript Guide')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Guide"><%=text['Guide']%></a>
-    <ol>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Introduction"><%=text['Guide_Introduction']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Grammar_and_Types"><%=text['Guide_Grammar']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"><%=text['Guide_Control_flow']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Loops_and_iteration"><%=text['Guide_Loops']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Functions"><%=text['Guide_Functions']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Expressions_and_Operators"><%=text['Guide_Expressions']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Numbers_and_dates"><%=text['Guide_Numbers']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Text_formatting"><%=text['Guide_Text']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Regular_Expressions"><%=text['Guide_RegExp']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Indexed_collections"><%=text['Guide_Indexed_collections']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Keyed_collections"><%=text['Guide_keyed_collections']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Working_with_Objects"><%=text['Guide_Objects']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Details_of_the_Object_Model"><%=text['Guide_OOP']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Using_promises"><%=text['Guide_promises']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Iterators_and_generators"><%=text['Guide_Iterators_Generators']%></a></li>
-      <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Meta_programming"><%=text['Guide_Meta']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('JavaScript Guide')%>>
+      <summary><%=text['Guide']%></summary>
+      <ol>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Introduction"><%=text['Guide_Introduction']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Grammar_and_Types"><%=text['Guide_Grammar']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"><%=text['Guide_Control_flow']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Loops_and_iteration"><%=text['Guide_Loops']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Functions"><%=text['Guide_Functions']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Expressions_and_Operators"><%=text['Guide_Expressions']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Numbers_and_dates"><%=text['Guide_Numbers']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Text_formatting"><%=text['Guide_Text']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Regular_Expressions"><%=text['Guide_RegExp']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Indexed_collections"><%=text['Guide_Indexed_collections']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Keyed_collections"><%=text['Guide_keyed_collections']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Working_with_Objects"><%=text['Guide_Objects']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Details_of_the_Object_Model"><%=text['Guide_OOP']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Using_promises"><%=text['Guide_promises']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Iterators_and_generators"><%=text['Guide_Iterators_Generators']%></a></li>
+          <li><a href="/<%=locale%>/docs/Web/JavaScript/Guide/Meta_programming"><%=text['Guide_Meta']%></a></li>
+        </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('Intermediate')%>"><a href="#"><%=text['Intermediate']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Learn/JavaScript/Objects"><%=text['Introducing_objects']%></a></li>
-    <li><a href="/<%=locale%>/docs/Learn/JavaScript/Client-side_web_APIs"><%=text['Client-side_APIs']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/A_re-introduction_to_JavaScript"><%=text['Re-introduction']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Data_structures"><%=text['Data_structures']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Equality_comparisons_and_sameness"><%=text['Equality']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Closures"><%=text['Closures']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Intermediate')%>>
+      <summary><%=text['Intermediate']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Learn/JavaScript/Objects"><%=text['Introducing_objects']%></a></li>
+        <li><a href="/<%=locale%>/docs/Learn/JavaScript/Client-side_web_APIs"><%=text['Client-side_APIs']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/A_re-introduction_to_JavaScript"><%=text['Re-introduction']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Data_structures"><%=text['Data_structures']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Equality_comparisons_and_sameness"><%=text['Equality']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Closures"><%=text['Closures']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('Advanced')%>"><a href="#"><%=text['Advanced']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Inheritance_and_the_prototype_chain"><%=text['Inheritance']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Strict_mode"><%=text['Strict_mode']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Typed_arrays"><%=text['Typed_arrays']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Memory_Management"><%=text['Memory_Management']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/EventLoop"><%=text['Event_Loop']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Advanced')%>>
+      <summary><%=text['Advanced']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Inheritance_and_the_prototype_chain"><%=text['Inheritance']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Strict_mode"><%=text['Strict_mode']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Typed_arrays"><%=text['Typed_arrays']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Memory_Management"><%=text['Memory_Management']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/EventLoop"><%=text['Event_Loop']%></a></li>
+      </ol>
+    </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/Web/JavaScript/Reference"><%=text['Reference']%></a></strong></li>
-  <li data-default-state="<%=state('Objects')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Global_Objects"><%=text['Global_Objects']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Global_Objects', 1])%>
+  <li class="toggle">
+    <details <%=state('Objects')%>>
+       <summary><%=text['Global_Objects']%></summary>
+        <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Global_Objects', 1])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('Operators')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Operators"><%=text['Operators']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Operators', 1])%>
+  <li class="toggle">
+    <details <%=state('Operators')%>>
+      <summary><%=text['Operators']%></summary>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Operators', 1])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('Statements')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Statements"><%=text['Statements']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Statements', 1])%>
+  <li class="toggle">
+    <details <%=state('Statements')%>>
+      <summary><%=text['Statements']%></summary>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Statements', 1])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('Functions')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Functions"><%=text['Functions']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Functions', 1])%>
+  <li class="toggle">
+    <details <%=state('Functions')%>>
+      <summary><%=text['Functions']%></summary>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Functions', 1])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('Classes')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Classes"><%=text['Classes']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Classes', 1])%>
+  <li class="toggle">
+    <details <%=state('Classes')%>>
+      <summary><%=text['Classes']%></summary>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Classes', 1])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('Errors')%>"><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Errors"><%=text['Errors']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Errors', 1])%>
+  <li class="toggle">
+    <details <%=state('Errors')%>>
+      <summary><%=text['Errors']%></summary>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Errors', 1])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('More')%>"><a href="#"><%=text['More']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/JavaScript_technologies_overview"><%=text['Overview']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Lexical_grammar"><%=text['Lexical_grammar']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Data_structures"><%=text['Data_structures']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Enumerability_and_ownership_of_properties"><%=text['Enumerability']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Iteration_protocols"><%=text['Iteration_protocols']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Strict_mode"><%=text['Strict_mode']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode"><%=text['Transitioning_to_strict_mode']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Template_literals"><%=text['Template_strings']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features"><%=text['Deprecated_features']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('More')%>>
+      <summary><%=text['More']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/JavaScript_technologies_overview"><%=text['Overview']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Lexical_grammar"><%=text['Lexical_grammar']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Data_structures"><%=text['Data_structures']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Enumerability_and_ownership_of_properties"><%=text['Enumerability']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Iteration_protocols"><%=text['Iteration_protocols']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Strict_mode"><%=text['Strict_mode']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode"><%=text['Transitioning_to_strict_mode']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Template_literals"><%=text['Template_strings']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features"><%=text['Deprecated_features']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('New_in_JS')%>"><a href="/<%=locale%>/docs/Web/JavaScript/New_in_JavaScript"><%=text['New_in_JS']%></a>
-   <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
+  <li class="toggle">
+    <details <%=state('New_in_JS')%>>
+      <summary><%=text['New_in_JS']%></summary>
+      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
+    </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
-  <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Index"><%=text['Index']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Methods_Index"><%=text['Methods_Index']%></a></li>
-    <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Properties_Index"><%=text['Properties_Index']%></a></li>
-    <li><a href="/<%=locale%>/docs/tag/JavaScript"><%=text['JavaScript_tag']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Useful_lists')%>>
+      <summary><%=text['Useful_lists']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Index"><%=text['Index']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Methods_Index"><%=text['Methods_Index']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Properties_Index"><%=text['Properties_Index']%></a></li>
+        <li><a href="/<%=locale%>/docs/tag/JavaScript"><%=text['JavaScript_tag']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('Contribute')%>"><a href="#"><%=text['Contribute']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/MDN/Doc_status/JavaScript"><%=text['Doc_status']%></a></li>
-    <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Contribute')%>>
+      <summary><%=text['Contribute']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/MDN/Doc_status/JavaScript"><%=text['Doc_status']%></a></li>
+        <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
+      </ol>
+    </details>
   </li>
  </ol>
 </section>

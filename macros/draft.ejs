@@ -22,9 +22,9 @@ var s_details = '';
 
 if ($0) {
     s_details = $0;
-    
+
     var pattern = /~~(\w+)(\W)/ig;
-    
+
     s_details = "<em>" + s_details.replace(pattern, function replacer(match, username, endchar) {
         return "<a href='https://developer.mozilla.org/profiles/" + username + "'>" + username + "</a>" + endchar;
     }) + "</em>";
@@ -71,7 +71,7 @@ switch (env.locale) {
         s_draft = 'Черновик';
         s_not_complete = 'Эта страница не завершена.';
 }
-%><div class="overheadIndicator draft">
+%><div class="blockIndicator draft">
     <p><strong><%=s_draft%></strong><br/>
     <%=s_not_complete%></p>
     <%-s_details%>

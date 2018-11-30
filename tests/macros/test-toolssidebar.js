@@ -9,10 +9,10 @@ const utils = require('./utils'),
 
 const locales = {
   'en-US': {
-    'Page_Inspector': 'Page Inspector'
+    'Core_Tools': 'Core Tools'
   },
   'fr': {
-    'Page_Inspector': 'Inspecteur'
+    'Core_Tools': 'Outils principaux'
   }
 };
 
@@ -20,8 +20,8 @@ function checkSidebarDom(dom, locale) {
   let section = dom.querySelector('section');
   assert(section.classList.contains('Quick_links'), 'Section does not contain Quick_links class');
 
-  let links = dom.querySelectorAll('a');
-  assert.equal(links[1].textContent,  locales[locale].Page_Inspector);
+  let summaries = dom.querySelectorAll('summary');
+  assert.equal(summaries[0].textContent,  locales[locale].Core_Tools);
 }
 
 describeMacro('ToolsSidebar', function () {

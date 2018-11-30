@@ -320,44 +320,56 @@ const text = mdn.localStringMap({
 
 <section class="Quick_links" id="Quick_Links">
   <ol>
-    <li><a href="#"><%=text["Firefox_developer_release_notes"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Firefox/Releases"><%=text["Firefox_developer_release_notes"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Firefox_developer_release_notes"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Firefox/Releases"><%=text["Firefox_developer_release_notes"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Add-ons"]%></a>
-      <ol>
-        <li><a href="<%=addonsURL%>WebExtensions"><%=text["Browser_extensions"]%></a></li>
-        <li><a href="<%=addonsURL%>Themes"><%=text["Themes"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Add-ons"]%></summary>
+            <ol>
+              <li><a href="<%=addonsURL%>WebExtensions"><%=text["Browser_extensions"]%></a></li>
+              <li><a href="<%=addonsURL%>Themes"><%=text["Themes"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Firefox_internals"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>"><%=text["Mozilla_project"]%></a></li>
-        <li><a href="<%=baseURL%>Gecko"><%=text["Gecko"]%></a></li>
-        <li><a href="<%=baseURL%>Firefox/Headless_mode"><%=text["Headless_mode"]%></a></li>
-        <li><a href="<%=baseURL%>JavaScript_code_modules"><%=text["JavaScript_code_modules"]%></a></li>
-        <li><a href="<%=baseURL%>js-ctypes"><%=text["JS-ctypes"]%></a></li>
-        <li><a href="<%=baseURL%>MathML_Project"><%=text["MathML_project"]%></a></li>
-        <li><a href="<%=baseURL%>MFBT"><%=text["MFBT"]%></a></li>
-        <li><a href="<%=baseURL%>Projects"><%=text["Mozilla_projects"]%></a></li>
-        <li><a href="<%=baseURL%>Preferences"><%=text["Preference_system"]%></a></li>
-        <li><a href="<%=baseURL%>WebIDL_bindings"><%=text["WebIDL_bindings"]%></a></li>
-        <li><a href="<%=baseURL%>Tech/XPCOM"><%=text["XPCOM"]%></a></li>
-        <li><a href="<%=baseURL%>Tech/XUL"><%=text["XUL"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Firefox_internals"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>"><%=text["Mozilla_project"]%></a></li>
+              <li><a href="<%=baseURL%>Gecko"><%=text["Gecko"]%></a></li>
+              <li><a href="<%=baseURL%>Firefox/Headless_mode"><%=text["Headless_mode"]%></a></li>
+              <li><a href="<%=baseURL%>JavaScript_code_modules"><%=text["JavaScript_code_modules"]%></a></li>
+              <li><a href="<%=baseURL%>js-ctypes"><%=text["JS-ctypes"]%></a></li>
+              <li><a href="<%=baseURL%>MathML_Project"><%=text["MathML_project"]%></a></li>
+              <li><a href="<%=baseURL%>MFBT"><%=text["MFBT"]%></a></li>
+              <li><a href="<%=baseURL%>Projects"><%=text["Mozilla_projects"]%></a></li>
+              <li><a href="<%=baseURL%>Preferences"><%=text["Preference_system"]%></a></li>
+              <li><a href="<%=baseURL%>WebIDL_bindings"><%=text["WebIDL_bindings"]%></a></li>
+              <li><a href="<%=baseURL%>Tech/XPCOM"><%=text["XPCOM"]%></a></li>
+              <li><a href="<%=baseURL%>Tech/XUL"><%=text["XUL"]%></a></li>
+            </ol>
+        </details>
     </li>
-    <li><a href="#"><%=text["Building_and_contributing"]%></a>
-      <ol>
-        <li><a href="<%=baseURL%>Developer_guide/Build_Instructions"><%=text["Build_instructions"]%></a></li>
-        <li><a href="<%=baseURL%>Developer_guide/Build_Instructions/Configuring_Build_Options"><%=text["Configuring_build_options"]%></a></li>
-        <li><a href="<%=baseURL%>Developer_guide/Build_Instructions/How_Mozilla_s_build_system_works"><%=text["How_the_build_system_works"]%></a></li>
-        <li><a href="<%=baseURL%>Developer_guide/Source_Code/Mercurial"><%=text["Mozilla_source_code"]%></a></li>
-        <li><a href="<%=baseURL%>Localization"><%=text["Localization"]%></a></li>
-        <li><a href="<%=baseURL%>Mercurial"><%=text["Mercurial"]%></a></li>
-        <li><a href="<%=baseURL%>QA"><%=text["Quality_assurance"]%></a></li>
-        <li><a href="<%=baseURL%>Using_Mozilla_code_in_other_projects"><%=text["Using_Mozilla_code_in_other_projects"]%></a></li>
-      </ol>
+    <li class="toggle">
+        <details>
+            <summary><%=text["Building_and_contributing"]%></summary>
+            <ol>
+              <li><a href="<%=baseURL%>Developer_guide/Build_Instructions"><%=text["Build_instructions"]%></a></li>
+              <li><a href="<%=baseURL%>Developer_guide/Build_Instructions/Configuring_Build_Options"><%=text["Configuring_build_options"]%></a></li>
+              <li><a href="<%=baseURL%>Developer_guide/Build_Instructions/How_Mozilla_s_build_system_works"><%=text["How_the_build_system_works"]%></a></li>
+              <li><a href="<%=baseURL%>Developer_guide/Source_Code/Mercurial"><%=text["Mozilla_source_code"]%></a></li>
+              <li><a href="<%=baseURL%>Localization"><%=text["Localization"]%></a></li>
+              <li><a href="<%=baseURL%>Mercurial"><%=text["Mercurial"]%></a></li>
+              <li><a href="<%=baseURL%>QA"><%=text["Quality_assurance"]%></a></li>
+              <li><a href="<%=baseURL%>Using_Mozilla_code_in_other_projects"><%=text["Using_Mozilla_code_in_other_projects"]%></a></li>
+            </ol>
+        </details>
     </li>
   </ol>
 </section>
