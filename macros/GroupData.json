@@ -1398,8 +1398,10 @@
             "events":     []
         },
         "Screen Capture API": {
-            "guides":     [ { "url":   "/en-US/docs/Web/API/Using_Screen_Capture_API",
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture_API",
                               "title": "Using the Screen Capture API" }],
+            "interfaces": [],
+            "dictionaries": [],
             "methods":    [ "MediaDevices.getDisplayMedia()" ],
             "properties": [ "MediaTrackConstraintSet.cursor",
                             "MediaTrackConstraintSet.displaySurface",
@@ -1411,7 +1413,8 @@
                             "MediaTrackSupportedConstraints.displaySurface",
                             "MediaTrackSupportedConstraints.logicalSurface" ],
             "types":      [ "CursorCaptureConstraintSet",
-                            "DisplayCaptureSurfaceType" ]
+                            "DisplayCaptureSurfaceType" ],
+            "events":     []
         },
         "Screen Orientation API": {
             "guides":     [ { "url":   "/en-US/docs/Web/API/CSS_Object_Model/Managing_screen_orientation",
