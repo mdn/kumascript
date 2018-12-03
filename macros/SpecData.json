@@ -227,7 +227,7 @@
   "CSS3 Fonts": {
     "name": "CSS Fonts Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-fonts-3/",
-    "status": "CR"
+    "status": "REC"
   },
   "CSS3 Fragmentation": {
     "name": "CSS Fragmentation Module Level&nbsp;3",
@@ -497,7 +497,7 @@
   "CSS Painting API": {
     "name": "CSS Painting API Level 1",
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
@@ -1067,7 +1067,7 @@
   "Performance Timeline Level 2": {
     "name": "Performance Timeline Level 2",
     "url": "https://w3c.github.io/performance-timeline/",
-    "status": "CR"
+    "status": "WD"
   },
   "Pointer Events": {
     "name": "Pointer Events",
@@ -1077,7 +1077,7 @@
   "Pointer Events 2": {
     "name": "Pointer Events – Level 2",
     "url": "https://w3c.github.io/pointerevents/",
-    "status": "WD"
+    "status": "PR"
   },
   "Pointer Events 2 Ext": {
     "name": "Pointer Events - Level 2 Extensions",
@@ -1317,7 +1317,7 @@
   "User Timing Level 2": {
     "name": "User Timing Level 2",
     "url": "https://w3c.github.io/user-timing/",
-    "status": "WD"
+    "status": "CR"
   },
   "vCard": {
     "name": "vCard Format Specification",
@@ -1362,7 +1362,7 @@
   "Web Audio API": {
     "name": "Web Audio API",
     "url": "https://webaudio.github.io/web-audio-api/",
-    "status": "WD"
+    "status": "CR"
   },
   "Web Bluetooth": {
     "name": "Web Bluetooth",
