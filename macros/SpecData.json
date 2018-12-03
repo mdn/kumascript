@@ -1086,8 +1086,13 @@
   },
   "Pointer Lock": {
     "name": "Pointer Lock",
+    "url": "https://www.w3.org/TR/pointerlock/",
+    "status": "REC"
+  },
+  "Pointer Lock 2": {
+    "name": "Pointer Lock 2.0",
     "url": "https://w3c.github.io/pointerlock/",
-    "status": "CR"
+    "status": "WD"
   },
   "Preload": {
     "name": "Preload",
