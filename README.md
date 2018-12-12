@@ -150,6 +150,9 @@ more before you run your local development version of MDN.
     * `node run.js`
 * To run tests:
     * `./node_modules/.bin/mocha tests`
+    * To run the tests with the debugger on
+        * `make test-debug`
+        * The debugger listens on port 9229 and the first line is automatically a breakpoint.
 * To check code quality:
     * `./node_modules/.bin/jshint --show-non-errors lib tests`
         * This will make a racket if it hits `parser.js`
