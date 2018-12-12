@@ -58,34 +58,25 @@ describe('test-server', function () {
         );
     });
 
-    it('Fetching document1 from service should be processed as expected', function (done) {
-        testRequestExpected(
-            getURL('/docs/document1'),
-            'documents/document1-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
-    });
-
-    it('Fetching 시작하기 from service should be processed as expected', function (done) {
-        testRequestExpected(
-            getURL('/docs/' + encodeURI('시작하기')),
-            'documents/시작하기-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
-    });
-
     it('POSTing document to service should be processed as expected', function (done) {
         var source_filename = 'documents/document1.txt';
         readTestFixture(source_filename, done, function(source) {
             testRequestExpected(
                 { method: 'POST', url: getURL('/docs/'), body: source },
                 'documents/document1-expected.txt',
+                done,
+                function(resp, result, expected) {
+                    assert.equal(result.trim(), expected.trim());
+                }
+            );
+        });
+    });
+
+    it('Posting 시작하기 to service should be processed as expected', done => {
+        readTestFixture('documents/시작하기.txt', done, source => {
+            testRequestExpected(
+                { method: 'POST', url: getURL('/docs/'), body: source },
+                'documents/시작하기-expected.txt',
                 done,
                 function(resp, result, expected) {
                     assert.equal(result.trim(), expected.trim());
@@ -116,8 +107,8 @@ describe('test-server', function () {
 
         readTestFixture(source_filename, done, function(source) {
             testRequestExpected(
-                { method: 'GET',
-                  url: getURL('/docs/request-variables'),
+                { method: 'POST',
+                  url: getURL('/docs/'),
                   body: source,
                   headers: headers
                 },
@@ -189,70 +180,42 @@ describe('test-server', function () {
         }
 
         mp.startup(function () {
-            var req_opts = {
-                    method: "GET",
-                    uri: getURL('/docs/document2'),
-                    headers: {
-                        "X-FireLogger": "1.2"
-                    }
-                },
-                expected_errors = {
+            var expected_errors = {
                     'broken1': ["TemplateLoadingError",
                                 "NOT FOUND"],
                     'broken2': ["TemplateLoadingError",
                                 "ERROR INITIALIZING broken2"],
                     'broken3': ["TemplateExecutionError",
                                 "ERROR EXECUTING broken3"]
-                },
-                expected_filename = 'documents/document2-expected.txt';
-
-            testRequestExpected(req_opts, expected_filename, done,
-                function(resp, result, expected) {
-                    assert.equal(result.trim(), expected.trim());
-                    assert.equal(resp.headers.vary, 'X-FireLogger');
-
-                    var errors = extractErrors(resp);
-
-                    // Ensure that we saw the same expected errors.
-                    assert.sameMembers(_.keys(errors),
-                                       _.keys(expected_errors));
-                    // Check the error values against what is expected.
-                    _.each(expected_errors, function (expected, name) {
-                        var error = errors[name];
-                        assert.equal(error[0], expected[0]);
-                        assert.isTrue(error[1].indexOf(expected[1]) !== -1);
-                    });
-                }
-            );
-        });
-    });
-
-    it('Error fetching source document should be logged', function (done) {
-        // Induce error condition by closing down the test server.
-        this.test_server.close();
-
-        var expected_err =
-                'Problem fetching source document: connect ECONNREFUSED',
-            req_opts = {
-                method: "GET",
-                uri: getURL('/docs/error-doc'),
-                headers: {
-                    "X-FireLogger": "plaintext"
-                }
             };
 
-        testRequest(req_opts, done, function (resp, result) {
-            // Look for the expected error message in the headers.
-            var found_it = false;
-            _.each(resp.headers, function (value, key) {
-                if (key.indexOf('firelogger-') === -1) {
-                    return;
-                }
-                if (value.indexOf(expected_err) !== -1) {
-                    found_it = true;
-                }
+            readTestFixture('documents/document2.txt', done, source => {
+                testRequestExpected(
+                    {
+                        method: "POST",
+                        url: getURL('/docs/'),
+                        body: source,
+                        headers: { "X-FireLogger": "1.2" }
+                    },
+                    'documents/document2-expected.txt',
+                    done,
+                    function(resp, result, expected) {
+                        assert.equal(result.trim(), expected.trim());
+                        assert.equal(resp.headers.vary, 'X-FireLogger');
+
+                        var errors = extractErrors(resp);
+
+                        // Ensure that we saw the same expected errors.
+                        assert.sameMembers(_.keys(errors),
+                                           _.keys(expected_errors));
+                        // Check the error values against what is expected.
+                        _.each(expected_errors, function (expected, name) {
+                            var error = errors[name];
+                            assert.equal(error[0], expected[0]);
+                            assert.isTrue(error[1].indexOf(expected[1]) !== -1);
+                        });
+                    });
             });
-            assert.isTrue(found_it);
         });
     });
 

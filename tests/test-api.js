@@ -6,6 +6,7 @@ var assert = require('chai').assert,
     ks_server = kumascript.server,
     ks_macros = kumascript.macros,
     ks_test_utils = kumascript.test_utils,
+    readTestFixture = ks_test_utils.readTestFixture,
     testRequestExpected = ks_test_utils.testRequestExpected;
 
 function getURL(uri) {
@@ -43,62 +44,53 @@ describe('test-api', function () {
         this.test_server.close();
     });
 
+    function testPost(inputFilename, outputFilename, done) {
+        readTestFixture(inputFilename, done, body => {
+            testRequestExpected(
+                {method:'POST', url: getURL('/docs/'), body: body},
+                outputFilename,
+                done,
+                function(resp, result, expected) {
+                    assert.equal(result.trim(), expected.trim());
+                });
+        });
+    }
+
     it('A template can include the output from another with template()', function (done) {
-        testRequestExpected(
-            getURL('/docs/template-exec'),
-            'documents/template-exec-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
+        testPost('documents/template-exec.txt',
+                 'documents/template-exec-expected.txt',
+                 done);
     });
 
     it('A template can import functions and data from another with require_macro()', function (done) {
-        testRequestExpected(
-            getURL('/docs/library-test'),
+        testPost(
+            'documents/library-test.txt',
             'documents/library-test-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
+            done);
     });
 
     it('A template can import an npm module with require()', function (done) {
-        testRequestExpected(
-            getURL('/docs/require-test'),
+        testPost(
+            'documents/require-test.txt',
             'documents/require-test-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
+            done);
     });
 
     it('The server can be configured to auto-require some templates', function (done) {
-        testRequestExpected(
-            getURL('/docs/autorequire'),
+        testPost(
+            'documents/autorequire.txt',
             'documents/autorequire-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
+            done);
     });
 
     it('The API offers access to a cache for work done in templates', function (done) {
         // This is not an integration test for memcache. Instead, it just
         // ensures that the FakeMemcached stub gets used. If that works, then
         // the right calls should get made to memcached.
-        testRequestExpected(
-            getURL('/docs/memcache'),
+        testPost(
+            'documents/memcache.txt',
             'documents/memcache-expected.txt',
-            done,
-            function(resp, result, expected) {
-                assert.equal(result.trim(), expected.trim());
-            }
-        );
+            done);
     });
 
     describe('The API offers a function to build absolute API URLs', function () {
