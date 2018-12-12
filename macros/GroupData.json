@@ -1838,6 +1838,7 @@
                             "AudioBuffer",
                             "AudioBufferSourceNode",
                             "AudioContext",
+                            "AudioContextOptions",
                             "AudioDestinationNode",
                             "AudioListener",
                             "AudioNode",
