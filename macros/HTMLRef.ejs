@@ -21,6 +21,9 @@ switch (env.locale) {
         s_html_ref_href = '/'+env.locale+'/docs/Web/HTML/Element';
         s_html_ref_title = 'Éléments HTML';
         break;
+    case 'ja':
+        s_html_ref_title = 'HTML 要素';
+        break;
     case 'ru':
         s_html_ref_title = 'HTML элементы';
         break;
@@ -30,6 +33,9 @@ switch (env.locale) {
 var text = mdn.localStringMap({
     'en-US': {
         'Input_types': '<code>&lt;input&gt;</code> types'
+    },
+    'ja': {
+        'Input_types': '<code>&lt;input&gt;</code> 型'
     }
 });
 
@@ -116,7 +122,7 @@ var resultAPI = [];
     } %>
     <% if (env.slug.includes("/HTML/Element/input")) { %>
    <li><details open><summary><%-text['Input_types']%></summary>
-    <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%></details></li>
+    <%-template("ListSubpagesForSidebar", ['/'+env.locale+'/docs/Web/HTML/Element/input'])%></details></li>
     <% } %>
    <li><details><summary><%-s_html_ref_title%></summary><ol>
    <li>A
