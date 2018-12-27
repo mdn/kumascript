@@ -45,12 +45,12 @@
     },
     "bc_icon_name_chrome_android": {
          "en-US": "Chrome for Android",
-         "de": "Chrome für Android",
-         "ja": "Android 版 Chrome",
-         "nl": "Chrome voor Android",
+         "de"   : "Chrome für Android",
+         "ja"   : "Android 版 Chrome",
+         "nl"   : "Chrome voor Android",
          "pl"   : "Chrome dla Android",
-         "ru": "Chrome для Android",
-         "fr": "Chrome pour Android"
+         "ru"   : "Chrome для Android",
+         "fr"   : "Chrome pour Android"
     },
     "bc_icon_name_edge": {
          "en-US": "Edge",
@@ -78,12 +78,12 @@
     },
     "bc_icon_name_firefox_android": {
          "en-US": "Firefox for Android",
-         "de": "Firefox für Android",
-         "ja": "Android 版 Firefox",
-         "nl": "Firefox voor Android",
+         "de"   : "Firefox für Android",
+         "ja"   : "Android 版 Firefox",
+         "nl"   : "Firefox voor Android",
          "pl"   : "Firefox dla Android",
-         "ru": "Firefox для Android",
-         "fr": "Firefox pour Android"
+         "ru"   : "Firefox для Android",
+         "fr"   : "Firefox pour Android"
     },
     "bc_icon_name_ie": {
          "en-US": "Internet Explorer",
@@ -111,12 +111,12 @@
     },
     "bc_icon_name_opera_android": {
          "en-US": "Opera for Android",
-         "de": "Opera für Android",
-         "ja": "Android 版 Opera",
-         "nl": "Opera voor Android",
+         "de"   : "Opera für Android",
+         "ja"   : "Android 版 Opera",
+         "nl"   : "Opera voor Android",
          "pl"   : "Opera dla Android",
-         "ru": "Opera для Android",
-         "fr": "Opera pour Android"
+         "ru"   : "Opera для Android",
+         "fr"   : "Opera pour Android"
     },
     "bc_icon_name_safari": {
          "en-US": "Safari",
