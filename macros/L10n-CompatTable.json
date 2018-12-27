@@ -48,7 +48,7 @@
          "de"   : "Chrome für Android",
          "ja"   : "Android 版 Chrome",
          "nl"   : "Chrome voor Android",
-         "pl"   : "Chrome dla Android",
+         "pl"   : "Chrome dla Androida",
          "ru"   : "Chrome для Android",
          "fr"   : "Chrome pour Android"
     },
@@ -81,7 +81,7 @@
          "de"   : "Firefox für Android",
          "ja"   : "Android 版 Firefox",
          "nl"   : "Firefox voor Android",
-         "pl"   : "Firefox dla Android",
+         "pl"   : "Firefox dla Androida",
          "ru"   : "Firefox для Android",
          "fr"   : "Firefox pour Android"
     },
@@ -114,7 +114,7 @@
          "de"   : "Opera für Android",
          "ja"   : "Android 版 Opera",
          "nl"   : "Opera voor Android",
-         "pl"   : "Opera dla Android",
+         "pl"   : "Opera dla Androida",
          "ru"   : "Opera для Android",
          "fr"   : "Opera pour Android"
     },
@@ -167,7 +167,7 @@
         "de"   : "Bitte mit der frühsten Version updaten in der Unterstützung vorhanden ist.",
         "fr"   : "Veuillez mettre à jour avec la version minimale du support",
         "ja"   : "対応する最も早いバージョン番号に更新してください。",
-        "pl"   : "Zaktualizuj tę informację wg najniższej wersji wspierającej to.",
+        "pl"   : "Zaktualizuj tę informację według najniższej wersji, która to wspiera.",
         "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии.",
         "nl"   : "Graag bijwerken met de vroegste versie van ondersteuning."
     },
@@ -245,7 +245,7 @@
         "de"   : "Kompatibilität unbekannt",
         "fr"   : "Compatibilité inconnue",
         "ja"   : "実装状況不明",
-        "pl"   : "Brak danych",
+        "pl"   : "Brak danych o kompatybilności",
         "ru"   : "Совместимость неизвестна",
         "nl"   : "Compatibiliteit onbekend"
     },
@@ -264,7 +264,7 @@
         "es"   : "Soporte básico",
         "fr"   : "Support simple",
         "ja"   : "基本対応",
-        "pl"   : "Bazowe wsparcie",
+        "pl"   : "Podstawowe wsparcie",
         "ru"   : "Базовая поддержка",
         "nl"   : "Basisondersteuning"
     },
@@ -402,7 +402,7 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
-        "pl"   : "Użytkownik musi explicite włączyć tą funkcję.",
+        "pl"   : "Użytkownik musi explicite włączyć tę funkcję.",
         "ru"   : "Пользователь должен сам включить эту возможность.",
         "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
     },
@@ -442,7 +442,7 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
-        "pl"   : "Użytkownik musi explicite włączyć tą funkcję.",
+        "pl"   : "Użytkownik musi explicite włączyć tę funkcję.",
         "ru"   : "Пользователь должен сам включить эту возможность.",
         "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
     },
