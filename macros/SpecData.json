@@ -726,7 +726,7 @@
   },
   "Feature Policy": {
     "name": "Feature Policy",
-    "url": "https://wicg.github.io/feature-policy/",
+    "url": "https://w3c.github.io/webappsec-feature-policy/",
     "status": "Draft"
   },
   "Fetch": {
