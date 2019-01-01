@@ -1,18 +1,36 @@
 <%
+// Insert a link to the specified HTTP method
+//
+// PARAMETERS
+//  $0 - The method to link
+//  $1 - An optional alternative text to display
+//  $2 - ?
+//  $3 - If set, do not put the text in <code></code>
 
-var lang = env.locale;
+// Set up input values
 var method = $0.toUpperCase(); // Methods are always uppercase
 var str = $1 || $0;
-var rtlLocales = ['ar', 'he', 'fa'];
-var localStrings = string.deserialize(template("L10n:Common"));
-var URL = "/" + lang + '/docs/Web/HTTP/Methods/' + method;
-var anch = '';
+var anch = "";
 
+/* What is this made for? What is the use case? */
 if ($2) {
   str = str + '.' + $2;
   anch = '#' + $2;
 }
 
+if (!$3) {
+  str = ['<code>', str, '</code>'].join("");
+}
+
+// Get L10n strings
+var localStrings = string.deserialize(template("L10n:Common"));
+var slug         = string.deserialize(template("L10n:Slug"));
+
+// Set up status URL
+slug = mdn.getLocalString(slug, "docs/Web/HTTP/Methods");
+var URL = "/" + [env.locale, slug, method].join("/");
+
+// Get target page summary
 var page = wiki.getPage(URL);
 var summary = "";
 
@@ -24,8 +42,4 @@ if (!$2) {
     }
 }
 
-var code = '';
-var endcode = '';
-if (!$3) { code = '<code>'; endcode = '</code>' }
-
-%><a href="<%- URL+anch %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
+%><a href="<%- URL + anch %>" title="<%- summary %>"><%- str %></a>

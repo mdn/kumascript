@@ -8,35 +8,40 @@
   $1 - Text to display (optional)
   $2 - Anchor within the page (optional)
 */
+
 var elementName = $0.toString().toLowerCase();
 var linkText = ($1 || elementName);
-switch (env.locale) {
-    case 'ja':
-        if (elementName === linkText && elementName.indexOf(" 要素") !== -1){
-            elementName = linkText.replace(" 要素","");
-        }
-        break;
-    default: break;
+var hash = $2 || "";
+
+// Do special clean up for the displayed text and
+// element name in case they are both the same
+if (linkText === elementName) {
+    // Special case some Japanese specificities
+    if (env.locale === "ja" && elementName.indexOf(" 要素") !== -1) {
+        elementName = linkText.replace(" 要素","");
+    }
+
+    // In case we display the element name itself, we display it as code
+    if(elementName.indexOf(" ") === -1) {
+        linkText = "<code>&lt;" + linkText + "&gt;</code>";
+    }
 }
 
+// Get locale strings
 var commonLocalStrings = string.deserialize(template("L10n:Common"));
-var sectionName = mdn.localString({
-    "es": "Elemento",
-    "en-US": "Element"
-});
-var url = "/" + env.locale + "/docs/Web/HTML/" + sectionName + "/" +
-    elementName;
+var slug = string.deserialize(template("L10n:Slug"));
+
+// Set up element URL
+slug = mdn.getLocalString(slug, "docs/Web/HTML/Element")
+var url = "/" + [env.locale, slug, elementName].join("/");
+
+// Retrieve target page summary
 var page = wiki.getPage(url);
-var summary = (page && page.summary) ? mdn.escapeQuotes(page.summary) :
-    mdn.getLocalString(commonLocalStrings, "summary");
+var summary = mdn.getLocalString(commonLocalStrings, "summary");
 
-// Add anchor after fetching the page contents
-url += $2;
-
-if (linkText === elementName && elementName.indexOf(" ") === -1) {
-    linkText = "<code>&lt;" + linkText + "&gt;</code>";
+if (page && page.summary) {
+    summary = mdn.escapeQuotes(page.summary);
 }
 
-var link = "<a href=\"" + url + "\" title=\"" + summary + "\">" + linkText +
-    "</a>";
-%><%- link %>
+%>
+<a href="<%- url + hash %>" title="<%- summary %>"><%- linkText %></a>

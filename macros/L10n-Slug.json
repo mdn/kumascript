@@ -1,0 +1,56 @@
+{
+  "docs/Web/HTML/Element": {
+    "en-US": "docs/Web/HTML/Element",
+    "es"   : "docs/Web/HTML/Elemento"
+  },
+
+  "docs/Web/HTML/Global_attributes": {
+    "en-US": "docs/Web/HTML/Global_attributes",
+    "es"   : "docs/Web/HTML/Atributos_Globales",
+    "fr"   : "docs/Web/HTML/Attributs_universels",
+    "pt-PT": "docs/Web/HTML/Atributos_globais",
+    "ru"   : "docs/Web/HTML/Общие_атрибуты",
+    "uk"   : "docs/Web/HTML/Загальні_атрибути"
+  },
+
+  "docs/Web/HTTP/Headers": {
+    "en-US": "docs/Web/HTTP/Headers",
+    "ru"   : "docs/Web/HTTP/Заголовки",
+    "uk"   : "docs/Web/HTTP/Заголовки"
+  },
+
+  "docs/Web/HTTP/Methods": {
+    "en-US": "docs/Web/HTTP/Methods",
+    "fr"   : "docs/HTTP/Méthode"
+  },
+
+  "docs/Web/HTTP/Status": {
+    "en-US": "docs/Web/HTTP/Status"
+  },
+
+  "docs/Web/JavaScript/Reference": {
+    "en-US": "docs/Web/JavaScript/Reference",
+    "ca"   : "docs/Web/JavaScript/Referencia",
+    "es"   : "docs/Web/JavaScript/Referencia",
+    "pl"   : "docs/Web/JavaScript/Referencje"
+  },
+
+  "docs/Web/JavaScript/Reference/Global_Objects": {
+    "en-US": "docs/Web/JavaScript/Reference/Global_Objects",
+    "ca"   : "docs/Web/JavaScript/Referencia/Objectes_globals",
+    "es"   : "docs/Web/JavaScript/Referencia/Objetos_globales",
+    "fr"   : "docs/Web/JavaScript/Reference/Objets_globaux",
+    "pl"   : "docs/Web/JavaScript/Referencje/Obiekty"
+  },
+
+  "docs/Web/SVG/Element": {
+    "en-US": "docs/Web/SVG/Element",
+    "es"   : "docs/Web/SVG/Elemento"
+  },
+
+  "docs/Web/SVG/Attribut": {
+    "en-US": "docs/Web/SVG/Attribut",
+    "fr"   : "docs/Web/SVG/Attributs",
+    "pt-PT": "docs/Web/SVG/Atributo"
+  }
+}
