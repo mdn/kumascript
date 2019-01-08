@@ -61,6 +61,7 @@ var rawSyntax = "";
 var formattedSyntax = "";
 var localize = mdn.getLocalString;
 
+const CSSHref = '/' + locale + '/docs/Web/CSS';
 var commonLocalStrings = string.deserialize(template("L10n:Common"));
 var localStrings = string.deserialize(template("L10n:CSS"));
 
@@ -277,7 +278,7 @@ var operators = [
 ];
 
 function buildLink(match, type) {
-    var link = "/" + locale + "/docs/Web/CSS/";
+    var link = CSSHref;
     var title = "";
     var propertyName = type.match(/\'(.+?)\'/);
 
@@ -345,7 +346,7 @@ function formatSyntax(rawSyntax) {
                 linkText = text;
             }
 
-            var output = "<a href=\"/" + locale + "/docs/CSS/" +
+            var output = "<a href=\"" + CSSHref +
                 s_syntax_value_definition + "#" + operator.anchor +
                 "\" title=\"" + operator.title + "\">" + linkText + "</a>";
             if (linkText === "|") {
