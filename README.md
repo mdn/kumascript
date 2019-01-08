@@ -11,15 +11,8 @@ The KumaScript service takes requests to render raw documents (documents that
 may contain one or more embedded macro calls), and responds with a
 fully-rendered document (a document where each of the embedded macros
 has been executed and replaced inline with its output). The
-requests can be either via GET, with the full document path in the URL like
-`GET /docs/en-US/JavaScript/Foo`, or via `POST /docs`, with the actual raw
-content of the document included in the body of the POST. Here's an overview
-of a GET request:
-
-![KumaScript overview of GET](overview.png)
-
-NOTE: If you'd like to update the diagram above, import `overview.xml` into
-https://www.draw.io, make your changes, and export `overview.png`.
+requests are via the `POST /docs` endpoint, with the raw
+content of the document to be rendered included in the body of the POST.
 
 ## Updating Macros
 
@@ -65,9 +58,12 @@ summary:
       login, create a new document that uses your new or modified macro(s), and
       test that it renders correctly.
 
-    * Run the macro linter to check for syntax errors:
+    * Run the KumaScript test suite; one of the tests in this suite
+      verifies that all of the macros in the macros/ directory compile
+      correctly and ensures that you do not have a JavaScript syntax
+      error in your new or modified macros:
 
-          make lint-macros
+          make test
 
 4. Open a pull request to merge your branch on your forked repository into
    the main Mozilla kumascript repository
@@ -103,6 +99,7 @@ more before you run your local development version of MDN.
 
       VERSION=latest make test
       VERSION=latest make lint
+      VERSION=latest make lint-json
 
 * If you modified the `package.json` file, create a new `npm-shrinkwrap.json`:
 
@@ -140,7 +137,7 @@ more before you run your local development version of MDN.
 
 ## Setup (Standalone)
 
-* Install [Node.js 8.x](https://nodejs.org/en/download/package-manager/)
+* Install [Node.js 10.x](https://nodejs.org/en/download/package-manager/)
 * Install the dependencies:
     * `npm install`
 
@@ -149,20 +146,92 @@ more before you run your local development version of MDN.
 * To run the service:
     * `node run.js`
 * To run tests:
-    * `./node_modules/.bin/mocha tests`
+    * `npm run test`
 * To check code quality:
-    * `./node_modules/.bin/jshint --show-non-errors lib tests`
-        * This will make a racket if it hits `parser.js`
-        * TODO: Ignore this file.
-* To generate document macro parser (optional):
-    * `./node_modules/.bin/pegjs lib/kumascript/parser.pegjs`
-        * This is not required in dev, but should be done for production.
-        * If `parser.js` is missing, the parser will be built on the fly.
+    * `npm run lint`
+* To generate document macro parser (if parser.pegjs is modified):
+    * `make parser.js`
 
 On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
-    kicker -e'./node_modules/.bin/jshint lib tests' \
-           -e'./node_modules/.bin/mocha tests' \
+    kicker -e'npm run lint' \
+           -e'npm run test' \
            --no-growl \
-           lib tests
+           src tests
+
+## Server source code
+
+The file _run.js_ in this directory is the main entry point for the
+KumaScript server. The most interesting code lives in the _src/_
+directory, however:
+
+- _src/server.js_ is the main server code. KumaScript is based on
+  Express, and this file defines the endpoints that the server
+  supports. The most interesting function here is `docs()` which handles
+  POST requests to _/docs/_ and renders the macros in the body of the
+  POST request.
+
+- _src/render.js_ defines the asyncronous `render()` function that
+  renders macros in a page, which is basically the main feature of
+  KumaScript. In order to use the `render()` function, you need a
+  `Templates` object (described below) and an environment object that
+  defines values to be exposed to macros as `env.slug`, `env.title`,
+  `env.locale`, etc. (Kuma passes these values to KumaScript through
+  request headers. See the `getVariables()` function in
+  _src/server.js_.)
+
+- _src/parser.pegjs_ defines a parser for finding KumaScript macros
+  invocations within `{{` and `}}` markers in an HTML file. This
+  parser is compiled to `src/parser.js`.
+
+- _src/templates.js_ defines the Templates class, which is essentially
+  a wrapper around the _macros/_ directory. KumaScript uses EJS
+  templates in the form of _*.ejs_ files.  Create a Templates object
+  by passing the path to the _macros/_ directory to the `Templates()`
+  constructor. Once you've done that, you can render a specific
+  template by calling the `render()` method of your Templates
+  object. The first argument is the lowercase name of the template,
+  and the second argument is the context in which the template should
+  be executed, which you obtain from an Environment object, as
+  described below.
+
+- _src/environment.js_ defines the Environment class which is used to
+  create the context objects used for rendering templates. An
+  Environment object defines the API (the `MDN.fetchJSONResource()`
+  function, for example) that is available to KumaScript macros. When
+  you create an Environment object, you must pass an environment
+  object to the constructor, and the properties of this object define
+  the per-page environment (values like `env.title` and `env.locale`)
+  that macros can access. You typically create one Environment object
+  per page to be rendered. Each macros within a page can have its own
+  specific list of arguments, however. So to render an individual
+  macro, call the `getExecutionContext()` method of your Environment
+  object, and pass in an array of argument values. (The values will be
+  available to macro code as `$0`, `$1`, etc.) `getExecutionContext()`
+  returns the object that you pass to the `render()` method of your
+  Templates object.
+
+- _src/cache.js_ defines an LRU cache for resources fetched by
+  KumaScript macros.
+
+- _src/errors.js_ defines error classes that describe the possible
+  error that can occur while rendering a page:
+
+    * parser.js can detect a syntax error in the document itself
+    * a document might try to use a macro that does not exist
+    * there can be a syntax error in the .ejs file that prevents
+      the macro from being compiled
+    * an exception can occur at runtime when the macro is rendered
+
+- _src/firelogger.js_ is a system for encoding an array of JavaScript
+  exceptions into HTTP response headers. Because KumaScript can be
+  asked to render many macros in a single request it always returns a
+  valid response body. But if one or more of the macros on a page has
+  errors, it also needs to return those errors.  _src/firelogger.js_
+  is the clever middleware for doing that.
+
+- _src/config.js_ defines configurable constants for KumaScript such
+  as the port that the server listens on, and the size of the LRU
+  cache. Some of these constants take their values from environment
+  variables.

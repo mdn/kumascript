@@ -13,3 +13,4 @@ docs
 *.un~
 node_modules/
 *.log
+*~

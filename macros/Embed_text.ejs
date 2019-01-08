@@ -26,14 +26,14 @@ var m2 = mdn.localString({
 if (brush.indexOf($1) > -1) {
     syntaxe = $1;
 }
-  
-env.files.forEach(function(aFile) {
+
+for(let aFile of env.files) {
     if ($0 === aFile.filename) {
         found = true;
-%><pre class="brush: <%= syntaxe %>"><%= mdn.getFileContent(aFile) %></pre><%
+%><pre class="brush: <%= syntaxe %>"><%= await MDN.getFileContent(aFile) %></pre><%
     }
-});
-  
+}
+
 if (!found) {
     %><p><%-m1%><em><%= $0 %></em><%-m2%></p><%
 }%>

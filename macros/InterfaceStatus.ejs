@@ -13,4 +13,4 @@ switch(string.tolower($4)) {
 
 var gecko = string.replace(string.replace(string.replace(string.tolower($3), "gecko" , "") ,"mozilla", "") ," ", ""); 
 %>
-<%- template("IFSummary", [$1, "", scriptable, gecko, ""]) %>
+<%- await template("IFSummary", [$1, "", scriptable, gecko, ""]) %>

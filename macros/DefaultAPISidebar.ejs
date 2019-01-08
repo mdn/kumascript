@@ -16,9 +16,9 @@ var escapeQuotes = mdn.escapeQuotes;
 // slug is not available in preview mode.
 if (slug && group) {
 
-var webAPIGroups = string.deserialize(template("GroupData"));
+var webAPIGroups = string.deserialize(await template("GroupData"));
 
-var commonl10n = string.deserialize(template('L10n:Common'));
+var commonl10n = string.deserialize(await template('L10n:Common'));
 
 var text = {
     'Methods': mdn.getLocalString(commonl10n, 'Methods'),
@@ -39,7 +39,7 @@ var events = webAPIGroups[0][group].events || [];
 var guides = [];
 
 if (webAPIGroups[0][group].overview) {
-    guides = page.subpagesExpand('/en-US/docs/Web/API/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_'));
+    guides = await page.subpagesExpand('/en-US/docs/Web/API/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_'));
     var otherGuides = webAPIGroups[0][group].guides || [];
     guides = guides.concat(otherGuides);
 }

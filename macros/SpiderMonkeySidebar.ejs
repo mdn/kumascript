@@ -52,13 +52,13 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('JSAPI')%>>
         <summary><%=text['JSAPI_reference']%></summary>
-        <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference'])%>
+        <%-await template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference'])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Debugger-API')%>>
       <summary><%=text['Debugger-API']%></summary>
-      <%-template("ListSubpages", ['/' + locale + '/docs/Tools/Debugger-API', 1, 0, 1])%>
+      <%-await template("ListSubpages", ['/' + locale + '/docs/Tools/Debugger-API', 1, 0, 1])%>
     </details>
   </li>
   <li><strong><%=text['Guides']%></strong></li>
@@ -78,7 +78,7 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('Internals')%>>
       <summary><%=text['Internals']%></summary>
-      <%-template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Internals', 1, 0, 1])%>
+      <%-await template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Internals', 1, 0, 1])%>
     </details>
   </li>
   
@@ -108,7 +108,7 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('Release_notes')%>>
       <summary><%=text['Release_notes']%></summary>
-      <%-template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Releases', 1, 1, 1])%>
+      <%-await template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Releases', 1, 1, 1])%>
     </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>

@@ -37,7 +37,7 @@ var output = '';
 var category = query.split(".")[0];
 var legendItems = new Set(); // entries will be unique
 
-var compatStrings = string.deserialize(template('L10n:CompatTable'));
+var compatStrings = string.deserialize(await template('L10n:CompatTable'));
 var localize = mdn.getLocalString;
 
 var s_no_data_found = mdn.localString({
@@ -655,9 +655,13 @@ function writeLegend () {
 Get compat data using a query string like "webextensions.api.alarms"
 */
 function getData(queryString, obj) {
-  return queryString.split('.').reduce(function(prev, curr) {
+  let data = queryString.split('.').reduce(function(prev, curr) {
     return prev ? prev[curr] : undefined
   }, obj);
+
+  // Return a private copy of the data. Otherwise changes made here
+  // can affect later invocations of the macro
+  return data ? JSON.parse(JSON.stringify(data)) : data;
 }
 
 /*
@@ -679,6 +683,7 @@ function traverseFeatures(obj, depth, identifier) {
   }
 
   var compatData = getData(query, bcd);
+
   var features = [];
   var identifier = query.split(".").pop();
 

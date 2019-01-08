@@ -38,7 +38,7 @@ builds the table.
 
 This function may only be called from pages under "Add-ons/WebExtensions/API/".
 */
-function tableFromSlug() {
+async function tableFromSlug() {
   const webExtAPIBaseUrl = "Add-ons/WebExtensions/API/";
 
   // Pages that include this macro must be under
@@ -60,15 +60,15 @@ function tableFromSlug() {
   // Don't split on "." this time, as there are main API pages like "devtools.panels"
   let aggregate = components[1].split("/").length === 1;
 
-  return template("Compat", ["webextensions.api." + pathPieces, 1, aggregate]);
+  return await template("Compat", ["webextensions.api." + pathPieces, 1, aggregate]);
 }
 
 var output;
 
 if ($0) {
-  output = template("Compat", [$0]);
+  output = await template("Compat", [$0]);
 } else {
-  output = tableFromSlug();
+  output = await tableFromSlug();
 }
 
 %>

@@ -25,7 +25,7 @@ var api  = $0.replace('()', '');
 var URL = "/" + env.locale + "/docs/Mozilla/js-ctypes/js-ctypes_reference/" + api;
 
 var summary = l10n.summary;
-page = wiki.getPage(URL);
+page = await wiki.getPage(URL);
 
 if (page && page.summary) {
     summary = mdn.escapeQuotes(page.summary);
