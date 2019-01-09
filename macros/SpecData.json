@@ -1134,6 +1134,11 @@
     "url": "https://www.w3.org/TR/animation-timing/",
     "status": "Obsolete"
   },
+  "Resize Observer": {
+    "name": "Resize Observer",
+    "url": "https://wicg.github.io/ResizeObserver/",
+    "status": "ED"
+  },
   "Resource Hints": {
     "name": "Resource Hints",
     "url": "https://www.w3.org/TR/resource-hints/",
