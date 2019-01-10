@@ -1,0 +1,251 @@
+{
+  "json_modified": "2018-10-11T15:02:59.402103",
+  "subpages": [
+    {
+      "json_modified": "2018-10-11T15:02:55.308827",
+      "subpages": [],
+      "tags": [
+        "EXSLT",
+        "Reference",
+        "NeedsSpecTable",
+        "NeedsCompatTable"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "f876b61d-ef26-4c90-8ebb-21e3d3db9830",
+          "title": "node-set",
+          "url": "/es/docs/EXSLT/exsl/node-set",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías",
+            "EXSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2008-02-14T17:04:10",
+          "review_tags": []
+        },
+        {
+          "uuid": "9360859b-851e-46af-ae25-cae54fd419d1",
+          "title": "node-set",
+          "url": "/fr/docs/EXSLT/exsl/node-set",
+          "tags": [
+            "XSLT",
+            "EXSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2008-02-14T17:03:50",
+          "review_tags": []
+        },
+        {
+          "uuid": "aff076c2-e7df-4ef2-b0b0-12d842b4fe35",
+          "title": "node-set",
+          "url": "/ja/docs/EXSLT/exsl/node-set",
+          "tags": [
+            "XSLT_Reference",
+            "XSLT",
+            "EXSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2008-02-14T17:04:00",
+          "review_tags": []
+        }
+      ],
+      "summary": "<code>exsl:node-set()</code> returns a node-set from a result tree fragment, which is what you get when you look at the <code>xsl:variable</code> instead of its select attribute to fetch a variable's value. This lets you process the XML created within a variable to process it in multiple steps.",
+      "id": 9295,
+      "review_tags": [],
+      "slug": "Web/EXSLT/exsl/node-set",
+      "uuid": "c6a50ba3-4772-47f3-8980-1c13559aceda",
+      "title": "exsl:node-set()",
+      "url": "/en-US/docs/Web/EXSLT/exsl/node-set",
+      "modified": "2018-10-11T15:02:54.695965",
+      "label": "exsl:node-set()",
+      "localization_tags": [],
+      "last_edit": "2018-10-11T15:01:29.347815",
+      "sections": [
+        {
+          "id": "Quick_Links",
+          "title": "\n"
+        },
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Parameters",
+          "title": "Parameters"
+        },
+        {
+          "id": "Returns",
+          "title": "Returns"
+        },
+        {
+          "id": "Specifications",
+          "title": "Specifications"
+        },
+        {
+          "id": "Browser_compatibility",
+          "title": "Browser compatibility"
+        }
+      ]
+    },
+    {
+      "json_modified": "2018-10-11T15:02:52.679218",
+      "subpages": [],
+      "tags": [
+        "EXSLT",
+        "Reference",
+        "NeedsSpecTable",
+        "NeedsCompatTable"
+      ],
+      "locale": "en-US",
+      "translations": [
+        {
+          "uuid": "6a5c3699-92a3-4521-8d55-6d3c06268e67",
+          "title": "object-type",
+          "url": "/es/docs/EXSLT/exsl/object-type",
+          "tags": [
+            "XSLT",
+            "Todas_las_Categorías",
+            "EXSLT"
+          ],
+          "summary": "<br>\n <code>exsl:object-type()</code> devuelve una cadena que indica el tipo del objeto especificado.",
+          "localization_tags": [],
+          "locale": "es",
+          "last_edit": "2018-05-12T21:44:59.987134",
+          "review_tags": []
+        },
+        {
+          "uuid": "95ac1641-133f-446c-a354-082ec93e8a72",
+          "title": "object-type",
+          "url": "/fr/docs/EXSLT/exsl/object-type",
+          "tags": [
+            "XSLT",
+            "EXSLT"
+          ],
+          "summary": "<br>\n <code>exsl:object-type()</code> retourne une chaîne indiquant le type de l'objet spécifié.",
+          "localization_tags": [],
+          "locale": "fr",
+          "last_edit": "2017-12-04T08:39:47.136739",
+          "review_tags": []
+        },
+        {
+          "uuid": "9d6b956f-ea89-4fad-a564-8d243d6ac7dd",
+          "title": "object-type",
+          "url": "/ja/docs/EXSLT/exsl/object-type",
+          "tags": [
+            "XSLT_Reference",
+            "XSLT",
+            "EXSLT"
+          ],
+          "summary": "",
+          "localization_tags": [],
+          "locale": "ja",
+          "last_edit": "2008-02-14T17:03:20",
+          "review_tags": []
+        }
+      ],
+      "summary": "<code>exsl:object-type()</code> returns a string that indicates the type of the specified object.",
+      "id": 9294,
+      "review_tags": [],
+      "slug": "Web/EXSLT/exsl/object-type",
+      "uuid": "f1e4039f-b0b4-4b05-bc7e-b6df93ac13ab",
+      "title": "exsl:object-type()",
+      "url": "/en-US/docs/Web/EXSLT/exsl/object-type",
+      "modified": "2018-10-11T15:02:52.513236",
+      "label": "exsl:object-type()",
+      "localization_tags": [],
+      "last_edit": "2018-10-11T15:01:05.577057",
+      "sections": [
+        {
+          "id": "Quick_Links",
+          "title": "\n"
+        },
+        {
+          "id": "Syntax",
+          "title": "Syntax"
+        },
+        {
+          "id": "Parameters",
+          "title": "Parameters"
+        },
+        {
+          "id": "Returns",
+          "title": "Returns"
+        },
+        {
+          "id": "Specifications",
+          "title": "Specifications"
+        },
+        {
+          "id": "Browser_compatibility",
+          "title": "Browser compatibility"
+        }
+      ]
+    }
+  ],
+  "tags": [
+    "EXSLT",
+    "Overview",
+    "Reference"
+  ],
+  "locale": "en-US",
+  "translations": [
+    {
+      "uuid": "845c4c3b-5636-46e1-9c8a-21691c551d11",
+      "title": "exsl",
+      "url": "/es/docs/EXSLT/exsl",
+      "tags": [],
+      "summary": "This page was auto-generated because a user created a sub-page to this page.",
+      "localization_tags": [],
+      "locale": "es",
+      "last_edit": "2014-05-19T04:47:33",
+      "review_tags": []
+    },
+    {
+      "uuid": "55394abe-2c73-408b-a2ee-07d0299b21c1",
+      "title": "exsl",
+      "url": "/fr/docs/EXSLT/exsl",
+      "tags": [],
+      "summary": "This page was auto-generated because a user created a sub-page to this page.",
+      "localization_tags": [],
+      "locale": "fr",
+      "last_edit": "2014-06-17T23:28:34",
+      "review_tags": []
+    },
+    {
+      "uuid": "321e8fc0-c243-44cd-ba6f-6be820d9b710",
+      "title": "exsl",
+      "url": "/ja/docs/EXSLT/exsl",
+      "tags": [],
+      "summary": "This page was auto-generated because a user created a sub-page to this page.",
+      "localization_tags": [],
+      "locale": "ja",
+      "last_edit": "2014-05-24T08:01:39",
+      "review_tags": []
+    }
+  ],
+  "summary": "The EXSLT Common package provides basic functions that expand upon the capabilities of XSLT.",
+  "id": 29659,
+  "review_tags": [],
+  "slug": "Web/EXSLT/exsl",
+  "uuid": "ef7a6589-d5e4-43e2-b101-231cfa65aaed",
+  "title": "Common (exsl)",
+  "url": "/en-US/docs/Web/EXSLT/exsl",
+  "modified": "2018-10-11T15:02:58.863356",
+  "label": "Common (exsl)",
+  "localization_tags": [],
+  "last_edit": "2018-10-11T14:51:39.465284",
+  "sections": [
+    {
+      "id": "Quick_Links",
+      "title": "\n"
+    }
+  ]
+}

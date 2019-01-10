@@ -1,0 +1,35 @@
+<%
+/**
+ * Outputs a link to an XSLT element's reference page.
+ *
+ * @param {string} $0
+ *        XSLT element name
+ * @param {string} [$1]
+ *        The text to use for the link. If omitted,
+ *        the value of the first parameter will be used instead.
+ */
+
+const slug = {
+    'en-US': "Element"
+};
+
+const localStrings = string.deserialize(template("L10n:Common"));
+
+// Gather the page summary
+
+let name = $0;
+let displayName = $1 || `&lt;xsl:${name}&gt;`;
+let pageURL   = `/${env.locale}/docs/Web/XSLT/${mdn.localString(slug)}/${name}`;
+let page = wiki.getPage(pageURL);
+let summary = "";
+if (page && page.summary) {
+    summary = mdn.escapeQuotes(page.summary);
+} else {
+    switch(env.locale) {
+        default:
+            summary = mdn.getLocalString(localStrings, "summary");
+            break;
+    }
+}
+%>
+<a href="<%= pageURL %>" <% if (!wiki.pageExists(pageURL)) { _%> class="new" <% } _%> title="<%- summary %>"><code><%- displayName %></code></a>
