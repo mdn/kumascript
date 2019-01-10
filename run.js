@@ -5,11 +5,7 @@
 /*jshint node: true, expr: false, boss: true */
 
 // ### Prerequisites
-var util = require('util'),
-    http = require('http'),
-    net = require('net'),
-
-    _ = require('underscore'),
+var _ = require('underscore'),
     winston = require('winston'),
 
     kumascript = require(__dirname),
