@@ -151,9 +151,7 @@ more before you run your local development version of MDN.
 * To run tests:
     * `./node_modules/.bin/mocha tests`
 * To check code quality:
-    * `./node_modules/.bin/jshint --show-non-errors lib tests`
-        * This will make a racket if it hits `parser.js`
-        * TODO: Ignore this file.
+    * `./node_modules/.bin/eslint -- lib tests`
 * To generate document macro parser (optional):
     * `./node_modules/.bin/pegjs lib/kumascript/parser.pegjs`
         * This is not required in dev, but should be done for production.
@@ -162,7 +160,7 @@ more before you run your local development version of MDN.
 On OS X, [kicker](https://github.com/alloy/kicker) is handy for auto-running
 tests and lint on file changes:
 
-    kicker -e'./node_modules/.bin/jshint lib tests' \
+    kicker -e'./node_modules/.bin/eslint -- lib tests' \
            -e'./node_modules/.bin/mocha tests' \
            --no-growl \
            lib tests

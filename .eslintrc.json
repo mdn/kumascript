@@ -1,0 +1,59 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "root": true,
+
+    // TODO: Enable more rules
+    "rules": {
+        "curly": [
+            "off",
+            "multi-line"
+        ],
+        "eqeqeq": [
+            "off",
+            "smart"
+        ],
+        "indent": [
+            "off",
+            4,
+            {
+                "SwitchCase": 1,
+                "ignoreComments": true,
+                "ignoredNodes": [
+                    "VariableDeclaration[kind=const] > VariableDeclarator > Identifier"
+                ]
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+
+        // TODO: Set this to 'error'
+        "no-buffer-constructor": "warn",
+
+        // Since KumaScript runs server-side, we can allow console calls.
+        "no-console": "off",
+        "no-global-assign": "error",
+        "no-unused-vars": [
+            "error",
+            {
+                "args": "none",
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_"
+            }
+        ],
+        "no-useless-escape": "off",
+        "one-var-declaration-per-line": [
+            "off",
+            "always"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

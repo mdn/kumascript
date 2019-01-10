@@ -23,7 +23,7 @@ test-macros:
 
 lint:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	    /node_modules/.bin/jshint --show-non-errors lib tests
+	    /node_modules/.bin/eslint -- lib tests
 
 lint-macros:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \

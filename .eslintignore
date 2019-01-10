@@ -1,0 +1,4 @@
+lib/kumascript/parser.js
+
+# Lint the configuration file
+!/.eslintrc.js
