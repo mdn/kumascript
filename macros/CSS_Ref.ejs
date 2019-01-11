@@ -87,7 +87,6 @@ if (types.some(function(type) { return type === "properties"; })) {
         }
 
         var initial = prop[0].toUpperCase();
-
         if (!index.hasOwnProperty(initial)) {
             index[initial] = [];
         }
@@ -362,6 +361,9 @@ if (types.indexOf("types") !== -1) {
         label: "<counter>"
     });
 
+    if (!index.U) {
+        index.U = [];
+    }
     index.U.push({
         urlPath: "url#The_url()_functional_notation",
         label: "url()"
