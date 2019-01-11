@@ -26,36 +26,47 @@ var url;
 var bugDetail = [];
 while (bugDupe != null) {
     bugNumber = bugDupe;
-    url = encodeURI('https://bugzilla.mozilla.org/rest/bug/' + bugDupe + '?include_fields=summary,dupe_of,resolution');
-    bugzillaDetail = mdn.fetchJSONResource(url);
-    if (bugzillaDetail == null) {
-        desc = "Unable to contact Bugzilla server.";
+    url = `https://bugzilla.mozilla.org/rest/bug/${encodeURIComponent(bugDupe)}?include_fields=summary,dupe_of,resolution`;
+    let bugzillaDetail;
+    try {
+        bugzillaDetail = mdn.fetchJSONResource(url);
+    } catch (e) {
+        bugzillaDetail = null;
+    }
+    if (!bugzillaDetail) {
+        desc = mdn.localString({
+            "en-US": "Unable to contact Bugzilla server.",
+        });
         bugDupe = null;
-    } else if (bugzillaDetail.error != null) {
+    } else if (bugzillaDetail.error) {
         if (bugzillaDetail.code == 102) {
-            desc = "Access to this bug is restricted.";
+            desc = mdn.localString({
+                "en-us": "Access to this bug is restricted.",
+            });
         } else {
             desc = bugzillaDetail.message;
             tipStatus = "ERROR: ";
         }
         bugDupe = null;
-    } else if (bugzillaDetail.bugs != null) {
+    } else if (Array.isArray(bugzillaDetail.bugs)) {
         bugDetail = bugzillaDetail.bugs[0];
         bugDupe = bugDetail.dupe_of;
         if (!bugDupe) {
             if (bugDetail.resolution == "FIXED") {
-                tipStatus = 'FIXED: ';
+                tipStatus = "FIXED: ";
                 style = "class='bug-resolved'";
             }
             desc = bugDetail.summary;
         }
     } else {
-        desc = "Unknown error.";
+        desc = mdn.localString({
+            "en-US": "Unknown error.",
+        });
         bugDupe = null;
     }
 }
 
-var bugPageURL = 'https://bugzilla.mozilla.org/show_bug.cgi?id=' + bugNumber;
+var bugPageURL = `https://bugzilla.mozilla.org/show_bug.cgi?id=${encodeURIComponent(bugNumber)}`;
 
 var s_comment = "";
 
