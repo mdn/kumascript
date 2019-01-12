@@ -1,15 +1,23 @@
 /* jshint node: true, mocha: true, esversion: 6 */
 
-const utils = require('./utils'),
-      chai = require('chai'),
-      chaiAsPromised = require('chai-as-promised'),
-      jsdom = require('jsdom'),
-      assert = chai.assert,
-      itMacro = utils.itMacro,
-      describeMacro = utils.describeMacro;
+// Get necessary modules
+const {itMacro, describeMacro} = require('./utils');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+const jsdom = require('jsdom');
 
+const {JSDOM} = jsdom;
+const assert = chai.assert;
+
+// Set up Chai
 chai.use(chaiAsPromised);
 
+/**
+ * @param {DocumentFragment} dom
+ * @param {string} locale
+ * @param {string} expected_summary
+ * @param {boolean} found_one
+ */
 function checkSidebarDom(dom, locale, expected_summary, found_one) {
     let section = dom.querySelector('section');
     assert(section.classList.contains('Quick_links'), 'Section does not contain Quick_links class');
@@ -29,20 +37,36 @@ function checkSidebarDom(dom, locale, expected_summary, found_one) {
     }
 }
 
-describeMacro('eventref', function () {
-
+describeMacro('EventRef', () => {
     itMacro('No output in preview', function (macro) {
         macro.ctx.env.slug = '';
         macro.ctx.env.locale = 'en-US';
         return assert.eventually.equal(macro.call(), '');
     });
 
-
     itMacro('Creates a sidebar for an event in one group in en-US locale', function (macro) {
         macro.ctx.env.slug = 'Web/Events/datachannel';
         macro.ctx.env.locale = 'en-US';
         return macro.call().then(function(result) {
             let dom = jsdom.JSDOM.fragment(result);
+            checkSidebarDom(dom, 'en-US', 'WebRTC events', true);
+        });
+    });
+
+    itMacro('Creates a sidebar for an internal event in one group in en-US locale', macro => {
+        macro.ctx.env.slug = 'Mozilla/Gecko/Chrome/Events/datachannel';
+        macro.ctx.env.locale = 'en-US';
+        return macro.call().then(result => {
+            let dom = JSDOM.fragment(result);
+            checkSidebarDom(dom, 'en-US', 'WebRTC events', true);
+        });
+    });
+
+    itMacro('Creates a sidebar for an archived event in one group in en-US locale', macro => {
+        macro.ctx.env.slug = 'Archive/Web/Events/datachannel';
+        macro.ctx.env.locale = 'en-US';
+        return macro.call().then(result => {
+            let dom = JSDOM.fragment(result);
             checkSidebarDom(dom, 'en-US', 'WebRTC events', true);
         });
     });
@@ -55,5 +79,4 @@ describeMacro('eventref', function () {
             checkSidebarDom(dom, 'fr', 'DOM events', false);
         });
     });
-
 });

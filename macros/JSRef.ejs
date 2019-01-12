@@ -1,13 +1,21 @@
 <%
-// Generate quick links for JavaScript standard objects docs
-//
-// TODO: Ordering of prototype / static methods (bug 948576)
-//
-// Parameters are OBSOLETE. DO NOT USE ANYMORE.
-//
-//  $0 - JavaScript reference section (e.g Global_Objects) – OBSOLETE
-//  $1 - JavaScript reference object/subject (e.g. Number, Array, Function) – OBSOLETE
-//  $2 - Related objects to display (comma separated) – OBSOLETE
+/**
+ * Generate quick links for JavaScript standard objects docs
+ *
+ * TODO: Ordering of prototype / static methods (bug 948576)
+ *
+ * Parameters are OBSOLETE in standard locations. DO NOT USE ANYMORE.
+ *
+ * $0 - JavaScript reference section (e.g. Microsoft_Extensions)
+ *      Available only to non-standard reference pages (eg. anything
+ *      not under 'Web/JavaScript/Reference').
+ *
+ * $1 - JavaScript reference object/subject (e.g. Date, Error)
+ *      Available only to non-standard reference pages (eg. anything
+ *      not under 'Web/JavaScript/Reference').
+ *
+ * $2 - Related objects to display (comma separated) – OBSOLETE
+ */
 
 // Strings
 var commonl10n = string.deserialize(template('L10n:Common'));
@@ -36,7 +44,31 @@ if (slug) {
 var locale = env.locale;
 var rtlLocales = ['ar', 'he', 'fa'];
 var slug_stdlib = '/' + env.locale + '/docs/Web/JavaScript/' + text['refslug'] + '/' + text['stdlibslug'];
-var mainObj = slug.replace('Web/JavaScript/' + text['refslug'] + '/' + text['stdlibslug'] + '/', '').split('/')[0];
+var trimmedSlug = mdn.trimSlugStart(['Web', 'JavaScript'], slug);
+var nonStandardReference = false;
+var mainObj;
+if (trimmedSlug.result[0] === text['refslug']) {
+    trimmedSlug.base_slug += ('/' + trimmedSlug.result.shift());
+    if (trimmedSlug.result[0] === text['stdlibslug']) {
+        trimmedSlug.base_slug += ('/' + trimmedSlug.result.shift());
+    }
+} else {
+    nonStandardReference = true;
+    if ($0) {
+        let trimmed2 = mdn.trimSlugStart($0, trimmedSlug.result);
+        if (trimmed2.base_slug.length) {
+            trimmedSlug.base_slug += ('/' + trimmed2.base_slug);
+            trimmedSlug.result = trimmed2.result;
+        }
+    }
+    if ($1) {
+        mainObj = $1;
+    }
+}
+
+if (!mainObj) {
+    mainObj = trimmedSlug.result[0];
+}
 
 // Data for inheritance chain
 var inheritance = ["Object", "Function"];
@@ -85,7 +117,9 @@ for(g in groupData) {
 
 // Collect pages
 var source = {};
-source[mainObj] = page.subpagesExpand('/en-US/docs/Web/JavaScript/Reference/Global_Objects/' + mainObj);
+source[mainObj] = page.subpagesExpand(nonStandardReference && wiki.pageExists(`/en-US/docs/${trimmedSlug.base_slug}/${mainObj}`)
+    ? `/en-US/docs/${trimmedSlug.base_slug}/${mainObj}`
+    : `/en-US/docs/Web/JavaScript/Reference/Global_Objects/${mainObj}`);
 if  (inheritance.indexOf("Function") > -1) {
     source["iFunction"] = page.subpagesExpand('/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function');
 }

@@ -12,8 +12,8 @@ var output = "";
 if (slug) {
 
     var groups = string.deserialize(template("GroupData"))[0];
-    var event = slug.replace('Web/Events/','').split('/')[0];
-
+    var trimmedSlug = mdn.trimSlugStart(['Web', 'Events'], slug);
+    var event = trimmedSlug.result[0];
 
     // output
     output = '<section class="Quick_links" id="Quick_Links"><ol>';

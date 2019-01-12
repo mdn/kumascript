@@ -12,7 +12,8 @@ var EventHref = '/' + locale + '/docs/Web/Events';
 var output = "";
 // slug is not available in preview mode.
 if (slug) {
-var mainIF = slug.replace('Web/API/','').split('/')[0];
+var trimmedSlug = mdn.trimSlugStart(['Web', 'API'], slug);
+var mainIF = trimmedSlug.result[0];
 mainIF = mainIF.charAt(0).toUpperCase() + mainIF.slice(1);
 var group = $0;
 var hasTag = page.hasTag;
@@ -41,9 +42,9 @@ var text = {
 
 
 // Collect all the things
-var mainIFPages = page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
-var impl = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].impl : [];
-var inh = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].inh : '';
+var mainIFPages = page.subpagesExpand(`/en-US/docs/${trimmedSlug.base_slug}/${mainIF}`);
+var impl = webAPIData[0][mainIF] && webAPIData[0][mainIF].impl || [];
+var inh = webAPIData[0][mainIF] && webAPIData[0][mainIF].inh || '';
 var related = [];
 var events = []
 if (group && webAPIGroups[0][group]) {
