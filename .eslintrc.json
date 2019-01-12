@@ -12,6 +12,7 @@
         "ecmaVersion": 2018
     },
     "rules": {
+        "no-buffer-constructor": "error",
         "no-unused-vars": ["error", {
             "args": "none",
             "varsIgnorePattern": "^_",
