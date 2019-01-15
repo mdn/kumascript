@@ -384,6 +384,11 @@
     "url": "https://drafts.csswg.org/css-fonts-4/",
     "status": "WD"
   },
+  "CSS4 Fragmentation": {
+    "name": "CSS Fragmentation Module Level&nbsp;4",
+    "url": "https://drafts.csswg.org/css-break-4/",
+    "status": "WD"
+  },
   "CSS4 Images": {
     "name": "CSS Images Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-images-4/",
