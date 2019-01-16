@@ -11,7 +11,8 @@ var output = "";
 // slug is not available in preview mode.
 if (slug) {
 
-    var groups = string.deserialize(await template("GroupData"))[0];
+    var groupDataUrl = "https://raw.githubusercontent.com/mdn/data/master/api/group-data.json";
+    var groups = await mdn.fetchJSONResource(groupDataUrl);
     var event = slug.replace('Web/Events/','').split('/')[0];
 
 

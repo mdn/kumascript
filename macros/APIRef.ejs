@@ -20,9 +20,12 @@ var escapeQuotes = mdn.escapeQuotes;
 var htmlEscape = kuma.htmlEscape;
 var rtlLocales = ['ar', 'he', 'fa'];
 
-var webAPIData = string.deserialize(await template("InterfaceData"));
+var interfaceDataUrl = "https://raw.githubusercontent.com/mdn/data/master/api/inheritance.json";
+var interfaceData = await mdn.fetchJSONResource(interfaceDataUrl);
+
 if (group) {
-  var webAPIGroups = string.deserialize(await template("GroupData"));
+  var groupDataUrl = "https://raw.githubusercontent.com/mdn/data/master/api/group-data.json";
+  var groupData = await mdn.fetchJSONResource(groupDataUrl);
 }
 
 var commonl10n = string.deserialize(await template('L10n:Common'));
@@ -42,18 +45,18 @@ var text = {
 
 // Collect all the things
 var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
-var impl = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].impl : [];
-var inh = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].inh : '';
+var impl = interfaceData[mainIF] != undefined ? interfaceData[mainIF].implements : [];
+var inh = interfaceData[mainIF] != undefined ? interfaceData[mainIF].inherits : '';
 var related = [];
 var events = []
-if (group && webAPIGroups[0][group]) {
-  var rel_if = webAPIGroups[0][group].interfaces || [];
-  var rel_met = webAPIGroups[0][group].methods || [];
-  var rel_prop = webAPIGroups[0][group].properties || [];
+if (group && groupData[group]) {
+  var rel_if = groupData[group].interfaces || [];
+  var rel_met = groupData[group].methods || [];
+  var rel_prop = groupData[group].properties || [];
   related = rel_if.concat(rel_met, rel_prop);
   related.splice(related.indexOf(mainIF), 1);
   related.sort();
-  events = webAPIGroups[0][group].events || [];
+  events = groupData[group].events || [];
 }
 
 var pageList = mainIFPages;
@@ -103,8 +106,8 @@ ctors.sort(APISort);
 function getInheritance(inh) {
   if (inh.length > 0) {
     inheritedIF.push(inh);
-    if (webAPIData[0].hasOwnProperty(inh)) {
-        var inh = webAPIData[0][inh].inh;
+    if (interfaceData.hasOwnProperty(inh)) {
+        var inh = interfaceData[inh].inherits;
         getInheritance(inh);
     }
   }
@@ -114,14 +117,14 @@ getInheritance(inh);
 function getImplementedBy(data) {
   for (var key in data) {
     if (data.hasOwnProperty(key)
-        && data[key].impl
-        && data[key].impl.indexOf(mainIF) != -1) {
+        && data[key].implements
+        && data[key].implements.indexOf(mainIF) != -1) {
       implementedBy.push(key);
     }
   }
   implementedBy.sort();
 }
-getImplementedBy(webAPIData[0]);
+getImplementedBy(interfaceData);
 
 // output helpers
 
@@ -234,8 +237,8 @@ function buildEventList(events, title) {
 
 // output
 output = '<section class="Quick_links" id="Quick_Links"><ol>';
-if (group && webAPIGroups[0][group] && webAPIGroups[0][group].overview) {
-  output += '<li><strong><a href="' +  APIHref + '/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_') + '">' + webAPIGroups[0][group].overview[0] + '</a></strong></li>';
+if (group && groupData[group] && groupData[group].overview) {
+  output += '<li><strong><a href="' +  APIHref + '/' + groupData[group].overview[0].replace(/ /g, '_') + '">' + groupData[group].overview[0] + '</a></strong></li>';
 }
 output += '<li><strong><a href="' +  APIHref + '/' + mainIF + '"><code>' + mainIF + '</a></code></strong></li>';
 

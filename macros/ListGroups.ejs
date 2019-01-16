@@ -15,7 +15,8 @@ let spacesToUnderscores = web.spacesToUnderscores;
 
 // Get the GroupData database
 
-let groupData = string.deserialize(await template('GroupData'))[0];
+let groupDataUrl = "https://raw.githubusercontent.com/mdn/data/master/api/group-data.json";
+let groupData = await mdn.fetchJSONResource(groupDataUrl);
 let groupNames = Object.keys(groupData);
 groupNames.sort();
 

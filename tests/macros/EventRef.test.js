@@ -4,6 +4,12 @@
 const { assert, itMacro, describeMacro } = require('./utils');
 const jsdom = require('jsdom');
 
+/**
+ * @param {DocumentFragment} dom
+ * @param {string} locale
+ * @param {string} expected_summary
+ * @param {boolean} found_one
+ */
 function checkSidebarDom(dom, locale, expected_summary, found_one) {
     let section = dom.querySelector('section');
     assert(
@@ -26,7 +32,7 @@ function checkSidebarDom(dom, locale, expected_summary, found_one) {
     }
 }
 
-describeMacro('eventref', function() {
+describeMacro('EventRef', function() {
     itMacro('No output in preview', function(macro) {
         macro.ctx.env.slug = '';
         macro.ctx.env.locale = 'en-US';
