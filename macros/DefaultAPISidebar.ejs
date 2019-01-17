@@ -5,7 +5,6 @@
 //  $0  Name of the API group in GroupData
 
 // Variables and data
-var slug = env.slug;
 var locale = env.locale;
 var APIHref = '/' + locale + '/docs/Web/API';
 var EventHref = '/' + locale + '/docs/Web/Events';
@@ -13,8 +12,10 @@ var output = "";
 var group = $0;
 var htmlEscape = kuma.htmlEscape;
 var escapeQuotes = mdn.escapeQuotes;
-// slug is not available in preview mode.
-if (slug && group) {
+
+if (!group) {
+    %><span style="color: red;">DefaultAPISidebar must be called with the group parameter.</span><%
+} else {
 
 var webAPIGroups = string.deserialize(await template("GroupData"));
 
