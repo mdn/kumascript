@@ -25,6 +25,15 @@ assert.eventually = {
     }
 };
 
+/**
+ * Asserts that the target is neither null nor undefined.
+ *
+ * @template T      Type of value.
+ * @param {T} value Actual value.
+ */
+assert.exists = (value) => {
+    expect(value).toEqual(expect.anything());
+};
 assert.include = (list, element) => {
     expect(list).toContain(element);
 };
@@ -36,6 +45,16 @@ assert.isFalse = value => {
 };
 assert.isAbove = (value, floor) => {
     expect(value).toBeGreaterThan(floor);
+};
+
+/**
+ * Asserts valueToCheck is greater than or equal to (>=) valueToBeAtLeast.
+ *
+ * @param {number} value Actual value.
+ * @param {number} floor Minimum Potential expected value.
+ */
+assert.isAtLeast = (value, floor) => {
+    expect(value).toBeGreaterThanOrEqual(floor);
 };
 assert.isArray = value => {
     expect(value).toBeInstanceOf(Array);
