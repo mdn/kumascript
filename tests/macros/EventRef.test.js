@@ -1,8 +1,19 @@
 /**
  * @prettier
  */
-const { assert, itMacro, describeMacro } = require('./utils');
+const { assert, describeMacro, beforeEachMacro, itMacro } = require('./utils');
 const jsdom = require('jsdom');
+
+/** @type {Record<string, {events: string[]}>} */
+const GROUP_DATA = {
+    "WebRTC": { events: ["datachannel"] },
+
+    "DOM Events": { events: ["click"] },
+    "HTML DOM":   { events: ["click"] },
+    "SVG":        { events: ["click"] },
+
+    "Web Notifications": { events: ["click"] },
+};
 
 /**
  * @param {DocumentFragment} dom
@@ -33,6 +44,12 @@ function checkSidebarDom(dom, locale, expected_summary, found_one) {
 }
 
 describeMacro('EventRef', function() {
+    beforeEachMacro(macro => {
+        macro.ctx.mdn.fetchJSONResource = jest.fn(
+            async url => GROUP_DATA
+        );
+    });
+
     itMacro('No output in preview', function(macro) {
         macro.ctx.env.slug = '';
         macro.ctx.env.locale = 'en-US';
