@@ -1,9 +1,26 @@
 /**
  * @prettier
  */
-const { assert, itMacro, describeMacro } = require('./utils');
+const { assert, describeMacro, beforeEachMacro, itMacro } = require('./utils');
 const jsdom = require('jsdom');
 
+/** @type {Record<string, {events: string[]}>} */
+const GROUP_DATA = {
+    "WebRTC": { events: ["datachannel"] },
+
+    "DOM Events": { events: ["click"] },
+    "HTML DOM":   { events: ["click"] },
+    "SVG":        { events: ["click"] },
+
+    "Web Notifications": { events: ["click"] },
+};
+
+/**
+ * @param {DocumentFragment} dom
+ * @param {string} locale
+ * @param {string} expected_summary
+ * @param {boolean} found_one
+ */
 function checkSidebarDom(dom, locale, expected_summary, found_one) {
     let section = dom.querySelector('section');
     assert(
@@ -26,7 +43,21 @@ function checkSidebarDom(dom, locale, expected_summary, found_one) {
     }
 }
 
-describeMacro('eventref', function() {
+describeMacro('EventRef', function() {
+    beforeEachMacro(macro => {
+        let realTemplate = macro.ctx.template;
+        macro.ctx.template = jest.fn(
+            async name => {
+                switch (String(name).toLowerCase()) {
+                    case "groupdata":
+                        return JSON.stringify([GROUP_DATA]);
+                    default:
+                        return realTemplate(name);
+                }
+            }
+        );
+    });
+
     itMacro('No output in preview', function(macro) {
         macro.ctx.env.slug = '';
         macro.ctx.env.locale = 'en-US';
@@ -35,10 +66,10 @@ describeMacro('eventref', function() {
 
     itMacro(
         'Creates a sidebar for an event in one group in en-US locale',
-        function(macro) {
+        macro => {
             macro.ctx.env.slug = 'Web/Events/datachannel';
             macro.ctx.env.locale = 'en-US';
-            return macro.call().then(function(result) {
+            return macro.call().then(result => {
                 let dom = jsdom.JSDOM.fragment(result);
                 checkSidebarDom(dom, 'en-US', 'WebRTC events', true);
             });
@@ -47,10 +78,10 @@ describeMacro('eventref', function() {
 
     itMacro(
         'Creates a sidebar for an event in multiple groups in fr locale',
-        function(macro) {
+        macro => {
             macro.ctx.env.slug = 'Web/Events/click';
             macro.ctx.env.locale = 'fr';
-            return macro.call().then(function(result) {
+            return macro.call().then(result => {
                 let dom = jsdom.JSDOM.fragment(result);
                 checkSidebarDom(dom, 'fr', 'DOM events', false);
             });
