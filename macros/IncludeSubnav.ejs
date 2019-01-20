@@ -6,9 +6,15 @@
 //  $0 - URL of a page with a "Subnav" section to insert.
 //       Example: "/en-US/docs/Games".
 //       Do not use https://etc.
-//  
+
+const QUICK_LINKS_PATTERN = /^<section [^>]*\bid="Quick_Links"[^>]*>[\u0000-\uFFFF]*<\/section>$/;
 
 var url = web.spacesToUnderscores($0);
+var result = wiki.page(url, 'Subnav');
 
-%>
-<%- wiki.page(url, 'Subnav', '', 1) %>
+var isQuickLinks = QUICK_LINKS_PATTERN.test(result.trim());
+
+if (!isQuickLinks) {%>
+<h2 id="Subnav">Subnav</h2>
+<%}%>
+<%- result %>
