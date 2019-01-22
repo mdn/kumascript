@@ -133,14 +133,14 @@ var text = mdn.localStringMap({
     <details open>
       <summary><%=text['Interfaces']%></summary>
       <ol>
-        <li><%-template("domxref", ["HTMLCanvasElement"])%></li>
-        <li><%-template("domxref", ["CanvasRenderingContext2D"])%></li>
-        <li><%-template("domxref", ["CanvasGradient"])%></li>
-        <li><%-template("domxref", ["CanvasPattern"])%></li>
-        <li><%-template("domxref", ["ImageBitmap"])%></li>
-        <li><%-template("domxref", ["ImageData"])%></li>
-        <li><%-template("domxref", ["TextMetrics"])%></li>
-        <li><span class="sidebar-icon"><%-template("ExperimentalBadge", [1])%></span> <%-template("domxref", ["Path2D"])%></li>
+        <li><%-await template("domxref", ["HTMLCanvasElement"])%></li>
+        <li><%-await template("domxref", ["CanvasRenderingContext2D"])%></li>
+        <li><%-await template("domxref", ["CanvasGradient"])%></li>
+        <li><%-await template("domxref", ["CanvasPattern"])%></li>
+        <li><%-await template("domxref", ["ImageBitmap"])%></li>
+        <li><%-await template("domxref", ["ImageData"])%></li>
+        <li><%-await template("domxref", ["TextMetrics"])%></li>
+        <li><span class="sidebar-icon"><%-await template("ExperimentalBadge", [1])%></span> <%-await template("domxref", ["Path2D"])%></li>
       </ol>
     </details>
   </li>

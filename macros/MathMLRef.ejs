@@ -31,7 +31,7 @@ switch (env.locale) {
 }
 
 // Find the pages of s_mathml_ref_href that are tagged with s_mathml_element_tag
-var pageList = page.subpagesExpand(s_mathml_ref_href);   // Get subpages, including tags
+var pageList = await page.subpagesExpand(s_mathml_ref_href);   // Get subpages, including tags
 var result = [];
 
 for (aPage in pageList) {

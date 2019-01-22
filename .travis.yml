@@ -26,9 +26,8 @@ before_script:
   - cd kumascript
 script:
   - make lint
-  - make lint-macros
+  - make lint-json
   - make test
-  - make test-macros
 
 notifications:
   email:

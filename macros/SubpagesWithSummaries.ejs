@@ -17,7 +17,7 @@ var html = "";
 if ($0 && ($0 != undefined)) {
     termList = JSON.parse($0);
 } else {
-    termList = page.subpagesExpand();
+    termList = await page.subpagesExpand();
 }
 
 var numTerms = termList.length;

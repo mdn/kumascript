@@ -15,7 +15,7 @@ if (pathComponents < 1) {
 var leafDocument = pathComponents[pathComponents.length-1];
 var section = $0 || leafDocument;
 
-var incompatibilities = wiki.page(url, section);
+var incompatibilities = await wiki.page(url, section);
 
 if (incompatibilities) {
   output += incompatibilities;

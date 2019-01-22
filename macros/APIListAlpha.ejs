@@ -65,7 +65,7 @@ function containsTag(tagList, tag) {
     return 0;
 }
 
-var pages = page.subpagesExpand(APIHref); // get subpages, including tags
+var pages = await page.subpagesExpand(APIHref); // get subpages, including tags
 var slug = env.slug;
 var locale = env.locale;
 var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -101,17 +101,17 @@ for (var i = 0; i < numLetters; i++) {
             // add badges if needed
             
             if (containsTag(tags, "Non-standard") || containsTag(tags, "Non standard")) {
-                badge = " " + template("NonStandardBadge", ["1"]);
+                badge = " " + await template("NonStandardBadge", ["1"]);
             }
             
             if (containsTag(tags, "Obsolete")) {
-                badge += " " + template("ObsoleteBadge", [1]);
+                badge += " " + await template("ObsoleteBadge", [1]);
             } else if (containsTag(tags, "Deprecated")) {
-                badge += " " + template("DeprecatedBadge", [1]);
+                badge += " " + await template("DeprecatedBadge", [1]);
             }
             
             if (containsTag(tags, "Experimental")) {
-                badge += " " + template("ExperimentalBadge", ["1"]);
+                badge += " " + await template("ExperimentalBadge", ["1"]);
             }
             
             // Wrap the badges in another span

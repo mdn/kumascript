@@ -69,8 +69,8 @@ switch($1.toLowerCase()) {
 }
 
 /* 1000 * 60 * 60 * 24 * 365 === 3153600000 */
-if (Date.now() - env.modified < (365 * 24 * 60 * 60 * 1000)) template("note", [outdated]);
+if (Date.now() - env.modified < (365 * 24 * 60 * 60 * 1000)) await template("note", [outdated]);
 %>
 <div style="border:solid #ddd 2px; margin-bottom:12px;">
-<div style="background:#eee; padding:2px;"><%- template("source", [$0]) %><span style="text-align:right; float:right;"><%- scriptableOutput %></span></div>
+<div style="background:#eee; padding:2px;"><%- await template("source", [$0]) %><span style="text-align:right; float:right;"><%- scriptableOutput %></span></div>
 <span style="padding: 4px 2px;">

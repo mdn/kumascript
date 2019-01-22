@@ -1,7 +1,0 @@
-This document should trigger a macro that never completes:
-* {{ ThisMacroHangs() }}
-But, the document should carry on, eventually.
----
-This document should trigger a macro that never completes:
-* {{ ThisMacroHangs }}
-But, the document should carry on, eventually.

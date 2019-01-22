@@ -1,5 +1,5 @@
 <%
-var page = mdn.localString({
+let page = mdn.localString({
     "en-US": "computed_value",
     "de"   : "berechneter_Wert",
     "es"   : "Valor_calculado",
@@ -10,7 +10,7 @@ var page = mdn.localString({
     "ru"   : "computed_value"
 });
 
-var linkText = mdn.localString({
+let linkText = mdn.localString({
     "en-US": "Computed value",
     "de"   : "Berechneter Wert",
     "es"   : "Valor calculado",
@@ -21,6 +21,6 @@ var linkText = mdn.localString({
     "ru"   : "Обработка значения"
 });
 
-var link = "<a href=\"/" + env.locale + "/docs/Web/CSS/$1$\">$2$</a>";
+let link = "<a href=\"/" + env.locale + "/docs/Web/CSS/$1$\">$2$</a>";
 %>
 <%- mdn.replacePlaceholders(link, [page, linkText]) %>
