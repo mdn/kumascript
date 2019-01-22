@@ -51,4 +51,4 @@ src/parser.js: src/parser.pegjs
 	echo "/* eslint-disable */" > src/parser.js
 	npx pegjs -o - src/parser.pegjs >> src/parser.js
 
-.PHONY: clean run local-tests test test-coverage lint lint-json bash shrinkwrap
+.PHONY: clean run local-tests test test-junit test-coverage lint lint-json bash shrinkwrap
