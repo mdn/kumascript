@@ -23,6 +23,10 @@ test:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
 	  /node_modules/.bin/jest -w1
 
+test-junit:
+	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
+	  /node_modules/.bin/jest --ci --testResultsProcessor="/node_modules/jest-junit-reporter"
+
 test-coverage:
 	rm -rf coverage
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \

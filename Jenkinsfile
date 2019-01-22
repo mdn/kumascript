@@ -5,16 +5,16 @@
 def test(docker_tag='') {
     def jenkins_uid = sh(script: 'id -u jenkins', returnStdout: true).trim()
     // The user ID within the Docker container must match the "jenkins"
-    // user ID so that it's able to create the "test-results.xml" file.
+    // user ID so that it's able to create the "test-report.xml" file.
     def run_args = "-u ${jenkins_uid}" + ' -v ${PWD}:${APP_DIR} -w ${APP_DIR}'
     try {
         withEnv(["VERSION=${docker_tag}",
                  "DOCKER_RUN_ARGS=${run_args}"]) {
-            utils.sh_with_notify("make test",
+            utils.sh_with_notify("make test-junit",
                                  "Test the Kumascript code and macros")
         }
     } finally {
-        junit 'test-results.xml'
+        junit 'test-report.xml'
     }
 }
 
