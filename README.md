@@ -123,15 +123,14 @@ more before you run your local development version of MDN.
 * To build a Docker image (you will need to do this initially as well as after
   every `git commit`):
     * `cd ..; make build-kumascript; cd kumascript`
-* To run the platform tests:
+* To run the tests (for both server and macros):
     * `make test`
-* To run the macro tests:
-    * `make test-macros`
-* To check your code (using JSHint):
+* To check test coverage:
+    * `make test-coverage`
+* To check your code (using ESLint):
     * `make lint`
-* To check for JavaScript syntax errors within the EJS macros (using `ejslint`)
-  and JSON syntax errors within the JSON data files (using `jsonlint-cli`):
-    * `make lint-macros`
+* To verify that all JSON files are well-formed:
+    * `make lint-json`
 * To run the service:
     * `make run`
 
@@ -147,8 +146,12 @@ more before you run your local development version of MDN.
     * `node run.js`
 * To run tests:
     * `npm run test`
+* To check test coverage:
+    * `npn run test-coverage`
 * To check code quality:
     * `npm run lint`
+* To ensure that all JSON files are well-formed:
+    * `npm run lint-json`
 * To generate document macro parser (if parser.pegjs is modified):
     * `make parser.js`
 
@@ -212,8 +215,10 @@ directory, however:
   returns the object that you pass to the `render()` method of your
   Templates object.
 
-- _src/cache.js_ defines an LRU cache for resources fetched by
-  KumaScript macros.
+- _src/cache*.js_ defines a cache for resources fetched by KumaScript
+  macros. If the config file (see below) defines a URL for a Redis
+  service, then the cache will use Redis. Otherwise it uses a local
+  LRU-based cache.
 
 - _src/errors.js_ defines error classes that describe the possible
   error that can occur while rendering a page:
@@ -232,6 +237,6 @@ directory, however:
   is the clever middleware for doing that.
 
 - _src/config.js_ defines configurable constants for KumaScript such
-  as the port that the server listens on, and the size of the LRU
-  cache. Some of these constants take their values from environment
-  variables.
+  as the port that the server listens on, the URL of the optional Redis
+  server, and the length of time for which fetched data is cached. Some
+  of these constants take their values from environment variables.
