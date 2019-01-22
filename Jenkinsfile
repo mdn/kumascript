@@ -35,7 +35,7 @@ def test_kumascript(docker_tag='') {
 def lint_kumascript(docker_tag='') {
     dir('kumascript') {
         lint('code', docker_tag)
-        lint('json, docker_tag)
+        lint('json', docker_tag)
     }
 }
 
