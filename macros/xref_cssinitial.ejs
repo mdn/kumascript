@@ -1,5 +1,5 @@
 <%
-var page = mdn.localString({
+let page = mdn.localString({
     "en-US": "initial_value",
     "de"   : "Initialwert",
     "es"   : "Valor_inicial",
@@ -12,7 +12,7 @@ var page = mdn.localString({
     "ru"   : "initial_value"
 });
 
-var linkText = mdn.localString({
+let linkText = mdn.localString({
     "en-US": "Initial value",
     "de"   : "Initialwert",
     "es"   : "Valor inicial",
@@ -25,6 +25,6 @@ var linkText = mdn.localString({
     "ru"   : "Начальное значение"
 });
 
-var link = "<a href=\"/" + env.locale + "/docs/Web/CSS/$1$\">$2$</a>";
+let link = "<a href=\"/" + env.locale + "/docs/Web/CSS/$1$\">$2$</a>";
 %>
 <%- mdn.replacePlaceholders(link, [page, linkText]) %>

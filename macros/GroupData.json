@@ -66,7 +66,7 @@
                             "mozinterruptend" ]
         },
         "Background Tasks": {
-              "overview":     [ "Cooperative Scheduling of Background Tasks API" ],
+              "overview":     [ "Background Tasks API" ],
               "interfaces":   [ "IdleDeadline" ],
               "methods":      [ "Window.cancelIdleCallback()",
                                 "Window.requestIdleCallback()" ],
@@ -620,13 +620,17 @@
         },
         "Fullscreen API": {
             "overview":   [ "Fullscreen API" ],
+            "guides":     [],
             "interfaces": [],
+            "dictionaries": [ "FullscreenOptions" ],
             "methods":    [ "Document.exitFullscreen()",
                             "Element.requestFullscreen()" ],
             "properties": [ "Document.fullscreen",
-                            "Document.fullscreenElement",
+                            "DocumentOrShadowRoot.fullscreenElement",
                             "Document.onfullscreenchange",
-                            "Document.onfullscreenerror" ],
+                            "Document.onfullscreenerror",
+                            "Element.onfullscreenchange",
+                            "Element.onfullscreenerror" ],
             "events":     [ "fullscreenchange",
                             "fullscreenerror" ]
         },
@@ -1374,6 +1378,16 @@
             "properties": [ "Navigator.syncManager"],
             "events":     []
         },
+        "Resize Observer API": {
+            "overview":   [ "Resize Observer API" ],
+            "interfaces": [ "ResizeObservation",
+                            "ResizeObserver",
+                            "ResizeObserverEntry" ],
+            "methods":    [],
+            "properties": [],
+            "events":     [],
+            "callbacks":  [ "ResizeObserverCallback" ]
+        },
         "Resource Statistics API": {
             "interfaces": [ "NetworkStatsData",
                             "PowerStatsData",
@@ -1391,6 +1405,25 @@
                             "PerformanceResourceTiming" ],
             "methods":    [],
             "properties": [ "Window.performance" ],
+            "events":     []
+        },
+        "Screen Capture API": {
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture_API",
+                              "title": "Using the Screen Capture API" }],
+            "interfaces": [],
+            "dictionaries": [],
+            "methods":    [ "MediaDevices.getDisplayMedia()" ],
+            "properties": [ "MediaTrackConstraints.cursor",
+                            "MediaTrackConstraints.displaySurface",
+                            "MediaTrackConstraints.logicalSurface",
+                            "MediaTrackSettings.cursor",
+                            "MediaTrackSettings.displaySurface",
+                            "MediaTrackSettings.logicalSurface",
+                            "MediaTrackSupportedConstraints.cursor",
+                            "MediaTrackSupportedConstraints.displaySurface",
+                            "MediaTrackSupportedConstraints.logicalSurface" ],
+            "types":      [ "CursorCaptureConstraintSet",
+                            "DisplayCaptureSurfaceType" ],
             "events":     []
         },
         "Screen Orientation API": {
@@ -1815,6 +1848,7 @@
                             "AudioBuffer",
                             "AudioBufferSourceNode",
                             "AudioContext",
+                            "AudioContextOptions",
                             "AudioDestinationNode",
                             "AudioListener",
                             "AudioNode",

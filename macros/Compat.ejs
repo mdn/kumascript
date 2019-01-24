@@ -37,7 +37,7 @@ var output = '';
 var category = query.split(".")[0];
 var legendItems = new Set(); // entries will be unique
 
-var compatStrings = string.deserialize(template('L10n:CompatTable'));
+var compatStrings = string.deserialize(await template('L10n:CompatTable'));
 var localize = mdn.getLocalString;
 
 var s_no_data_found = mdn.localString({
@@ -65,6 +65,22 @@ if (category === 'webextensions') {
   bcCategory = 'ext';
   displayBrowers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
   platforms = ['webextensions-desktop', 'webextensions-mobile'];
+}
+
+/**
+ * Writes the text label for each cell, and relevant icon/platform class
+ */
+function writeLabel(iconSlug, type, replacer) {
+    let iconTitle = localize(compatStrings, 'bc_icon_name_' + iconSlug).replace('$1$', replacer);
+    let output = '';
+
+    if (type === 'platform') {
+        output += `<span>${iconTitle}</span>`;
+    } else {
+        output += `<span class="bc-head-txt-label bc-head-icon-${iconSlug}">${iconTitle}</span>`;
+    }
+
+    return output;
 }
 
 function writeIcon(iconSlug, replacer, isLegend) {
@@ -572,7 +588,7 @@ function writeCompatPlatformsRow() {
     let platformCount = Object.keys(browsers[platform]).length;
     let platformId = platform.replace('webextensions-', '');
     output += `<th colspan="${platformCount}" class="bc-platform-${platformId}">`;
-    output += writeIcon(platformId);
+    output += writeLabel(platformId, 'platform');
     output += '</th>';
   }
 
@@ -585,7 +601,7 @@ function writeCompatBrowsersRow() {
   output += '<td></td>';
   for (let browser of displayBrowers) {
     output += `<th class="bc-browser-${browser}">`;
-    output += writeIcon(browser);
+    output += writeLabel(browser);
     output += '</th>';
   }
   output += '</tr>';
@@ -639,9 +655,13 @@ function writeLegend () {
 Get compat data using a query string like "webextensions.api.alarms"
 */
 function getData(queryString, obj) {
-  return queryString.split('.').reduce(function(prev, curr) {
+  let data = queryString.split('.').reduce(function(prev, curr) {
     return prev ? prev[curr] : undefined
   }, obj);
+
+  // Return a private copy of the data. Otherwise changes made here
+  // can affect later invocations of the macro
+  return data ? JSON.parse(JSON.stringify(data)) : data;
 }
 
 /*
@@ -663,6 +683,7 @@ function traverseFeatures(obj, depth, identifier) {
   }
 
   var compatData = getData(query, bcd);
+
   var features = [];
   var identifier = query.split(".").pop();
 

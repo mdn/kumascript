@@ -6,15 +6,15 @@
   $1 - @-rule - defaults to the @-rule within the URL
 */
 
-var propertiesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/properties.json";
-var atRulesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/at-rules.json";
-var selectorsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/selectors.json";
-var typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json";
-var syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
-var unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
+let propertiesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/properties.json";
+let atRulesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/at-rules.json";
+let selectorsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/selectors.json";
+let typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json";
+let syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
+let unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
 // List types for which we want to link to a description instead of
 // including it in the formal syntax block
-var s_named_color_link = mdn.localString({
+let s_named_color_link = mdn.localString({
     "en-US": "/docs/Web/CSS/color_value#Color_keywords",
     "fr"   : "/docs/Web/CSS/Type_color#Les_mots-clés",
     "de"   : "/docs/Web/CSS/Farben#Farbschlüsselwörter",
@@ -24,7 +24,7 @@ var s_named_color_link = mdn.localString({
     "pt-BR": "/docs/Web/CSS/color_value#Palavras-chave_de_cores",
     "zh-CN": "/docs/Web/CSS/color_value#色彩关键字"
 });
-var s_system_color_link = mdn.localString({
+let s_system_color_link = mdn.localString({
   "en-US": "/docs/Web/CSS/color_value#Color_keywords",
   "fr"   : "/docs/Web/CSS/Type_color#Couleurs_système",
   "de"   : "/docs/Web/CSS/Farben#Systemfarben",
@@ -34,7 +34,7 @@ var s_system_color_link = mdn.localString({
   "pt-BR": "/docs/Web/CSS/color_value#System_Colors",
   "zh-CN": "/docs/Web/CSS/color_value#系统颜色"
 });
-var externallyDescribedTypesData = {
+let externallyDescribedTypesData = {
   "named-color": {
     link: s_named_color_link
   },
@@ -42,29 +42,29 @@ var externallyDescribedTypesData = {
     link: s_system_color_link
   }
 };
-var data = {
-    properties: mdn.fetchJSONResource(propertiesUrl),
-    atRules: mdn.fetchJSONResource(atRulesUrl),
-    selectors: mdn.fetchJSONResource(selectorsUrl),
-    types: mdn.fetchJSONResource(typesUrl),
-    syntaxes: mdn.fetchJSONResource(syntaxesUrl),
-    units: mdn.fetchJSONResource(unitsUrl),
+let data = {
+    properties: await MDN.fetchJSONResource(propertiesUrl),
+    atRules: await MDN.fetchJSONResource(atRulesUrl),
+    selectors: await MDN.fetchJSONResource(selectorsUrl),
+    types: await MDN.fetchJSONResource(typesUrl),
+    syntaxes: await MDN.fetchJSONResource(syntaxesUrl),
+    units: await MDN.fetchJSONResource(unitsUrl),
     externallyDescribedTypes: externallyDescribedTypesData
 };
-var slug = env.slug;
-var locale = env.locale;
-var localWiki = wiki;
-var escapeQuotes = mdn.escapeQuotes;
-var name = $0 || (slug ? slug.split("/").pop().toLowerCase() : "preview-wiki-content");
-var atRule = $1;
-var rawSyntax = "";
-var formattedSyntax = "";
-var localize = mdn.getLocalString;
+let slug = env.slug;
+let locale = env.locale;
+let localWiki = wiki;
+let escapeQuotes = mdn.escapeQuotes;
+let name = $0 || (slug ? slug.split("/").pop().toLowerCase() : "preview-wiki-content");
+let atRule = $1;
+let rawSyntax = "";
+let formattedSyntax = "";
+let localize = mdn.getLocalString;
 
-var commonLocalStrings = string.deserialize(template("L10n:Common"));
-var localStrings = string.deserialize(template("L10n:CSS"));
+let commonLocalStrings = string.deserialize(await template("L10n:Common"));
+let localStrings = string.deserialize(await template("L10n:CSS"));
 
-var s_missing = mdn.localString({
+let s_missing = mdn.localString({
     "en-US": "Syntax not found in DB!",
     "fr"   : "La syntaxe n'a pas été trouvée !",
     "de"   : "Syntax nicht in der Datenbank gefunden!",
@@ -72,20 +72,20 @@ var s_missing = mdn.localString({
     "ru"   : "Синтаксис не найден в базе данных"
 });
 
-var s_where = mdn.localString({
+let s_where = mdn.localString({
     "en-US": "where ",
     "de"   : "wobei ",
     "fr"   : "où ",
     "ru"   : "где "
 });
 
-var s_syntax_value_definition = mdn.localString({
+let s_syntax_value_definition = mdn.localString({
     "en-US": "Value_definition_syntax",
     "de"   : "Wertdefinitionssyntax",
     "fr"   : "Syntaxe_de_d%C3%A9finition_des_valeurs"
 });
 
-var s_and = mdn.localString({
+let s_and = mdn.localString({
     "en-US": "and ",
     "de"   : "und ",
     "fr"   : "et ",
@@ -93,30 +93,30 @@ var s_and = mdn.localString({
     "ru"   : "и "
 });
 
-var s_or = mdn.localString({
+let s_or = mdn.localString({
     "en-US": "or",
     "de"   : "oder",
     "ru"   : "или"
 });
 
-var s_possible_values = mdn.localString({
+let s_possible_values = mdn.localString({
     "en-US": "Possible values: ",
     "de"   : "Mögliche Werte: ",
     "ru"   : "Возможные значения: "
 });
 
-var s_number_followed_by = mdn.localString({
+let s_number_followed_by = mdn.localString({
     "en-US": "a number followed by",
     "de"   : "eine Nummer gefolgt von",
 });
 
-var s_like = mdn.localString({
+let s_like = mdn.localString({
     "en-US": "like",
     "de"   : "wie",
     "ru"   : "как"
 });
 
-var typeInfo = {
+let typeInfo = {
     "angle": {
         "title": s_possible_values + s_number_followed_by + "'deg', 'grad', 'rad' " + s_or + " 'turn', " + s_like + " 2turn, 1.3rad, -60deg " + s_or + " 0grad."
     },
@@ -163,7 +163,7 @@ var typeInfo = {
     }
 };
 
-var operators = [
+let operators = [
     {
         regexp: /\#/g,
         title: mdn.localString({
@@ -276,7 +276,7 @@ var operators = [
     },
 ];
 
-function buildLink(match, type) {
+async function buildLink(match, type) {
     var link = "/" + locale + "/docs/Web/CSS/";
     var title = "";
     var propertyName = type.match(/\'(.+?)\'/);
@@ -297,7 +297,7 @@ function buildLink(match, type) {
         if (typeInfo[type].title) {
             title = typeInfo[type].title;
         } else {
-            var page = localWiki.getPage(link);
+            let page = await localWiki.getPage(link);
             title = (page && page.summary) ? escapeQuotes(page.summary) :
                 localize(commonLocalStrings, "summary");
         }
@@ -322,7 +322,7 @@ function addBrackets(str) {
     return str.match(/\(\)$/) ? str : str + "()";
 }
 
-function formatSyntax(rawSyntax) {
+async function formatSyntax(rawSyntax) {
     if (rawSyntax === "") {
         return "";
     }
@@ -357,13 +357,16 @@ function formatSyntax(rawSyntax) {
             return output;
         });
     });
-    formattedSyntax = formattedSyntax.replace(/<([a-z0-9\(\)\'\-]+?)>/gi,
-        buildLink);
+    formattedSyntax = await string.asyncReplace(
+        formattedSyntax,
+        /<([a-z0-9\(\)\'\-]+?)>/gi,
+        buildLink
+    );
 
     return formattedSyntax;
 }
 
-function formatTypesSyntax(formattedSyntax, describedTypes) {
+async function formatTypesSyntax(formattedSyntax, describedTypes) {
     var formattedTypesSyntax = "";
     var types = [];
     var typeAnchorAttributes = formattedSyntax.match(/href=".+?"/g);
@@ -386,20 +389,21 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
 
         var typesSyntax = "";
         if (types.length > 0) {
-            types.forEach(function(type, index, types) {
+            for(let index = 0; index < types.length; index++) {
+                let type = types[index];
                 // Avoid recursions by checking whether a type was already
                 // described before
                 // check whether https://github.com/mdn/data/pull/66 was merged
                 var syntax = data.syntaxes[type].syntax || data.syntaxes[type];
                 if (describedTypes.indexOf(type) === -1) {
                     typesSyntax += "<span id=\"" + type + "\">&lt;" + type +
-                        "&gt;</span> = " + formatSyntax(syntax);
+                        "&gt;</span> = " + await formatSyntax(syntax);
                     if (index < types.length - 1) {
                         typesSyntax += "<br/>";
                     }
                     describedTypes.push(type);
                 }
-            });
+            };
 
             if (typesSyntax !== "") {
                 formattedTypesSyntax += "<p style=\"font-family:Open Sans,Arial," +
@@ -410,13 +414,11 @@ function formatTypesSyntax(formattedSyntax, describedTypes) {
             }
         }
 
-        return formattedTypesSyntax + formatTypesSyntax(typesSyntax, describedTypes);
+        return formattedTypesSyntax + await formatTypesSyntax(typesSyntax, describedTypes);
     }
 
     return formattedTypesSyntax;
 }
-
-var rawSyntax = "";
 
 if (!atRule) {
     var matches = null;
@@ -429,7 +431,6 @@ if (!atRule) {
     }
 }
 
-var formattedSyntax = "";
 if (name === "preview-wiki-content") {
     formattedSyntax = "<span style=\"color:red;\">" +
         localize(localStrings, "info_in_preview_not_available") + "</span>";
@@ -450,8 +451,8 @@ if (name === "preview-wiki-content") {
         rawSyntax = data.syntaxes[addBrackets(name)].syntax;
     }
 
-    formattedSyntax = formatSyntax(rawSyntax);
-    formattedSyntax += formatTypesSyntax(formattedSyntax, []);
+    formattedSyntax = await formatSyntax(rawSyntax);
+    formattedSyntax += await formatTypesSyntax(formattedSyntax, []);
 }
 
 var result = formattedSyntax || s_missing;

@@ -388,6 +388,69 @@ var text = mdn.localStringMap({
     'Doc_status': 'JavaScript 文書化状況',
     'The_MDN_project': 'MDN プロジェクト',
   },
+  'pt-BR': {
+    'Overview': 'Visão geral das Tecnologias JavaScript',
+    'Tutorials': 'Tutoriais:',
+    'Guide': 'Guia de JavaScript',
+    'Guide_Introduction': 'Introdução',
+    'Guide_Grammar': 'Gramática e tipos',
+    'Guide_Control_flow': 'Controle de fluxo e tratamento de erros',
+    'Guide_Loops': 'Repetiço e iteração',
+    'Guide_Functions': 'Funçes',
+    'Guide_Expressions': 'Expressões e operadores',
+    'Guide_Numbers': 'Números e datas',
+    'Guide_Text': 'Formatação de texto',
+    'Guide_RegExp': 'Expressões Regulares',
+    'Guide_Indexed_collections': 'Coleções indexadas',
+    'Guide_keyed_collections': 'Coleções com chave (chave-valor)',
+    'Guide_Objects': 'Trabalhando com objetos',
+    'Guide_OOP': 'Detalhes do modelo de objetos',
+    'Guide_promises' : 'Usando "promises"',
+    'Guide_Iterators_Generators': 'Iteradores e geradores',
+    'Guide_Meta': 'Metaprogramação',
+    'Complete_beginners': 'Completos iniciantes',
+    'Basics': 'O básico de JavaScript',
+    'First_steps': 'Primeiros passos com JavaScript',
+    'Building_blocks': 'Blocos de construção de JavaScript',
+    'Intermediate': 'Intermediário',
+    'Introducing_objects': 'Introdução a objetos JavaScript',
+    'Client-side_APIs': 'APIs Web para aplicações Cliente',
+    'Re-introduction': 'Uma reintrodução a JavaScript',
+    'Data_structures': 'Estruturas de dados de JavaScript',
+    'Equality': 'Comparadores de igualdade e semelhança',
+    'Closures': 'Closures',
+    'Advanced': 'Avançado',
+    'Inheritance': 'Herança e a cadeia de "prototype"',
+    'Strict_mode': 'Strict mode - Modo estrito',
+    'Typed_arrays': 'Arranjos tipados em JavaScript',
+    'Memory_Management': 'Gerenciamento de memória',
+    'Event_Loop': 'Modelo de concorrência e Loop de Eventos',
+    'Reference': 'Referências:',
+    'Global_Objects': 'Objetos pré-definidos',
+    'Operators': 'Expressões e operadores',
+    'Statements': 'Afirmações e declarações',
+    'Functions': 'Funções',
+    'Classes': 'Classes',
+    'Errors': 'Erros',
+    'More': 'Mais conteúdo',
+    'New_in_JS': 'Novidades em JavaScript',
+    'Lexical_grammar': 'Gramática léxica',
+    'Enumerability':'Enumerabilidade e domínio de propriedades',
+    'Data_types': 'Tipos de dados e estruturas de dados',
+    'Iteration_protocols': 'Protocolos de iteração',
+    'Transitioning_to_strict_mode': 'Migrando para o "strict mode"',
+    'Template_strings': 'Template literals',
+    'Deprecated_features': 'Funcionalidades depreciadas',
+    'Documentation': 'Documentação:',
+    'Useful_lists': 'Listas úteis',
+    'Index': 'Índice para todas as páginas',
+    'Methods_Index': 'Índice de Métodos',
+    'Properties_Index': 'Índice de Propriedades',
+    'JavaScript_tag': 'Páginas com a tag "JavaScript"',
+    'Contribute': 'Contribua!',
+    'Doc_status': 'Estado da documentação de JavaScript',
+    'The_MDN_project': 'O projeto MDN',
+  },
 });
 %>
 <section class="Quick_links" id="Quick_Links">
@@ -457,37 +520,37 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('Objects')%>>
        <summary><%=text['Global_Objects']%></summary>
-        <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Global_Objects', 1])%>
+        <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Global_Objects', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Operators')%>>
       <summary><%=text['Operators']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Operators', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Operators', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Statements')%>>
       <summary><%=text['Statements']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Statements', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Statements', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Functions')%>>
       <summary><%=text['Functions']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Functions', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Functions', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Classes')%>>
       <summary><%=text['Classes']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Classes', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Classes', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Errors')%>>
       <summary><%=text['Errors']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Errors', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Errors', 1])%>
     </details>
   </li>
   <li class="toggle">
@@ -509,7 +572,7 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('New_in_JS')%>>
       <summary><%=text['New_in_JS']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
     </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>

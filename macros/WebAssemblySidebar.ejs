@@ -44,15 +44,15 @@ var text = mdn.localStringMap({
     <details open>
       <summary><%=text['Object_reference']%></summary>
       <ol>
-        <li><%- template("jsxref", ["WebAssembly"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.Module"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.Global"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.Instance"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.Memory"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.Table"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.CompileError"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.LinkError"]) %></li>
-        <li><%- template("jsxref", ["WebAssembly.RuntimeError"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.Module"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.Global"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.Instance"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.Memory"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.Table"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.CompileError"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.LinkError"]) %></li>
+        <li><%- await template("jsxref", ["WebAssembly.RuntimeError"]) %></li>
       </ol>
     </details>
   </li>
