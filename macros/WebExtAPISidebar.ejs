@@ -12,6 +12,17 @@ var escapeQuotes = mdn.escapeQuotes;
 var htmlEscape = kuma.htmlEscape;
 var rtlLocales = ['ar', 'he', 'fa'];
 
+let commonl10n = string.deserialize(await template('L10n:Common'));
+
+let text = {
+    'translate': mdn.getLocalString(commonl10n, '[Translate]'),
+    'title': mdn.getLocalString(commonl10n, 'TranslationCTA'),
+    'Methods': mdn.getLocalString(commonl10n, 'Methods'),
+    'Properties': mdn.getLocalString(commonl10n, 'Properties'),
+    'Types': mdn.getLocalString(commonl10n, 'Types'),
+    'Events': mdn.getLocalString(commonl10n, 'Events'),
+};
+
 var badges = {
   ExperimentalBadge : '<span class="sidebar-icon">' + await template("ExperimentalBadge", [1]) + '</span>',
   NonStandardBadge  : '<span class="sidebar-icon">' + await template("NonStandardBadge", [1]) + '</span>',
@@ -134,16 +145,16 @@ async function buildSidebarForSingleAPI(apiPath) {
   var pageCollection = classifyPages(subpages);
 
   if (pageCollection.methods.length > 0) {
-    output += buildSublist(pageCollection.methods, "Methods", true);
+    output += buildSublist(pageCollection.methods, text["Methods"], true);
   }
   if (pageCollection.properties.length > 0) {
-    output += buildSublist(pageCollection.properties, "Properties", true);
+    output += buildSublist(pageCollection.properties, text["Properties"], true);
   }
   if (pageCollection.types.length > 0) {
-    output += buildSublist(pageCollection.types, "Types", true);
+    output += buildSublist(pageCollection.types, text["Types"], true);
   }
   if (pageCollection.events.length > 0) {
-    output += buildSublist(pageCollection.events, "Events", true);
+    output += buildSublist(pageCollection.events, text["Events"], true);
   }
 
 output += '</ol>';
