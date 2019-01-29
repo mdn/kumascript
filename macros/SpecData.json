@@ -889,6 +889,11 @@
     "url": "https://wicg.github.io/InputDeviceCapabilities/",
     "status": "Draft"
   },
+  "InputEvents1": {
+    "name": "Input Events Level 1",
+    "url": "https://rawgit.com/w3c/input-events/v1/",
+    "status": "WD"
+  },
   "InputEvents2": {
     "name": "Input Events Level 2",
     "url": "https://w3c.github.io/input-events/",
