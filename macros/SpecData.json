@@ -726,8 +726,8 @@
   },
   "Feature Policy": {
     "name": "Feature Policy",
-    "url": "https://wicg.github.io/feature-policy/",
-    "status": "Draft"
+    "url": "https://w3c.github.io/webappsec-feature-policy/",
+    "status": "ED"
   },
   "Fetch": {
     "name": "Fetch",
@@ -949,6 +949,11 @@
     "url": "https://w3c.github.io/mediacapture-fromelement/",
     "status": "WD"
   },
+  "Media Playback Quality": {
+    "name": "Media Playback Quality",
+    "url": "https://wicg.github.io/media-playback-quality/",
+    "status": "ED"
+  },
   "Media Session": {
     "name": "Media Session Standard",
     "url": "https://wicg.github.io/mediasession/",
@@ -1044,6 +1049,11 @@
     "url": "https://w3c.github.io/payment-handler/",
     "status": "WD"
   },
+  "Payment Method Identifiers": {
+    "name": "Payment Method Identifiers",
+    "url": "https://w3c.github.io/payment-method-id/",
+    "status": "CR"
+  },
   "Permissions API": {
     "name": "Permissions",
     "url": "https://w3c.github.io/permissions/",
@@ -1123,6 +1133,11 @@
     "name": "Timing control for script-based animations",
     "url": "https://www.w3.org/TR/animation-timing/",
     "status": "Obsolete"
+  },
+  "Resize Observer": {
+    "name": "Resize Observer",
+    "url": "https://drafts.csswg.org/resize-observer/",
+    "status": "ED"
   },
   "Resource Hints": {
     "name": "Resource Hints",

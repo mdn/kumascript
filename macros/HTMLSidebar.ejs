@@ -160,19 +160,19 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('HTML_Elements')%>>
       <summary><%=text['HTML_Elements']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 0, 0, "<", ">"])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 0, 0, "<", ">"])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Global_attributes')%>>
       <summary><%=text['Global_attributes']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Input_types')%>>
       <summary><%-text['Input_types']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%>
     </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>

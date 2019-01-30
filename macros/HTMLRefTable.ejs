@@ -13,7 +13,7 @@
 // LOCALISATION
 // ------------
 
-var l10n = {
+let l10n = {
     element : mdn.localString({
         "de"   : "Element",
         "en-US": "Element",
@@ -91,20 +91,21 @@ function hasCommonTag(A, B) {
 // CODE VARIABLES
 // --------------
 
-var tag, badge,
-    withBadges = $1 || false;
-    TagFilters = {
-        include : typeof $0 === 'string' ? [lowerMe($0)]
+let tag;
+let badge;
+let withBadges = $1 || false;
+let TagFilters = {
+       include : typeof $0 === 'string' ? [lowerMe($0)]
                 : $0 && $0.include && Array.isArray($0.include) ? $0.include.map(lowerMe)
                 : [],
         exclude : $0 && $0.exclude && Array.isArray($0.exclude) ? $0.exclude.map(lowerMe)
                 : []
-    },
-    ForcedElements = $0 && $0.elements && Array.isArray($0.elements) ? $0.elements.map(lowerMe) : [],
-    HTMLRefBaseURL = "/docs/Web/HTML/Element",
-    HTMLLocalBaseURL = "/" + env.locale + HTMLRefBaseURL + "/",
-    HTMLDocPages   = page.subpagesExpand("/en-US" + HTMLRefBaseURL, 1),
-    HTMLTags       = [];
+};
+let ForcedElements = $0 && $0.elements && Array.isArray($0.elements) ? $0.elements.map(lowerMe) : [];
+let HTMLRefBaseURL = "/docs/Web/HTML/Element";
+let HTMLLocalBaseURL = "/" + env.locale + HTMLRefBaseURL + "/";
+let HTMLDocPages   = await page.subpagesExpand("/en-US" + HTMLRefBaseURL, 1);
+let HTMLTags       = [];
 
 
 // BUSINESS LOGIC
@@ -112,23 +113,30 @@ var tag, badge,
 
 // Get the relevant pages for HTML Elements based on the template input; include only
 // the part of the title that's actually the element name
-HTMLDocPages.forEach(function (page) {
-    var p;
-    var t = lowerMe(page.slug.split("/").pop(-1));
-    var tags = page.tags.map(lowerMe);
+for(let page of HTMLDocPages) {
+    let p;
+    let t = lowerMe(page.slug.split("/").pop(-1));
+    let tags = page.tags.map(lowerMe);
 
     if (ForcedElements.indexOf(t) > -1
     || ((TagFilters.include.length === 0 ||  hasCommonTag(tags, TagFilters.include))
     &&  (TagFilters.exclude.length === 0 || !hasCommonTag(tags, TagFilters.exclude)))){
-        p = wiki.getPage(HTMLLocalBaseURL + t);
+        p = await wiki.getPage(HTMLLocalBaseURL + t);
 
         HTMLTags.push({
             tagName      : t,
-            
-            // We need to special case the "Heading elements" article which stand for all hn elements.
-            tagLink      : t !== 'heading_elements' ? template("HTMLelement", [t])
-                         : ['h1','h2','h3','h4','h5','h6'].map(function (tg) { return template("HTMLelement", [tg]); }).join(', '),
-            
+            // We need to special case the "Heading elements" article
+            // which stand for all hn elements.
+            tagLink      : (t !== 'heading_elements'
+                               ? await template("HTMLelement", [t])
+                               : (await Promise.all([
+                                   template("HTMLelement", ['h1']),
+                                   template("HTMLelement", ['h2']),
+                                   template("HTMLelement", ['h3']),
+                                   template("HTMLelement", ['h4']),
+                                   template("HTMLelement", ['h5']),
+                                   template("HTMLelement", ['h6'])
+                               ])).join(', ')),
             summary      : (p && p.summary) || "",
             deprecated   : hasCommonTag(tags, ['deprecated', 'obsolete']),
             experimental : hasCommonTag(tags, ['experimental']),
@@ -136,15 +144,15 @@ HTMLDocPages.forEach(function (page) {
             component    : hasCommonTag(tags, ['html components'])
         });
     }
-});
+}
 
-// Handle elements inside the ForcedElements liste which currently do not have
+// Handle elements inside the ForcedElements list which currently do not have
 // an english documentation page yet.
-var ElementList = HTMLTags.map(function (ele) {
+let ElementList = HTMLTags.map(function (ele) {
     return ele.tagName;
 });
 
-var missingElement = [];
+let missingElement = [];
 ForcedElements.forEach(function (ele) {
     if(ElementList.indexOf(ele) === -1) {
         missingElement.push(ele);
@@ -152,17 +160,17 @@ ForcedElements.forEach(function (ele) {
 });
 
 if (missingElement.length > 0) {
-    missingElement.forEach(function (t) {
+   for(let t of missingElement) {
         HTMLTags.push({
             tagName      : t,
-            tagLink      : template("HTMLelement", [t]),
+            tagLink      : await template("HTMLelement", [t]),
             summary      : "",
             deprecated   : false,
             experimental : false,
             html5        : false,
             component    : false
         });
-    });
+    }
 }
 
 // We make sure elements are sorted in alphabetical order.
@@ -186,14 +194,14 @@ if (withBadges) {
  </thead>
  <tbody>
  <%
- for (var i = 0, l = HTMLTags.length; i < l; i++) {
+ for (let i = 0, l = HTMLTags.length; i < l; i++) {
  %>
   <tr>
 <%
 if (withBadges) {
-    badge = HTMLTags[i].deprecated   ? '<span title="' + l10n.deprecated   + '">' + template("FontAwesomeIcon", ["icon-thumbs-down-alt"]) + '<span>'
-          : HTMLTags[i].experimental ? '<span title="' + l10n.experimental + '">' + template("FontAwesomeIcon", ["icon-beaker"]) + '<span>'
-          : HTMLTags[i].component    ? '<span title="' + l10n.components   + '">' + template("FontAwesomeIcon", ["icon-cogs"]) + '<span>'
+    badge = HTMLTags[i].deprecated   ? '<span title="' + l10n.deprecated   + '">' + await template("FontAwesomeIcon", ["icon-thumbs-down-alt"]) + '<span>'
+          : HTMLTags[i].experimental ? '<span title="' + l10n.experimental + '">' + await template("FontAwesomeIcon", ["icon-beaker"]) + '<span>'
+          : HTMLTags[i].component    ? '<span title="' + l10n.components   + '">' + await template("FontAwesomeIcon", ["icon-cogs"]) + '<span>'
           : HTMLTags[i].html5        ? '<a href="/' + env.locale + '/docs/HTML/HTML5"><img alt="HTML5" title="' + l10n.html5 + '" src="/files/3843/HTML5_Badge_32.png" width="16" height="16"></a>'
           : '&nbsp;';
 %>

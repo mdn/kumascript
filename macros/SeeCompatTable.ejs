@@ -13,5 +13,5 @@ var str = mdn.localString({
 });
 
 %><div class="blockIndicator experimental indicator-warning">
-    <p><%-template("ExperimentalBadge", [1])%> <%- str %></p>
+    <p><%-await template("ExperimentalBadge", [1])%> <%- str %></p>
 </div>

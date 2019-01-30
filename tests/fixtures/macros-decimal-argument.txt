@@ -1,3 +1,0 @@
-* {{fx_minversion_header(3.6)}}
----
-* ["fx_minversion_header",["3.6"]]

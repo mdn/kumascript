@@ -13,24 +13,24 @@
 // {{MakeSimpleQuicklinks("/en-US/docs/foo", "http://somesite.com|Awesome Site",
 //     "https://othersite.com|Another site|Tooltip for another site")}}
 
-var quicklinks = "<section id='Quick_Links'><ol>";
-var count = arguments.length;
+let quicklinks = "<section id='Quick_Links'><ol>";
+let count = arguments.length;
 
-for (var i=0; i<count; i++) {
-    var item = arguments[i];
-    var path = "";
-    var title = "";
-    var text = "";
+for (let i=0; i<count; i++) {
+    let item = arguments[i];
+    let path = "";
+    let title = "";
+    let text = "";
     
     if (item.substr(0, 7) == "http://" || item.substr(0, 8) == "https://") {
-      var ar = item.split("|");
+      let ar = item.split("|");
       path = ar[0];
       text = ar[1];
       if (ar.length > 2) {
         title = wiki.escapeQuotes(ar[2]);
       }
     } else {
-      var page = wiki.getPage(item);
+      let page = await wiki.getPage(item);
       if (page && page.url) {
         path = page.url;
         if (page.summary) {

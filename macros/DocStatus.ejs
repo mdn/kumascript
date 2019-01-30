@@ -11,9 +11,6 @@
 //         e.g. { "cleanup": {"title": "Clean-up", "link": "#Cleanup_on_standard_built-in_ECMAScript_objects", "counter": 142 }}
 //  $6  -  (optional) Tags that all pages should have. (OR logic)
 
-/*** Module loading ***/
-var MDN = require_macro("MDN:Common");
-
 /*** Variables ***/
 var slug = $0;
 var enURL = '';
@@ -22,12 +19,12 @@ if (slug.indexOf("/en-US") != -1) {
 } else {
     enURL = '/en-US/docs/' + slug;
 }
-var pageList = page.subpagesExpand(enURL, '', true);
+var pageList = await page.subpagesExpand(enURL, '', true);
 var missingPages = '';
 var groupTags = [];
 if ($1) {
     groupTags = JSON.parse($1);
-    missingPages = string.deserialize(template("MissingPages"));
+    missingPages = string.deserialize(await template("MissingPages"));
 }
 var outdate = $2;
 var bzddn = $3;
@@ -38,7 +35,7 @@ if ($6) {
     requiredTags = JSON.parse($6);
 }
 
-var languages = page.translations(env.path);
+var languages = await page.translations(env.path);
 var bugPageURL = 'https://bugzilla.mozilla.org/show_bug.cgi?id=';
 
 var metrics = {
@@ -279,12 +276,12 @@ if (groupTags.length > 0) {
 
 
 if (bzddn && bzddn != '') {
-    var ddnBugs = MDN.bzSearch(bzddn);
+    var ddnBugs = await MDN.bzSearch(bzddn);
     metrics.ddn.counter = ddnBugs.bugs.length;
 }
 
 if (bzdr && bzdr != '') {
-    var drBugs = MDN.bzSearch(bzdr);
+    var drBugs = await MDN.bzSearch(bzdr);
     metrics.dr.counter = drBugs.bugs.length;
 }
 
@@ -293,11 +290,11 @@ if (bzdr && bzdr != '') {
 
 var l10nResult = {};
 
-function getL10nPages(pageList) {
+async function getL10nPages(pageList) {
     if (pageList) {
         for (var aPage in pageList) {
             var url = 'https://developer.mozilla.org' + pageList[aPage].url + '?raw&macros&section=json';
-            var resource = MDN.fetchHTTPResource(url);
+            var resource = await MDN.fetchHTTPResource(url);
             if (resource != '') {
                 l10nResult[pageList[aPage].locale] = {};
                 l10nResult[pageList[aPage].locale].metrics = JSON.parse(resource);
@@ -307,7 +304,7 @@ function getL10nPages(pageList) {
     }
 }
 
-getL10nPages(languages);
+await getL10nPages(languages);
 
 
 
@@ -366,10 +363,11 @@ if (output.hasOwnProperty(obj) && typeof metrics[obj] != 'undefined' && metrics[
 <h2 id="<%=metrics[obj].link.slice(1)%>"><%=metrics[obj].title%></h2>
 <%
     if (obj === 'requiredTags') {
+        let taglinks = await Promise.all(
+            requiredTags.map(t => template('Tag', [t]))
+        );
 %>
-<p><small><em>At least missing one of the following</em>: <%- requiredTags.map(function(tag){
-    return template('Tag', [tag])
-}).join(', ') %></small></p>
+<p><small><em>At least missing one of the following</em>: <%- taglinks.join(', ') %></small></p>
 <%
     }
 

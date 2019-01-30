@@ -24,7 +24,7 @@ var nextStr = {
     "zh-CN": "下一页"
 };
 
-var chapterList = string.deserialize(template($0));
+var chapterList = string.deserialize(await template($0));
 var i = $1 ? chapterList.indexOf($1) : chapterList.indexOf(env.path);
 
 if (i != -1){
@@ -32,21 +32,21 @@ if (i != -1){
   switch (i){
     case 0:
       html = '<p style="text-align: right;">' +
-        web.link(chapterList[1], mdn.localString(nextStr) + " »", wiki.getPage(chapterList[1]).title) + 
+        web.link(chapterList[1], mdn.localString(nextStr) + " »", (await wiki.getPage(chapterList[1])).title) + 
         '</p>';
       break;
     case chapterList.length - 1:
       html = '<p>' +
-        web.link(chapterList[(chapterList.length) - 2], "« " + mdn.localString(prevStr), wiki.getPage(chapterList[(chapterList.length) - 2]).title) + 
+        web.link(chapterList[(chapterList.length) - 2], "« " + mdn.localString(prevStr), (await wiki.getPage(chapterList[(chapterList.length) - 2])).title) + 
         '</p>';
       break;
     default:
       /* This should be done like <p>Previous<span style="float: right;">Next</span></p>
          but Internet Explorer 8 doesn't render it properly */
       html = '<p style="text-align: right;"><span style="float: left;">'+
-        web.link(chapterList[i - 1], "« " + mdn.localString(prevStr), wiki.getPage(chapterList[i - 1]).title)+
+        web.link(chapterList[i - 1], "« " + mdn.localString(prevStr), (await wiki.getPage(chapterList[i - 1])).title)+
         '</span>'+
-        web.link(chapterList[i + 1], mdn.localString(nextStr) + " »", wiki.getPage(chapterList[i + 1]).title)+
+        web.link(chapterList[i + 1], mdn.localString(nextStr) + " »", (await wiki.getPage(chapterList[i + 1])).title)+
         '</p>';
   }
 }

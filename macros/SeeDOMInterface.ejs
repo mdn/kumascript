@@ -8,10 +8,10 @@ var str = "";
 
 switch(lang) {
     case "ja":
-        str = template("interface", [$0]) + "インターフェースには" + template("domxref", [$1]) + "インターフェースが実装されています。詳細については各ページを参照して下さい。";
+        str = await template("interface", [$0]) + "インターフェースには" + await template("domxref", [$1]) + "インターフェースが実装されています。詳細については各ページを参照して下さい。";
         break;
     default:
-        str = "The " + template("interface", [$0]) + " interface implements the DOM " + template("domxref", [$1]) + " interface. See that page for details.";
+        str = "The " + await template("interface", [$0]) + " interface implements the DOM " + await template("domxref", [$1]) + " interface. See that page for details.";
         break;
 }
 

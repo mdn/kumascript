@@ -80,10 +80,10 @@ var output = mdn.replacePlaceholders(
                     examples: mdn.getLocalString(localStrings, "examplesLink"),
                     troubleshooting: mdn.getLocalString(localStrings, "troubleshootingLink"),
                     reference: mdn.getLocalString(localStrings, "reference"),
-                    prefwindow: template("XULElem", ["prefwindow"]),
-                    prefpane: template("XULElem", ["prefpane"]),
-                    preferences: template("XULElem", ["preferences"]),
-                    preference: template("XULElem", ["preference"]),
+                    prefwindow: await template("XULElem", ["prefwindow"]),
+                    prefpane: await template("XULElem", ["prefpane"]),
+                    preferences: await template("XULElem", ["preferences"]),
+                    preference: await template("XULElem", ["preference"]),
                     xulAttributes: mdn.getLocalString(localStrings, "xulAttributesLink")
                 }
 );

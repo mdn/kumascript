@@ -1,7 +1,7 @@
 <%
 var text = "<code>JSObjectOps</code> is not a supported API. Details of the API may change from one release to the next. " +
            "This documentation should be considered SpiderMonkey internals documentation, not API documentation. See " +
-           template("Bug", ["408416"]) + " for details."
+           await template("Bug", ["408416"]) + " for details."
 
 
-%><%-template("Warning", [text])%>
+%><%-await template("Warning", [text])%>

@@ -26,8 +26,8 @@ if ($0 && $0 != undefined) {
 }
 
 if (str.length) {
-    %><%-template('deprecatedGeneric', ["inline",str])%><%
+    %><%-await template('deprecatedGeneric', ["inline",str])%><%
 } else {
-    %><%-template('DeprecatedBadge', [type])%><%
+    %><%-await template('DeprecatedBadge', [type])%><%
 }
 %>

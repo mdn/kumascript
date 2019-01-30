@@ -1,6 +1,0 @@
-This document will use macros that will experience errors:
-* ["MacroUsingParams",["Foo","Bar","Baz"]]
-* {{ broken1 }}
-* {{ broken2 }}
-* {{ broken3 }}
-* ["AnotherFoundMacro",[]]
