@@ -49,62 +49,86 @@ var text = mdn.localStringMap({
   <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey"><strong><em>SpiderMonkey</em></strong></a></li>
   
   <li><strong><%=text['References']%></strong></li>
-  <li data-default-state="<%=state('JSAPI')%>"><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference"><%=text['JSAPI_reference']%></a>
-    <%-template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference'])%>
+  <li class="toggle">
+    <details <%=state('JSAPI')%>>
+        <summary><%=text['JSAPI_reference']%></summary>
+        <%-await template("ListSubpagesForSidebar", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference'])%>
+    </details>
   </li>
-  <li data-default-state="<%=state('Debugger-API')%>"><a href="/<%=locale%>/docs/Tools/Debugger-API"><%=text['Debugger-API']%></a>
-    <%-template("ListSubpages", ['/' + locale + '/docs/Tools/Debugger-API', 1, 0, 1])%>
+  <li class="toggle">
+    <details <%=state('Debugger-API')%>>
+      <summary><%=text['Debugger-API']%></summary>
+      <%-await template("ListSubpages", ['/' + locale + '/docs/Tools/Debugger-API', 1, 0, 1])%>
+    </details>
   </li>
-  
   <li><strong><%=text['Guides']%></strong></li>
-  <li data-default-state="<%=state('General')%>"><a href="#"><%=text['General']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Build_Documentation"><%=text['Build_documentation']%></a></li>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Introduction_to_the_JavaScript_shell"><%=text['Shell']%></a></li>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/JSAPI_User_Guide"><%=text['JSAPI_user_guide']%></a></li>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/JSAPI_Cookbook"><%=text['JSAPI_cookbook']%></a></li>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/How_to_embed_the_JavaScript_engine"><%=text['Embedding']%></a></li>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/GC_Rooting_Guide"><%=text['GC_Rooting_Guide']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('General')%>>
+      <summary><%=text['General']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Build_Documentation"><%=text['Build_documentation']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Introduction_to_the_JavaScript_shell"><%=text['Shell']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/JSAPI_User_Guide"><%=text['JSAPI_user_guide']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/JSAPI_Cookbook"><%=text['JSAPI_cookbook']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/How_to_embed_the_JavaScript_engine"><%=text['Embedding']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/GC_Rooting_Guide"><%=text['GC_Rooting_Guide']%></a></li>
+      </ol>
+    </details>
   </li>
-    <li data-default-state="<%=state('Internals')%>"><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Internals"><%=text['Internals']%></a>
-      <%-template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Internals', 1, 0, 1])%>
-    </li>
+  <li class="toggle">
+    <details <%=state('Internals')%>>
+      <summary><%=text['Internals']%></summary>
+      <%-await template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Internals', 1, 0, 1])%>
+    </details>
+  </li>
   
   <li><strong><%=text['Contributing']%></strong></li>
-  <li data-default-state="<%=state('Getting_started')%>"><a href="#"><%=text['Getting_started']%></a>
-   <ol>
-       <li><a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey"><%=text['Newbie']%></a></li>
-       <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Setting_up_CDT_to_work_on_SpiderMonkey"><%=text['CDT']%></a></li>
-       <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Hacking_Tips"><%=text['Hacking_tips']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Getting_started')%>>
+      <summary><%=text['Getting_started']%></summary>
+      <ol>
+        <li><a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey"><%=text['Newbie']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Setting_up_CDT_to_work_on_SpiderMonkey"><%=text['CDT']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Hacking_Tips"><%=text['Hacking_tips']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('Tests')%>"><a href="#"><%=text['Tests']%></a>
-   <ol>
-      <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Running_Automated_JavaScript_Tests"><%=text['Running_tests']%></a></li>
-      <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Creating_JavaScript_tests"><%=text['Creating_tests']%></a></li>
-      <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Running_Parsemark"><%=text['Running_Parsemark']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Tests')%>>
+      <summary><%=text['Tests']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Running_Automated_JavaScript_Tests"><%=text['Running_tests']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Creating_JavaScript_tests"><%=text['Creating_tests']%></a></li>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Running_Parsemark"><%=text['Running_Parsemark']%></a></li>
+       </ol>
+    </details>
   </li>
 
   <li><strong><%=text['Releases']%></strong></li>
-    <li data-default-state="<%=state('Releases')%>"><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Releases"><%=text['Release_notes']%></a>
-      <%-template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Releases', 1, 1, 1])%>
-    </li>
-  
+  <li class="toggle">
+    <details <%=state('Release_notes')%>>
+      <summary><%=text['Release_notes']%></summary>
+      <%-await template("ListSubpages", ['/' + locale + '/docs/Mozilla/Projects/SpiderMonkey/Releases', 1, 1, 1])%>
+    </details>
+  </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
-  <li data-default-state="<%=state('Useful lists')%>"><a href="#"><%=text['Useful_lists']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Index"><%=text['Index']%></a></li>
-    <li><a href="/<%=locale%>/docs/tag/SpiderMonkey"><%=text['SpiderMonkey_tag']%></a></li>
-   </ol>
+  <li class="toggle">
+    <details <%=state('Useful lists')%>>
+      <summary><%=text['Useful_lists']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/Mozilla/Projects/SpiderMonkey/Index"><%=text['Index']%></a></li>
+        <li><a href="/<%=locale%>/docs/tag/SpiderMonkey"><%=text['SpiderMonkey_tag']%></a></li>
+      </ol>
+    </details>
   </li>
-  <li data-default-state="<%=state('Contribute')%>"><a href="#"><%=text['Contribute']%></a>
-   <ol>
-    <li><a href="/<%=locale%>/docs/MDN/Doc_status/SpiderMonkey"><%=text['Doc_status']%></a></li>
-    <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
-   </ol>
-  </li>
-  
+  <li class="toggle">
+    <details <%=state('Contribute')%>>
+      <summary><%=text['Contribute']%></summary>
+      <ol>
+        <li><a href="/<%=locale%>/docs/MDN/Doc_status/SpiderMonkey"><%=text['Doc_status']%></a></li>
+        <li><a href="/<%=locale%>/docs/MDN"><%=text['The_MDN_project']%></a></li>
+      </ol>
+    </details>
+  </li>  
  </ol>
 </section>

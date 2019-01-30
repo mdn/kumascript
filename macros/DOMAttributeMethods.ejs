@@ -52,27 +52,27 @@ switch(env.locale) {
 </thead>
 <tbody>
 <tr>
-<td><%- template("domxref",["element.setAttribute","setAttribute"]) %> (DOM 1)</td>
-<td><%- template("domxref",["element.setAttributeNS","setAttributeNS"]) %></td>
-<td><%- template("domxref",["element.setAttributeNode","setAttributeNode"]) %></td>
-<td><%- template("domxref",["element.setAttributeNodeNS","setAttributeNodeNS"]) %></td>
+<td><%- await template("domxref",["element.setAttribute","setAttribute"]) %> (DOM 1)</td>
+<td><%- await template("domxref",["element.setAttributeNS","setAttributeNS"]) %></td>
+<td><%- await template("domxref",["element.setAttributeNode","setAttributeNode"]) %></td>
+<td><%- await template("domxref",["element.setAttributeNodeNS","setAttributeNodeNS"]) %></td>
 </tr>
 <tr>
-<td><%- template("domxref",["element.getAttribute","getAttribute"]) %> (DOM 1)</td>
-<td><%- template("domxref",["element.getAttributeNS","getAttributeNS"]) %></td>
-<td><%- template("domxref",["element.getAttributeNode","getAttributeNode"]) %></td>
-<td><%- template("domxref",["element.getAttributeNodeNS","getAttributeNodeNS"]) %></td>
+<td><%- await template("domxref",["element.getAttribute","getAttribute"]) %> (DOM 1)</td>
+<td><%- await template("domxref",["element.getAttributeNS","getAttributeNS"]) %></td>
+<td><%- await template("domxref",["element.getAttributeNode","getAttributeNode"]) %></td>
+<td><%- await template("domxref",["element.getAttributeNodeNS","getAttributeNodeNS"]) %></td>
 </tr>
 <tr>
-<td><%- template("domxref",["element.hasAttribute","hasAttribute"]) %> (DOM 2)</td>
-<td><%- template("domxref",["element.hasAttributeNS","hasAttributeNS"]) %></td>
+<td><%- await template("domxref",["element.hasAttribute","hasAttribute"]) %> (DOM 2)</td>
+<td><%- await template("domxref",["element.hasAttributeNS","hasAttributeNS"]) %></td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
-<td><%- template("domxref",["element.removeAttribute","removeAttribute"]) %> (DOM 1)</td>
-<td><%- template("domxref",["element.removeAttributeNS","removeAttributeNS"]) %></td>
-<td><%- template("domxref",["element.removeAttributeNode","removeAttributeNode"]) %></td>
+<td><%- await template("domxref",["element.removeAttribute","removeAttribute"]) %> (DOM 1)</td>
+<td><%- await template("domxref",["element.removeAttributeNS","removeAttributeNS"]) %></td>
+<td><%- await template("domxref",["element.removeAttributeNode","removeAttributeNode"]) %></td>
 <td>-</td>
 </tr>
 </tbody>

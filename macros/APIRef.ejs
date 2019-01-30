@@ -20,12 +20,12 @@ var escapeQuotes = mdn.escapeQuotes;
 var htmlEscape = kuma.htmlEscape;
 var rtlLocales = ['ar', 'he', 'fa'];
 
-var webAPIData = string.deserialize(template("InterfaceData"));
+var webAPIData = string.deserialize(await template("InterfaceData"));
 if (group) {
-  var webAPIGroups = string.deserialize(template("GroupData"));
+  var webAPIGroups = string.deserialize(await template("GroupData"));
 }
 
-var commonl10n = string.deserialize(template('L10n:Common'));
+var commonl10n = string.deserialize(await template('L10n:Common'));
 
 var text = {
     'Methods': mdn.getLocalString(commonl10n, 'Methods'),
@@ -41,7 +41,7 @@ var text = {
 
 
 // Collect all the things
-var mainIFPages = page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
+var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
 var impl = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].impl : [];
 var inh = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].inh : '';
 var related = [];
@@ -55,7 +55,7 @@ if (group && webAPIGroups[0][group]) {
   related.sort();
   events = webAPIGroups[0][group].events || [];
 }
-    
+
 var pageList = mainIFPages;
 
 var properties = [];
@@ -83,7 +83,7 @@ collect(mainIFPages);
 
 if (impl.length > 0) {
   for (var i = 0; i < impl.length; i++) {
-    var implementPages = page.subpagesExpand('/en-US/docs/Web/API/' + impl[i]);
+    var implementPages = await page.subpagesExpand('/en-US/docs/Web/API/' + impl[i]);
     collect(implementPages);
   }
 }
@@ -113,25 +113,27 @@ getInheritance(inh);
 
 function getImplementedBy(data) {
   for (var key in data) {
-    if (data.hasOwnProperty(key) && data[key].impl.indexOf(mainIF) != -1) {
+    if (data.hasOwnProperty(key)
+        && data[key].impl
+        && data[key].impl.indexOf(mainIF) != -1) {
       implementedBy.push(key);
     }
   }
-  implementedBy.sort();  
+  implementedBy.sort();
 }
 getImplementedBy(webAPIData[0]);
 
 // output helpers
 
 var badges = {
-  ExperimentalBadge : '<span class="sidebar-icon">' + template("ExperimentalBadge", [1]) + '</span>',
-  NonStandardBadge  : '<span class="sidebar-icon">' + template("NonStandardBadge", [1]) + '</span>',
-  DeprecatedBadge   : '<span class="sidebar-icon">' + template("DeprecatedBadge", [1]) + '</span>',
-  ObsoleteBadge     : '<span class="sidebar-icon">' + template("ObsoleteBadge", [1]) + '</span>',
+  ExperimentalBadge : '<span class="sidebar-icon">' + await template("ExperimentalBadge", [1]) + '</span>',
+  NonStandardBadge  : '<span class="sidebar-icon">' + await template("NonStandardBadge", [1]) + '</span>',
+  DeprecatedBadge   : '<span class="sidebar-icon">' + await template("DeprecatedBadge", [1]) + '</span>',
+  ObsoleteBadge     : '<span class="sidebar-icon">' + await template("ObsoleteBadge", [1]) + '</span>',
 }
 
 function buildSublist(pages, title) {
-  var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (var i in pages) {
     var aPage = pages[i];
@@ -139,7 +141,7 @@ function buildSublist(pages, title) {
     var url = aPage.url.replace('en-US', locale);
     var titleSplit = htmlEscape(aPage.title).split('.'); // Two cases, as sometimes the interface name is forgotten in the title:
     var title = titleSplit[titleSplit.length - 1];       // "WebGLRenderingContext.activeTexture()" and "activeTexture()" should both become "activeTexture()"
-    
+
     var translated = false;
     if (locale != 'en-US') {
         aPage.translations.forEach(function(translation){
@@ -152,15 +154,15 @@ function buildSublist(pages, title) {
             }
         });
     }
-    
+
     var cta = '';
      if (!translated && locale != 'en-US') {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['title'] + '">' + text['translate'] + '</a>';
     }
-    
-    
+
+
     result += '<li>';
-    
+
     if (hasTag(aPage, 'Experimental')) {
         result += badges.ExperimentalBadge;
     }
@@ -177,54 +179,54 @@ function buildSublist(pages, title) {
         result += badges.ObsoleteBadge;
         result += '<s class="obsoleteElement">';
     }
-    
+
     if (rtlLocales.indexOf(locale) != -1) {
         result += '<bdi>';
     }
-    
+
     if (slug == aPage.slug) {
         result += '<em><code>' + title + '</code></em>'
     } else {
         result += '<a href="' + url + '" title="' + summary + '"><code>' + title + '</code></a>' + cta;
     }
-    
+
     if (rtlLocales.indexOf(locale) != -1) {
         result += '</bdi>';
     }
-    
+
     if (hasTag(aPage, 'Obsolete')) {
         result += '</s>';
     }
-    
+
     result += '</li>';
   }
 
-  result += '</ol></li>';
+  result += '</ol></details></li>';
 
   return result;
 }
 
 function buildIFList(interfaces, title) {
-  var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (var i = 0; i < interfaces.length; i++) {
     var url = interfaces[i].replace('()', '').replace('.', '/');
     result += '<li><a href="' + APIHref + '/' + url + '"><code>' + interfaces[i] + '</code></a></li>';
   }
 
-  result += '</ol></li>';
+  result += '</ol></details></li>';
 
   return result;
 }
 
 function buildEventList(events, title) {
-  var result = '<li data-default-state="open"><a href="#"><strong>' + title + '</strong></a><ol>';
+  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (var i = 0; i < events.length; i++) {
     result += '<li><a href="' + EventHref + '/' + events[i] + '"><code>' + events[i] + '</code></a></li>';
   }
 
-  result += '</ol></li>';
+  result += '</ol></details></li>';
 
   return result;
 }
@@ -237,14 +239,14 @@ if (group && webAPIGroups[0][group] && webAPIGroups[0][group].overview) {
 }
 output += '<li><strong><a href="' +  APIHref + '/' + mainIF + '"><code>' + mainIF + '</a></code></strong></li>';
 
-if (ctors.length > 0) { 
+if (ctors.length > 0) {
   output += buildSublist(ctors, text['Constructor']);
 }
 
-if (properties.length > 0) { 
+if (properties.length > 0) {
   output += buildSublist(properties, text['Properties']);
 }
-if (methods.length > 0) { 
+if (methods.length > 0) {
   output += buildSublist(methods, text['Methods']);
 }
 if (inh.length > 0) {

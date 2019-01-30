@@ -15,11 +15,11 @@
  */
 
 /* get a page's language (Don't use page.language!) */
-var lang = env.locale;
-var api = $0;
-var str = $1 || $0;
-var rtlLocales = ['ar', 'he', 'fa'];
-var localStrings = string.deserialize(template("L10n:Common"));
+let lang = env.locale;
+let api = $0;
+let str = $1 || $0;
+let rtlLocales = ['ar', 'he', 'fa'];
+let localStrings = string.deserialize(await template("L10n:Common"));
 
 api = api.replace(' ', '_').replace('()', '').replace('.prototype.', '.').replace(/\./g, '/');
 
@@ -31,9 +31,9 @@ if (rtlLocales.indexOf(lang) != -1) {
 // (important for red links to create correct new pages)
 api = api.charAt(0).toUpperCase() + api.slice(1);
 
-var URL = "/" + lang + '/docs/Web/API/' + api;
+let URL = "/" + lang + '/docs/Web/API/' + api;
 
-var anch = '';
+let anch = '';
 
 if ($2) {
   str = str + '.' + $2;
@@ -42,8 +42,8 @@ if ($2) {
 
 // Now that we have the URL, let's gather the page summary for our tooltip
 
-var page = wiki.getPage(URL);
-var summary = "";
+let page = await wiki.getPage(URL);
+let summary = "";
 
 if (!$2) {
     if (page && page.summary) {
@@ -53,8 +53,8 @@ if (!$2) {
     }
 }
 
-var code = '';
-var endcode = '';
+let code = '';
+let endcode = '';
 if (!$3) { code = '<code>'; endcode = '</code>' }
 
 %><a href="<%- URL+anch %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>

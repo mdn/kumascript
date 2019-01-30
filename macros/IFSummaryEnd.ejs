@@ -33,15 +33,15 @@ switch(env.locale) {
 
 </span>
 <% if ($2) { %>
-  <%- template("VersionTimeline", [$2, $1, $4, $3]) %>
+  <%- await template("VersionTimeline", [$2, $1, $4, $3]) %>
 <% } %>
 <div style="background:#eee; padding:2px;">
 <%
 if ($0 != "") {
-  %><%- inheritsFrom  + template("interface", [$0]) %><%
+  %><%- inheritsFrom  + await template("interface", [$0]) %><%
 } else {
   %><span>&nbsp;</span><%
 }
 %>
-<span style="text-align:right; float:right;"><%- lastChanged + $1 + " " + template("geckoRelease", [$1]) %></span></div>
+<span style="text-align:right; float:right;"><%- lastChanged + $1 + " " + await template("geckoRelease", [$1]) %></span></div>
 </div>

@@ -5,10 +5,10 @@ var apiPages;
 var apiSummaryId = "api-summary";
 
 if ($0) {
-  apiPages = page.subpagesExpand($0);
+  apiPages = await page.subpagesExpand($0);
 }
 else {
-  apiPages = page.subpagesExpand();
+  apiPages = await page.subpagesExpand();
 }
 
 for (var i=0; i < apiPages.length; i++) {

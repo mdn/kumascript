@@ -15,13 +15,28 @@
     "status": "CR"
   },
   "ARIA": {
-    "name": "Accessible Rich Internet Applications (WAI-ARIA)",
+    "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.1",
     "url": "https://www.w3.org/TR/wai-aria-1.1/",
     "status": "REC"
+  },
+  "ARIA 1.2": {
+    "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+    "url": "https://www.w3.org/TR/wai-aria-1.2/",
+    "status": "WD"
+  },
+  "ARIA Authoring Practices": {
+    "name": "WAI-ARIA Authoring Practices 1.1",
+    "url": "https://w3c.github.io/aria-practices/",
+    "status": "Draft"
   },
   "ARIA in HTML": {
     "name": "ARIA in HTML",
     "url": "https://w3c.github.io/html-aria/",
+    "status": "WD"
+  },
+  "ARIA Authoring Practices": {
+    "name": "WAI-ARIA Authoring Practices",
+    "url": "https://www.w3.org/TR/wai-aria-practices-1.1/",
     "status": "WD"
   },
   "Async Function": {
@@ -71,7 +86,7 @@
   },
   "Compat": {
     "name": "Compatibility Standard",
-    "url": "https://compat.spec.whatwg.org",
+    "url": "https://compat.spec.whatwg.org/",
     "status": "Living"
   },
   "Compositing": {
@@ -116,7 +131,7 @@
   },
   "CSP Embedded": {
     "name": "Content Security Policy: Embedded Enforcement",
-    "url": "https://w3c.github.io/webappsec-csp/embedded/",
+    "url": "https://w3c.github.io/webappsec-cspee/",
     "status": "WD"
   },
   "CSS1": {
@@ -197,7 +212,7 @@
   "CSS3 Display": {
     "name": "CSS Display Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-display/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS3 Environment Variables": {
     "name": "CSS Environment Variables Module Level&nbsp;1",
@@ -414,6 +429,11 @@
     "url": "https://drafts.csswg.org/css-writing-modes-4/",
     "status": "CR"
   },
+  "CSS5 Media Queries": {
+    "name": "Media Queries Level&nbsp;5",
+    "url": "https://drafts.csswg.org/mediaqueries-5/",
+    "status": "ED"
+  },
   "CSS Animation Worklet": {
     "name": "CSS Animation Worklet API",
     "url": "https://wicg.github.io/animation-worklet/",
@@ -461,7 +481,7 @@
   },
   "CSS Logical Properties": {
     "name": "CSS Logical Properties and Values Level&nbsp;1",
-    "url": "https://drafts.csswg.org/css-logical-props/",
+    "url": "https://drafts.csswg.org/css-logical/",
     "status": "ED"
   },
   "CSS Masks": {
@@ -479,7 +499,7 @@
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
     "status": "WD"
   },
-  "CSS Overscroll Behavior":{
+  "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
     "url": "https://wicg.github.io/overscroll-behavior/",
     "status": "Draft"
@@ -496,8 +516,18 @@
   },
   "CSS Scope": {
     "name": "CSS Scoping Module Level&nbsp;1",
-    "url": "http://drafts.csswg.org/css-scoping/",
+    "url": "https://drafts.csswg.org/css-scoping/",
     "status": "WD"
+  },
+  "CSS Scrollbars": {
+    "name": "CSS Scrollbars Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scrollbars-1/",
+    "status": "WD"
+  },
+  "CSS Scroll Anchoring": {
+    "name": "CSS Scroll Anchoring Module Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scroll-anchoring/",
+    "status": "ED"
   },
   "CSS Scroll Snap": {
     "name": "CSS Scroll Snap Module Level&nbsp;1",
@@ -560,9 +590,9 @@
     "status": "ED"
   },
   "Device Orientation": {
-    "name": "Device Orientation Events",
-    "url": "https://w3c.github.io/deviceorientation/spec-source-orientation.html",
-    "status": "WD"
+    "name": "DeviceOrientation Event Specification",
+    "url": "https://w3c.github.io/deviceorientation/",
+    "status": "ED"
   },
   "DOM Parsing": {
     "name": "DOM Parsing and Serialization",
@@ -696,8 +726,8 @@
   },
   "Feature Policy": {
     "name": "Feature Policy",
-    "url": "https://wicg.github.io/feature-policy/",
-    "status": "Draft"
+    "url": "https://w3c.github.io/webappsec-feature-policy/",
+    "status": "ED"
   },
   "Fetch": {
     "name": "Fetch",
@@ -834,6 +864,16 @@
     "url": "https://html.spec.whatwg.org/multipage/",
     "status": "Living"
   },
+  "IMSC 1.0.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.0.1 (IMSC1)",
+    "url": "https://www.w3.org/TR/ttml-imsc1.0.1/",
+    "status": "REC"
+  },
+  "IMSC 1.1": {
+    "name": "TTML Profiles for Internet Media Subtitles and Captions 1.1",
+    "url": "https://www.w3.org/TR/ttml-imsc1.1/",
+    "status": "PR"
+  },
   "IndexedDB": {
     "name": "Indexed Database API",
     "url": "https://www.w3.org/TR/IndexedDB/",
@@ -851,13 +891,23 @@
   },
   "InputEvents2": {
     "name": "Input Events Level 2",
-    "url": "https://w3c.github.io/input-events/index.html",
+    "url": "https://w3c.github.io/input-events/",
     "status": "WD"
   },
   "IntersectionObserver": {
     "name": "Intersection Observer",
     "url": "https://w3c.github.io/IntersectionObserver/",
     "status": "WD"
+  },
+  "Keyboard Lock": {
+    "name": "Keyboard Lock",
+    "url": "https://w3c.github.io/keyboard-lock/",
+    "status": "ED"
+  },
+  "Keyboard Map": {
+    "name": "Keyboard Map",
+    "url": "https://wicg.github.io/keyboard-map/",
+    "status": "ED"
   },
   "Long Tasks": {
     "name": "Long Tasks API 1",
@@ -886,7 +936,7 @@
   },
   "Media Capabilities": {
     "name": "Media Capabilities",
-    "url": "https://wicg.github.io/media-capabilities",
+    "url": "https://wicg.github.io/media-capabilities/",
     "status": "Draft"
   },
   "Media Capture": {
@@ -898,6 +948,11 @@
     "name": "Media Capture from DOM Elements",
     "url": "https://w3c.github.io/mediacapture-fromelement/",
     "status": "WD"
+  },
+  "Media Playback Quality": {
+    "name": "Media Playback Quality",
+    "url": "https://wicg.github.io/media-playback-quality/",
+    "status": "ED"
   },
   "Media Session": {
     "name": "Media Session Standard",
@@ -994,6 +1049,11 @@
     "url": "https://w3c.github.io/payment-handler/",
     "status": "WD"
   },
+  "Payment Method Identifiers": {
+    "name": "Payment Method Identifiers",
+    "url": "https://w3c.github.io/payment-method-id/",
+    "status": "CR"
+  },
   "Permissions API": {
     "name": "Permissions",
     "url": "https://w3c.github.io/permissions/",
@@ -1039,6 +1099,11 @@
     "url": "https://w3c.github.io/presentation-api/",
     "status": "CR"
   },
+  "Priority Hints": {
+    "name": "Priority Hints",
+    "url": "https://wicg.github.io/priority-hints/",
+    "status": "Draft"
+  },
   "Proximity Events": {
     "name": "Proximity Sensor",
     "url": "https://w3c.github.io/proximity/",
@@ -1068,6 +1133,11 @@
     "name": "Timing control for script-based animations",
     "url": "https://www.w3.org/TR/animation-timing/",
     "status": "Obsolete"
+  },
+  "Resize Observer": {
+    "name": "Resize Observer",
+    "url": "https://drafts.csswg.org/resize-observer/",
+    "status": "ED"
   },
   "Resource Hints": {
     "name": "Resource Hints",
@@ -1141,7 +1211,7 @@
   },
   "Static Range": {
     "name": "Static Range",
-    "url": "https://w3c.github.io/staticrange/index.html",
+    "url": "https://w3c.github.io/staticrange/",
     "status": "ED"
   },
   "Storage": {
@@ -1211,7 +1281,7 @@
   },
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
-    "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
+    "url": "https://w3c.github.io/dnt/drafts/tracking-dnt.html",
     "status": "CR"
   },
   "Typed Array": {
@@ -1293,11 +1363,6 @@
     "name": "Web Audio API",
     "url": "https://webaudio.github.io/web-audio-api/",
     "status": "WD"
-  },
-  "Web Background Sync": {
-    "name": "Web Background Synchronization",
-    "url": "https://wicg.github.io/BackgroundSync/spec/",
-    "status": "Living"
   },
   "Web Bluetooth": {
     "name": "Web Bluetooth",
@@ -1411,8 +1476,8 @@
   },
   "WebDriver": {
     "name": "WebDriver",
-    "url": "https://w3c.github.io/webdriver/webdriver-spec.html",
-    "status": "REC"
+    "url": "https://w3c.github.io/webdriver/",
+    "status": "Living"
   },
   "WEBGL_color_buffer_float": {
     "name": "WEBGL_color_buffer_float",
@@ -1499,6 +1564,11 @@
     "url": "https://notifications.spec.whatwg.org/",
     "status": "Living"
   },
+  "WebRTC Statistics Identifiers": {
+    "name": "Identifiers for WebRTC's Statistics API",
+    "url": "https://w3c.github.io/webrtc-stats/",
+    "status": "CR"
+  },
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
     "url": "https://w3c.github.io/webrtc-pc/",
@@ -1551,7 +1621,7 @@
   },
   "XMLHttpRequest": {
     "name": "XMLHttpRequest",
-    "url": "https://xhr.spec.whatwg.org",
+    "url": "https://xhr.spec.whatwg.org/",
     "status": "Living"
   },
   "XPath1": {
@@ -1561,7 +1631,7 @@
   },
   "XPath2": {
     "name": "XPath 2.0",
-    "url": "https://www.w3.org/TR/xpath-20/",
+    "url": "https://www.w3.org/TR/xpath20/",
     "status": "REC"
   },
   "XPath3": {

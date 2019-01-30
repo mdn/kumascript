@@ -44,7 +44,7 @@ var titleAttrValue = mdn.localString({
 var str = "";
 
 if ($0) {
-    %><span title="<%=titleAttrValue%>"><i class="icon-warning-sign"> </i></span><%
+    %><span title="<%=titleAttrValue%>" class="icon-only-inline"><i class="icon-warning-sign"> </i></span><%
 } else {
     str = mdn.localString({
         "ca": "Non-standard",
@@ -81,5 +81,5 @@ if ($0) {
         "zh-TW": "非標準",
         "en-US": "Non-standard"
     });
-    %><%-template("SimpleBadge", [str, "nonstandardBadge", titleAttrValue])%><%
+    %><%-await template("SimpleBadge", [str, "nonstandardBadge", titleAttrValue])%><%
 }%>
