@@ -5,7 +5,7 @@ const { assert, itMacro, describeMacro } = require('./utils');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-describeMacro('draft', function() {
+describeMacro('Draft', function() {
     itMacro('No arguments (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call(),

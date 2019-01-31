@@ -23,9 +23,9 @@ var s_details = '';
 if ($0) {
     s_details = $0;
 
-    var pattern = /~~([a-zA-Z0-9_-]+)/ig;
+    const USERNAME_REGEX = /~~([\w.+-]+)/ig;
 
-    s_details = "<em>" + s_details.replace(pattern, function replacer(match, username, endchar) {
+    s_details = "<em>" + s_details.replace(USERNAME_REGEX, function replacer(match, username, endchar) {
         return "<a href='/" + env.locale + "/profiles/" + username + "'>" + username + "</a>" + endchar;
     }) + "</em>";
 }
