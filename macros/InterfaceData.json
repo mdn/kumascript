@@ -68,6 +68,18 @@
       "inh": "EventTarget",
       "impl": []
     },
+    "AuthenticatorAssertionResponse": {
+      "inh": "AuthenticatorResponse",
+      "impl": []
+    },
+    "AuthenticatorAttestationResponse": {
+      "inh": "AuthenticatorResponse",
+      "impl": []
+    },
+    "AuthenticatorResponse": {
+      "inh": "",
+      "impl": []
+    },
     "AutocompleteErrorEvent": {
       "inh": "Event",
       "impl": []
