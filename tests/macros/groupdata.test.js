@@ -52,7 +52,7 @@ function checkGroupData(groupDataJson) {
   for (let groupName of groupNames) {
     // the group name contains only the permitted characters
     expect(permittedCharacters.group.test(groupName)).toBe(true);
-    group = groupData[0][groupName];
+    const group = groupData[0][groupName];
 
     // the group contains interfaces, properties, methods and events
     // they are all string arrays and contain only the permitted characters
