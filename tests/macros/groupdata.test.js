@@ -4,7 +4,7 @@
 
 const { itMacro, describeMacro } = require('./utils');
 
-/*
+/**
 Different strings in GroupData objects have different sets of
 permitted characters.
 */
@@ -22,7 +22,7 @@ const permittedCharacters = {
   guideUrl:   /^\/[\w-.~/]+$/
 }
 
-/*
+/**
 Properties that are allowed in a group
 */
 const permittedGroupProperties = [
@@ -37,7 +37,7 @@ const permittedGroupProperties = [
   'guides'
 ];
 
-/*
+/**
 Properties that must be present in a group
 */
 const mandatoryGroupProperties = [
@@ -47,7 +47,7 @@ const mandatoryGroupProperties = [
   'events',
 ];
 
-/*
+/**
 Properties that are allowed in a guide
 */
 const permittedGuideProperties = [
@@ -55,7 +55,7 @@ const permittedGuideProperties = [
   'url'
 ];
 
-/*
+/**
 Properties that must be present in a guide
 */
 const mandatoryGuideProperties = [
@@ -63,7 +63,7 @@ const mandatoryGuideProperties = [
   'url'
 ];
 
-/*
+/**
 Check that `obj` contains:
 * only the properties in `permitted`
 * all the properties in `mandatory`
@@ -78,7 +78,7 @@ function checkProperties(obj, permitted, mandatory) {
   }
 }
 
-/*
+/**
 Check that `strings` is an array of strings,
 and that each string matches the given regex.
 */
@@ -89,7 +89,7 @@ function checkStringArray(strings, permitted) {
   }
 }
 
-/*
+/**
 Performs basic validation of the GroupData JSON object
 */
 function checkGroupData(groupDataJson) {
