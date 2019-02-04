@@ -11,7 +11,7 @@ permitted characters.
 const permittedCharacters = {
   group:      /^[\w ()-]+$/,
   overview:   /^[\w ()-]+$/,
-  interface:  /^[\w.]+$/,
+  interface:  /^[A-Z][\w.]+$/,
   property:   /^[\w.]+$/,
   method:     /^[\w.()]+$/,
   event:      /^[\w()]+$/,
