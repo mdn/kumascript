@@ -1435,7 +1435,7 @@
             "events":     [ "change" ]
         },
         "Selection API": {
-            "interfaces":  [ "Selection" ],
+            "interfaces": [ "Selection" ],
             "properties": [ "Document.onselectionchange",
                             "GlobalEventHandlers.onselectstart" ],
             "methods":    [ "Document.getSelection()",
