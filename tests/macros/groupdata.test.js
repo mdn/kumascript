@@ -15,22 +15,77 @@ const permittedCharacters = {
   property:   /^[\w.]+$/,
   method:     /^[\w.()]+$/,
   event:      /^[\w()]+$/,
+  dictionary: /^\w+$/,
+  callback:   /^\w+$/,
+  type:       /^\w+$/,
   guideTitle: /^[\w .,]+$/,
   guideUrl:   /^\/[\w-.~/]+$/
 }
 
 /*
-Given `strings`, which should be an array of strings,
-and `characters`, which is a regular expression defining
-the permitted characters in each string, this checks
-that `strings` really is an array and that the strings
-it contains contain only the permitted characters.
+Properties that are allowed in a group
 */
-function checkStringArray(strings, characters) {
-  expect(strings).toBeDefined();
+const permittedGroupProperties = [
+  'overview',
+  'interfaces',
+  'methods',
+  'properties',
+  'dictionaries',
+  'callbacks',
+  'types',
+  'events',
+  'guides'
+];
+
+/*
+Properties that must be present in a group
+*/
+const mandatoryGroupProperties = [
+  'interfaces',
+  'methods',
+  'properties',
+  'events',
+];
+
+/*
+Properties that are allowed in a guide
+*/
+const permittedGuideProperties = [
+  'title',
+  'url'
+];
+
+/*
+Properties that must be present in a guide
+*/
+const mandatoryGuideProperties = [
+  'title',
+  'url'
+];
+
+/*
+Check that `obj` contains:
+* only the properties in `permitted`
+* all the properties in `mandatory`
+*/
+function checkProperties(obj, permitted, mandatory) {
+  let props = Object.keys(obj);
+  for (let prop of props) {
+    expect(permitted.includes(prop)).toBe(true);
+  }
+  for (let prop of mandatory) {
+    expect(props.includes(prop)).toBe(true);
+  }
+}
+
+/*
+Check that `strings` is an array of strings,
+and that each string matches the given regex.
+*/
+function checkStringArray(strings, permitted) {
   expect(Array.isArray(strings)).toBe(true);
   for (let string of strings) {
-    expect(characters.test(string)).toBe(true);
+    expect(permitted.test(string)).toBe(true);
   }
 }
 
@@ -50,16 +105,31 @@ function checkGroupData(groupDataJson) {
   const groupNames = Object.keys(groupData[0]);
 
   for (let groupName of groupNames) {
+
     // the group name contains only the permitted characters
     expect(permittedCharacters.group.test(groupName)).toBe(true);
+
     const group = groupData[0][groupName];
 
-    // the group contains interfaces, properties, methods and events
-    // they are all string arrays and contain only the permitted characters
+    // the group has the correct properties
+    checkProperties(group, permittedGroupProperties, mandatoryGroupProperties);
+
+    // string arrays contain only their permitted characters
     checkStringArray(group.interfaces, permittedCharacters.interface);
     checkStringArray(group.properties, permittedCharacters.property);
     checkStringArray(group.methods, permittedCharacters.method);
     checkStringArray(group.events, permittedCharacters.event);
+
+    // dictionaries, callbacks, and types are optional
+    if (group.dictionaries) {
+      checkStringArray(group.dictionaries, permittedCharacters.dictionary);
+    }
+    if (group.callbacks) {
+      checkStringArray(group.callbacks, permittedCharacters.callback);
+    }
+    if (group.types) {
+      checkStringArray(group.types, permittedCharacters.type);
+    }
 
     // overview is optional
     if (group.overview) {
@@ -69,14 +139,14 @@ function checkGroupData(groupDataJson) {
 
     // guides is optional
     if (group.guides) {
-      // if present it is an array...
+      // if present it is an array of guides
       expect(Array.isArray(group.guides)).toBe(true);
       for (let guide of group.guides) {
-        // ...containing objects that have title and url properties
+        // check that the guide has the correct properties
+        checkProperties(guide, permittedGuideProperties, mandatoryGuideProperties);
+
         // these are both strings that contain only the permitted characters
-        expect(guide.title).toBeDefined();
         expect(permittedCharacters.guideTitle.test(guide.title)).toBe(true);
-        expect(guide.url).toBeDefined();
         expect(permittedCharacters.guideUrl.test(guide.url)).toBe(true);
       }
     }

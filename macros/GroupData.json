@@ -658,7 +658,7 @@
                             "gamepaddisconnected" ]
         },
         "Geolocation API": {
-            "guide":      [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
+            "guides":     [ { "url":  "/en-US/docs/Web/API/Geolocation/Using_geolocation",
                               "title": "Using geolocation" } ],
             "interfaces": [ "Coordinates",
                             "Geolocation",
