@@ -85,7 +85,7 @@ and that each string matches the given regex.
 function checkStringArray(strings, permitted) {
   expect(Array.isArray(strings)).toBe(true);
   for (let string of strings) {
-    expect(string).toMatch(permitted)
+    expect(string).toMatch(permitted);
   }
 }
 
