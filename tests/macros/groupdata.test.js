@@ -133,8 +133,11 @@ function checkGroupData(groupDataJson) {
 
     // overview is optional
     if (group.overview) {
-      // if present it must contain only the permitted characters
-      expect(group.overview).toMatch(permittedCharacters.overview);
+      // if present it is an array containing 1 element
+      expect(Array.isArray(group.overview)).toBe(true);
+      expect(group.overview.length).toBe(1);
+      // ... and the element must contain only the permitted characters
+      expect(group.overview[0]).toMatch(permittedCharacters.overview);
     }
 
     // guides is optional
