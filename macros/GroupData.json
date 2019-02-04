@@ -658,7 +658,7 @@
                             "gamepaddisconnected" ]
         },
         "Geolocation API": {
-            "guide":      [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
                               "title": "Using geolocation" } ],
             "interfaces": [ "Coordinates",
                             "Geolocation",
@@ -1435,7 +1435,7 @@
             "events":     [ "change" ]
         },
         "Selection API": {
-            "interface":  [ "Selection" ],
+            "interfaces": [ "Selection" ],
             "properties": [ "Document.onselectionchange",
                             "GlobalEventHandlers.onselectstart" ],
             "methods":    [ "Document.getSelection()",
@@ -1893,6 +1893,7 @@
                             "AuthenticatorResponse",
                             "AuthenticatorAttestationResponse",
                             "AuthenticatorAssertionResponse" ],
+            "methods":    [],
             "properties": [],
             "events":     []
         },
