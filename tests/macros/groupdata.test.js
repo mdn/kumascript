@@ -71,10 +71,10 @@ Check that `obj` contains:
 function checkProperties(obj, permitted, mandatory) {
   let props = Object.keys(obj);
   for (let prop of props) {
-    expect(permitted.includes(prop)).toBe(true);
+    expect(permitted).toContain(prop);
   }
   for (let prop of mandatory) {
-    expect(props.includes(prop)).toBe(true);
+    expect(props).toContain(prop);
   }
 }
 
@@ -85,7 +85,7 @@ and that each string matches the given regex.
 function checkStringArray(strings, permitted) {
   expect(Array.isArray(strings)).toBe(true);
   for (let string of strings) {
-    expect(permitted.test(string)).toBe(true);
+    expect(string).toMatch(permitted)
   }
 }
 
@@ -107,7 +107,7 @@ function checkGroupData(groupDataJson) {
   for (let groupName of groupNames) {
 
     // the group name contains only the permitted characters
-    expect(permittedCharacters.group.test(groupName)).toBe(true);
+    expect(groupName).toMatch(permittedCharacters.group);
 
     const group = groupData[0][groupName];
 
@@ -134,7 +134,7 @@ function checkGroupData(groupDataJson) {
     // overview is optional
     if (group.overview) {
       // if present it must contain only the permitted characters
-      expect(permittedCharacters.overview.test(group.overview)).toBe(true);
+      expect(group.overview).toMatch(permittedCharacters.overview);
     }
 
     // guides is optional
@@ -146,8 +146,8 @@ function checkGroupData(groupDataJson) {
         checkProperties(guide, permittedGuideProperties, mandatoryGuideProperties);
 
         // these are both strings that contain only the permitted characters
-        expect(permittedCharacters.guideTitle.test(guide.title)).toBe(true);
-        expect(permittedCharacters.guideUrl.test(guide.url)).toBe(true);
+        expect(guide.title).toMatch(permittedCharacters.guideTitle);
+        expect(guide.url).toMatch(permittedCharacters.guideUrl);
       }
     }
 
