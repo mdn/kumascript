@@ -7,4 +7,4 @@ if (!String.StartsWith($0, '/')) {
     fileName = $0;
 }
 %>
-<%- template("xultu-generic", [base_path + fileName + '.txt', base_path + fileName]) %>
+<%- await template("xultu-generic", [base_path + fileName + '.txt', base_path + fileName]) %>

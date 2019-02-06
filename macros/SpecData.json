@@ -726,8 +726,8 @@
   },
   "Feature Policy": {
     "name": "Feature Policy",
-    "url": "https://wicg.github.io/feature-policy/",
-    "status": "Draft"
+    "url": "https://w3c.github.io/webappsec-feature-policy/",
+    "status": "ED"
   },
   "Fetch": {
     "name": "Fetch",
@@ -1133,6 +1133,11 @@
     "name": "Timing control for script-based animations",
     "url": "https://www.w3.org/TR/animation-timing/",
     "status": "Obsolete"
+  },
+  "Resize Observer": {
+    "name": "Resize Observer",
+    "url": "https://drafts.csswg.org/resize-observer/",
+    "status": "ED"
   },
   "Resource Hints": {
     "name": "Resource Hints",

@@ -658,7 +658,7 @@
                             "gamepaddisconnected" ]
         },
         "Geolocation API": {
-            "guide":      [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
                               "title": "Using geolocation" } ],
             "interfaces": [ "Coordinates",
                             "Geolocation",
@@ -1378,6 +1378,16 @@
             "properties": [ "Navigator.syncManager"],
             "events":     []
         },
+        "Resize Observer API": {
+            "overview":   [ "Resize Observer API" ],
+            "interfaces": [ "ResizeObservation",
+                            "ResizeObserver",
+                            "ResizeObserverEntry" ],
+            "methods":    [],
+            "properties": [],
+            "events":     [],
+            "callbacks":  [ "ResizeObserverCallback" ]
+        },
         "Resource Statistics API": {
             "interfaces": [ "NetworkStatsData",
                             "PowerStatsData",
@@ -1397,6 +1407,25 @@
             "properties": [ "Window.performance" ],
             "events":     []
         },
+        "Screen Capture API": {
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture_API",
+                              "title": "Using the Screen Capture API" }],
+            "interfaces": [],
+            "dictionaries": [],
+            "methods":    [ "MediaDevices.getDisplayMedia()" ],
+            "properties": [ "MediaTrackConstraints.cursor",
+                            "MediaTrackConstraints.displaySurface",
+                            "MediaTrackConstraints.logicalSurface",
+                            "MediaTrackSettings.cursor",
+                            "MediaTrackSettings.displaySurface",
+                            "MediaTrackSettings.logicalSurface",
+                            "MediaTrackSupportedConstraints.cursor",
+                            "MediaTrackSupportedConstraints.displaySurface",
+                            "MediaTrackSupportedConstraints.logicalSurface" ],
+            "types":      [ "CursorCaptureConstraintSet",
+                            "DisplayCaptureSurfaceType" ],
+            "events":     []
+        },
         "Screen Orientation API": {
             "guides":     [ { "url":   "/en-US/docs/Web/API/CSS_Object_Model/Managing_screen_orientation",
                               "title": "Managing screen orientation" } ],
@@ -1406,7 +1435,7 @@
             "events":     [ "change" ]
         },
         "Selection API": {
-            "interface":  [ "Selection" ],
+            "interfaces": [ "Selection" ],
             "properties": [ "Document.onselectionchange",
                             "GlobalEventHandlers.onselectstart" ],
             "methods":    [ "Document.getSelection()",
@@ -1819,6 +1848,7 @@
                             "AudioBuffer",
                             "AudioBufferSourceNode",
                             "AudioContext",
+                            "AudioContextOptions",
                             "AudioDestinationNode",
                             "AudioListener",
                             "AudioNode",
@@ -1863,6 +1893,7 @@
                             "AuthenticatorResponse",
                             "AuthenticatorAttestationResponse",
                             "AuthenticatorAssertionResponse" ],
+            "methods":    [],
             "properties": [],
             "events":     []
         },

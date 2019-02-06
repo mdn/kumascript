@@ -20,7 +20,7 @@ var headlineLevel = $2 || "3";
 // Do nothing if the specified version is older than the
 // current version of Gecko.
 
-var currentGecko = template("CurrentGecko");
+var currentGecko = await template("CurrentGecko");
 
 if (parseInt(currentGecko, 10) - parseInt($1, 10) < 9) {
 %>
@@ -33,7 +33,7 @@ if (parseInt(currentGecko, 10) - parseInt($1, 10) < 9) {
 if (parseInt(currentGecko, 10) - parseInt($1, 10) < 9) {
 %>
     <span class="indicatorInHeadline standardNote standardNoteMethod"><%-
-     mdn.replacePlaceholders(str, {version: $1}) %> <%- template("geckoRelease", [$1])
+     mdn.replacePlaceholders(str, {version: $1}) %> <%- await template("geckoRelease", [$1])
     %></span>
 </div>
 <%

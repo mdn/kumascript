@@ -520,37 +520,37 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('Objects')%>>
        <summary><%=text['Global_Objects']%></summary>
-        <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Global_Objects', 1])%>
+        <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Global_Objects', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Operators')%>>
       <summary><%=text['Operators']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Operators', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Operators', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Statements')%>>
       <summary><%=text['Statements']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Statements', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Statements', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Functions')%>>
       <summary><%=text['Functions']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Functions', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Functions', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Classes')%>>
       <summary><%=text['Classes']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Classes', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Classes', 1])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Errors')%>>
       <summary><%=text['Errors']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Errors', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/Reference/Errors', 1])%>
     </details>
   </li>
   <li class="toggle">
@@ -572,7 +572,7 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('New_in_JS')%>>
       <summary><%=text['New_in_JS']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
     </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>

@@ -18,7 +18,7 @@ function hasTag(tags, tag) {
     return 0;
 }
 
-var pageList = page.subpagesExpand(section, '', true);
+var pageList = await page.subpagesExpand(section, '', true);
 var obj = { a: [], b: [], c: [], d: [], e: [], f: [], g: [], h: [], i: [], j: [], k: [], l: [], m: [],
             n: [], o: [], p: [], q: [], r: [], s: [], t: [], u: [], v: [], w: [], x: [], y: [], z: [], _: []};
 var counter = 0;
@@ -73,16 +73,16 @@ var found = mdn.localString({
          <li>
 
             <% if (hasTag(result[i].tags, 'Experimental')) { %>
-                <span class="sidebar-icon"><%-template("ExperimentalBadge", [1])%></span>
+                <span class="sidebar-icon"><%-await template("ExperimentalBadge", [1])%></span>
             <% } %>
             <% if (hasTag(result[i].tags, 'Non-standard')) { %>
-                 <span class="sidebar-icon"><%-template("NonStandardBadge", [1])%></span>
+                 <span class="sidebar-icon"><%-await template("NonStandardBadge", [1])%></span>
             <% } %>
             <% if (hasTag(result[i].tags, 'Deprecated')) { %>
-                 <span class="sidebar-icon"><%-template("DeprecatedBadge", [1])%></span>
+                 <span class="sidebar-icon"><%-await template("DeprecatedBadge", [1])%></span>
             <% } %>
             <% if (hasTag(result[i].tags, 'Obsolete')) { %>
-                <span class="sidebar-icon"><%-template("ObsoleteBadge", [1])%></span>
+                <span class="sidebar-icon"><%-await template("ObsoleteBadge", [1])%></span>
             <% } %>
             
              <% if (hasTag(result[i].tags, 'Obsolete')) { %>

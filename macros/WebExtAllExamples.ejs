@@ -13,7 +13,7 @@ is generated using this macro.
 */
 
 const examplesBaseUrl = "https://github.com/mdn/webextensions-examples/tree/master/";
-const allExamples = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/webextensions-examples/master/examples.json");
+const allExamples = await MDN.fetchJSONResource("https://raw.githubusercontent.com/mdn/webextensions-examples/master/examples.json");
 const lang = env.locale;
 
 const s_name = mdn.localString({

@@ -9,4 +9,4 @@
 //  $1  default to false; if set make use of a permanent badge
 %>
 
-<%-template("FirefoxVersionIndicator", [($1?3:0), $0])%>
+<%-await template("FirefoxVersionIndicator", [($1?3:0), $0])%>

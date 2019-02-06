@@ -35,13 +35,13 @@ if (slug) {
 
     // Fetch the databases
 
-    var webAPIData = string.deserialize(template('InterfaceData'));
+    var webAPIData = string.deserialize(await template('InterfaceData'));
 
     if (group) {
-        var webAPIGroups = string.deserialize(template('GroupData'));
+        var webAPIGroups = string.deserialize(await template('GroupData'));
     }
 
-    var commonl10n = string.deserialize(template('L10n:Common'));
+    var commonl10n = string.deserialize(await template('L10n:Common'));
 
     // Strings that need translating
 
@@ -73,7 +73,7 @@ if (slug) {
     // Get the information about this API specifically out of the
     // databases, as well as from the subtree below this page.
     
-    var mainIFPages = page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
+    var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
     var events = [];
 
     if (group && webAPIGroups[0][group]) {
@@ -139,24 +139,18 @@ if (slug) {
     inherited.sort(APISort);
 
     // Build inheritance list string
-    
-    var inheritanceList = "";
-    
-    inherited.forEach(function(val, index, ar) {
-        inheritanceList += template("domxref", [val]);
-        if (index != ar.length-1) {
-            inheritanceList += text.separator;
-        }
-    }, this);
+    let inheritanceList = (await Promise.all(
+        inherited.map(val => template("domxref", [val]))
+    )).join(text.separator);
 
     // Preconstructed HTML for each type of badge
 
     var badges = {
-        ExperimentalBadge : '<span class="sidebar-icon">' + template("ExperimentalBadge", [1]) + '</span>',
-        NonStandardBadge  : '<span class="sidebar-icon">' + template("NonStandardBadge", [1]) + '</span>',
-        DeprecatedBadge   : '<span class="sidebar-icon">' + template("DeprecatedBadge", [1]) + '</span>',
-        ObsoleteBadge     : '<span class="sidebar-icon">' + template("ObsoleteBadge", [1]) + '</span>',
-        ReadOnlyBadge     : template("ReadOnlyInline"),
+        ExperimentalBadge : '<span class="sidebar-icon">' + await template("ExperimentalBadge", [1]) + '</span>',
+        NonStandardBadge  : '<span class="sidebar-icon">' + await template("NonStandardBadge", [1]) + '</span>',
+        DeprecatedBadge   : '<span class="sidebar-icon">' + await template("DeprecatedBadge", [1]) + '</span>',
+        ObsoleteBadge     : '<span class="sidebar-icon">' + await template("ObsoleteBadge", [1]) + '</span>',
+        ReadOnlyBadge     : await template("ReadOnlyInline"),
     };
 
     // Function to construct one section of the page, given

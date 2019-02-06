@@ -1,20 +1,20 @@
 <%
 
-var lang = env.locale;
-var directive = $0;
-var str = $1 || $0;
-var rtlLocales = ['ar', 'he', 'fa'];
-var localStrings = string.deserialize(template("L10n:Common"));
-var URL = "/" + lang + '/docs/Web/HTTP/Headers/Content-Security-Policy/' + directive;
-var anch = '';
+let lang = env.locale;
+let directive = $0;
+let str = $1 || $0;
+let rtlLocales = ['ar', 'he', 'fa'];
+let localStrings = string.deserialize(await template("L10n:Common"));
+let URL = "/" + lang + '/docs/Web/HTTP/Headers/Content-Security-Policy/' + directive;
+let anch = '';
 
 if ($2) {
   str = str + '.' + $2;
   anch = '#' + $2;
 }
 
-var page = wiki.getPage(URL);
-var summary = "";
+let page = await wiki.getPage(URL);
+let summary = "";
 
 if (!$2) {
     if (page && page.summary) {
@@ -24,8 +24,8 @@ if (!$2) {
     }
 }
 
-var code = '';
-var endcode = '';
+let code = '';
+let endcode = '';
 if (!$3) { code = '<code>'; endcode = '</code>' }
 
 %><a href="<%- URL+anch %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
