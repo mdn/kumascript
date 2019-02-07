@@ -56,7 +56,7 @@ if (slug) {
     var strAlsoInherits = localString({
       "en-US": "Also inherits $1 from: $2"
     });
-    
+
   // Get translations of strings we need
 
     var text = {
@@ -72,7 +72,7 @@ if (slug) {
 
     // Get the information about this API specifically out of the
     // databases, as well as from the subtree below this page.
-    
+
     var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
     var events = [];
 
@@ -104,7 +104,7 @@ if (slug) {
             }
         }
     }
-    
+
     collect(mainIFPages);
 
     // Build inheritance information, if any
@@ -117,7 +117,7 @@ if (slug) {
     if (inh) {
       inherited.push(inh);
     }
-    
+
     impl.forEach(function(value, index, ar) {
       inherited.push(value);
     });
@@ -131,7 +131,7 @@ if (slug) {
         b = bSplit[bSplit.length - 1];
         return a.toLowerCase().localeCompare(b.toLowerCase());
     }
-    
+
     eventHandlers.sort(APISort);
     properties.sort(APISort);
     methods.sort(APISort);
@@ -162,39 +162,39 @@ if (slug) {
         }
         var result = '<h' + headLevel + '>' + title + '</h' + headLevel + '>';
         var inheritText = '';
-        
+
         if (title != text.Constructor) {
             // If there are any items in the section and there are
             // inherited interfaces:
-            
+
             if (pages.length && inherited.length) {
               inheritText = strAlsoInherits.replace(/\$1/ig,
                             title.toLocaleLowerCase());
               inheritText = inheritText.replace(/\$2/ig, inheritanceList);
             }
-    
+
             // ... if there are no items in the section and no inherited
             // interfaces:
             else if (!pages.length && !inherited.length) {
               inheritText = strNone.replace(/\$1/ig, title.toLocaleLowerCase());
             }
-    
+
             // ... if there are no items in the section but there are inherited
             // interfaces:
-    
+
             else if (!pages.length) {
               inheritText = strInherits.replace(/\$1/ig, title.toLocaleLowerCase());
               inheritText = inheritText.replace(/\$2/ig, inheritanceList);
             }
-    
+
             // ... otherwise, there are items in the section but none inherited,
             // so we don't have any special text at all.
-    
+
             if (inheritText.length) {
               result += '<p><em>' + inheritText + '</em></p>';
             }
         }
-        
+
         // If there are no child pages, it's time to return.
 
         if (!pages.length) {

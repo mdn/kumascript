@@ -1,0 +1,303 @@
+[
+    {
+        "json_modified": "2019-01-16T17:12:47.399214",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "XHMLHttpRequestEventTarget",
+            "Reference",
+            "Property",
+            "Web"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>XMLHttpRequestEventTarget.onabort</code></strong> is the function called when an <a href=\"/en-US/docs/Web/API/XMLHttpRequest\" title=\"Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.\"><code>XMLHttpRequest</code></a> transaction is aborted, such as when the <a href=\"/en-US/docs/Web/API/XMLHttpRequest/abort\" title=\"The XMLHttpRequest.abort() method aborts the request if it has already been sent. When a request is aborted, its readyState is changed to XMLHttpRequest.UNSENT (0) and the request's status code is set to 0.\"><code>XMLHttpRequest.abort()</code></a> function is called.",
+        "id": 173787,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/XMLHttpRequestEventTarget/onabort",
+        "uuid": "4087544d-a58a-47fc-a8c8-636a2aef1dca",
+        "title": "XMLHttpRequestEventTarget.onabort",
+        "url": "/en-US/docs/Web/API/XMLHttpRequestEventTarget/onabort",
+        "modified": "2019-01-16T17:12:32.545543",
+        "label": "XMLHttpRequestEventTarget.onabort",
+        "localization_tags": [],
+        "last_edit": "2018-03-08T11:43:46.708679",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Values",
+                "title": "Values"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:33:15.949947",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "XMLHttpRequestEventTarget",
+            "Reference",
+            "Property",
+            "Web"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>XMLHttpRequestEventTarget.onerror</code></strong> is the function called when an <a href=\"/en-US/docs/Web/API/XMLHttpRequest\" title=\"Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.\"><code>XMLHttpRequest</code></a> transaction fails due to an error.",
+        "id": 173789,
+        "review_tags": [],
+        "slug": "Web/API/XMLHttpRequestEventTarget/onerror",
+        "uuid": "347f4ed3-6df2-451c-be3b-5937564594cf",
+        "title": "XMLHttpRequestEventTarget.onerror",
+        "url": "/en-US/docs/Web/API/XMLHttpRequestEventTarget/onerror",
+        "modified": "2019-01-16T17:13:03.545258",
+        "label": "XMLHttpRequestEventTarget.onerror",
+        "localization_tags": [],
+        "last_edit": "2018-03-08T11:44:00.953531",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Values",
+                "title": "Values"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:52:00.964121",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "XMLHttpRequestEventTarget",
+            "Reference",
+            "Property",
+            "Web"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>XMLHttpRequestEventTarget.onload</code></strong> is the function called when an <a href=\"/en-US/docs/Web/API/XMLHttpRequest\" title=\"Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.\"><code>XMLHttpRequest</code></a> transaction completes successfully.",
+        "id": 173791,
+        "review_tags": [],
+        "slug": "Web/API/XMLHttpRequestEventTarget/onload",
+        "uuid": "8aadcedf-343a-4a06-93de-4fb40002683f",
+        "title": "XMLHttpRequestEventTarget.onload",
+        "url": "/en-US/docs/Web/API/XMLHttpRequestEventTarget/onload",
+        "modified": "2019-01-16T17:12:45.265779",
+        "label": "XMLHttpRequestEventTarget.onload",
+        "localization_tags": [],
+        "last_edit": "2018-03-08T11:44:12.888868",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Values",
+                "title": "Values"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:38:41.511900",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "XMLHttpRequestEventTarget",
+            "Reference",
+            "Property",
+            "Web"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>XMLHttpRequestEventTarget.onloadstart</code></strong> is the function called when an <a href=\"/en-US/docs/Web/API/XMLHttpRequest\" title=\"Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.\"><code>XMLHttpRequest</code></a> transaction starts transferring data.",
+        "id": 173831,
+        "review_tags": [],
+        "slug": "Web/API/XMLHttpRequestEventTarget/onloadstart",
+        "uuid": "de41cbf1-cca8-4cac-8959-6e538eea4b27",
+        "title": "XMLHttpRequestEventTarget.onloadstart",
+        "url": "/en-US/docs/Web/API/XMLHttpRequestEventTarget/onloadstart",
+        "modified": "2019-01-16T17:13:17.370981",
+        "label": "XMLHttpRequestEventTarget.onloadstart",
+        "localization_tags": [],
+        "last_edit": "2018-03-22T15:38:09.701175",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Values",
+                "title": "Values"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:04:44.659814",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "Property",
+            "XMLHttpRequestEventTarget",
+            "XHR",
+            "Reference",
+            "Web"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>XMLHttpRequestEventTarget.onprogress</code></strong> is the function called periodically with information when an <a href=\"/en-US/docs/Web/API/XMLHttpRequest\" title=\"Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.\"><code>XMLHttpRequest</code></a> before success completely .",
+        "id": 181612,
+        "review_tags": [],
+        "slug": "Web/API/XMLHttpRequestEventTarget/onprogress",
+        "uuid": "c898a526-9a08-46bb-bbad-9efa14563005",
+        "title": "XMLHttpRequestEventTarget.onprogress",
+        "url": "/en-US/docs/Web/API/XMLHttpRequestEventTarget/onprogress",
+        "modified": "2019-01-16T17:36:46.999952",
+        "label": "XMLHttpRequestEventTarget.onprogress",
+        "localization_tags": [],
+        "last_edit": "2018-03-08T11:46:38.307504",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Values",
+                "title": "Values"
+            },
+            {
+                "id": "Example",
+                "title": "Event"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    }
+]
