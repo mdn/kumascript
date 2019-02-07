@@ -4,6 +4,8 @@
 
 // Provides utilities that as a whole constitute the macro test framework.
 
+const fs = require('fs');
+const path = require('path');
 const Environment = require('../../src/environment.js');
 const Templates = require('../../src/templates.js');
 
@@ -63,15 +65,37 @@ function createMacroTestObject(macroName) {
         url: 'https://developer.mozilla.org/'
     };
     let environment = new Environment(pageContext, templates, true);
+    let ctx = environment.prototypeEnvironment;
+
+    /** @type {Map<string, string>} */
+    const macroResults = new Map();
+    const realTemplate = ctx.template;
+    ctx.template = jest.fn(async (name, ...args) => {
+        let macroName = String(name)
+            .replace(/:/g, '-')
+            .toLowerCase();
+        return macroResults.get(macroName) || realTemplate(name, ...args);
+    });
 
     return {
         /**
          * Give the test-case writer access to the macro's globals (ctx).
          * For example, "macro.ctx.env.locale" can be manipulated to something
          * other than 'en-US' or "macro.ctx.wiki.getPage" can be mocked
-         * using "sinon.stub()" to avoid network calls.
+         * using `jest.fn()` to avoid network calls.
          */
-        ctx: environment.prototypeEnvironment,
+        ctx,
+
+        /**
+         * A much easier way to handle overwriting the result of the `template`
+         * function for specific macro calls.
+         *
+         * @param {string} name
+         * @param {string} result
+         */
+        mockTemplate(name, result) {
+            macroResults.set(name.replace(/:/g, '-').toLowerCase(), result);
+        },
 
         /**
          * Use this function to make test calls on the named macro, if
@@ -154,11 +178,31 @@ function afterEachMacro(teardown) {
     });
 }
 
+/**
+ * Reads a JSON fixture file from the `fixtures` directory.
+ *
+ * @param {...string} filePath
+ */
+function readJSONFixture(...filePath) {
+    let fileName = filePath.pop();
+    if (!path.extname(fileName)) {
+        fileName += '.json';
+    }
+    let absolutePath = path.resolve(
+        __dirname,
+        'fixtures',
+        ...filePath,
+        fileName
+    );
+    return JSON.parse(fs.readFileSync(absolutePath));
+}
+
 // ### Exported public API
 module.exports = {
     assert,
     itMacro,
     describeMacro,
     afterEachMacro,
-    beforeEachMacro
+    beforeEachMacro,
+    readJSONFixture
 };
