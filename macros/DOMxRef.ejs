@@ -21,7 +21,10 @@ let str = $1 || $0;
 let rtlLocales = ['ar', 'he', 'fa'];
 let localStrings = string.deserialize(await template("L10n:Common"));
 
-api = api.replace(/ /g, '_').replace(/\(\)$|\(\)\./g, '').replace(/\.prototype\./g, '.').replace(/\./g, '/');
+api = api.replace(/ /g, '_')
+    .replace(/\(\)$|\(\)(?=\.)/g, '')
+    .replace(/\.prototype\./g, '.')
+    .replace(/\./g, '/');
 
 // RTL locales
 if (rtlLocales.indexOf(lang) != -1) {
