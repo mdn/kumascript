@@ -36,11 +36,6 @@ if (slug) {
     // Fetch the databases
 
     var webAPIData = string.deserialize(await template('InterfaceData'));
-
-    if (group) {
-        var webAPIGroups = string.deserialize(await template('GroupData'));
-    }
-
     var commonl10n = string.deserialize(await template('L10n:Common'));
 
     // Strings that need translating
@@ -76,13 +71,7 @@ if (slug) {
     var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
     var events = [];
 
-    if (group && webAPIGroups[0][group]) {
-        // ADD HERE ANY CODE NEEDED TO PULL OTHER INFO FROM GROUPDATA
-        events = webAPIGroups[0][group].events || [];
-    }
-
     // Scan the pages and collect the information we need about them
-
     var properties = [];
     var eventHandlers = [];
     var methods = [];
