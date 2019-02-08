@@ -38,7 +38,8 @@ if (slug) {
     var webAPIData = string.deserialize(await template('InterfaceData'));
     var commonl10n = string.deserialize(await template('L10n:Common'));
     // GroupData hanling has been disabled based on the discussion
-    // in: https://github.com/mdn/sprints/issues/906
+    // in https://github.com/mdn/sprints/issues/906 and in
+    // https://github.com/mdn/kumascript/pull/1073#discussion_r254962354
 /*
     var webAPIGroups;
     if (group) {
