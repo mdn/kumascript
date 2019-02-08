@@ -22,7 +22,7 @@ let rtlLocales = ['ar', 'he', 'fa'];
 let localStrings = string.deserialize(await template("L10n:Common"));
 
 api = api.replace(/ /g, '_')
-    .replace(/\(\)$|\(\)(?=\.)/g, '')
+    .replace(/\(\)/g, '')
     .replace(/\.prototype\./g, '.')
     .replace(/\./g, '/');
 
