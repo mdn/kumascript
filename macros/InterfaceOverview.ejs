@@ -37,6 +37,14 @@ if (slug) {
 
     var webAPIData = string.deserialize(await template('InterfaceData'));
     var commonl10n = string.deserialize(await template('L10n:Common'));
+    // GroupData hanling has been disabled based on the discussion
+    // in: https://github.com/mdn/sprints/issues/906
+/*
+    var webAPIGroups;
+    if (group) {
+        webAPIGroups = string.deserialize(await template('GroupData'));
+    }
+*/
 
     // Strings that need translating
 
@@ -52,7 +60,7 @@ if (slug) {
       "en-US": "Also inherits $1 from: $2"
     });
 
-  // Get translations of strings we need
+    // Get translations of strings we need
 
     var text = {
         Methods: getLocalString(commonl10n, 'Methods'),
@@ -67,9 +75,14 @@ if (slug) {
 
     // Get the information about this API specifically out of the
     // databases, as well as from the subtree below this page.
-
     var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
+/*
     var events = [];
+    if (group && webAPIGroups[0][group]) {
+        // ADD HERE ANY CODE NEEDED TO PULL OTHER INFO FROM GROUPDATA
+        events = webAPIGroups[0][group].events || [];
+    }
+*/
 
     // Scan the pages and collect the information we need about them
     var properties = [];

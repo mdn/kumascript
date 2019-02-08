@@ -6,6 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const Environment = require('../../src/environment.js');
 const Templates = require('../../src/templates.js');
 
@@ -74,7 +75,11 @@ function createMacroTestObject(macroName) {
         let macroName = String(name)
             .replace(/:/g, '-')
             .toLowerCase();
-        return macroResults.get(macroName) || realTemplate(name, ...args);
+        let result = macroResults.get(macroName);
+        if (typeof result === 'string') {
+            return result;
+        }
+        return realTemplate(name, ...args);
     });
 
     return {
@@ -87,20 +92,46 @@ function createMacroTestObject(macroName) {
         ctx,
 
         /**
-         * A much easier way to handle overwriting the result of the `template`
-         * function for specific macro calls.
+         * When writing tests for a macro that invokes other macros with
+         * the `template()` function, you sometimes want to specify
+         * a mock return value for those other macros.
+         *
+         * This function provides a much easier way to handle that than
+         * using `jest.fn()` directly.
+         *
+         * To unmock a template result, simply call `unmockTemplate()`
+         * with the same `name`.
          *
          * @param {string} name
          * @param {string} result
          */
         mockTemplate(name, result) {
-            macroResults.set(name.replace(/:/g, '-').toLowerCase(), result);
+            macroResults.set(
+                name.replace(/:/g, '-').toLowerCase(),
+                String(result)
+            );
+        },
+
+        /**
+         * Stops mocking the result of a `template()` function call.
+         *
+         * @param {string} name
+         * @returns {boolean}
+         *          - `true` if a macro result has previously been
+         *            mocked using `mockTemplate()`.
+         *          - `false` otherwise.
+         */
+        unmockTemplate(name) {
+            return macroResults.delete(name.replace(/:/g, '-').toLowerCase());
         },
 
         /**
          * Use this function to make test calls on the named macro, if
          * applicable.  Its arguments become the arguments to the
          * macro. It returns a promise.
+         *
+         * @param {...any} args
+         * @returns {Promise<string>}
          */
         async call(...args) {
             let rendered = await templates.render(
@@ -179,22 +210,42 @@ function afterEachMacro(teardown) {
 }
 
 /**
+ * Reads a generic fixture file from the `fixtures` directory.
+ *
+ * @param {string|string[]} filePath
+ *        A path to a file relative to the `fixtures` directory.
+ * @param {string|{encoding?:string,flag?:string}} [options]
+ *        Either the encoding for the result, or an object that contains the encoding
+ *        and an optional flag. If a flag is not provided, it defaults to `'r'`.
+ *
+ * @returns {string|Buffer}
+ */
+function readFixture(filePath, options) {
+    if (!Array.isArray(filePath)) {
+        filePath = [filePath];
+    }
+    let absolutePath = path.resolve(__dirname, 'fixtures', ...filePath);
+    if (options && typeof options !== 'string') {
+        options = {
+            encoding: options.encoding,
+            flag: options.flag
+        };
+    }
+    return fs.readFileSync(absolutePath, options);
+}
+
+/**
  * Reads a JSON fixture file from the `fixtures` directory.
  *
  * @param {...string} filePath
+ *        A path to a file relative to the `fixtures` directory.
  */
 function readJSONFixture(...filePath) {
     let fileName = filePath.pop();
     if (!path.extname(fileName)) {
         fileName += '.json';
     }
-    let absolutePath = path.resolve(
-        __dirname,
-        'fixtures',
-        ...filePath,
-        fileName
-    );
-    return JSON.parse(fs.readFileSync(absolutePath));
+    return JSON.parse(readFixture([...filePath, fileName]));
 }
 
 // ### Exported public API
@@ -204,5 +255,6 @@ module.exports = {
     describeMacro,
     afterEachMacro,
     beforeEachMacro,
+    readFixture,
     readJSONFixture
 };
