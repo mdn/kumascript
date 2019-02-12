@@ -407,11 +407,9 @@ async function formatTypesSyntax(formattedSyntax, describedTypes) {
             };
 
             if (typesSyntax !== "") {
-                formattedTypesSyntax += "<p style=\"font-family:Open Sans,Arial," +
-                    "sans-serif; margin: 10px 0 0 0;\">" + s_where +
-                    "<br/><code style=\"font-family:Consolas,Monaco," +
-                    "&quot;Andale Mono&quot;,monospace;\">" + typesSyntax +
-                    "</code></p>";
+                formattedTypesSyntax += "<span style=\"font-family:'Open Sans','Arial'," +
+                    "sans-serif;margin:10px 0 0;display:block;\">" + s_where + "</span>" +
+                    typesSyntax;
             }
         }
 
