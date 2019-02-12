@@ -129,6 +129,7 @@ function writeFeatureName(row, feature) {
       href = feature.mdn_url.substring(feature.mdn_url.indexOf('#'))
     }
     if (href !== '/docs/' + env.slug) {
+      if (href[0] === '/') href = '/' + env.locale + href;
       desc = `<a href="${href}">${desc}</a>`;
     }
   }
