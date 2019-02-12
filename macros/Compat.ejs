@@ -55,16 +55,16 @@ const browsers = {
 
 let bcCategory = 'web';
 let platforms = ['desktop', 'mobile'];
-let displayBrowers = [...browsers["desktop"], ...browsers["mobile"]];
+let displayBrowsers = [...browsers["desktop"], ...browsers["mobile"]];
 
 if (category === 'javascript') {
   bcCategory = 'js';
-  displayBrowers.push(...browsers["server"]);
+  displayBrowsers.push(...browsers["server"]);
   platforms.push('server');
 }
 if (category === 'webextensions') {
   bcCategory = 'ext';
-  displayBrowers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
+  displayBrowsers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
   platforms = ['webextensions-desktop', 'webextensions-mobile'];
 }
 
@@ -112,7 +112,7 @@ function writeFeatureName(row, feature) {
   let label = Object.keys(row)[0];
 
   if (feature.description) {
-    // Basic support or unnested features need no prefixing
+    // Basic support or un-nested features need no prefixing
     if (label.indexOf('.') === -1) {
       desc += feature.description;
       // otherwise add a prefix so that we know where this belongs to (e.g. "parse: ISO 8601 format")
@@ -513,7 +513,7 @@ an identifier for the row,  like "Basic support".
 function writeCompatCells(supportData) {
   let output = '';
 
-  for (let browserNameKey of displayBrowers) {
+  for (let browserNameKey of displayBrowsers) {
     let needsNotes = false;
     let support = supportData[browserNameKey];
     let supportInfo = '';
@@ -595,7 +595,7 @@ function writeCompatPlatformsRow() {
 function writeCompatBrowsersRow() {
   let output = '<tr class="bc-browsers">';
   output += '<td></td>';
-  for (let browser of displayBrowers) {
+  for (let browser of displayBrowsers) {
     output += `<th class="bc-browser-${browser}">`;
     output += writeLabel(browser);
     output += '</th>';
@@ -625,7 +625,7 @@ function writeLegend () {
   });
 
   for (let item of sortedLegendItems) {
-    // handle supprt cells
+    // handle support cells
     if (item.indexOf('support_') !== -1) {
       let supportType = item.substring(item.indexOf('_') + 1);
       output += `<dt><span class="bc-supports-${supportType} bc-supports">
@@ -670,29 +670,29 @@ function traverseFeatures(obj, depth, identifier) {
     for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
-            features.push({[identifier + i]: obj[i].__compat});
-          }
-          traverseFeatures(obj[i], depth, i + '.');
+          features.push({[identifier + i]: obj[i].__compat});
         }
+        traverseFeatures(obj[i], depth, i + '.');
       }
     }
   }
+}
 
-  var compatData = getData(query, bcd);
+var compatData = getData(query, bcd);
 
-  var features = [];
-  var identifier = query.split(".").pop();
+var features = [];
+var identifier = query.split(".").pop();
 
-  if (!compatData) {
+if (!compatData) {
     output = s_no_data_found;
-  } else if (compatData.__compat) {
+} else if (compatData.__compat) {
     compatData.__compat.description = localize(compatStrings, 'feature_basicsupport');
     features.push({[identifier]: compatData.__compat});
-  }
+}
 
-  traverseFeatures(compatData, depth, '');
+traverseFeatures(compatData, depth, '');
 
-  if (features.length > 0) {
+if (features.length > 0) {
     output = '<div class="bc-data">';
     output += '<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data">Update compatibility data on GitHub</a>';
     output += `<table class="bc-table bc-table-${bcCategory}">`;
@@ -701,8 +701,8 @@ function traverseFeatures(obj, depth, identifier) {
     output += '</table>';
     output += writeLegend();
     output += '</div>';
-  } else {
+} else {
     output = s_no_data_found;
-  }
-  %>
-  <%-output%>
+}
+%>
+<%-output%>
