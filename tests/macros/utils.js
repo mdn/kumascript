@@ -3,6 +3,10 @@
  */
 
 // Provides utilities that as a whole constitute the macro test framework.
+const { execSync } = require('child_process');
+const os = require('os');
+
+const vnu = require('vnu-jar');
 
 const Environment = require('../../src/environment.js');
 const Templates = require('../../src/templates.js');
@@ -154,11 +158,44 @@ function afterEachMacro(teardown) {
     });
 }
 
+/**
+ * This function validates its input as HTML. By default, it assumes the input
+ * is an HTML fragment, wrapping it to make a complete HTML document, but the
+ * second argument can be set to false to avoid wrapping. It returns null on
+ * success, and, on failure, a string detailing all of the errors.
+ *
+ * @param {string} html
+ * @param {boolean} fragment
+ */
+function lintHTML(html, fragment=true) {
+    if (fragment) {
+        html = `<!DOCTYPE html>
+                <html>
+                <head><title>test</title></head>
+                <body>${html}</body>
+                </html>`;
+    }
+    try {
+        execSync(`java -jar ${vnu} --errors-only --format text -`, {
+            input: html,
+            stdio: 'pipe',
+            timeout: 15000
+        });
+        return null;
+    } catch (error) {
+        const error_message = error.message.split(os.EOL).filter(
+            line => line.startsWith('Error: ')
+        ).join(os.EOL);
+        return error_message;
+    }
+}
+
 // ### Exported public API
 module.exports = {
     assert,
     itMacro,
     describeMacro,
     afterEachMacro,
-    beforeEachMacro
+    beforeEachMacro,
+    lintHTML
 };

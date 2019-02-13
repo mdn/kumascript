@@ -9,7 +9,7 @@ function currentPageIsUnder(root) {
   if (slug && slug.indexOf(rootSlug) != -1) {
     return 'open';
   }
-  return 'closed';
+  return '';
 }
 
 var text = mdn.localStringMap({
@@ -439,7 +439,7 @@ var text = mdn.localStringMap({
         <ol>
           <li><a href="https://blog.mozilla.org/addons"><%=text['Blog']%></a></li>
           <li><a href="https://discourse.mozilla.org/c/add-ons"><%=text['Forums']%></a></li>
-          <li><a href="http://stackoverflow.com/questions/tagged/firefox-addon">Stack Overflow</a></li>
+          <li><a href="https://stackoverflow.com/questions/tagged/firefox-addon">Stack Overflow</a></li>
           <li><a href="<%=baseURL%>#Contact_us"><%=text['#Contact_us']%></a></li>
         </ol>
       </details>
