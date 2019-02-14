@@ -4,11 +4,29 @@
  */
 
 /**
+ * @typedef {object} Token
+ * @property {string} name
+ * @property {Location} location
+ */
+/**
+ * @typedef {object} Location
+ * @property {object} start
+ * @property {number} start.line
+ * @property {number} start.column
+ */
+
+/**
  * This is the common superclass of the other error classes here.
  * It includes the code for excerpting the portion of the document that the
  * error occurs in and drawing an ASCII art arrow to point at it.
  */
 class SourceCodeError extends Error {
+    /**
+     * @param {Error} cause
+     * @param {number} line
+     * @param {number} column
+     * @param {string} [name]
+     */
     constructor(cause, line, column, name) {
         super();
         this.cause = cause;
@@ -23,10 +41,15 @@ class SourceCodeError extends Error {
         }
     }
 
-    // TODO(djf): a lot of our HTML documents have really long lines and
-    // showing line-oriented errors when the column number is > 100
-    // doesn't really make sense. Perhaps we can modify this function to
-    // show the relevant context in a more useful way.
+    /**
+     * TODO(djf): a lot of our HTML documents have really long lines and
+     * showing line-oriented errors when the column number is > 100
+     * doesn't really make sense. Perhaps we can modify this function to
+     * show the relevant context in a more useful way.
+     *
+     * @param {string} source
+     * @return {string}
+     */
     getSourceContext(source) {
         function arrow(column) {
             let arrow = '';
@@ -69,6 +92,10 @@ class SourceCodeError extends Error {
  * of the error.
  */
 class MacroInvocationError extends SourceCodeError {
+    /**
+     * @param {Error} error
+     * @param {string} source
+     */
     constructor(error, source) {
         // If the error is not a SyntaxError, with a location property then
         // just return it instead of creating a wrapper object
@@ -92,6 +119,11 @@ class MacroInvocationError extends SourceCodeError {
  * macro in the HTML document, which it determines from the token argument.
  */
 class MacroNotFoundError extends SourceCodeError {
+    /**
+     * @param {Error} error
+     * @param {string} source
+     * @param {Token} token
+     */
     constructor(error, source, token) {
         super(
             error,
@@ -116,6 +148,11 @@ class MacroNotFoundError extends SourceCodeError {
  * macro in the HTML document and also includes the underlying error message.
  */
 class MacroCompilationError extends SourceCodeError {
+    /**
+     * @param {Error} error
+     * @param {string} source
+     * @param {Token} token
+     */
     constructor(error, source, token) {
         super(
             error,
@@ -141,6 +178,11 @@ class MacroCompilationError extends SourceCodeError {
  * from the underlying runtime error.
  */
 class MacroExecutionError extends SourceCodeError {
+    /**
+     * @param {Error} error
+     * @param {string} source
+     * @param {Token} token
+     */
     constructor(error, source, token) {
         super(
             error,
