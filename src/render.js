@@ -51,6 +51,13 @@ const {
     MacroExecutionError
 } = require('./errors.js');
 
+/**
+ * @param {string} source
+ * @param {any} templates
+ * @param {{locale:string,url:string}} pageEnvironment
+ * @param {string} [pageEnvironment.slug]
+ * @return {Promise<[string, Error[]]>}
+ */
 async function render(source, templates, pageEnvironment) {
     // Parse the source document.
     let tokens;
@@ -75,10 +82,12 @@ async function render(source, templates, pageEnvironment) {
     // be the same each time. (This is an important optimization for
     // xref macros, for example, since they can make asynchronous
     // network requests, and documents often have duplicate xrefs.)
+    /** @type {Array<Promise<string>>} */
     let promises = [];
     let signatureToPromiseIndex = new Map();
 
     // Keep track of errors that occur when rendering the macros.
+    /** @type {Array<Error|null>} */
     let errors = [];
 
     // Loop through the tokens

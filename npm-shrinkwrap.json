@@ -50,6 +50,12 @@
                 "methods": "^1.1.2"
             }
         },
+        "@types/pegjs": {
+            "version": "0.10.1",
+            "resolved": "https://registry.npmjs.org/@types/pegjs/-/pegjs-0.10.1.tgz",
+            "integrity": "sha512-ra8IchO9odGQmYKbm+94K58UyKCEKdZh9y0vxhG4pIpOJOBlC1C+ZtBVr6jLs+/oJ4pl+1p/4t3JtBA8J10Vvw==",
+            "dev": true
+        },
         "@tyriar/fibonacci-heap": {
             "version": "2.0.9",
             "resolved": "https://registry.npmjs.org/@tyriar/fibonacci-heap/-/fibonacci-heap-2.0.9.tgz",
