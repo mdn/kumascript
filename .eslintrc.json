@@ -16,6 +16,28 @@
             "args": "none",
             "varsIgnorePattern": "^_",
             "argsIgnorePattern": "^_"
-        }]
+        }],
+        "valid-jsdoc": [
+            "warn",
+            {
+                "requireParamType": true,
+                "requireParamDescription": false,
+                "requireReturn": false,
+                "requireReturnType": true,
+                "requireReturnDescription": false,
+
+                "prefer": {
+                    "arg": "param",
+                    "argument": "param",
+                    "returns": "return"
+                },
+
+                "preferType": {
+                    "Boolean": "boolean",
+                    "Number": "number",
+                    "String": "string"
+                }
+            }
+        ]
     }
 }
