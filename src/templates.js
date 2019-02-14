@@ -30,13 +30,18 @@ const path = require('path');
 const ejs = require('ejs');
 
 class Templates {
+    /**
+     * @param {string} macroDirectory
+     */
     constructor(macroDirectory) {
         this.macroDirectory = macroDirectory;
+        /** @type {Map<string, string>} */
         this.macroNameToPath = new Map();
 
         // Find all the macros in the macros dir and build a map
         // from macro name to filename
         const dirs = [macroDirectory];
+        /** @type {Map<string, string[]>} */
         const duplicates = new Map();
 
         // Walk the directory tree under the specified root directory.
@@ -88,6 +93,11 @@ class Templates {
         }
     }
 
+    /**
+     * @param {string} name
+     * @param {Record<string, any>} args
+     * @return {Promise<string>}
+     */
     async render(name, args) {
         // Normalize the macro name by converting colons to hyphens and
         // uppercase letters to lowercase.
@@ -99,6 +109,7 @@ class Templates {
             throw new ReferenceError(`Unknown macro ${name}`);
         }
 
+        /** @type {string} */
         let rendered = await ejs.renderFile(path, args, {
             cache: true,
             async: true
@@ -106,6 +117,9 @@ class Templates {
         return rendered.trim();
     }
 
+    /**
+     * @return {Map<string, string>}
+     */
     getTemplateMap() {
         return new Map(this.macroNameToPath);
     }
