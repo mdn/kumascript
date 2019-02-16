@@ -167,7 +167,7 @@ function afterEachMacro(teardown) {
  * @param {string} html
  * @param {boolean} fragment
  */
-function lintHTML(html, fragment=true) {
+function lintHTML(html, fragment = true) {
     if (fragment) {
         html = `<!DOCTYPE html>
                 <html>
@@ -183,9 +183,10 @@ function lintHTML(html, fragment=true) {
         });
         return null;
     } catch (error) {
-        const error_message = error.message.split(os.EOL).filter(
-            line => line.startsWith('Error: ')
-        ).join(os.EOL);
+        const error_message = error.message
+            .split(os.EOL)
+            .filter(line => line.startsWith('Error: '))
+            .join(os.EOL);
         return error_message;
     }
 }

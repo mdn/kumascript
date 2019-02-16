@@ -23,18 +23,16 @@ const ERROR_TEST_CASES = [
         title: 'with an illegal value for a link attribute',
         html: '<a href="https://example.com" rel="xxx">an example</a>',
         error: 'Bad value “xxx” for attribute “rel” on element “a”'
-    },
+    }
 ];
 
 describe('test lintHTML function', function() {
-    for (let test of ERROR_TEST_CASES) {
+    for (const test of ERROR_TEST_CASES) {
         it(test.title, function() {
-            expect(lintHTML(test.html)).toEqual(
-                expect.stringContaining(test.error)
-            );
+            expect(lintHTML(test.html)).toContain(test.error);
         });
     }
-    it('with valid HTML input', async function() {
+    it('with valid HTML input', function() {
         expect(lintHTML('<div>This is nice</div>')).toBeFalsy();
     });
 });
