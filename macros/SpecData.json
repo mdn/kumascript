@@ -1159,6 +1159,11 @@
     "url": "https://w3c.github.io/resource-timing/",
     "status": "ED"
   },
+  "Screen Capture": {
+    "name": "Screen Capture",
+    "url": "https://w3c.github.io/mediacapture-screen-share/",
+    "status": "WD"
+  },
   "Screen Orientation": {
     "name": "Screen Orientation API",
     "url": "https://w3c.github.io/screen-orientation/",
