@@ -276,9 +276,7 @@ function getSupportClass(supportInfo) {
  * @return {string} The note for the flags information.
  */
 function writeFlagsNote (supportData, browserId) {
-  // TODO: Move these to the mdn-browser-compat-data package.
-  const firefoxPrefs = 'about:config';
-  const chromePrefs = 'chrome://flags';
+    const browserData = bcd.browsers[browserId];
 
   let support = ''
   if (typeof (supportData.version_added) === 'string') {
@@ -315,21 +313,10 @@ function writeFlagsNote (supportData, browserId) {
     }
 
     let typeString = localize(compatStrings, `flag_type_${flag.type}`).replace('${valueToSet}', valueToSet);
-    if (flag.type === 'preference') {
-      settings = localize(compatStrings, 'flag_browser');
-      switch (browserId) {
-        case 'firefox':
-        case 'firefox_android':
-          settings = settings.replace('${browser}', localize(compatStrings, `bc_icon_name_firefox`)).replace('${url}', firefoxPrefs);
-          break;
-        case 'chrome':
-        case 'chrome_android':
-          settings = settings.replace('${browser}', localize(compatStrings, `bc_icon_name_chrome`)).replace('${url}', chromePrefs);
-          break;
-        default:
-          settings = '';
-          break;
-      }
+    if (flag.type === 'preference' && browserData && browserData.pref_url) {
+      settings = localize(compatStrings, 'flag_browser')
+        .replace('${browser}', browserData.name)
+        .replace('${url}', browserData.pref_url);
     }
 
     flagsText += nameString + typeString;

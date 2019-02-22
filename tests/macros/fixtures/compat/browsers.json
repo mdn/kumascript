@@ -1,0 +1,28 @@
+{
+    "browsers": {
+        "chrome": {
+            "name": "Chrome",
+            "pref_url": "chrome://flags"
+        },
+        "chrome_android": {
+            "name": "Chrome Android",
+            "pref_url": "chrome://flags"
+        },
+        "edge": {
+            "name": "Edge",
+            "pref_url": "about:flags"
+        },
+        "edge_mobile": {
+            "name": "Edge Mobile",
+            "pref_url": "about:flags"
+        },
+        "firefox": {
+            "name": "Firefox",
+            "pref_url": "about:config"
+        },
+        "firefox_android": {
+            "name": "Firefox Android",
+            "pref_url": "about:config"
+        }
+    }
+}
