@@ -4,8 +4,14 @@
  * error messages to Kuma when a document can't be rendered correctly.
  *
  * @prettier
+ *
+ * @param {object} [options]
+ * @param {number} [options.max_header_length]
+ * @param {string[]} [options.levels]
+ * @param {function(...any):void} [options.logger]
+ * @return {function(any,any,function():void):void}
  */
-module.exports = function(options) {
+module.exports = function firelogger(options) {
     options = options || {};
     // HACK: Under 8k seems like an arbitrary best guess at a max
     var max_header_length = options.max_header_length || 8000;
