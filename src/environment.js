@@ -23,7 +23,7 @@
  *
  * @prettier
  */
-const url = require('url');
+const URL = require('url');
 const request = require('request');
 
 const cache = require('./cache.js');
@@ -122,9 +122,9 @@ const util = {
         if (!path) {
             return config.documentURL;
         }
-        let parts = url.parse(encodeURI(path));
+        let parts = URL.parse(encodeURI(path));
         path = parts.path + (parts.hash ? parts.hash : '');
-        return url.resolve(config.documentURL, path);
+        return URL.resolve(config.documentURL, path);
     },
 
     /**
@@ -185,7 +185,7 @@ const kumaPrototype = {
     /**
      * Expose url from node.js to templates
      */
-    url: url,
+    url: URL,
     htmlEscape: util.htmlEscape
 };
 
@@ -200,6 +200,7 @@ const mdnPrototype = {
      * @return {Record<string, string>}
      */
     htmlEscapeArgs(names, args) {
+        /** @type {Record<string, string>} */
         var e = {};
         names.forEach(function(name, idx) {
             e[name] = util.htmlEscape(args[idx]);
@@ -237,6 +238,7 @@ const mdnPrototype = {
             return defaultMap;
         }
         var localizedMap = maps[lang];
+        /** @type {Record<string, string>} */
         var map = {};
         for (var name in defaultMap) {
             if (name in localizedMap) {
@@ -330,16 +332,18 @@ const mdnPrototype = {
      * @param {string|{url:string}} fileObjOrUrl
      */
     async getFileContent(fileObjOrUrl) {
-        var url = fileObjOrUrl.url || fileObjOrUrl;
+        var url = typeof fileObjOrUrl === 'string'
+            ? fileObjOrUrl
+            : fileObjOrUrl.url;
         if (!url) return '';
 
         let base_url = '';
 
         // New file urls include attachment host, so we don't need to
         // prepend it
-        var fUrl = url.parse(url);
+        var fUrl = URL.parse(url);
         if (!fUrl.host) {
-            var p = url.parse(this.env.url, true);
+            var p = URL.parse(this.env.url, true);
             base_url = p.protocol + '//' + p.host;
         }
         url = base_url + url;
@@ -456,7 +460,7 @@ const mdnPrototype = {
      * @return {string}
      */
     siteURL() {
-        var p = url.parse(this.env.url, true),
+        var p = URL.parse(this.env.url, true),
             site_url = p.protocol + '//' + p.host;
         return site_url;
     }
@@ -467,10 +471,11 @@ const stringPrototype = {
      * @param {string} source
      * @param {string|RegExp} pattern
      * @param {function(...any):Promise<string>} asyncReplacer
-     * @return {string}
+     * @return {Promise<string>}
      */
     async asyncReplace(source, pattern, asyncReplacer) {
         // Find all the matches, replace with "", and discard the result
+        /** @type {Array<[string, ...any[]]>} */
         let matches = [];
         source.replace(pattern, (...match) => {
             matches.push(match);
@@ -629,7 +634,7 @@ const stringPrototype = {
 
     /**
      * @param {string} str
-     * @param {string|RegExp} from
+     * @param {string} from
      * @param {string} to
      * @return {string}
      */
@@ -684,7 +689,7 @@ const wikiPrototype = {
      * @param {string} path
      * @param {string} [section]
      * @param {any} [revision]
-     * @param {boolean} [show]
+     * @param {number|boolean} [show]
      * @param {number} [heading]
      * @param {boolean} ignore_cache_control
      * @return {Promise<string>}
@@ -821,7 +826,7 @@ const wikiPrototype = {
      * @return {string}
      */
     uri(path, query) {
-        const parts = url.parse(this.env.url);
+        const parts = URL.parse(this.env.url);
         var out = parts.protocol + '//' + parts.host + util.preparePath(path);
         if (query) {
             out += '?' + query;
@@ -839,9 +844,9 @@ const wikiPrototype = {
      *
      * @param {string} path
      * @param {number} depth
-     * @param {boolean} self
-     * @param {boolean} reverse
-     * @param {boolean} ordered
+     * @param {number|boolean} self
+     * @param {number|boolean} reverse
+     * @param {number|boolean} ordered
      */
     async tree(path, depth, self, reverse, ordered) {
         // If the path ends with a slash, remove it.
@@ -1065,7 +1070,7 @@ const pagePrototype = {
      *
      * @param {string} [path]
      * @param {number} [depth]
-     * @param {boolean} [self]
+     * @param {number|boolean} [self]
      * @return {Promise<any[]>}
      */
     async subpages(path, depth, self) {
@@ -1098,7 +1103,7 @@ const pagePrototype = {
      *
      * @param {string} [path]
      * @param {number} [depth]
-     * @param {boolean} [self]
+     * @param {number|boolean} [self]
      * @return {Promise<any[]>}
      */
     async subpagesExpand(path, depth, self) {
@@ -1189,13 +1194,23 @@ class Environment {
      * true makes us not freeze the environment so that tests can stub out
      * methods in the API like mdn.fetchJSONResources
      *
-     * @param {{locale:string,url:string}} perPageContext
-     * @param {string} [perPageContext.slug]
+     * @param {object} perPageContext
+     *   @param {string} [perPageContext.locale]
+     *   @param {string} [perPageContext.slug]
+     *   @param {string} [perPageContext.title]
+     *   @param {string[]} [perPageContext.tags]
+     *   @param {string} [perPageContext.url]
      * @param {any} templates
      * @param {boolean} [testing]
      */
     constructor(perPageContext, templates, testing = false) {
-        // Freeze an object unless we're in testing mode
+        /**
+         * Freeze an object unless we're in testing mode
+         *
+         * @template T
+         * @param {T} o
+         * @return {T}
+         */
         function freeze(o) {
             return testing ? o : Object.freeze(o);
         }
@@ -1220,11 +1235,11 @@ class Environment {
          *
          * @template {object} T
          * @param {T} o
-         * @param {any} binding
+         * @param {any} [binding]
          * @return {T}
          */
         function prepareProto(o, binding) {
-            let p = {};
+            let p = /** @type {T} */ ({});
             for (let [key, value] of Object.entries(o)) {
                 if (binding && typeof value === 'function') {
                     value = value.bind(binding);

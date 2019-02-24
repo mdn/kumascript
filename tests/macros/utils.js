@@ -178,7 +178,7 @@ assert.sameMembers = (a1, a2) => {
 /**
  * Asserts that haystack includes needle.
  *
- * @template T
+ * @template T Type of values in haystack.
  * @param {string|T[]} list Container string or array.
  * @param {string|T} element Potential value contained in haystack.
  */

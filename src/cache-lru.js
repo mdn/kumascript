@@ -6,7 +6,7 @@
 const LRU = require('lru-cache');
 const config = require('./config.js');
 
-/** @type {LRU.Cache<string, Buffer>} */
+/** @type {LRU<string, Buffer>} */
 const lru = new LRU({
     max: 1024 * 1024 * config.cacheMegabytes,
     maxAge: 60000 * config.cacheMinutes,

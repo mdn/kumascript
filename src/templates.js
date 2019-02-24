@@ -95,7 +95,7 @@ class Templates {
 
     /**
      * @param {string} name
-     * @param {Record<string, any>} args
+     * @param {Record<string, any>} [args]
      * @return {Promise<string>}
      */
     async render(name, args) {

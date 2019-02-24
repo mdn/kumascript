@@ -54,8 +54,12 @@ const {
 /**
  * @param {string} source
  * @param {any} templates
- * @param {{locale:string,url:string}} pageEnvironment
- * @param {string} [pageEnvironment.slug]
+ * @param {object} pageEnvironment
+ *   @param {string} [pageEnvironment.locale]
+ *   @param {string} [pageEnvironment.slug]
+ *   @param {string} [pageEnvironment.title]
+ *   @param {string[]} [pageEnvironment.tags]
+ *   @param {string} [pageEnvironment.url]
  * @return {Promise<[string, Error[]]>}
  */
 async function render(source, templates, pageEnvironment) {

@@ -100,7 +100,7 @@ class MacroInvocationError extends SourceCodeError {
         // If the error is not a SyntaxError, with a location property then
         // just return it instead of creating a wrapper object
         if (error.name !== 'SyntaxError' || error.location === undefined) {
-            return error;
+            return /** @type {SourceCodeError} */(error);
         }
 
         super(error, error.location.start.line, error.location.start.column);
