@@ -186,7 +186,7 @@ describeMacro('Compat', function() {
             let dom = JSDOM.fragment(result);
             assert.equal(
                 dom.querySelector('.bc-table tbody tr th').innerHTML,
-                'Basic support'
+                '<code>bareFeature</code>'
             );
             assert.equal(
                 dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -204,7 +204,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').innerHTML,
-                        'Basic support'
+                        'Root feature description'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -224,7 +224,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').innerHTML,
-                        'Basic support'
+                        '<code>feature_with_mdn_url</code>'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -249,7 +249,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').innerHTML,
-                        'Basic support'
+                        'CSP'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -275,7 +275,7 @@ describeMacro('Compat', function() {
 
             assert.equal(
                 dom.querySelector('.bc-table tbody tr th').innerHTML,
-                '基本対応'
+                '<code>feature_with_mdn_url</code>'
             );
             assert.equal(
                 dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -298,7 +298,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').textContent,
-                        'Basic support Experimental'
+                        'experimental_feature Experimental'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -317,7 +317,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').textContent,
-                        'Basic support Deprecated'
+                        'deprecated_feature_with_description Deprecated'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')

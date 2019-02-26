@@ -111,7 +111,7 @@ function writeFeatureName(row, feature) {
   let label = Object.keys(row)[0];
 
   if (feature.description) {
-    // Basic support or un-nested features need no prefixing
+    // Un-nested features need no prefixing
     if (label.indexOf('.') === -1) {
       desc += feature.description;
       // otherwise add a prefix so that we know where this belongs to (e.g. "parse: ISO 8601 format")
@@ -514,8 +514,8 @@ function getFormattedBrowserName(browserNameKey) {
 
 /*
 For a single row, write all the cells that contain support data.
-(That is, every cell in the row except the first, which contains
-an identifier for the row,  like "Basic support".
+(That is, every cell in the row except the first column, which contains
+the feature name)
 
 */
 function writeCompatCells(supportData) {
@@ -694,7 +694,6 @@ var identifier = query.split(".").pop();
 if (!compatData) {
     output = s_no_data_found;
 } else if (compatData.__compat) {
-    compatData.__compat.description = localize(compatStrings, 'feature_basicsupport');
     features.push({[identifier]: compatData.__compat});
 }
 
