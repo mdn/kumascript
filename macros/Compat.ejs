@@ -567,7 +567,7 @@ function writeCompatFeatureRow() {
     output += '<tr>';
     let feature = Object.keys(row).map((k) => row[k])[0];
     output += `<th scope="row">${writeFeatureName(row, feature)}</th>`;
-    output += `${writeCompatCells(feature.support)}</tr>`;
+    output += writeCompatCells(feature.support);
     output += '</tr>';
   }
   return output;

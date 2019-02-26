@@ -1,7 +1,14 @@
 /**
  * @prettier
  */
-const { assert, itMacro, describeMacro, beforeEachMacro } = require('./utils');
+const {
+    assert,
+    itMacro,
+    describeMacro,
+    beforeEachMacro,
+    lintHTML
+} = require('./utils');
+
 const fs = require('fs'),
     path = require('path'),
     jsdom = require('jsdom'),
@@ -37,6 +44,11 @@ describeMacro('Compat', function() {
             return assert.eventually.equal(actual, expected);
         }
     );
+
+    itMacro('Outputs valid HTML', async macro => {
+        const result = await macro.call('api.feature');
+        expect(lintHTML(result)).toBeFalsy();
+    });
 
     // Different content areas have different platforms (desktop, mobile, server)
     // which consist of different browsers
