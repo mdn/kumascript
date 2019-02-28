@@ -229,15 +229,6 @@
         "ru"   : "Возможность",
         "nl"   : "Functie"
     },
-    "feature_basicsupport": {
-        "en-US": "Basic support",
-        "de"   : "Grundlegende Unterstützung",
-        "es"   : "Soporte básico",
-        "fr"   : "Support simple",
-        "ja"   : "基本対応",
-        "ru"   : "Базовая поддержка",
-        "nl"   : "Basisondersteuning"
-    },
     "bc_icon_name_experimental": {
         "en-US": "Experimental",
         "de"   : "Experimentell",

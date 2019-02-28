@@ -20,7 +20,7 @@
         },
         "feature_with_description": {
             "__compat": {
-                "description": "This will be 'Basic support' regardless",
+                "description": "Root feature description",
                 "support": {
                     "firefox": {
                         "version_added": "1"
