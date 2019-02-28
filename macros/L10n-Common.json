@@ -6,6 +6,7 @@
         "es"   : "La documentación acerca de este tema no ha sido escrita todavía . ¡Por favor  considera contribuir !",
         "fr"   : "Cette documentation n'a pas encore été rédigée, vous pouvez aider en contribuant&nbsp;!",
         "pt-BR": "A documentação sobre isto ainda não foi escrita; por favor considere contribuir!",
+        "pl"   : "Dokumentacja na ten temat nie została jeszcze wykonana. Może chcesz nam pomóc w jej przygotowaniu.",
         "ru"   : "Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!",
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
         "ja"   : "この項目についての文書はまだ書かれていません。書いてみませんか？"
@@ -34,7 +35,7 @@
         "ru"   : "Свойства",
         "zh-CN": "属性",
         "it"   : "Proprietà",
-        "pl"   : "Własności",
+        "pl"   : "Właściwości",
         "ca"   : "Propietats",
         "ja"   : "プロパティ"
     },
@@ -46,6 +47,7 @@
         "ja"   : "イベントハンドラー",
         "ko"   : "이벤트 핸들러",
         "pt-BR": "Handlers de Eventos",
+        "pl"   : "Obsługa zdarzeń",
         "zh-TW": "事件處理器",
         "zh-CN": "事件句柄",
         "ru"   : "Обработчики событий"
@@ -60,6 +62,7 @@
         "it"   : "Costruttore",
         "ca"   : "Constructor",
         "ja"   : "コンストラクター",
+        "pl"   : "Konstruktor",
         "ru"   : "Конструктор"
     },
 
@@ -69,6 +72,7 @@
         "es"   : "Herencia",
         "pt-BR": "Herança:",
         "fr"   : "Héritage&nbsp;:",
+        "pl"   : "Dziedziczenie:",
         "ru"   : "Наследование:",
         "zh-CN": "继承",
         "ca"   : "Herència",
@@ -83,6 +87,7 @@
         "fr"   : "Implémenté par&nbsp;:",
         "it"   : "Implementato da:",
         "ca"   : "Implementat per",
+        "de"   : "Zaimplementowane przez:",
         "ru"   : "Выполняется:"
     },
 
@@ -94,6 +99,7 @@
         "fr"   : "Pages liées à $1",
         "it"   : "Pagine correlate du $1",
         "ca"   : "Pàgines similars a $1",
+        "pl"   : "Strony powiązane z $1",
         "ru"   : "Похожие страницы для $1",
         "ja"   : "$1 に関連するページ"
     },
@@ -106,6 +112,7 @@
         "fr"   : "Pages similaires&nbsp;:",
         "it"   : "Pagine correlate:",
         "ca"   : "Pàgines similars",
+        "pl"   : "Powiązane strony:",
         "ru"   : "Похожие страницы:",
         "ja"   : "関連するページ"
     },
@@ -129,6 +136,7 @@
         "de"   : "Abschnitt",
         "fr"   : "section",
         "pt-BR": "sessão",
+        "pl"   : "sekcja",
         "ru"   : "секция",
         "ja"   : "セクション"
     },
@@ -141,6 +149,7 @@
         "pt-BR": "[Traduzir]",
         "zh-CN": "[我来译!]",
         "ca"   : "[Traduir]",
+        "pl"   : "[Przetłumacz]",
         "ru"   : "[Перевести]",
         "ja"   : "[翻訳する]"
 
@@ -154,6 +163,7 @@
         "pt-BR": "Nossos voluntários ainda não traduziram este artigo para sua linguagem. Junte-se a nós e nos ajude a traduzir!",
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
         "ca" : "Els nostres voluntaris encara no han traduït aquest article al Català. Uneix-te a nosaltres i ajuda-ns a acabar la feina!",
+        "pl" : "Nasi wolontariusze nie przetłumaczayli jeszcze tego artykułu. Przyłącz się i pomóż nam w tej misji!",
         "ru" : "Наши волонтёры ещё не перевели данную статью на Русский. Присоединяйтесь к нам и помогите закончить эту работу!",
         "ja" : "まだボランティアによって日本語に翻訳されていない記事です。MDNに参加して、翻訳してみませんか？"
     },
@@ -164,6 +174,7 @@
         "es"   : "Guías",
         "fr"   : "Guides",
         "pt-BR": "Guias",
+        "pl"   : "Przewodniki",
         "ru"   : "Руководства",
         "ja"   : "ガイド"
     },
@@ -174,6 +185,7 @@
         "es"   : "Eventos",
         "fr"   : "Événements",
         "pt-BR": "Eventos",
+        "pl"   : "Zdarzenia",
         "ru"   : "События",
         "ja"   : "イベント"
     },
@@ -184,6 +196,7 @@
         "es"   : "Interfaces",
         "fr"   : "Interfaces",
         "pt-BR": "Interfaces",
+        "pl"   : "Interfejsy",
         "ru"   : "Интерфейсы",
         "ja"   : "インターフェイス"
     },
@@ -195,6 +208,7 @@
         "fr"   : ", ",
         "ja"   : " 、 ",
         "pt-BR": ", ",
+        "pl"   : ", ",
         "ru"   : ", "
     },
 
@@ -202,6 +216,7 @@
         "en-US": "[Page not yet written]",
         "de"   : "[Seite noch nicht geschrieben]",
         "fr"   : "[Page qui reste à écrire]",
-        "pt-BR": "[Página ainda não foi escrita]"
+        "pt-BR": "[Página ainda não foi escrita]",
+        "pl"   : "[Strona nie została jeszcze napisana]"
     }
 }
