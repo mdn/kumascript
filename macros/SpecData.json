@@ -307,7 +307,7 @@
   "CSS3 Speech": {
     "name": "CSS Speech Module",
     "url": "https://drafts.csswg.org/css-speech-1/",
-    "status": "CR"
+    "status": "Obsolete"
   },
   "CSS3 Style": {
     "name": "CSS Style Attributes",
@@ -332,7 +332,7 @@
   "CSS3 Transforms": {
     "name": "CSS Transforms Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-transforms/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS3 Transitions": {
     "name": "CSS Transitions",
@@ -412,7 +412,7 @@
   "CSS4 Text": {
     "name": "CSS Text Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-text-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Text Decoration": {
     "name": "CSS Text Decoration Module Level&nbsp;4",
@@ -422,7 +422,7 @@
   "CSS4 Values": {
     "name": "CSS Values and Units Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-values-4/",
-    "status": "ED"
+    "status": "WD"
   },
   "CSS4 Writing Modes": {
     "name": "CSS Writing Modes Level&nbsp;4",
@@ -1151,13 +1151,8 @@
   },
   "Resource Timing 2": {
     "name": "Resource Timing Level 2",
-    "url": "https://www.w3.org/TR/resource-timing-2/",
-    "status": "WD"
-  },
-  "Resource Timing 3": {
-    "name": "Resource Timing Level 3",
     "url": "https://w3c.github.io/resource-timing/",
-    "status": "ED"
+    "status": "WD"
   },
   "Screen Orientation": {
     "name": "Screen Orientation API",
@@ -1282,7 +1277,7 @@
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
     "url": "https://w3c.github.io/dnt/drafts/tracking-dnt.html",
-    "status": "CR"
+    "status": "Obsolete"
   },
   "Typed Array": {
     "name": "Typed Array Specification",
@@ -1311,13 +1306,13 @@
   },
   "User Timing": {
     "name": "User Timing",
-    "url": "https://www.w3.org/TR/user-timing/",
+    "url": "https://www.w3.org/TR/user-timing-1/",
     "status": "REC"
   },
   "User Timing Level 2": {
     "name": "User Timing Level 2",
     "url": "https://w3c.github.io/user-timing/",
-    "status": "WD"
+    "status": "REC"
   },
   "vCard": {
     "name": "vCard Format Specification",
@@ -1471,8 +1466,13 @@
   },
   "WebAuthn": {
     "name": "Web Authentication: An API for accessing Public Key Credentials Level 1",
+    "url": "https://www.w3.org/TR/webauthn/",
+    "status": "REC"
+  },
+  "WebAuthn Level 2": {
+    "name": "Web Authentication: An API for accessing Public Key Credentials Level 2",
     "url": "https://w3c.github.io/webauthn/",
-    "status": "CR"
+    "status": "ED"
   },
   "WebDriver": {
     "name": "WebDriver",
