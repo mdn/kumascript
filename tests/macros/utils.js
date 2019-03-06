@@ -1,4 +1,3 @@
-/// <reference path="./utils.doc.js"/>
 /**
  * @prettier
  */
@@ -15,6 +14,38 @@ const Environment = require('../../src/environment.js');
 const Templates = require('../../src/templates.js');
 
 /**
+ * @typedef Macro
+ * @property {typeof Environment.prototype.prototypeEnvironment} ctx
+ *           Give the test-case writer access to the macro's globals (ctx).
+ *           For example, "macro.ctx.env.locale" can be manipulated to something
+ *           other than 'en-US' or "macro.ctx.wiki.getPage" can be mocked
+ *           using `jest.fn()` to avoid network calls.
+ *
+ * @property {(name: string, result: string) => void} mockTemplate
+ *           When writing tests for a macro that invokes other macros with
+ *           the `template()` function, you sometimes want to specify
+ *           a mock return value for those other macros.
+ *
+ *           This function provides a much easier way to handle that than
+ *           using `jest.fn()` directly.
+ *
+ *           To unmock a template result, simply call `unmockTemplate()`
+ *           with the same `name`.
+ *
+ * @property {(name: string) => boolean} unmockTemplate
+ *           Stops mocking the result of a `template()` function call.
+ *
+ *           **Returns:**
+ *           - `true` if a macro result has previously been
+ *             mocked using `mockTemplate()`.
+ *           - `false` otherwise.
+ *
+ * @property {(...args: any[]) => Promise<string>} call
+ *           Use this function to make test calls on the named macro, if applicable.
+ *           Its arguments become the arguments to the macro. It returns a promise.
+ */
+
+/**
  * When we were doing mocha testing, we used this.macro to hold this.
  * But Jest doesn't use the this object, so we just store the object here.
  * @type {Macro}
@@ -24,18 +55,16 @@ let macro = null;
 /**
  * Asserts that value is truthy.
  *
- * @template T Type of value.
- * @param {T} x Actual value.
+ * @param {any} x The value.
  */
 function assert(x) {
     expect(x).toBeTruthy();
 }
 
 /**
- * Asserts non-strict equality (==) of actual and expected.
+ * Asserts deep equality of actual and expected.
  *
- * @template T Type of the objects.
- * @param {T} x Actual value.
+ * @param {any} x Actual value.
  * @param {any} y Potential expected value.
  */
 assert.equal = (x, y) => {
@@ -44,10 +73,9 @@ assert.equal = (x, y) => {
 
 assert.eventually = {
     /**
-     * Asserts non-strict equality (==) of actual and expected.
+     * Asserts deep equality of actual and expected.
      *
-     * @template T Type of the objects.
-     * @param {T|PromiseLike<T>} x Actual value.
+     * @param {any|Promise<any>} x A promise which resolves to the actual value.
      * @param {any} y Potential expected value.
      */
     async equal(x, y) {
@@ -56,10 +84,20 @@ assert.eventually = {
 };
 
 /**
+ * Asserts that list includes the supplied element.
+ *
+ * @template T Type of values in list.
+ * @param {string|T[]} list Container string or array.
+ * @param {string|T} element Potential value contained in the list.
+ */
+assert.include = (list, element) => {
+    expect(list).toContain(element);
+};
+
+/**
  * Asserts that value is true.
  *
- * @template T Type of value.
- * @param {T} value Actual value.
+ * @param {boolean} value Actual value.
  */
 assert.isTrue = value => {
     expect(value).toEqual(true);
@@ -68,8 +106,7 @@ assert.isTrue = value => {
 /**
  * Asserts that value is false.
  *
- * @template T Type of value.
- * @param {T} value Actual value.
+ * @param {boolean} value Actual value.
  */
 assert.isFalse = value => {
     expect(value).toEqual(false);
@@ -88,8 +125,7 @@ assert.isAbove = (value, floor) => {
 /**
  * Asserts that value is an array.
  *
- * @template T Type of value.
- * @param {T} value Actual value.
+ * @param {any[]} value Actual value.
  */
 assert.isArray = value => {
     expect(value).toBeInstanceOf(Array);
@@ -99,8 +135,7 @@ assert.isArray = value => {
  * Asserts that value is an object of type 'Object'
  * (as revealed by Object.prototype.toString).
  *
- * @template T Type of value.
- * @param {T} value Actual value.
+ * @param {object} value Actual value.
  * @remarks The assertion does match subclassed objects.
  */
 assert.isObject = value => {
@@ -110,8 +145,7 @@ assert.isObject = value => {
 /**
  * Asserts that value is a function.
  *
- * @template T Type of value.
- * @param {T} value Actual value.
+ * @param {Function} value Actual value.
  */
 assert.isFunction = value => {
     expect(value).toBeInstanceOf(Function);
@@ -120,8 +154,7 @@ assert.isFunction = value => {
 /**
  * Asserts that object has a property named by property.
  *
- * @template T Type of object.
- * @param {T} value Container object.
+ * @param {object} value Container object.
  * @param {string} prop Potential contained property of object.
  */
 assert.property = (value, prop) => {
@@ -131,8 +164,7 @@ assert.property = (value, prop) => {
 /**
  * Asserts that object doesn't have a property named by property.
  *
- * @template T Type of object.
- * @param {T} value Container object.
+ * @param {object} value Container object.
  * @param {string} prop Potential contained property of object.
  */
 assert.notProperty = (value, prop) => {
@@ -143,22 +175,11 @@ assert.notProperty = (value, prop) => {
  * Asserts that set1 and set2 have the same members. Order is not take into account.
  *
  * @template T Type of set values.
- * @param {T[]} a1 Actual set of values.
- * @param {T[]} a2 Potential expected set of values.
+ * @param {Iterable<T>} a1 Actual set of values.
+ * @param {Iterable<T>} a2 Potential expected set of values.
  */
 assert.sameMembers = (a1, a2) => {
     expect(new Set(a1)).toEqual(new Set(a2));
-};
-
-/**
- * Asserts that haystack includes needle.
- *
- * @template T Type of values in haystack.
- * @param {string|T[]} list Container string or array.
- * @param {string|T} element Potential value contained in haystack.
- */
-assert.include = (list, element) => {
-    expect(list).toContain(element);
 };
 
 /**
@@ -166,6 +187,16 @@ assert.include = (list, element) => {
  * @return {Macro}
  */
 function createMacroTestObject(macroName) {
+    /**
+     * @param {string} name
+     * @return {string}
+     */
+    function normalizeMacroName(name) {
+        return typeof name === 'string'
+            ? name.replace(/:/g, '-').toLowerCase()
+            : name;
+    }
+
     let templates = new Templates(__dirname + '/../../macros/');
     let pageContext = {
         locale: 'en-US',
@@ -178,9 +209,7 @@ function createMacroTestObject(macroName) {
     const macroResults = new Map();
     const realTemplate = ctx.template;
     ctx.template = jest.fn(async (name, ...args) => {
-        let macroName = String(name)
-            .replace(/:/g, '-')
-            .toLowerCase();
+        let macroName = normalizeMacroName(name)
         let result = macroResults.get(macroName);
         if (typeof result === 'string') {
             return result;
@@ -213,7 +242,7 @@ function createMacroTestObject(macroName) {
          */
         mockTemplate(name, result) {
             macroResults.set(
-                name.replace(/:/g, '-').toLowerCase(),
+                normalizeMacroName(name),
                 String(result)
             );
         },
@@ -228,7 +257,7 @@ function createMacroTestObject(macroName) {
          *          - `false` otherwise.
          */
         unmockTemplate(name) {
-            return macroResults.delete(name.replace(/:/g, '-').toLowerCase());
+            return macroResults.delete(normalizeMacroName(name));
         },
 
         /**
@@ -250,12 +279,19 @@ function createMacroTestObject(macroName) {
 }
 
 /**
+ * @callback MacroTestFunction
+ *
+ * @param {Macro} macro The macro test object.
+ * @return {void|Promise<void>}
+ */
+
+/**
  * This is the essential function for testing macros. Use it as
  * you would use mocha's "describe", with the exception that the
  * first argument must be the name of the macro being tested.
  *
  * @param {string} macroName
- * @param {function():void} runTests
+ * @param {function():void|Promise<void>} runTests
  */
 function describeMacro(macroName, runTests) {
     describe(`test "${macroName}"`, function() {
@@ -273,7 +309,7 @@ function describeMacro(macroName, runTests) {
  * single argument that is the macro test object.
  *
  * @param {string} title
- * @param {function(Macro):void} runTest
+ * @param {MacroTestFunction} runTest
  */
 function itMacro(title, runTest) {
     it(title, function() {
@@ -289,7 +325,7 @@ function itMacro(title, runTest) {
  * that the callback function ("setup" in this case) should accept a single
  * argument that is the macro test object.
  *
- * @param {function(Macro):void} setup
+ * @param {MacroTestFunction} setup
  */
 function beforeEachMacro(setup) {
     beforeEach(function() {
@@ -305,7 +341,7 @@ function beforeEachMacro(setup) {
  * that the callback function ("teardown" in this case) should accept a single
  * argument that is the macro test object.
  *
- * @param {function(Macro):void} teardown
+ * @param {MacroTestFunction} teardown
  */
 function afterEachMacro(teardown) {
     afterEach(function() {
@@ -322,7 +358,7 @@ function afterEachMacro(teardown) {
  * success, and, on failure, a string detailing all of the errors.
  *
  * @param {string} html
- * @param {boolean} [fragment]
+ * @param {boolean} [fragment] Whether the HTML is a fragment or not.
  * @return {string|null}
  */
 function lintHTML(html, fragment = true) {
@@ -341,7 +377,7 @@ function lintHTML(html, fragment = true) {
         });
         return null;
     } catch (error) {
-        const error_message = /** @type {Error} */ (error).message
+        const error_message = error.message
             .split(os.EOL)
             .filter(line => line.startsWith('Error: '))
             .join(os.EOL);
@@ -357,6 +393,8 @@ function lintHTML(html, fragment = true) {
  * @param {string|{encoding?:string,flag?:string}} [options]
  *        Either the encoding for the result, or an object that contains the encoding
  *        and an optional flag. If a flag is not provided, it defaults to `'r'`.
+ *
+ *        Same as for {@link fs#readFileSync}.
  *
  * @returns {string|Buffer}
  */
@@ -379,7 +417,8 @@ function readJSONFixture(...filePath) {
     if (!path.extname(fileName)) {
         fileName += '.json';
     }
-    return JSON.parse(String(readFixture([...filePath, fileName])));
+    filePath.push(fileName)
+    return JSON.parse(String(readFixture(filePath)));
 }
 
 // ### Exported public API

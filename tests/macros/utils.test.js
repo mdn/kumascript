@@ -1,8 +1,6 @@
 /**
  * @prettier
  */
-const { platform } = require('os');
-
 const { lintHTML, readFixture, readJSONFixture } = require('./utils');
 
 const ERROR_TEST_CASES = [
@@ -41,18 +39,12 @@ describe('Macro test utils', function() {
     });
 
     it('`readFixture` works', function() {
-        let result = String(readFixture('utils-test.txt'));
-
-        // prevent false positives from git.core.autocrlf on Windows
-        if (platform() === 'win32') {
-            result.replace(/\r\n/g, '\n');
-        }
-
-        expect(result).toEqual('Lorem ipsum...\n');
+        let result = String(readFixture('utils-test/fixture.txt')).trim();
+        expect(result).toEqual('Lorem ipsum...');
     });
 
     it('`readJSONFixture` works', function() {
-        const result = readJSONFixture('utils-test');
+        const result = readJSONFixture('utils-test', 'fixture');
         expect(result).toEqual({ 'utils-test': true });
     });
 });
