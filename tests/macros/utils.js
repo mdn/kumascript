@@ -176,7 +176,7 @@ function lintHTML(html, fragment = true) {
                 </html>`;
     }
     try {
-        execSync(`java -jar ${vnu} --errors-only --format text -`, {
+        execSync(`java -jar ${JSON.stringify(vnu)} --errors-only --format text -`, {
             input: html,
             stdio: 'pipe',
             timeout: 15000
@@ -184,9 +184,14 @@ function lintHTML(html, fragment = true) {
         return null;
     } catch (error) {
         const error_message = error.message
-            .split(os.EOL)
-            .filter(line => line.startsWith('Error: '))
+            // `vnu` always uses `\n`, even on Windows.
+            .split('\n')
+            .filter(line => /^\s*Error: /.test(line))
             .join(os.EOL);
+        if (!error_message) {
+            // In case `vnu` fails due to other reasons.
+            throw error;
+        }
         return error_message;
     }
 }
