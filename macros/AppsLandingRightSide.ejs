@@ -31,7 +31,7 @@ switch(env.locale) {
 <h5 class="Community" id="Community" name="Community">コミュニティ</h5>
 <p>貢献したいが何をするべきか分からないという方は、是非コミュニティに参加して下さい。</p>
 <ul>
-    <li>webapps フォーラム: <%- template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
+    <li>webapps フォーラム: <%- await template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
         <ul>
             <li>IRC の Open Web Apps チャンネルで質問: <a class="link-irc" href="irc://irc.mozilla.org/openwebapps">#openwebapps</a></li>
         </ul>
@@ -65,7 +65,7 @@ switch(env.locale) {
 <h5 class="Community" id="Community" name="Community">কমিউনিটি থেকে সাহায্য নেওয়া</h5>
 <p>আপনি যদি এখনও কিভাবে কোন কাজ করতে হবে - এ ব্যাপারে সন্দিহান হয়ে থাকেন, তবে এখনই আলোচনায় যোগ দিন আমাদের সঙ্গে!</p>
 <ul>
-    <li>ওয়েব এ্যাপস ফোরাম: <%- template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
+    <li>ওয়েব এ্যাপস ফোরাম: <%- await template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
         <ul>
             <li>ওপেন ওয়েব এ্যাপস আইআরসি চ্যানেলে আপনার প্রশ্ন জিজ্ঞাসা করুন: <a class="link-irc" href="irc://irc.mozilla.org/openwebapps">#openwebapps</a></li>
         </ul>
@@ -99,7 +99,7 @@ switch(env.locale) {
 <h5 class="Community" id="Community" name="Community">从社区获取帮助</h5>
 <p>如果您还不确定该做的事，欢迎随时加入讨论。</p>
 <ul>
-    <li>咨询 webapps 论坛：<%- template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
+    <li>咨询 webapps 论坛：<%- await template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
         <ul>
             <li>在 Open Web Apps IRC 频道上提问和讨论：<a class="link-irc" href="irc://irc.mozilla.org/openwebapps">#openwebapps</a></li>
         </ul>
@@ -133,7 +133,7 @@ switch(env.locale) {
 <h5 class="Community" id="Community" name="Community">Getting help from the community</h5>
 <p>If you still aren't sure how to do what you're trying to get done, feel free to join the conversation!</p>
 <ul>
-    <li>Consult the webapps forum: <%- template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
+    <li>Consult the webapps forum: <%- await template("DiscussionList", ["dev-webapps", "mozilla.dev.webapps"]) %>
         <ul>
             <li>Ask your question on the Open Web Apps IRC channel: <a class="link-irc" href="irc://irc.mozilla.org/openwebapps">#openwebapps</a></li>
         </ul>

@@ -1,9 +1,0 @@
-* {{ fake('') }}
-* {{ fake("") }}
-* {{ fake("",'',"") }}
-* {{ PreviousNext("docs/User:trevorh/aTest","docs/User:trevorh/Generic_template_test","","Anything") }}
----
-* ["fake",[""]]
-* ["fake",[""]]
-* ["fake",["","",""]]
-* ["PreviousNext",["docs/User:trevorh/aTest","docs/User:trevorh/Generic_template_test","","Anything"]]

@@ -1,9 +1,0 @@
-Testing that an invalid ArgumentsList still
-produces a sensible error message.
-
-{{ add(1,) }}
----
-Testing that an invalid ArgumentsList still
-produces a sensible error message.
-
-{{ add(1,) }}

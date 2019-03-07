@@ -99,12 +99,12 @@ switch(env.locale) {
 }
 %>
 
-<div class="overheadIndicator communitybox">
+<div class="blockIndicator communitybox">
     <div class="column-container">
         <div class="communitysubhead" id="Help_topic"><%=headingStr%></div>
         <div class="communitycontact"><%-topicDriverStr%></div>
         <div class="communitycontact"><%-statusStr%></div>
         <div class="communitysubhead communitycontact"><%-ircStr%></div>
-        <%-template("DiscussionList", [mlName, ngName, "communitymailinglist"])%>
+        <%-await template("DiscussionList", [mlName, ngName, "communitymailinglist"])%>
     </div>
 </div>

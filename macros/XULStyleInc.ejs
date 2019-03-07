@@ -16,10 +16,10 @@ var destNewType = lang + '/' + 'XUL/' + StyleName + '/' + api;
 
 if (wiki.pageExists(destNewType)) {
     /* the page exists from the deki age */
-    %><%-wiki.page(destNewType)%><%
+    %><%-await wiki.page(destNewType)%><%
 } else if (wiki.pageExists(destOldType)) {
     /* the page exists from the mediawiki age */
-    %><%-wiki.page(destOldType)%><%
+    %><%-await wiki.page(destOldType)%><%
 } else {
     /* the page doesn't exist */
     var targeturi = "/docs/new?slug=XUL/" + StyleName + '/' + api;

@@ -11,4 +11,4 @@ switch (env.locale) {
     case 'ru':    path = 'ru/XUL/Property'; break;
 }
 %>
-<div id="<%='p-' + $0%>"><%- wiki.page(path + '/' + $0) %></div>
+<div id="<%='p-' + $0%>"><%- await wiki.page(path + '/' + $0) %></div>

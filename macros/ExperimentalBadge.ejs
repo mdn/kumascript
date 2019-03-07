@@ -82,6 +82,6 @@ str = mdn.localString({
 });
 /* ja : OK */
 
-%><%-template("SimpleBadge", [str, "experimentalBadge", titleAttrValue])%><%
+%><%-await template("SimpleBadge", [str, "experimentalBadge", titleAttrValue])%><%
 }
 %>

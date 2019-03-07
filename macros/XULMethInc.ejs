@@ -29,11 +29,10 @@ var destOldType = lang + '/docs/' + 'XUL:' + methodName + ':' + api;
 var destNewType = lang + '/docs/' + 'Mozilla/Tech/XUL/' + methodName + '/' + api;
 
 if (wiki.pageExists(destNewType)) { /* the page exists from the deki age */
-    %><%-template("page", [destNewType])%><%
+    %><%-await template("page", [destNewType])%><%
 } else if(wiki.pageExists(destOldType)) { /* the page exists from the mediawiki age */
-    %><%-template("page", [destOldType])%><%
+    %><%-await template("page", [destOldType])%><%
 } else { /* the page doesn't exist */
-    log.debug("Neither exists");
     var targeturi = "/docs/new?slug=Mozilla/Tech/XUL/" + methodName + "/" + api;
     %><code><a href="<%=targeturi%>" class="new"><%=(api)%></a></code><%
 }

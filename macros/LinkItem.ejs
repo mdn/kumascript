@@ -10,8 +10,8 @@
 //  $0  Item text
 //  $1  URL
 
-var page = wiki.getPage($1);
-var summary = '';
+let page = await wiki.getPage($1);
+let summary = '';
 if (page.summary) { // If the page doesn't exist (not yet translated)
     summary = wiki.escapeQuotes(page.summary);
 }

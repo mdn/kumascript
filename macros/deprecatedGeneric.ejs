@@ -35,11 +35,11 @@ if ($1) {
         ver = "CSS ";
     } else if (string.startswith(t, "html")) {
         n = string.trim(string.substr(t, 4));
-        
-        var N = (n[0] === "4") ? "" : n; 
-        
+
+        var N = (n[0] === "4") ? "" : n;
+
         ver = "HTML";
-        
+
         if (string.length(N) > 0) {
             if(wiki.pageExists('/' + lang + '/docs/HTML/HTML' + N)) {
                 link = '/' + lang + '/docs/HTML/HTML' + N;
@@ -59,9 +59,9 @@ if ($1) {
     } else if (string.startswith(t, "gecko")) {
         n = string.trim( string.substr(t, 5) );
         ver = "Gecko ";
-        tip = template("geckoRelease", [n]);
+        tip = await template("geckoRelease", [n]);
     }
-    
+
     n = string.trim(n);
     ver = (string.length(n) > 0) ? ver + n : "";
 }
@@ -118,7 +118,7 @@ switch(lang) {
 }
 
 var str_desc = mdn.localString({
-  "en-US": "This feature has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Avoid using it and update existing code if possible; see the <a href='#Browser_compatibility'>compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.",
+  "en-US": "This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the <a href='#Browser_compatibility'>compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.",
   "de":    "Dieses Feature wurde aus den Webstandards entfernt. Obwohl manche Browser es immer noch unterstützen, wird es zukünftig wegfallen. Es sollte daher nicht mehr in alten oder neuen Projekten verwendet werden. Webseiten oder Webapps, die es benutzen, funktionieren möglicherweise irgendwann nicht mehr korrekt.",
   "es":    "This feature has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Do not use it in old or new projects. Pages or Web apps using it may break at any time.",
   "fr":    "Cette fonctionnalité a été supprimée des standards du Web. Bien que quelques navigateurs puissent encore la supporter, elle est en cours d'éradication. Ne l'utilisez ni dans d'anciens projets, ni dans de nouveaux. Les pages et applications Web l'utilisant peuvent cesser de fonctionner à tout moment.",
@@ -136,8 +136,8 @@ switch($0) {
         break;
     case 'header':
         if (tip.length) { str = str + " " + tip; }
-        %><div class="overheadIndicator deprecated deprecatedHeader">
-            <p><strong><%-template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p>
+        %><div class="blockIndicator deprecated deprecatedHeader">
+            <p><strong><%-await template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p>
         </div><%
         break;
     case 'method':

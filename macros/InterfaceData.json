@@ -1068,6 +1068,10 @@
       "inh": "BoxObject",
       "impl": []
     },
+    "MerchantValidationEvent": {
+      "inh": "Event",
+      "impl": []
+    },
     "MessageEvent": {
       "inh": "Event",
       "impl": []
@@ -1326,6 +1330,26 @@
       "impl": [
         "AudioNodePassThrough"
       ]
+    },
+    "PaymentAddress": {
+      "inh": "",
+      "impl": []
+    },
+    "PaymentMethodChangeEvent": {
+      "inh": "PaymentRequestUpdateEvent",
+      "impl": []
+    },
+    "PaymentRequest": {
+      "inh": "EventTarget",
+      "impl": []
+    },
+    "PaymentRequestUpdateEvent": {
+      "inh": "Event",
+      "impl": []
+    },
+    "PaymentResponse": {
+      "inh": "EventTarget",
+      "impl": []
     },
     "Performance": {
       "inh": "",

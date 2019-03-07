@@ -12,10 +12,10 @@
  */
  
 // Get the page summary
-var summary = "";
+let summary = "";
     
 if (($2 !== false && $0.indexOf("#") === -1) || $2 === true) {
-    var page = wiki.getPage($0);
+    let page = await wiki.getPage($0);
     if (page && page.summary) {
         summary = mdn.escapeQuotes(page.summary);
     } else {

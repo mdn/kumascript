@@ -13,12 +13,12 @@ var typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json
 var syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
 var unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
 var data = {
-    properties: mdn.fetchJSONResource(propertiesUrl),
-    atRules: mdn.fetchJSONResource(atRulesUrl),
-    selectors: mdn.fetchJSONResource(selectorsUrl),
-    types: mdn.fetchJSONResource(typesUrl),
-    syntaxes: mdn.fetchJSONResource(syntaxesUrl),
-    units: mdn.fetchJSONResource(unitsUrl)
+    properties: await MDN.fetchJSONResource(propertiesUrl),
+    atRules: await MDN.fetchJSONResource(atRulesUrl),
+    selectors: await MDN.fetchJSONResource(selectorsUrl),
+    types: await MDN.fetchJSONResource(typesUrl),
+    syntaxes: await MDN.fetchJSONResource(syntaxesUrl),
+    units: await MDN.fetchJSONResource(unitsUrl)
 };
 var animatedProps = [];
 
@@ -40,7 +40,7 @@ for (var propIndex in animatedProps) {
     if (result) {
         result += " ";
     }
-    result += "    <li>" + template("cssxref", [prop]) + "</li>\n";
+    result += "    <li>" + await template("cssxref", [prop]) + "</li>\n";
 }
 result += "  </ul>\n</div>";
 

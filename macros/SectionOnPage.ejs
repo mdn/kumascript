@@ -15,28 +15,28 @@
 // {{SectionOnPage("/en-US/docs/Web/API/RTCPeerConnection",
 //                 "RTCSignalingState enum", "code")}}
 
-var allowedWrappers = [
+let allowedWrappers = [
     "code",
     "kbd",
 ];
 
 let section = $1;
-var lang = env.locale;
-var text = "";
-var page = wiki.getPage($0);
-var title = kuma.htmlEscape(page.title);
+let lang = env.locale;
+let text = "";
+let page = await wiki.getPage($0);
+let title = kuma.htmlEscape(page.title);
 
-var commonLocalStrings = string.deserialize(template("L10n:Common"));
-var localize = mdn.getLocalString;
+let commonLocalStrings = string.deserialize(await template("L10n:Common"));
+let localize = mdn.getLocalString;
 
-var summary = (page && page.summary) ? mdn.escapeQuotes(page.summary) :
+let summary = (page && page.summary) ? mdn.escapeQuotes(page.summary) :
     localize(commonLocalStrings, "summary");
 
 if (!title || title == undefined || title == "undefined") {
     title = localize(commonLocalStrings, "MissingPage");
 }
 
-var elem = $2;
+let elem = $2;
 
 if (elem && elem != "") {
     elem = elem.toLowerCase();
@@ -46,7 +46,7 @@ if (elem && elem != "") {
     }
 }
 
-var url = $0 + "#" + section;
+let url = $0 + "#" + section;
 
 url = Web.spacesToUnderscores(url);
 url = url.replace(":", "");             // Remove colons
