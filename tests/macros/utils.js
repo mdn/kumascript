@@ -75,7 +75,8 @@ assert.eventually = {
     /**
      * Asserts deep equality of actual and expected.
      *
-     * @param {any|Promise<any>} x A promise which resolves to the actual value.
+     * @template T Type of the resolved value.
+     * @param {T|Promise<T>} x A promise which resolves to the actual value.
      * @param {any} y Potential expected value.
      */
     async equal(x, y) {
@@ -87,7 +88,7 @@ assert.eventually = {
  * Asserts that list includes the supplied element.
  *
  * @template T Type of values in list.
- * @param {string|T[]} list Container string or array.
+ * @param {string|any[]} list Container string or array.
  * @param {string|T} element Potential value contained in the list.
  */
 assert.include = (list, element) => {
@@ -125,7 +126,7 @@ assert.isAbove = (value, floor) => {
 /**
  * Asserts that value is an array.
  *
- * @param {any[]} value Actual value.
+ * @param {any} value Actual value.
  */
 assert.isArray = value => {
     expect(value).toBeInstanceOf(Array);
@@ -135,7 +136,7 @@ assert.isArray = value => {
  * Asserts that value is an object of type 'Object'
  * (as revealed by Object.prototype.toString).
  *
- * @param {object} value Actual value.
+ * @param {any} value Actual value.
  * @remarks The assertion does match subclassed objects.
  */
 assert.isObject = value => {
@@ -145,7 +146,7 @@ assert.isObject = value => {
 /**
  * Asserts that value is a function.
  *
- * @param {Function} value Actual value.
+ * @param {any} value Actual value.
  */
 assert.isFunction = value => {
     expect(value).toBeInstanceOf(Function);
@@ -174,9 +175,8 @@ assert.notProperty = (value, prop) => {
 /**
  * Asserts that set1 and set2 have the same members. Order is not take into account.
  *
- * @template T Type of set values.
- * @param {Iterable<T>} a1 Actual set of values.
- * @param {Iterable<T>} a2 Potential expected set of values.
+ * @param {Iterable} a1 Actual set of values.
+ * @param {Iterable} a2 Potential expected set of values.
  */
 assert.sameMembers = (a1, a2) => {
     expect(new Set(a1)).toEqual(new Set(a2));
@@ -390,27 +390,31 @@ function lintHTML(html, fragment = true) {
  *
  * @param {string|string[]} filePath
  *        A path to a file relative to the `fixtures` directory.
- * @param {string|{encoding?:string,flag?:string}} [options]
- *        Either the encoding for the result, or an object that contains the encoding
- *        and an optional flag. If a flag is not provided, it defaults to `'r'`.
+ * @param {string|null} [encoding]
+ *        The file encoding. Set to `null` to load the file as a binary `Buffer`.
  *
- *        Same as for {@link fs#readFileSync}.
- *
- * @returns {string|Buffer}
+ * @returns {string}
  */
-function readFixture(filePath, options) {
+function readFixture(filePath, encoding = 'utf-8') {
     if (!Array.isArray(filePath)) {
         filePath = [filePath];
     }
     let absolutePath = path.resolve(__dirname, 'fixtures', ...filePath);
-    return fs.readFileSync(absolutePath, options);
+    return fs.readFileSync(absolutePath, typeof encoding === 'string' ? encoding : undefined);
 }
 
 /**
  * Reads a JSON fixture file from the `fixtures` directory.
  *
+ * @template T The schema of the JSON payload.
  * @param {...string} filePath
  *        A path to a file relative to the `fixtures` directory.
+ *
+ *        The `.json` file extension can be omitted.
+ *
+ * @returns {T} The parsed JSON payload.
+ *
+ * @throws {SyntaxError} If the JSON file contains a syntax error.
  */
 function readJSONFixture(...filePath) {
     let fileName = filePath.pop();
@@ -418,7 +422,7 @@ function readJSONFixture(...filePath) {
         fileName += '.json';
     }
     filePath.push(fileName)
-    return JSON.parse(String(readFixture(filePath)));
+    return JSON.parse(readFixture(filePath));
 }
 
 // ### Exported public API
