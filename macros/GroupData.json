@@ -1895,7 +1895,9 @@
                             "AuthenticatorAssertionResponse" ],
             "methods":    [],
             "properties": [],
-            "events":     []
+            "events":     [],
+            "dictionaries": ["PublicKeyCredentialRequestOptions",
+                             "PublicKeyCredentialCreationOptions"]
         },
         "Web Components": {
             "guides":       [
