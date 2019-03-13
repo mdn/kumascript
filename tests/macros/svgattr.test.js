@@ -3,7 +3,7 @@
  */
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('SVGAttr', function() {
+describeMacro('SVGAttr', () => {
     for (const locale of ['en-US', 'de', 'fr']) {
         for (const attr of ['min', 'max']) {
             itMacro(`${locale} ${attr} `, function(macro) {
