@@ -8,6 +8,9 @@
  */
 /* eslint-disable no-console */
 
+// Allow `require(…)`-ing TypeScript files
+require('ts-node').register();
+
 // Start New Relic logging if it is configured
 if (process.env.NEW_RELIC_LICENSE_KEY && process.env.NEW_RELIC_APP_NAME) {
     console.log('Starting New Relic logging for KumaScript.');
