@@ -15,8 +15,8 @@ if (process.env.NEW_RELIC_LICENSE_KEY && process.env.NEW_RELIC_APP_NAME) {
 }
 
 // Start up a server instance.
-const config = require('./src/config.js');
-const Server = require('./src/server.js');
+const config = require('./src/config');
+const Server = require('./src/server');
 console.log(`KumaScript server starting (PID ${process.pid}).`);
 var server = new Server();
 server.listen(config.port);

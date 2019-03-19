@@ -8,7 +8,7 @@ describe('config.js', () => {
     });
 
     it('default configuration', () => {
-        const config = require('../src/config.js');
+        const config = require('../src/config');
 
         expect(config.port).toBe(9080);
         expect(config.documentURLTemplate).toBe(
@@ -33,7 +33,7 @@ describe('config.js', () => {
         process.env['KUMASCRIPT_CACHE_MEGABYTES'] = '100';
         process.env['KUMASCRIPT_CACHE_MINUTES'] = '1000';
 
-        const config = require('../src/config.js');
+        const config = require('../src/config');
 
         expect(config.port).toBe(80);
         expect(config.documentURLTemplate).toBe('A');

@@ -7,8 +7,8 @@ const path = require('path');
 const express = require('express');
 const request = require('request');
 
-const Server = require('../src/server.js');
-const config = require('../src/config.js');
+const Server = require('../src/server');
+const config = require('../src/config');
 
 const FIXTURES_PATH = path.join(__dirname, 'fixtures', 'server');
 const KUMA_PORT = 11111;

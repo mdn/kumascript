@@ -5,7 +5,7 @@
  */
 const fs = require('fs');
 const ejs = require('ejs');
-const Templates = require('../src/templates.js');
+const Templates = require('../src/templates');
 
 describe('macros/ directory', () => {
     describe('compile all macros', () => {

@@ -2,7 +2,7 @@
  * @prettier
  */
 
-const Parser = require('../src/parser.js');
+const Parser = require('../src/parser');
 
 describe('Parser', function() {
     it('input with no macros', () => {

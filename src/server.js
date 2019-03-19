@@ -23,10 +23,10 @@ const express = require('express');
 const morgan = require('morgan');
 const request = require('request');
 
-const config = require('./config.js');
-const firelogger = require('./firelogger.js');
-const Templates = require('./templates.js');
-const render = require('./render.js');
+const config = require('./config');
+const firelogger = require('./firelogger');
+const Templates = require('./templates');
+const render = require('./render');
 
 class Server {
     /**
@@ -70,7 +70,7 @@ class Server {
     /**
      * Start the service listening
      *
-     * @param {port} number
+     * @param {number} port
      */
     listen(port) {
         port = port || config.port;

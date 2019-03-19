@@ -4,7 +4,7 @@
  * @prettier
  */
 const LRU = require('lru-cache');
-const config = require('./config.js');
+const config = require('./config');
 
 const lru = new LRU({
     max: 1024 * 1024 * config.cacheMegabytes,

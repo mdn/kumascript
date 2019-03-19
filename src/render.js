@@ -42,14 +42,14 @@
  *
  * @prettier
  */
-const Parser = require('./parser.js');
-const Environment = require('./environment.js');
+const Parser = require('./parser');
+const Environment = require('./environment');
 const {
     MacroInvocationError,
     MacroNotFoundError,
     MacroCompilationError,
     MacroExecutionError
-} = require('./errors.js');
+} = require('./errors');
 
 async function render(source, templates, pageEnvironment) {
     // Parse the source document.

@@ -8,8 +8,8 @@ const os = require('os');
 
 const vnu = require('vnu-jar');
 
-const Environment = require('../../src/environment.js');
-const Templates = require('../../src/templates.js');
+const Environment = require('../../src/environment');
+const Templates = require('../../src/templates');
 
 // When we were doing mocha testing, we used this.macro to hold this.
 // But Jest doesn't use the this object, so we just store the object here.

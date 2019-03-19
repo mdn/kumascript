@@ -3,14 +3,14 @@
  */
 
 const fs = require('fs');
-const Templates = require('../src/templates.js');
-const render = require('../src/render.js');
+const Templates = require('../src/templates');
+const render = require('../src/render');
 const {
     MacroInvocationError,
     MacroNotFoundError,
     MacroCompilationError,
     MacroExecutionError
-} = require('../src/errors.js');
+} = require('../src/errors');
 
 describe('render() function', () => {
     function fixture(name) {

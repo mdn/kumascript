@@ -8,15 +8,15 @@
  *
  * @prettier
  */
-const config = require('./config.js');
+const config = require('./config');
 
 // The cache() function that is exported by this module needs async
 // get and set functions that represent the actual caching
 // operations. If our configuration includes Redis we'll use
 // that. Otherwise we'll fall back to an in-memory LRU cache.
 const backend = config.redisURL
-    ? require('./cache-redis.js')
-    : require('./cache-lru.js');
+    ? require('./cache-redis')
+    : require('./cache-lru');
 
 /**
  * Look up the specified key in the cache, and return its value if

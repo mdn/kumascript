@@ -29,7 +29,7 @@ describe('cache() function', () => {
         async backend => {
             const config = require('../src/config');
             config.redisURL = backend === 'lru' ? null : 'redis://';
-            const cache = require('../src/cache.js');
+            const cache = require('../src/cache');
 
             let compute = jest.fn(() => String(Math.random()));
 
@@ -50,7 +50,7 @@ describe('cache() function', () => {
         async backend => {
             const config = require('../src/config');
             config.redisURL = backend === 'lru' ? null : 'redis://';
-            const cache = require('../src/cache.js');
+            const cache = require('../src/cache');
 
             let compute = jest.fn(() => String(Math.random()));
 
@@ -65,7 +65,7 @@ describe('cache() function', () => {
     it.each(['lru', 'redis'])('does not cache null (%s)', async backend => {
         const config = require('../src/config');
         config.redisURL = backend === 'lru' ? null : 'redis://';
-        const cache = require('../src/cache.js');
+        const cache = require('../src/cache');
         let compute = jest.fn(() => null);
 
         await cache('key4', compute);
@@ -84,7 +84,7 @@ describe('cache() function', () => {
         async backend => {
             const config = require('../src/config');
             config.redisURL = backend === 'lru' ? null : 'redis://';
-            const cache = require('../src/cache.js');
+            const cache = require('../src/cache');
             async function expectExceptionFor(x) {
                 try {
                     let value = await cache('key6', () => x);
