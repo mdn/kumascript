@@ -2,6 +2,7 @@
  * Error classes that can be thown when trying to render the macros on a page.
  * @prettier
  */
+import { SyntaxError, KSMacroToken } from './parser';
 
 /**
  * This is the common superclass of the other error classes here.
@@ -9,7 +10,12 @@
  * error occurs in and drawing an ASCII art arrow to point at it.
  */
 class SourceCodeError extends Error {
-    constructor(cause, line, column, name) {
+    cause: Error;
+    line: number;
+    column: number;
+    options?: { name: string };
+
+    constructor(cause: Error, line: number, column: number, name?: any) {
         super();
         this.cause = cause;
         this.line = line;
@@ -23,12 +29,14 @@ class SourceCodeError extends Error {
         }
     }
 
-    // TODO(djf): a lot of our HTML documents have really long lines and
-    // showing line-oriented errors when the column number is > 100
-    // doesn't really make sense. Perhaps we can modify this function to
-    // show the relevant context in a more useful way.
-    getSourceContext(source) {
-        function arrow(column) {
+    /**
+     * **TODO**(djf): a lot of our HTML documents have really long lines and
+     * showing line-oriented errors when the column number is > 100
+     * doesn't really make sense. Perhaps we can modify this function to
+     * show the relevant context in a more useful way.
+     */
+    getSourceContext(source: string) {
+        function arrow(column: number) {
             let arrow = '';
             for (let i = 0; i < column + 7; i++) {
                 arrow += '-';
@@ -36,7 +44,7 @@ class SourceCodeError extends Error {
             return arrow + '^';
         }
 
-        function formatLine(i, line) {
+        function formatLine(i: number, line: string) {
             let lnum = ('      ' + (i + 1)).substr(-5);
             return lnum + ' | ' + line;
         }
@@ -68,15 +76,24 @@ class SourceCodeError extends Error {
  * the error object is from the parser class and tells us the location
  * of the error.
  */
-class MacroInvocationError extends SourceCodeError {
-    constructor(error, source) {
+export class MacroInvocationError extends SourceCodeError {
+    options: never;
+
+    constructor(error: MacroInvocationError | SyntaxError, source: string) {
         // If the error is not a SyntaxError, with a location property then
         // just return it instead of creating a wrapper object
-        if (error.name !== 'SyntaxError' || error.location === undefined) {
-            return error;
+        if (
+            error.name !== 'SyntaxError' ||
+            (error as SyntaxError).location === undefined
+        ) {
+            return error as MacroInvocationError;
         }
 
-        super(error, error.location.start.line, error.location.start.column);
+        super(
+            error,
+            (error as SyntaxError).location.start.line,
+            (error as SyntaxError).location.start.column
+        );
         this.name = 'MacroInvocationError';
 
         // Finally, assemble the complete error message.
@@ -91,8 +108,10 @@ class MacroInvocationError extends SourceCodeError {
  * a macro that does not exist. The error message shows the location of the
  * macro in the HTML document, which it determines from the token argument.
  */
-class MacroNotFoundError extends SourceCodeError {
-    constructor(error, source, token) {
+export class MacroNotFoundError extends SourceCodeError {
+    options!: { name: string };
+
+    constructor(error: Error, source: string, token: KSMacroToken) {
         super(
             error,
             token.location.start.line,
@@ -115,8 +134,10 @@ class MacroNotFoundError extends SourceCodeError {
  * template compilation. The error message shows the location of the
  * macro in the HTML document and also includes the underlying error message.
  */
-class MacroCompilationError extends SourceCodeError {
-    constructor(error, source, token) {
+export class MacroCompilationError extends SourceCodeError {
+    options!: { name: string };
+
+    constructor(error: Error, source: string, token: KSMacroToken) {
         super(
             error,
             token.location.start.line,
@@ -140,8 +161,10 @@ class MacroCompilationError extends SourceCodeError {
  * macro in the HTML document and also includes the error message
  * from the underlying runtime error.
  */
-class MacroExecutionError extends SourceCodeError {
-    constructor(error, source, token) {
+export class MacroExecutionError extends SourceCodeError {
+    options!: { name: string };
+
+    constructor(error: Error, source: string, token: KSMacroToken) {
         super(
             error,
             token.location.start.line,
@@ -158,10 +181,3 @@ class MacroExecutionError extends SourceCodeError {
         )}\n${error.message};`;
     }
 }
-
-module.exports = {
-    MacroInvocationError,
-    MacroNotFoundError,
-    MacroCompilationError,
-    MacroExecutionError
-};

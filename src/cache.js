@@ -8,7 +8,7 @@
  *
  * @prettier
  */
-const config = require('./config.js');
+const config = require('./config.ts');
 
 // The cache() function that is exported by this module needs async
 // get and set functions that represent the actual caching

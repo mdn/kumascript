@@ -25,12 +25,14 @@
  *
  * @prettier
  */
-const fs = require('fs');
-const path = require('path');
-const ejs = require('ejs');
+import fs = require('fs');
+import path = require('path');
+import ejs = require('ejs');
 
 class Templates {
-    constructor(macroDirectory) {
+    macroDirectory: string;
+    macroNameToPath: Map<string, string>;
+    constructor(macroDirectory: string) {
         this.macroDirectory = macroDirectory;
         this.macroNameToPath = new Map();
 
@@ -41,7 +43,7 @@ class Templates {
 
         // Walk the directory tree under the specified root directory.
         while (dirs.length > 0) {
-            let dir = dirs.shift();
+            let dir = dirs.shift()!;
             fs.readdirSync(dir).forEach(fn => {
                 // If the given filename is a directory, push it onto
                 // the queue, otherwise consider it a template.
@@ -88,7 +90,7 @@ class Templates {
         }
     }
 
-    async render(name, args) {
+    async render(name: string, args?: ejs.Data) {
         // Normalize the macro name by converting colons to hyphens and
         // uppercase letters to lowercase.
         name = name.replace(/:/g, '-').toLowerCase();
@@ -99,7 +101,7 @@ class Templates {
             throw new ReferenceError(`Unknown macro ${name}`);
         }
 
-        let rendered = await ejs.renderFile(path, args, {
+        let rendered = await ejs.renderFile<string>(path, args, {
             cache: true,
             async: true
         });
@@ -111,4 +113,4 @@ class Templates {
     }
 }
 
-module.exports = Templates;
+export = Templates;

@@ -11,7 +11,7 @@ const path = require('path');
 const vnu = require('vnu-jar');
 
 const Environment = require('../../src/environment.js');
-const Templates = require('../../src/templates.js');
+const Templates = require('../../src/templates.ts');
 
 /**
  * @typedef Macro

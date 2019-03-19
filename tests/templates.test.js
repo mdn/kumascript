@@ -2,7 +2,7 @@
  * @prettier
  */
 
-const Templates = require('../src/templates.js');
+const Templates = require('../src/templates.ts');
 const path = require('path');
 
 describe('Templates class', () => {

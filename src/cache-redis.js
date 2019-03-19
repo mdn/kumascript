@@ -4,7 +4,7 @@
  * @prettier
  */
 const Redis = require('redis');
-const config = require('./config.js');
+const config = require('./config.ts');
 const client = Redis.createClient(config.redisURL);
 
 module.exports = {

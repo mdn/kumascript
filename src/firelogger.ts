@@ -5,7 +5,29 @@
  *
  * @prettier
  */
-module.exports = function(options) {
+import { RequestHandler, Response } from 'express';
+
+interface FireLoggerOptions {
+    max_header_length?: number;
+    levels?: string[];
+    logger?: (...args: any[]) => void;
+}
+
+interface FireLoggerResponse extends Response {
+    log: FireLoggerResponseLogger;
+}
+
+interface FireLoggerResponseLogger {
+    (data?: FireLoggerResponseData): void;
+    [level: string]: (msg: string, data?: FireLoggerResponseData) => void;
+}
+
+interface FireLoggerResponseData extends Record<string, any> {
+    time?: string;
+    timestamp?: number;
+}
+
+function FireLogger(options: FireLoggerOptions): RequestHandler {
     options = options || {};
     // HACK: Under 8k seems like an arbitrary best guess at a max
     var max_header_length = options.max_header_length || 8000;
@@ -17,8 +39,8 @@ module.exports = function(options) {
         'critical'
     ];
 
-    return function(req, res, mw_next) {
-        var messages = [],
+    return function(req, res: FireLoggerResponse, mw_next) {
+        var messages: FireLoggerResponseData[] = [],
             orig_writeHead = res.writeHead;
 
         res.log = function(data) {
@@ -27,7 +49,7 @@ module.exports = function(options) {
             data.time = now.toTimeString();
             data.timestamp = now.getTime() * 1000;
             messages.push(data);
-        };
+        } as FireLoggerResponseLogger;
 
         levels.forEach(function(level) {
             res.log[level] = function(msg, data) {
@@ -41,11 +63,11 @@ module.exports = function(options) {
             };
         });
 
-        res.writeHead = function(status, headers) {
+        res.writeHead = function writeHead(status: number, ...rest: any[]) {
             // Wrap up the common exit point
             function wh_next() {
                 res.writeHead = orig_writeHead;
-                res.writeHead(status, headers);
+                res.writeHead(status, ...rest);
             }
 
             // Patch the Vary: header to include X-FireLogger, to indicate that
@@ -71,12 +93,12 @@ module.exports = function(options) {
             }
 
             var uid = Math.floor(Math.random() * 0x1000000).toString(16);
-            var d_lines = [];
+            var d_lines: any[];
             if ('plaintext' == fl_ver) {
                 // Non-standard `X-FireLogger: plaintext` header skips the
                 // base64 part and sticks each JSON-encoded log message into a
                 // header. Good for debugging by curl
-                d_lines = messages.map(JSON.stringify);
+                d_lines = messages.map(v => JSON.stringify(v));
             } else {
                 // `X-FireLogger: 1.2` is what's expected from the add-on, but
                 // accept anything else.
@@ -84,7 +106,7 @@ module.exports = function(options) {
                     d_json = JSON.stringify(d_logs),
                     d_b64 = Buffer.from(d_json, 'utf-8').toString('base64'),
                     d_re = new RegExp('(.{1,' + max_header_length + '})', 'g');
-                d_lines = d_b64.match(d_re);
+                d_lines = d_b64.match(d_re) || [];
             }
 
             for (var i = 0; i < d_lines.length; i++) {
@@ -95,5 +117,7 @@ module.exports = function(options) {
         };
 
         mw_next();
-    };
+    } as RequestHandler;
 };
+
+export = FireLogger;
