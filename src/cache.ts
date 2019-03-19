@@ -8,15 +8,22 @@
  *
  * @prettier
  */
-const config = require('./config.ts');
+import config = require('./config');
 
-// The cache() function that is exported by this module needs async
-// get and set functions that represent the actual caching
-// operations. If our configuration includes Redis we'll use
-// that. Otherwise we'll fall back to an in-memory LRU cache.
-const backend = config.redisURL
-    ? require('./cache-redis.js')
-    : require('./cache-lru.js');
+interface Backend {
+    get(key: string): string | Promise<string>;
+    set(key: string, value: string): boolean | Promise<boolean>;
+}
+
+/**
+ * The cache() function that is exported by this module needs async
+ * get and set functions that represent the actual caching
+ * operations. If our configuration includes Redis we'll use
+ * that. Otherwise we'll fall back to an in-memory LRU cache.
+ */
+const backend: Backend = config.redisURL
+    ? require('./cache-redis')
+    : require('./cache-lru');
 
 /**
  * Look up the specified key in the cache, and return its value if
@@ -28,7 +35,7 @@ const backend = config.redisURL
  * we await its result. The result is that this function is async even
  * though the current LRU-based cache is not itself async.
  */
-async function cache(key, computeValue, skipCache = false) {
+async function cache(key: string, computeValue: () => (string | null | PromiseLike<string | null>), skipCache = false): Promise<string | null> {
     if (!skipCache) {
         let cached = await backend.get(key);
         if (cached !== null) {
@@ -52,4 +59,4 @@ async function cache(key, computeValue, skipCache = false) {
     return value;
 }
 
-module.exports = cache;
+export = cache;

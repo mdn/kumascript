@@ -27,9 +27,9 @@ describe('cache() function', () => {
     it.each(['lru', 'redis'])(
         'does basic string caching (%s)',
         async backend => {
-            const config = require('../src/config');
+            const config = require('../src/config.ts');
             config.redisURL = backend === 'lru' ? null : 'redis://';
-            const cache = require('../src/cache.js');
+            const cache = require('../src/cache.ts');
 
             let compute = jest.fn(() => String(Math.random()));
 
@@ -48,9 +48,9 @@ describe('cache() function', () => {
     it.each(['lru', 'redis'])(
         'we can bypass cache with skipCache=true (%s)',
         async backend => {
-            const config = require('../src/config');
+            const config = require('../src/config.ts');
             config.redisURL = backend === 'lru' ? null : 'redis://';
-            const cache = require('../src/cache.js');
+            const cache = require('../src/cache.ts');
 
             let compute = jest.fn(() => String(Math.random()));
 
@@ -63,9 +63,9 @@ describe('cache() function', () => {
     );
 
     it.each(['lru', 'redis'])('does not cache null (%s)', async backend => {
-        const config = require('../src/config');
+        const config = require('../src/config.ts');
         config.redisURL = backend === 'lru' ? null : 'redis://';
-        const cache = require('../src/cache.js');
+        const cache = require('../src/cache.ts');
         let compute = jest.fn(() => null);
 
         await cache('key4', compute);
@@ -82,9 +82,9 @@ describe('cache() function', () => {
     it.each(['lru', 'redis'])(
         'will throw for non-string, non-null values (%s)',
         async backend => {
-            const config = require('../src/config');
+            const config = require('../src/config.ts');
             config.redisURL = backend === 'lru' ? null : 'redis://';
-            const cache = require('../src/cache.js');
+            const cache = require('../src/cache.ts');
             async function expectExceptionFor(x) {
                 try {
                     let value = await cache('key6', () => x);

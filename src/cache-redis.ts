@@ -3,13 +3,14 @@
  *
  * @prettier
  */
-const Redis = require('redis');
-const config = require('./config.ts');
-const client = Redis.createClient(config.redisURL);
+import Redis = require('redis');
+import config = require('./config');
+
+const client = Redis.createClient(config.redisURL!);
 
 module.exports = {
-    async get(key) {
-        return new Promise(function(resolve, reject) {
+    get(key: string) {
+        return new Promise<string | null>(resolve => {
             client.get(key, (err, response) => {
                 if (err) {
                     /* eslint-disable no-console */
@@ -23,7 +24,7 @@ module.exports = {
         });
     },
 
-    set(key, value) {
-        client.set(key, value, 'EX', config.cacheMinutes * 60);
+    set(key: string, value: string) {
+        return client.set(key, value, 'EX', config.cacheMinutes * 60);
     }
 };
