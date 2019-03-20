@@ -16,11 +16,6 @@
  * (see the prepareProto() function at the end of this file) they can not
  * use `this` to refer to the objects in which they are actually defined.
  *
- * TODO(djf): The *Prototype objects could each be defined in a
- * separate src/api/*.js file and imported with require(). That would
- * be tidier, and would keep separate the code with poor test coverage
- * from the rest of the file which is well tested.
- *
  * @prettier
  */
 const url = require('url');
@@ -30,6 +25,11 @@ const url = require('url');
  * by the exported functions below. Some of them are themselves exported.
  */
 const util = require('./api/util');
+const mdnPrototype = require('./api/mdn');
+const stringPrototype = require('./api/string');
+const wikiPrototype = require('./api/wiki');
+const webPrototype = require('./api/web');
+const pagePrototype = require('./api/page');
 
 /**
  * The properties of this object will be globals in the macro
@@ -52,10 +52,6 @@ const kumaPrototype = {
     htmlEscape: util.htmlEscape
 };
 
-const mdnPrototype = require('./api/mdn');
-const stringPrototype = require('./api/string');
-const wikiPrototype = require('./api/wiki');
-
 const uriPrototype = {
     /**
      * Encode text as a URI component.
@@ -70,32 +66,45 @@ const uriPrototype = {
     }
 };
 
-const webPrototype = require('./api/web');
-const pagePrototype = require('./api/page');
-
 class Environment {
-    // Intialize an environment object that will be used to render
-    // all of the macros in one document or page. We pass in a context
-    // object (which may come from HTTP request headers) that gives
-    // details like the page title and URL. These are available to macros
-    // through the global 'env' object, and some of the properties
-    // are also copied onto the global 'page' object.
-    //
-    // Note that we don't use the Environment object directly when
-    // executing macros. Instead call getExecutionContext(), supplying
-    // the macro arguments list to get an object specific for executing
-    // one macro.
-    //
-    // Note that we pass the Templates object when we create an Environment.
-    // this is so that macros can recursively execute other named macros
-    // in the same environment.
-    //
-    // The optional third argument is for use only by tests. Setting it to
-    // true makes us not freeze the environment so that tests can stub out
-    // methods in the API like mdn.fetchJSONResources
-    //
+    /**
+     * Initialize an environment object that will be used to render
+     * all of the macros in one document or page. We pass in a context
+     * object (which may come from HTTP request headers) that gives
+     * details like the page title and URL. These are available to macros
+     * through the global 'env' object, and some of the properties
+     * are also copied onto the global 'page' object.
+     *
+     * Note that we don't use the Environment object directly when
+     * executing macros. Instead call getExecutionContext(), supplying
+     * the macro arguments list to get an object specific for executing
+     * one macro.
+     *
+     * Note that we pass the Templates object when we create an Environment.
+     * this is so that macros can recursively execute other named macros
+     * in the same environment.
+     *
+     * The optional third argument is for use only by tests. Setting it to
+     * true makes us not freeze the environment so that tests can stub out
+     * methods in the API like mdn.fetchJSONResources
+     *
+     * @param {Object<string, any>} perPageContext
+     *   @param {string} [perPageContext.locale]
+     *   @param {string} [perPageContext.slug]
+     *   @param {string} [perPageContext.title]
+     *   @param {string[]} [perPageContext.tags]
+     *   @param {string} [perPageContext.url]
+     * @param {import('./templates')} templates
+     * @param {boolean} [testing]
+     */
     constructor(perPageContext, templates, testing = false) {
-        // Freeze an object unless we're in testing mode
+        /**
+         * Freeze an object unless we're in testing mode
+         *
+         * @template T
+         * @param {T} o
+         * @return {T}
+         */
         function freeze(o) {
             return testing ? o : Object.freeze(o);
         }
@@ -117,6 +126,11 @@ class Environment {
          *
          * And the freeze() call is a safety measure to prevent
          * macros from modifying the execution environment.
+         *
+         * @template T
+         * @param {T} o
+         * @param {any} [binding]
+         * @return {T}
          */
         function prepareProto(o, binding) {
             let p = {};
@@ -163,18 +177,24 @@ class Environment {
         globals.page = globals.Page = freeze(page);
         globals.env = globals.Env = freeze(env);
 
-        // Macros use the global template() method to excute other
+        // Macros use the global template() method to execute other
         // macros. This is the one function that we can't just
-        // implement on globalsPrototype because it needs acccess to
+        // implement on globalsPrototype because it needs access to
         // this.templates.
         globals.template = this._renderTemplate.bind(this);
 
         this.prototypeEnvironment = freeze(globals);
     }
 
-    // A templating function that we define in the global environment
-    // so that templates can invoke other templates. This is not part
-    // of the public API of the class; it is for use by other templates
+    /**
+     * A templating function that we define in the global environment
+     * so that templates can invoke other templates. This is not part
+     * of the public API of the class; it is for use by other templates
+     *
+     * @param {string} name
+     * @param {any[]} [args]
+     * @return {Promise<string>}
+     */
     async _renderTemplate(name, args) {
         return await this.templates.render(
             name,
@@ -182,8 +202,13 @@ class Environment {
         );
     }
 
-    // Get a customized environment object that is specific to a single
-    // macro on a page by including the arguments to be passed to that macro.
+    /**
+     * Get a customized environment object that is specific to a single
+     * macro on a page by including the arguments to be passed to that macro.
+     *
+     * @param {any[]} [args]
+     * @return {any}
+     */
     getExecutionContext(args) {
         let context = Object.create(this.prototypeEnvironment);
 
