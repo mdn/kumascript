@@ -1,7 +1,11 @@
 /**
+ * Utility functions are collected here. These are functions that are used
+ * by the exported functions below. Some of them are themselves exported.
+ *
  * @prettier
  */
 const url = require('url');
+const path = require('path');
 
 const cache = require('../cache');
 const config = require('../config');
@@ -172,6 +176,20 @@ function spacesToUnderscores(str) {
 	return str.replace(re2, '_');
 }
 
+/**
+ * @param {string} macroPath The path of the macro
+ * @return {NodeRequireFunction}
+ */
+function createRequire(macroPath) {
+    return function require(id) {
+        if (id && id[0] === '.') {
+            id = path.resolve(macroPath, id);
+        }
+
+        return module.require(id);
+    }
+}
+
 const util = module.exports = {
     defaults,
     promiseify,
@@ -183,4 +201,5 @@ const util = module.exports = {
     htmlEscape,
     escapeQuotes,
     spacesToUnderscores,
+    createRequire,
 };

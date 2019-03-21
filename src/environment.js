@@ -1,4 +1,16 @@
 /**
+ * @prettier
+ */
+const globalsAPI = require('./api/globals');
+const kumaAPI = require('./api/kuma');
+const mdnAPI = require('./api/mdn');
+const stringAPI = require('./api/string');
+const uriAPI = require('./api/uri');
+const wikiAPI = require('./api/wiki');
+const webAPI = require('./api/web');
+const pageAPI = require('./api/page');
+
+/**
  * An Environment object defines the API available to KumaScript macros
  * through the MDN, wiki, page and other global objects. When you create
  * an Environment object, pass an object that defines the per-page
@@ -9,63 +21,13 @@
  * in the list of arguments to be exposed to the macro. This returns an
  * object that you can pass to the render() method of your Templates object.
  *
- * The functions defined on the various *Prototype objects in this file
+ * The functions defined on the various *API objects in the `api` directory
  * will be bound to the global kumascript macro execution environment and
  * can use `this.mdn`, `this.wiki`, `this.env`, etc to refer to the parts
  * of that execution environment. Because the functions will all be bound
  * (see the prepareProto() function at the end of this file) they can not
  * use `this` to refer to the objects in which they are actually defined.
- *
- * @prettier
  */
-const url = require('url');
-
-/**
- * Utility functions are collected here. These are functions that are used
- * by the exported functions below. Some of them are themselves exported.
- */
-const util = require('./api/util');
-const mdnPrototype = require('./api/mdn');
-const stringPrototype = require('./api/string');
-const wikiPrototype = require('./api/wiki');
-const webPrototype = require('./api/web');
-const pagePrototype = require('./api/page');
-
-/**
- * The properties of this object will be globals in the macro
- * execution environment.
- */
-const globalsPrototype = {
-    /**
-     * #### require(name)
-     *
-     * Load an npm package (the real "require" has its own cache).
-     */
-    require: require
-};
-
-const kumaPrototype = {
-    /**
-     * Expose url from node.js to templates
-     */
-    url: url,
-    htmlEscape: util.htmlEscape
-};
-
-const uriPrototype = {
-    /**
-     * Encode text as a URI component.
-     *
-     * FIXME: This actually calls `encodeURI` instead of `encodeURIComponent`.
-     *
-     * @param {string} str
-     * @return {string}
-     */
-    encode(str) {
-        return encodeURI(str);
-    }
-};
-
 class Environment {
     /**
      * Initialize an environment object that will be used to render
@@ -146,15 +108,15 @@ class Environment {
         }
 
         this.templates = templates;
-        let globals = Object.create(prepareProto(globalsPrototype));
+        let globals = Object.create(prepareProto(globalsAPI));
 
-        let kuma = Object.create(prepareProto(kumaPrototype, globals));
-        let mdn = Object.create(prepareProto(mdnPrototype, globals));
-        let string = Object.create(prepareProto(stringPrototype, globals));
-        let wiki = Object.create(prepareProto(wikiPrototype, globals));
-        let uri = Object.create(prepareProto(uriPrototype, globals));
-        let web = Object.create(prepareProto(webPrototype, globals));
-        let page = Object.create(prepareProto(pagePrototype, globals));
+        let kuma = Object.create(prepareProto(kumaAPI, globals));
+        let mdn = Object.create(prepareProto(mdnAPI, globals));
+        let string = Object.create(prepareProto(stringAPI, globals));
+        let wiki = Object.create(prepareProto(wikiAPI, globals));
+        let uri = Object.create(prepareProto(uriAPI, globals));
+        let web = Object.create(prepareProto(webAPI, globals));
+        let page = Object.create(prepareProto(pageAPI, globals));
         let env = Object.create(prepareProto(perPageContext));
 
         // The page object also gets some properties copied from
