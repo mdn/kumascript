@@ -4,8 +4,14 @@
  * error messages to Kuma when a document can't be rendered correctly.
  *
  * @prettier
+ *
+ * @param {object} [options]
+ * @param {number} [options.max_header_length]
+ * @param {string[]} [options.levels]
+ * @param {function(...any):void} [options.logger]
+ * @return {function(any, any, function():void):void}
  */
-module.exports = function(options) {
+module.exports = function firelogger(options) {
     options = options || {};
     // HACK: Under 8k seems like an arbitrary best guess at a max
     var max_header_length = options.max_header_length || 8000;
@@ -76,7 +82,7 @@ module.exports = function(options) {
                 // Non-standard `X-FireLogger: plaintext` header skips the
                 // base64 part and sticks each JSON-encoded log message into a
                 // header. Good for debugging by curl
-                d_lines = messages.map(JSON.stringify);
+                d_lines = messages.map(m => JSON.stringify(m));
             } else {
                 // `X-FireLogger: 1.2` is what's expected from the add-on, but
                 // accept anything else.

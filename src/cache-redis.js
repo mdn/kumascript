@@ -8,6 +8,10 @@ const config = require('./config.js');
 const client = Redis.createClient(config.redisURL);
 
 module.exports = {
+    /**
+     * @param {string} key
+     * @return {Promise<string|null>}
+     */
     async get(key) {
         return new Promise(function(resolve, reject) {
             client.get(key, (err, response) => {
@@ -23,6 +27,10 @@ module.exports = {
         });
     },
 
+    /**
+     * @param {string} key
+     * @param {string} value
+     */
     set(key, value) {
         client.set(key, value, 'EX', config.cacheMinutes * 60);
     }

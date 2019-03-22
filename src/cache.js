@@ -10,10 +10,12 @@
  */
 const config = require('./config.js');
 
-// The cache() function that is exported by this module needs async
-// get and set functions that represent the actual caching
-// operations. If our configuration includes Redis we'll use
-// that. Otherwise we'll fall back to an in-memory LRU cache.
+/**
+ * The cache() function that is exported by this module needs async
+ * get and set functions that represent the actual caching
+ * operations. If our configuration includes Redis we'll use
+ * that. Otherwise we'll fall back to an in-memory LRU cache.
+ */
 const backend = config.redisURL
     ? require('./cache-redis.js')
     : require('./cache-lru.js');
@@ -27,6 +29,11 @@ const backend = config.redisURL
  * Note that computeValue() is expected to be an async function, and
  * we await its result. The result is that this function is async even
  * though the current LRU-based cache is not itself async.
+ *
+ * @param {string} key
+ * @param {function():string|PromiseLike<string|null>|null} computeValue
+ * @param {boolean} [skipCache]
+ * @return {Promise<string>}
  */
 async function cache(key, computeValue, skipCache = false) {
     if (!skipCache) {

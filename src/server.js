@@ -70,7 +70,7 @@ class Server {
     /**
      * Start the service listening
      *
-     * @param {port} number
+     * @param {number} port
      */
     listen(port) {
         port = port || config.port;
@@ -88,6 +88,9 @@ class Server {
 
     /**
      * This is the "hello world" endpoint for GET /
+     *
+     * @param {express.Request} req
+     * @param {express.Response} res
      */
     root(req, res) {
         res.send('<html><body><p>Hello from KumaScript!</p></body></html>');
@@ -97,6 +100,9 @@ class Server {
      * #### GET /revision
      *
      * Return the value of the git commit hash for HEAD.
+     *
+     * @param {express.Request} req
+     * @param {express.Response} res
      */
     revision(req, res) {
         res.set({ 'content-type': 'text/plain; charset=utf-8' }).send(
@@ -111,6 +117,9 @@ class Server {
      * doesn't mean that its supporting services (like the macro
      * loader and the document service) can be successfully used
      * from this service.
+     *
+     * @param {express.Request} req
+     * @param {express.Response} res
      */
     healthz(req, res) {
         res.sendStatus(204);
@@ -122,6 +131,9 @@ class Server {
      * a step further and means not only that this Express app is up
      * and running, but also that one or more macros have been found
      * and that the document service is ready.
+     *
+     * @param {express.Request} req
+     * @param {express.Response} res
      */
     readiness(req, res) {
         // If we're running, then we're ready to go. But we need to make
@@ -158,6 +170,9 @@ class Server {
      * #### GET /macros
      *
      * Get JSON of available macros (also known as templates)
+     *
+     * @param {express.Request} req
+     * @param {express.Response} res
      */
     macros(req, res) {
         let macros = [];
@@ -183,6 +198,9 @@ class Server {
      * #### POST /docs/
      *
      * Process POST body, respond with result of macro evaluation
+     *
+     * @param {express.Request} request
+     * @param {express.Response} response
      */
     docs(request, response) {
         let body = '';

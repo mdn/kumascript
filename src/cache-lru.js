@@ -6,6 +6,7 @@
 const LRU = require('lru-cache');
 const config = require('./config.js');
 
+/** @type {LRU<string, Buffer>} */
 const lru = new LRU({
     max: 1024 * 1024 * config.cacheMegabytes,
     maxAge: 60000 * config.cacheMinutes,
@@ -16,6 +17,10 @@ const lru = new LRU({
 });
 
 module.exports = {
+    /**
+     * @param {string} key
+     * @return {string|null}
+     */
     get(key) {
         let cached = lru.get(key);
         if (cached instanceof Buffer) {
@@ -24,6 +29,11 @@ module.exports = {
             return null;
         }
     },
+
+    /**
+     * @param {string} key
+     * @param {string} value
+     */
     set(key, value) {
         lru.set(key, Buffer.from(value));
     }

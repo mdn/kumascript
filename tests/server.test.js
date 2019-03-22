@@ -23,6 +23,8 @@ config.logging = false;
 
 /**
  * Creates an HTTP server for fixtures
+ *
+ * @return {express.Express}
  */
 function createKumaServer() {
     let app = express();
