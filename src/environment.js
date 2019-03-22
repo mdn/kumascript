@@ -1,7 +1,6 @@
 /**
  * @prettier
  */
-const globalsAPI = require('./api/globals');
 const kumaAPI = require('./api/kuma');
 const mdnAPI = require('./api/mdn');
 const stringAPI = require('./api/string');
@@ -9,6 +8,25 @@ const uriAPI = require('./api/uri');
 const wikiAPI = require('./api/wiki');
 const webAPI = require('./api/web');
 const pageAPI = require('./api/page');
+
+/**
+ * TODO: Extract this into the `api` directory.
+ */
+const globalsAPI = {
+    /**
+     * #### require(name)
+     *
+     * Load an npm package (the real "require" has its own cache).
+     * 
+     * @remarks
+     * Relative require is resolved against the `src` directory
+     * rather than the macro which called it.
+     *
+     * @type {NodeRequireFunction}
+     */
+    // TODO: Use `util.createRequire(config.macrosDirectory)`
+    require,
+};
 
 /**
  * An Environment object defines the API available to KumaScript macros

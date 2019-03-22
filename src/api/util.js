@@ -177,6 +177,11 @@ function spacesToUnderscores(str) {
 }
 
 /**
+ * Creates a `require` function wrapper that resolves
+ * relative requires against the macro directory.
+ *
+ * TODO: Consider supporting macros in sub-directories.
+ *
  * @param {string} macroPath The path of the macro
  * @return {NodeRequireFunction}
  */
@@ -187,7 +192,7 @@ function createRequire(macroPath) {
         }
 
         return module.require(id);
-    }
+    };
 }
 
 const util = module.exports = {
