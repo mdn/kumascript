@@ -67,11 +67,11 @@ switch(lang) {
 
 
 if ($0) {
-    strPrevious = '<a style="float:' + prevFloatValue + '; width: 20%; text-align:' + prevTextAlign + ';" href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-left" aria-hidden="true"></i>' + s_PreviousNext[0] + '</a>';
+    strPrevious = '<a style="float:' + prevFloatValue + '; width: 20%; text-align:' + prevTextAlign + ';" rel="prev" href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-left" aria-hidden="true"></i>' + s_PreviousNext[0] + '</a>';
 }
 
 if ($1) {
-    strNext = '<a style="width: 20%;float:' + nextFloatValue + ';text-align: ' + nextTextAlign + ';" href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '"><span style="' + buttonStyle + '">' + s_PreviousNext[1] + '<i class="icon-arrow-right" aria-hidden="true"></i></a>';
+    strNext = '<a style="width: 20%;float:' + nextFloatValue + ';text-align: ' + nextTextAlign + ';" rel="next" href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '"><span style="' + buttonStyle + '">' + s_PreviousNext[1] + '<i class="icon-arrow-right" aria-hidden="true"></i></a>';
 }
 
 if ($2) {
@@ -80,13 +80,13 @@ if ($2) {
   var linkText = linkTextArray[linkTextArray.length-1];
   var re = /_/gi;
   var finalString = linkText.replace(re,' ');
-  
+
   if($0 && $1) {
-    strMenu = '<a style="float:' + prevFloatValue + '; width: 60%;text-align: center;" href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
+    strMenu = '<a style="float:' + prevFloatValue + '; width: 60%;text-align: center;" rel="up" href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
   } else if($0) {
-    strMenu = '<a style="float:' + nextFloatValue + '; width: 60%;text-align: ' + nextTextAlign + ';" href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
+    strMenu = '<a style="float:' + nextFloatValue + '; width: 60%;text-align: ' + nextTextAlign + ';" rel="up" href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
   } else if($1) {
-    strMenu = '<a style="float:' + prevFloatValue + '; width: 60%;text-align: ' + prevTextAlign + ';" href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
+    strMenu = '<a style="float:' + prevFloatValue + '; width: 60%;text-align: ' + prevTextAlign + ';" rel="up" href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
   }
 }
 
