@@ -1159,6 +1159,11 @@
     "url": "https://w3c.github.io/resource-timing/",
     "status": "ED"
   },
+  "SameSite": {
+    "name": "Same-site Cookies",
+    "url": "https://tools.ietf.org/html/draft-west-first-party-cookies-07",
+    "status": "Draft"
+  },
   "Screen Capture": {
     "name": "Screen Capture",
     "url": "https://w3c.github.io/mediacapture-screen-share/",
