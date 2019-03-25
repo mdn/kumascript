@@ -1,7 +1,7 @@
 /**
  * @prettier
  */
-const util = require('./util');
+const util = require('./util.js');
 
 /**
  * Determines whether or not the page has the specified tag. Returns

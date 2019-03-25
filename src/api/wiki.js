@@ -4,7 +4,7 @@
 const url = require('url');
 const request = require('request');
 
-const util = require('./util');
+const util = require('./util.js');
 
 /**
  * Check if the given wiki page exists.

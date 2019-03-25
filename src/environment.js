@@ -1,13 +1,13 @@
 /**
  * @prettier
  */
-const kumaAPI = require('./api/kuma');
-const mdnAPI = require('./api/mdn');
-const stringAPI = require('./api/string');
-const uriAPI = require('./api/uri');
-const wikiAPI = require('./api/wiki');
-const webAPI = require('./api/web');
-const pageAPI = require('./api/page');
+const kumaAPI = require('./api/kuma.js');
+const mdnAPI = require('./api/mdn.js');
+const stringAPI = require('./api/string.js');
+const uriAPI = require('./api/uri.js');
+const wikiAPI = require('./api/wiki.js');
+const webAPI = require('./api/web.js');
+const pageAPI = require('./api/page.js');
 
 /**
  * TODO: Extract this into the `api` directory.

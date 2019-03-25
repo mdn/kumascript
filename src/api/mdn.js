@@ -4,7 +4,7 @@
 const URL = require('url');
 const request = require('request');
 
-const util = require('./util');
+const util = require('./util.js');
 
 /**
  * Given a set of names and a corresponding list of values, apply HTML

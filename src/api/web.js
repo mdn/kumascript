@@ -1,7 +1,7 @@
 /**
  * @prettier
  */
-const util = require('./util');
+const util = require('./util.js');
 
 /**
  * Insert a hyperlink.

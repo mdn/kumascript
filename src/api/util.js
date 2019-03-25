@@ -7,8 +7,8 @@
 const url = require('url');
 const path = require('path');
 
-const cache = require('../cache');
-const config = require('../config');
+const cache = require('../cache.js');
+const config = require('../config.js');
 
 /**
  * Fill in undefined properties in object with values from the
