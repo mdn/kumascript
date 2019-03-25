@@ -40,10 +40,10 @@ function defaults(obj, ...sources) {
  * cacheFnIgnoreCacheControl() functions below use.
  *
  * @template T
- * @param {function(function((T|PromiseLike<T>)):void):void} f
+ * @param {ComputeValue<T>} f
  * @return {function():Promise<T>}
  */
-function promiseify(f) {
+function promisify(f) {
 	return function() {
 		return new Promise((resolve, reject) => {
 			try {
@@ -65,20 +65,20 @@ function promiseify(f) {
  * @param {string} key
  * @param {string} cacheControl
  * @param {ComputeValue<string | null>} computeValue
- * @return {Promise<string>}
+ * @return {Promise<string | null>}
  */
 async function cacheFn(key, cacheControl, computeValue) {
 	let skipCache = cacheControl === 'no-cache';
-	return await cache(key, util.promiseify(computeValue), skipCache);
+	return await cache(key, promisify(computeValue), skipCache);
 }
 
 /**
  * @param {string} key
  * @param {ComputeValue<string | null>} computeValue
- * @return {Promise<string>}
+ * @return {Promise<string | null>}
  */
 async function cacheFnIgnoreCacheControl(key, computeValue) {
-	return await cache(key, util.promiseify(computeValue));
+	return await cache(key, promisify(computeValue));
 }
 
 /**
@@ -110,7 +110,7 @@ function preparePath(path) {
  * @return {string}
  */
 function buildAbsoluteURL(path) {
-	return util.apiURL(util.preparePath(path));
+	return apiURL(preparePath(path));
 }
 
 /**
@@ -195,9 +195,9 @@ function createRequire(macroPath) {
     };
 }
 
-const util = module.exports = {
+module.exports = {
     defaults,
-    promiseify,
+    promiseify: promisify,
     cacheFn,
     cacheFnIgnoreCacheControl,
     preparePath,
