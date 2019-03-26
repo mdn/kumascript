@@ -5,7 +5,6 @@
  * @prettier
  */
 const url = require('url');
-const path = require('path');
 
 const cache = require('../cache.js');
 const config = require('../config.js');
@@ -22,12 +21,12 @@ const config = require('../config.js');
  * @return {any}
  */
 function defaults(obj, ...sources) {
-	for (let source of sources) {
-		for (var prop in source) {
-			if (obj[prop] === void 0) obj[prop] = source[prop];
-		}
-	}
-	return obj;
+    for (let source of sources) {
+        for (var prop in source) {
+            if (obj[prop] === void 0) obj[prop] = source[prop];
+        }
+    }
+    return obj;
 }
 
 /**
@@ -44,15 +43,15 @@ function defaults(obj, ...sources) {
  * @return {function():Promise<T>}
  */
 function promisify(f) {
-	return function() {
-		return new Promise((resolve, reject) => {
-			try {
-				f(resolve);
-			} catch (e) {
-				reject(e);
-			}
-		});
-	};
+    return function() {
+        return new Promise((resolve, reject) => {
+            try {
+                f(resolve);
+            } catch (e) {
+                reject(e);
+            }
+        });
+    };
 }
 
 /**
@@ -68,8 +67,8 @@ function promisify(f) {
  * @return {Promise<string | null>}
  */
 async function cacheFn(key, cacheControl, computeValue) {
-	let skipCache = cacheControl === 'no-cache';
-	return await cache(key, promisify(computeValue), skipCache);
+    let skipCache = cacheControl === 'no-cache';
+    return await cache(key, promisify(computeValue), skipCache);
 }
 
 /**
@@ -78,7 +77,7 @@ async function cacheFn(key, cacheControl, computeValue) {
  * @return {Promise<string | null>}
  */
 async function cacheFnIgnoreCacheControl(key, computeValue) {
-	return await cache(key, promisify(computeValue));
+    return await cache(key, promisify(computeValue));
 }
 
 /**
@@ -91,16 +90,16 @@ async function cacheFnIgnoreCacheControl(key, computeValue) {
  * @return {string}
  */
 function preparePath(path) {
-	if (path.charAt(0) != '/') {
-		path = '/' + path;
-	}
-	if (path.indexOf('/docs') == -1) {
-		// HACK: If this looks like a legacy wiki URL, throw /en-US/docs
-		// in front of it. That will trigger the proper redirection logic
-		// until/unless URLs are corrected in templates
-		path = '/en-US/docs' + path;
-	}
-	return path.replace(/ |%20/gi, '_');
+    if (path.charAt(0) != '/') {
+        path = '/' + path;
+    }
+    if (path.indexOf('/docs') == -1) {
+        // HACK: If this looks like a legacy wiki URL, throw /en-US/docs
+        // in front of it. That will trigger the proper redirection logic
+        // until/unless URLs are corrected in templates
+        path = '/en-US/docs' + path;
+    }
+    return path.replace(/ |%20/gi, '_');
 }
 
 /**
@@ -110,7 +109,7 @@ function preparePath(path) {
  * @return {string}
  */
 function buildAbsoluteURL(path) {
-	return apiURL(preparePath(path));
+    return apiURL(preparePath(path));
 }
 
 /**
@@ -126,12 +125,12 @@ function buildAbsoluteURL(path) {
  * @return {string}
  */
 function apiURL(path) {
-	if (!path) {
-		return config.documentURL;
-	}
-	let parts = url.parse(encodeURI(path));
-	path = parts.path + (parts.hash ? parts.hash : '');
-	return url.resolve(config.documentURL, path);
+    if (!path) {
+        return config.documentURL;
+    }
+    let parts = url.parse(encodeURI(path));
+    path = parts.path + (parts.hash ? parts.hash : '');
+    return url.resolve(config.documentURL, path);
 }
 
 /**
@@ -142,11 +141,11 @@ function apiURL(path) {
  * @return {string}
  */
 function htmlEscape(s) {
-	return ('' + s)
-		.replace(/&/g, '&amp;')
-		.replace(/>/g, '&gt;')
-		.replace(/</g, '&lt;')
-		.replace(/"/g, '&quot;');
+    return ('' + s)
+        .replace(/&/g, '&amp;')
+        .replace(/>/g, '&gt;')
+        .replace(/</g, '&lt;')
+        .replace(/"/g, '&quot;');
 }
 
 /**
@@ -154,15 +153,15 @@ function htmlEscape(s) {
  * @return {string}
  */
 function escapeQuotes(a) {
-	var b = '';
-	for (var i = 0, len = a.length; i < len; i++) {
-		var c = a[i];
-		if (c == '"') {
-			c = '&quot;';
-		}
-		b += c;
-	}
-	return b.replace(/(<([^>]+)>)/gi, '');
+    var b = '';
+    for (var i = 0, len = a.length; i < len; i++) {
+        var c = a[i];
+        if (c == '"') {
+            c = '&quot;';
+        }
+        b += c;
+    }
+    return b.replace(/(<([^>]+)>)/gi, '');
 }
 
 /**
@@ -170,29 +169,10 @@ function escapeQuotes(a) {
  * @return {string}
  */
 function spacesToUnderscores(str) {
-	var re1 = / /gi;
-	var re2 = /%20/gi;
-	str = str.replace(re1, '_');
-	return str.replace(re2, '_');
-}
-
-/**
- * Creates a `require` function wrapper that resolves
- * relative requires against the macro directory.
- *
- * TODO: Consider supporting macros in sub-directories.
- *
- * @param {string} macroPath The path of the macro
- * @return {NodeRequireFunction}
- */
-function createRequire(macroPath) {
-    return function require(id) {
-        if (id && id[0] === '.') {
-            id = path.resolve(macroPath, id);
-        }
-
-        return module.require(id);
-    };
+    var re1 = / /gi;
+    var re2 = /%20/gi;
+    str = str.replace(re1, '_');
+    return str.replace(re2, '_');
 }
 
 module.exports = {
@@ -206,5 +186,4 @@ module.exports = {
     htmlEscape,
     escapeQuotes,
     spacesToUnderscores,
-    createRequire,
 };

@@ -33,7 +33,14 @@ function pageExists(path) {
  * @param {boolean} ignore_cache_control
  * @return {Promise<string>}
  */
-async function page(path, section, revision, show, heading, ignore_cache_control) {
+async function page(
+    path,
+    section,
+    revision,
+    show,
+    heading,
+    ignore_cache_control
+) {
     var key_text = path.toLowerCase();
     if (section) {
         key_text += '?section' + section;
