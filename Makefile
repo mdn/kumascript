@@ -30,7 +30,7 @@ test-junit:
 test-coverage:
 	rm -rf coverage
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	  /node_modules/.bin/jest -w1 --coverage --collectCoverageFrom='src/*'
+	  /node_modules/.bin/jest -w1 --coverage --collectCoverageFrom='src/**'
 
 lint:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \

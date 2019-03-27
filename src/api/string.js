@@ -212,5 +212,5 @@ module.exports = {
     remove,
     replace,
     join,
-    length,
+    length
 };

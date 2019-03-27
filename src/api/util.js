@@ -185,5 +185,5 @@ module.exports = {
     apiURL,
     htmlEscape,
     escapeQuotes,
-    spacesToUnderscores,
+    spacesToUnderscores
 };

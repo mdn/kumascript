@@ -17,7 +17,7 @@ const globalsAPI = {
      * #### require(name)
      *
      * Load an npm package (the real "require" has its own cache).
-     * 
+     *
      * @remarks
      * Relative require is resolved against the `src` directory
      * rather than the macro which called it.
@@ -25,7 +25,7 @@ const globalsAPI = {
      * @type {NodeRequireFunction}
      */
     // TODO: Use `util.createRequire(config.macrosDirectory)`
-    require,
+    require
 };
 
 /**

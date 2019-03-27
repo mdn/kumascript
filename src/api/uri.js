@@ -15,5 +15,5 @@ function encode(str) {
 }
 
 module.exports = {
-    encode,
+    encode
 };

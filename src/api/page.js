@@ -57,9 +57,8 @@ function hasTag(aPage, aTag) {
  */
 async function subpages(path, depth, self) {
     var url = util.apiURL((path ? path : this.env.url) + '$children');
-    var depth_check = typeof depth === 'number'
-        ? Math.floor(depth)
-        : parseInt(depth);
+    var depth_check =
+        typeof depth === 'number' ? Math.floor(depth) : parseInt(depth);
     if (depth_check >= 0) {
         url += '?depth=' + depth_check;
     }
@@ -92,9 +91,8 @@ async function subpages(path, depth, self) {
  */
 async function subpagesExpand(path, depth, self) {
     var url = util.apiURL((path ? path : this.env.url) + '$children?expand');
-    var depth_check = typeof depth === 'number'
-        ? Math.floor(depth)
-        : parseInt(depth);
+    var depth_check =
+        typeof depth === 'number' ? Math.floor(depth) : parseInt(depth);
     if (depth_check >= 0) {
         url += '&depth=' + depth_check;
     }
@@ -161,5 +159,5 @@ module.exports = {
     subpages,
     subpagesExpand,
     subPagesFlatten,
-    translations,
+    translations
 };

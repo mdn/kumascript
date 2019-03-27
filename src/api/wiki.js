@@ -312,12 +312,7 @@ async function tree(path, depth, self, reverse, ordered) {
                     '">' +
                     util.htmlEscape(item.title) +
                     '</a>' +
-                    process_array(
-                        item,
-                        item.subpages || [],
-                        ordered,
-                        locale
-                    ) +
+                    process_array(item, item.subpages || [], ordered, locale) +
                     '</li>';
             });
             result += closeTag;
@@ -336,5 +331,5 @@ module.exports = {
     page,
     getPage,
     uri,
-    tree,
+    tree
 };

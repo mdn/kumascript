@@ -40,5 +40,5 @@ function spacesToUnderscores(str) {
 
 module.exports = {
     link,
-    spacesToUnderscores,
+    spacesToUnderscores
 };

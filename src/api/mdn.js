@@ -147,9 +147,8 @@ function replacePlaceholders(string, replacements) {
  * @param {string|{url:string}} fileObjOrUrl
  */
 async function getFileContent(fileObjOrUrl) {
-    var file_url = typeof fileObjOrUrl === 'string'
-        ? fileObjOrUrl
-        : fileObjOrUrl.url;
+    var file_url =
+        typeof fileObjOrUrl === 'string' ? fileObjOrUrl : fileObjOrUrl.url;
     if (!file_url) return '';
 
     let base_url = '';
@@ -240,10 +239,7 @@ async function fetchHTTPResource(url, opts) {
     }
 
     if (opts.ignore_cache_control) {
-        return await util.cacheFnIgnoreCacheControl(
-            opts.cache_key,
-            to_cache
-        );
+        return await util.cacheFnIgnoreCacheControl(opts.cache_key, to_cache);
     } else {
         return await util.cacheFn(
             opts.cache_key,
@@ -296,5 +292,5 @@ module.exports = {
     fetchJSONResource,
     fetchHTTPResource,
     bzSearch,
-    siteURL,
+    siteURL
 };
