@@ -37,7 +37,7 @@ var output = '';
 var category = query.split(".")[0];
 var legendItems = new Set(); // entries will be unique
 
-var compatStrings = string.deserialize(template('L10n:CompatTable'));
+var compatStrings = string.deserialize(await template('L10n:CompatTable'));
 var localize = mdn.getLocalString;
 
 var s_no_data_found = mdn.localString({
@@ -54,17 +54,33 @@ const browsers = {
 
 let bcCategory = 'web';
 let platforms = ['desktop', 'mobile'];
-let displayBrowers = [...browsers["desktop"], ...browsers["mobile"]];
+let displayBrowsers = [...browsers["desktop"], ...browsers["mobile"]];
 
 if (category === 'javascript') {
   bcCategory = 'js';
-  displayBrowers.push(...browsers["server"]);
+  displayBrowsers.push(...browsers["server"]);
   platforms.push('server');
 }
 if (category === 'webextensions') {
   bcCategory = 'ext';
-  displayBrowers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
+  displayBrowsers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
   platforms = ['webextensions-desktop', 'webextensions-mobile'];
+}
+
+/**
+ * Writes the text label for each cell, and relevant icon/platform class
+ */
+function writeLabel(iconSlug, type, replacer) {
+    let iconTitle = localize(compatStrings, 'bc_icon_name_' + iconSlug).replace('$1$', replacer);
+    let output = '';
+
+    if (type === 'platform') {
+        output += `<span>${iconTitle}</span>`;
+    } else {
+        output += `<span class="bc-head-txt-label bc-head-icon-${iconSlug}">${iconTitle}</span>`;
+    }
+
+    return output;
 }
 
 function writeIcon(iconSlug, replacer, isLegend) {
@@ -95,7 +111,7 @@ function writeFeatureName(row, feature) {
   let label = Object.keys(row)[0];
 
   if (feature.description) {
-    // Basic support or unnested features need no prefixing
+    // Un-nested features need no prefixing
     if (label.indexOf('.') === -1) {
       desc += feature.description;
       // otherwise add a prefix so that we know where this belongs to (e.g. "parse: ISO 8601 format")
@@ -108,7 +124,11 @@ function writeFeatureName(row, feature) {
   // Add relative MDN url, but don't link to the current page
   if (feature.mdn_url) {
     let href = feature.mdn_url.replace('https://developer.mozilla.org', '');
+    if (feature.mdn_url.includes('#') && href.split('#')[0] === '/docs/' + env.slug) {
+      href = feature.mdn_url.substring(feature.mdn_url.indexOf('#'))
+    }
     if (href !== '/docs/' + env.slug) {
+      if (href[0] === '/') href = '/' + env.locale + href;
       desc = `<a href="${href}">${desc}</a>`;
     }
   }
@@ -494,14 +514,14 @@ function getFormattedBrowserName(browserNameKey) {
 
 /*
 For a single row, write all the cells that contain support data.
-(That is, every cell in the row except the first, which contains
-an identifier for the row,  like "Basic support".
+(That is, every cell in the row except the first column, which contains
+the feature name)
 
 */
 function writeCompatCells(supportData) {
   let output = '';
 
-  for (let browserNameKey of displayBrowers) {
+  for (let browserNameKey of displayBrowsers) {
     let needsNotes = false;
     let support = supportData[browserNameKey];
     let supportInfo = '';
@@ -551,7 +571,7 @@ function writeCompatFeatureRow() {
     output += '<tr>';
     let feature = Object.keys(row).map((k) => row[k])[0];
     output += `<th scope="row">${writeFeatureName(row, feature)}</th>`;
-    output += `${writeCompatCells(feature.support)}</tr>`;
+    output += writeCompatCells(feature.support);
     output += '</tr>';
   }
   return output;
@@ -572,7 +592,7 @@ function writeCompatPlatformsRow() {
     let platformCount = Object.keys(browsers[platform]).length;
     let platformId = platform.replace('webextensions-', '');
     output += `<th colspan="${platformCount}" class="bc-platform-${platformId}">`;
-    output += writeIcon(platformId);
+    output += writeLabel(platformId, 'platform');
     output += '</th>';
   }
 
@@ -583,9 +603,9 @@ function writeCompatPlatformsRow() {
 function writeCompatBrowsersRow() {
   let output = '<tr class="bc-browsers">';
   output += '<td></td>';
-  for (let browser of displayBrowers) {
+  for (let browser of displayBrowsers) {
     output += `<th class="bc-browser-${browser}">`;
-    output += writeIcon(browser);
+    output += writeLabel(browser);
     output += '</th>';
   }
   output += '</tr>';
@@ -613,7 +633,7 @@ function writeLegend () {
   });
 
   for (let item of sortedLegendItems) {
-    // handle supprt cells
+    // handle support cells
     if (item.indexOf('support_') !== -1) {
       let supportType = item.substring(item.indexOf('_') + 1);
       output += `<dt><span class="bc-supports-${supportType} bc-supports">
@@ -639,9 +659,13 @@ function writeLegend () {
 Get compat data using a query string like "webextensions.api.alarms"
 */
 function getData(queryString, obj) {
-  return queryString.split('.').reduce(function(prev, curr) {
+  let data = queryString.split('.').reduce(function(prev, curr) {
     return prev ? prev[curr] : undefined
   }, obj);
+
+  // Return a private copy of the data. Otherwise changes made here
+  // can affect later invocations of the macro
+  return data ? JSON.parse(JSON.stringify(data)) : data;
 }
 
 /*
@@ -654,28 +678,28 @@ function traverseFeatures(obj, depth, identifier) {
     for (let i in obj) {
       if (!!obj[i] && typeof(obj[i])=="object" && i !== '__compat') {
         if (obj[i].__compat) {
-            features.push({[identifier + i]: obj[i].__compat});
-          }
-          traverseFeatures(obj[i], depth, i + '.');
+          features.push({[identifier + i]: obj[i].__compat});
         }
+        traverseFeatures(obj[i], depth, i + '.');
       }
     }
   }
+}
 
-  var compatData = getData(query, bcd);
-  var features = [];
-  var identifier = query.split(".").pop();
+var compatData = getData(query, bcd);
 
-  if (!compatData) {
+var features = [];
+var identifier = query.split(".").pop();
+
+if (!compatData) {
     output = s_no_data_found;
-  } else if (compatData.__compat) {
-    compatData.__compat.description = localize(compatStrings, 'feature_basicsupport');
+} else if (compatData.__compat) {
     features.push({[identifier]: compatData.__compat});
-  }
+}
 
-  traverseFeatures(compatData, depth, '');
+traverseFeatures(compatData, depth, '');
 
-  if (features.length > 0) {
+if (features.length > 0) {
     output = '<div class="bc-data">';
     output += '<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data">Update compatibility data on GitHub</a>';
     output += `<table class="bc-table bc-table-${bcCategory}">`;
@@ -684,8 +708,8 @@ function traverseFeatures(obj, depth, identifier) {
     output += '</table>';
     output += writeLegend();
     output += '</div>';
-  } else {
+} else {
     output = s_no_data_found;
-  }
-  %>
-  <%-output%>
+}
+%>
+<%-output%>

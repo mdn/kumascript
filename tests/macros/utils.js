@@ -1,130 +1,109 @@
-/* jshint node: true, mocha: true, esversion: 6 */
+/**
+ * @prettier
+ */
 
 // Provides utilities that as a whole constitute the macro test framework.
+const { execSync } = require('child_process');
+const os = require('os');
 
-var sinon = require('sinon'),
-    Fiber = require('fibers'),
-    kumascript = require('../..'),
-    // Only do this once, since it crawls the file system.
-    loader = new kumascript.loaders.FileLoader();
+const vnu = require('vnu-jar');
 
-function createMacroTestObject(name, done) {
-    name = name.toLowerCase();
+const Environment = require('../../src/environment.js');
+const Templates = require('../../src/templates.js');
 
-    var ctx = new kumascript.api.APIContext({
-            errors: [],
-            source: '',
-            loader: loader,
-            log: sinon.spy(),
-            request: sinon.stub(),
-            env: {
-                locale: 'en-US',
-                url: 'https://developer.mozilla.org/'
-            },
-            autorequire: {
-                'mdn': 'MDN-Common',
-                'Page': 'DekiScript-Page',
-                'String': 'DekiScript-String',
-                'Uri': 'DekiScript-Uri',
-                'Web': 'DekiScript-Web',
-                'Wiki': 'DekiScript-Wiki'
-            },
-        }),
-        macro = {};
+// When we were doing mocha testing, we used this.macro to hold this.
+// But Jest doesn't use the this object, so we just store the object here.
+let macro = null;
 
-    /**
-     * Give the test-case writer access to the macro's globals (ctx).
-     * For example, "macro.ctx.env.locale" can be manipulated to something
-     * other than 'en-US' or "macro.ctx.wiki.getPage" can be mocked
-     * using "sinon.stub()" to avoid network calls.
-     */
-    macro.ctx = ctx;
+function assert(x) {
+    expect(x).toBe(true);
+}
 
-    /**
-     * Wrap a package object such that when a property of that package (which
-     * we're assuming is a function for now) is requested, we'll wrap the
-     * function call in a Fiber. We have to run the function within a Fiber
-     * in order to mimic the enivironment in which it is normally called (
-     * macros are executed within a Fiber because it allows macro coders to
-     * write in a synchronous style).
-     */
-    function makePackageProxy (pkg) {
-        return new Proxy(pkg, {
-            get: function(target, prop_name) {
-                if (prop_name in target) {
-                    const func = target[prop_name];
-                    return function () {
-                        const args = arguments;
-                        return Fiber(function () {
-                            return func.apply(pkg, args);
-                        }).run();
-                    };
-                }
-                return undefined;
-            }
-        });
+assert.equal = (x, y) => {
+    expect(x).toEqual(y);
+};
+
+assert.eventually = {
+    async equal(x, y) {
+        expect(await x).toEqual(y);
     }
+};
 
-    function makeCallFunction (for_package) {
-        return function () {
-            // Make the arguments accessible within the macro.
-            if (!for_package) {
-                macro.ctx.setArguments(arguments);
-            }
-            return new Promise(function (resolve, reject) {
-                loader.get(name, function (err, tmpl, cache_hit) {
-                    if (err) {
-                        // Loading errors should abort the test.
-                        throw err;
-                    } else {
-                        if (for_package) {
-                            macro.ctx.module = { exports: {} };
-                            macro.ctx.exports = macro.ctx.module.exports;
-                        }
-                        // Actually execute the macro.
-                        tmpl.execute(null, macro.ctx, function (err, result) {
-                            if (err) {
-                                reject(err);
-                            } else if (for_package) {
-                                var pkg = macro.ctx.module.exports;
-                                resolve(makePackageProxy(pkg));
-                            } else {
-                                resolve(result);
-                            }
-                        });
-                    }
-                });
-            });
-        };
-    }
+assert.include = (list, element) => {
+    expect(list).toContain(element);
+};
+assert.isTrue = value => {
+    expect(value).toEqual(true);
+};
+assert.isFalse = value => {
+    expect(value).toEqual(false);
+};
+assert.isAbove = (value, floor) => {
+    expect(value).toBeGreaterThan(floor);
+};
+assert.isArray = value => {
+    expect(value).toBeInstanceOf(Array);
+};
+assert.isObject = value => {
+    expect(value).toBeInstanceOf(Object);
+};
+assert.isFunction = value => {
+    expect(value).toBeInstanceOf(Function);
+};
+assert.property = (value, prop) => {
+    expect(value).toHaveProperty(prop);
+};
+assert.notProperty = (value, prop) => {
+    expect(value).not.toHaveProperty(prop);
+};
+assert.sameMembers = (a1, a2) => {
+    expect(new Set(a1)).toEqual(new Set(a2));
+};
 
-    /**
-     * Use this function to make test calls on the named macro, if applicable.
-     * Its arguments become the arguments to the macro. It returns a promise.
-     */
-    macro.call = makeCallFunction(false);
+function createMacroTestObject(macroName) {
+    let templates = new Templates(__dirname + '/../../macros/');
+    let pageContext = {
+        locale: 'en-US',
+        url: 'https://developer.mozilla.org/'
+    };
+    let environment = new Environment(pageContext, templates, true);
 
-    /**
-     * Use this function to "require" the named macro (load it as a package),
-     * if applicable. It takes no arguments, and returns a promise.
-     */
-    macro.require = makeCallFunction(true);
+    return {
+        /**
+         * Give the test-case writer access to the macro's globals (ctx).
+         * For example, "macro.ctx.env.locale" can be manipulated to something
+         * other than 'en-US' or "macro.ctx.wiki.getPage" can be mocked
+         * using "sinon.stub()" to avoid network calls.
+         */
+        ctx: environment.prototypeEnvironment,
 
-    // Load the auto-required macros into the "ctx" object.
-    macro.ctx.performAutoRequire(done);
-
-    return macro;
+        /**
+         * Use this function to make test calls on the named macro, if
+         * applicable.  Its arguments become the arguments to the
+         * macro. It returns a promise.
+         */
+        async call(...args) {
+            let rendered = await templates.render(
+                macroName,
+                environment.getExecutionContext(args)
+            );
+            return rendered;
+        }
+    };
 }
 
 /**
  * This is the essential function for testing macros. Use it as
  * you would use mocha's "describe", with the exception that the
  * first argument must be the name of the macro being tested.
+ *
+ * @param {string} macroName
+ * @param {function():void} runTests
  */
 function describeMacro(macroName, runTests) {
-    describe(`test "${macroName}"`, function () {
-        beforeEach(function (done) {
-            this.macro = createMacroTestObject(macroName, done);
+    describe(`test "${macroName}"`, function() {
+        beforeEach(function() {
+            macro = createMacroTestObject(macroName);
         });
         runTests();
     });
@@ -135,12 +114,15 @@ function describeMacro(macroName, runTests) {
  * Use this function as you would use mocha's "it", with the exception
  * that the callback function ("runTest" in this case) should accept a
  * single argument that is the macro test object.
+ *
+ * @param {string} title
+ * @param {function(Macro):void} runTest
  */
 function itMacro(title, runTest) {
-    it(title, function () {
+    it(title, function() {
         // Assumes that setup returns a promise (if async) or
         // undefined (if synchronous).
-        return runTest(this.macro);
+        return runTest(macro);
     });
 }
 
@@ -149,12 +131,14 @@ function itMacro(title, runTest) {
  * this function as you would use mocha's "beforeEach", with the exception
  * that the callback function ("setup" in this case) should accept a single
  * argument that is the macro test object.
+ *
+ * @param {function(Macro):void} setup
  */
 function beforeEachMacro(setup) {
-    beforeEach(function () {
+    beforeEach(function() {
         // Assumes that setup returns a promise (if async) or
         // undefined (if synchronous).
-        return setup(this.macro);
+        return setup(macro);
     });
 }
 
@@ -163,19 +147,56 @@ function beforeEachMacro(setup) {
  * this function as you would use mocha's "afterEach", with the exception
  * that the callback function ("teardown" in this case) should accept a single
  * argument that is the macro test object.
+ *
+ * @param {function(Macro):void} teardown
  */
 function afterEachMacro(teardown) {
-    afterEach(function () {
+    afterEach(function() {
         // Assumes that teardown returns a promise (if async) or
         // undefined (if synchronous).
-        return teardown(this.macro);
+        return teardown(macro);
     });
+}
+
+/**
+ * This function validates its input as HTML. By default, it assumes the input
+ * is an HTML fragment, wrapping it to make a complete HTML document, but the
+ * second argument can be set to false to avoid wrapping. It returns null on
+ * success, and, on failure, a string detailing all of the errors.
+ *
+ * @param {string} html
+ * @param {boolean} fragment
+ */
+function lintHTML(html, fragment = true) {
+    if (fragment) {
+        html = `<!DOCTYPE html>
+                <html>
+                <head><title>test</title></head>
+                <body>${html}</body>
+                </html>`;
+    }
+    try {
+        execSync(`java -jar ${vnu} --errors-only --format text -`, {
+            input: html,
+            stdio: 'pipe',
+            timeout: 15000
+        });
+        return null;
+    } catch (error) {
+        const error_message = error.message
+            .split(os.EOL)
+            .filter(line => line.startsWith('Error: '))
+            .join(os.EOL);
+        return error_message;
+    }
 }
 
 // ### Exported public API
 module.exports = {
-    itMacro: itMacro,
-    describeMacro: describeMacro,
-    afterEachMacro: afterEachMacro,
-    beforeEachMacro: beforeEachMacro
+    assert,
+    itMacro,
+    describeMacro,
+    afterEachMacro,
+    beforeEachMacro,
+    lintHTML
 };

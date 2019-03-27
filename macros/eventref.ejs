@@ -11,7 +11,7 @@ var output = "";
 // slug is not available in preview mode.
 if (slug) {
 
-    var groups = string.deserialize(template("GroupData"))[0];
+    var groups = string.deserialize(await template("GroupData"))[0];
     var event = slug.replace('Web/Events/','').split('/')[0];
 
 

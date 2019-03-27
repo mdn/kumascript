@@ -32,7 +32,7 @@ var s_technical = mdn.localString({
     "ru"    : "Технически одобренных"
 });
 
-var pageList = page.subpagesExpand($0);
+var pageList = await page.subpagesExpand($0);
 var pageCounter = 0;
 var metrics = {
                       // title, link, counter

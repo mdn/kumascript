@@ -8,7 +8,7 @@
   $3 - Interface name
 */
 
-var data = string.deserialize(template("InterfaceData"));
+var data = string.deserialize(await template("InterfaceData"));
 var slug = env.slug;
 var result = "";
 // slug is not available in preview mode.
@@ -140,4 +140,4 @@ result +='</svg></div>';
 
 </div>
 
-<%-template("EmbedLiveSample", ["inheritance_diagram", width, height, '', '', 'inheritance-diagram-frame'])%>
+<%-await template("EmbedLiveSample", ["inheritance_diagram", width, height, '', '', 'inheritance-diagram-frame'])%>

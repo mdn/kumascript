@@ -32,7 +32,7 @@ if (sampleSlug) {
     }
     sampleUrl += sampleSlug;
 }
-var url = template('LiveSampleURL', [sampleId, sampleUrl]);
+var url = await template('LiveSampleURL', [sampleId, sampleUrl]);
 
 if (hasScreenshot) {
 %><table class="sample-code-table"><%

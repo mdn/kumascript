@@ -22,7 +22,7 @@ var output = '';
 
 for (featureName of featureList) {
   output += `<h2>${featureName}</h2>`;
-  output += template("compat", [`webextensions.api.${featureName}`, 2, true]);
+  output += await template("compat", [`webextensions.api.${featureName}`, 2, true]);
 }
 
 %>
