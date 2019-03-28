@@ -177,7 +177,6 @@ function spacesToUnderscores(str) {
 
 module.exports = {
     defaults,
-    promiseify: promisify,
     cacheFn,
     cacheFnIgnoreCacheControl,
     preparePath,

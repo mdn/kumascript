@@ -30,7 +30,7 @@ function pageExists(path) {
  * @param {any} [revision]
  * @param {number|boolean} [show]
  * @param {number} [heading]
- * @param {boolean} ignore_cache_control
+ * @param {boolean} [ignore_cache_control=false]
  * @return {Promise<string>}
  */
 async function page(
@@ -175,7 +175,7 @@ async function getPage(path) {
  * Retrieve the full uri of a given wiki page.
  *
  * @param {string} path
- * @param {string} query
+ * @param {string} [query]
  * @return {string}
  */
 function uri(path, query) {
@@ -197,10 +197,10 @@ function uri(path, query) {
  * localizations showing up in navigation.
  *
  * @param {string} path
- * @param {number} depth
- * @param {number|boolean} self
- * @param {number|boolean} reverse
- * @param {number|boolean} ordered
+ * @param {number} [depth]
+ * @param {number|boolean} [self]
+ * @param {number|boolean} [reverse]
+ * @param {number|boolean} [ordered]
  */
 async function tree(path, depth, self, reverse, ordered) {
     // If the path ends with a slash, remove it.

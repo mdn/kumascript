@@ -8,7 +8,7 @@ const util = require('./util.js');
  * true if it does, otherwise false. This is case-insensitive.
  *
  * @param {object} aPage
- * @param {string[]} [aPage.tags]
+ * @param {string[]|null|undefined} [aPage.tags]
  * @param {string} aTag
  * @return {boolean}
  */

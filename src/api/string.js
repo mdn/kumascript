@@ -198,19 +198,20 @@ function length(str) {
 
 module.exports = {
     asyncReplace,
-    startsWith,
-    endsWith,
-    contains,
-    deserialize,
-    isDigit,
-    isLetter,
-    serialize,
-    substr,
-    toLower,
-    toUpperFirst,
-    trim,
-    remove,
-    replace,
-    join,
-    length
+    StartsWith: startsWith,
+    EndsWith: endsWith,
+    Contains: contains,
+    Deserialize: deserialize,
+    IsDigit: isDigit,
+    IsLetter: isLetter,
+    Serialize: serialize,
+    Substr: substr,
+    // `toLower` was always exposed as `lowerCamelCase`:
+    toLower: toLower,
+    ToUpperFirst: toUpperFirst,
+    Trim: trim,
+    Remove: remove,
+    Replace: replace,
+    Join: join,
+    Length: length
 };
