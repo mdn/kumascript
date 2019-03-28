@@ -132,7 +132,7 @@ function replacePlaceholders(string, replacements) {
         /** @type {string | number} */
         var index = placeholder.substring(1, placeholder.length - 1);
         if (!Number.isNaN(Number(index))) {
-            index--;
+            index = Number(index) - 1;
         }
         return index in replacements ? replacements[index] : '';
     }
@@ -147,8 +147,10 @@ function replacePlaceholders(string, replacements) {
  * @param {string|{url:string}} fileObjOrUrl
  */
 async function getFileContent(fileObjOrUrl) {
-    /** @type {string} */
-    var file_url = fileObjOrUrl.url || fileObjOrUrl;
+    var file_url =
+        typeof fileObjOrUrl === 'string'
+            ? fileObjOrUrl
+            : fileObjOrUrl.url || String(fileObjOrUrl);
     if (!file_url) return '';
 
     let base_url = '';
