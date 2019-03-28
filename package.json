@@ -14,10 +14,10 @@
     "scripts": {
         "start": "node run.js",
         "test": "jest",
-        "test-coverage": "jest --coverage --collectCoverageFrom='src/*'",
+        "test-coverage": "jest --coverage --collectCoverageFrom='src/**'",
         "lint": "eslint *.js src tests",
         "lint-json": "find . -name '*.json' -not -path './node_modules/*' -print0 | xargs -t -n1 -0 jsonlint -q",
-        "format": "./node_modules/.bin/prettier --write --require-pragma *.js src/*.js tests/*.js tests/macros/*.js"
+        "format": "./node_modules/.bin/prettier --write --require-pragma *.js src/**/*.js tests/**/*.js"
     },
     "engines": {
         "node": "10.14"
