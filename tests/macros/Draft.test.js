@@ -119,6 +119,8 @@ describeMacro('Draft', function() {
             // Draft details has a user profile link
             expect(anchor).toEqual(expect.anything());
             assert.include(anchor.href, "/profiles/escattone");
+
+            expect(dom.querySelector("em").textContent).toEqual("The reason is shrouded in mystery (escattone).");
         });
     });
 
@@ -141,6 +143,8 @@ describeMacro('Draft', function() {
             // Draft details has a user profile link
             expect(anchor).toEqual(expect.anything());
             assert.include(anchor.href, "/profiles/stephaniehobson");
+
+            expect(dom.querySelector("em").textContent).toEqual("{{Draft}} macro test. stephaniehobson");
         });
     });
 
@@ -163,6 +167,8 @@ describeMacro('Draft', function() {
             // Draft details has a user profile link
             expect(anchor).toEqual(expect.anything());
             assert.include(anchor.href, "/profiles/ExE-Boss");
+
+            expect(dom.querySelector("em").textContent).toEqual("{{Draft}} macro test. ExE-Boss");
         });
     });
 });
