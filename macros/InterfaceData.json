@@ -1457,6 +1457,14 @@
       "inh": "Event",
       "impl": []
     },
+    "RTCDtlsTransport": {
+      "inh": "EventTarget",
+      "impl": []
+    },
+    "RTCIceTransport": {
+      "inh": "EventTarget",
+      "impl": []
+    },
     "RTCPeerConnection": {
       "inh": "EventTarget",
       "impl": []
@@ -1471,6 +1479,10 @@
     },
     "RTCPeerConnectionIdentityEvent": {
       "inh": "Event",
+      "impl": []
+    },
+    "RTCSctpTransport": {
+      "inh": "EventTarget",
       "impl": []
     },
     "RTCTrackEvent": {
