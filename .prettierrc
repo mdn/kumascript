@@ -1,4 +1,15 @@
 {
     "singleQuote": true,
-    "tabWidth": 4
+    "tabWidth": 4,
+
+    "overrides": [
+        {
+            "files": [
+                "tests/macros/GroupData.test.js"
+            ],
+            "options": {
+                "trailingComma": "es5"
+            }
+        }
+    ]
 }

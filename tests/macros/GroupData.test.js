@@ -8,7 +8,7 @@ const { itMacro, describeMacro } = require('./utils');
  * Different strings in GroupData objects have different sets of
  * permitted characters.
  */
-const permittedCharacters = {
+const PERMITTED_CHARACTERS = {
     group: /^[\w ()-]+$/,
     overview: /^[\w ()-]+$/,
     interface: /^[A-Z][\w.]+$/,
@@ -19,13 +19,13 @@ const permittedCharacters = {
     callback: /^\w+$/,
     type: /^\w+$/,
     guideTitle: /^[\w .,]+$/,
-    guideUrl: /^\/[\w-.~/]+$/
+    guideUrl: /^\/[\w-.~/]+$/,
 };
 
 /**
  * Properties that are allowed in a group
  */
-const permittedGroupProperties = [
+const PERMITTED_GROUP_PROPERTIES = [
     'overview',
     'interfaces',
     'methods',
@@ -34,28 +34,36 @@ const permittedGroupProperties = [
     'callbacks',
     'types',
     'events',
-    'guides'
+    'guides',
 ];
 
 /**
  * Properties that must be present in a group
  */
-const mandatoryGroupProperties = [
+const MANDATORY_GROUP_PROPERTIES = [
     'interfaces',
     'methods',
     'properties',
-    'events'
+    'events',
 ];
 
 /**
  * Properties that are allowed in a guide
  */
-const permittedGuideProperties = ['title', 'url'];
+const PERMITTED_GUIDE_PROPERTIES = [
+    // Enforce newline
+    'title',
+    'url',
+];
 
 /**
  * Properties that must be present in a guide
  */
-const mandatoryGuideProperties = ['title', 'url'];
+const MANDATORY_GUIDE_PROPERTIES = [
+    // Enforce newline
+    'title',
+    'url',
+];
 
 /**
  * Check that `obj` contains:
@@ -88,6 +96,7 @@ function checkStringArray(strings, permitted) {
     for (let string of strings) {
         expect(string).toMatch(permitted);
     }
+    return JSON.stringify(strings) !== JSON.stringify([...strings].sort());
 }
 
 /**
@@ -106,37 +115,59 @@ function checkGroupData(groupDataJson) {
     // the property's key is the group name
     const groupNames = Object.keys(groupData[0]);
 
+    /** @type {string[]} */
+    let unsortedGroups = [];
+
     for (let groupName of groupNames) {
         // the group name contains only the permitted characters
-        expect(groupName).toMatch(permittedCharacters.group);
+        expect(groupName).toMatch(PERMITTED_CHARACTERS.group);
 
         const group = groupData[0][groupName];
 
         // the group has the correct properties
         checkProperties(
             group,
-            permittedGroupProperties,
-            mandatoryGroupProperties
+            PERMITTED_GROUP_PROPERTIES,
+            MANDATORY_GROUP_PROPERTIES
         );
 
+        let groupUnsorted = false;
+
         // string arrays contain only their permitted characters
-        checkStringArray(group.interfaces, permittedCharacters.interface);
-        checkStringArray(group.properties, permittedCharacters.property);
-        checkStringArray(group.methods, permittedCharacters.method);
-        checkStringArray(group.events, permittedCharacters.event);
+        groupUnsorted =
+            checkStringArray(
+                group.interfaces,
+                PERMITTED_CHARACTERS.interface
+            ) || groupUnsorted;
+        groupUnsorted =
+            checkStringArray(group.properties, PERMITTED_CHARACTERS.property) ||
+            groupUnsorted;
+        groupUnsorted =
+            checkStringArray(group.methods, PERMITTED_CHARACTERS.method) ||
+            groupUnsorted;
+        groupUnsorted =
+            checkStringArray(group.events, PERMITTED_CHARACTERS.event) ||
+            groupUnsorted;
 
         // dictionaries, callbacks, and types are optional
         if (group.dictionaries) {
-            checkStringArray(
-                group.dictionaries,
-                permittedCharacters.dictionary
-            );
+            groupUnsorted =
+                checkStringArray(
+                    group.dictionaries,
+                    PERMITTED_CHARACTERS.dictionary
+                ) || groupUnsorted;
         }
         if (group.callbacks) {
-            checkStringArray(group.callbacks, permittedCharacters.callback);
+            groupUnsorted =
+                checkStringArray(
+                    group.callbacks,
+                    PERMITTED_CHARACTERS.callback
+                ) || groupUnsorted;
         }
         if (group.types) {
-            checkStringArray(group.types, permittedCharacters.type);
+            groupUnsorted =
+                checkStringArray(group.types, PERMITTED_CHARACTERS.type) ||
+                groupUnsorted;
         }
 
         // overview is optional
@@ -145,7 +176,7 @@ function checkGroupData(groupDataJson) {
             expect(Array.isArray(group.overview)).toBe(true);
             expect(group.overview.length).toBe(1);
             // ... and the element must contain only the permitted characters
-            expect(group.overview[0]).toMatch(permittedCharacters.overview);
+            expect(group.overview[0]).toMatch(PERMITTED_CHARACTERS.overview);
         }
 
         // guides is optional
@@ -156,20 +187,37 @@ function checkGroupData(groupDataJson) {
                 // check that the guide has the correct properties
                 checkProperties(
                     guide,
-                    permittedGuideProperties,
-                    mandatoryGuideProperties
+                    PERMITTED_GUIDE_PROPERTIES,
+                    MANDATORY_GUIDE_PROPERTIES
                 );
 
                 // these are both strings that contain only the permitted characters
-                expect(guide.title).toMatch(permittedCharacters.guideTitle);
-                expect(guide.url).toMatch(permittedCharacters.guideUrl);
+                expect(guide.title).toMatch(PERMITTED_CHARACTERS.guideTitle);
+                expect(guide.url).toMatch(PERMITTED_CHARACTERS.guideUrl);
             }
         }
+
+        if (groupUnsorted) {
+            unsortedGroups.push(groupName);
+        }
+    }
+
+    // TODO: Have this fail the test
+    if (
+        unsortedGroups.length ||
+        JSON.stringify(groupNames) !== JSON.stringify([...groupNames].sort())
+    ) {
+        let unsortedMessage = 'GroupData is unsorted';
+        if (unsortedGroups.length) {
+            unsortedMessage += '\nUnsorted APIs: ';
+            unsortedMessage += JSON.stringify(unsortedGroups, null, 2);
+        }
+        console.warn(unsortedMessage);
     }
 }
 
-describeMacro('GroupData', function() {
-    itMacro('Validate GroupData JSON', function(macro) {
+describeMacro('GroupData', () => {
+    itMacro('Validate GroupData JSON', macro => {
         return macro.call().then(checkGroupData);
     });
 });

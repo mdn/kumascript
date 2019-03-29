@@ -12,10 +12,23 @@
         "ecmaVersion": 2018
     },
     "rules": {
-        "no-unused-vars": ["error", {
-            "args": "none",
-            "varsIgnorePattern": "^_",
-            "argsIgnorePattern": "^_"
-        }]
-    }
+        "no-unused-vars": [
+            "error",
+            {
+                "args": "none",
+                "varsIgnorePattern": "^_",
+                "argsIgnorePattern": "^_"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "tests/**"
+            ],
+            "rules": {
+                "no-console": "off"
+            }
+        }
+    ]
 }
