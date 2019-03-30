@@ -2,8 +2,15 @@
  * @prettier
  */
 
+/**
+ * @param {string} source
+ * @param {string|RegExp} pattern
+ * @param {function(...any):Promise<string>} asyncReplacer
+ * @return {Promise<string>}
+ */
 async function asyncReplace(source, pattern, asyncReplacer) {
     // Find all the matches, replace with "", and discard the result
+    /** @type {Array<[string, ...any[]]>} */
     let matches = [];
     source.replace(pattern, (...match) => {
         matches.push(match);
@@ -44,92 +51,184 @@ async function asyncReplace(source, pattern, asyncReplacer) {
     return strings.join('');
 }
 
-function StartsWith(str, sub_str) {
-    return ('' + str).indexOf(sub_str) === 0;
+/**
+ * @param {string} str
+ * @param {string} sub_str
+ * @return {boolean}
+ * @deprecated Use `str.startsWith(sub_str)`
+ */
+function startsWith(str, sub_str) {
+    return String(str).indexOf(sub_str) === 0;
 }
 
-function EndsWith(str, suffix) {
-    str = '' + str;
-    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+/**
+ * @param {string} str
+ * @param {string} sub_str
+ * @return {boolean}
+ * @deprecated Use `str.endsWith(sub_str)`
+ */
+function endsWith(str, sub_str) {
+    str = String(str);
+    return str.indexOf(sub_str, str.length - sub_str.length) !== -1;
 }
 
-function Contains(str, sub_str) {
-    return ('' + str).indexOf(sub_str) !== -1;
+/**
+ * @param {string} str
+ * @param {string} sub_str
+ * @return {boolean}
+ * @deprecated Use `str.includes(sub_str)`
+ */
+function contains(str, sub_str) {
+    return String(str).indexOf(sub_str) !== -1;
 }
 
-function Deserialize(str) {
+/**
+ * @param {string} str
+ * @return {any}
+ * @deprecated Use `JSON.parse(str)`
+ */
+function deserialize(str) {
     return JSON.parse(str);
 }
 
-/* Check if first character in string is a decimal digit. */
-function IsDigit(str) {
-    return /^\d/.test('' + str);
+/**
+ * Check if first character in string is a decimal digit.
+ *
+ * @param {string} str
+ * @return {boolean}
+ */
+function isDigit(str) {
+    return /^\d/.test(str);
 }
 
-/* Check if first character in string is an alphabetic character. */
-function IsLetter(str) {
-    return /^[a-zA-Z]/.test('' + str);
+/**
+ * Check if first character in string is an alphabetic character.
+ *
+ * @param {string} str
+ * @return {boolean}
+ */
+function isLetter(str) {
+    return /^[a-zA-Z]/.test(str);
 }
 
-function Serialize(val) {
+/**
+ * @param {string} val
+ * @return {string}
+ * @deprecated Use `JSON.stringify(val)`
+ */
+function serialize(val) {
     return JSON.stringify(val);
 }
 
-function Substr(str, start, length) {
+/**
+ * @param {string} str
+ * @param {number} start
+ * @param {number} [length]
+ * @return {string}
+ * @deprecated Use `str.substr(start, length)`
+ */
+function substr(str, start, length) {
     if (length) {
-        return ('' + str).substr(start, length);
+        return String(str).substr(start, length);
     } else {
-        return ('' + str).substr(start);
+        return String(str).substr(start);
     }
 }
 
+/**
+ * @param {string} str
+ * @return {string}
+ * @deprecated Use `str.toLowerCase()`
+ */
 function toLower(str) {
-    return ('' + str).toLowerCase();
+    return String(str).toLowerCase();
 }
 
-function ToUpperFirst(str) {
-    return ('' + str).charAt(0).toUpperCase() + ('' + str).slice(1);
+/**
+ * @param {string} str
+ * @return {string}
+ */
+function toUpperFirst(str) {
+    // Minor performance optimisation:
+    str = String(str);
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function Trim(str) {
-    return ('' + str).trim();
+/**
+ * @param {string} str
+ * @return {string}
+ * @deprecated Use `str.trim()`
+ */
+function trim(str) {
+    return String(str).trim();
 }
 
-function Remove(str, index, count) {
-    var out = '' + str.substring(0, Number(index));
+/**
+ * @param {string} str
+ * @param {number} index
+ * @param {number} [count]
+ * @return {string}
+ */
+function remove(str, index, count) {
+    // Minor performance optimisation:
+    str = String(str);
+    index = Number(index);
+
+    var out = str.substring(0, index);
     if (count) {
-        out += '' + str.substring(Number(index) + Number(count));
+        out += str.substring(index + Number(count));
     }
     return out;
 }
 
-function Replace(str, from, to) {
-    return ('' + str).replace(RegExp(from, 'g'), to);
+/**
+ * @param {string} str
+ * @param {string|RegExp} from
+ * @param {string} to
+ * @return {string}
+ *
+ * @remarks `from` must be a valid regex
+ * @deprecated Use `str.replace(from, to)`
+ */
+function replace(str, from, to) {
+    return String(str).replace(RegExp(from, 'g'), to);
 }
 
-function Join(list, sep) {
+/**
+ * @param {any[]} list
+ * @param {string} [sep]
+ * @return {string}
+ * @deprecated Use `list.join(sep)`
+ */
+function join(list, sep) {
     return list.join(sep);
 }
 
-function Length(str) {
-    return ('' + str).length;
+/**
+ * @param {string} str
+ * @return {number}
+ * @deprecated Use `str.length`
+ */
+function length(str) {
+    return String(str).length;
 }
 
 module.exports = {
     asyncReplace,
-    StartsWith,
-    EndsWith,
-    Contains,
-    Deserialize,
-    IsDigit,
-    IsLetter,
-    Serialize,
-    Substr,
-    toLower,
-    ToUpperFirst,
-    Trim,
-    Remove,
-    Replace,
-    Join,
-    Length
+    StartsWith: startsWith,
+    EndsWith: endsWith,
+    Contains: contains,
+    Deserialize: deserialize,
+    IsDigit: isDigit,
+    IsLetter: isLetter,
+    Serialize: serialize,
+    Substr: substr,
+    // `toLower` was always exposed as `lowerCamelCase`:
+    toLower: toLower,
+    ToUpperFirst: toUpperFirst,
+    Trim: trim,
+    Remove: remove,
+    Replace: replace,
+    Join: join,
+    Length: length
 };

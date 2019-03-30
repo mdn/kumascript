@@ -6,19 +6,34 @@ const request = require('request');
 
 const util = require('./util.js');
 
-// Check if the given wiki page exists.
-// This was "temporarily" disabled 7 years ago!
-function pageExists(/*path*/) {
+/**
+ * Check if the given wiki page exists.
+ * This was "temporarily" disabled 7 years ago!
+ *
+ * @param {string} path
+ * @return {true}
+ * @deprecated See: https://bugzilla.mozilla.org/show_bug.cgi?id=775590#c4
+ */
+function pageExists(path) {
     // Temporarily disabling this.
     // See: https://bugzilla.mozilla.org/show_bug.cgi?id=775590#c4
     return true;
 }
 
-// Retrieve the content of a document for inclusion,
-// optionally filtering for a single section.
-//
-// Doesn't support the revision parameter offered by DekiScript
-//
+/**
+ * Retrieve the content of a document for inclusion,
+ * optionally filtering for a single section.
+ *
+ * Doesn't support the revision parameter offered by DekiScript
+ *
+ * @param {string} path
+ * @param {string} [section]
+ * @param {any} [revision]
+ * @param {number|boolean} [show]
+ * @param {number} [heading]
+ * @param {boolean} [ignore_cache_control=false]
+ * @return {Promise<string>}
+ */
 async function page(
     path,
     section,
@@ -33,16 +48,23 @@ async function page(
     }
     var key = 'kuma:include:' + key_text;
 
-    // Adjusts the visibility and heading levels of the specified HTML.
-    //
-    // The show parameter indicates whether or not the top level
-    // heading/title should be displayed. The heading parameter
-    // sets the heading level of the top level of the text to the
-    // specified value and adjusts all subsequent headings
-    // accordingly. This adjustment happens regardless of the
-    // value of show.  The heading parameter uses the values 0-5,
-    // as did DekiScript, 0 represents a page header or H1, 1 -
-    // H2, 2 - H3 etc
+    /**
+     * Adjusts the visibility and heading levels of the specified HTML.
+     *
+     * The show parameter indicates whether or not the top level
+     * heading/title should be displayed. The heading parameter
+     * sets the heading level of the top level of the text to the
+     * specified value and adjusts all subsequent headings
+     * accordingly. This adjustment happens regardless of the
+     * value of show.  The heading parameter uses the values 0-5,
+     * as did DekiScript, 0 represents a page header or H1, 1 -
+     * H2, 2 - H3 etc
+     *
+     * @param {string} html
+     * @param {string} [section]
+     * @param {boolean|number} [show]
+     * @param {number} [heading]
+     */
     function adjustHeadings(html, section, show, heading) {
         if (html && heading) {
             // Get header level of page or section level
@@ -116,7 +138,12 @@ async function page(
     }
 }
 
-// Returns the page object for the specified page.
+/**
+ * Returns the page object for the specified page.
+ *
+ * @param {string} path
+ * @return {Promise<object>}
+ */
 async function getPage(path) {
     var key = 'kuma:get_page:' + path.toLowerCase();
     return JSON.parse(
@@ -145,7 +172,13 @@ async function getPage(path) {
     );
 }
 
-// Retrieve the full uri of a given wiki page.
+/**
+ * Retrieve the full uri of a given wiki page.
+ *
+ * @param {string} path
+ * @param {string} [query]
+ * @return {string}
+ */
 function uri(path, query) {
     const parts = url.parse(this.env.url);
     var out = parts.protocol + '//' + parts.host + util.preparePath(path);
@@ -155,13 +188,21 @@ function uri(path, query) {
     return out;
 }
 
-// Inserts a pages sub tree
-// if reverse is non-zero, the sort is backward
-// if ordered is true, the output is an <ol> instead of <ul>
-//
-// Special note: If ordered is true, pages whose locale differ from
-// the current page's locale are omitted, to work around misplaced
-// localizations showing up in navigation.
+/**
+ * Inserts a pages sub tree
+ * if reverse is non-zero, the sort is backward
+ * if ordered is true, the output is an <ol> instead of <ul>
+ *
+ * Special note: If ordered is true, pages whose locale differ from
+ * the current page's locale are omitted, to work around misplaced
+ * localizations showing up in navigation.
+ *
+ * @param {string} path
+ * @param {number} [depth]
+ * @param {number|boolean} [self]
+ * @param {number|boolean} [reverse]
+ * @param {number|boolean} [ordered]
+ */
 async function tree(path, depth, self, reverse, ordered) {
     // If the path ends with a slash, remove it.
     if (path.substr(-1, 1) === '/') {
@@ -178,6 +219,9 @@ async function tree(path, depth, self, reverse, ordered) {
 
     return process_array(null, pages, ordered != 0, this.env.locale);
 
+    /**
+     * @param {string} t
+     */
     function chunkify(t) {
         var tz = [],
             x = 0,
@@ -188,8 +232,10 @@ async function tree(path, depth, self, reverse, ordered) {
 
         while ((i = (j = t.charAt(x++)).charCodeAt(0))) {
             var m = i == 46 || (i >= 48 && i <= 57);
+            // @ts-ignore: This condition will always return 'true' since the types 'boolean' and 'number' have no overlap.
             if (m !== n) {
                 tz[++y] = '';
+                // @ts-ignore: Type 'boolean' is not assignable to type 'number'.
                 n = m;
             }
             tz[y] += j;
@@ -197,6 +243,10 @@ async function tree(path, depth, self, reverse, ordered) {
         return tz;
     }
 
+    /**
+     * @param {{title:string}} a
+     * @param {{title:string}} b
+     */
     function alphanumForward(a, b) {
         var aa = chunkify(a.title);
         var bb = chunkify(b.title);
@@ -205,6 +255,8 @@ async function tree(path, depth, self, reverse, ordered) {
             if (aa[x] !== bb[x]) {
                 var c = Number(aa[x]),
                     d = Number(bb[x]);
+
+                // @ts-ignore: Loose comparison of number and string
                 if (c == aa[x] && d == bb[x]) {
                     return c - d;
                 } else return aa[x] > bb[x] ? 1 : -1;
@@ -213,6 +265,10 @@ async function tree(path, depth, self, reverse, ordered) {
         return aa.length - bb.length;
     }
 
+    /**
+     * @param {{title:string}} a
+     * @param {{title:string}} b
+     */
     function alphanumBackward(a, b) {
         var bb = chunkify(a.title);
         var aa = chunkify(b.title);
@@ -221,6 +277,8 @@ async function tree(path, depth, self, reverse, ordered) {
             if (aa[x] !== bb[x]) {
                 var c = Number(aa[x]),
                     d = Number(bb[x]);
+
+                // @ts-ignore: Loose comparison of number and string
                 if (c == aa[x] && d == bb[x]) {
                     return c - d;
                 } else return aa[x] > bb[x] ? 1 : -1;

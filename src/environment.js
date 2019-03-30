@@ -1,4 +1,30 @@
 /**
+ * @prettier
+ */
+const kumaAPI = require('./api/kuma.js');
+const mdnAPI = require('./api/mdn.js');
+const stringAPI = require('./api/string.js');
+const uriAPI = require('./api/uri.js');
+const wikiAPI = require('./api/wiki.js');
+const webAPI = require('./api/web.js');
+const pageAPI = require('./api/page.js');
+
+const globalsAPI = {
+    /**
+     * #### require(name)
+     *
+     * Load an npm package (the real "require" has its own cache).
+     *
+     * @remarks
+     * Relative require is resolved against the `src` directory
+     * rather than the macro which called it.
+     *
+     * @type {NodeRequireFunction}
+     */
+    require
+};
+
+/**
  * An Environment object defines the API available to KumaScript macros
  * through the MDN, wiki, page and other global objects. When you create
  * an Environment object, pass an object that defines the per-page
@@ -9,65 +35,52 @@
  * in the list of arguments to be exposed to the macro. This returns an
  * object that you can pass to the render() method of your Templates object.
  *
- * The functions defined on the various *Prototype objects in this file
+ * The functions defined on the various *API objects in the `api` directory
  * will be bound to the global kumascript macro execution environment and
  * can use `this.mdn`, `this.wiki`, `this.env`, etc to refer to the parts
  * of that execution environment. Because the functions will all be bound
  * (see the prepareProto() function at the end of this file) they can not
  * use `this` to refer to the objects in which they are actually defined.
- *
- * TODO(djf): The *Prototype objects could each be defined in a
- * separate src/api/*.js file and imported with require(). That would
- * be tidier, and would keep separate the code with poor test coverage
- * from the rest of the file which is well tested.
- *
- * @prettier
  */
-
-// The properties of this object will be globals in the macro
-// execution environment.
-const globalsPrototype = {
-    /**
-     * #### require(name)
-     *
-     * Load an npm package (the real "require" has its own cache).
-     *
-     * @type {NodeRequireFunction}
-     */
-    require: require
-};
-
-const kumaPrototype = require('./api/kuma.js');
-const mdnPrototype = require('./api/mdn.js');
-const stringPrototype = require('./api/string.js');
-const wikiPrototype = require('./api/wiki.js');
-const uriPrototype = require('./api/uri.js');
-const webPrototype = require('./api/web.js');
-const pagePrototype = require('./api/page.js');
-
 class Environment {
-    // Intialize an environment object that will be used to render
-    // all of the macros in one document or page. We pass in a context
-    // object (which may come from HTTP request headers) that gives
-    // details like the page title and URL. These are available to macros
-    // through the global 'env' object, and some of the properties
-    // are also copied onto the global 'page' object.
-    //
-    // Note that we don't use the Environment object directly when
-    // executing macros. Instead call getExecutionContext(), supplying
-    // the macro arguments list to get an object specific for executing
-    // one macro.
-    //
-    // Note that we pass the Templates object when we create an Environment.
-    // this is so that macros can recursively execute other named macros
-    // in the same environment.
-    //
-    // The optional third argument is for use only by tests. Setting it to
-    // true makes us not freeze the environment so that tests can stub out
-    // methods in the API like mdn.fetchJSONResources
-    //
+    /**
+     * Initialize an environment object that will be used to render
+     * all of the macros in one document or page. We pass in a context
+     * object (which may come from HTTP request headers) that gives
+     * details like the page title and URL. These are available to macros
+     * through the global 'env' object, and some of the properties
+     * are also copied onto the global 'page' object.
+     *
+     * Note that we don't use the Environment object directly when
+     * executing macros. Instead call getExecutionContext(), supplying
+     * the macro arguments list to get an object specific for executing
+     * one macro.
+     *
+     * Note that we pass the Templates object when we create an Environment.
+     * this is so that macros can recursively execute other named macros
+     * in the same environment.
+     *
+     * The optional third argument is for use only by tests. Setting it to
+     * true makes us not freeze the environment so that tests can stub out
+     * methods in the API like mdn.fetchJSONResources
+     *
+     * @param {Object<string, any>} perPageContext
+     *   @param {string} [perPageContext.locale]
+     *   @param {string} [perPageContext.slug]
+     *   @param {string} [perPageContext.title]
+     *   @param {string[]} [perPageContext.tags]
+     *   @param {string} [perPageContext.url]
+     * @param {import('./templates')} templates
+     * @param {boolean} [testing]
+     */
     constructor(perPageContext, templates, testing = false) {
-        // Freeze an object unless we're in testing mode
+        /**
+         * Freeze an object unless we're in testing mode
+         *
+         * @template T
+         * @param {T} o
+         * @return {T}
+         */
         function freeze(o) {
             return testing ? o : Object.freeze(o);
         }
@@ -89,6 +102,11 @@ class Environment {
          *
          * And the freeze() call is a safety measure to prevent
          * macros from modifying the execution environment.
+         *
+         * @template T
+         * @param {T} o
+         * @param {any} [binding]
+         * @return {T}
          */
         function prepareProto(o, binding) {
             let p = {};
@@ -104,15 +122,15 @@ class Environment {
         }
 
         this.templates = templates;
-        let globals = Object.create(prepareProto(globalsPrototype));
+        let globals = Object.create(prepareProto(globalsAPI));
 
-        let kuma = Object.create(prepareProto(kumaPrototype, globals));
-        let mdn = Object.create(prepareProto(mdnPrototype, globals));
-        let string = Object.create(prepareProto(stringPrototype, globals));
-        let wiki = Object.create(prepareProto(wikiPrototype, globals));
-        let uri = Object.create(prepareProto(uriPrototype, globals));
-        let web = Object.create(prepareProto(webPrototype, globals));
-        let page = Object.create(prepareProto(pagePrototype, globals));
+        let kuma = Object.create(prepareProto(kumaAPI, globals));
+        let mdn = Object.create(prepareProto(mdnAPI, globals));
+        let string = Object.create(prepareProto(stringAPI, globals));
+        let wiki = Object.create(prepareProto(wikiAPI, globals));
+        let uri = Object.create(prepareProto(uriAPI, globals));
+        let web = Object.create(prepareProto(webAPI, globals));
+        let page = Object.create(prepareProto(pageAPI, globals));
         let env = Object.create(prepareProto(perPageContext));
 
         // The page object also gets some properties copied from
@@ -135,18 +153,24 @@ class Environment {
         globals.page = globals.Page = freeze(page);
         globals.env = globals.Env = freeze(env);
 
-        // Macros use the global template() method to excute other
+        // Macros use the global template() method to execute other
         // macros. This is the one function that we can't just
-        // implement on globalsPrototype because it needs acccess to
+        // implement on globalsPrototype because it needs access to
         // this.templates.
         globals.template = this._renderTemplate.bind(this);
 
         this.prototypeEnvironment = freeze(globals);
     }
 
-    // A templating function that we define in the global environment
-    // so that templates can invoke other templates. This is not part
-    // of the public API of the class; it is for use by other templates
+    /**
+     * A templating function that we define in the global environment
+     * so that templates can invoke other templates. This is not part
+     * of the public API of the class; it is for use by other templates
+     *
+     * @param {string} name
+     * @param {any[]} [args]
+     * @return {Promise<string>}
+     */
     async _renderTemplate(name, args) {
         return await this.templates.render(
             name,
@@ -154,8 +178,13 @@ class Environment {
         );
     }
 
-    // Get a customized environment object that is specific to a single
-    // macro on a page by including the arguments to be passed to that macro.
+    /**
+     * Get a customized environment object that is specific to a single
+     * macro on a page by including the arguments to be passed to that macro.
+     *
+     * @param {any[]} [args]
+     * @return {any}
+     */
     getExecutionContext(args) {
         let context = Object.create(this.prototypeEnvironment);
 

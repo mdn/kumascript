@@ -10,8 +10,13 @@ const util = require('./util.js');
  * Given a set of names and a corresponding list of values, apply HTML
  * escaping to each of the values and return an object with the results
  * associated with the names.
+ *
+ * @param {string[]} names
+ * @param {string[]} args
+ * @return {Object<string, string>}
  */
 function htmlEscapeArgs(names, args) {
+    /** @type {Object<string, string>} */
     var e = {};
     names.forEach(function(name, idx) {
         e[name] = util.htmlEscape(args[idx]);
@@ -23,6 +28,9 @@ function htmlEscapeArgs(names, args) {
  * Given a set of strings like this:
  *     { "en-US": "Foo", "de": "Bar", "es": "Baz" }
  * Return the one which matches the current locale.
+ *
+ * @param {Object<string, string>} strings
+ * @return {string}
  */
 function localString(strings) {
     var lang = this.env.locale;
@@ -35,6 +43,9 @@ function localString(strings) {
  *     { "en-US": {"name": "Foo"}, "de": {"name": "Bar"} }
  * Return a map which matches the current locale, falling back to en-US
  * properties when the localized map contains partial properties.
+ *
+ * @param {Object<string, Object<string, string>>} maps
+ * @return {Object<string, string>}
  */
 function localStringMap(maps) {
     var lang = this.env.locale;
@@ -43,6 +54,7 @@ function localStringMap(maps) {
         return defaultMap;
     }
     var localizedMap = maps[lang];
+    /** @type {Object<string, string>} */
     var map = {};
     for (var name in defaultMap) {
         if (name in localizedMap) {
@@ -56,16 +68,21 @@ function localStringMap(maps) {
 
 /**
  * Given a set of strings like this:
- *   {
- *    "hello": { "en-US": "Hello!", "de": "Hallo!" },
- *    "bye": { "en-US": "Goodbye!", "de": "Auf Wiedersehen!" }
- *   }
+ *
+ *    {
+ *      "hello": { "en-US": "Hello!", "de": "Hallo!" },
+ *      "bye": { "en-US": "Goodbye!", "de": "Auf Wiedersehen!" }
+ *    }
+ *
  * Returns the one, which matches the current locale.
  *
- * Example:
- *   getLocalString({"hello": {"en-US": "Hello!", "de": "Hallo!"}},
- *       "hello");
- *   => "Hallo!" (in case the locale is 'de')
+ * @example
+ *    getLocalString({"hello": {"en-US": "Hello!", "de": "Hallo!"}}, "hello");
+ *    // => "Hallo!" (in case the locale is 'de')
+ *
+ * @param {Object<string, Object<string, string>>} strings
+ * @param {string} key
+ * @return {string}
  */
 function getLocalString(strings, key) {
     if (!strings.hasOwnProperty(key)) {
@@ -93,20 +110,29 @@ function getLocalString(strings, key) {
  * be an object. Its property names represent the placeholder
  * names and their values the values to be inserted.
  *
- * Examples:
+ * @example
  *   replacePlaceholders("$1$ $2$, $1$ $3$!",
  *                       ["hello", "world", "contributor"])
- *   => "hello world, hello contributor!"
+ * // => "hello world, hello contributor!"
  *
+ * @example
  *   replacePlaceholders("$hello$ $world$, $hello$ $contributor$!",
  *       {hello: "hallo", world: "Welt", contributor: "Mitwirkender"})
- *   => "hallo Welt, hallo Mitwirkender!"
+ * // => "hallo Welt, hallo Mitwirkender!"
+ *
+ * @param {string} string
+ * @param {Object<string | number, string>} replacements
+ * @return {string}
  */
 function replacePlaceholders(string, replacements) {
+    /**
+     * @param {string} placeholder
+     */
     function replacePlaceholder(placeholder) {
+        /** @type {string | number} */
         var index = placeholder.substring(1, placeholder.length - 1);
         if (!Number.isNaN(Number(index))) {
-            index--;
+            index = Number(index) - 1;
         }
         return index in replacements ? replacements[index] : '';
     }
@@ -117,22 +143,28 @@ function replacePlaceholders(string, replacements) {
 /**
  * Accepts a relative URL or an attachment object
  * Returns the content of a given file.
+ *
+ * @param {string|{url:string}} fileObjOrUrl
  */
 async function getFileContent(fileObjOrUrl) {
-    var url = fileObjOrUrl.url || fileObjOrUrl;
-    if (!url) return '';
+    /** @type {string} */
+    // @ts-ignore: Type unsafe parameter detection
+    var file_url = fileObjOrUrl.url || fileObjOrUrl;
+    if (!file_url) return '';
 
     let base_url = '';
 
-    // New file urls include attachment host, so we don't need to
-    // prepend it
-    var fUrl = url.parse(url);
+    /**
+     * New file urls include attachment host, so we don't need to
+     * prepend it
+     */
+    var fUrl = url.parse(file_url);
     if (!fUrl.host) {
         var p = url.parse(this.env.url, true);
         base_url = p.protocol + '//' + p.host;
     }
-    url = base_url + url;
-    let key = 'kuma:get_attachment_content:' + url.toLowerCase();
+    file_url = base_url + file_url;
+    let key = 'kuma:get_attachment_content:' + file_url.toLowerCase();
     return await util.cacheFn(key, this.env.cache_control, next => {
         try {
             request(
@@ -141,7 +173,7 @@ async function getFileContent(fileObjOrUrl) {
                     headers: {
                         'Cache-Control': this.env.cache_control
                     },
-                    url: url
+                    url: file_url
                 },
                 function(err, resp, body) {
                     if (resp && 200 == resp.statusCode) {
@@ -157,8 +189,13 @@ async function getFileContent(fileObjOrUrl) {
     });
 }
 
-// Fetch an HTTP resource with JSON representation, parse the JSON and
-// return a JS object.
+/**
+ * Fetch an HTTP resource with JSON representation, parse the JSON and
+ * return a JS object.
+ *
+ * @param {string} url
+ * @param {object} [opts]
+ */
 async function fetchJSONResource(url, opts) {
     opts = util.defaults(opts || {}, {
         headers: {
@@ -170,7 +207,13 @@ async function fetchJSONResource(url, opts) {
     return JSON.parse(await this.MDN.fetchHTTPResource(url, opts));
 }
 
-// Fetch an HTTP resource, return the response body.
+/**
+ * Fetch an HTTP resource, return the response body.
+ *
+ * @param {string} url
+ * @param {request.CoreOptions & {cache_key?:string, ignore_cache_control?:boolean}} [opts]
+ * @return {Promise<string>}
+ */
 async function fetchHTTPResource(url, opts) {
     opts = util.defaults(opts || {}, {
         method: 'GET',
@@ -184,8 +227,10 @@ async function fetchHTTPResource(url, opts) {
         ignore_cache_control: false
     });
 
+    /** @type {import('./util.js').ComputeValue<string | null>} */
     function to_cache(next) {
         try {
+            // @ts-ignore: `opts` has the `url` property at this point
             request(opts, (error, response, body) => {
                 if (error) {
                     next(null);
@@ -209,7 +254,11 @@ async function fetchHTTPResource(url, opts) {
     }
 }
 
-// http://www.bugzilla.org/docs/4.2/en/html/api/Bugzilla/WebService/Bug.html#search
+/**
+ * @see http://www.bugzilla.org/docs/4.2/en/html/api/Bugzilla/WebService/Bug.html#search
+ *
+ * @param {string} query
+ */
 async function bzSearch(query) {
     /* Fix colon (":") encoding problems */
     query = query.replace(/&amp;/g, '&');
@@ -222,7 +271,11 @@ async function bzSearch(query) {
     return resource.result;
 }
 
-/* Derive the site URL from the request URL */
+/**
+ * Derive the site URL from the request URL
+ *
+ * @return {string}
+ */
 function siteURL() {
     var p = url.parse(this.env.url, true),
         site_url = p.protocol + '//' + p.host;

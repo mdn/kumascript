@@ -3,7 +3,15 @@
  */
 const util = require('./util.js');
 
-// Insert a hyperlink.
+/**
+ * Insert a hyperlink.
+ *
+ * @param {string} uri
+ * @param {string} [text]
+ * @param {string} [title]
+ * @param {string} [target]
+ * @return {string}
+ */
 function link(uri, text, title, target) {
     var out = [
         '<a href="' + util.spacesToUnderscores(util.htmlEscape(uri)) + '"'
@@ -18,9 +26,14 @@ function link(uri, text, title, target) {
     return out.join('');
 }
 
-// Given a URL, convert all spaces to underscores. This lets us fix a
-// bunch of places where templates assume this is done automatically
-// by the API, like MindTouch did.
+/**
+ * Given a URL, convert all spaces to underscores. This lets us fix a
+ * bunch of places where templates assume this is done automatically
+ * by the API, like MindTouch did.
+ *
+ * @param {string} str
+ * @return {string}
+ */
 function spacesToUnderscores(str) {
     return util.spacesToUnderscores(str);
 }

@@ -9,11 +9,17 @@ const url = require('url');
 const cache = require('../cache.js');
 const config = require('../config.js');
 
-// Fill in undefined properties in object with values from the
-// defaults objects, and return the object. As soon as the property is
-// filled, further defaults will have no effect.
-//
-// Stolen from http://underscorejs.org/#defaults
+/**
+ * Fill in undefined properties in object with values from the
+ * defaults objects, and return the object. As soon as the property is
+ * filled, further defaults will have no effect.
+ *
+ * Stolen from http://underscorejs.org/#defaults
+ *
+ * @param {any} obj
+ * @param {any[]} sources
+ * @return {any}
+ */
 function defaults(obj, ...sources) {
     for (let source of sources) {
         for (var prop in source) {
@@ -23,14 +29,20 @@ function defaults(obj, ...sources) {
     return obj;
 }
 
-// This function takes a function argument that asynchronously
-// computes a value and passes that value to a callback
-// function. It returns a Promise-based version of f. Note that
-// f() calls its callback with a single success value and there is
-// no provision for reporting async errors.  That is not ideal,
-// but it is the legacy system that the cacheFn() and
-// cacheFnIgnoreCacheControl() functions below use.
-function promiseify(f) {
+/**
+ * This function takes a function argument that asynchronously
+ * computes a value and passes that value to a callback
+ * function. It returns a Promise-based version of f. Note that
+ * f() calls its callback with a single success value and there is
+ * no provision for reporting async errors.  That is not ideal,
+ * but it is the legacy system that the cacheFn() and
+ * cacheFnIgnoreCacheControl() functions below use.
+ *
+ * @template T
+ * @param {ComputeValue<T>} f
+ * @return {function():Promise<T>}
+ */
+function promisify(f) {
     return function() {
         return new Promise((resolve, reject) => {
             try {
@@ -42,13 +54,30 @@ function promiseify(f) {
     };
 }
 
+/**
+ * @callback ComputeValue
+ * @param {(value?: T | PromiseLike<T>) => void} resolve
+ * @template T
+ */
+
+/**
+ * @param {string} key
+ * @param {string} cacheControl
+ * @param {ComputeValue<string | null>} computeValue
+ * @return {Promise<string | null>}
+ */
 async function cacheFn(key, cacheControl, computeValue) {
     let skipCache = cacheControl === 'no-cache';
-    return await cache(key, util.promiseify(computeValue), skipCache);
+    return await cache(key, promisify(computeValue), skipCache);
 }
 
+/**
+ * @param {string} key
+ * @param {ComputeValue<string | null>} computeValue
+ * @return {Promise<string | null>}
+ */
 async function cacheFnIgnoreCacheControl(key, computeValue) {
-    return await cache(key, util.promiseify(computeValue));
+    return await cache(key, promisify(computeValue));
 }
 
 /**
@@ -56,6 +85,9 @@ async function cacheFnIgnoreCacheControl(key, computeValue) {
  * need to be prefixed by "/en-US/docs", as well as ensuring
  * it starts with a "/" and replacing its spaces (whether
  * encoded or not) with underscores.
+ *
+ * @param {string} path
+ * @return {string}
  */
 function preparePath(path) {
     if (path.charAt(0) != '/') {
@@ -70,9 +102,14 @@ function preparePath(path) {
     return path.replace(/ |%20/gi, '_');
 }
 
-// Given a path, attempt to construct an absolute URL to the wiki.
+/**
+ * Given a path, attempt to construct an absolute URL to the wiki.
+ *
+ * @param {string} path
+ * @return {string}
+ */
 function buildAbsoluteURL(path) {
-    return util.apiURL(util.preparePath(path));
+    return apiURL(preparePath(path));
 }
 
 /**
@@ -84,7 +121,8 @@ function buildAbsoluteURL(path) {
  * "path" argument is not provided or is falsy, the base URL of
  * the document service will be returned.
  *
- * @param {string} path;
+ * @param {string} [path]
+ * @return {string}
  */
 function apiURL(path) {
     if (!path) {
@@ -99,17 +137,21 @@ function apiURL(path) {
  * #### htmlEscape(string)
  * Escape the given string for HTML inclusion.
  *
- * @param {string} s
+ * @param {string} [s]
  * @return {string}
  */
 function htmlEscape(s) {
-    return ('' + s)
+    return String(s)
         .replace(/&/g, '&amp;')
         .replace(/>/g, '&gt;')
         .replace(/</g, '&lt;')
         .replace(/"/g, '&quot;');
 }
 
+/**
+ * @param {string} a
+ * @return {string}
+ */
 function escapeQuotes(a) {
     var b = '';
     for (var i = 0, len = a.length; i < len; i++) {
@@ -122,6 +164,10 @@ function escapeQuotes(a) {
     return b.replace(/(<([^>]+)>)/gi, '');
 }
 
+/**
+ * @param {string} str
+ * @return {string}
+ */
 function spacesToUnderscores(str) {
     var re1 = / /gi;
     var re2 = /%20/gi;
@@ -129,11 +175,8 @@ function spacesToUnderscores(str) {
     return str.replace(re2, '_');
 }
 
-// Utility functions are collected here. These are functions that are used
-// by the exported functions below. Some of them are themselves exported.
-const util = (module.exports = {
+module.exports = {
     defaults,
-    promiseify,
     cacheFn,
     cacheFnIgnoreCacheControl,
     preparePath,
@@ -142,4 +185,4 @@ const util = (module.exports = {
     htmlEscape,
     escapeQuotes,
     spacesToUnderscores
-});
+};

@@ -3,9 +3,15 @@
  */
 const util = require('./util.js');
 
-// Determines whether or not the page has the specified tag. Returns
-// true if it does, otherwise false. This is case-insensitive.
-//
+/**
+ * Determines whether or not the page has the specified tag. Returns
+ * true if it does, otherwise false. This is case-insensitive.
+ *
+ * @param {object} aPage
+ * @param {string[]|null|undefined} [aPage.tags]
+ * @param {string} aTag
+ * @return {boolean}
+ */
 function hasTag(aPage, aTag) {
     // First, return false at once if there are no tags on the page
 
@@ -32,18 +38,26 @@ function hasTag(aPage, aTag) {
     return false;
 }
 
-// Optional path, defaults to current page
-//
-// Optional depth. Number of levels of children to include, 0
-// is the path page
-//
-// Optional self, defaults to false. Include the path page in
-// the results
-//
-// This is not called by any macros, and is only used here by
-// wiki.tree(), so we could move it to be part of that function.
+/**
+ * Optional path, defaults to current page
+ *
+ * Optional depth. Number of levels of children to include, 0
+ * is the path page
+ *
+ * Optional self, defaults to false. Include the path page in
+ * the results
+ *
+ * This is not called by any macros, and is only used here by
+ * wiki.tree(), so we could move it to be part of that function.
+ *
+ * @param {string} [path]
+ * @param {number|string} [depth]
+ * @param {number|boolean} [self]
+ * @return {Promise<any[]>}
+ */
 async function subpages(path, depth, self) {
     var url = util.apiURL((path ? path : this.env.url) + '$children');
+    // @ts-ignore: Unsafe `parseInt(number)` call
     var depth_check = parseInt(depth);
     if (depth_check >= 0) {
         url += '?depth=' + depth_check;
@@ -61,16 +75,23 @@ async function subpages(path, depth, self) {
     return result;
 }
 
-// Optional path, defaults to current page
-//
-// Optional depth. Number of levels of children to include, 0
-// is the path page
-//
-// Optional self, defaults to false. Include the path page in
-// the results
-//
+/**
+ * Optional path, defaults to current page
+ *
+ * Optional depth. Number of levels of children to include, 0
+ * is the path page
+ *
+ * Optional self, defaults to false. Include the path page in
+ * the results
+ *
+ * @param {string} [path]
+ * @param {number|string} [depth]
+ * @param {number|boolean} [self]
+ * @return {Promise<any[]>}
+ */
 async function subpagesExpand(path, depth, self) {
     var url = util.apiURL((path ? path : this.env.url) + '$children?expand');
+    // @ts-ignore: Unsafe `parseInt(number)` call
     var depth_check = parseInt(depth);
     if (depth_check >= 0) {
         url += '&depth=' + depth_check;
@@ -87,7 +108,12 @@ async function subpagesExpand(path, depth, self) {
     return result;
 }
 
-// Flatten subPages list
+/**
+ * Flatten subPages list
+ *
+ * @param {any[]} pages
+ * @return {any[]}
+ */
 function subPagesFlatten(pages) {
     var output = [];
 
@@ -95,6 +121,7 @@ function subPagesFlatten(pages) {
 
     return output;
 
+    /** @param {any[]} arr */
     function process_array(arr) {
         if (arr.length) {
             arr.forEach(function(item) {
@@ -113,6 +140,10 @@ function subPagesFlatten(pages) {
     }
 }
 
+/**
+ * @param {string} [path]
+ * @return {Promise<any[]>}
+ */
 async function translations(path) {
     var url = util.apiURL((path ? path : this.env.url) + '$json');
     var json = await this.MDN.fetchJSONResource(url);
