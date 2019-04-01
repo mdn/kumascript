@@ -2,8 +2,7 @@
 [![Build Status](https://secure.travis-ci.org/mdn/kumascript.svg)](https://travis-ci.org/mdn/kumascript)
 [![Dependency Status](https://david-dm.org/mdn/kumascript.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript)
 [![devDependency Status](https://david-dm.org/mdn/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript#info=devDependencies)
-
-[What's Deployed](https://whatsdeployed.io/s-SWJ)
+[![What's deployed on stage,prod?](https://img.shields.io/badge/whatsdeployed-stage,prod-green.svg)](https://whatsdeployed.io/s/SWJ/mdn/kumascript)
 
 ## Overview
 
