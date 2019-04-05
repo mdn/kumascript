@@ -9,18 +9,18 @@ const { itMacro, describeMacro } = require('./utils');
  * permitted characters.
  */
 const permittedCharacters = {
-    group:      /^[\w ()-]+$/,
-    overview:   /^[\w ()-]+$/,
-    interface:  /^[A-Z][\w.]+$/,
-    property:   /^[\w.]+$/,
-    method:     /^[\w.()]+$/,
-    event:      /^[\w()]+$/,
+    group: /^[\w ()-]+$/,
+    overview: /^[\w ()-]+$/,
+    interface: /^[A-Z][\w.]+$/,
+    property: /^[\w.]+$/,
+    method: /^[\w.()]+$/,
+    event: /^[\w()]+$/,
     dictionary: /^\w+$/,
-    callback:   /^\w+$/,
-    type:       /^\w+$/,
+    callback: /^\w+$/,
+    type: /^\w+$/,
     guideTitle: /^[\w .,]+$/,
-    guideUrl:   /^\/[\w-.~/]+$/,
-}
+    guideUrl: /^\/[\w-.~/]+$/
+};
 
 /**
  * Properties that are allowed in a group
@@ -34,7 +34,7 @@ const permittedGroupProperties = [
     'callbacks',
     'types',
     'events',
-    'guides',
+    'guides'
 ];
 
 /**
@@ -44,24 +44,18 @@ const mandatoryGroupProperties = [
     'interfaces',
     'methods',
     'properties',
-    'events',
+    'events'
 ];
 
 /**
  * Properties that are allowed in a guide
  */
-const permittedGuideProperties = [
-    'title',
-    'url',
-];
+const permittedGuideProperties = ['title', 'url'];
 
 /**
  * Properties that must be present in a guide
  */
-const mandatoryGuideProperties = [
-    'title',
-    'url',
-];
+const mandatoryGuideProperties = ['title', 'url'];
 
 /**
  * Check that `obj` contains:
@@ -119,7 +113,11 @@ function checkGroupData(groupDataJson) {
         const group = groupData[0][groupName];
 
         // the group has the correct properties
-        checkProperties(group, permittedGroupProperties, mandatoryGroupProperties);
+        checkProperties(
+            group,
+            permittedGroupProperties,
+            mandatoryGroupProperties
+        );
 
         // string arrays contain only their permitted characters
         checkStringArray(group.interfaces, permittedCharacters.interface);
@@ -129,7 +127,10 @@ function checkGroupData(groupDataJson) {
 
         // dictionaries, callbacks, and types are optional
         if (group.dictionaries) {
-            checkStringArray(group.dictionaries, permittedCharacters.dictionary);
+            checkStringArray(
+                group.dictionaries,
+                permittedCharacters.dictionary
+            );
         }
         if (group.callbacks) {
             checkStringArray(group.callbacks, permittedCharacters.callback);
@@ -153,7 +154,11 @@ function checkGroupData(groupDataJson) {
             expect(Array.isArray(group.guides)).toBe(true);
             for (let guide of group.guides) {
                 // check that the guide has the correct properties
-                checkProperties(guide, permittedGuideProperties, mandatoryGuideProperties);
+                checkProperties(
+                    guide,
+                    permittedGuideProperties,
+                    mandatoryGuideProperties
+                );
 
                 // these are both strings that contain only the permitted characters
                 expect(guide.title).toMatch(permittedCharacters.guideTitle);
