@@ -15,5 +15,5 @@ var str = mdn.localString({
  
 %><div class="headingWithIndicator">
     <h3<%- idAttr %>><%= $0 %></h3>
-    <span class="indicatorInHeadline minVer geckoMinVerMethod"><%- str %><%- template("geckoRelease", [$1]) %></span>
+    <span class="indicatorInHeadline minVer geckoMinVerMethod"><%- str %><%- await template("geckoRelease", [$1]) %></span>
 </div>

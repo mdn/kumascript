@@ -59,31 +59,30 @@ var statusStr = mdn.localString({
 });
 
 /*** Collect doc status data ***/
-var MDN = require_macro("MDN:Common");
 var result = {};
 var totalPages = 0,
     totalTranslated = 0,
     totalUpToDate = 0;
-var pageList = page.subpagesExpand('/' + env.locale + '/docs/MDN/Doc_status');
+var pageList = await page.subpagesExpand('/' + env.locale + '/docs/MDN/Doc_status');
 
-function getPages(pageList) {
+async function getPages(pageList) {
     if (pageList) {
         for (var aPage in pageList) {
             if (pageList[aPage].url.indexOf("Doc_status/Overview") == -1) {
                 var url = 'https://developer.mozilla.org/' + pageList[aPage].locale + '/docs/' + pageList[aPage].slug + '?raw&macros&section=json';
-                var resource = MDN.fetchHTTPResource(url);
+                var resource = await MDN.fetchHTTPResource(url);
                 if (resource != '') {
                     result[pageList[aPage].title] = {};
                     result[pageList[aPage].title].metrics = JSON.parse(resource);
                     result[pageList[aPage].title].url = pageList[aPage].url;
                 }
-                var subpage = getPages(pageList[aPage].subpages);
+                var subpage = await getPages(pageList[aPage].subpages);
             }
         }
     }
 }
 
-getPages(pageList);
+await getPages(pageList);
 
 /*** Summary table ***/
 %>

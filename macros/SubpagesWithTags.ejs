@@ -19,9 +19,9 @@ var html = "";
 // Get the initial list of subpages
 
 if ($0 && ($0 !== undefined)) {
-    termList = page.subpagesExpand($0, 6);
+    termList = await page.subpagesExpand($0, 6);
 } else {
-    termList = page.subpagesExpand(null, 6);
+    termList = await page.subpagesExpand(null, 6);
 }
 
 // Search the list and remove any pages that don't have any of the listed
@@ -102,7 +102,7 @@ if (numTerms) {
     
     // Fetch common strings we need
     
-    var commonLocalStrings = string.deserialize(template("L10n:Common"));
+    var commonLocalStrings = string.deserialize(await template("L10n:Common"));
     
     var termIndex = 0;
     html += "<dl>";
@@ -128,4 +128,4 @@ if (numTerms) {
     html += "</dl>";
 }
 %>
-<%-template("MakeColumnsForDL", [html])%>
+<%-await template("MakeColumnsForDL", [html])%>

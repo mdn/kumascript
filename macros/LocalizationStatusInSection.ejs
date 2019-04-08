@@ -312,7 +312,7 @@ if (speL10nMacros.hasOwnProperty(currSection)) {
     l10nMacros = l10nMacros.concat(speL10nMacros[currSection]);
 }
 
-var pageList = page.subpagesExpand(section, '', true);
+var pageList = await page.subpagesExpand(section, '', true);
 var result = [];
 var priorities = []
 var translationCounter = 0;
@@ -459,7 +459,7 @@ function crawlL10nMacro(json) {
 
 var l10nMacroDetails = [];
 for (var i = 0; i < l10nMacros.length; i++) {
-    var macroData = string.deserialize(template("L10n:" + l10nMacros[i]));
+    var macroData = string.deserialize(await template("L10n:" + l10nMacros[i]));
     var res = crawlL10nMacro(macroData);
     if (res.translated === res.total) {
         macroTranslationCounter++;

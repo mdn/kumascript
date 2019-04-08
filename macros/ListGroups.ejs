@@ -4,23 +4,23 @@
 // Generates a list of each group (API) from the GroupData JSON and
 // returns it. This can be used to create an index of APIs.
 
-var locale = env.locale;
-var APIHref = '/' + locale + '/docs/Web/API';
-var output = '';
+let locale = env.locale;
+let APIHref = '/' + locale + '/docs/Web/API';
+let output = '';
 
 // Conveniences to shorten names of some functions
 
-var htmlEscape = kuma.htmlEscape;
-var spacesToUnderscores = web.spacesToUnderscores;
+let htmlEscape = kuma.htmlEscape;
+let spacesToUnderscores = web.spacesToUnderscores;
 
 // Get the GroupData database
 
-var groupData = string.deserialize(template('GroupData'))[0];
-var groupNames = Object.keys(groupData);
+let groupData = string.deserialize(await template('GroupData'))[0];
+let groupNames = Object.keys(groupData);
 groupNames.sort();
 
 function containsTag(tagList, tag) {
-  var ret = false;
+  let ret = false;
 
   if (!tagList || tagList == undefined) {
     return 0;
@@ -36,40 +36,40 @@ function containsTag(tagList, tag) {
 
 // Start building the lists for each letter
 
-var outputByLetter = [];
+let outputByLetter = [];
 
-groupNames.forEach(function(name, idx, arr) {
-  var groupObj = groupData[name];
-  var firstLetter = name[0];
-  var groupOutput = '';
-  var overviewName = name;
-  var badge = "";
+for(let name of groupNames) {
+  let groupObj = groupData[name];
+  let firstLetter = name[0];
+  let groupOutput = '';
+  let overviewName = name;
+  let badge = "";
 
   if (groupObj.hasOwnProperty("overview")) {
     overviewName = groupObj.overview;
   }
 
-  var groupUrl = APIHref + "/" + spacesToUnderscores(htmlEscape(overviewName));
-  var page = wiki.getPage(groupUrl);
+  let groupUrl = APIHref + "/" + spacesToUnderscores(htmlEscape(overviewName));
+  let page = await wiki.getPage(groupUrl);
 
   // Go through the tags and build badges if there are any to add
 
   if (page && page != undefined) {
-    var tags = page.tags;
+    let tags = page.tags;
 
     if (tags) {
       if (containsTag(tags, "Non-standard") || containsTag(tags, "Non standard")) {
-        badge = " " + template("NonStandardBadge", ["1"]);
+        badge = " " + await template("NonStandardBadge", ["1"]);
       }
 
       if (containsTag(tags, "Obsolete")) {
-        badge += " " + template("ObsoleteBadge", [1]);
+        badge += " " + await template("ObsoleteBadge", [1]);
       } else if (containsTag(tags, "Deprecated")) {
-        badge += " " + template("DeprecatedBadge", [1]);
+        badge += " " + await template("DeprecatedBadge", [1]);
       }
 
       if (containsTag(tags, "Experimental")) {
-        badge += " " + template("ExperimentalBadge", [1]);
+        badge += " " + await template("ExperimentalBadge", [1]);
       }
 
       if (badge.length) {
@@ -81,18 +81,18 @@ groupNames.forEach(function(name, idx, arr) {
   // Finish constructing the HTML and then append it to the text for the corresponding
   // letter group.
 
-  var groupOutput = "<li><a href='" + groupUrl + "'>" + name + "</a>" + badge + "</li>";
+  groupOutput = "<li><a href='" + groupUrl + "'>" + name + "</a>" + badge + "</li>";
 
   if (!outputByLetter[firstLetter]) {
     outputByLetter[firstLetter] = groupOutput;
   } else {
     outputByLetter[firstLetter] += groupOutput;
   }
-});
+}
 
 // Now output the whole thing
 
-var keys = Object.keys(outputByLetter);
+let keys = Object.keys(outputByLetter);
 
 keys.forEach(function(letter, idx, arr) {
   output += "<span>" + letter + "</span><ul>" + outputByLetter[letter] + "</ul>";

@@ -112,11 +112,11 @@
          "fr"   : "Safari"
     },
     "bc_icon_name_safari_ios": {
-         "en-US": "iOS Safari",
-         "de"   : "iOS Safari",
-         "ja"   : "iOS 版 Safari",
-         "nl"   : "iOS Safari",
-         "fr"   : "Safari pour iOS"
+         "en-US": "Safari on iOS",
+         "de"   : "Safari auf iOS",
+         "ja"   : "iOSのSafari",
+         "nl"   : "Safari op iOS",
+         "fr"   : "Safari sur iOS"
     },
     "bc_icon_name_samsunginternet_android": {
          "en-US": "Samsung Internet",
@@ -229,15 +229,6 @@
         "ru"   : "Возможность",
         "nl"   : "Functie"
     },
-    "feature_basicsupport": {
-        "en-US": "Basic support",
-        "de"   : "Grundlegende Unterstützung",
-        "es"   : "Soporte básico",
-        "fr"   : "Support simple",
-        "ja"   : "基本対応",
-        "ru"   : "Базовая поддержка",
-        "nl"   : "Basisondersteuning"
-    },
     "bc_icon_name_experimental": {
         "en-US": "Experimental",
         "de"   : "Experimentell",
@@ -300,7 +291,7 @@
         "nl"   : "Voorgevoegd"
     },
     "bc_icon_title_prefix": {
-        "en-US": "Requires the vendor prefix: $1$",
+        "en-US": "Implemented with the vendor prefix: $1$",
         "de"   : "Benötigt das Herstellerpräfix: $1$",
         "es"   : "Requiere de un prefijo de vendedor : $1$",
         "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: $1$",

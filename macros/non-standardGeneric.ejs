@@ -40,7 +40,7 @@ for (i = 0 ; i <= env.tags.length-1 ; i++) {
     if (env.tags[i] == "Firefox OS") {
       fxosCheck = 1;
       break;        // we can break out now, to save some time
-    } 
+    }
 }
 
 if (fxosCheck == 0) {
@@ -50,8 +50,8 @@ switch($0) {
     %><span class="inlineIndicator nonStandard nonStandardInline"><%-str_inline%></span><%
     break;
   case 'header':
-    %><div class="overheadIndicator nonStandard nonStandardHeader">
-      <p><strong><%-template("NonStandardBadge", [1])%> <%-str_inline%></strong><br/>
+    %><div class="blockIndicator nonStandard nonStandardHeader">
+      <p><strong><%-await template("NonStandardBadge", [1])%> <%-str_inline%></strong><br/>
       <%-str_long%></p>
       </div><%
     break;
@@ -64,8 +64,8 @@ switch($0) {
     %><span class="inlineIndicator nonStandard nonStandardInline"><%-str_inline%></span><%
     break;
   case 'header':
-    %><div class="overheadIndicator nonStandard nonStandardHeader">
-      <p><strong><%-template("NonStandardBadge", [1])%> <%-str_inline%></strong><br/>
+    %><div class="blockIndicator nonStandard nonStandardHeader">
+      <p><strong><%-await template("NonStandardBadge", [1])%> <%-str_inline%></strong><br/>
       <%-str_fxos_long%></p>
       </div><%
     break;

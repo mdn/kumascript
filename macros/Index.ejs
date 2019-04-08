@@ -40,7 +40,7 @@ var l10nTags = mdn.localString({
 
 var section = $0;
 
-var pageList = page.subpagesExpand(section, '', true);
+var pageList = await page.subpagesExpand(section, '', true);
 var result = [];
 
 function getPages(pageList) {
