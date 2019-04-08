@@ -15,7 +15,7 @@ var URL    = "/en-US/docs/Glossary";
 
 var i, l, c, splitTitle, startWithDigit = /^\d/;
 var csscl  = $0 && $0.css ? $0.css : "";
-var pages  = page.subPagesFlatten(page.subpagesExpand(URL, 2));
+var pages  = page.subPagesFlatten(await page.subpagesExpand(URL, 2));
 var locale = env.locale;
 
 // Retrieve locale pages when accurate and simplify the data model {url, title, summary}

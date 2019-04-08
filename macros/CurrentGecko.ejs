@@ -48,7 +48,7 @@ var url = "https://product-details.mozilla.org/1.0/firefox_versions.json";
 
 // Fetch the versions JSON file from MXR.
 
-var versionInfo = mdn.fetchJSONResource(url);
+var versionInfo = await MDN.fetchJSONResource(url);
 
 // We now have a JSON object with the version information, so peel out the value we need
 

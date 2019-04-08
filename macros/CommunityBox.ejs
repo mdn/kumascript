@@ -196,7 +196,7 @@ if (haveExtra || ircLink.length) {
         <h2 id="Join_the_community"><%=headingStr%></h2>
         <div class="column-half">
             <div class="communitysubhead"><%-messageNoteStr%></div>
-            <%-template("DiscussionList", [$1, $2, "communitymailinglist", $0, $5, $6])%>
+            <%-await template("DiscussionList", [$1, $2, "communitymailinglist", $0, $5, $6])%>
         </div>
         <div class="column-half">
             <%-extraLinks%>

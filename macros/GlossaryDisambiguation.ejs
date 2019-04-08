@@ -9,7 +9,7 @@ var ARTICLES  = [];
 // EXTRACT CONTENT
 // ----------------------------------------------------------------------------
 
-page.subpagesExpand(env.path, 1).forEach(function (p) {
+(await page.subpagesExpand(env.path, 1)).forEach(function (p) {
     ARTICLES.push({
         title  : p.title,
         summary: p.summary,

@@ -2,26 +2,24 @@
 
 @Library('github.com/mozmeao/jenkins-pipeline@master')
 
-def test(what, docker_tag='') {
-    def make_what = (what == 'code') ? 'test' : 'test-macros'
+def test(docker_tag='') {
     def jenkins_uid = sh(script: 'id -u jenkins', returnStdout: true).trim()
     // The user ID within the Docker container must match the "jenkins"
-    // user ID so that it's able to create the "test-results.xml" file.
+    // user ID so that it's able to create the "test-report.xml" file.
     def run_args = "-u ${jenkins_uid}" + ' -v ${PWD}:${APP_DIR} -w ${APP_DIR}'
     try {
         withEnv(["VERSION=${docker_tag}",
-                 "DOCKER_RUN_ARGS=${run_args}",
-                 'TEST_RUN_ARGS=--reporter mocha-junit-reporter']) {
-            utils.sh_with_notify("make ${make_what}",
-                                 "Test the Kumascript ${what}")
+                 "DOCKER_RUN_ARGS=${run_args}"]) {
+            utils.sh_with_notify("make test-junit",
+                                 "Test the Kumascript code and macros")
         }
     } finally {
-        junit 'test-results.xml'
+        junit 'test-report.xml'
     }
 }
 
 def lint(what, docker_tag='') {
-    def make_what = (what == 'code') ? 'lint' : 'lint-macros'
+    def make_what = (what == 'code') ? 'lint' : 'lint-json'
     withEnv(["VERSION=${docker_tag}"]) {
         utils.sh_with_notify("make ${make_what}",
                              "Lint the Kumascript ${what}")
@@ -30,15 +28,14 @@ def lint(what, docker_tag='') {
 
 def test_kumascript(docker_tag='') {
     dir('kumascript') {
-        test('code', docker_tag)
-        test('macros', docker_tag)
+        test(docker_tag)
     }
 }
 
 def lint_kumascript(docker_tag='') {
     dir('kumascript') {
         lint('code', docker_tag)
-        lint('macros', docker_tag)
+        lint('json', docker_tag)
     }
 }
 

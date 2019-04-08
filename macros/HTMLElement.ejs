@@ -8,8 +8,8 @@
   $1 - Text to display (optional)
   $2 - Anchor within the page (optional)
 */
-var elementName = $0.toString().toLowerCase();
-var linkText = ($1 || elementName);
+let elementName = $0.toString().toLowerCase();
+let linkText = ($1 || elementName);
 switch (env.locale) {
     case 'ja':
         if (elementName === linkText && elementName.indexOf(" 要素") !== -1){
@@ -19,15 +19,15 @@ switch (env.locale) {
     default: break;
 }
 
-var commonLocalStrings = string.deserialize(template("L10n:Common"));
-var sectionName = mdn.localString({
+let commonLocalStrings = string.deserialize(await template("L10n:Common"));
+let sectionName = mdn.localString({
     "es": "Elemento",
     "en-US": "Element"
 });
-var url = "/" + env.locale + "/docs/Web/HTML/" + sectionName + "/" +
+let url = "/" + env.locale + "/docs/Web/HTML/" + sectionName + "/" +
     elementName;
-var page = wiki.getPage(url);
-var summary = (page && page.summary) ? mdn.escapeQuotes(page.summary) :
+let page = await wiki.getPage(url);
+let summary = (page && page.summary) ? mdn.escapeQuotes(page.summary) :
     mdn.getLocalString(commonLocalStrings, "summary");
 
 // Add anchor after fetching the page contents
@@ -37,6 +37,6 @@ if (linkText === elementName && elementName.indexOf(" ") === -1) {
     linkText = "<code>&lt;" + linkText + "&gt;</code>";
 }
 
-var link = "<a href=\"" + url + "\" title=\"" + summary + "\">" + linkText +
+let link = "<a href=\"" + url + "\" title=\"" + summary + "\">" + linkText +
     "</a>";
 %><%- link %>

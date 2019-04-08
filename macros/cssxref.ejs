@@ -32,7 +32,7 @@ var lang = env.locale;
 var url = "";
 var urlWithoutAnchor = "";
 var str = ($1 || $0);
-var localStrings = string.deserialize(template("L10n:Common"));
+var localStrings = string.deserialize(await template("L10n:Common"));
 
 // Deal with CSS data types by removing <>
 var slug = $0.replace(/&lt;(.*)&gt;/g, '$1');
@@ -58,7 +58,7 @@ url = urlWithoutAnchor + $2;
 
 var thisPage = null; // Will be lazy evaluated
 if (!$1) {
-    thisPage = wiki.getPage(urlWithoutAnchor); // lazy evaluation
+    thisPage = await wiki.getPage(urlWithoutAnchor); // lazy evaluation
 
     // Append parameter brackets to CSS functions
     if (page.hasTag(thisPage, "CSS Function")) {
@@ -74,7 +74,7 @@ if (!$1) {
 var summary = "";
 
 if (!$2) {
-    //if (!thisPage) thisPage = wiki.getPage(url); // lazy evaluation // Disabled to test performance (we get a lot of Kumascript errors)
+    //if (!thisPage) thisPage = await wiki.getPage(url); // lazy evaluation // Disabled to test performance (we get a lot of Kumascript errors)
 
     if (thisPage && thisPage.summary) {
         summary = mdn.escapeQuotes(thisPage.summary);

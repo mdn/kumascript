@@ -14,23 +14,23 @@
 //  {{jsxref("Global_Objects/Date/getNumber", "Date.prototype.getNumber()")}}
 //
 
-var jsl10n = string.deserialize(template('L10n:JavaScript'));
-var commonl10n = string.deserialize(template('L10n:Common'));
+let jsl10n = string.deserialize(await template('L10n:JavaScript'));
+let commonl10n = string.deserialize(await template('L10n:Common'));
 
-var l10n = {
+let l10n = {
     refslug: mdn.getLocalString(jsl10n, 'slug_reference'),
     slug: mdn.getLocalString(jsl10n, 'slug_global_objects'),
     summary: mdn.getLocalString(commonl10n, 'summary'),
 };
 
-var str = $1 || $0;
+let str = $1 || $0;
 
-var URL = "/" + env.locale + "/docs/Web/JavaScript/" + l10n.refslug + '/';
+let URL = "/" + env.locale + "/docs/Web/JavaScript/" + l10n.refslug + '/';
 
-var api  = $0.replace('()', '').replace('.prototype.', '.');
+let api  = $0.replace('()', '').replace('.prototype.', '.');
 
-var page = wiki.getPage(URL + $0);
-var objectPage = wiki.getPage(URL + l10n.slug + '/' +  $0);
+let page = await wiki.getPage(URL + $0);
+let objectPage = await wiki.getPage(URL + l10n.slug + '/' +  $0);
 
 if ((api.indexOf("..") === -1) && (api.indexOf(".") !== -1)) { // Handle try...catch case
     URL += l10n.slug + '/' + api.replace('.', '/');
@@ -40,19 +40,19 @@ if ((api.indexOf("..") === -1) && (api.indexOf(".") !== -1)) { // Handle try...c
     URL += $0;
 }
 
-var summary = l10n.summary;
-page = wiki.getPage(URL);
+let summary = l10n.summary;
+page = await wiki.getPage(URL);
 
 if (page && page.summary) {
     summary = mdn.escapeQuotes(page.summary);
 }
 
-var anchor = $2 || '';
+let anchor = $2 || '';
 if (anchor && anchor[0] != '#') {
     anchor = "#" + anchor;
 }
 
-var code    = !$3 ? '<code>'  : '';
-var endcode = !$3 ? '</code>' : '';
+let code    = !$3 ? '<code>'  : '';
+let endcode = !$3 ? '</code>' : '';
 
 %><a href="<%- URL + anchor %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>

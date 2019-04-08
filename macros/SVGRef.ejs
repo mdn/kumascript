@@ -34,7 +34,7 @@ if (tags || typeof tags != 'undefined') {
 
 if (found_tag != undefined && found_tag != null && found_tag.length) {
     // Find the pages, sub-pages of SVG/Element that are tagged with that specific tag
-    var pageList = page.subpagesExpand(s_svg_ref_href);   // Get subpages, including tags
+    var pageList = await page.subpagesExpand(s_svg_ref_href);   // Get subpages, including tags
     var resultSVG = [];
 
     for (aPage in pageList) {
@@ -59,156 +59,156 @@ var resultAPI = [];
 */
         for (aTitle in resultSVG) { // SVG entities matching 
   %>
-            <li><%- template("SVGElement", [resultSVG[aTitle]]) %></li>
+            <li><%- await template("SVGElement", [resultSVG[aTitle]]) %></li>
   <%    } 
         for (aTitle in resultAPI) { // SVG-DOM interfaces matching 
   %>
-            <li><%- template("domxref", [resultAPI[aTitle]]) %></li>
+            <li><%- await template("domxref", [resultAPI[aTitle]]) %></li>
   <%    } 
     } %>
    <li><details><summary><%-s_svg_ref_title%></summary><ol>
  <li>A
    <ol>
-     <li><%-template("SVGElement", ["a"])%></li>
-     <li class="deprecatedElement"><%-template("SVGElement", ["altGlyph"])%></li>
-     <li class="deprecatedElement"><%-template("SVGElement", ["altGlyphDef"])%></li>
-     <li class="deprecatedElement"><%-template("SVGElement", ["altGlyphItem"])%></li>
-     <li><%-template("SVGElement", ["animate"])%></li>
-     <li><%-template("SVGElement", ["animateColor"])%></li>
-     <li><%-template("SVGElement", ["animateMotion"])%></li>
-     <li><%-template("SVGElement", ["animateTransform"])%></li>
+     <li><%-await template("SVGElement", ["a"])%></li>
+     <li class="deprecatedElement"><%-await template("SVGElement", ["altGlyph"])%></li>
+     <li class="deprecatedElement"><%-await template("SVGElement", ["altGlyphDef"])%></li>
+     <li class="deprecatedElement"><%-await template("SVGElement", ["altGlyphItem"])%></li>
+     <li><%-await template("SVGElement", ["animate"])%></li>
+     <li><%-await template("SVGElement", ["animateColor"])%></li>
+     <li><%-await template("SVGElement", ["animateMotion"])%></li>
+     <li><%-await template("SVGElement", ["animateTransform"])%></li>
    </ol>
  </li>
  <li>B-C
    <ol>
-     <li><%-template("SVGElement", ["circle"])%></li>
-     <li><%-template("SVGElement", ["clipPath"])%></li>
-     <li class="deprecatedElement"><%-template("SVGElement", ["color-profile"])%></li>
-     <li><%-template("SVGElement", ["cursor"])%></li>
+     <li><%-await template("SVGElement", ["circle"])%></li>
+     <li><%-await template("SVGElement", ["clipPath"])%></li>
+     <li class="deprecatedElement"><%-await template("SVGElement", ["color-profile"])%></li>
+     <li><%-await template("SVGElement", ["cursor"])%></li>
    </ol>
  </li>
  <li>D
    <ol>
-     <li><%-template("SVGElement", ["defs"])%></li>
-     <li><%-template("SVGElement", ["desc"])%></li>
+     <li><%-await template("SVGElement", ["defs"])%></li>
+     <li><%-await template("SVGElement", ["desc"])%></li>
    </ol>
  </li>
  <li>E
    <ol>
-     <li><%-template("SVGElement", ["ellipse"])%></li>
+     <li><%-await template("SVGElement", ["ellipse"])%></li>
    </ol>
  </li>
  <li>F
    <ol>
-     <li><%-template("SVGElement", ["feBlend"])%></li>
-     <li><%-template("SVGElement", ["feColorMatrix"])%></li>
-     <li><%-template("SVGElement", ["feComponentTransfer"])%></li>
-     <li><%-template("SVGElement", ["feComposite"])%></li>
-     <li><%-template("SVGElement", ["feConvolveMatrix"])%></li>
-     <li><%-template("SVGElement", ["feDiffuseLighting"])%></li>
-     <li><%-template("SVGElement", ["feDisplacementMap"])%></li>
-     <li><%-template("SVGElement", ["feDistantLight"])%></li>
-     <li><%-template("SVGElement", ["feFlood"])%></li>
-     <li><%-template("SVGElement", ["feFuncA"])%></li>
-     <li><%-template("SVGElement", ["feFuncB"])%></li>
-     <li><%-template("SVGElement", ["feFuncG"])%></li>
-     <li><%-template("SVGElement", ["feFuncR"])%></li>
-     <li><%-template("SVGElement", ["feGaussianBlur"])%></li>
-     <li><%-template("SVGElement", ["feImage"])%></li>
-     <li><%-template("SVGElement", ["feMerge"])%></li>
-     <li><%-template("SVGElement", ["feMergeNode"])%></li>
-     <li><%-template("SVGElement", ["feMorphology"])%></li>
-     <li><%-template("SVGElement", ["feOffset"])%></li>
-     <li><%-template("SVGElement", ["fePointLight"])%></li>
-     <li><%-template("SVGElement", ["feSpecularLighting"])%></li>
-     <li><%-template("SVGElement", ["feSpotLight"])%></li>
-     <li><%-template("SVGElement", ["feTile"])%></li>
-     <li><%-template("SVGElement", ["feTurbulence"])%></li>
-     <li><%-template("SVGElement", ["filter"])%></li>
-     <li><%-template("SVGElement", ["font"])%></li>
-     <li><%-template("SVGElement", ["font-face"])%></li>
-     <li><%-template("SVGElement", ["font-face-format"])%></li>
-     <li><%-template("SVGElement", ["font-face-name"])%></li>
-     <li><%-template("SVGElement", ["font-face-src"])%></li>
-     <li><%-template("SVGElement", ["font-face-uri"])%></li>
-     <li><%-template("SVGElement", ["foreignObject"])%></li>
+     <li><%-await template("SVGElement", ["feBlend"])%></li>
+     <li><%-await template("SVGElement", ["feColorMatrix"])%></li>
+     <li><%-await template("SVGElement", ["feComponentTransfer"])%></li>
+     <li><%-await template("SVGElement", ["feComposite"])%></li>
+     <li><%-await template("SVGElement", ["feConvolveMatrix"])%></li>
+     <li><%-await template("SVGElement", ["feDiffuseLighting"])%></li>
+     <li><%-await template("SVGElement", ["feDisplacementMap"])%></li>
+     <li><%-await template("SVGElement", ["feDistantLight"])%></li>
+     <li><%-await template("SVGElement", ["feFlood"])%></li>
+     <li><%-await template("SVGElement", ["feFuncA"])%></li>
+     <li><%-await template("SVGElement", ["feFuncB"])%></li>
+     <li><%-await template("SVGElement", ["feFuncG"])%></li>
+     <li><%-await template("SVGElement", ["feFuncR"])%></li>
+     <li><%-await template("SVGElement", ["feGaussianBlur"])%></li>
+     <li><%-await template("SVGElement", ["feImage"])%></li>
+     <li><%-await template("SVGElement", ["feMerge"])%></li>
+     <li><%-await template("SVGElement", ["feMergeNode"])%></li>
+     <li><%-await template("SVGElement", ["feMorphology"])%></li>
+     <li><%-await template("SVGElement", ["feOffset"])%></li>
+     <li><%-await template("SVGElement", ["fePointLight"])%></li>
+     <li><%-await template("SVGElement", ["feSpecularLighting"])%></li>
+     <li><%-await template("SVGElement", ["feSpotLight"])%></li>
+     <li><%-await template("SVGElement", ["feTile"])%></li>
+     <li><%-await template("SVGElement", ["feTurbulence"])%></li>
+     <li><%-await template("SVGElement", ["filter"])%></li>
+     <li><%-await template("SVGElement", ["font"])%></li>
+     <li><%-await template("SVGElement", ["font-face"])%></li>
+     <li><%-await template("SVGElement", ["font-face-format"])%></li>
+     <li><%-await template("SVGElement", ["font-face-name"])%></li>
+     <li><%-await template("SVGElement", ["font-face-src"])%></li>
+     <li><%-await template("SVGElement", ["font-face-uri"])%></li>
+     <li><%-await template("SVGElement", ["foreignObject"])%></li>
    </ol>
  </li>
  <li>G
    <ol>
-     <li><%-template("SVGElement", ["g"])%></li>
-     <li><%-template("SVGElement", ["glyph"])%></li>
-     <li class="deprecatedElement"><%-template("SVGElement", ["glyphRef"])%></li>
+     <li><%-await template("SVGElement", ["g"])%></li>
+     <li><%-await template("SVGElement", ["glyph"])%></li>
+     <li class="deprecatedElement"><%-await template("SVGElement", ["glyphRef"])%></li>
    </ol>
  </li>
  <li>H
    <ol>
-     <li><%-template("SVGElement", ["hkern"])%></li>
+     <li><%-await template("SVGElement", ["hkern"])%></li>
    </ol>
  </li>
  <li>I
    <ol>
-     <li><%-template("SVGElement", ["image"])%></li>
+     <li><%-await template("SVGElement", ["image"])%></li>
    </ol>
  </li>
  <li>J-L
    <ol>
-     <li><%-template("SVGElement", ["line"])%></li>
-     <li><%-template("SVGElement", ["linearGradient"])%></li>
+     <li><%-await template("SVGElement", ["line"])%></li>
+     <li><%-await template("SVGElement", ["linearGradient"])%></li>
    </ol>
  </li>
  <li>M
    <ol>
-     <li><%-template("SVGElement", ["marker"])%></li>
-     <li><%-template("SVGElement", ["mask"])%></li>
-     <li><%-template("SVGElement", ["metadata"])%></li>
-     <li><%-template("SVGElement", ["missing-glyph"])%></li>
-     <li><%-template("SVGElement", ["mpath"])%></li>
+     <li><%-await template("SVGElement", ["marker"])%></li>
+     <li><%-await template("SVGElement", ["mask"])%></li>
+     <li><%-await template("SVGElement", ["metadata"])%></li>
+     <li><%-await template("SVGElement", ["missing-glyph"])%></li>
+     <li><%-await template("SVGElement", ["mpath"])%></li>
    </ol>
  </li>
  <li>N-P
    <ol>
-     <li><%-template("SVGElement", ["path"])%></li>
-     <li><%-template("SVGElement", ["pattern"])%></li>
-     <li><%-template("SVGElement", ["polygon"])%></li>
-     <li><%-template("SVGElement", ["polyline"])%></li>
+     <li><%-await template("SVGElement", ["path"])%></li>
+     <li><%-await template("SVGElement", ["pattern"])%></li>
+     <li><%-await template("SVGElement", ["polygon"])%></li>
+     <li><%-await template("SVGElement", ["polyline"])%></li>
    </ol>
  </li>
  <li>Q-R
    <ol>
-     <li><%-template("SVGElement", ["radialGradient"])%></li>
-     <li><%-template("SVGElement", ["rect"])%></li>
+     <li><%-await template("SVGElement", ["radialGradient"])%></li>
+     <li><%-await template("SVGElement", ["rect"])%></li>
    </ol>
  </li>
  <li>S
    <ol>
-     <li><%-template("SVGElement", ["script"])%></li>
-     <li><%-template("SVGElement", ["set"])%></li>
-     <li><%-template("SVGElement", ["stop"])%></li>
-     <li><%-template("SVGElement", ["style"])%></li>
-     <li><%-template("SVGElement", ["svg"])%></li>
-     <li><%-template("SVGElement", ["switch"])%></li>
-     <li><%-template("SVGElement", ["symbol"])%></li>
+     <li><%-await template("SVGElement", ["script"])%></li>
+     <li><%-await template("SVGElement", ["set"])%></li>
+     <li><%-await template("SVGElement", ["stop"])%></li>
+     <li><%-await template("SVGElement", ["style"])%></li>
+     <li><%-await template("SVGElement", ["svg"])%></li>
+     <li><%-await template("SVGElement", ["switch"])%></li>
+     <li><%-await template("SVGElement", ["symbol"])%></li>
    </ol>
  </li>
  <li>T
    <ol>
-     <li><%-template("SVGElement", ["text"])%></li>
-     <li><%-template("SVGElement", ["textPath"])%></li>
-     <li><%-template("SVGElement", ["title"])%></li>
-     <li class="deprecatedElement"><%-template("SVGElement", ["tref"])%></li>
-     <li><%-template("SVGElement", ["tspan"])%></li>
+     <li><%-await template("SVGElement", ["text"])%></li>
+     <li><%-await template("SVGElement", ["textPath"])%></li>
+     <li><%-await template("SVGElement", ["title"])%></li>
+     <li class="deprecatedElement"><%-await template("SVGElement", ["tref"])%></li>
+     <li><%-await template("SVGElement", ["tspan"])%></li>
    </ol>
  </li>
  <li>U
    <ol>
-     <li><%-template("SVGElement", ["use"])%></li>
+     <li><%-await template("SVGElement", ["use"])%></li>
    </ol>
  </li>
  <li>V-Z
    <ol>
-     <li><%-template("SVGElement", ["view"])%></li>
-     <li><%-template("SVGElement", ["vkern"])%></li>
+     <li><%-await template("SVGElement", ["view"])%></li>
+     <li><%-await template("SVGElement", ["vkern"])%></li>
    </ol>   
  </li>
    </ol></li></details>
