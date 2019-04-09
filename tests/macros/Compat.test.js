@@ -1,7 +1,14 @@
 /**
  * @prettier
  */
-const { assert, itMacro, describeMacro, beforeEachMacro } = require('./utils');
+const {
+    assert,
+    itMacro,
+    describeMacro,
+    beforeEachMacro,
+    lintHTML
+} = require('./utils');
+
 const fs = require('fs'),
     path = require('path'),
     jsdom = require('jsdom'),
@@ -37,6 +44,11 @@ describeMacro('Compat', function() {
             return assert.eventually.equal(actual, expected);
         }
     );
+
+    itMacro('Outputs valid HTML', async macro => {
+        const result = await macro.call('api.feature');
+        expect(lintHTML(result)).toBeFalsy();
+    });
 
     // Different content areas have different platforms (desktop, mobile, server)
     // which consist of different browsers
@@ -174,7 +186,7 @@ describeMacro('Compat', function() {
             let dom = JSDOM.fragment(result);
             assert.equal(
                 dom.querySelector('.bc-table tbody tr th').innerHTML,
-                'Basic support'
+                '<code>bareFeature</code>'
             );
             assert.equal(
                 dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -192,7 +204,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').innerHTML,
-                        'Basic support'
+                        'Root feature description'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -212,12 +224,17 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').innerHTML,
-                        'Basic support'
+                        '<code>feature_with_mdn_url</code>'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
                             .innerHTML,
-                        '<a href="/docs/Web/HTTP/Headers/Content-Security-Policy/child-src"><code>subfeature_with_mdn_url</code></a>'
+                        '<a href="/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/child-src"><code>subfeature_with_mdn_url</code></a>'
+                    );
+                    assert.equal(
+                        dom.querySelector('.bc-table tbody tr:nth-child(3) th')
+                            .innerHTML,
+                        '<a href="#Directives"><code>subfeature_with_same_mdn_url_and_fragment</code></a>'
                     );
                 });
         }
@@ -232,14 +249,44 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').innerHTML,
-                        'Basic support'
+                        'CSP'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
                             .innerHTML,
-                        '<a href="/docs/Web/HTTP/Headers/Content-Security-Policy/child-src">CSP: child-src</a>'
+                        '<a href="/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/child-src">CSP: child-src</a>'
+                    );
+                    assert.equal(
+                        dom.querySelector('.bc-table tbody tr:nth-child(3) th')
+                            .innerHTML,
+                        '<a href="#Directives">CSP Directives</a>'
                     );
                 });
+        }
+    );
+    itMacro(
+        "Creates correct feature labels for features with an MDN URL (non-'en-US' locale)",
+        async macro => {
+            macro.ctx.env.locale = 'ja';
+            macro.ctx.env.slug = 'Web/HTTP/Headers/Content-Security-Policy';
+
+            let result = await macro.call('api.feature_with_mdn_url');
+            let dom = JSDOM.fragment(result);
+
+            assert.equal(
+                dom.querySelector('.bc-table tbody tr th').innerHTML,
+                '<code>feature_with_mdn_url</code>'
+            );
+            assert.equal(
+                dom.querySelector('.bc-table tbody tr:nth-child(2) th')
+                    .innerHTML,
+                '<a href="/ja/docs/Web/HTTP/Headers/Content-Security-Policy/child-src"><code>subfeature_with_mdn_url</code></a>'
+            );
+            assert.equal(
+                dom.querySelector('.bc-table tbody tr:nth-child(3) th')
+                    .innerHTML,
+                '<a href="#Directives"><code>subfeature_with_same_mdn_url_and_fragment</code></a>'
+            );
         }
     );
     itMacro(
@@ -251,7 +298,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').textContent,
-                        'Basic support Experimental'
+                        'experimental_feature Experimental'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')
@@ -270,7 +317,7 @@ describeMacro('Compat', function() {
                     let dom = JSDOM.fragment(result);
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr th').textContent,
-                        'Basic support Deprecated'
+                        'deprecated_feature_with_description Deprecated'
                     );
                     assert.equal(
                         dom.querySelector('.bc-table tbody tr:nth-child(2) th')

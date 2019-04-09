@@ -5,13 +5,13 @@
  * a function.
  * @param
  *   The path of the page to link to, relative to the Web/API/ documentation path.
- * @param [optional] 
+ * @param [optional]
  *   The text to use for the link.  If omitted, the value of the first
  *   parameter will be used
- * @param [optional] 
- *   An anchor to link to on the page. Link text will display as $0.$2 or $1.$2 
- * @param [optional] 
- *   If set, do not put the domxref text in code 
+ * @param [optional]
+ *   An anchor to link to on the page. Link text will display as $0.$2 or $1.$2
+ * @param [optional]
+ *   If set, do not put the domxref text in code
  */
 
 /* get a page's language (Don't use page.language!) */
@@ -21,13 +21,17 @@ let str = $1 || $0;
 let rtlLocales = ['ar', 'he', 'fa'];
 let localStrings = string.deserialize(await template("L10n:Common"));
 
-api = api.replace(' ', '_').replace('()', '').replace('.prototype.', '.').replace(/\./g, '/');
+api = api.replace(/ /g, '_')
+    .replace(/\(\)/g, '')
+    .replace(/\.prototype\./g, '.')
+    .replace(/\./g, '/');
 
 // RTL locales
 if (rtlLocales.indexOf(lang) != -1) {
     str = '<bdi>' + str +'</bdi>';
 }
-// Ensure Interfaces are always uppercased in links 
+
+// Ensure Interfaces are always uppercased in links
 // (important for red links to create correct new pages)
 api = api.charAt(0).toUpperCase() + api.slice(1);
 

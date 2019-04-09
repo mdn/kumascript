@@ -658,7 +658,7 @@
                             "gamepaddisconnected" ]
         },
         "Geolocation API": {
-            "guide":      [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
                               "title": "Using geolocation" } ],
             "interfaces": [ "Coordinates",
                             "Geolocation",
@@ -1435,7 +1435,7 @@
             "events":     [ "change" ]
         },
         "Selection API": {
-            "interface":  [ "Selection" ],
+            "interfaces": [ "Selection" ],
             "properties": [ "Document.onselectionchange",
                             "GlobalEventHandlers.onselectstart" ],
             "methods":    [ "Document.getSelection()",
@@ -1893,6 +1893,7 @@
                             "AuthenticatorResponse",
                             "AuthenticatorAttestationResponse",
                             "AuthenticatorAssertionResponse" ],
+            "methods":    [],
             "properties": [],
             "events":     []
         },
@@ -1931,14 +1932,31 @@
                             ]
         },
         "Web Crypto API": {
-            "overview":   [ "Web Crypto API" ],
-            "interfaces": [ "Crypto",
-                            "CryptoKey",
-                            "RandomSource",
-                            "SubtleCrypto" ],
-            "methods":    [],
-            "properties": [ "Window.crypto" ],
-            "events":     []
+            "overview":     [ "Web Crypto API" ],
+            "interfaces":   [ "Crypto",
+                              "CryptoKey",
+                              "CryptoKeyPair",
+                              "RandomSource",
+                              "SubtleCrypto" ],
+            "methods":      [],
+            "properties":   [ "Window.crypto" ],
+            "events":       [],
+            "dictionaries": [ "AesCbcParams",
+                              "AesCtrParams",
+                              "AesGcmParams",
+                              "AesKeyGenParams",
+                              "EcKeyGenParams",
+                              "EcKeyImportParams",
+                              "EcdhKeyDeriveParams",
+                              "EcdsaParams",
+                              "HkdfParams",
+                              "HmacImportParams",
+                              "HmacKeyGenParams",
+                              "Pbkdf2Params",
+                              "RsaHashedImportParams",
+                              "RsaHashedKeyGenParams",
+                              "RsaOaepParams",
+                              "RsaPssParams" ]
         },
         "WebGL": {
             "overview": [ "WebGL API" ],
