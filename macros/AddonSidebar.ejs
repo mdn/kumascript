@@ -52,6 +52,7 @@ var text = mdn.localStringMap({
     'WebExtensions/Work_with_the_Bookmarks_API': 'Work with the Bookmarks API',
     'WebExtensions/Work_with_the_Cookies_API': 'Work with the Cookies API',
     'WebExtensions/Work_with_contextual_identities': 'Work with contextual identities',
+    'WebExtensions/Build_a_cross_browser_extension': 'Build a cross-browser extension',
     'WebExtensions/onboarding_upboarding_offboarding_best_practices': 'Onboard, upboard, and offboard users',
     'WebExtensions#Porting': 'Porting',
     'WebExtensions/Firefox_differentiators': 'Firefox differentiators',
@@ -75,8 +76,10 @@ var text = mdn.localStringMap({
     'WebExtensions/web-ext_command_reference': 'web-ext command reference',
     'WebExtensions/WebExtensions_and_the_Add-on_ID': 'Extensions and the Add-on ID',
     'WebExtensions/Request_the_right_permissions': 'Request the right permissions',
+    'WebExtensions/Best_practices_for_updating_your_extension': 'Best practices for updating your extension',
     'WebExtensions/API': 'JavaScript APIs',
     'WebExtensions/manifest.json': 'Manifest keys',
+    'WebExtensions/Distribution_options': 'Distribution Options',
     'Themes': 'Themes',
     'Themes/Theme_concepts': 'Browser themes',
     'Themes/Theme_concepts_': 'Browser theme concepts',
@@ -91,7 +94,7 @@ var text = mdn.localStringMap({
     'Listing': 'Creating an appealing listing',
     'Distribution/Make_money_from_browser_extensions': 'Make money from browser extensions',
     'Distribution/Promoting_your_extension_or_theme': 'Promoting your extension or theme',
-    'AMO/Policy/Reviews': 'Review policies',
+    'AMO/Policy/Reviews': 'Add-on policies',
     'AMO/Policy/Agreement': 'Developer agreement',
     'AMO/Policy/Featured': 'Featured add-ons',
     'Distribution/Retiring_your_extension': 'Retiring your extension',
@@ -144,6 +147,8 @@ var text = mdn.localStringMap({
     'WebExtensions/Work_with_the_Bookmarks_API': 'Travailler avec l\'API Bookmarks',
     'WebExtensions/Work_with_the_Cookies_API': 'Travailler avec l\'API Cookies',
     'WebExtensions/Work_with_contextual_identities': 'Travailler avec des identités contextuelles',
+    'WebExtensions/onboarding_upboarding_offboarding_best_practices': 'Onboard, upboard, and offboard users',
+    'WebExtensions/Build_a_cross_browser_extension': 'Build a cross-browser extension',
     'WebExtensions#Porting': 'Portage',
     'WebExtensions/Porting_a_Google_Chrome_extension': 'Porter une extension Google Chrome',
     'WebExtensions/Porting_a_legacy_Firefox_add-on': 'Porter une ancienne extension Firefox',
@@ -163,8 +168,10 @@ var text = mdn.localStringMap({
     'WebExtensions/web-ext_command_reference': 'Détail de la commande web-ext',
     'WebExtensions/WebExtensions_and_the_Add-on_ID': 'Les WebExtensions et l\'ID Add-on',
     'WebExtensions/Request_the_right_permissions': 'Demander les bonnes permissions',
+    'WebExtensions/Best_practices_for_updating_your_extension': 'Bonnes pratiques pour la mise à jour de votre extension',
     'WebExtensions/API': 'Les API JavaScript',
     'WebExtensions/manifest.json': 'Clés de manifeste',
+    'WebExtensions/Distribution_options': 'Distribution Options',
     'Themes': 'Thèmes',
     'Themes/Theme_concepts': 'Thème de navigateur',
     'Themes/Theme_concepts_': 'Concepts des thèmes',
@@ -230,6 +237,8 @@ var text = mdn.localStringMap({
     'WebExtensions/Work_with_the_Bookmarks_API': 'Bookmark API 群の使い方',
     'WebExtensions/Work_with_the_Cookies_API': 'Cookie API 群の使い方',
     'WebExtensions/Work_with_contextual_identities': 'contextual identities の使い方',
+    'WebExtensions/Build_a_cross_browser_extension': 'Build a cross-browser extension',
+    'WebExtensions/onboarding_upboarding_offboarding_best_practices': 'Onboard, upboard, and offboard users',
     'WebExtensions#Porting': '移行',
     'WebExtensions/Porting_a_Google_Chrome_extension': 'Google Chrome extension からの移行',
     'WebExtensions/Porting_a_legacy_Firefox_add-on': '古い Firefox アドオンの移行',
@@ -249,8 +258,10 @@ var text = mdn.localStringMap({
     'WebExtensions/web-ext_command_reference': 'web-ext コマンドリファレンス',
     'WebExtensions/WebExtensions_and_the_Add-on_ID': 'Extensions と Add-on ID',
     'WebExtensions/Request_the_right_permissions': '正しいパーミッションを要求する',
+    'WebExtensions/Best_practices_for_updating_your_extension': 'Best practices for updating your extension',
     'WebExtensions/API': 'JavaScript API 群',
     'WebExtensions/manifest.json': 'Manifest keys',
+    'WebExtensions/Distribution_options': 'Distribution Options',
     'Themes': 'テーマ',
     'Themes/Theme_concepts': 'ブラウザのテーマ',
     'Themes/Theme_concepts_': 'ブラウザのテーマのコンセプト',
@@ -276,6 +287,99 @@ var text = mdn.localStringMap({
     'Blog': 'ブログ',
     'Forums': 'フォーラム',
     '#Contact_us': 'コンタクト'
+  },
+  'ko': {
+    'WebExtensions': '브라우저 확장 기능',
+    'WebExtensions#Getting_started': '시작하기',
+    'WebExtensions/What_are_WebExtensions': '확장 기능이 무엇인가요?',
+    'WebExtensions/Your_first_WebExtension': '첫 번째 확장 기능',
+    'WebExtensions/Your_second_WebExtension': '두 번째 확장 기능',
+    'WebExtensions/Anatomy_of_a_WebExtension': '확장 기능의 구조',
+    'WebExtensions/Examples': '확장 기능 예시',
+    'WebExtensions/What_next_': '다음은 무엇인가요?',
+    'WebExtensions#Concepts': '개념',
+    'WebExtensions/Using_the_JavaScript_APIs': 'JavaScript API 사용하기',
+    'WebExtensions/Content_scripts': '컨텐츠 스크립트',
+    'WebExtensions/Match_patterns': '일치 패턴',
+    'WebExtensions/Working_with_files': '파일 작업',
+    'WebExtensions/Internationalization': '국제화',
+    'WebExtensions/Security_best_practices': '보안 모범 사례',
+    'WebExtensions/Content_Security_Policy': '컨텐츠 보안 정책',
+    'WebExtensions/Native_messaging': '네이티브 메시징',
+    'WebExtensions#User_Interface': '사용자 인터페이스',
+    'WebExtensions/user_interface': '사용자 인터페이스',
+    'WebExtensions/user_interface/Browser_action': '도구 모음 버튼',
+    'WebExtensions/user_interface/Page_actions': '주소 표시줄 버튼',
+    'WebExtensions/user_interface/Sidebars': '사이드바',
+    'WebExtensions/user_interface/Context_menu_items': '컨텍스트 메뉴 항목',
+    'WebExtensions/user_interface/Options_pages': '옵션 페이지',
+    'WebExtensions/user_interface/Extension_pages': '확장 기능 페이지',
+    'WebExtensions/user_interface/Notifications': '알림',
+    'WebExtensions/user_interface/Omnibox': '주소 표시줄 제안',
+    'WebExtensions/user_interface/devtools_panels': '개발자 도구 패널',
+    'WebExtensions#How_to': '방법',
+    'WebExtensions/Intercept_HTTP_requests': 'HTTP 요청 가로채기',
+    'WebExtensions/Modify_a_web_page': '웹 페이지 수정하기',
+    'WebExtensions/Safely_inserting_external_content_into_a_page': '외부 컨텐츠 삽입하기',
+    'WebExtensions/Add_a_button_to_the_toolbar': '도구 모음에 버튼 추가하기',
+    'WebExtensions/Implement_a_settings_page': '설정 페이지 구현하기',
+    'WebExtensions/Working_with_the_Tabs_API': 'Tabs API 사용하기',
+    'WebExtensions/Work_with_the_Bookmarks_API': 'Bookmarks API 사용하기',
+    'WebExtensions/Work_with_the_Cookies_API': 'Cookies API 사용하기',
+    'WebExtensions/Work_with_contextual_identities': 'contextual identities 사용하기',
+    'WebExtensions/Build_a_cross_browser_extension': 'Build a cross-browser extension',
+    'WebExtensions/onboarding_upboarding_offboarding_best_practices': '사용자의 온보드, 업보드 및 오프보드',
+    'WebExtensions#Porting': '포팅',
+    'WebExtensions/Firefox_differentiators': 'Firefox의 차별화',
+    'WebExtensions/Porting_a_Google_Chrome_extension': 'Google Chrome 확장 기능 포팅',
+    'WebExtensions/Porting_a_legacy_Firefox_add-on': '레거시 Firefox 확장 기능 포팅',
+    'WebExtensions/Embedded_WebExtensions': 'Embedded WebExtensions',
+    'WebExtensions/Comparison_with_the_Add-on_SDK': 'Add-on SDK와 비교',
+    'WebExtensions/Comparison_with_XUL_XPCOM_extensions': 'XUL/XPCOM 확장 기능과 비교',
+    'WebExtensions/Differences_between_API_implementations': 'API 구현간의 차이점',
+    'WebExtensions/Chrome_incompatibilities': 'Chrome 비호환성',
+    'WebExtensions/Differences_between_desktop_and_Android': '데스크톱과 Android간의 차이점',
+    'WebExtensions#Firefox_workflow': 'Firefox 작업 흐름',
+    'WebExtensions/Development_Tools': '개발자 도구',
+    'WebExtensions/User_experience_best_practices': '사용자 경험',
+    'WebExtensions/Temporary_Installation_in_Firefox': 'Firefox에서의 일시적인 설치',
+    'WebExtensions/Debugging': '디버깅',
+    'WebExtensions/Testing_persistent_and_restart_features': '지속성과 기능 재시작 테스팅하기',
+    'WebExtensions/Developing_WebExtensions_for_Firefox_for_Android': 'Android용 Firefox 개발하기',
+    'WebExtensions/Getting_started_with_web-ext': 'web-ext 시작하기',
+    'WebExtensions/web-ext_command_reference': 'web-ext 명령어 레퍼런스',
+    'WebExtensions/WebExtensions_and_the_Add-on_ID': '확장 기능과 부가 기능 ID',
+    'WebExtensions/Request_the_right_permissions': '올바른 권한 요청하기',
+    'WebExtensions/Best_practices_for_updating_your_extension': 'Best practices for updating your extension',
+    'WebExtensions/API': 'JavaScript APIs',
+    'WebExtensions/manifest.json': 'Manifest 키',
+    'Themes': '테마',
+    'Themes/Theme_concepts': '브라우저 테마',
+    'Themes/Theme_concepts_': '브라우저 테마 개념',
+    'Themes/Using_the_AMO_theme_generator': 'AMD 테마 생성기 사용하기',
+    'Distribution': '출판 및 배포하기',
+    'Distribution/Publishing': '부가 기능 출판하기',
+    'Distribution/Signing': '서명 및 출판 개요',
+    'WebExtensions/Package_your_extension_': '확장 기능 패키징',
+    'Distribution/Submitting_an_add-on': '부가 기능 제출',
+    'Source_Code_Submission': '소스 코드 제출',
+    'Distribution/Resources_for_publishers': '출판자를 위한 리소스',
+    'Listing': '매력적인 목록 생성하기',
+    'Distribution/Make_money_from_browser_extensions': '브라우저 확장 기능으로 수익 내기',
+    'Distribution/Promoting_your_extension_or_theme': '확장 기능 또는 테마 홍보하기',
+    'AMO/Policy/Reviews': '정책 리뷰',
+    'AMO/Policy/Agreement': '개발자 협약',
+    'AMO/Policy/Featured': '주요 부가 기능',
+    'Distribution/Retiring_your_extension': '확장 기능 종료하기',
+    'WebExtensions/Alternative_distribution_options': '부가 기능 배포하기',
+    'WebExtensions/Alternative_distribution_options/Sideloading_add-ons': '개별 전송용',
+    'WebExtensions/Alternative_distribution_options/Add-ons_for_desktop_apps': '데스크탑 앱',
+    'WebExtensions/Alternative_distribution_options/Add-ons_in_the_enterprise': '기업용',
+    'Community_and_Support': '커뮤니티와 지원',
+    'Channels': '채널',
+    'Blog': '부가 기능 블로그',
+    'Forums': '부가 기능 포럼',
+    '#Contact_us': '연락하기'
   }
 });
 
@@ -342,6 +446,7 @@ var text = mdn.localStringMap({
           <li><a href="<%=baseURL%>WebExtensions/Work_with_the_Bookmarks_API"><%=text['WebExtensions/Work_with_the_Bookmarks_API']%></a></li>
           <li><a href="<%=baseURL%>WebExtensions/Work_with_the_Cookies_API"><%=text['WebExtensions/Work_with_the_Cookies_API']%></a></li>
           <li><a href="<%=baseURL%>WebExtensions/Work_with_contextual_identities"><%=text['WebExtensions/Work_with_contextual_identities']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Build_a_cross_browser_extension"><%=text['WebExtensions/Build_a_cross_browser_extension']%></a></li>
           <li><a href="<%=baseURL%>WebExtensions/onboarding_upboarding_offboarding_best_practices"><%=text['WebExtensions/onboarding_upboarding_offboarding_best_practices']%></a></li>
         </ol>
       </details>
@@ -377,6 +482,7 @@ var text = mdn.localStringMap({
           <li><a href="<%=baseURL%>WebExtensions/web-ext_command_reference"><%=text['WebExtensions/web-ext_command_reference']%></a></li>
           <li><a href="<%=baseURL%>WebExtensions/WebExtensions_and_the_Add-on_ID"><%=text['WebExtensions/WebExtensions_and_the_Add-on_ID']%></a></li>
           <li><a href="<%=baseURL%>WebExtensions/Request_the_right_permissions"><%=text['WebExtensions/Request_the_right_permissions']%></a></li>
+          <li><a href="<%=baseURL%>WebExtensions/Best_practices_for_updating_your_extension"><%=text['WebExtensions/Best_practices_for_updating_your_extension']%></a></li>
         </ol>
       </details>
     </li>
@@ -395,7 +501,7 @@ var text = mdn.localStringMap({
       %>
       </details>
     </li>
-
+    <li><a href="<%=baseURL%>WebExtensions/Distribution_options"><%=text['WebExtensions/Distribution_options']%></a></li>
     <li><a href="<%=baseURL%>Themes"><strong><%=text['Themes']%></strong></a></li>
     <li class="toggle">
       <details>
