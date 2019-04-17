@@ -224,7 +224,7 @@
     "supportsShort_unknown_title": {
         "en-US": "Compatibility unknown; please update this.",
         "de"   : "Kompatibilität unbekannt. Bitte aktualisiere das.",
-        "es"   : "Compatibilidad desconocida; porfavor actualiza esto."
+        "es"   : "Compatibilidad desconocida; porfavor actualiza esto.",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
         "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию.",
