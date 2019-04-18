@@ -20,13 +20,13 @@
 
     "Inheritance": {
         "en-US": "Inheritance:",
-        "fr"   : "Héritage\u00a0:",
+        "fr"   : "Héritage :",
         "ja"   : "継承"
     },
 
     "Implemented_by": {
         "en-US": "Implemented by:",
-        "fr"   : "Implémenté par\u00a0:",
+        "fr"   : "Implémenté par :",
         "ja"   : "Implemented by:"
     },
 
@@ -38,7 +38,7 @@
 
     "Related_pages_wo_group": {
         "en-US": "Related pages:",
-        "fr"   : "Pages similaires\u00a0:",
+        "fr"   : "Pages similaires :",
         "ja"   : "関連するページ"
     },
 
