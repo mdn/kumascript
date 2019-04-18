@@ -334,10 +334,7 @@ function checkResult(html, config) {
 
 function testMacro(config) {
     for (const locale of ['en-US', 'fr', 'ja']) {
-        let testName = `with locale ${locale} and slug ${config.currentSlug}`;
-        if (config.argument) {
-            testName += ` and argument "${config.argument}"`;
-        }
+        let testName = `${config.name}; locale: ${locale}`;
         itMacro(testName, function(macro) {
             config.locale = locale;
             macro.ctx.env.slug = config.currentSlug;
@@ -378,6 +375,7 @@ describeMacro('APIRef', function() {
 
     // Test with current page as main interface page
     testMacro({
+        name: 'slug: \'Web/API/TestInterface\'; no InterfaceData entries; no argument',
         currentSlug: 'Web/API/TestInterface',
         argument: null,
         interfaceData: interfaceDataNoEntriesFixture,
@@ -386,6 +384,7 @@ describeMacro('APIRef', function() {
 
     // Test with current page as a subpage
     testMacro({
+        name: 'slug: \'Web/API/TestInterface/TestMethod1\'; no InterfaceData entries; no argument',
         currentSlug: 'Web/API/TestInterface/TestMethod1',
         argument: null,
         interfaceData: interfaceDataNoEntriesFixture,
@@ -394,6 +393,7 @@ describeMacro('APIRef', function() {
 
     // Test with an argument to use in GroupData
     testMacro({
+        name: 'slug: \'Web/API/TestInterface\'; no InterfaceData entries; argument: \'TestInterface\'',
         currentSlug: 'Web/API/TestInterface',
         argument: 'TestInterface',
         interfaceData: interfaceDataNoEntriesFixture,
@@ -402,6 +402,7 @@ describeMacro('APIRef', function() {
 
     // Test with a nonexistent but non-null argument to use in GroupData
     testMacro({
+        name: 'slug: \'Web/API/TestInterface\'; no InterfaceData entries; argument: \'I don\'t exist\'',
         currentSlug: 'Web/API/TestInterface',
         argument: 'I don\'t exist',
         interfaceData: interfaceDataNoEntriesFixture,
@@ -410,6 +411,7 @@ describeMacro('APIRef', function() {
 
     // Test with an InterfaceData that contains data for TestInterface
     testMacro({
+        name: 'slug: \'Web/API/TestInterface\'; InterfaceData entries expected; no argument',
         currentSlug: 'Web/API/TestInterface',
         argument: null,
         interfaceData: interfaceDataFixture,
