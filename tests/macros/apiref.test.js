@@ -343,7 +343,7 @@ function testMacro(config) {
             macro.ctx.env.slug = config.currentSlug;
             macro.ctx.env.locale = locale;
             // Mock calls to L10n-Common, GroupData, and InterfaceData
-            originalTemplate = macro.ctx.template;
+            const originalTemplate = macro.ctx.template;
             macro.ctx.template = jest.fn( async (name, ...args) => {
                 if (name === "GroupData") {
                     return groupDataFixture;
