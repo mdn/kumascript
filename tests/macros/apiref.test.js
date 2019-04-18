@@ -261,7 +261,7 @@ function checkItemList(expectedSummary, expectedItems, actual, config, compareIt
 }
 
 /**
-* This is the entry point for checking the resultof a test.
+* This is the entry point for checking the result of a test.
 * config.expected contains the expected results, and we use other bits
 * of config, most notably locale
 */
