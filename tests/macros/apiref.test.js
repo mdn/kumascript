@@ -250,13 +250,13 @@ function checkRelatedItem(actual, expected, config) {
 }
 
 function checkItemList(expectedSummary, expectedItems, actual, config, compareItemFunction) {
-  const actualSummary = actual.querySelector('summary');
-  expect(actualSummary.textContent).toEqual(expectedSummary);
+    const actualSummary = actual.querySelector('summary');
+    expect(actualSummary.textContent).toEqual(expectedSummary);
 
-  const actualItems = actual.querySelectorAll('ol>li');
-  expect(actualItems.length).toEqual(expectedItems.length);
-  for (let i = 0; i < actualItems.length; i++) {
-      compareItemFunction(actualItems[i], expectedItems[i], config);
+    const actualItems = actual.querySelectorAll('ol>li');
+    expect(actualItems.length).toEqual(expectedItems.length);
+    for (let i = 0; i < actualItems.length; i++) {
+        compareItemFunction(actualItems[i], expectedItems[i], config);
   }
 }
 
@@ -268,6 +268,7 @@ function checkItemList(expectedSummary, expectedItems, actual, config, compareIt
 function checkResult(html, config) {
     // Lint the HTML
     expect(lintHTML(html)).toBeFalsy();
+
     const dom = JSDOM.fragment(html);
     // Check that all links reference the proper locale or use https
     const num_total_links = dom.querySelectorAll('a[href]').length;
