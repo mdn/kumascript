@@ -51,7 +51,10 @@ if (group && webAPIGroups[0][group]) {
   var rel_met = webAPIGroups[0][group].methods || [];
   var rel_prop = webAPIGroups[0][group].properties || [];
   related = rel_if.concat(rel_met, rel_prop);
-  related.splice(related.indexOf(mainIF), 1);
+  var mainIfIndex = related.indexOf(mainIF);
+  if (mainIfIndex !== -1) {
+    related.splice(mainIfIndex, 1);
+  }
   related.sort();
   events = webAPIGroups[0][group].events || [];
 }
