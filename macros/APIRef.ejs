@@ -8,7 +8,6 @@
 var slug = env.slug;
 var locale = env.locale;
 var APIHref = '/' + locale + '/docs/Web/API';
-var EventHref = '/' + locale + '/docs/Web/Events';
 var output = "";
 // slug is not available in preview mode.
 if (slug) {
@@ -56,7 +55,6 @@ if (group && webAPIGroups[0][group]) {
     related.splice(mainIfIndex, 1);
   }
   related.sort();
-  events = webAPIGroups[0][group].events || [];
 }
 
 var pageList = mainIFPages;
@@ -64,6 +62,7 @@ var pageList = mainIFPages;
 var properties = [];
 var methods = [];
 var ctors = [];
+var events = [];
 var inheritedIF = [];
 var implementedBy = [];
 
@@ -78,6 +77,9 @@ function collect(pageList) {
     }
     if (hasTag(aPage, "Constructor")) {
         ctors.push(aPage);
+    }
+    if (hasTag(aPage, "Event")) {
+        events.push(aPage);
     }
   }
 }
@@ -102,6 +104,7 @@ function APISort(a, b) {
 properties.sort(APISort);
 methods.sort(APISort);
 ctors.sort(APISort);
+events.sort(APISort);
 
 function getInheritance(inh) {
   if (inh.length > 0) {
@@ -156,6 +159,17 @@ function buildSublist(pages, title) {
                 translated = true;
             }
         });
+    }
+
+    // Event pages have a title like "Interface: eventname event" which looks silly
+    // in the sidebar. So for event pages we use the slug, which is supposed to be
+    // in the form "eventname_event", and split off "_event" to leave us (hopefully)
+    // with just "eventname" for the link text.
+    if (hasTag(aPage, 'Event')) {
+        title = aPage.slug.split('/').pop();
+        if (title.endsWith('_event')) {
+            title = title.slice(0,-6);
+        }
     }
 
     var cta = '';
@@ -222,19 +236,6 @@ function buildIFList(interfaces, title) {
   return result;
 }
 
-function buildEventList(events, title) {
-  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
-
-  for (var i = 0; i < events.length; i++) {
-    result += '<li><a href="' + EventHref + '/' + events[i] + '"><code>' + events[i] + '</code></a></li>';
-  }
-
-  result += '</ol></details></li>';
-
-  return result;
-}
-
-
 // output
 output = '<section class="Quick_links" id="Quick_Links"><ol>';
 if (group && webAPIGroups[0][group] && webAPIGroups[0][group].overview) {
@@ -252,14 +253,14 @@ if (properties.length > 0) {
 if (methods.length > 0) {
   output += buildSublist(methods, text['Methods']);
 }
+if (events.length > 0) {
+  output += buildSublist(events, text['Events']);
+}
 if (inh.length > 0) {
   output += buildIFList(inheritedIF, text['Inheritance']);
 }
 if (implementedBy.length > 0) {
   output += buildIFList(implementedBy, text['Implemented_by']);
-}
-if (events.length > 0) {
-  output += buildEventList(events, text['Events']);
 }
 
 if (related.length > 0) {

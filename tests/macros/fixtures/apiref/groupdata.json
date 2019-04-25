@@ -4,8 +4,7 @@
             "overview":   [ "TestInterface API"],
             "interfaces": [ "AnInterface" ],
             "methods":    [ "AnInterface.doOneThing()", "AnotherInterface.doAnother()" ],
-            "properties": [],
-            "events":     ["crunch", "stomp"]
+            "properties": []
         }
     }
 ]
