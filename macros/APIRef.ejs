@@ -166,9 +166,12 @@ function buildSublist(pages, title) {
     // in the form "eventname_event", and split off "_event" to leave us (hopefully)
     // with just "eventname" for the link text.
     if (hasTag(aPage, 'Event')) {
-        let pageName = aPage.slug.split('/').pop();
-        title = pageName.split('_')[0];
+        title = aPage.slug.split('/').pop();
+        if (title.endsWith('_event')) {
+            title = title.slice(0,-6);
+        }
     }
+
 
     var cta = '';
      if (!translated && locale != 'en-US') {

@@ -147,7 +147,7 @@ const expectedEvents = {
         },
         {
             badges: [],
-            text: 'TestEvent3',
+            text: 'TestEvent3_another_suffix',
             target: '/en-US/docs/Web/API/TestInterface/TestEvent3',
             title: 'The MyTestEvent3 event of the TestInterface interface has no badges.'
         }
@@ -167,7 +167,7 @@ const expectedEvents = {
         },
         {
             badges: [],
-            text: 'TestEvent3 [Traduire]',
+            text: 'TestEvent3_another_suffix [Traduire]',
             target: '/fr/docs/Web/API/TestInterface/TestEvent3',
             title: 'The MyTestEvent3 event of the TestInterface interface has no badges.'
         }
@@ -187,7 +187,7 @@ const expectedEvents = {
         },
         {
             badges: [],
-            text: 'TestEvent3',
+            text: 'TestEvent3_another_suffix',
             target: '/ja/docs/Web/API/TestInterface/TestEvent3',
             title: 'The MyTestEvent3 event of the TestInterface interface has no badges (ja translation).'
         }

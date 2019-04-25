@@ -150,7 +150,7 @@
             }
         ],
         "summary": "The <code><strong>MyTestEvent3</strong></code> event of the <a href=\"/en-US/docs/Web/API/TestInterface\" title=\"TestInterface summary stuff\"><code>TestInterface</code></a> interface has no badges.",
-        "slug": "Web/API/TestInterface/TestEvent3_one_andanother",
+        "slug": "Web/API/TestInterface/TestEvent3_another_suffix",
         "title": "TestInterface.MyTestEvent3",
         "url": "/en-US/docs/Web/API/TestInterface/TestEvent3"
     }
