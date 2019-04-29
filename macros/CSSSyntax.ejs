@@ -25,22 +25,22 @@ let s_named_color_link = mdn.localString({
     "zh-CN": "/docs/Web/CSS/color_value#色彩关键字"
 });
 let s_system_color_link = mdn.localString({
-  "en-US": "/docs/Web/CSS/color_value#Color_keywords",
-  "fr"   : "/docs/Web/CSS/Type_color#Couleurs_système",
-  "de"   : "/docs/Web/CSS/Farben#Systemfarben",
-  "es"   : "/docs/Web/CSS/color_value#Colores_de_Sistema",
-  "ja"   : "/docs/Web/CSS/color_value#System_Colors",
-  "nl"   : "/docs/Web/CSS/kleur_waarde#System_Colors",
-  "pt-BR": "/docs/Web/CSS/color_value#System_Colors",
-  "zh-CN": "/docs/Web/CSS/color_value#系统颜色"
+    "en-US": "/docs/Web/CSS/color_value#Color_keywords",
+    "fr"   : "/docs/Web/CSS/Type_color#Couleurs_système",
+    "de"   : "/docs/Web/CSS/Farben#Systemfarben",
+    "es"   : "/docs/Web/CSS/color_value#Colores_de_Sistema",
+    "ja"   : "/docs/Web/CSS/color_value#System_Colors",
+    "nl"   : "/docs/Web/CSS/kleur_waarde#System_Colors",
+    "pt-BR": "/docs/Web/CSS/color_value#System_Colors",
+    "zh-CN": "/docs/Web/CSS/color_value#系统颜色"
 });
 let externallyDescribedTypesData = {
-  "named-color": {
-    link: s_named_color_link
-  },
-  "deprecated-system-color": {
-    link: s_system_color_link
-  }
+    "named-color": {
+        link: s_named_color_link
+    },
+    "deprecated-system-color": {
+        link: s_system_color_link
+    }
 };
 let data = {
     properties: await MDN.fetchJSONResource(propertiesUrl),
@@ -61,6 +61,7 @@ let rawSyntax = "";
 let formattedSyntax = "";
 let localize = mdn.getLocalString;
 
+const CSSHref = '/' + locale + '/docs/Web/CSS/';
 let commonLocalStrings = string.deserialize(await template("L10n:Common"));
 let localStrings = string.deserialize(await template("L10n:CSS"));
 
@@ -89,7 +90,7 @@ let s_and = mdn.localString({
     "en-US": "and ",
     "de"   : "und ",
     "fr"   : "et ",
-	"ja"   : "と",
+    "ja"   : "と",
     "ru"   : "и "
 });
 
@@ -277,7 +278,7 @@ let operators = [
 ];
 
 async function buildLink(match, type) {
-    var link = "/" + locale + "/docs/Web/CSS/";
+    var link = CSSHref;
     var title = "";
     var propertyName = type.match(/\'(.+?)\'/);
 
@@ -304,7 +305,7 @@ async function buildLink(match, type) {
 
     // Handle types which we want to describe using a link to a different page
     }  else if (data.externallyDescribedTypes.hasOwnProperty(type)) {
-             return "<a href=\"/" + locale + data.externallyDescribedTypes[type].link + "\">&lt;" + type + "&gt;</a>";
+            return "<a href=\"/" + locale + data.externallyDescribedTypes[type].link + "\">&lt;" + type + "&gt;</a>";
 
     // Handle advanced types having their syntax defined within the 'CSSData' template
     } else if (data.syntaxes[type]) {
@@ -331,7 +332,7 @@ async function formatSyntax(rawSyntax) {
     operators.forEach(function(operator) {
         if (formattedSyntax.indexOf("\n") !== -1 &&
             operator.title === "Curly braces") {
-		    return "";
+            return "";
         }
 
         formattedSyntax = formattedSyntax.replace(operator.regexp,
@@ -345,7 +346,7 @@ async function formatSyntax(rawSyntax) {
                 linkText = text;
             }
 
-            var output = "<a href=\"/" + locale + "/docs/CSS/" +
+            var output = "<a href=\"" + CSSHref +
                 s_syntax_value_definition + "#" + operator.anchor +
                 "\" title=\"" + operator.title + "\">" + linkText + "</a>";
             if (linkText === "|") {
@@ -406,11 +407,9 @@ async function formatTypesSyntax(formattedSyntax, describedTypes) {
             };
 
             if (typesSyntax !== "") {
-                formattedTypesSyntax += "<p style=\"font-family:Open Sans,Arial," +
-                    "sans-serif; margin: 10px 0 0 0;\">" + s_where +
-                    "<br/><code style=\"font-family:Consolas,Monaco," +
-                    "&quot;Andale Mono&quot;,monospace;\">" + typesSyntax +
-                    "</code></p>";
+                formattedTypesSyntax += "<span style=\"font-family:'Open Sans','Arial'," +
+                    "sans-serif;margin:10px 0 0;display:block;\">" + s_where + "</span>" +
+                    typesSyntax;
             }
         }
 
@@ -436,11 +435,14 @@ if (name === "preview-wiki-content") {
         localize(localStrings, "info_in_preview_not_available") + "</span>";
 } else {
     if (atRule) {
-        if (data.atRules[atRule] && data.atRules[atRule].descriptors) {
-    	    rawSyntax = data.atRules[atRule].descriptors[name].syntax;
+        if (data.atRules[atRule] &&
+            data.atRules[atRule].descriptors &&
+            data.atRules[atRule].descriptors[name]) {
+            rawSyntax = data.atRules[atRule].descriptors[name].syntax;
         }
     } else if (name[0] === "@") {
-        if (data.atRules[name].syntax) {
+        if (data.atRules[name] &&
+            data.atRules[name].syntax) {
             rawSyntax = data.atRules[name].syntax;
         }
     } else if (name[0] === ":" && typeof data.selectors[name] !== 'undefined') {

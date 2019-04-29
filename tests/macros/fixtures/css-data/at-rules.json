@@ -1,0 +1,10 @@
+{
+    "@rule": {
+        "syntax": "@rule {\n  <group-rule-body>\n}",
+        "descriptors": {
+            "descriptor": {
+                "syntax": "<number>"
+            }
+        }
+    }
+}
