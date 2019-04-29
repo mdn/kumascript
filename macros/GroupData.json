@@ -12,20 +12,7 @@
             "interfaces": [ "DeviceLightEvent" ],
             "methods":    [],
             "properties": [ "Window.ondevicelight" ],
-            "events":     [ "devicelight" ]
-        },
-        "App Cache": {
-            "guides":     [ { "url":   "/en-US/docs/Web/HTML/Using_the_application_cache",
-                              "title": "Using the application cache" } ],
-            "interfaces": [],
-            "methods":    [],
-            "properties": [],
-            "events":     [ "cached",
-                            "checking",
-                            "downloading",
-                            "noupdate",
-                            "obsolete",
-                            "updateready" ]
+            "events":     [ "Window: devicelight" ]
         },
         "Application Compatibility Layer": {
             "interfaces": [ "HTMLExtAppElement"],
@@ -51,20 +38,6 @@
             "properties": [],
             "events":     []
         },
-        "Audio Channels API": {
-            "overview":   [ "Audio Channels API" ],
-            "interfaces": [ "MozAudioChannelManager",
-                            "BrowserElementAudioChannel" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozAudioChannelManager",
-                            "HTMLMediaElement.mozAudioChannelType",
-                            "HTMLMediaElement.mozchannelpaused",
-                            "HTMLMediaElement.onmozinterrupbegin",
-                            "HTMLMediaElement.onmozinterruptend" ],
-            "events":     [ "headphoneschange",
-                            "mozinterruptbegin",
-                            "mozinterruptend" ]
-        },
         "Background Tasks": {
               "overview":     [ "Background Tasks API" ],
               "interfaces":   [ "IdleDeadline" ],
@@ -72,18 +45,6 @@
                                 "Window.requestIdleCallback()" ],
               "properties":   [],
               "events":       []
-        },
-        "Battery API": {
-            "overview":   [ "Battery Status API" ],
-            "guides":     [ { "url":   "/Apps/Build/gather_and_modify_data/retrieving_battery_status_information",
-                              "title": "Retrieving battery status information" } ],
-            "interfaces": [ "BatteryManager" ],
-            "methods":    [ "Navigator.getBattery()"],
-            "properties": [ "Navigator.battery" ],
-            "events":     [ "chargingchange",
-                            "chargingtimechange",
-                            "dischargingtimechange",
-                            "levelchange" ]
         },
         "Beacon": {
             "overview":   [ "Beacon API" ],
@@ -98,74 +59,7 @@
             "interfaces": [ "BroadcastChannel" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "message" ]
-        },
-        "Browser API": {
-            "guides":     [ { "url":   "/docs/Web/API/Using_the_Browser_API",
-                              "title": "Using the Browser API" } ],
-            "interfaces": [],
-            "methods":    [ "HTMLIFrameElement.addNextPaintListener()",
-                            "HTMLIFrameElement.clearMatch()",
-                            "HTMLIFrameElement.download()",
-                            "HTMLIFrameElement.executeScript()",
-                            "HTMLIFrameElement.findAll()",
-                            "HTMLIFrameElement.findNext()",
-                            "HTMLIFrameElement.getActive()",
-                            "HTMLIFrameElement.getCanGoBack()",
-                            "HTMLIFrameElement.getCanGoForward()",
-                            "HTMLIFrameElement.getContentDimensions()",
-                            "HTMLIFrameElement.getMainfest()",
-                            "HTMLIFrameElement.getMuted()",
-                            "HTMLIFrameElement.getScreenshot()",
-                            "HTMLIFrameElement.getStructuredData()",
-                            "HTMLIFrameElement.goBack()",
-                            "HTMLIFrameElement.goForward()",
-                            "HTMLIFrameElement.getVisible()",
-                            "HTMLIFrameElement.getVolume()",
-                            "HTMLIFrameElement.mute()",
-                            "HTMLIFrameElement.purgeHistory()",
-                            "HTMLIFrameElement.reload()",
-                            "HTMLIFrameElement.removeNextPaintListener()",
-                            "HTMLIFrameElement.sendMouseEvent()",
-                            "HTMLIFrameElement.sendTouchEvent()",
-                            "HTMLIFrameElement.setActive()",
-                            "HTMLIFrameElement.setInputMethodActive()",
-                            "HTMLIFrameElement.setNFCFocus()",
-                            "HTMLIFrameElement.setVisible()",
-                            "HTMLIFrameElement.setVolume()",
-                            "HTMLIFrameElement.stop()",
-                            "HTMLIFrameElement.unmute()",
-                            "HTMLIFrameElement.zoom()" ],
-            "properties": [],
-            "events":     [ "mozbrowseractivitydone",
-                            "mozbrowserasyncscroll",
-                            "mozbrowseraudioplaybackchange",
-                            "mozbrowsercaretstatechanged",
-                            "mozbrowserclose",
-                            "mozbrowsercontextmenu",
-                            "mozbrowserdocumentfirstpaint",
-                            "mozbrowsererror",
-                            "mozbrowserfindchange",
-                            "mozbrowserfirstpaint",
-                            "mozbrowsericonchange",
-                            "mozbrowserloadend",
-                            "mozbrowserloadstart",
-                            "mozbrowserlocationchange",
-                            "mozbrowsermanifestchange",
-                            "mozbrowsermetachange",
-                            "mozbrowseropensearch",
-                            "mozbrowseropentab",
-                            "mozbrowseropenwindow",
-                            "mozbrowserresize",
-                            "mozbrowserscroll",
-                            "mozbrowserscrollareachanged",
-                            "mozbrowserscrollviewchange",
-                            "mozbrowsersecuritychange",
-                            "mozbrowserselectionstatechanged",
-                            "mozbrowsershowmodalprompt",
-                            "mozbrowsertitlechange",
-                            "mozbrowserusernameandpasswordrequired",
-                            "mozbrowservisibilitychange" ]
+            "events":     []
         },
         "Bluetooth API (Firefox OS)": {
             "overview":   [ "Web Bluetooth API" ],
@@ -240,7 +134,7 @@
                             "PortCollection" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "message" ]
+            "events":     []
         },
         "Clipboard API": {
             "interfaces": [ "Clipboard",
@@ -248,13 +142,10 @@
             "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
             "properties": [ "Navigator.clipboard" ],
-            "events":     [ "beforecopy",
-                            "beforecut",
-                            "beforepaste",
-                            "clipboardchange",
-                            "copy",
-                            "cut",
-                            "paste" ]
+            "events":     [ "Window: clipboardchange",
+                            "Element: copy",
+                            "Element: cut",
+                            "Element: paste" ]
         },
         "Console API": {
             "interfaces": [ "Console" ],
@@ -262,17 +153,6 @@
             "properties": [ "Window.console",
                             "WorkerGlobalScope.console" ],
             "events":     []
-        },
-        "Contacts API": {
-            "overview":   [ "Contacts API"],
-            "interfaces": [ "ContactManager",
-                            "MozContact",
-                            "MozContactChangeEvent" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozContacts" ],
-            "events":     [ "success",
-                            "error",
-                            "contactchange" ]
         },
         "Credential Management API": {
             "overview":   [ "Credential Management API" ],
@@ -299,9 +179,7 @@
                             "FontFaceSetLoadEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "loading",
-                            "loadingdone",
-                            "loadingerror" ]
+            "events":     []
         },
         "CSSOM": {
             "overview":   [ "CSS Object Model" ],
@@ -327,10 +205,10 @@
                             "AnimationEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "animationstart",
-                            "animationend",
-                            "animationiteration",
-                            "transitionend" ]
+            "events":     [ "Element: animationstart",
+                            "Element: animationend",
+                            "Element: animationiteration",
+                            "Element: transitionend" ]
         },
         "CSSOM View": {
             "interfaces": [ "MediaQueryList",
@@ -338,8 +216,9 @@
                             "Screen" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "resize",
-                            "scroll" ]
+            "events":     [ "Window: resize",
+                            "Document: scroll",
+                            "Element: scroll" ]
         },
         "Data Store API": {
             "overview":   [ "Data Store API" ],
@@ -360,18 +239,9 @@
                             "DeviceRotationRate" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "deviceorientation",
-                            "compassneedscalibration",
-                            "devicemotion" ]
-        },
-        "Device Storage API": {
-            "overview":   [ "Device Storage API"],
-            "interfaces": [ "DeviceStorage",
-                            "DeviceStorageChangeEvent" ],
-            "methods":    [ "Navigator.getDeviceStorage()",
-                            "Navigator.getDeviceStorages()" ],
-            "properties": [],
-            "events":     [ "change" ]
+            "events":     [ "Window: deviceorientation",
+                            "Window: compassneedscalibration",
+                            "Window: devicemotion" ]
         },
         "Directory Upload API": {
             "interfaces": [ "Directory" ],
@@ -471,35 +341,35 @@
                             "WheelEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "abort",
-                            "beforeinput",
-                            "blur",
-                            "click",
-                            "compositionstart",
-                            "compositionupdate",
-                            "compositionend",
-                            "dblclick",
-                            "error",
-                            "focus",
-                            "focusin",
-                            "focusout",
-                            "input",
-                            "keydown",
-                            "keypress",
-                            "keyup",
-                            "load",
-                            "mousedown",
-                            "mouseenter",
-                            "mouseleave",
-                            "mousemove",
-                            "mouseout",
-                            "mouseover",
-                            "mouseup",
-                            "resize",
-                            "scroll",
-                            "select",
-                            "unload",
-                            "wheel" ]
+            "events":     [ "HTMLMediaElement: abort",
+                            "HTMLElement: beforeinput",
+                            "Element: blur",
+                            "Element: click",
+                            "Element: compositionstart",
+                            "Element: compositionupdate",
+                            "Element: compositionend",
+                            "Element: dblclick",
+                            "HTMLMediaElement: error",
+                            "Element: focus",
+                            "Element: focusin",
+                            "Element: focusout",
+                            "HTMLElement: input",
+                            "Element: keydown",
+                            "Element: keypress",
+                            "Element: keyup",
+                            "Window: load",
+                            "Element: mousedown",
+                            "Element: mouseenter",
+                            "Element: mouseleave",
+                            "Element: mousemove",
+                            "Element: mouseout",
+                            "Element: mouseover",
+                            "Element: mouseup",
+                            "Window: resize",
+                            "Document: scroll",
+                            "Element: select",
+                            "Window: unload",
+                            "Element: wheel" ]
         },
         "Download API": {
             "interfaces": [ "DownloadEvent",
@@ -507,7 +377,7 @@
                             "DOMDownload" ],
             "methods":    [],
             "properties": [ "Navigator.mozDownloadManager"],
-            "events":     [ "statechange" ]
+            "events":     []
         },
         "Encoding API": {
             "overview":   [ "Encoding API"],
@@ -529,16 +399,7 @@
                             "HTMLMediaElement.setMediaKeys()" ],
             "properties": [ "HTMLMediaElement.mediaKeys",
                             "HMTLMediaElement.onencrypted" ],
-            "events":     [ "keystatuschange",
-                            "message",
-                            "encrypted",
-                            "waitingforkey" ]
-        },
-        "Engineering Mode API": {
-            "interfaces": [ "EngineeringMode" ],
-            "methods":    [],
-            "properties": [],
-            "events":     [ "message" ]
+            "events":     []
         },
         "Fetch API": {
             "overview":   [ "Fetch API"],
@@ -562,12 +423,7 @@
                             "Blob" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "loadstart",
-                            "progress",
-                            "abort",
-                            "error",
-                            "load",
-                            "loadend" ]
+            "events":     []
         },
         "File System API": {
             "overview":   [ "File and Directory Entries API" ],
@@ -595,9 +451,7 @@
                             "Window.resolveLocalFileSystemURL()",
                             "WorkerGlobalScope.requestFileSystemSync()" ],
             "properties": [],
-            "events":     [ "error",
-                            "writeend"
-                          ]
+            "events":     []
         },
         "Firefox OS": {
             "interfaces": [ "MozAlarmsManager",
@@ -607,16 +461,6 @@
             "methods":    [],
             "properties": [],
             "events":     []
-        },
-        "FMRadio API": {
-            "overview":   [ "WebFM API" ],
-            "interfaces": [ "FMRadio" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozFMRadio" ],
-            "events":     [ "antennaavailablechange",
-                            "frequencychange",
-                            "disabled",
-                            "enabled" ]
         },
         "Fullscreen API": {
             "overview":   [ "Fullscreen API" ],
@@ -631,8 +475,10 @@
                             "Document.onfullscreenerror",
                             "Element.onfullscreenchange",
                             "Element.onfullscreenerror" ],
-            "events":     [ "fullscreenchange",
-                            "fullscreenerror" ]
+            "events":     [ "Document: fullscreenchange",
+                            "Document: fullscreenerror",
+                            "Element: fullscreenchange",
+                            "Element: fullscreenerror" ]
         },
         "Frame Timing API": {
             "overview":   [ "Frame Timing API" ],
@@ -654,8 +500,8 @@
             "methods":    [ "Navigator.getGamepads()" ],
             "properties": [ "Window.ongamepadconnected",
                             "Window.ongamepaddisconnected" ],
-            "events":     [ "gamepadconnected",
-                            "gamepaddisconnected" ]
+            "events":     [ "Window: gamepadconnected",
+                            "Window: gamepaddisconnected" ]
         },
         "Geolocation API": {
             "guides":     [ { "url":   "/en-US/docs/Web/API/Geolocation/Using_geolocation",
@@ -798,63 +644,59 @@
                             "WindowTimers" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "abort",
-                            "DOMContentLoaded",
-                            "afterprint",
-                            "afterscriptexecute",
-                            "beforeprint",
-                            "beforescriptexecute",
-                            "beforeunload",
-                            "blur",
-                            "cancel",
-                            "change",
-                            "click",
-                            "close",
-                            "connect",
-                            "contextmenu",
-                            "error",
-                            "focus",
-                            "hashchange",
-                            "input",
-                            "invalid",
-                            "languagechange",
-                            "load",
-                            "loadend",
-                            "loadstart",
-                            "message",
-                            "offline",
-                            "online",
-                            "open",
-                            "pagehide",
-                            "pageshow",
-                            "popstate",
-                            "progress",
-                            "readystatechange",
-                            "reset",
-                            "select",
-                            "show",
-                            "sort",
-                            "storage",
-                            "submit",
-                            "toggle",
-                            "unload",
-                            "loadeddata",
-                            "loadedmetadata",
-                            "canplay",
-                            "playing",
-                            "play",
-                            "canplaythrough",
-                            "seeked",
-                            "seeking",
-                            "stalled",
-                            "suspend",
-                            "timeupdate",
-                            "volumechange",
-                            "waiting",
-                            "durationchange",
-                            "emptied",
-                            "unhandledrejection",
-                            "rejectionhandled"]
+            "events":     [ "Document: DOMContentLoaded",
+                            "Document: readystatechange",
+                            "Element: afterscriptexecute",
+                            "Element: beforescriptexecute",
+                            "Element: blur",
+                            "Element: click",
+                            "Element: contextmenu",
+                            "Element: focus",
+                            "Element: select",
+                            "Element: show",
+                            "HTMLDetailsElement: toggle",
+                            "HTMLDialogElement: cancel",
+                            "HTMLDialogElement: close",
+                            "HTMLElement: input",
+                            "HTMLFormElement: reset",
+                            "HTMLFormElement: submit",
+                            "HTMLInputElement: change",
+                            "HTMLInputElement: invalid",
+                            "HTMLMediaElement: abort",
+                            "HTMLMediaElement: canplay",
+                            "HTMLMediaElement: canplaythrough",
+                            "HTMLMediaElement: durationchange",
+                            "HTMLMediaElement: emptied",
+                            "HTMLMediaElement: error",
+                            "HTMLMediaElement: loadeddata",
+                            "HTMLMediaElement: loadedmetadata",
+                            "HTMLMediaElement: loadstart",
+                            "HTMLMediaElement: play",
+                            "HTMLMediaElement: playing",
+                            "HTMLMediaElement: progress",
+                            "HTMLMediaElement: seeked",
+                            "HTMLMediaElement: seeking",
+                            "HTMLMediaElement: stalled",
+                            "HTMLMediaElement: suspend",
+                            "HTMLMediaElement: timeupdate",
+                            "HTMLMediaElement: volumechange",
+                            "HTMLMediaElement: waiting",
+                            "Window: afterprint",
+                            "Window: beforeprint",
+                            "Window: beforeunload",
+                            "Window: hashchange",
+                            "Window: languagechange",
+                            "Window: load",
+                            "Window: message",
+                            "Window: offline",
+                            "Window: online",
+                            "Window: pagehide",
+                            "Window: pageshow",
+                            "Window: popstate",
+                            "Window: rejectionhandled",
+                            "Window: storage",
+                            "Window: unload",
+                            "Window: unhandledrejection" ]
         },
         "HTML Drag and Drop API": {
             "overview":   [ "HTML Drag and Drop API" ],
@@ -868,14 +710,14 @@
                             "DragEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "dragstart",
-                            "drag",
-                            "dragenter",
-                            "dragexit",
-                            "dragleave",
-                            "dragover",
-                            "drop",
-                            "dragend" ]
+            "events":     [ "HTMLElement: dragstart",
+                            "HTMLElement: drag",
+                            "HTMLElement: dragenter",
+                            "HTMLElement: dragexit",
+                            "HTMLElement: dragleave",
+                            "HTMLElement: dragover",
+                            "HTMLElement: drop",
+                            "HTMLElement: dragend" ]
         },
         "HTML Microdata API": {
             "interfaces": [ "HTMLPropertiesCollection" ],
@@ -941,14 +783,7 @@
                             "IDBVersionChangeRequest" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "upgradeneeded",
-                            "complete",
-                            "abort",
-                            "success",
-                            "error",
-                            "blocked",
-                            "versionchange",
-                            "close" ]
+            "events":     []
         },
         "Input Port API": {
             "interfaces": [ "AVInputPort",
@@ -967,7 +802,7 @@
                             "MozInterAppMessagePort" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "message" ]
+            "events":     []
         },
         "Intersection Observer API": {
             "interfaces": [ "IntersectionObserver",
@@ -1038,17 +873,8 @@
             "methods":    [ "HTMLCanvasElement.captureStream()",
                             "navigator.mediaDevices.getUserMedia()" ],
             "properties": [ "Navigator.mediaDevices" ],
-            "events":     [ "inactive",
-                            "active",
-                            "ended",
-                            "mute",
-                            "unmute",
-                            "overconstrained",
-                            "ratechange",
-                            "removetrack",
-                            "addtrack",
-                            "started",
-                            "devicechange" ]
+            "events":     [ "HTMLMediaElement: ended",
+                            "HTMLMediaElement: ratechange" ]
         },
         "Media Session API": {
             "overview":   [ "Media Session API" ],
@@ -1069,16 +895,7 @@
                             "URL.createObjectURL()" ],
             "properties": [ "VideoTrack.sourceBuffer",
                             "TextTrack.sourceBuffer" ],
-            "events":     [ "sourceopen",
-                            "sourceended",
-                            "sourceclose",
-                            "updatestart",
-                            "update",
-                            "updateend",
-                            "error",
-                            "abort",
-                            "addsourcebuffer",
-                            "removesourcebuffer" ]
+            "events":     []
         },
         "MediaStream Recording": {
             "overview":   [ "MediaStream Recording API" ],
@@ -1087,61 +904,7 @@
                             "BlobEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "start",
-                            "stop",
-                            "dataavailable",
-                            "pause",
-                            "resume",
-                            "error" ]
-        },
-        "Mobile Connection API": {
-            "overview":   [ "Mobile Connection API" ],
-            "interfaces": [ "MozMobileConnection",
-                            "MozMobileConnectionInfo",
-                            "MozMobileICCInfo",
-                            "MozMobileNetworkInfo",
-                            "MozMobileCFInfo",
-                            "MozMobileCellInfo",
-                            "MozIccManager",
-                            "IccCardLockError",
-                            "IccCardLockErrorEvent",
-                            "MozStkCommandEvent",
-                            "CFStateChangeEvent",
-                            "DataErrorEvent",
-                            "MozEmergencyCbModeEvent",
-                            "MozOtaStatusEvent",
-                            "MozCellBroadcastEvent",
-                            "USSDReceivedEvent" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozMobileConnections" ],
-            "events":     [ "icccardlockerror",
-                            "cardstatechange" ]
-        },
-        "Mobile Messaging API": {
-            "overview":   [ "Mobile Messaging API" ],
-            "interfaces": [ "MozSmsManager",
-                            "MozSmsMessage",
-                            "MozSmsEvent",
-                            "MozSmsFilter",
-                            "MozSmsSegmentInfo",
-                            "MozMobileMessageManager",
-                            "MozMmsMessage",
-                            "MozMmsEvent",
-                            "MozMobileMessageThread" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozMobileMessage",
-                            "Navigator.mozSMS"],
-            "events":     [ "open",
-                            "message",
-                            "error",
-                            "close",
-                            "sending",
-                            "sent",
-                            "failed",
-                            "deliverysuccess",
-                            "deliveryerror",
-                            "retrieving",
-                            "received" ]
+            "events":     []
         },
         "Mozilla Payment API": {
             "interfaces": [ "PaymentProvider" ],
@@ -1172,7 +935,7 @@
             "interfaces": [ "NetworkInformation"],
             "methods":    [],
             "properties": [ "Navigator.connection" ],
-            "events":     [ "change" ]
+            "events":     []
         },
         "Network Stats API": {
             "overview":   [ "Network Stats API" ],
@@ -1199,7 +962,7 @@
             "methods":    [],
             "properties": [ "Document.hidden",
                             "Document.visibilityState" ],
-            "events":     [ "visibilitychange" ]
+            "events":     [ "Document: visibilitychange" ]
         },
         "Payment Request API": {
             "overview":   [ "Payment Request API" ],
@@ -1223,11 +986,7 @@
                             "PaymentShippingType" ],
             "methods":    [],
             "properties": ["HTMLIFrameElement.allowPaymentRequest"],
-            "events":     [ "merchantvalidation",
-                            "payerdetailchange",
-                            "paymentmethodchange",
-                            "shippingaddresschange",
-                            "shippingoptionchange" ]
+            "events":     []
         },
         "Performance API": {
             "overview":   [ "Performance API" ],
@@ -1260,7 +1019,7 @@
                             "Window.performance" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "resourcetimingbufferfull" ]
+            "events":     []
         },
         "Performance Timeline API": {
             "overview":   [ "Performance Timeline" ],
@@ -1305,16 +1064,16 @@
                             "GlobalEventHandlers.onpointerenter",
                             "GlobalEventHandlers.onpointerleave",
                             "Navigator.maxTouchPoints" ],
-            "events":     [ "pointerover",
-                            "pointerenter",
-                            "pointerdown",
-                            "pointermove",
-                            "pointerup",
-                            "pointercancel",
-                            "pointerout",
-                            "pointerleave",
-                            "gotpointercapture",
-                            "lostpointercapture"]
+            "events":     [ "HTMLElement: pointerover",
+                            "HTMLElement: pointerenter",
+                            "HTMLElement: pointerdown",
+                            "HTMLElement: pointermove",
+                            "HTMLElement: pointerup",
+                            "HTMLElement: pointercancel",
+                            "HTMLElement: pointerout",
+                            "HTMLElement: pointerleave",
+                            "HTMLElement: gotpointercapture",
+                            "HTMLElement: lostpointercapture"]
         },
         "Pointer Lock API": {
             "overview":   [ "Pointer Lock API" ],
@@ -1324,8 +1083,8 @@
             "properties": [ "Document.pointerLockElement",
                             "Document.onpointerlockchange",
                             "Document.onpointerlockerror" ],
-            "events":     [ "pointerlockchange",
-                            "pointerlockerror"]
+            "events":     [ "Document: pointerlockchange",
+                            "Document: pointerlockerror"]
         },
         "Power Management API": {
             "overview":   [ "Power Management API" ],
@@ -1344,9 +1103,7 @@
             "methods":    [],
             "properties": [ "Navigator.presentation",
                             "Navigator.mozPresentationDeviceInfo" ],
-            "events":     [ "change",
-                            "sessionavailable",
-                            "sessionconnect" ]
+            "events":     []
         },
         "Proximity Events": {
             "overview":   [ "Proximity Events" ],
@@ -1354,8 +1111,7 @@
                             "UserProximityEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "userproximity",
-                            "deviceproximity" ]
+            "events":     []
         },
         "Push API": {
             "overview":   [ "Push API" ],
@@ -1367,8 +1123,8 @@
             "properties": [ "ServiceWorkerRegistration.pushManager",
                             "ServiceWorkerGlobalScope.onpush",
                             "ServiceWorkerGlobalScope.onpushsubscriptionchange" ],
-            "events":     [ "push",
-                            "pushsubscriptionchange" ]
+            "events":     [ "ServiceWorkerGlobalScope: push",
+                            "ServiceWorkerGlobalScope: pushsubscriptionchange" ]
         },
         "Request Sync API": {
             "interfaces": [ "RequestManager",
@@ -1432,7 +1188,7 @@
             "interfaces": [ "ScreenOrientation" ],
             "methods":    [],
             "properties": [ "Screen.orientation"],
-            "events":     [ "change" ]
+            "events":     []
         },
         "Selection API": {
             "interfaces": [ "Selection" ],
@@ -1440,17 +1196,15 @@
                             "GlobalEventHandlers.onselectstart" ],
             "methods":    [ "Document.getSelection()",
                             "Window.getSelection()" ],
-            "events":     [ "selectionchange",
-                            "selectstart" ]
+            "events":     [ "Document: selectionchange",
+                            "Document: selectstart" ]
         },
         "Server Sent Events": {
             "overview":   [ "Server-sent events" ],
             "interfaces": [ "EventSource" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "open",
-                            "message",
-                            "error" ]
+            "events":     []
         },
         "Service Workers API": {
             "overview":   [ "Service Worker API" ],
@@ -1475,45 +1229,13 @@
                             "WindowClient" ],
             "methods":    [],
             "properties": [ "Navigator.serviceWorker" ],
-            "events":     [ "statechange",
-                            "updatefound",
-                            "controllerchange",
-                            "error",
-                            "message",
-                            "install",
-                            "activate",
-                            "fetch" ]
-        },
-        "Settings API": {
-            "overview":   [ "Settings API" ],
-            "guides":     [ { "url":   "/docs/Mozilla/Firefox_OS/Platform/Settings_list",
-                              "title": "Firefox OS settings list" } ],
-            "interfaces": [ "SettingsManager",
-                            "MozSettingsEvent",
-                            "SettingsLock" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozSettings" ],
-            "events":     [ "settingchange"]
-        },
-        "Simple Push API": {
-            "overview":   [ "Simple Push API" ],
-            "interfaces": [ "PushManager" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozPush" ],
-            "events":     [ "success",
-                            "error" ]
+            "events":     []
         },
         "Social API": {
             "interfaces": [ "MozSocial" ],
             "methods":    [],
             "properties": [],
             "events":     []
-        },
-        "Speaker Manager API": {
-            "interfaces": [ "MozSpeakerManager" ],
-            "methods":    [],
-            "properties": [],
-            "events":     [ "speakerforcedchange" ]
         },
         "Storage": {
             "overview":   [ "Storage API" ],
@@ -1688,32 +1410,15 @@
                             "TimeEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "focusin",
-                            "focusout",
-                            "activate",
-                            "click",
-                            "mousedown",
-                            "mouseup",
-                            "mouseover",
-                            "mousemove",
-                            "mouseout",
-                            "DOMSubtreeModified",
-                            "DOMNodeInserted",
-                            "DOMNodeRemoved",
-                            "DOMNodeRemovedFromDocument",
-                            "DOMNodeInsertedIntoDocument",
-                            "DOMAttrModified",
-                            "DOMCharacterDataModified",
-                            "SVGLoad",
-                            "SVGUnload",
-                            "SVGAbort",
-                            "SVGError",
-                            "SVGResize",
-                            "SVGScroll",
-                            "SVGZoom",
-                            "beginEvent",
-                            "endEvent",
-                            "repeatEvent" ]
+            "events":     [ "Element: focusin",
+                            "Element: focusout",
+                            "Element: activate",
+                            "Element: click",
+                            "Element: mousedown",
+                            "Element: mouseup",
+                            "Element: mouseover",
+                            "Element: mousemove",
+                            "Element: mouseout" ]
         },
         "System Update API": {
             "interfaces": [ "SystemUpdateProvider",
@@ -1722,25 +1427,6 @@
             "properties": [ "Navigator.updateManager" ],
             "events":     []
         },
-        "TCP Socket API": {
-            "overview":   [ "TCP Socket API" ],
-            "interfaces": [ "TCPSocket",
-                            "TCPServerSocket" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozTCPSocket"],
-            "events":     [ "data",
-                            "drain",
-                            "connect",
-                            "error" ]
-        },
-        "Time and Clock API": {
-            "overview":   [ "Time and Clock API" ],
-            "interfaces": [ "MozTimeManager" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozTime",
-                            "Window.onmoztimechange" ],
-            "events":     [ "moztimechange" ]
-        },
         "Touch Events": {
             "overview":   [ "Touch events" ],
             "interfaces": [ "Touch",
@@ -1748,10 +1434,10 @@
                             "TouchList" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "touchstart",
-                            "touchend",
-                            "touchmove",
-                            "touchcancel" ]
+            "events":     [ "Element: touchstart",
+                            "Element: touchend",
+                            "Element: touchmove",
+                            "Element: touchcancel" ]
         },
         "TV API": {
             "interfaces": [ "TVChannel",
@@ -1765,17 +1451,14 @@
                             "TVTuner" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "currentsourcechanged",
-                            "currentchannelchanged",
-                            "eitbroadcasted",
-                            "scanningstatechanged" ]
+            "events":     []
         },
         "UDP Socket API": {
             "interfaces": [ "UDPMessageEVent",
                             "UDPSocket" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "message" ]
+            "events":     []
         },
         "URL API": {
             "interfaces": [ "URL",
@@ -1878,13 +1561,7 @@
                             "StereoPannerNode" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "statechange",
-                            "complete",
-                            "ended",
-                            "message",
-                            "loaded",
-                            "audioprocess",
-                            "nodecreate"]
+            "events":     []
         },
         "Web Authentication API": {
             "overview":   [ "Web Authentication API" ],
@@ -1906,30 +1583,22 @@
                               { "url":   "/docs/Web/Web_Components/Using_templates_and_slots",
                                 "title": "Using templates and slots" }
                             ],
-            "interfaces":   [
-                              "CustomElementRegistry",
+            "interfaces":   [ "CustomElementRegistry",
                               "HTMLSlotElement",
                               "HTMLTemplateElement",
                               "ShadowRoot",
                               "DocumentOrShadowRoot",
-                              "Slotable"
-                            ],
-            "methods":      [
-                              "Document.createElement()",
+                              "Slotable" ],
+            "methods":      [ "Document.createElement()",
                               "Element.attachShadow()",
-                              "Node.getRootNode()"
-                            ],
-            "properties":   [
-                              "Element.shadowRoot",
+                              "Node.getRootNode()" ],
+            "properties":   [ "Element.shadowRoot",
                               "Element.slot",
                               "Event.composed",
                               "Event.composedPath",
                               "Node.isConnected",
-                              "Window.customElements"
-                            ],
-            "events":       [
-                              "slotchange"
-                            ]
+                              "Window.customElements" ],
+            "events":     []
         },
         "Web Crypto API": {
             "overview":     [ "Web Crypto API" ],
@@ -2006,15 +1675,9 @@
                             "EXT_disjoint_timer_query" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "webglcontextlost",
-                            "webglcontextrestored",
-                            "webglcontextcreationerror" ]
-        },
-        "Web Manifest": {
-            "interfaces": [],
-            "methods": [],
-            "properties": ["Window.oninstall"],
-            "events": [ "install"]
+            "events":     [ "HTMLCanvasElement: webglcontextlost",
+                            "HTMLCanvasElement: webglcontextrestored",
+                            "HTMLCanvasElement: webglcontextcreationerror" ]
         },
         "Web MIDI API": {
             "interfaces": [ "MIDIInputMap",
@@ -2027,8 +1690,7 @@
                             "MIDIConnectionEvent" ],
             "methods":    [ "Navigator.requestMIDIAccess()"],
             "properties": [],
-            "events":     [ "statechange",
-                            "midimessage"]
+            "events":     []
         },
         "Web Notifications": {
             "overview":   [ "Notifications API" ],
@@ -2037,10 +1699,7 @@
             "methods":    [ "ServiceWorkerRegistration.showNotification()",
                             "ServiceWorkerRegistration.getNotifications()" ],
             "properties": [ "ServiceWorkerGlobalScope.onnotificationclick"],
-            "events":     [ "error",
-                            "click",
-                            "close",
-                            "show" ]
+            "events":     []
         },
         "WebRTC": {
             "overview":   [ "WebRTC API" ],
@@ -2175,24 +1834,7 @@
                             "RTCStatsIceCandidatePairState" ],
             "methods":    [ "MediaDevices.getUserMedia()"],
             "properties": [ "Navigator.mediaDevices" ],
-            "events":     [ "addstream",
-                            "icecandidate",
-                            "iceconnectionstatechange",
-                            "icegatheringstatechange",
-                            "negotiationneeded",
-                            "removestream",
-                            "signalingstatechange",
-                            "datachannel",
-                            "close",
-                            "error",
-                            "message",
-                            "open",
-                            "tonechange",
-                            "identityresult",
-                            "idpassertionerror",
-                            "idpvalidationerror",
-                            "peeridentity",
-                            "isolationchange" ],
+            "events":     [],
             "callbacks":  [ "RTCPeerConnectionErrorCallback",
                             "RTCSessionDescriptionCallback" ]
         },
@@ -2203,10 +1845,7 @@
                             "MessageEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "open",
-                            "message",
-                            "error",
-                            "close" ]
+            "events":     []
         },
         "Web Speech API": {
             "interfaces": [ "SpeechGrammar",
@@ -2224,24 +1863,7 @@
                             "SpeechSynthesisVoice" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "audiostart",
-                            "boundary",
-                            "mark",
-                            "soundstart",
-                            "speechstart",
-                            "speechend",
-                            "soundend",
-                            "audioend",
-                            "result",
-                            "nomatch",
-                            "error_(SpeechRecognitionError)",
-                            "error_(SpeechSynthesis)",
-                            "start_(SpeechRecognition)",
-                            "start_(SpeechSynthesis)",
-                            "pause_(SpeechSynthesis)",
-                            "resume",
-                            "end_(SpeechRecognition)",
-                            "end_(SpeechSynthesis)"]
+            "events":     []
         },
         "Web Storage API": {
             "overview":   [ "Web Storage API" ],
@@ -2250,19 +1872,7 @@
             "methods":    [],
             "properties": [ "Window.sessionStorage",
                             "Window.localStorage" ],
-            "events":     [ "storage" ]
-        },
-        "Web Telephony API": {
-            "overview":   [ "Web Telephony API" ],
-            "interfaces": [ "Telephony",
-                            "TelephonyCall",
-                            "TelephonyCallGroup",
-                            "CallEvent",
-                            "CallGroup",
-                            "MMICall" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozTelephony" ],
-            "events":     [ "incoming" ]
+            "events":     [ "Window: storage" ]
         },
         "Web Workers API": {
             "overview":   [ "Web Workers API" ],
@@ -2300,13 +1910,13 @@
             "methods":    [ "Navigator.getVRDisplays()" ],
             "properties": [ "Gamepad.displayId",
                             "Navigator.activeVRDisplays" ],
-            "events":     [ "vrdisplayconnected",
-                            "vrdisplaydisconnected",
-                            "vrdisplayactivate",
-                            "vrdisplaydeactivate",
-                            "vrdisplayblur",
-                            "vrdisplayfocus",
-                            "vrdisplaypresentchange" ]
+            "events":     [ "Window: vrdisplayconnected",
+                            "Window: vrdisplaydisconnected",
+                            "Window: vrdisplayactivate",
+                            "Window: vrdisplaydeactivate",
+                            "Window: vrdisplayblur",
+                            "Window: vrdisplayfocus",
+                            "Window: vrdisplaypresentchange" ]
         },
         "WebVTT": {
             "guides":     [ { "url":   "/docs/Web/API/Web_Video_Text_Tracks_Format",
@@ -2320,39 +1930,7 @@
                             "TrackEvent" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "change",
-                            "addtrack",
-                            "removetrack",
-                            "cuechange",
-                            "enter",
-                            "exit" ]
-        },
-        "WiFi Information API": {
-            "overview":   [ "WiFi Information API" ],
-            "interfaces": [ "WifiManager",
-                            "MozWifiManager",
-                            "MozWifiCapabilities",
-                            "MozWifiConnectionInfo",
-                            "MozWifiConnection",
-                            "MozWifiNetwork",
-                            "MozWifiConnectionInfoEvent",
-                            "MozWifiStationChangeEvent",
-                            "MozWifiStatusChangeEvent" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozWifiManager" ],
-            "events":     [ "statuschange",
-                            "connectioninfoupdate" ]
-        },
-        "WiFi P2P API": {
-            "interfaces": [ "MozWifiP2pGroupOwner",
-                            "MozWifiP2pManager",
-                            "MozWifiP2pStatusChangeEvent" ],
-            "methods":    [],
-            "properties": [ "Navigator.mozWifiP2pManager"],
-            "events":     [ "peerinfoupdate",
-                            "statuschange",
-                            "enabled",
-                            "disabled" ]
+            "events":     []
         },
         "WiFi Tethering API": {
             "interfaces": [ "MozTetheringManager" ],
@@ -2381,14 +1959,7 @@
                             "XMLHttpRequestUpload" ],
             "methods":    [],
             "properties": [],
-            "events":     [ "loadstart",
-                            "progress",
-                            "abort",
-                            "error",
-                            "load",
-                            "timeout",
-                            "loadend",
-                            "readystatechange" ]
+            "events":     []
         }
     }
 ]
