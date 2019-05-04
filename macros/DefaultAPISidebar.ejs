@@ -8,7 +8,6 @@
 var slug = env.slug;
 var locale = env.locale;
 var APIHref = '/' + locale + '/docs/Web/API';
-var EventHref = '/' + locale + '/docs/Web/Events';
 var output = "";
 var group = $0;
 var htmlEscape = kuma.htmlEscape;
@@ -83,9 +82,8 @@ function buildSublist(pages, title) {
 function buildIFList(interfaces, title) {
   var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
-  for (var i = 0; i < interfaces.length; i++) {
-    var url = interfaces[i].replace('()', '').replace('.', '/');
-    result += '<li><a href="' + APIHref + '/' + url + '"><code>' + interfaces[i] + '</code></a></li>';
+  for (let interface of interfaces) {
+    result += '<li><a href="' + APIHref + '/' + interface.target + '"><code>' + interface.text + '</code></a></li>';
   }
 
   result += '</ol></details></li>';
@@ -93,18 +91,23 @@ function buildIFList(interfaces, title) {
   return result;
 }
 
-function buildEventList(events, title) {
-  var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
-
-  for (var i = 0; i < events.length; i++) {
-    result += '<li><a href="' + EventHref + '/' + events[i] + '"><code>' + events[i] + '</code></a></li>';
-  }
-
-  result += '</ol></details></li>';
-
-  return result;
+function convert(itemName) {
+    return {
+      text: itemName,
+      target: itemName.replace('()', '').replace('.', '/')
+    }
 }
 
+function convertEvent(eventName) {
+    const eventComponents = eventName.split(': ');
+    if (eventComponents.length !== 2) {
+      return null;
+    }
+    return {
+      text: eventName,
+      target: `${eventComponents[0]}/${eventComponents[1]}_event`
+    }
+}
 
 // output
 output = '<section class="Quick_links" id="Quick_Links"><ol>';
@@ -117,20 +120,24 @@ if (guides.length > 0) {
   output += buildSublist(guides, text['Guides']);
 }
 
+interfaces = interfaces.map(convert);
 if (interfaces.length > 0) {
   output += buildIFList(interfaces, text['Interfaces']);
 }
 
+properties = properties.map(convert);
 if (properties.length > 0) {
   output += buildIFList(properties, text['Properties']);
 }
 
+methods = methods.map(convert);
 if (methods.length > 0) {
   output += buildIFList(methods, text['Methods']);
 }
 
+events = events.sort().map(convertEvent).filter( e => e !== null );
 if (events.length > 0) {
-  output += buildEventList(events, text['Events']);
+  output += buildIFList(events, text['Events']);
 }
 
 output += '</ol></section>';

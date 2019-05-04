@@ -12,7 +12,7 @@
             "interfaces": [ "AnInterface" ],
             "methods":    [ "ADifferentInterface.doSomething()", "YetAnotherInterface.doSomething()" ],
             "properties": [ "ADifferentInterface.aProperty", "ADifferentInterface.anotherProperty" ],
-            "events":     [ "anEvent"],
+            "events":     [ "aEvent: properlyFormatted"],
             "guides":     [
                 {
                     "url":   "/en-US/docs/Web/AnotherPlace/A_guide",
@@ -40,7 +40,7 @@
             "interfaces": [ "AnInterface", "AnotherInterface" ],
             "methods":    [],
             "properties": [ "ADifferentInterface.aProperty" ],
-            "events":     [ "anEvent", "anotherEvent" ],
+            "events":     [ "aEventBadlyFormatted", "bEvent: properlyFormatted", "aEvent: properlyFormatted" ],
             "guides":     [
                 {
                     "url":   "/en-US/docs/Web/AnotherPlace/A_guide",
