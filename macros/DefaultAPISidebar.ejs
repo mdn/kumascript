@@ -40,9 +40,9 @@ var guides = [];
 
 if (webAPIGroups[0][group].overview) {
     guides = await page.subpagesExpand('/en-US/docs/Web/API/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_'));
-    var otherGuides = webAPIGroups[0][group].guides || [];
-    guides = guides.concat(otherGuides);
 }
+var otherGuides = webAPIGroups[0][group].guides || [];
+guides = guides.concat(otherGuides);
 
 function buildSublist(pages, title) {
   var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
