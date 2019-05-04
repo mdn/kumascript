@@ -115,9 +115,10 @@ module.exports = {
         return string.replace(/\$\w+\$/g, replacePlaceholder);
     },
 
-    /**
-     * Given a string, escapes all quotes within it.
-     */
+    /** Escape the given string for HTML inclusion. */
+    htmlEscape: util.htmlEscape,
+
+    /** Given a string, escapes all quotes within it and strips HTML tags. */
     escapeQuotes: util.escapeQuotes,
 
     /**

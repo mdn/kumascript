@@ -99,11 +99,14 @@ const util = (module.exports = {
     },
 
     /**
-     * #### htmlEscape(string)
      * Escape the given string for HTML inclusion.
      *
      * @param {string} s
      * @return {string}
+     *
+     * @example
+     * htmlEscape('for (let i = 0; i < 10; i++) console.log("i = " + i)');
+     * // => 'for (let i = 0; i &lt; 10; i++) console.log(&quot;i = &quot; + i)'
      */
     htmlEscape(s) {
         return ('' + s)
@@ -113,6 +116,16 @@ const util = (module.exports = {
             .replace(/"/g, '&quot;');
     },
 
+    /**
+     * Given a string, escapes all quotes within it and strips HTML tags.
+     *
+     * @param {string} a
+     * @return {string} The string with quotes escaped and HTML removed.
+     *
+     * @example
+     * escapeQuotes('Value is: <code>"str"</code>.');
+     * // => 'Value is: &quot;str&quot;.'
+     */
     escapeQuotes(a) {
         var b = '';
         for (var i = 0, len = a.length; i < len; i++) {
