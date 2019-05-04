@@ -14,7 +14,7 @@ const permittedCharacters = {
     interface: /^[A-Z][\w.]+$/,
     property: /^[\w.]+$/,
     method: /^[\w.()]+$/,
-    event: /^[\w]+:\ [\w]+$/,
+    event: /^[\w]+: [\w]+$/,
     dictionary: /^\w+$/,
     callback: /^\w+$/,
     type: /^\w+$/,
