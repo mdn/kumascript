@@ -12,36 +12,6 @@
         "ja"   : "プロパティ"
     },
 
-    "Constructor": {
-        "en-US": "Constructor",
-        "fr"   : "Constructeur",
-        "ja"   : "コンストラクター"
-    },
-
-    "Inheritance": {
-        "en-US": "Inheritance:",
-        "fr"   : "Héritage :",
-        "ja"   : "継承"
-    },
-
-    "Implemented_by": {
-        "en-US": "Implemented by:",
-        "fr"   : "Implémenté par :",
-        "ja"   : "Implemented by:"
-    },
-
-    "Related_pages": {
-        "en-US": "Related pages for $1",
-        "fr"   : "Pages liées à $1",
-        "ja"   : "$1 に関連するページ"
-    },
-
-    "Related_pages_wo_group": {
-        "en-US": "Related pages:",
-        "fr"   : "Pages similaires :",
-        "ja"   : "関連するページ"
-    },
-
     "[Translate]": {
         "en-US": "[Translate]",
         "fr"   : "[Traduire]",

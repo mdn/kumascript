@@ -16,7 +16,7 @@ const {
 const fs = require('fs');
 const path = require('path');
 const subpagesFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/subpages.json');
-const subpagesFixture = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
+const subpagesJSON = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
 const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/commonl10n.json');
 const commonl10nFixture = fs.readFileSync(commonl10nFixturePath, 'utf8');
 const commonL10nJSON = JSON.parse(commonl10nFixture);
@@ -262,13 +262,12 @@ function checkResult(html, config) {
     // Test sublists
     const details = dom.querySelectorAll('ol>li>details');
     expect(details.length).toEqual(Object.keys(config.expected.details).length);
-    // "_" prefix is to suppress lint's no-unused-vars
-    let _next = 0;
-    _next = checkSubList('Guides', config, details, checkGuideItem, _next);
-    _next = checkSubList('Interfaces', config, details, checkItem, _next);
-    _next = checkSubList('Properties', config, details, checkItem, _next);
-    _next = checkSubList('Methods', config, details, checkItem, _next);
-    _next = checkSubList('Events', config, details, checkItem, _next);
+    let next = 0;
+    next = checkSubList('Guides', config, details, checkGuideItem, next);
+    next = checkSubList('Interfaces', config, details, checkItem, next);
+    next = checkSubList('Properties', config, details, checkItem, next);
+    next = checkSubList('Methods', config, details, checkItem, next);
+    checkSubList('Events', config, details, checkItem, next);
 }
 
 /**
@@ -317,28 +316,28 @@ describeMacro('DefaultAPISidebar', function() {
     testMacro({
         name: 'Text Interface 1 with subpages',
         argument: 'TestInterface1',
-        subpages: subpagesFixture,
+        subpages: subpagesJSON,
         expected: expectedSideBarContents.TestInterface1_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 2 with subpages',
         argument: 'TestInterface2',
-        subpages: subpagesFixture,
+        subpages: subpagesJSON,
         expected: expectedSideBarContents.TestInterface2_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 3 with subpages',
         argument: 'TestInterface3',
-        subpages: subpagesFixture,
+        subpages: subpagesJSON,
         expected: expectedSideBarContents.TestInterface3_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 4 with subpages',
         argument: 'TestInterface4',
-        subpages: subpagesFixture,
+        subpages: subpagesJSON,
         expected: expectedSideBarContents.TestInterface4_WithSubpages
     });
 
