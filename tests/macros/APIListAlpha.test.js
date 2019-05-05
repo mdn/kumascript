@@ -24,15 +24,15 @@ const {
 /**
  * Load all the fixtures.
  */
-const testFixturePath = path.resolve(__dirname, 'fixtures/apiref/top-level.json');
+const subpagesPath = path.resolve(__dirname, 'fixtures/APIListAlpha/top-level.json');
 /** @type {Page[]} */
-const subpagesFixture = JSON.parse(fs.readFileSync(testFixturePath, 'utf8'));
+const subpagesJSON = JSON.parse(fs.readFileSync(subpagesPath, 'utf8'));
 
 describeMacro('APIListAlpha', () => {
     beforeEachMacro(macro => {
         macro.ctx.page.subpagesExpand = jest.fn(async (page) => {
             expect(page).toEqual('/en-US/docs/Web/API');
-            return subpagesFixture;
+            return subpagesJSON;
         });
     });
 
