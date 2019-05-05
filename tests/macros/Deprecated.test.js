@@ -3,7 +3,8 @@
  */
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('deprecated_inline', function() {
+// TODO: Add tests for other {{Deprecated_*}} macros
+describeMacro('Deprecated_Inline', function() {
     itMacro('No arguments (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call(),
