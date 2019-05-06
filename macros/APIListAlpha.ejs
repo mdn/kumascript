@@ -78,16 +78,9 @@ function buildTitle(base, slug) {
         ];
     }
 
-    const match = /^(?:API )?([^ ]+)(?: (?:-|Interface))?/i.exec(mdn.escapeHTML(base));
-    if (match) {
-        const result = match[1];
-        return [
-            `<code>${mdn.escapeHTML(result)}</code>`,
-            result,
-        ];
-    }
+    // Return the slug, since the title uses a future format,
+    // which can't be parsed in a 100% reliable manner.
 
-    // Give up and return the slug
     return [
         `<code>${mdn.escapeHTML(slug)}</code>`,
         slug,
