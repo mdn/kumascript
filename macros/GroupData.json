@@ -46,6 +46,15 @@
               "properties":   [],
               "events":       []
         },
+        "Battery API": {
+             "overview":   [ "Battery Status API" ],
+             "guides":     [ { "url":   "/Apps/Build/gather_and_modify_data/retrieving_battery_status_information",
+                               "title": "Retrieving battery status information" } ],
+             "interfaces": [ "BatteryManager" ],
+             "methods":    [ "Navigator.getBattery()"],
+             "properties": [ "Navigator.battery" ],
+             "events":     []
+        },
         "Beacon": {
             "overview":   [ "Beacon API" ],
             "interfaces": [ "Navigator",
