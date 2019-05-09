@@ -83,7 +83,7 @@ function buildIFList(interfaces, title) {
   var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
 
   for (let interface of interfaces) {
-    result += '<li><a href="' + APIHref + '/' + interface.target + '"><code>' + interface.text + '</code></a></li>';
+    result += '<li><a href="' + APIHref + '/' + interface.target + '">' + interface.text + '</a></li>';
   }
 
   result += '</ol></details></li>';
