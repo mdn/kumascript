@@ -104,7 +104,7 @@ function convertEvent(eventName) {
       return null;
     }
     return {
-      text: eventName,
+      text: `<code>${eventComponents[0]}</code>: <code>${eventComponents[1]}</code>`,
       target: `${eventComponents[0]}/${eventComponents[1]}_event`
     }
 }
