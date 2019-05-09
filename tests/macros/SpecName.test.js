@@ -4,7 +4,7 @@
 
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('specname', function() {
+describeMacro('SpecName', function() {
     itMacro('One argument (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call('Alarm API'),

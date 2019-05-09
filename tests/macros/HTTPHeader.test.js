@@ -4,7 +4,7 @@
 
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('httpheader', function() {
+describeMacro('HTTPHeader', function() {
     itMacro('No arguments (en-US)', function(macro) {
         macro.ctx.wiki.getPage = jest.fn(url => undefined);
         return assert.eventually.equal(

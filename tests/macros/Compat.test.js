@@ -13,7 +13,7 @@ const fs = require('fs'),
     path = require('path'),
     jsdom = require('jsdom'),
     extend = require('extend'),
-    fixture_dir = path.resolve(__dirname, 'fixtures/compat');
+    fixture_dir = path.resolve(__dirname, 'fixtures/Compat');
 
 const { JSDOM } = jsdom;
 

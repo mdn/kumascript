@@ -15,12 +15,12 @@ const {
 */
 const fs = require('fs');
 const path = require('path');
-const subpagesFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/subpages.json');
+const subpagesFixturePath = path.resolve(__dirname, 'fixtures/DefaultAPISidebar/subpages.json');
 const subpagesJSON = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
-const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/commonl10n.json');
+const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/DefaultAPISidebar/commonl10n.json');
 const commonl10nFixture = fs.readFileSync(commonl10nFixturePath, 'utf8');
 const commonL10nJSON = JSON.parse(commonl10nFixture);
-const groupDataFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/groupdata.json');
+const groupDataFixturePath = path.resolve(__dirname, 'fixtures/DefaultAPISidebar/groupdata.json');
 const groupDataFixture = fs.readFileSync(groupDataFixturePath, 'utf8');
 
 /**

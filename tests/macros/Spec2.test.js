@@ -4,7 +4,7 @@
 
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('spec2', function() {
+describeMacro('Spec2', function() {
     itMacro('CR (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call('Upgrade Insecure Requests'),

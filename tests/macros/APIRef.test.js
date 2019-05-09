@@ -15,16 +15,16 @@ const {
 */
 const fs = require('fs');
 const path = require('path');
-const subpagesFixturePath = path.resolve(__dirname, 'fixtures/apiref/subpages.json');
+const subpagesFixturePath = path.resolve(__dirname, 'fixtures/APIRef/subpages.json');
 const subpagesFixture = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
-const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/apiref/commonl10n.json');
+const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/APIRef/commonl10n.json');
 const commonl10nFixture = fs.readFileSync(commonl10nFixturePath, 'utf8');
 const commonL10nJSON = JSON.parse(commonl10nFixture);
-const groupDataFixturePath = path.resolve(__dirname, 'fixtures/apiref/groupdata.json');
+const groupDataFixturePath = path.resolve(__dirname, 'fixtures/APIRef/groupdata.json');
 const groupDataFixture = fs.readFileSync(groupDataFixturePath, 'utf8');
-const interfaceDataNoEntriesFixturePath = path.resolve(__dirname, 'fixtures/apiref/interfacedata_no_entries.json');
+const interfaceDataNoEntriesFixturePath = path.resolve(__dirname, 'fixtures/APIRef/interfacedata_no_entries.json');
 const interfaceDataNoEntriesFixture = fs.readFileSync(interfaceDataNoEntriesFixturePath, 'utf8');
-const interfaceDataFixturePath = path.resolve(__dirname, 'fixtures/apiref/interfacedata.json');
+const interfaceDataFixturePath = path.resolve(__dirname, 'fixtures/APIRef/interfacedata.json');
 const interfaceDataFixture = fs.readFileSync(interfaceDataFixturePath, 'utf8');
 
 /**
