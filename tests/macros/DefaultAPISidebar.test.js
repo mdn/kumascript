@@ -51,8 +51,8 @@ const expectedTargets = {
     'ADifferentInterface.aProperty': '/docs/Web/API/ADifferentInterface/aProperty',
     'ADifferentInterface.anotherProperty': '/docs/Web/API/ADifferentInterface/anotherProperty',
     // events
-    'anEvent': '/docs/Web/Events/anEvent',
-    'anotherEvent': '/docs/Web/Events/anotherEvent'
+    'aEvent: properlyFormatted': '/docs/Web/API/aEvent/properlyFormatted_event',
+    'bEvent: properlyFormatted': '/docs/Web/API/bEvent/properlyFormatted_event'
 }
 
 /**
@@ -142,7 +142,7 @@ const expectedSideBarContents = {
             Interfaces: ['AnInterface'],
             Methods: ['ADifferentInterface.doSomething()', 'YetAnotherInterface.doSomething()'],
             Properties: ['ADifferentInterface.aProperty', 'ADifferentInterface.anotherProperty'],
-            Events: ['anEvent']
+            Events: ['aEvent: properlyFormatted']
         }
     },
     'TestInterface3_WithSubpages': {
@@ -158,7 +158,7 @@ const expectedSideBarContents = {
             Guides: ['A Guide in another place'],
             Interfaces: ['AnInterface', 'AnotherInterface'],
             Properties: ['ADifferentInterface.aProperty'],
-            Events: ['anEvent', 'anotherEvent']
+            Events: ['aEvent: properlyFormatted', 'bEvent: properlyFormatted']
         }
     },
     'TestInterface1_NoSubpages': {
@@ -175,7 +175,7 @@ const expectedSideBarContents = {
             Interfaces: ['AnInterface'],
             Methods: ['ADifferentInterface.doSomething()', 'YetAnotherInterface.doSomething()'],
             Properties: ['ADifferentInterface.aProperty', 'ADifferentInterface.anotherProperty'],
-            Events: ['anEvent']
+            Events: ['aEvent: properlyFormatted']
        }
     }
 }
