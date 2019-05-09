@@ -93,7 +93,7 @@ function buildIFList(interfaces, title) {
 
 function convert(itemName) {
     return {
-      text: itemName,
+      text: `<code>${itemName}</code>`,
       target: itemName.replace('()', '').replace('.', '/')
     }
 }
