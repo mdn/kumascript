@@ -832,7 +832,8 @@
             "properties": [ "Navigator.mozL10n" ],
             "events":     []
         },
-        "Long Tasks": {
+        "Long Tasks API": {
+            "overview": [ "Long Tasks API" ],
             "interfaces": [ "PerformanceLongTaskTiming",
                             "TaskAttributionTiming" ],
             "methods":    [],
