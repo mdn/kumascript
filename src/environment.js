@@ -158,6 +158,7 @@ class Environment {
     // macro on a page by including the arguments to be passed to that macro.
     getExecutionContext(args) {
         let context = Object.create(this.prototypeEnvironment);
+        context[Symbol.unscopables] = { __proto__: true };
 
         // Make a defensive copy of the arguments so that macros can't
         // modify the originals. Use an empty array if no args provided.
