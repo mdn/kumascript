@@ -1174,7 +1174,7 @@
             "events":     []
         },
         "Screen Capture API": {
-            "guides":     [ { "url":   "/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture_API",
+            "guides":     [ { "url":   "/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture",
                               "title": "Using the Screen Capture API" }],
             "interfaces": [],
             "dictionaries": [],
