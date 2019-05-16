@@ -5,12 +5,12 @@ var path = env.path;
 
 function state(section) {
   if (path.indexOf("Content-Security-Policy") !== -1 && (section === "Web/HTTP/Headers")) {
-    return "closed";
+    return "";
   }
   if (path.indexOf(section) !== -1) {
     return "open";
   }
-  return "closed";
+  return "";
 }
 
 var text = mdn.localStringMap({
