@@ -78,9 +78,9 @@ function compareNode(actual, expected) {
 function checkResult(html) {
     expect(lintHTML(html)).toBeFalsy();
     const actualDOM = JSDOM.fragment(html);
-    const actualNodes = actualDOM.firstElementChild.querySelectorAll('*');
+    const actualNodes = actualDOM.querySelectorAll('*');
     const expectedDOM = JSDOM.fragment(expectedHTML);
-    const expectedNodes = expectedDOM.firstElementChild.querySelectorAll('*');
+    const expectedNodes = expectedDOM.querySelectorAll('*');
     expect(expectedNodes.length).toEqual(actualNodes.length);
     for (let i = 0; i < expectedNodes.length; i++) {
         compareNode(actualNodes[i], expectedNodes[i]);
