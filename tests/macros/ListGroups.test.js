@@ -30,7 +30,7 @@ const overviewPages = {
 /**
  * Used to test against the actual HTML we get back.
  */
-const expectedHTML = 
+const expectedHTML =
 `<div class="index">
     <span>A</span>
     <ul>
@@ -56,8 +56,8 @@ const expectedHTML =
 
 /**
  * Compare an expected node with an actual node.
- * 
- * The main wrinkle here is that expectedHTMLis pretty printed, to make it easy
+ *
+ * The main wrinkle here is that expectedHTML is pretty printed, to make it easy
  * to read, so the textContent is not identical for some nodes.
  * So we only compare textContent for: 'A' nodes or 'SPAN' nodes whose
  * textContent is not just whitespace
