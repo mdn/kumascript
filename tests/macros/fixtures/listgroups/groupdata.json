@@ -1,0 +1,12 @@
+[
+    {
+        "BTestInterface": {
+            "overview":   [ "An overview page for BTestInterface API"]
+        },
+        "A2TestInterface": {
+        },
+        "ATestInterface": {
+            "overview":   [ "An overview page for ATestInterface API"]
+        }
+    }
+]
