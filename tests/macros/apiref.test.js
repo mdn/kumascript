@@ -83,8 +83,8 @@ const expectedMethods = {
             title: 'The MyTestMethod2 property of the TestInterface interface is deprecated and non-standard.'
         },
         {
-            badges: ['icon-beaker', 'icon-thumbs-down-alt', 'icon-warning-sign', 'icon-trash'],
-            text: '    MyTestMethod3',
+            badges: ['icon-beaker', 'icon-warning-sign', 'icon-trash'],
+            text: '   MyTestMethod3',
             target: '/en-US/docs/Web/API/TestInterface/TestMethod3',
             title: 'The MyTestMethod3 property of the TestInterface interface has all the badges.'
         }
@@ -103,8 +103,8 @@ const expectedMethods = {
             title: 'The MyTestMethod2 property of the TestInterface interface is deprecated and non-standard.'
         },
         {
-            badges: ['icon-beaker', 'icon-thumbs-down-alt', 'icon-warning-sign', 'icon-trash'],
-            text: '    MyTestMethod3 [Traduire]',
+            badges: ['icon-beaker', 'icon-warning-sign', 'icon-trash'],
+            text: '   MyTestMethod3 [Traduire]',
             target: '/fr/docs/Web/API/TestInterface/TestMethod3',
             title: 'The MyTestMethod3 property of the TestInterface interface has all the badges.'
         }
@@ -123,8 +123,8 @@ const expectedMethods = {
             title: 'The MyTestMethod2 property of the TestInterface interface is deprecated and non-standard (ja translation).'
         },
         {
-            badges: ['icon-beaker', 'icon-thumbs-down-alt', 'icon-warning-sign', 'icon-trash'],
-            text: '    MyTestMethod3',
+            badges: ['icon-beaker', 'icon-warning-sign', 'icon-trash'],
+            text: '   MyTestMethod3',
             target: '/ja/docs/Web/API/TestInterface/TestMethod3',
             title: 'The MyTestMethod3 property of the TestInterface interface has all the badges (ja translation).'
         }

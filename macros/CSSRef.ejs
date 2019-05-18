@@ -220,21 +220,19 @@ if (slug) {
 
         result += '<li>';
 
-        if (hasTag(aPage, 'Experimental')) {
-            result += badges.ExperimentalBadge;
-        }
-
         if (hasTag(aPage, 'Non-standard') || hasTag(aPage, 'Non Standard')) {
             result += badges.NonStandardBadge;
         }
 
-        if (hasTag(aPage, 'Deprecated')) {
-            result += badges.DeprecatedBadge;
+        if (hasTag(aPage, 'Experimental')) {
+            result += badges.ExperimentalBadge;
         }
 
         if (hasTag(aPage, 'Obsolete')) {
             result += badges.ObsoleteBadge;
             result += '<s class="obsoleteElement">';
+        } else if (hasTag(aPage, 'Deprecated')) {
+            result += badges.DeprecatedBadge;
         }
 
         if (rtlLocales.indexOf(locale) != -1) {
