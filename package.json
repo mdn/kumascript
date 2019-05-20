@@ -28,7 +28,7 @@
         "lru-cache": "5.1.1",
         "mdn-browser-compat-data": "0.x",
         "morgan": "1.9.1",
-        "newrelic": "4.13.0",
+        "newrelic": "5.9.0",
         "redis": "^2.8.0",
         "request": "2.88.0"
     },
