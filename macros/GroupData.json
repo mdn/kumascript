@@ -728,7 +728,7 @@
             "events":     []
         },
         "Media Source Extensions": {
-            "overview": [ "Media_Source_Extensions_API" ],
+            "overview": [ "Media Source Extensions API" ],
             "interfaces": [ "MediaSource",
                             "SourceBuffer",
                             "SourceBufferList",
