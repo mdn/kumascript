@@ -624,6 +624,7 @@
                             "HTMLElement: dragend" ]
         },
         "Image Capture API": {
+            "overview": [ "MediaStream Image Capture API" ],
             "interfaces": [ "ImageCapture",
                             "PhotoCapabilities" ],
             "methods":    [],
@@ -727,6 +728,7 @@
             "events":     []
         },
         "Media Source Extensions": {
+            "overview": [ "Media Source Extensions API" ],
             "interfaces": [ "MediaSource",
                             "SourceBuffer",
                             "SourceBufferList",
@@ -1640,6 +1642,7 @@
                             "Window: vrdisplaypresentchange" ]
         },
         "WebVTT": {
+            "overview": [ "WebVTT API" ],
             "guides":     [ { "url":   "/docs/Web/API/Web_Video_Text_Tracks_Format",
                               "title": "WebVTT file format" } ],
             "interfaces": [ "VTTCue",
