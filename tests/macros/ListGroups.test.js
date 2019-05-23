@@ -23,7 +23,7 @@ const groupDataFixture = fs.readFileSync(groupDataFixturePath, 'utf8');
  */
 const overviewPages = {
     '/en-US/docs/Web/API/An_overview_page_for_ATestInterface_API': { tags: ['foo', 'bar'] },
-    '/en-US/docs/Web/API/A2TestInterface': { tags: ['experimental'] },
+    '/en-US/docs/Web/API/A2TestInterface_overview': { tags: ['experimental'] },
     '/en-US/docs/Web/API/An_overview_page_for_BTestInterface_API': { tags: [] }
 }
 
@@ -35,7 +35,7 @@ const expectedHTML =
     <span>A</span>
     <ul>
         <li>
-            <a href='/en-US/docs/Web/API/A2TestInterface'>A2TestInterface</a>
+            <a href='/en-US/docs/Web/API/A2TestInterface_overview'>A2TestInterface</a>
             <span class='indexListBadges'>
                 <span title="This is an experimental API that should not be used in production code.">
                     <i class="icon-beaker"></i>
