@@ -35,13 +35,12 @@ var interfaces = webAPIGroups[0][group].interfaces || [];
 var methods = webAPIGroups[0][group].methods || [];
 var properties = webAPIGroups[0][group].properties || [];
 var events = webAPIGroups[0][group].events || [];
+var groupGuides = webAPIGroups[0][group].guides || [];
 var guides = [];
 
-if (webAPIGroups[0][group].overview) {
-    guides = await page.subpagesExpand('/en-US/docs/Web/API/' + webAPIGroups[0][group].overview[0].replace(/ /g, '_'));
+for (let groupGuide of groupGuides) {
+    guides.push(await wiki.getPage(groupGuide.url));
 }
-var otherGuides = webAPIGroups[0][group].guides || [];
-guides = guides.concat(otherGuides);
 
 function buildSublist(pages, title) {
   var result = '<li class="toggle"><details open><summary>' + title + '</summary><ol>';
