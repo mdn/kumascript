@@ -18,7 +18,7 @@ const permittedCharacters = {
     dictionary: /^\w+$/,
     callback: /^\w+$/,
     type: /^\w+$/,
-    guideTitle: /^[\w .,]+$/,
+    guideTitle: /^[\w .,-:(#)]+$/,
     guideUrl: /^\/[\w-.~/]+$/
 };
 
