@@ -4,6 +4,9 @@
             "overview":   [ "An overview page for BTestInterface API"]
         },
         "A2TestInterface": {
+            "overview":   [ "A2TestInterface overview"]
+        },
+        "CTestInterface": {
         },
         "ATestInterface": {
             "overview":   [ "An overview page for ATestInterface API"]
