@@ -683,7 +683,8 @@
             "events":     []
         },
         "IndexedDB": {
-          "guides":     [ { "url":   "/docs/Web/API/IndexedDB_API/Using_IndexedDB",
+            "overview":   [ "IndexedDB API" ],
+            "guides":     [ { "url":   "/docs/Web/API/IndexedDB_API/Using_IndexedDB",
                             "title": "Using IndexedDB" },
                           { "url":   "/docs/Web/API/IndexedDB_API/Basic_Concepts_Behind_IndexedDB",
                             "title": "Basic concepts" },
@@ -691,7 +692,6 @@
                             "title": "Browser storage limits and eviction criteria" },
                           { "url":   "/docs/Web/API/IndexedDB_API/Checking_when_a_deadline_is_due",
                             "title": "Checking when a deadline is due" } ],
-            "overview":   [ "IndexedDB API" ],
             "interfaces": [ "IDBCursor",
                             "IDBCursorSync",
                             "IDBCursorWithValue",
