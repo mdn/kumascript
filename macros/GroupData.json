@@ -1355,6 +1355,7 @@
             "events":     [  ]
         },
         "Web Audio API": {
+           "overview":   [ "Web Audio API" ],
            "guides":     [ { "url":   "/docs/Web/API/Web_Audio_API/Using_Web_Audio_API",
                              "title": "Using the Web Audio API" },
                            { "url":   "/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API",
@@ -1377,7 +1378,6 @@
                              "title": "Visualizations with Web Audio API" },
                            { "url":   "/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics",
                              "title": "Web audio spatialization basics" } ],
-            "overview":   [ "Web Audio API" ],
             "interfaces": [ "AnalyserNode",
                             "AudioBuffer",
                             "AudioBufferSourceNode",
