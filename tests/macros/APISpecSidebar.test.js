@@ -11,26 +11,59 @@ const {
 } = require('./utils');
 
 /**
-* Load all the fixtures.
-*/
+ * Load all the fixtures.
+ */
 const fs = require('fs');
 const path = require('path');
-const subpagesFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/subpages.json');
+const subpagesFixturePath = path.resolve(__dirname, 'fixtures/APISpecSidebar/Subpages.json');
 const subpagesJSON = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
-const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/commonl10n.json');
-const commonl10nFixture = fs.readFileSync(commonl10nFixturePath, 'utf8');
-const commonL10nJSON = JSON.parse(commonl10nFixture);
-const groupDataFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/groupdata.json');
+const commonL10nFixturePath = path.resolve(__dirname, 'fixtures/APISpecSidebar/CommonL10n.json');
+const commonL10nFixture = fs.readFileSync(commonL10nFixturePath, 'utf8');
+const commonL10nJSON = JSON.parse(commonL10nFixture);
+const groupDataFixturePath = path.resolve(__dirname, 'fixtures/APISpecSidebar/GroupData.json');
 const groupDataFixture = fs.readFileSync(groupDataFixturePath, 'utf8');
 
 /**
-* All the const objects that follow define bits of the data we expect.
-**/
+ * @typedef {'en-US' | 'fr' | 'ja'} Locale
+ *
+ * @callback ItemChecker
+ * @param {string} expected
+ * @param {Node & ParentNode} actual
+ * @param {Locale} locale
+ * @return {void}
+ *
+ * @typedef {object} TestConfig
+ * @property {string} name
+ * @property {string} argument
+ * @property {any[]} subpages
+ * @property {ExpectedSidebarContent} expected
+ *
+ * @typedef {TestConfig & {locale: Locale}} RuntimeTestConfig
+ *
+ * @typedef {object} ExpectedSidebarContent
+ * @property {string} [overview]
+ * @property {object} details
+ * @property {string[]} [details.Guides]
+ * @property {string[]} [details.Interfaces]
+ * @property {string[]} [details.Methods]
+ * @property {string[]} [details.Properties]
+ * @property {string[]} [details.Events]
+ *
+ * @typedef {object} ExpectedGuide
+ * @property {string} text
+ * @property {string} target
+ * @property {string} [title]
+ */
+
+/* All the const objects that follow define bits of the data we expect. *
+ * ==================================================================== */
 
 /**
-* Map link names to link targets
-* (excluding locales, which the checker adds as a prefix)
-*/
+ * Map link names to link targets
+ * (excluding locales, which the checker adds as a prefix)
+ *
+ * @type {Record<string, string>}
+ */
 const expectedTargets = {
     // overview page
     'TestInterface1 API': '/docs/Web/API/TestInterface1_API',
@@ -56,10 +89,12 @@ const expectedTargets = {
 }
 
 /**
-* Data for guide links is more complex because (when the guides are
-* found from subpages rather than GroupData) it is
-* locale-sensitive and contains title attributes.
-*/
+ * Data for guide links is more complex because (when the guides are
+ * found from subpages rather than GroupData) it is
+ * locale-sensitive and contains title attributes.
+ *
+ * @type {Record<Locale, Record<string, ExpectedGuide>>}
+ */
 const expectedGuides = {
     'en-US': {
         'A Guide in another place': {
@@ -124,9 +159,11 @@ const expectedGuides = {
 }
 
 /**
-* Different expected sidebar contents, one for each test
-*/
-const expectedSideBarContents = {
+ * Different expected sidebar contents, one for each test
+ *
+ * @type {Record<string, ExpectedSidebarContent>}
+ */
+const expectedSidebarContents = {
     'TestInterface1_WithSubpages': {
         'overview': 'TestInterface1 API',
         details: {
@@ -181,12 +218,14 @@ const expectedSideBarContents = {
 }
 
 /**
-* This is the checker for all items except for guide items.
-* It just compares:
-* - the DOM element's textContent with expected,
-* - the `a.href` with the expected target, which it gets from
-* the `expectedTargets` map.
-*/
+ * This is the checker for all items except for guide items.
+ * It just compares:
+ * - the DOM element's textContent with expected,
+ * - the `a.href` with the expected target, which it gets from
+ * the `expectedTargets` map.
+ *
+ * @type {ItemChecker}
+ */
 function checkItem(expected, actual, locale) {
     // Check the textContent
     expect(actual.textContent).toEqual(expected);
@@ -197,10 +236,12 @@ function checkItem(expected, actual, locale) {
 }
 
 /**
-* Guide items need special treatment because they
-* are locale-sensitive sometimes, and sometimes include a title
-* attribute which we have to check.
-*/
+ * Guide items need special treatment because they
+ * are locale-sensitive sometimes, and sometimes include a title
+ * attribute which we have to check.
+ *
+ * @type {ItemChecker}
+ */
 function checkGuideItem(expected, actual, locale) {
     // Check the textContent
     const expectedItem = expectedGuides[locale][expected];
@@ -215,9 +256,15 @@ function checkGuideItem(expected, actual, locale) {
 }
 
 /**
-* Check a subsection of the sidebar, represented as a <details> element
-* containing a <summary> and a list of links.
-*/
+ * Check a subsection of the sidebar, represented as a <details> element
+ * containing a <summary> and a list of links.
+ *
+ * @param {keyof ExpectedSidebarContent['details']} name
+ * @param {RuntimeTestConfig} config
+ * @param {ArrayLike<ParentNode>} details
+ * @param {ItemChecker} checker
+ * @param {number} next
+ */
 function checkSubList(name, config, details, checker, next) {
     const hasSubList = config.expected.details[name];
     if (hasSubList) {
@@ -239,10 +286,13 @@ function checkSubList(name, config, details, checker, next) {
 }
 
 /**
-* This is the entry point for checking the result of a test.
-* config.expected contains the expected results, and we use other bits
-* of config, most notably locale.
-*/
+ * This is the entry point for checking the result of a test.
+ * config.expected contains the expected results, and we use other bits
+ * of config, most notably locale.
+ *
+ * @param {string} html
+ * @param {RuntimeTestConfig} config
+ */
 function checkResult(html, config) {
     // Lint the HTML
     expect(lintHTML(html)).toBeFalsy();
@@ -271,44 +321,43 @@ function checkResult(html, config) {
 }
 
 /**
-* Call the macro for each of three locales,
-* using the given config, and check the result.
-*/
+ * Call the macro for each of three locales,
+ * using the given config, and check the result.
+ *
+ * @param {TestConfig} config
+ */
 function testMacro(config) {
     for (const locale of ['en-US', 'fr', 'ja']) {
         let testName = `${config.name}; locale: ${locale}`;
-        itMacro(testName, function(macro) {
+        itMacro(testName, async macro => {
             config.locale = locale;
             macro.ctx.env.locale = locale;
             // Mock calls to MDN.subpagesExpand
-            macro.ctx.page.subpagesExpand = jest.fn((page) => {
+            macro.ctx.page.subpagesExpand = jest.fn(async page => {
                 return config.subpages;
             });
-            return macro.call(config.argument).then(function(result) {
-                checkResult(result, config);
-            });
-
+            const result = await macro.call(config.argument);
+            checkResult(result, config);
         });
     }
 }
 
-describeMacro('DefaultAPISidebar', function() {
-
+describeMacro('APISpecSidebar', () => {
     // Set any fixtures that don't change from one
     // test to another
-    beforeEachMacro(function(macro) {
+    beforeEachMacro(macro => {
         // env.slug only has to be truthy
         macro.ctx.env.slug = 'not undefined';
         // Mock calls to L10n-Common and GroupData
         const originalTemplate = macro.ctx.template;
-        macro.ctx.template = jest.fn( async (name, ...args) => {
-            if (name === "L10n:Common") {
-                return commonl10nFixture;
+        macro.ctx.template = jest.fn(async (name, ...args) => {
+            if (name === 'L10n:Common') {
+                return commonL10nFixture;
             }
-            if (name === "GroupData") {
+            if (name === 'GroupData') {
                 return groupDataFixture;
             }
-            return await originalTemplate(name, ...args);
+            return originalTemplate(name, ...args);
         });
     });
 
@@ -317,42 +366,41 @@ describeMacro('DefaultAPISidebar', function() {
         name: 'Text Interface 1 with subpages',
         argument: 'TestInterface1',
         subpages: subpagesJSON,
-        expected: expectedSideBarContents.TestInterface1_WithSubpages
+        expected: expectedSidebarContents.TestInterface1_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 2 with subpages',
         argument: 'TestInterface2',
         subpages: subpagesJSON,
-        expected: expectedSideBarContents.TestInterface2_WithSubpages
+        expected: expectedSidebarContents.TestInterface2_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 3 with subpages',
         argument: 'TestInterface3',
         subpages: subpagesJSON,
-        expected: expectedSideBarContents.TestInterface3_WithSubpages
+        expected: expectedSidebarContents.TestInterface3_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 4 with subpages',
         argument: 'TestInterface4',
         subpages: subpagesJSON,
-        expected: expectedSideBarContents.TestInterface4_WithSubpages
+        expected: expectedSidebarContents.TestInterface4_WithSubpages
     });
 
     testMacro({
         name: 'Text Interface 1 with no subpages',
         argument: 'TestInterface1',
         subpages: [],
-        expected: expectedSideBarContents.TestInterface1_NoSubpages
+        expected: expectedSidebarContents.TestInterface1_NoSubpages
     });
 
     testMacro({
         name: 'Text Interface 2 with no subpages',
         argument: 'TestInterface2',
         subpages: [],
-        expected: expectedSideBarContents.TestInterface2_NoSubpages
+        expected: expectedSidebarContents.TestInterface2_NoSubpages
     });
-
 });
