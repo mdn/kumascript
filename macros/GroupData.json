@@ -455,8 +455,6 @@
                             "Window: gamepaddisconnected" ]
         },
         "Geolocation API": {
-            "guides":     [ { "url":   "/docs/Web/API/Geolocation/Using_geolocation",
-                              "title": "Using geolocation" } ],
             "interfaces": [ "Coordinates",
                             "Geolocation",
                             "Position",
@@ -907,8 +905,8 @@
         },
         "Performance Timeline API": {
             "overview":   [ "Performance Timeline" ],
-            "guides":     [ { "url":   "/docs/Web/API/Performance_Timeline",
-                              "title": "Performance Timeline" } ],
+            "guides":     [ { "url":   "/docs/Web/API/Performance_Timeline/Using_Performance_Timeline",
+                              "title": "Using Performance Timeline" } ],
             "interfaces": [ "Performance",
                             "PerformanceEntry",
                             "PerformanceObserver",
