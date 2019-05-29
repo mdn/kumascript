@@ -15,8 +15,12 @@ const {
 */
 const fs = require('fs');
 const path = require('path');
-const subpagesFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/subpages.json');
-const subpagesJSON = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
+const pagesFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/pages.json');
+const pagesJSON = JSON.parse(fs.readFileSync(pagesFixturePath, 'utf8'));
+const subpagesJSON = [
+    pagesJSON['/en-US/docs/Web/API/TestInterface_API/MyGuidePage1'],
+    pagesJSON['/en-US/docs/Web/API/TestInterface_API/MyGuidePage2']
+];
 const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/defaultapisidebar/commonl10n.json');
 const commonl10nFixture = fs.readFileSync(commonl10nFixturePath, 'utf8');
 const commonL10nJSON = JSON.parse(commonl10nFixture);
@@ -66,59 +70,32 @@ const expectedGuides = {
             text: 'A Guide in another place',
             target: '/en-US/docs/Web/AnotherPlace/A_guide'
         },
-        'A Guide listed in GroupData and also a subpage_1': {
-            text: 'A Guide listed in GroupData and also a subpage',
-            target: '/en-US/docs/Web/API/TestInterface_API/MyGuidePage1'
-        },
-        'A Guide listed in GroupData and also a subpage_2': {
+        'A Guide listed in GroupData and also a subpage': {
             text: 'A Guide listed in GroupData and also a subpage',
             target: '/en-US/docs/Web/API/TestInterface_API/MyGuidePage1',
             title: 'The MyGuidePage1 ...'
-        },
-        'A Guide which is only a subpage': {
-            text: 'A Guide which is only a subpage',
-            target: '/en-US/docs/Web/API/TestInterface_API/MyGuidePage2',
-            title: 'The MyGuidePage2 ...'
         }
     },
     'fr':  {
         'A Guide in another place': {
-            text: 'A Guide in another place',
+            text: 'A Guide in another place [Traduire]',
             target: '/fr/docs/Web/AnotherPlace/A_guide'
         },
-        'A Guide listed in GroupData and also a subpage_1': {
-            text: 'A Guide listed in GroupData and also a subpage',
-            target: '/fr/docs/Web/API/TestInterface_API/MyGuidePage1'
-        },
-        'A Guide listed in GroupData and also a subpage_2': {
+        'A Guide listed in GroupData and also a subpage': {
             text: 'A Guide listed in GroupData and also a subpage [Traduire]',
             target: '/fr/docs/Web/API/TestInterface_API/MyGuidePage1',
             title: 'The MyGuidePage1 ...'
-        },
-        'A Guide which is only a subpage': {
-            text: 'A Guide which is only a subpage [Traduire]',
-            target: '/fr/docs/Web/API/TestInterface_API/MyGuidePage2',
-            title: 'The MyGuidePage2 ...'
         }
     },
     'ja':  {
         'A Guide in another place': {
-            text: 'A Guide in another place',
+            text: 'A Guide in another place (ja translation)',
             target: '/ja/docs/Web/AnotherPlace/A_guide'
         },
-        'A Guide listed in GroupData and also a subpage_1': {
-            text: 'A Guide listed in GroupData and also a subpage',
-            target: '/ja/docs/Web/API/TestInterface_API/MyGuidePage1'
-        },
-        'A Guide listed in GroupData and also a subpage_2': {
+        'A Guide listed in GroupData and also a subpage': {
             text: 'A Guide listed in GroupData and also a subpage (ja translation)',
             target: '/ja/docs/Web/API/TestInterface_API/MyGuidePage1',
             title: 'The MyGuidePage1 ... (ja translation).'
-        },
-        'A Guide which is only a subpage': {
-            text: 'A Guide which is only a subpage (ja translation)',
-            target: '/ja/docs/Web/API/TestInterface_API/MyGuidePage2',
-            title: 'The MyGuidePage2 ... (ja translation).'
         }
     }
 }
@@ -130,7 +107,6 @@ const expectedSideBarContents = {
     'TestInterface1_WithSubpages': {
         'overview': 'TestInterface1 API',
         details: {
-            Guides: ['A Guide listed in GroupData and also a subpage_2', 'A Guide which is only a subpage'],
             Interfaces: ['AnInterface'],
             Methods: ['ADifferentInterface.doSomething()', 'YetAnotherInterface.doSomething()']
         }
@@ -138,7 +114,7 @@ const expectedSideBarContents = {
     'TestInterface2_WithSubpages': {
         'overview':   'TestInterface2 API',
         details: {
-            Guides: ['A Guide listed in GroupData and also a subpage_2', 'A Guide which is only a subpage', 'A Guide in another place'],
+            Guides: ['A Guide in another place'],
             Interfaces: ['AnInterface'],
             Methods: ['ADifferentInterface.doSomething()', 'YetAnotherInterface.doSomething()'],
             Properties: ['ADifferentInterface.aProperty', 'ADifferentInterface.anotherProperty'],
@@ -148,7 +124,7 @@ const expectedSideBarContents = {
     'TestInterface3_WithSubpages': {
         'overview': 'TestInterface3 API',
         details: {
-            Guides: ['A Guide listed in GroupData and also a subpage_2', 'A Guide which is only a subpage', 'A Guide in another place', 'A Guide listed in GroupData and also a subpage_1'],
+            Guides: ['A Guide in another place', 'A Guide listed in GroupData and also a subpage'],
             Interfaces: ['AnInterface', 'AnotherInterface'],
             Properties: ['ADifferentInterface.aProperty']
         }
@@ -309,6 +285,10 @@ describeMacro('DefaultAPISidebar', function() {
                 return groupDataFixture;
             }
             return await originalTemplate(name, ...args);
+        });
+        // Mock calls to wiki.getPage()
+        macro.ctx.wiki.getPage = jest.fn( async (url) => {
+            return pagesJSON[url];
         });
     });
 
