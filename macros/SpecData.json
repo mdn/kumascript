@@ -884,6 +884,11 @@
     "url": "https://w3c.github.io/IndexedDB/",
     "status": "Draft"
   },
+  "IndexedDB 2": {
+    "name": "Indexed Database API 2.0",
+    "url": "https://w3c.github.io/IndexedDB/",
+    "status": "REC"
+  },
   "InputDeviceCapabilities": {
     "name": "InputDeviceCapabilities",
     "url": "https://wicg.github.io/InputDeviceCapabilities/",
