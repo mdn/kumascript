@@ -37,7 +37,7 @@ const expectedHTML =
         <li>
             <a href='/en-US/docs/Web/API/A2TestInterface_overview'>A2TestInterface</a>
             <span class='indexListBadges'>
-                <span title="This is an experimental API that should not be used in production code.">
+                <span title="This is an experimental API that should not be used in production code." class="icon-only-inline">
                     <i class="icon-beaker"></i>
                 </span>
             </span>
