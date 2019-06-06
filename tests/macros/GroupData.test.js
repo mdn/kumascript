@@ -14,11 +14,11 @@ const permittedCharacters = {
     interface: /^[A-Z][\w.]+$/,
     property: /^[\w.]+$/,
     method: /^[\w.()]+$/,
-    event: /^[\w()]+$/,
+    event: /^[\w]+: [\w]+$/,
     dictionary: /^\w+$/,
     callback: /^\w+$/,
     type: /^\w+$/,
-    guideTitle: /^[\w .,]+$/,
+    guideTitle: /^[\w .,-:(#)]+$/,
     guideUrl: /^\/[\w-.~/]+$/
 };
 

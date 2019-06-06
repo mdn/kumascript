@@ -131,16 +131,68 @@ const expectedMethods = {
     ]
 }
 
-const expectedEvents = [
-    {
-        text: 'crunch',
-        target: '/docs/Web/Events/crunch'
-    },
-    {
-        text: 'stomp',
-        target: '/docs/Web/Events/stomp'
-    }
-];
+const expectedEvents = {
+    'en-US': [
+        {
+            badges: [],
+            text: 'TestEvent1',
+            target: '/en-US/docs/Web/API/TestInterface/TestEvent1',
+            title: 'The MyTestEvent1 event of the TestInterface interface has no badges.'
+        },
+        {
+            badges: ['icon-thumbs-down-alt', 'icon-warning-sign'],
+            text: '  TestEvent2',
+            target: '/en-US/docs/Web/API/TestInterface/TestEvent2',
+            title: 'The MyTestEvent2 event of the TestInterface interface is deprecated and non-standard.'
+        },
+        {
+            badges: [],
+            text: 'TestEvent3_another_suffix',
+            target: '/en-US/docs/Web/API/TestInterface/TestEvent3',
+            title: 'The MyTestEvent3 event of the TestInterface interface has no badges.'
+        }
+    ],
+    'fr': [
+        {
+            badges: [],
+            text: 'TestEvent1 [Traduire]',
+            target: '/fr/docs/Web/API/TestInterface/TestEvent1',
+            title: 'The MyTestEvent1 event of the TestInterface interface has no badges.'
+        },
+        {
+            badges: ['icon-thumbs-down-alt', 'icon-warning-sign'],
+            text: '  TestEvent2 [Traduire]',
+            target: '/fr/docs/Web/API/TestInterface/TestEvent2',
+            title: 'The MyTestEvent2 event of the TestInterface interface is deprecated and non-standard.'
+        },
+        {
+            badges: [],
+            text: 'TestEvent3_another_suffix [Traduire]',
+            target: '/fr/docs/Web/API/TestInterface/TestEvent3',
+            title: 'The MyTestEvent3 event of the TestInterface interface has no badges.'
+        }
+    ],
+    'ja': [
+        {
+            badges: [],
+            text: 'TestEvent1',
+            target: '/ja/docs/Web/API/TestInterface/TestEvent1',
+            title: 'The MyTestEvent1 event of the TestInterface interface has no badges (ja translation).'
+        },
+        {
+            badges: ['icon-thumbs-down-alt', 'icon-warning-sign'],
+            text: '  TestEvent2',
+            target: '/ja/docs/Web/API/TestInterface/TestEvent2',
+            title: 'The MyTestEvent2 event of the TestInterface interface is deprecated and non-standard (ja translation).'
+        },
+        {
+            badges: [],
+            text: 'TestEvent3_another_suffix',
+            target: '/ja/docs/Web/API/TestInterface/TestEvent3',
+            title: 'The MyTestEvent3 event of the TestInterface interface has no badges (ja translation).'
+        }
+    ]
+}
 
 const expectedRelated = [
     {
@@ -183,7 +235,8 @@ const expectedBasic = {
     mainIfLink: expectedMainIfLink.withoutGroupData,
     details: {
         properties: expectedProperties,
-        methods: expectedMethods
+        methods: expectedMethods,
+        events: expectedEvents
     }
 }
 
@@ -202,6 +255,7 @@ const expectedWithInterfaceData = {
     details: {
         properties: expectedProperties,
         methods: expectedMethods,
+        events: expectedEvents,
         inherited: expectedInherited,
         implemented: expectedImplemented
     }
@@ -297,12 +351,18 @@ function checkResult(html, config) {
     const methods = details[1];
     checkItemList(expectedMethodSummary, expectedMethodItems, methods, config, checkInterfaceItem);
 
+    // Test the events sublist
+    const expectedEventSummary = commonL10nJSON['Events'][config.locale];
+    const expectedEventItems = config.expected.details.events[config.locale];
+    const events = details[2];
+    checkItemList(expectedEventSummary, expectedEventItems, events, config, checkInterfaceItem);
+
     const hasInherited = config.expected.details.inherited;
     if (hasInherited) {
         // Test the inherited sublist
         const expectedInheritedSummary = commonL10nJSON['Inheritance'][config.locale];
         const expectedInheritedItems = config.expected.details.inherited;
-        const inherited = details[2];
+        const inherited = details[3];
         checkItemList(expectedInheritedSummary, expectedInheritedItems, inherited, config, checkRelatedItem);
     }
 
@@ -311,17 +371,8 @@ function checkResult(html, config) {
         // Test the implemented_by sublist
         const expectedImplementedSummary = commonL10nJSON['Implemented_by'][config.locale];
         const expectedImplementedItems = config.expected.details.implemented;
-        const implemented = details[3];
+        const implemented = details[4];
         checkItemList(expectedImplementedSummary, expectedImplementedItems, implemented, config, checkRelatedItem);
-    }
-
-    const hasEvents = config.expected.details.events;
-    if (hasEvents) {
-        // Test the events sublist
-        const expectedEventSummary = commonL10nJSON['Events'][config.locale];
-        const expectedEventItems = config.expected.details.events;
-        const events = details[2];
-        checkItemList(expectedEventSummary, expectedEventItems, events, config, checkRelatedItem);
     }
 
     const hasRelated = config.expected.details.related;
