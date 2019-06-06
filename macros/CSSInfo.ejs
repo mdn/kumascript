@@ -11,21 +11,7 @@ let name = $0 || (slug ? slug.split("/").pop().toLowerCase() :
     "preview-wiki-content");
 let atRule = $1;
 
-let propertiesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/properties.json";
-let atRulesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/at-rules.json";
-let selectorsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/selectors.json";
-let typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json";
-let syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
-let unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
-let localStringsUrl = "https://raw.githubusercontent.com/mdn/data/master/l10n/css.json";
-let data = {
-    properties: await MDN.fetchJSONResource(propertiesUrl),
-    atRules: await MDN.fetchJSONResource(atRulesUrl),
-    selectors: await MDN.fetchJSONResource(selectorsUrl),
-    types: await MDN.fetchJSONResource(typesUrl),
-    syntaxes: await MDN.fetchJSONResource(syntaxesUrl),
-    units: await MDN.fetchJSONResource(unitsUrl)
-};
+var data = require('mdn-data/css');
 let formattedError = "<span style=\"color:red;\">$1$</span>";
 let commonLocalStrings = string.deserialize(await template("L10n:Common"));
 let locale = env.locale;
@@ -37,7 +23,7 @@ let localWiki = wiki;
 let currentPage = page;
 
 let cssLocalStrings = string.deserialize(await template("L10n:CSS"));
-let localStrings = await MDN.fetchJSONResource(localStringsUrl);
+let localStrings = require('mdn-data/l10n/css');
 
 /*
   Creates a link to another API, e.g. a CSS property or SVG element

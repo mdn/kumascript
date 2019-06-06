@@ -4078,6 +4078,11 @@
                 "extend": "3.0.2"
             }
         },
+        "mdn-data": {
+            "version": "2.0.2",
+            "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.2.tgz",
+            "integrity": "sha512-LJAYMdB0NNBg3WuMU13sximT6P/8r4Eq/oqa1rJMonw+frE5vD52gWFJeYQHjrXbH3G8c2Ml6OcbXAcqnrroNA=="
+        },
         "media-typer": {
             "version": "0.3.0",
             "resolved": "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz",
