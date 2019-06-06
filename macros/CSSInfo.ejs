@@ -23,7 +23,7 @@ let localWiki = wiki;
 let currentPage = page;
 
 let cssLocalStrings = string.deserialize(await template("L10n:CSS"));
-let localStrings = await MDN.fetchJSONResource(localStringsUrl);
+let localStrings = require('mdn-data/l10n/css');
 
 /*
   Creates a link to another API, e.g. a CSS property or SVG element
