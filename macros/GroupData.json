@@ -716,6 +716,7 @@
             "events":     []
         },
         "Intersection Observer API": {
+            "overview":   [ "Intersection Observer API"],
             "interfaces": [ "IntersectionObserver",
                             "IntersectionObserverEntry" ],
             "methods":    [],
