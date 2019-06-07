@@ -1498,8 +1498,7 @@
                               "title": "Using the Storage Access API" } ],
             "interfaces": [],
             "methods":    [ "Document.hasStorageAccess()",
-                             "Document.requestStorageAccess()"      
-            ],
+                            "Document.requestStorageAccess()" ],
             "properties": [],
             "events":     []
         },
