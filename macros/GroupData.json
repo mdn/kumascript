@@ -166,6 +166,7 @@
                             "StyleSheet",
                             "StyleSheetList",
                             "TransitionEvent" ],
+            "dictionaries": [ "ScrollToOptions" ],
             "methods":    [],
             "properties": [],
             "events":     [ "Document: scroll",
