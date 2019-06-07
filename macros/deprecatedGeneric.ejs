@@ -59,7 +59,7 @@ if ($1) {
     } else if (string.startswith(t, "gecko")) {
         n = string.trim( string.substr(t, 5) );
         ver = "Gecko ";
-        tip = template("geckoRelease", [n]);
+        tip = await template("geckoRelease", [n]);
     }
 
     n = string.trim(n);
@@ -137,7 +137,7 @@ switch($0) {
     case 'header':
         if (tip.length) { str = str + " " + tip; }
         %><div class="blockIndicator deprecated deprecatedHeader">
-            <p><strong><%-template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p>
+            <p><strong><%-await template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p>
         </div><%
         break;
     case 'method':

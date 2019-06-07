@@ -16,7 +16,7 @@ var str = mdn.localString({
     "zh-TW": ($1 ? '自 Gecko ' + $1 + '開始變為' : '') + "選擇性"
 });
 
-if ($1) attr = template("geckoRelease", [$1]);
+if ($1) attr = await template("geckoRelease", [$1]);
 
 switch($0) {
     case 'inline':

@@ -34,6 +34,11 @@
     "url": "https://w3c.github.io/html-aria/",
     "status": "WD"
   },
+  "ARIA Authoring Practices": {
+    "name": "WAI-ARIA Authoring Practices",
+    "url": "https://www.w3.org/TR/wai-aria-practices-1.1/",
+    "status": "WD"
+  },
   "Async Function": {
     "name": "ECMAScript Async Functions",
     "url": "https://tc39.github.io/ecmascript-asyncawait/",
@@ -207,7 +212,7 @@
   "CSS3 Display": {
     "name": "CSS Display Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-display/",
-    "status": "WD"
+    "status": "CR"
   },
   "CSS3 Environment Variables": {
     "name": "CSS Environment Variables Module Level&nbsp;1",
@@ -424,6 +429,11 @@
     "url": "https://drafts.csswg.org/css-writing-modes-4/",
     "status": "CR"
   },
+  "CSS5 Media Queries": {
+    "name": "Media Queries Level&nbsp;5",
+    "url": "https://drafts.csswg.org/mediaqueries-5/",
+    "status": "ED"
+  },
   "CSS Animation Worklet": {
     "name": "CSS Animation Worklet API",
     "url": "https://wicg.github.io/animation-worklet/",
@@ -512,6 +522,11 @@
   "CSS Scrollbars": {
     "name": "CSS Scrollbars Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-scrollbars-1/",
+    "status": "WD"
+  },
+  "CSS Scroll Anchoring": {
+    "name": "CSS Scroll Anchoring Module Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scroll-anchoring/",
     "status": "ED"
   },
   "CSS Scroll Snap": {
@@ -575,9 +590,9 @@
     "status": "ED"
   },
   "Device Orientation": {
-    "name": "Device Orientation Events",
+    "name": "DeviceOrientation Event Specification",
     "url": "https://w3c.github.io/deviceorientation/",
-    "status": "WD"
+    "status": "ED"
   },
   "DOM Parsing": {
     "name": "DOM Parsing and Serialization",
@@ -711,8 +726,8 @@
   },
   "Feature Policy": {
     "name": "Feature Policy",
-    "url": "https://wicg.github.io/feature-policy/",
-    "status": "Draft"
+    "url": "https://w3c.github.io/webappsec-feature-policy/",
+    "status": "ED"
   },
   "Fetch": {
     "name": "Fetch",
@@ -886,7 +901,7 @@
   },
   "Keyboard Lock": {
     "name": "Keyboard Lock",
-    "url": "https://w3c.github.io/keyboard-lock",
+    "url": "https://w3c.github.io/keyboard-lock/",
     "status": "ED"
   },
   "Keyboard Map": {
@@ -933,6 +948,11 @@
     "name": "Media Capture from DOM Elements",
     "url": "https://w3c.github.io/mediacapture-fromelement/",
     "status": "WD"
+  },
+  "Media Playback Quality": {
+    "name": "Media Playback Quality",
+    "url": "https://wicg.github.io/media-playback-quality/",
+    "status": "ED"
   },
   "Media Session": {
     "name": "Media Session Standard",
@@ -1029,6 +1049,11 @@
     "url": "https://w3c.github.io/payment-handler/",
     "status": "WD"
   },
+  "Payment Method Identifiers": {
+    "name": "Payment Method Identifiers",
+    "url": "https://w3c.github.io/payment-method-id/",
+    "status": "CR"
+  },
   "Permissions API": {
     "name": "Permissions",
     "url": "https://w3c.github.io/permissions/",
@@ -1109,6 +1134,11 @@
     "url": "https://www.w3.org/TR/animation-timing/",
     "status": "Obsolete"
   },
+  "Resize Observer": {
+    "name": "Resize Observer",
+    "url": "https://drafts.csswg.org/resize-observer/",
+    "status": "ED"
+  },
   "Resource Hints": {
     "name": "Resource Hints",
     "url": "https://www.w3.org/TR/resource-hints/",
@@ -1128,6 +1158,11 @@
     "name": "Resource Timing Level 3",
     "url": "https://w3c.github.io/resource-timing/",
     "status": "ED"
+  },
+  "Screen Capture": {
+    "name": "Screen Capture",
+    "url": "https://w3c.github.io/mediacapture-screen-share/",
+    "status": "WD"
   },
   "Screen Orientation": {
     "name": "Screen Orientation API",
@@ -1251,7 +1286,7 @@
   },
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
-    "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
+    "url": "https://w3c.github.io/dnt/drafts/tracking-dnt.html",
     "status": "CR"
   },
   "Typed Array": {
@@ -1333,11 +1368,6 @@
     "name": "Web Audio API",
     "url": "https://webaudio.github.io/web-audio-api/",
     "status": "WD"
-  },
-  "Web Background Sync": {
-    "name": "Web Background Synchronization",
-    "url": "https://wicg.github.io/BackgroundSync/spec/",
-    "status": "Living"
   },
   "Web Bluetooth": {
     "name": "Web Bluetooth",
@@ -1452,7 +1482,7 @@
   "WebDriver": {
     "name": "WebDriver",
     "url": "https://w3c.github.io/webdriver/",
-    "status": "REC"
+    "status": "Living"
   },
   "WEBGL_color_buffer_float": {
     "name": "WEBGL_color_buffer_float",
@@ -1539,19 +1569,29 @@
     "url": "https://notifications.spec.whatwg.org/",
     "status": "Living"
   },
-  "WebRTC Statistics Identifiers": {
-    "name": "Identifiers for WebRTC's Statistics API",
-    "url": "https://w3c.github.io/webrtc-stats/",
-    "status": "CR"
-  },
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
     "url": "https://w3c.github.io/webrtc-pc/",
     "status": "CR"
   },
+  "WebRTC Identity": {
+    "name": "Identity for WebRTC",
+    "url": "https://w3c.github.io/webrtc-identity/",
+    "status": "CR"
+  },
+  "WebRTC Statistics Identifiers": {
+    "name": "Identifiers for WebRTC's Statistics API",
+    "url": "https://w3c.github.io/webrtc-stats/",
+    "status": "CR"
+  },
   "Web Share API": {
     "name": "Web Share API",
     "url": "https://wicg.github.io/web-share/",
+    "status": "Draft"
+  },
+  "Web Share API 2": {
+    "name": "Web Share API - Level 2",
+    "url": "https://wicg.github.io/web-share/level-2/",
     "status": "Draft"
   },
   "Web Speech API": {

@@ -4,9 +4,9 @@
 // Parameters:
 //  $0  Page link
 
-var page = wiki.getPage($0);
-var title = page.title;
-var summary = page.summary.replace(/<img[^>]*>/g," ");
-var url = page.url
+let page = await wiki.getPage($0);
+let title = page.title;
+let summary = page.summary.replace(/<img[^>]*>/g," ");
+let url = page.url
 %>
 <a href="<%-url%>" title="<%=summary%>"><%=title%></a>
