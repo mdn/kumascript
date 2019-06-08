@@ -38,8 +38,8 @@ var events = webAPIGroups[0][group].events || [];
 var groupGuides = webAPIGroups[0][group].guides || [];
 var guides = [];
 
-for (let groupGuide of groupGuides) {
-    const page = await wiki.getPage(groupGuide.url);
+for (let guideUrl of groupGuides) {
+    const page = await wiki.getPage(guideUrl);
     if (page && page.url) {
         guides.push(page);
     }

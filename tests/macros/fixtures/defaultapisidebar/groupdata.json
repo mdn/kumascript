@@ -13,40 +13,22 @@
             "methods":    [ "ADifferentInterface.doSomething()", "YetAnotherInterface.doSomething()" ],
             "properties": [ "ADifferentInterface.aProperty", "ADifferentInterface.anotherProperty" ],
             "events":     [ "aEvent: properlyFormatted"],
-            "guides":     [
-                {
-                    "url":   "/en-US/docs/Web/AnotherPlace/A_guide",
-                    "title": "A Guide in another place"
-                }
-            ]
+            "guides":     [ "/en-US/docs/Web/AnotherPlace/A_guide" ]
         },
         "TestInterface3": {
             "overview": [ "TestInterface3 API"],
             "interfaces": [ "AnInterface", "AnotherInterface" ],
             "methods":    [],
             "properties": [ "ADifferentInterface.aProperty" ],
-            "guides":     [
-                {
-                    "url":   "/en-US/docs/Web/AnotherPlace/A_guide",
-                    "title": "A Guide in another place"
-                },
-                {
-                    "url":   "/en-US/docs/Web/API/TestInterface_API/MyGuidePage1",
-                    "title": "A Guide listed in GroupData and also a subpage"
-                }
-            ]
+            "guides":     [ "/en-US/docs/Web/AnotherPlace/A_guide",
+                            "/en-US/docs/Web/API/TestInterface_API/MyGuidePage1" ]
         },
         "TestInterface4": {
             "interfaces": [ "AnInterface", "AnotherInterface" ],
             "methods":    [],
             "properties": [ "ADifferentInterface.aProperty" ],
             "events":     [ "aEventBadlyFormatted", "bEvent: properlyFormatted", "aEvent: properlyFormatted" ],
-            "guides":     [
-                {
-                    "url":   "/en-US/docs/Web/AnotherPlace/A_guide",
-                    "title": "A Guide in another place"
-                }
-            ]
+            "guides":     [ "/en-US/docs/Web/AnotherPlace/A_guide" ]
         }
     }
 ]
