@@ -57,14 +57,6 @@
          "nl"   : "Edge",
          "fr"   : "Edge"
     },
-    "bc_icon_name_edge_mobile": {
-         "en-US": "Edge Mobile",
-         "de"   : "Edge Mobile",
-         "es"   : "Edge Mobile",
-         "ja"   : "Edge Mobile",
-         "nl"   : "Edge Mobile",
-         "fr"   : "Edge Mobile"
-    },
     "bc_icon_name_firefox": {
          "en-US": "Firefox",
          "de"   : "Firefox",
