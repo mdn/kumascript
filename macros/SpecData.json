@@ -1071,13 +1071,13 @@
   },
   "Pointer Events": {
     "name": "Pointer Events",
-    "url": "https://www.w3.org/TR/pointerevents/",
-    "status": "REC"
+    "url": "https://www.w3.org/TR/pointerevents1/",
+    "status": "Obsolete"
   },
   "Pointer Events 2": {
     "name": "Pointer Events – Level 2",
-    "url": "https://w3c.github.io/pointerevents/",
-    "status": "WD"
+    "url": "https://www.w3.org/TR/pointerevents2/",
+    "status": "REC"
   },
   "Pointer Events 2 Ext": {
     "name": "Pointer Events - Level 2 Extensions",
