@@ -1209,6 +1209,11 @@
     "url": "https://w3c.github.io/webcomponents/spec/shadow/",
     "status": "Obsolete"
   },
+  "Shadow Parts": {
+    "name": "Shadow Parts",
+    "url": "https://www.w3.org/TR/css-shadow-parts-1/",
+    "status": "WD"
+  },
   "Shape Detection API": {
     "name": "Accelerated Shape Detection in Images",
     "url": "https://wicg.github.io/shape-detection-api/",
