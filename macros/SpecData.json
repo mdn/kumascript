@@ -727,7 +727,7 @@
   "Feature Policy": {
     "name": "Feature Policy",
     "url": "https://w3c.github.io/webappsec-feature-policy/",
-    "status": "Draft"
+    "status": "ED"
   },
   "Fetch": {
     "name": "Fetch",
@@ -1136,7 +1136,7 @@
   },
   "Resize Observer": {
     "name": "Resize Observer",
-    "url": "https://wicg.github.io/ResizeObserver/",
+    "url": "https://drafts.csswg.org/resize-observer/",
     "status": "ED"
   },
   "Resource Hints": {
@@ -1158,6 +1158,11 @@
     "name": "Resource Timing Level 3",
     "url": "https://w3c.github.io/resource-timing/",
     "status": "ED"
+  },
+  "Screen Capture": {
+    "name": "Screen Capture",
+    "url": "https://w3c.github.io/mediacapture-screen-share/",
+    "status": "WD"
   },
   "Screen Orientation": {
     "name": "Screen Orientation API",
@@ -1564,19 +1569,29 @@
     "url": "https://notifications.spec.whatwg.org/",
     "status": "Living"
   },
-  "WebRTC Statistics Identifiers": {
-    "name": "Identifiers for WebRTC's Statistics API",
-    "url": "https://w3c.github.io/webrtc-stats/",
-    "status": "CR"
-  },
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
     "url": "https://w3c.github.io/webrtc-pc/",
     "status": "CR"
   },
+  "WebRTC Identity": {
+    "name": "Identity for WebRTC",
+    "url": "https://w3c.github.io/webrtc-identity/",
+    "status": "CR"
+  },
+  "WebRTC Statistics Identifiers": {
+    "name": "Identifiers for WebRTC's Statistics API",
+    "url": "https://w3c.github.io/webrtc-stats/",
+    "status": "CR"
+  },
   "Web Share API": {
     "name": "Web Share API",
     "url": "https://wicg.github.io/web-share/",
+    "status": "Draft"
+  },
+  "Web Share API 2": {
+    "name": "Web Share API - Level 2",
+    "url": "https://wicg.github.io/web-share/level-2/",
     "status": "Draft"
   },
   "Web Speech API": {

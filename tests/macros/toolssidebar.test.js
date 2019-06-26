@@ -2,7 +2,7 @@
  * @prettier
  */
 
-const { assert, itMacro, describeMacro } = require('./utils');
+const { assert, itMacro, describeMacro, lintHTML } = require('./utils');
 const jsdom = require('jsdom');
 
 const locales = {
@@ -29,6 +29,7 @@ describeMacro('ToolsSidebar', function() {
     itMacro('Creates a sidebar object for en-US', function(macro) {
         macro.ctx.env.locale = 'en-US';
         return macro.call().then(function(result) {
+            expect(lintHTML(result)).toBeFalsy();
             let dom = jsdom.JSDOM.fragment(result);
             checkSidebarDom(dom, 'en-US');
         });
@@ -37,6 +38,7 @@ describeMacro('ToolsSidebar', function() {
     itMacro('Creates a sidebar object for fr', function(macro) {
         macro.ctx.env.locale = 'fr';
         return macro.call().then(function(result) {
+            expect(lintHTML(result)).toBeFalsy();
             let dom = jsdom.JSDOM.fragment(result);
             checkSidebarDom(dom, 'fr');
         });
