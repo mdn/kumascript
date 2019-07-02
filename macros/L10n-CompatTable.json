@@ -5,8 +5,9 @@
         "es"   : "Desktop",
         "fr"   : "Ordinateur",
         "ja"   : "デスクトップ",
-        "ru"   : "Компьютеры",
-        "nl"   : "Desktop"
+        "nl"   : "Desktop",
+        "pt-BR": "Desktop",
+        "ru"   : "Компьютеры"
     },
     "bc_icon_name_mobile": {
         "en-US": "Mobile",
@@ -14,122 +15,137 @@
         "es"   : "Mobile",
         "fr"   : "Mobile",
         "ja"   : "モバイル",
-        "ru"   : "Мобильные",
-        "nl"   : "Mobile"
+        "nl"   : "Mobile",
+        "pt-BR": "Móvel",
+        "ru"   : "Мобильные"
     },
     "bc_icon_name_server": {
         "en-US": "Server",
         "de"   : "Server",
+        "fr"   : "Serveur",
         "ja"   : "サーバー",
         "nl"   : "Server",
-        "fr"   : "Serveur"
+        "pt-BR": "Servidor"
     },
     "bc_icon_name_webview_android": {
-         "en-US": "Android webview",
-         "de"   : "Android Webview",
-         "es"   : "Android webview",
-         "ja"   : "Android webview",
-         "nl"   : "Android webview",
-         "fr"   : "Webview Android"
+        "en-US": "Android webview",
+        "de"   : "Android Webview",
+        "es"   : "Android webview",
+        "fr"   : "Webview Android",
+        "ja"   : "Android webview",
+        "nl"   : "Android webview",
+        "pt-BR": "Android webview"
     },
     "bc_icon_name_chrome": {
-         "en-US": "Chrome",
-         "de"   : "Chrome",
-         "es"   : "Chrome",
-         "ja"   : "Chrome",
-         "nl"   : "Chrome",
-         "fr"   : "Chrome"
+        "en-US": "Chrome",
+        "de"   : "Chrome",
+        "es"   : "Chrome",
+        "fr"   : "Chrome",
+        "ja"   : "Chrome",
+        "nl"   : "Chrome",
+        "pt-BR": "Chrome"
     },
     "bc_icon_name_chrome_android": {
-         "en-US": "Chrome for Android",
-         "de": "Chrome für Android",
-         "es": "Chrome para Android",
-         "ja": "Android 版 Chrome",
-         "nl": "Chrome voor Android",
-         "ru": "Chrome для Android",
-         "fr": "Chrome pour Android"
+        "en-US": "Chrome for Android",
+        "de"   : "Chrome für Android",
+        "es"   : "Chrome para Android",
+        "fr"   : "Chrome pour Android",        
+        "ja"   : "Android 版 Chrome",
+        "nl"   : "Chrome voor Android",
+        "pt-BR": "Chrome para Android",
+        "ru"   : "Chrome для Android"
     },
     "bc_icon_name_edge": {
-         "en-US": "Edge",
-         "de"   : "Edge",
-         "es"   : "Edge",
-         "ja"   : "Edge",
-         "nl"   : "Edge",
-         "fr"   : "Edge"
+        "en-US": "Edge",
+        "de"   : "Edge",
+        "es"   : "Edge",
+        "fr"   : "Edge",
+        "ja"   : "Edge",
+        "nl"   : "Edge",
+        "pt-BR": "Edge"
     },
     "bc_icon_name_firefox": {
-         "en-US": "Firefox",
-         "de"   : "Firefox",
-         "es"   : "Firefox",
-         "ja"   : "Firefox",
-         "nl"   : "Firefox",
-         "fr"   : "Firefox"
+        "en-US": "Firefox",
+        "de"   : "Firefox",
+        "es"   : "Firefox",
+        "fr"   : "Firefox",
+        "ja"   : "Firefox",
+        "nl"   : "Firefox",
+        "pt-BR"   : "Firefox"
     },
     "bc_icon_name_firefox_android": {
-         "en-US": "Firefox for Android",
-         "de": "Firefox für Android",
-         "es": "Firefox para Android",
-         "ja": "Android 版 Firefox",
-         "nl": "Firefox voor Android",
-         "ru": "Firefox для Android",
-         "fr": "Firefox pour Android"
+        "en-US": "Firefox for Android",
+        "de"   : "Firefox für Android",
+        "es"   : "Firefox para Android",
+        "fr"   : "Firefox pour Android",
+        "ja"   : "Android 版 Firefox",
+        "nl"   : "Firefox voor Android",
+        "pt-BR": "Firefox para Android",
+        "ru"   : "Firefox для Android"
     },
     "bc_icon_name_ie": {
-         "en-US": "Internet Explorer",
-         "de"   : "Internet Explorer",
-         "es"   : "Internet Explorer",
-         "ja"   : "Internet Explorer",
-         "nl"   : "Internet Explorer",
-         "fr"   : "Internet Explorer"
+        "en-US": "Internet Explorer",
+        "de"   : "Internet Explorer",
+        "es"   : "Internet Explorer",
+        "fr"   : "Internet Explorer",
+        "ja"   : "Internet Explorer",
+        "nl"   : "Internet Explorer",
+        "pt-BR": "Internet Explorer"
     },
     "bc_icon_name_nodejs": {
-         "en-US": "Node.js",
-         "de"   : "Node.js",
-         "es"   : "Node.js",
-         "ja"   : "Node.js",
-         "nl"   : "Node.js",
-         "fr"   : "Node.js"
+        "en-US": "Node.js",
+        "de"   : "Node.js",
+        "es"   : "Node.js",
+        "fr"   : "Node.js",
+        "ja"   : "Node.js",
+        "nl"   : "Node.js",
+        "pt-BR": "Node.js"
     },
     "bc_icon_name_opera": {
-         "en-US": "Opera",
-         "de"   : "Opera",
-         "es"   : "Opera",
-         "ja"   : "Opera",
-         "nl"   : "Opera",
-         "fr"   : "Opera"
+        "en-US": "Opera",
+        "de"   : "Opera",
+        "es"   : "Opera",
+        "fr"   : "Opera",
+        "ja"   : "Opera",
+        "nl"   : "Opera",
+        "pt-BR": "Opera"
     },
     "bc_icon_name_opera_android": {
-         "en-US": "Opera for Android",
-         "de": "Opera für Android",
-         "es": "Opera para Android",
-         "ja": "Android 版 Opera",
-         "nl": "Opera voor Android",
-         "ru": "Opera для Android",
-         "fr": "Opera pour Android"
+        "en-US": "Opera for Android",
+        "de"   : "Opera für Android",
+        "es"   : "Opera para Android",
+        "fr"   : "Opera pour Android",
+        "ja"   : "Android 版 Opera",
+        "nl"   : "Opera voor Android",
+        "pt-BR": "Opera para Android",
+        "ru"   : "Opera для Android"
     },
     "bc_icon_name_safari": {
-         "en-US": "Safari",
-         "de"   : "Safari",
-         "es"   : "Safari",
-         "ja"   : "Safari",
-         "nl"   : "Safari",
-         "fr"   : "Safari"
+        "en-US": "Safari",
+        "de"   : "Safari",
+        "es"   : "Safari",
+        "fr"   : "Safari",
+        "ja"   : "Safari",
+        "nl"   : "Safari",
+        "pt-BR": "Safari"
     },
     "bc_icon_name_safari_ios": {
-         "en-US": "Safari on iOS",
-         "de"   : "Safari auf iOS",
-         "es"   : "Safari en iOS",
-         "ja"   : "iOSのSafari",
-         "nl"   : "Safari op iOS",
-         "fr"   : "Safari sur iOS"
+        "en-US": "Safari on iOS",
+        "de"   : "Safari auf iOS",
+        "es"   : "Safari en iOS",
+        "fr"   : "Safari sur iOS",
+        "ja"   : "iOSのSafari",
+        "nl"   : "Safari op iOS",
+        "pt-BR": "Safari para iOS"
     },
     "bc_icon_name_samsunginternet_android": {
-         "en-US": "Samsung Internet",
-         "de"   : "Samsung Internet",
-         "es"   : "Samsung Internet",
-         "ja"   : "Samsung Internet",
-         "nl"   : "Samsung Internet",
-         "fr"   : "Samsung Internet"
+        "en-US": "Samsung Internet",
+        "de"   : "Samsung Internet",
+        "es"   : "Samsung Internet",
+        "fr"   : "Samsung Internet",
+        "ja"   : "Samsung Internet",
+        "nl"   : "Samsung Internet",
+        "pt-BR": "Samsung Internet"
     },
     "bc_history_head": {
         "en-US": "Implementation Notes",
@@ -137,8 +153,9 @@
         "es"   : "Notas de implementación",
         "fr"   : "Notes d'implémentation",
         "ja"   : "実装ノート",
-        "ru"   : "Замечания реализации",
-        "nl"   : "Implementatieopmerkingen"
+        "nl"   : "Implementatieopmerkingen",
+        "pt-BR": "Notas de Implementação",
+        "ru"   : "Замечания реализации"
     },
     "supportsShort_yes": {
         "en-US": "Yes",
@@ -146,8 +163,9 @@
         "es"   : "Si",
         "fr"   : "Oui",
         "ja"   : "あり",
-        "ru"   : "Да",
-        "nl"   : "Ja"
+        "nl"   : "Ja",
+        "pt-BR": "Sim",
+        "ru"   : "Да"
     },
     "supportsShort_yes_title": {
         "en-US": "Please update this with the earliest version of support.",
@@ -155,8 +173,9 @@
         "es"   : "Por favor actualizalo con la version mas temprana de soporte.",
         "fr"   : "Veuillez mettre à jour avec la version minimale du support",
         "ja"   : "対応する最も早いバージョン番号に更新してください。",
-        "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии.",
-        "nl"   : "Graag bijwerken met de vroegste versie van ondersteuning."
+        "nl"   : "Graag bijwerken met de vroegste versie van ondersteuning.",
+        "pt-BR": "Por favor, atualize isso com a versão mais antiga suportada.",
+        "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии."
     },
     "supportsShort_no": {
         "en-US": "No",
@@ -164,8 +183,9 @@
         "es"   : "No",
         "fr"   : "Non",
         "ja"   : "なし",
-        "ru"   : "Нет",
-        "nl"   : "Nee"
+        "nl"   : "Nee",
+        "pt-BR": "Não,
+        "ru"   : "Нет"
     },
     "supportsShort_partial": {
         "en-US": "Partial",
@@ -173,18 +193,19 @@
         "es"   : "Parcial",
         "fr"   : "Partiel",
         "ja"   : "一部",
-        "ru"   : "Частичная",
-        "nl"   : "Gedeeltelijk"
+        "nl"   : "Gedeeltelijk",
+        "pt-BR": "Parcial",
+        "ru"   : "Частичная"
     },
-
     "supportsLong_yes": {
         "en-US": "Full support",
         "de"   : "Vollständige Unterstützung",
         "es"   : "Soporte completo",
         "fr"   : "Support complet",
         "ja"   : "完全対応",
-        "ru"   : "Полная поддержка",
-        "nl"   : "Volledige ondersteuning"
+        "nl"   : "Volledige ondersteuning",
+        "pt-BR": "Suporte Total",
+        "ru"   : "Полная поддержка"
     },
     "supportsLong_no": {
         "en-US": "No support",
@@ -192,8 +213,9 @@
         "es"   : "Sin soporte",
         "fr"   : "Aucun support",
         "ja"   : "未対応",
-        "ru"   : "Нет поддержки",
-        "nl"   : "Geen ondersteuning"
+        "nl"   : "Geen ondersteuning",
+        "pt-BR": "Sem suporte",
+        "ru"   : "Нет поддержки"
     },
     "supportsLong_partial": {
         "en-US": "Partial support",
@@ -201,8 +223,9 @@
         "es"   : "Soporte parcial",
         "fr"   : "Support partiel",
         "ja"   : "部分対応",
-        "ru"   : "Частичная поддержка",
-        "nl"   : "Gedeeltelijke ondersteuning"
+        "nl"   : "Gedeeltelijke ondersteuning",
+        "pt-BR": "Suporte parcial",
+        "ru"   : "Частичная поддержка"
     },
     "supportsShort_unknown": {
         "en-US": "?",
@@ -210,8 +233,9 @@
         "es"   : "?",
         "fr"   : "?",
         "ja"   : "?",
-        "ru"   : "?",
-        "nl"   : "?"
+        "nl"   : "?",
+        "pt-BR": "?",
+        "ru"   : "?"
     },
     "supportsShort_unknown_title": {
         "en-US": "Compatibility unknown; please update this.",
@@ -219,8 +243,9 @@
         "es"   : "Compatibilidad desconocida; porfavor actualiza esto.",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
-        "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию.",
-        "nl"   : "Compatibiliteit onbekend, graag bijwerken."
+        "nl"   : "Compatibiliteit onbekend, graag bijwerken.",
+        "pt-BR": "Compatibilidade desconhecida; por favor atualize isto.",
+        "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию."
     },
     "supportsLong_unknown": {
         "en-US": "Compatibility unknown",
@@ -228,8 +253,9 @@
         "es"   : "Compatibilidad desconocida",
         "fr"   : "Compatibilité inconnue",
         "ja"   : "実装状況不明",
-        "ru"   : "Совместимость неизвестна",
-        "nl"   : "Compatibiliteit onbekend"
+        "nl"   : "Compatibiliteit onbekend",
+        "pt-BR": "Compatibilidade desconhecida",
+        "ru"   : "Совместимость неизвестна"
     },
     "feature": {
         "en-US": "Feature",
@@ -237,8 +263,9 @@
         "es"   : "Caracteristica",
         "fr"   : "Fonctionnalité",
         "ja"   : "機能",
-        "ru"   : "Возможность",
-        "nl"   : "Functie"
+        "nl"   : "Functie",
+        "pt-BR": "Característica",
+        "ru"   : "Возможность"
     },
     "bc_icon_name_experimental": {
         "en-US": "Experimental",
@@ -246,8 +273,9 @@
         "es"   : "Experimental",
         "fr"   : "Expérimentale",
         "ja"   : "実験的",
-        "ru"   : "Экспериментальная",
-        "nl"   : "Experimenteel"
+        "nl"   : "Experimenteel",
+        "pt-BR": "Experimental",
+        "ru"   : "Экспериментальная"
     },
     "bc_icon_title_experimental": {
         "en-US": "Experimental. Expect behavior to change in the future.",
@@ -255,8 +283,9 @@
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité expérimentale. Celle-ci peut être amenée à changer par la suite.",
         "ja"   : "実験的。動作が変更される可能性があります。",
-        "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем.",
-        "nl"   : "Experimenteel. Het verwachte gedrag kan in de toekomst veranderen."
+        "nl"   : "Experimenteel. Het verwachte gedrag kan in de toekomst veranderen.",
+        "pt-BR": "Experimental. Espere que o comportamento mude no futuro.",
+        "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем."
     },
     "bc_icon_name_non-standard": {
         "en-US": "Non-standard",
@@ -264,8 +293,9 @@
         "es"   : "No estándar",
         "fr"   : "Non-standard",
         "ja"   : "非標準",
-        "ru"   : "Нестандартная",
-        "nl"   : "Niet standaard"
+        "nl"   : "Niet standaard",
+        "pt-BR": "Não padronizado",
+        "ru"   : "Нестандартная"
     },
     "bc_icon_title_non-standard": {
         "en-US": "Non-standard. Expect poor cross-browser support.",
@@ -273,8 +303,9 @@
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
-        "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
-        "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers."
+        "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers.",
+        "pt-BR": "Não padronizado. Espere um suporte deficiente entre os navegadores.",
+        "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка."
     },
     "bc_icon_name_deprecated": {
         "en-US": "Deprecated",
@@ -283,6 +314,7 @@
         "fr"   : "Obsolète",
         "ja"   : "非推奨",
         "nl"   : "Verouderd",
+        "pt-BR": "Descontinuado",
         "ru"   : "Устаревшая"
     },
     "bc_icon_title_deprecated": {
@@ -291,8 +323,9 @@
         "es"   : "Deprecado. No debe ser usado en nuevos sitios web.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
-        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах.",
-        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
+        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité.",
+        "pt-BR": "Descontinuado. Não use em novos sites.",
+        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах."
     },
     "bc_icon_name_prefix": {
         "en-US": "Prefixed",
@@ -300,8 +333,9 @@
         "es"   : "Prefijado",
         "fr"   : "Préfixée",
         "ja"   : "接頭辞付き",
-        "ru"   : "С префиксом",
-        "nl"   : "Voorgevoegd"
+        "nl"   : "Voorgevoegd",
+        "pt-BR": "Prefixado",
+        "ru"   : "С префиксом"
     },
     "bc_icon_title_prefix": {
         "en-US": "Implemented with the vendor prefix: $1$",
@@ -309,8 +343,9 @@
         "es"   : "Requiere de un prefijo de vendedor : $1$",
         "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: $1$",
         "ja"   : "$1$ のベンダー接頭辞が必要",
-        "ru"   : "Требует вендорный префикс: $1$",
-        "nl"   : "Vereist het leveranciersvoorvoegsel: $1$"
+        "nl"   : "Vereist het leveranciersvoorvoegsel: $1$",
+        "pt-BR": "Implementado com o prefixo do fornecedor: $1$",
+        "ru"   : "Требует вендорный префикс: $1$"
     },
     "bc_icon_name_footnote": {
         "en-US": "Notes",
@@ -318,8 +353,9 @@
         "es"   : "Notas",
         "fr"   : "Notes",
         "ja"   : "補足",
-        "ru"   : "Замечания",
-        "nl"   : "Opmerkingen"
+        "nl"   : "Opmerkingen",
+        "pt-BR": "Notas",
+        "ru"   : "Замечания"
     },
     "bc_icon_title_footnote": {
         "en-US": "See implementation notes",
@@ -327,8 +363,9 @@
         "es"   : "Ver notas de implementación",
         "fr"   : "Voir les notes d'implémentation",
         "ja"   : "実装ノートを参照してください",
-        "ru"   : "Смотрите замечания реализации",
-        "nl"   : "Zie implementatieopmerkingen"
+        "nl"   : "Zie implementatieopmerkingen",
+        "pt-BR": "Consulte as notas de implementação",
+        "ru"   : "Смотрите замечания реализации"
     },
     "bc_icon_name_altname": {
         "en-US": "Alternate Name",
@@ -336,8 +373,9 @@
         "es"   : "Nombre alternativo",
         "fr"   : "Autre nom",
         "ja"   : "代替名",
-        "ru"   : "Альтернативное имя",
-        "nl"   : "Vervangende naam"
+        "nl"   : "Vervangende naam",
+        "pt-BR": "Nome Alternativo",
+        "ru"   : "Альтернативное имя"
     },
     "bc_icon_title_altname": {
         "en-US": "Uses the non-standard name: <code>$1$</code>",
@@ -345,8 +383,9 @@
         "es"   : "Usa un nombre no estandar : <code>$1$</code> ",
         "fr"   : "Cette fonctionnalité utilise le nom non-standard&nbsp;: <code>$1$</code>",
         "ja"   : "非標準の名前 <code>$1$</code> を使用しています。",
-        "ru"   : "Использует нестандартное имя: <code>$1$</code>",
-        "nl"   : "Gebruikt de niet-standaard naam: <code>$1$</code>"
+        "nl"   : "Gebruikt de niet-standaard naam: <code>$1$</code>",
+        "pt-BR": "Usa o nome não padronizado: <code>$1$</code>",
+        "ru"   : "Использует нестандартное имя: <code>$1$</code>"
     },
     "bc_icon_name_disabled": {
         "en-US": "Disabled",
@@ -354,8 +393,9 @@
         "es"   : "Deshabilitado",
         "fr"   : "Désactivée",
         "ja"   : "無効",
-        "ru"   : "Отключено",
-        "nl"   : "Uitgeschakeld"
+        "nl"   : "Uitgeschakeld",
+        "pt-BR": "Desativado",
+        "ru"   : "Отключено"
     },
     "bc_icon_title_disabled": {
         "en-US": "User must explicitly enable this feature.",
@@ -363,8 +403,9 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
-        "ru"   : "Пользователь должен сам включить эту возможность.",
-        "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
+        "nl"   : "Gebruiker moet deze functie expliciet inschakelen.",
+        "pt-BR": "O usuário deve habilitar explicitamente esse recurso.",
+        "ru"   : "Пользователь должен сам включить эту возможность."
     },
     "legend": {
         "en-US": "Legend",
@@ -372,8 +413,9 @@
         "es"   : "Leyenda",
         "fr"   : "Légende",
         "ja"   : "凡例",
-        "ru"   : "Легенда",
-        "nl"   : "Legenda"
+        "nl"   : "Legenda",
+        "pt-BR": "Legenda",
+        "ru"   : "Легенда"
     },
     "legend_prefix": {
         "en-US": "Requires a vendor prefix or different name for use.",
@@ -381,8 +423,9 @@
         "es"   : "Requiere de un prefijo de proveedor o un de nombre diferente para su uso.",
         "fr"   : "Cette fonctionnalité nécessite un préfixe particulier ou utilise un autre nom.",
         "ja"   : "使用するには、ベンダー接頭辞または異なる名前が必要です。",
-        "ru"   : "Требует вендорный префикс или другое имя для использования.",
-        "nl"   : "Vereist een leveranciersvoorvoegsel of een andere naam voor gebruik."
+        "nl"   : "Vereist een leveranciersvoorvoegsel of een andere naam voor gebruik.",
+        "pt-BR": "Requer um prefixo de fornecedor ou nome diferente para uso.",
+        "ru"   : "Требует вендорный префикс или другое имя для использования."
     },
     "legend_altname": {
         "en-US": "Uses a non-standard name.",
@@ -390,8 +433,9 @@
         "es"   : "Usa un nombre no estandar.",
         "fr"   : "Cette fonctionnalité utilise un nom non-standard.",
         "ja"   : "非標準の名前を使用しています。",
-        "ru"   : "Использует нестандартное имя.",
-        "nl"   : "Gebruikt een niet-standaard naam."
+        "nl"   : "Gebruikt een niet-standaard naam.",
+        "pt-BR": "Usa um nome não padronizado.",
+        "ru"   : "Использует нестандартное имя."
     },
     "legend_disabled": {
         "en-US": "User must explicitly enable this feature.",
@@ -399,8 +443,9 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
-        "ru"   : "Пользователь должен сам включить эту возможность.",
-        "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
+        "nl"   : "Gebruiker moet deze functie expliciet inschakelen.",
+        "pt-BR": "O usuário deve habilitar explicitamente esse recurso.",
+        "ru"   : "Пользователь должен сам включить эту возможность."
     },
     "legend_footnote": {
         "en-US": "See implementation notes.",
@@ -408,8 +453,9 @@
         "es"   : "Ver notas de implementación.",
         "fr"   : "Voir les notes d'implémentation.",
         "ja"   : "実装ノートを参照してください。",
-        "ru"   : "Смотрите замечания реализации.",
-        "nl"   : "Zie implementatieopmerkingen"
+        "nl"   : "Zie implementatieopmerkingen",
+        "pt-BR": "Consulte as notas de implementação.",
+        "ru"   : "Смотрите замечания реализации."
     },
     "legend_experimental": {
         "en-US": "Experimental. Expect behavior to change in the future.",
@@ -417,8 +463,9 @@
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité expérimentale. Celle-ci peut être amenée à changer par la suite.",
         "ja"   : "実験的。動作が変更される可能性があります。",
-        "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем.",
-        "nl"   : "Experimenteel. Het verwachte gedrag kan in de toekomst veranderen."
+        "nl"   : "Experimenteel. Het verwachte gedrag kan in de toekomst veranderen.",
+        "pt-BR": "Experimental. Espere que o comportamento mude no futuro.",
+        "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем."
     },
     "legend_non-standard": {
         "en-US": "Non-standard. Expect poor cross-browser support.",
@@ -426,16 +473,18 @@
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
-        "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
-        "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers."
+        "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers.",
+        "pt-BR": "Não padronizado. Espere um suporte deficiente entre os navegadores.",
+        "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка."
     },
     "legend_deprecated": {
         "en-US": "Deprecated. Not for use in new websites.",
         "de"   : "Veraltet. Nicht für den Einsatz in neuen Webseiten gedacht.",
         "es"   : "Deprecado. No debe ser usado en nuevos sitios web.",
+        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
-        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах",
-        "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
+        "pt-BR": "Descontinuado. Não use em novos sites.",
+        "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах"
     }
 }
