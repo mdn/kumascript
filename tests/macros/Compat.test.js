@@ -68,7 +68,7 @@ describeMacro('Compat', function() {
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-mobile').colSpan,
-                    7
+                    6
                 );
             });
         }
@@ -88,7 +88,7 @@ describeMacro('Compat', function() {
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-mobile').colSpan,
-                    7
+                    6
                 );
             });
         }
@@ -108,7 +108,7 @@ describeMacro('Compat', function() {
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-mobile').colSpan,
-                    7
+                    6
                 );
             });
         }
@@ -128,7 +128,7 @@ describeMacro('Compat', function() {
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-mobile').colSpan,
-                    7
+                    6
                 );
             });
         }
@@ -148,7 +148,7 @@ describeMacro('Compat', function() {
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-mobile').colSpan,
-                    7
+                    6
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-server').colSpan,
@@ -852,33 +852,29 @@ describeMacro('Compat', function() {
                 true
             );
             assert.equal(
-                browserIcons[8].classList.contains('bc-head-icon-edge_mobile'),
-                true
-            );
-            assert.equal(
-                browserIcons[9].classList.contains(
+                browserIcons[8].classList.contains(
                     'bc-head-icon-firefox_android'
                 ),
                 true
             );
             assert.equal(
-                browserIcons[10].classList.contains(
+                browserIcons[9].classList.contains(
                     'bc-head-icon-opera_android'
                 ),
                 true
             );
             assert.equal(
-                browserIcons[11].classList.contains('bc-head-icon-safari_ios'),
+                browserIcons[10].classList.contains('bc-head-icon-safari_ios'),
                 true
             );
             assert.equal(
-                browserIcons[12].classList.contains(
+                browserIcons[11].classList.contains(
                     'bc-head-icon-samsunginternet_android'
                 ),
                 true
             );
             assert.equal(
-                browserIcons[13].classList.contains('bc-head-icon-nodejs'),
+                browserIcons[12].classList.contains('bc-head-icon-nodejs'),
                 true
             );
         });
@@ -900,12 +896,11 @@ describeMacro('Compat', function() {
             assert.equal(browserIcons[5].textContent, 'Safari');
             assert.equal(browserIcons[6].textContent, 'Android webview');
             assert.equal(browserIcons[7].textContent, 'Chrome for Android');
-            assert.equal(browserIcons[8].textContent, 'Edge Mobile');
-            assert.equal(browserIcons[9].textContent, 'Firefox for Android');
-            assert.equal(browserIcons[10].textContent, 'Opera for Android');
-            assert.equal(browserIcons[11].textContent, 'Safari on iOS');
-            assert.equal(browserIcons[12].textContent, 'Samsung Internet');
-            assert.equal(browserIcons[13].textContent, 'Node.js');
+            assert.equal(browserIcons[8].textContent, 'Firefox for Android');
+            assert.equal(browserIcons[9].textContent, 'Opera for Android');
+            assert.equal(browserIcons[10].textContent, 'Safari on iOS');
+            assert.equal(browserIcons[11].textContent, 'Samsung Internet');
+            assert.equal(browserIcons[12].textContent, 'Node.js');
         });
     });
 });
