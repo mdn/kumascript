@@ -5,6 +5,25 @@
 const { itMacro, describeMacro } = require('./utils');
 
 /**
+ * @typedef {object} Guide
+ * @property {string} title
+ * @property {string} url
+ *
+ * @typedef {object} Group
+ * @property {[string]} [overview]
+ * @property {Guide[]} [guides]
+ * @property {string[]} interfaces
+ * @property {string[]} methods
+ * @property {string[]} properties
+ * @property {string[]} events
+ * @property {string[]} [dictionaries]
+ * @property {string[]} [callbacks]
+ * @property {string[]} [types]
+ *
+ * @typedef {{[groupName: string]: Group}} GroupData
+ */
+
+/**
  * Different strings in GroupData objects have different sets of
  * permitted characters.
  */
@@ -105,15 +124,17 @@ function checkStringArray(strings, permitted) {
  * @param {string} groupDataJson
  */
 function checkGroupData(groupDataJson) {
-    const groupData = JSON.parse(groupDataJson);
+    /** @type {[GroupData]} */
+    const groupDataArray = JSON.parse(groupDataJson);
+    const [groupData] = groupDataArray;
 
     // GroupData is an array containing exactly one object
-    expect(Array.isArray(groupData)).toBe(true);
-    expect(groupData.length).toBe(1);
+    expect(Array.isArray(groupDataArray)).toBe(true);
+    expect(groupDataArray.length).toBe(1);
 
     // the one object has one property for each group
     // the property's key is the group name
-    const groupNames = Object.keys(groupData[0]);
+    const groupNames = Object.keys(groupData);
 
     /** @type {string[]} */
     let unsortedGroups = [];
@@ -122,7 +143,7 @@ function checkGroupData(groupDataJson) {
         // the group name contains only the permitted characters
         expect(groupName).toMatch(PERMITTED_CHARACTERS.group);
 
-        const group = groupData[0][groupName];
+        const group = groupData[groupName];
 
         // the group has the correct properties
         checkProperties(
