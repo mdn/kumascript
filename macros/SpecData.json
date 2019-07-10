@@ -41,12 +41,12 @@
   },
   "Async Function": {
     "name": "ECMAScript Async Functions",
-    "url": "https://tc39.github.io/ecmascript-asyncawait/",
+    "url": "https://tc39.es/ecmascript-asyncawait/",
     "status": "Draft"
   },
   "Async Iteration": {
     "name": "ECMAScript Async Iteration Functions",
-    "url": "https://tc39.github.io/proposal-async-iteration/",
+    "url": "https://tc39.es/proposal-async-iteration/",
     "status": "Draft"
   },
   "Audio Output": {
@@ -706,7 +706,7 @@
   },
   "ESDraft": {
     "name": "ECMAScript Latest Draft (ECMA-262)",
-    "url": "https://tc39.github.io/ecma262/",
+    "url": "https://tc39.es/ecma262/",
     "status": "Draft"
   },
   "ES Int 1.0": {
@@ -721,7 +721,7 @@
   },
   "ES Int Draft": {
     "name": "ECMAScript Internationalization API 4.0 (ECMA-402)",
-    "url": "https://tc39.github.io/ecma402/",
+    "url": "https://tc39.es/ecma402/",
     "status": "Draft"
   },
   "Feature Policy": {
