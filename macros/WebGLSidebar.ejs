@@ -27,6 +27,7 @@ var text = mdn.localStringMap({
     'webgl_best_practices': 'WebGL best practices',
     'webgl_extensions': 'Using WebGL extensions',
     'basic_2d_example': 'A basic 2D WebGL animation example',
+    'WebGL_by_example': 'WebGL by example',
     'Interfaces': 'Interfaces',
     'Documentation': 'Documentation:',
     'Useful_lists': 'Useful lists',
@@ -51,6 +52,7 @@ var text = mdn.localStringMap({
     'webgl_mvp': 'WebGL model view projection',
     'webgl_best_practices': 'WebGL best practices',
     'webgl_extensions': 'Using WebGL extensions',
+    'WebGL_by_example': 'WebGL by example',
     'Interfaces': 'Interfaces',
     'Documentation': 'Dokumentation:',
     'Useful_lists': 'Nützliche Listen',
@@ -75,6 +77,7 @@ var text = mdn.localStringMap({
     'webgl_mvp': 'WebGL model view projection',
     'webgl_best_practices': 'WebGL best practices',
     'webgl_extensions': 'Using WebGL extensions',
+    'WebGL_by_example': 'WebGL by example',
     'Interfaces': 'Interfaces',
     'Documentation': 'Documentation:',
     'Useful_lists': 'Listes utiles',
@@ -99,6 +102,7 @@ var text = mdn.localStringMap({
     'webgl_mvp': 'WebGL модель, представление, проекция',
     'webgl_best_practices': 'WebGL лучшие практики',
     'webgl_extensions': 'Использование расширений WebGL',
+    'WebGL_by_example': 'WebGL by example',
     'Interfaces': 'Интерфейсы',
     'Documentation': 'Доментация:',
     'Useful_lists': 'Полезные списки',
@@ -136,6 +140,7 @@ var text = mdn.localStringMap({
         <li><a href="/<%=locale%>/docs/Web/API/WebGL_API/WebGL_best_practices"><%=text['webgl_best_practices']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/API/WebGL_API/Using_Extensions"><%=text['webgl_extensions']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/API/WebGL_API/Basic_2D_animation_example"><%=text['basic_2d_example']%></a></li>
+        <li><a href="/<%=locale%>/docs/Web/API/WebGL_API/By_example"><%=text['WebGL_by_example']%></a></li>
       </ol>
     </details>
   </li>
@@ -143,23 +148,23 @@ var text = mdn.localStringMap({
     <details open>
       <summary><%=text['Interfaces']%></summary>
       <ol>
-        <li><%-template("domxref", ["WebGLRenderingContext"])%></li>
-        <li><%-template("domxref", ["WebGL2RenderingContext"])%></li>
-        <li><%-template("domxref", ["WebGLActiveInfo"])%></li>
-        <li><%-template("domxref", ["WebGLBuffer"])%></li>
-        <li><%-template("domxref", ["WebGLContextEvent"])%></li>
-        <li><%-template("domxref", ["WebGLFramebuffer"])%></li>
-        <li><%-template("domxref", ["WebGLProgram"])%></li>
-        <li><%-template("domxref", ["WebGLQuery"])%></li>
-        <li><%-template("domxref", ["WebGLRenderbuffer"])%></li>
-        <li><%-template("domxref", ["WebGLSampler"])%></li>
-        <li><%-template("domxref", ["WebGLShader"])%></li>
-        <li><%-template("domxref", ["WebGLShaderPrecisionFormat"])%></li>
-        <li><%-template("domxref", ["WebGLSync"])%></li>
-        <li><%-template("domxref", ["WebGLTexture"])%></li>
-        <li><%-template("domxref", ["WebGLTransformFeedback"])%></li>
-        <li><%-template("domxref", ["WebGLUniformLocation"])%></li>
-        <li><%-template("domxref", ["WebGLVertexArrayObject"])%></li>
+        <li><%-await template("domxref", ["WebGLRenderingContext"])%></li>
+        <li><%-await template("domxref", ["WebGL2RenderingContext"])%></li>
+        <li><%-await template("domxref", ["WebGLActiveInfo"])%></li>
+        <li><%-await template("domxref", ["WebGLBuffer"])%></li>
+        <li><%-await template("domxref", ["WebGLContextEvent"])%></li>
+        <li><%-await template("domxref", ["WebGLFramebuffer"])%></li>
+        <li><%-await template("domxref", ["WebGLProgram"])%></li>
+        <li><%-await template("domxref", ["WebGLQuery"])%></li>
+        <li><%-await template("domxref", ["WebGLRenderbuffer"])%></li>
+        <li><%-await template("domxref", ["WebGLSampler"])%></li>
+        <li><%-await template("domxref", ["WebGLShader"])%></li>
+        <li><%-await template("domxref", ["WebGLShaderPrecisionFormat"])%></li>
+        <li><%-await template("domxref", ["WebGLSync"])%></li>
+        <li><%-await template("domxref", ["WebGLTexture"])%></li>
+        <li><%-await template("domxref", ["WebGLTransformFeedback"])%></li>
+        <li><%-await template("domxref", ["WebGLUniformLocation"])%></li>
+        <li><%-await template("domxref", ["WebGLVertexArrayObject"])%></li>
       </ol>
     </details>
   </li>

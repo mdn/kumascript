@@ -5,12 +5,12 @@ var path = env.path;
 
 function state(section) {
   if (path.indexOf("Content-Security-Policy") !== -1 && (section === "Web/HTTP/Headers")) {
-    return "closed";
+    return "";
   }
   if (path.indexOf(section) !== -1) {
     return "open";
   }
-  return "closed";
+  return "";
 }
 
 var text = mdn.localStringMap({
@@ -84,6 +84,44 @@ var text = mdn.localStringMap({
     'CSPDirectives': 'Directivas CSP',
     'Security': 'Seguridad en HTTP',
     'Authentication': 'Autenticación en HTTP'
+  },
+  'ko': {
+    'HTTP': 'HTTP',
+    'HTTPGuide': 'HTTP 가이드',
+    'Basics': 'HTTP 기본',
+    'Overview': 'HTTP 개요',
+    'Evolution': 'HTTP의 진화',
+    'ResourcesURI': '리소스와 URIs',
+    'Identifying': '웹의 리소스 식별하기',
+    'DataURIs': '데이터 URIs',
+    'MIMETypes': 'MIME 타입 소개',
+    'ListMIMETypes': 'MIME 타입의 전체 리스트',
+    'WWWorNotWWW': 'www와 non-www URL 중에서 선택하기',
+    'Messages': 'HTTP 메시지',
+    'Session': '전형적인 HTTP 세션',
+    'Connection1x': 'HTTP/1.x의 연결 관리',
+    'Ranges': 'HTTP range 요청',
+    'Redirects': 'HTTP 리다이렉트',
+    'Conditionals': 'HTTP 조건부 요청',
+    'ContentNego': 'HTTP 컨텐츠 협상',
+    'Headers': 'HTTP 헤더',
+    'Response_codes': '응답 코드',
+    'Compression': 'HTTP 압축',
+    'Cookies': 'HTTP 쿠키',
+    'Caching': 'HTTP 캐싱',
+    'CORS': 'HTTP 접근 제어(CORS)',
+    'Resources': 'HTTP 명세',
+    'Feature_policy': 'Feature policy',
+    'Guides': '가이드:',
+    'Reference': '레퍼런스:',
+    'Methods': 'HTTP 요청 메소드',
+    'Status': 'HTTP 응답 상태 코드',
+    'CSPDirectives': 'CSP 지시문',
+    'CORS_errors': 'CORS 에러',
+    'FeaturePolicyDirectives': 'Feature-Policy 지시문',
+    'Security': 'HTTP 보안',
+    'Authentication': 'HTTP 인증',
+    'ProtocolUpgradeMech': '프로토콜 업그레이드 메커니즘'
   },
   'ru': {
     'HTTP': 'HTTP',
@@ -161,37 +199,37 @@ var text = mdn.localStringMap({
     <li class="toggle">
         <details <%=state('Web/HTTP/Headers')%>>
             <summary><%=text['Headers']%></summary>
-            <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers'])%>
+            <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers'])%>
         </details>
     </li>
     <li class="toggle">
         <details <%=state('Web/HTTP/Methods')%>>
             <summary><%=text['Methods']%></summary>
-            <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Methods'])%>
+            <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Methods'])%>
         </details>
     </li>
     <li class="toggle">
         <details <%=state('Web/HTTP/Status')%>>
           <summary><%=text['Status']%></summary>
-          <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Status'])%>
+          <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Status'])%>
         </details>
     </li>
     <li class="toggle">
         <details <%=state('Web/HTTP/Headers/Content-Security-Policy')%>>
           <summary><%=text['CSPDirectives']%></summary>
-          <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Content-Security-Policy'])%>
+          <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Content-Security-Policy'])%>
         </details>
     </li>
     <li class="toggle">
         <details <%=state('Web/HTTP/CORS/Errors')%>>
           <summary><%=text['CORS_errors']%></summary>
-          <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/CORS/Errors', 1])%>
+          <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/CORS/Errors', 1])%>
         </details>
     </li>
     <li class="toggle">
         <details <%=state('Web/HTTP/Headers/Feature-Policy')%>>
           <summary><%=text['FeaturePolicyDirectives']%></summary>
-          <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Feature-Policy', 1])%>
+          <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTTP/Headers/Feature-Policy', 1])%>
         </details>
     </li>
   </ol>

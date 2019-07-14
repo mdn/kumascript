@@ -12,4 +12,5 @@ docs
 *.dylib
 *.un~
 node_modules/
-npm-debug.log
+*.log
+*~

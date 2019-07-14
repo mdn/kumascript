@@ -99,6 +99,40 @@ var text = mdn.localStringMap({
     'Doc_status': 'HTML 文書の状態',
     'The_MDN_project': 'MDN プロジェクト',
   },
+  'pt-BR': {
+    'Tutorials': 'Tutoriais:',
+    'HTML_basics': 'O básico de HTML',
+    'Introduction_to_HTML': 'Introdução ao HTML',
+      'Introduction_to_HTML_overview': 'Visão geral da Introdução ao HTML',
+      'Getting_started_with_HTML': 'Iniciando com HTML',
+      'Whats_in_the_head_metadata_in_HTML': 'O que está na "head"? Metadados em HTML',
+      'HTML_text_fundamentals': 'Fundamentos de textos HTML',
+      'Creating_hyperlinks': 'Criando hiperlinks',
+      'Advanced_text_formatting': 'Formatação avançada de textos',
+      'Document_and_website_structure': 'Estrutura do Documento e do Site',
+      'Debugging_HTML': 'Depurando HTML',
+      'Assessment_marking_up_a_letter': 'Avaliação: Melhorando uma carta',
+      'Assessment_structuring_a_page_of_content': 'Avaliação: Estruturando uma página de conteúdos',
+    'Multimedia_and_embedding': 'Multimídia e incorporação',
+      'Multimedia_and_embedding_overview': 'Visão geral sobre Multimídia e incorporação',
+      'Images_in_HTML': 'Trabalhando com imagens em HTML',
+      'Video_and_audio_content': 'Conteúdos com vídeo e áudio',
+      'Other_embedding_technologies': 'De objeto a iframe — outras tecnologias de incorporação',
+      'Adding_vector_graphics_to_the_Web': 'Adicionando gráficos vetoriais à Web',
+      'Responsive_images': 'Imagens responsivas',
+      'Assessment_Mozilla_splash_page': 'Avaliação: Página "splash" da Mozilla',
+    'Reference': 'Referências:',
+    'HTML_Elements': 'Elementos HTML',
+    'Global_attributes': 'Atributos globais',
+    'Input_types': 'Tipos de <code>&lt;input&gt;</code>',
+    'Documentation': 'Documentação:',
+    'Useful_lists': 'Listas úteis',
+    'Index': 'Índice para todas as páginas',
+    'HTML_tag': 'Páginas com a tag "HTML"',
+    'Contribute': 'Contribua!',
+    'Doc_status': 'Estado da documentação do HTML',
+    'The_MDN_project': 'O projeto MDN',
+  },
   'ru': {
     'Tutorials': 'Уроки:',
     'Introductory': 'Вступление',
@@ -160,19 +194,19 @@ var text = mdn.localStringMap({
   <li class="toggle">
     <details <%=state('HTML_Elements')%>>
       <summary><%=text['HTML_Elements']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 0, 0, "<", ">"])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element', 0, 0, "<", ">"])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Global_attributes')%>>
       <summary><%=text['Global_attributes']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Global_attributes'])%>
     </details>
   </li>
   <li class="toggle">
     <details <%=state('Input_types')%>>
       <summary><%-text['Input_types']%></summary>
-      <%-template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%>
+      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/HTML/Element/input'])%>
     </details>
   </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>

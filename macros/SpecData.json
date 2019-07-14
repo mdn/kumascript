@@ -41,12 +41,12 @@
   },
   "Async Function": {
     "name": "ECMAScript Async Functions",
-    "url": "https://tc39.github.io/ecmascript-asyncawait/",
+    "url": "https://tc39.es/ecmascript-asyncawait/",
     "status": "Draft"
   },
   "Async Iteration": {
     "name": "ECMAScript Async Iteration Functions",
-    "url": "https://tc39.github.io/proposal-async-iteration/",
+    "url": "https://tc39.es/proposal-async-iteration/",
     "status": "Draft"
   },
   "Audio Output": {
@@ -522,6 +522,11 @@
   "CSS Scrollbars": {
     "name": "CSS Scrollbars Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-scrollbars-1/",
+    "status": "WD"
+  },
+  "CSS Scroll Anchoring": {
+    "name": "CSS Scroll Anchoring Module Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-scroll-anchoring/",
     "status": "ED"
   },
   "CSS Scroll Snap": {
@@ -701,7 +706,7 @@
   },
   "ESDraft": {
     "name": "ECMAScript Latest Draft (ECMA-262)",
-    "url": "https://tc39.github.io/ecma262/",
+    "url": "https://tc39.es/ecma262/",
     "status": "Draft"
   },
   "ES Int 1.0": {
@@ -716,13 +721,13 @@
   },
   "ES Int Draft": {
     "name": "ECMAScript Internationalization API 4.0 (ECMA-402)",
-    "url": "https://tc39.github.io/ecma402/",
+    "url": "https://tc39.es/ecma402/",
     "status": "Draft"
   },
   "Feature Policy": {
     "name": "Feature Policy",
-    "url": "https://wicg.github.io/feature-policy/",
-    "status": "Draft"
+    "url": "https://w3c.github.io/webappsec-feature-policy/",
+    "status": "ED"
   },
   "Fetch": {
     "name": "Fetch",
@@ -896,7 +901,7 @@
   },
   "Keyboard Lock": {
     "name": "Keyboard Lock",
-    "url": "https://w3c.github.io/keyboard-lock",
+    "url": "https://w3c.github.io/keyboard-lock/",
     "status": "ED"
   },
   "Keyboard Map": {
@@ -943,6 +948,11 @@
     "name": "Media Capture from DOM Elements",
     "url": "https://w3c.github.io/mediacapture-fromelement/",
     "status": "WD"
+  },
+  "Media Playback Quality": {
+    "name": "Media Playback Quality",
+    "url": "https://wicg.github.io/media-playback-quality/",
+    "status": "ED"
   },
   "Media Session": {
     "name": "Media Session Standard",
@@ -1039,6 +1049,11 @@
     "url": "https://w3c.github.io/payment-handler/",
     "status": "WD"
   },
+  "Payment Method Identifiers": {
+    "name": "Payment Method Identifiers",
+    "url": "https://w3c.github.io/payment-method-id/",
+    "status": "CR"
+  },
   "Permissions API": {
     "name": "Permissions",
     "url": "https://w3c.github.io/permissions/",
@@ -1119,6 +1134,11 @@
     "url": "https://www.w3.org/TR/animation-timing/",
     "status": "Obsolete"
   },
+  "Resize Observer": {
+    "name": "Resize Observer",
+    "url": "https://drafts.csswg.org/resize-observer/",
+    "status": "ED"
+  },
   "Resource Hints": {
     "name": "Resource Hints",
     "url": "https://www.w3.org/TR/resource-hints/",
@@ -1138,6 +1158,11 @@
     "name": "Resource Timing Level 3",
     "url": "https://w3c.github.io/resource-timing/",
     "status": "ED"
+  },
+  "Screen Capture": {
+    "name": "Screen Capture",
+    "url": "https://w3c.github.io/mediacapture-screen-share/",
+    "status": "WD"
   },
   "Screen Orientation": {
     "name": "Screen Orientation API",
@@ -1183,6 +1208,11 @@
     "name": "Shadow DOM",
     "url": "https://w3c.github.io/webcomponents/spec/shadow/",
     "status": "Obsolete"
+  },
+  "Shadow Parts": {
+    "name": "Shadow Parts",
+    "url": "https://www.w3.org/TR/css-shadow-parts-1/",
+    "status": "WD"
   },
   "Shape Detection API": {
     "name": "Accelerated Shape Detection in Images",
@@ -1261,7 +1291,7 @@
   },
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
-    "url": "https://www.w3.org/2011/tracking-protection/drafts/tracking-dnt.html",
+    "url": "https://w3c.github.io/dnt/drafts/tracking-dnt.html",
     "status": "CR"
   },
   "Typed Array": {
@@ -1343,11 +1373,6 @@
     "name": "Web Audio API",
     "url": "https://webaudio.github.io/web-audio-api/",
     "status": "WD"
-  },
-  "Web Background Sync": {
-    "name": "Web Background Synchronization",
-    "url": "https://wicg.github.io/BackgroundSync/spec/",
-    "status": "Living"
   },
   "Web Bluetooth": {
     "name": "Web Bluetooth",
@@ -1549,19 +1574,29 @@
     "url": "https://notifications.spec.whatwg.org/",
     "status": "Living"
   },
-  "WebRTC Statistics Identifiers": {
-    "name": "Identifiers for WebRTC's Statistics API",
-    "url": "https://w3c.github.io/webrtc-stats/",
-    "status": "CR"
-  },
   "WebRTC 1.0": {
     "name": "WebRTC 1.0: Real-time Communication Between Browsers",
     "url": "https://w3c.github.io/webrtc-pc/",
     "status": "CR"
   },
+  "WebRTC Identity": {
+    "name": "Identity for WebRTC",
+    "url": "https://w3c.github.io/webrtc-identity/",
+    "status": "CR"
+  },
+  "WebRTC Statistics Identifiers": {
+    "name": "Identifiers for WebRTC's Statistics API",
+    "url": "https://w3c.github.io/webrtc-stats/",
+    "status": "CR"
+  },
   "Web Share API": {
     "name": "Web Share API",
     "url": "https://wicg.github.io/web-share/",
+    "status": "Draft"
+  },
+  "Web Share API 2": {
+    "name": "Web Share API - Level 2",
+    "url": "https://wicg.github.io/web-share/level-2/",
     "status": "Draft"
   },
   "Web Speech API": {

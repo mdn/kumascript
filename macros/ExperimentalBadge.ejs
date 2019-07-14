@@ -44,7 +44,7 @@ var titleAttrValue = mdn.localString({
 var str = "";
 
 if ($0) {
-    %><span title="<%=titleAttrValue%>"><i class="icon-beaker"> </i></span><%
+    %><span title="<%=titleAttrValue%>" class="icon-only-inline"><i class="icon-beaker"> </i></span><%
 } else {
 str = mdn.localString({
     "ca": "Experimental",
@@ -82,6 +82,6 @@ str = mdn.localString({
 });
 /* ja : OK */
 
-%><%-template("SimpleBadge", [str, "experimentalBadge", titleAttrValue])%><%
+%><%-await template("SimpleBadge", [str, "experimentalBadge", titleAttrValue])%><%
 }
 %>

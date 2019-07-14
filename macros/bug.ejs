@@ -13,8 +13,6 @@
  * https://wiki.mozilla.org/Bugzilla:REST_API
  */
 
-var mdn = require_macro("MDN:Common");
-
 var type = $1 || 'bug';
 
 var desc = '';
@@ -27,7 +25,7 @@ var bugDetail = [];
 while (bugDupe != null) {
     bugNumber = bugDupe;
     url = encodeURI('https://bugzilla.mozilla.org/rest/bug/' + bugDupe + '?include_fields=summary,dupe_of,resolution');
-    bugzillaDetail = mdn.fetchJSONResource(url);
+    bugzillaDetail = await MDN.fetchJSONResource(url);
     if (bugzillaDetail == null) {
         desc = "Unable to contact Bugzilla server.";
         bugDupe = null;

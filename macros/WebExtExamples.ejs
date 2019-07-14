@@ -20,7 +20,7 @@ The macro takes one optional argument, which is the name of the tag to use
 for the header. So if you want the header to be an <h2>, call it with "h2".
 */
 
-const allExamples = mdn.fetchJSONResource("https://raw.githubusercontent.com/mdn/webextensions-examples/master/examples.json");
+const allExamples = await MDN.fetchJSONResource("https://raw.githubusercontent.com/mdn/webextensions-examples/master/examples.json");
 const examplesBaseURL = "https://github.com/mdn/webextensions-examples/tree/master/";
 const desiredHeading = $0 || "h3";
 const lang = env.locale;

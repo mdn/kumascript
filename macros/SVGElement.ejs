@@ -4,18 +4,18 @@
 //    Parameters:
 //        $0  SVG element name
 
-var slug = {
+let slug = {
     'en-US': "Element"
 };
 
-var URL = "/" + env.locale + "/docs/Web/SVG/" + mdn.localString(slug) + "/" + $0;
-var localStrings = string.deserialize(template("L10n:Common"));
+let URL = "/" + env.locale + "/docs/Web/SVG/" + mdn.localString(slug) + "/" + $0;
+let localStrings = string.deserialize(await template("L10n:Common"));
 
 // Gather the page summary
 
-var term = $0;
-var page = wiki.getPage(URL);
-var summary = "";
+let term = $0;
+let page = await wiki.getPage(URL);
+let summary = "";
 if (page && page.summary) {
     summary = mdn.escapeQuotes(page.summary);
 } else {
