@@ -96,6 +96,7 @@
                             "Element: paste" ]
         },
         "Console API": {
+            "overview":   [ "Console API" ],
             "interfaces": [ "Console" ],
             "methods":    [],
             "properties": [ "Window.console",
