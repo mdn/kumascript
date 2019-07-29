@@ -1629,6 +1629,11 @@
     "url": "https://w3c.github.io/webvtt/",
     "status": "CR"
   },
+  "WebXR": {
+    "name": "WebXR Device API",
+    "url": "https://immersive-web.github.io/webxr/",
+    "status": "WD"
+  },
   "WOFF1.0": {
     "name": "WOFF File Format 1.0",
     "url": "https://www.w3.org/TR/WOFF/",
