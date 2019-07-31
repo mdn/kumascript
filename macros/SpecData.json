@@ -875,17 +875,12 @@
     "status": "PR"
   },
   "IndexedDB": {
-    "name": "Indexed Database API",
+    "name": "Indexed Database API 2.0",
     "url": "https://www.w3.org/TR/IndexedDB/",
     "status": "REC"
   },
-  "IndexedDB Draft": {
-    "name": "Indexed Database API Draft",
-    "url": "https://w3c.github.io/IndexedDB/",
-    "status": "Draft"
-  },
   "IndexedDB 2": {
-    "name": "Indexed Database API 2.0",
+    "name": "Indexed Database API Draft",
     "url": "https://w3c.github.io/IndexedDB/",
     "status": "REC"
   },
