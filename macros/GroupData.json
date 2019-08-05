@@ -97,7 +97,7 @@
         },
         "Console API": {
             "overview":   [ "Console API" ],
-            "interfaces": [ "console" ],
+            "interfaces": [ "Console" ],
             "methods":    [],
             "properties": [ "Window.console",
                             "WorkerGlobalScope.console" ],
