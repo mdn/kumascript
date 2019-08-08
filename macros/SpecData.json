@@ -1664,16 +1664,6 @@
     "url": "https://www.w3.org/TR/xpath-31/",
     "status": "REC"
   },
-  "XSLT 1.0": {
-    "name": "XSLT 1.0",
-    "url": "https://www.w3.org/TR/xslt-10/",
-    "status": "REC"
-  },
-  "XSLT 2.0": {
-    "name": "XSLT 2.0",
-    "url": "https://www.w3.org/TR/xslt20/",
-    "status": "REC"
-  },
   "XSLT 3.0": {
     "name": "XSLT 3.0",
     "url": "https://www.w3.org/TR/xslt-30/",
