@@ -1673,5 +1673,10 @@
     "name": "XPath 3.1",
     "url": "https://www.w3.org/TR/xpath-31/",
     "status": "REC"
+  },
+  "XSLT 3.0": {
+    "name": "XSLT 3.0",
+    "url": "https://www.w3.org/TR/xslt-30/",
+    "status": "REC"
   }
 }
