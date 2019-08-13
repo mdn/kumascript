@@ -379,6 +379,11 @@
     "url": "https://drafts.csswg.org/css-color/",
     "status": "WD"
   },
+  "CSS4 Conditional": {
+    "name": "CSS Conditional Rules Module Level&nbsp;4",
+    "url": "https://drafts.csswg.org/css-conditional-4/",
+    "status": "ED"
+  },
   "CSS4 Fonts": {
     "name": "CSS Fonts Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-fonts-4/",
