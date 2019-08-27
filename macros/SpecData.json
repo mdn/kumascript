@@ -41,12 +41,12 @@
   },
   "Async Function": {
     "name": "ECMAScript Async Functions",
-    "url": "https://tc39.github.io/ecmascript-asyncawait/",
+    "url": "https://tc39.es/ecmascript-asyncawait/",
     "status": "Draft"
   },
   "Async Iteration": {
     "name": "ECMAScript Async Iteration Functions",
-    "url": "https://tc39.github.io/proposal-async-iteration/",
+    "url": "https://tc39.es/proposal-async-iteration/",
     "status": "Draft"
   },
   "Audio Output": {
@@ -379,6 +379,11 @@
     "url": "https://drafts.csswg.org/css-color/",
     "status": "WD"
   },
+  "CSS4 Conditional": {
+    "name": "CSS Conditional Rules Module Level&nbsp;4",
+    "url": "https://drafts.csswg.org/css-conditional-4/",
+    "status": "ED"
+  },
   "CSS4 Fonts": {
     "name": "CSS Fonts Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-fonts-4/",
@@ -443,6 +448,11 @@
     "name": "CSS Containment Module Level 1",
     "url": "https://drafts.csswg.org/css-contain/",
     "status": "CR"
+  },
+  "CSS Color Adjust": {
+    "name": "CSS Color Adjustment Module Level 1",
+    "url": "https://drafts.csswg.org/css-color-adjust-1/",
+    "status": "ED"
   },
   "CSS Exclusions": {
     "name": "CSS Exclusions Module Level&nbsp;1",
@@ -533,6 +543,11 @@
     "name": "CSS Scroll Snap Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-scroll-snap-1/",
     "status": "CR"
+  },
+  "CSS Shadow Parts": {
+    "name": "Shadow Parts",
+    "url": "https://www.w3.org/TR/css-shadow-parts-1/",
+    "status": "WD"
   },
   "CSS Shapes": {
     "name": "CSS Shapes Module Level&nbsp;1",
@@ -706,7 +721,7 @@
   },
   "ESDraft": {
     "name": "ECMAScript Latest Draft (ECMA-262)",
-    "url": "https://tc39.github.io/ecma262/",
+    "url": "https://tc39.es/ecma262/",
     "status": "Draft"
   },
   "ES Int 1.0": {
@@ -721,7 +736,7 @@
   },
   "ES Int Draft": {
     "name": "ECMAScript Internationalization API 4.0 (ECMA-402)",
-    "url": "https://tc39.github.io/ecma402/",
+    "url": "https://tc39.es/ecma402/",
     "status": "Draft"
   },
   "Feature Policy": {
@@ -875,12 +890,12 @@
     "status": "PR"
   },
   "IndexedDB": {
-    "name": "Indexed Database API",
+    "name": "Indexed Database API 2.0",
     "url": "https://www.w3.org/TR/IndexedDB/",
     "status": "REC"
   },
   "IndexedDB 2": {
-    "name": "Indexed Database API 2.0",
+    "name": "Indexed Database API Draft",
     "url": "https://w3c.github.io/IndexedDB/",
     "status": "REC"
   },
@@ -1589,6 +1604,11 @@
     "url": "https://wicg.github.io/web-share/",
     "status": "Draft"
   },
+  "Web Share API 2": {
+    "name": "Web Share API - Level 2",
+    "url": "https://wicg.github.io/web-share/level-2/",
+    "status": "Draft"
+  },
   "Web Speech API": {
     "name": "Web Speech API",
     "url": "https://w3c.github.io/speech-api/",
@@ -1613,6 +1633,11 @@
     "name": "WebVTT: The Web Video Text Tracks Format",
     "url": "https://w3c.github.io/webvtt/",
     "status": "CR"
+  },
+  "WebXR": {
+    "name": "WebXR Device API",
+    "url": "https://immersive-web.github.io/webxr/",
+    "status": "WD"
   },
   "WOFF1.0": {
     "name": "WOFF File Format 1.0",
@@ -1652,6 +1677,11 @@
   "XPath3.1": {
     "name": "XPath 3.1",
     "url": "https://www.w3.org/TR/xpath-31/",
+    "status": "REC"
+  },
+  "XSLT 3.0": {
+    "name": "XSLT 3.0",
+    "url": "https://www.w3.org/TR/xslt-30/",
     "status": "REC"
   }
 }
