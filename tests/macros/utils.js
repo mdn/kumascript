@@ -291,7 +291,7 @@ function createMacroTestObject(macroName) {
  * first argument must be the name of the macro being tested.
  *
  * @param {string} macroName
- * @param {function():void|Promise<void>} runTests
+ * @param {() => void} runTests
  */
 function describeMacro(macroName, runTests) {
     describe(`test "${macroName}"`, function() {
@@ -359,7 +359,7 @@ function afterEachMacro(teardown) {
  *
  * @param {string} html
  * @param {boolean} [fragment] Whether the HTML is a fragment or not.
- * @return {string|null}
+ * @return {string|null} The error message, or `null` if the HTML snippet is valid.
  */
 function lintHTML(html, fragment = true) {
     if (fragment) {
