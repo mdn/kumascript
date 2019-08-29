@@ -87,9 +87,8 @@ assert.eventually = {
 /**
  * Asserts that list includes the supplied element.
  *
- * @template T Type of values in list.
  * @param {string|any[]} list Container string or array.
- * @param {string|T} element Potential value contained in the list.
+ * @param {string|any} element Potential value contained in the list.
  */
 assert.include = (list, element) => {
     expect(list).toContain(element);
