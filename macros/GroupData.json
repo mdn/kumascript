@@ -953,13 +953,12 @@
                             "ServiceWorkerGlobalScope: pushsubscriptionchange" ]
         },
         "Resize Observer API": {
-            "interfaces": [ "ResizeObservation",
-                            "ResizeObserver",
+            "overview":   [ "Resize Observer API" ],
+            "interfaces": [ "ResizeObserver",
                             "ResizeObserverEntry" ],
             "methods":    [],
             "properties": [],
-            "events":     [],
-            "callbacks":  [ "ResizeObserverCallback" ]
+            "events":     []
         },
         "Resource Timing API": {
             "overview":   [ "Resource Timing API" ],
