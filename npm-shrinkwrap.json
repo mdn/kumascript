@@ -50,6 +50,41 @@
                 "methods": "^1.1.2"
             }
         },
+        "@types/json-schema": {
+            "version": "7.0.3",
+            "resolved": "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.3.tgz",
+            "integrity": "sha512-Il2DtDVRGDcqjDtE+rF8iqg1CArehSK84HZJCT7AMITlyXRBpuPhqGLDQMowraqqu1coEaimg4ZOqggt6L6L+A==",
+            "dev": true
+        },
+        "@typescript-eslint/experimental-utils": {
+            "version": "1.13.0",
+            "resolved": "https://registry.npmjs.org/@typescript-eslint/experimental-utils/-/experimental-utils-1.13.0.tgz",
+            "integrity": "sha512-zmpS6SyqG4ZF64ffaJ6uah6tWWWgZ8m+c54XXgwFtUv0jNz8aJAVx8chMCvnk7yl6xwn8d+d96+tWp7fXzTuDg==",
+            "dev": true,
+            "requires": {
+                "@types/json-schema": "^7.0.3",
+                "@typescript-eslint/typescript-estree": "1.13.0",
+                "eslint-scope": "^4.0.0"
+            }
+        },
+        "@typescript-eslint/typescript-estree": {
+            "version": "1.13.0",
+            "resolved": "https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-1.13.0.tgz",
+            "integrity": "sha512-b5rCmd2e6DCC6tCTN9GSUAuxdYwCM/k/2wdjHGrIRGPSJotWMCe/dGpi66u42bhuh8q3QBzqM4TMA1GUUCJvdw==",
+            "dev": true,
+            "requires": {
+                "lodash.unescape": "4.0.1",
+                "semver": "5.5.0"
+            },
+            "dependencies": {
+                "semver": {
+                    "version": "5.5.0",
+                    "resolved": "https://registry.npmjs.org/semver/-/semver-5.5.0.tgz",
+                    "integrity": "sha512-4SJ3dm0WAwWy/NVeioZh5AntkdJoWKxHxcmyP622fOkgHa4z3R0TdBJICINyaSDE6uNwVc8gZr+ZinwZAH4xIA==",
+                    "dev": true
+                }
+            }
+        },
         "@tyriar/fibonacci-heap": {
             "version": "2.0.9",
             "resolved": "https://registry.npmjs.org/@tyriar/fibonacci-heap/-/fibonacci-heap-2.0.9.tgz",
@@ -1632,15 +1667,18 @@
             }
         },
         "eslint-plugin-jest": {
-            "version": "22.5.1",
-            "resolved": "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-22.5.1.tgz",
-            "integrity": "sha512-c3WjZR/HBoi4GedJRwo2OGHa8Pzo1EbSVwQ2HFzJ+4t2OoYM7Alx646EH/aaxZ+9eGcPiq0FT0UGkRuFFx2FHg==",
-            "dev": true
+            "version": "22.15.2",
+            "resolved": "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-22.15.2.tgz",
+            "integrity": "sha512-p4NME9TgXIt+KgpxcXyNBvO30ZKxwFAO1dJZBc2OGfDnXVEtPwEyNs95GSr6RIE3xLHdjd8ngDdE2icRRXrbxg==",
+            "dev": true,
+            "requires": {
+                "@typescript-eslint/experimental-utils": "^1.13.0"
+            }
         },
         "eslint-plugin-prettier": {
-            "version": "3.0.1",
-            "resolved": "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-3.0.1.tgz",
-            "integrity": "sha512-/PMttrarPAY78PLvV3xfWibMOdMDl57hmlQ2XqFeA37wd+CJ7WSxV7txqjVPHi/AAFKd2lX0ZqfsOc/i5yFCSQ==",
+            "version": "3.1.0",
+            "resolved": "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.0.tgz",
+            "integrity": "sha512-XWX2yVuwVNLOUhQijAkXz+rMPPoCr7WFiAl8ig6I7Xn+pPVhDhzg4DxHpmbeb0iqjO9UronEA3Tb09ChnFVHHA==",
             "dev": true,
             "requires": {
                 "prettier-linter-helpers": "^1.0.0"
@@ -4026,6 +4064,12 @@
             "integrity": "sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=",
             "dev": true
         },
+        "lodash.unescape": {
+            "version": "4.0.1",
+            "resolved": "https://registry.npmjs.org/lodash.unescape/-/lodash.unescape-4.0.1.tgz",
+            "integrity": "sha1-vyJJiGzlFM2hEvrpIYzcBlIR/Jw=",
+            "dev": true
+        },
         "loose-envify": {
             "version": "1.4.0",
             "resolved": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
@@ -4074,17 +4118,17 @@
             "dev": true
         },
         "mdn-browser-compat-data": {
-            "version": "0.0.78",
-            "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.78.tgz",
-            "integrity": "sha512-1Ez+1E0Z3kwoZ+RgmB1BLlj+nSJxeZuZxIWymnm9kbAEW92pgARVX+yxgKtyHg/UsLost5dt8IitQU4AQDzifw==",
+            "version": "0.0.91",
+            "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.91.tgz",
+            "integrity": "sha512-CyGR9QD3zZfQAyYkQXvQH9pmDXrAUQ2tWIKuqepPlq4JsMIirb7dSSYB7FoOuTSb2jvS0AI3YhVVCsBQyCkoqg==",
             "requires": {
                 "extend": "3.0.2"
             }
         },
         "mdn-data": {
-            "version": "2.0.2",
-            "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.2.tgz",
-            "integrity": "sha512-LJAYMdB0NNBg3WuMU13sximT6P/8r4Eq/oqa1rJMonw+frE5vD52gWFJeYQHjrXbH3G8c2Ml6OcbXAcqnrroNA=="
+            "version": "2.0.4",
+            "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.4.tgz",
+            "integrity": "sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA=="
         },
         "media-typer": {
             "version": "0.3.0",
@@ -4799,9 +4843,9 @@
             "dev": true
         },
         "prettier": {
-            "version": "1.17.0",
-            "resolved": "https://registry.npmjs.org/prettier/-/prettier-1.17.0.tgz",
-            "integrity": "sha512-sXe5lSt2WQlCbydGETgfm1YBShgOX4HxQkFPvbxkcwgDvGDeqVau8h+12+lmSVlP3rHPz0oavfddSZg/q+Szjw==",
+            "version": "1.18.2",
+            "resolved": "https://registry.npmjs.org/prettier/-/prettier-1.18.2.tgz",
+            "integrity": "sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==",
             "dev": true
         },
         "prettier-linter-helpers": {
@@ -6339,9 +6383,9 @@
             }
         },
         "vnu-jar": {
-            "version": "18.11.5",
-            "resolved": "https://registry.npmjs.org/vnu-jar/-/vnu-jar-18.11.5.tgz",
-            "integrity": "sha512-XxTYLOUgQYdvIlAgX1BtxZiQ97/OKuBaEojqZdjMnjI+OXDkSyQGNGpzUQIQygeRrFVdQ1/eAVfiRE/iIlV0fg==",
+            "version": "18.12.18",
+            "resolved": "https://registry.npmjs.org/vnu-jar/-/vnu-jar-18.12.18.tgz",
+            "integrity": "sha512-jcJC7fVvLA8BWdmSIhWLT7uinbjsMEGYJQzVaEdSsfI7mCl7WD+eebNXNJS38+KSExmS3ZDjxkB6EaoFtAuOzA==",
             "dev": true
         },
         "w3c-hr-time": {
