@@ -252,7 +252,7 @@ describe('Environment class', () => {
     });
 
     it('defines a template() function that renders templates', async () => {
-        let mockRender = jest.fn(() => 'hello world');
+        let mockRender = jest.fn(async (name, context) => 'hello world');
         let mockTemplates = { render: mockRender };
         let environment = new Environment({}, mockTemplates);
         let context = environment.getExecutionContext([]);
@@ -265,5 +265,24 @@ describe('Environment class', () => {
         expect(mockRender.mock.calls[0][0]).toBe('foo');
         expect(getValue(mockRender.mock.calls[0][1], '$0')).toBe('1');
         expect(getValue(mockRender.mock.calls[0][1], '$1')).toBe('2');
+    });
+
+    it('the template() function cannot be altered by macros', async () => {
+        let mockRender = jest.fn(async (name, context) => {
+            let template = getValue(context, 'template');
+            try {
+                template.foo = 'this should fail';
+            } catch (_) {
+                /* ignore error caused by attempting to edit a frozen object */
+            }
+            return context;
+        });
+        let mockTemplates = { render: mockRender };
+        let environment = new Environment({}, mockTemplates);
+        let context = environment.getExecutionContext([]);
+        let templateFunction = getValue(context, 'template');
+
+        let renderedContext = await templateFunction('editTemplate');
+        expect(getValue(renderedContext, 'template')).not.toHaveProperty('foo');
     });
 });

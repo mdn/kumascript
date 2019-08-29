@@ -94,7 +94,7 @@ class Environment {
             let p = {};
             for (let [key, value] of Object.entries(o)) {
                 if (binding && typeof value === 'function') {
-                    value = value.bind(binding);
+                    value = freeze(value.bind(binding));
                 }
                 p[key] = value;
                 p[key.toLowerCase()] = value;
@@ -135,11 +135,22 @@ class Environment {
         globals.page = globals.Page = freeze(page);
         globals.env = globals.Env = freeze(env);
 
-        // Macros use the global template() method to excute other
-        // macros. This is the one function that we can't just
-        // implement on globalsPrototype because it needs acccess to
-        // this.templates.
-        globals.template = this._renderTemplate.bind(this);
+        /**
+         * Macros use the global `template()` function to execute other
+         * macros. This is the one function that we can't just
+         * implement on `globalsPrototype` because it needs access
+         * to `this.templates`.
+         *
+         * @type {(name: string, args: any[]) => Promise<string>}
+         */
+        let template = this._renderTemplate.bind(this);
+        // This makes it so that `template.name` doesn't expose
+        // the internal underscore-prefixed name:
+        Object.defineProperty(template, 'name', {
+            value: 'bound template',
+            configurable: true
+        });
+        globals.template = freeze(template);
 
         this.prototypeEnvironment = freeze(globals);
     }
