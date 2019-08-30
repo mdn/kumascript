@@ -135,7 +135,7 @@
             "interfaces": [ "PaintWorkletGlobalScope",
                             "PaintRenderingContext2D",
                             "PaintSize" ],
-            "methods":    [ "registerPaint()" ],
+            "methods":    [ "PaintWorklet.registerPaint()" ],
             "properties": [],
             "events":     []
         },
