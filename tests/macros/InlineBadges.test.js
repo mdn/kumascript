@@ -25,12 +25,11 @@ const TEST_CASES = [
     },
     {
         title: 'Badges follow icons',
-        args: ['unimplemented', 'readonly', 'experimental', 'non-standard'],
+        args: ['readonly', 'experimental', 'non-standard'],
         expected:
             '&nbsp;<span title="This API has not been standardized." class="icon-only-inline"><i class="icon-warning-sign"> </i></span>' +
             '&nbsp;<span title="This is an experimental API that should not be used in production code." class="icon-only-inline"><i class="icon-beaker"> </i></span>' +
-            '<span title="This value may not be changed." class="inlineIndicator readOnly readOnlyInline">Read only </span>' +
-            '<span class="inlineIndicator unimplemented unimplementedInline">Unimplemented</span>'
+            '<span title="This value may not be changed." class="inlineIndicator readOnly readOnlyInline">Read only </span>'
     }
 ];
 
