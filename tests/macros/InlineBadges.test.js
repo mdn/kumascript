@@ -34,6 +34,10 @@ const TEST_CASES = [
 ];
 
 describeMacro('InlineBadges', () => {
+    itMacro('Early return when no arguments are provided', async macro => {
+        await expect(macro.call()).resolves.toBeFalsy();
+    });
+
     for (const t of TEST_CASES) {
         itMacro(t.title, async macro => {
             let result = await macro.call(...t.args);
@@ -45,7 +49,11 @@ describeMacro('InlineBadges', () => {
         await expect(macro.call('experimental', 'experimental')).rejects.toThrow(TypeError);
     });
 
-    itMacro('Unknown badge throws error', async macro => {
-        await expect(macro.call('__invalid__')).rejects.toThrow(TypeError);
+    itMacro('Unknown badge throws error (reports used case)', async macro => {
+        let { rejects } = expect(macro.call('__INVALID__'));
+        await Promise.all([
+            rejects.toThrow(TypeError),
+            rejects.toThrow('Unknown badge: __INVALID__'),
+        ]);
     });
 });

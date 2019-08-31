@@ -2,11 +2,14 @@
 /**
  * The `{{InlineBadges}}` macro inserts inline indicators into a page
  * in the correct order.
- *
  */
 
+if (!arguments.length) {
+    return '';
+}
+
 /** @type {string[]} */
-const indicatorsRaw = $$.map(i => i.toLowerCase());
+const indicatorsRaw = arguments.map(i => i.toLowerCase());
 let output = '';
 
 const ICONS = {
@@ -23,10 +26,11 @@ const BADGES = {
 let errors = '';
 const indicators = [];
 
-for (const indicator of indicatorsRaw) {
+for (let i = 0; i < indicatorsRaw.length; i++) {
+    const indicator = indicatorsRaw[i];
     if (indicators.includes(indicator)) {
         errors += `
-  - Duplicate badge: ${indicator}`;
+  - Duplicate badge: ${arguments[i]}`;
         continue;
     }
 
@@ -36,7 +40,7 @@ for (const indicator of indicatorsRaw) {
     }
 
     errors += `
-  - Unknown badge: ${indicator}`;
+  - Unknown badge: ${arguments[i]}`;
 }
 
 if (errors) {
