@@ -185,7 +185,7 @@ function lintHTML(html, fragment = true) {
     } catch (error) {
         const error_message = error.message
             // `vnu` always uses `\n`, even on Windows.
-            .split('\n')
+            .split(/\r?\n/g)
             .filter(line => /^\s*Error: /.test(line))
             .join(os.EOL);
         if (!error_message) {
