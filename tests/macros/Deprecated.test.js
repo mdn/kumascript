@@ -3,11 +3,12 @@
  */
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('deprecated_inline', function() {
+// TODO: Add tests for other {{Deprecated_*}} macros
+describeMacro('Deprecated_Inline', function() {
     itMacro('No arguments (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call(),
-            `<span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span>`
+            `<span title="This deprecated API should no longer be used, but will probably still work." class="icon-only-inline"><i class="icon-thumbs-down-alt"> </i></span>`
         );
     });
     itMacro('"semver" string only (en-US)', function(macro) {

@@ -2,15 +2,21 @@
  * @prettier
  */
 
-const { assert, itMacro, describeMacro, lintHTML } = require('./utils');
+const {
+    assert,
+    itMacro,
+    beforeEachMacro,
+    describeMacro,
+    lintHTML } = require('./utils');
+
 const jsdom = require('jsdom');
 
 const locales = {
     'en-US': {
-        Core_Tools: 'Core Tools'
+        ResourcesURI: 'Resources and URIs'
     },
-    fr: {
-        Core_Tools: 'Outils principaux'
+    es: {
+        ResourcesURI: 'Recursons y URIs'
     }
 };
 
@@ -22,10 +28,15 @@ function checkSidebarDom(dom, locale) {
     );
 
     let summaries = dom.querySelectorAll('summary');
-    assert.equal(summaries[0].textContent, locales[locale].Core_Tools);
+    assert.equal(summaries[0].textContent, locales[locale].ResourcesURI);
 }
 
-describeMacro('ToolsSidebar', function() {
+describeMacro('HTTPSidebar', function() {
+
+    beforeEachMacro(function(macro) {
+        macro.ctx.env.path = '/en-US/docs/Web/HTTP/Overview';
+    });
+
     itMacro('Creates a sidebar object for en-US', function(macro) {
         macro.ctx.env.locale = 'en-US';
         return macro.call().then(function(result) {
@@ -35,12 +46,12 @@ describeMacro('ToolsSidebar', function() {
         });
     });
 
-    itMacro('Creates a sidebar object for fr', function(macro) {
-        macro.ctx.env.locale = 'fr';
+    itMacro('Creates a sidebar object for es', function(macro) {
+        macro.ctx.env.locale = 'es';
         return macro.call().then(function(result) {
             expect(lintHTML(result)).toBeFalsy();
             let dom = jsdom.JSDOM.fragment(result);
-            checkSidebarDom(dom, 'fr');
+            checkSidebarDom(dom, 'es');
         });
     });
 });

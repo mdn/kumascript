@@ -14,11 +14,10 @@ const permittedCharacters = {
     interface: /^[A-Z][\w.]+$/,
     property: /^[\w.]+$/,
     method: /^[\w.()]+$/,
-    event: /^[\w()]+$/,
+    event: /^[\w]+: [\w]+$/,
     dictionary: /^\w+$/,
     callback: /^\w+$/,
     type: /^\w+$/,
-    guideTitle: /^[\w .,]+$/,
     guideUrl: /^\/[\w-.~/]+$/
 };
 
@@ -46,16 +45,6 @@ const mandatoryGroupProperties = [
     'properties',
     'events'
 ];
-
-/**
- * Properties that are allowed in a guide
- */
-const permittedGuideProperties = ['title', 'url'];
-
-/**
- * Properties that must be present in a guide
- */
-const mandatoryGuideProperties = ['title', 'url'];
 
 /**
  * Check that `obj` contains:
@@ -148,22 +137,8 @@ function checkGroupData(groupDataJson) {
             expect(group.overview[0]).toMatch(permittedCharacters.overview);
         }
 
-        // guides is optional
         if (group.guides) {
-            // if present it is an array of guides
-            expect(Array.isArray(group.guides)).toBe(true);
-            for (let guide of group.guides) {
-                // check that the guide has the correct properties
-                checkProperties(
-                    guide,
-                    permittedGuideProperties,
-                    mandatoryGuideProperties
-                );
-
-                // these are both strings that contain only the permitted characters
-                expect(guide.title).toMatch(permittedCharacters.guideTitle);
-                expect(guide.url).toMatch(permittedCharacters.guideUrl);
-            }
+            checkStringArray(group.guides, permittedCharacters.guideUrl);
         }
     }
 }

@@ -42,13 +42,12 @@ for(let name of groupNames) {
   let groupObj = groupData[name];
   let firstLetter = name[0];
   let groupOutput = '';
-  let overviewName = name;
   let badge = "";
 
-  if (groupObj.hasOwnProperty("overview")) {
-    overviewName = groupObj.overview;
+  if (groupObj.overview === undefined) {
+    continue;
   }
-
+  let overviewName = groupObj.overview;
   let groupUrl = APIHref + "/" + spacesToUnderscores(htmlEscape(overviewName));
   let page = await wiki.getPage(groupUrl);
 

@@ -18,7 +18,7 @@ var str = mdn.localString({
 });
 
 if ($0) {
-    %><span title="<%=titleAttrValue%>"><i class="icon-thumbs-down-alt"> </i></span><%
+    %><span title="<%=titleAttrValue%>" class="icon-only-inline"><i class="icon-thumbs-down-alt"> </i></span><%
 } else {
     %><%-await template("SimpleBadge", [str, "deprecatedBadge", titleAttrValue])%><%
 }

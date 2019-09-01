@@ -6,12 +6,7 @@
   $1 - @-rule - defaults to the @-rule within the URL
 */
 
-let propertiesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/properties.json";
-let atRulesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/at-rules.json";
-let selectorsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/selectors.json";
-let typesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/types.json";
-let syntaxesUrl = "https://raw.githubusercontent.com/mdn/data/master/css/syntaxes.json";
-let unitsUrl = "https://raw.githubusercontent.com/mdn/data/master/css/units.json";
+const mdnDataCSS = require('mdn-data/css');
 // List types for which we want to link to a description instead of
 // including it in the formal syntax block
 let s_named_color_link = mdn.localString({
@@ -43,13 +38,8 @@ let externallyDescribedTypesData = {
   }
 };
 let data = {
-    properties: await MDN.fetchJSONResource(propertiesUrl),
-    atRules: await MDN.fetchJSONResource(atRulesUrl),
-    selectors: await MDN.fetchJSONResource(selectorsUrl),
-    types: await MDN.fetchJSONResource(typesUrl),
-    syntaxes: await MDN.fetchJSONResource(syntaxesUrl),
-    units: await MDN.fetchJSONResource(unitsUrl),
-    externallyDescribedTypes: externallyDescribedTypesData
+    ...mdnDataCSS,
+    externallyDescribedTypes: externallyDescribedTypesData,
 };
 let slug = env.slug;
 let locale = env.locale;

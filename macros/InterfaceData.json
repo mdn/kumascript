@@ -185,6 +185,12 @@
       "inh": "CSSValue",
       "impl": []
     },
+    "CSSPseudoElement": {
+      "inh": "EventTarget",
+      "impl": [
+        "Animatable"
+      ]
+    },
     "CSSStyleDeclaration": {
       "inh": "",
       "impl": []

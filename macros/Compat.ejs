@@ -46,7 +46,7 @@ var s_no_data_found = mdn.localString({
 
 const browsers = {
   "desktop": ['chrome', 'edge', 'firefox', 'ie', 'opera', 'safari'],
-  "mobile": ['webview_android', 'chrome_android', 'edge_mobile', 'firefox_android', 'opera_android', 'safari_ios', 'samsunginternet_android'],
+  "mobile": ['webview_android', 'chrome_android', 'firefox_android', 'opera_android', 'safari_ios', 'samsunginternet_android'],
   "server": ['nodejs'],
   "webextensions-desktop": ['chrome', 'edge', 'firefox', 'opera'],
   "webextensions-mobile": ['firefox_android']
@@ -501,8 +501,6 @@ function getFormattedBrowserName(browserNameKey) {
             return 'Firefox Android';
         case 'opera_android':
             return 'Opera Android';
-        case 'edge_mobile':
-            return 'Edge Mobile';
         case 'safari_ios':
             return 'Safari iOS';
         case 'samsunginternet_android':
