@@ -38,7 +38,7 @@ lint:
 
 lint-json:
 	docker run ${DOCKER_RUN_ARGS} ${IMAGE} \
-	  bash -c "find . -name '*.json' -not -path './node_modules/*' -print0 | xargs -t -n1 -0 /node_modules/.bin/jsonlint -q"
+	  bash -c "find . -name '*.json' -not -name 'tsconfig.json' -not -path './node_modules/*' -print0 | xargs -t -n1 -0 /node_modules/.bin/jsonlint -q"
 
 bash:
 	docker run -it ${DOCKER_RUN_ARGS} ${IMAGE} bash

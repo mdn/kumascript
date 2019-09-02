@@ -23,9 +23,9 @@ const express = require('express');
 const morgan = require('morgan');
 const request = require('request');
 
-const config = require('./config.js');
-const firelogger = require('./firelogger.js');
-const Templates = require('./templates.js');
+const config = require('./config.ts');
+const firelogger = require('./firelogger.ts');
+const Templates = require('./templates.ts');
 const render = require('./render.js');
 
 class Server {

@@ -17,7 +17,7 @@
         "test-coverage": "jest --coverage --collectCoverageFrom='src/**'",
         "lint": "eslint *.js src tests",
         "lint-json": "find . -name '*.json' -not -path './node_modules/*' -print0 | xargs -t -n1 -0 jsonlint -q",
-        "format": "./node_modules/.bin/prettier --write --require-pragma *.js src/*.js src/**/*.js tests/*.js tests/**/*.js"
+        "format": "./node_modules/.bin/prettier --write --require-pragma *.{js,ts} src/*.{js,ts} src/**/*.{js,ts} tests/*.{js,ts} tests/**/*.{js,ts}"
     },
     "engines": {
         "node": ">=10.0.0"
@@ -31,23 +31,41 @@
         "morgan": "1.9.1",
         "newrelic": "5.9.0",
         "redis": "^2.8.0",
-        "request": "2.88.0"
+        "request": "2.88.0",
+        "ts-node": "^8.3.0",
+        "typescript": "^3.6.2"
     },
     "devDependencies": {
+        "@types/ejs": "^2.6.3",
+        "@types/express": "^4.16.1",
+        "@types/extend": "^3.0.1",
+        "@types/jest": "^23.3.14",
+        "@types/jsdom": "^11.12.0",
+        "@types/lru-cache": "^5.1.0",
+        "@types/morgan": "^1.7.37",
+        "@types/newrelic": "^4.11.0",
+        "@types/node": "^10.14.17",
+        "@types/pegjs": "^0.10.1",
+        "@types/redis": "^2.8.13",
+        "@types/request": "^2.48.2",
+        "@types/vnu-jar": "^17.11.0",
         "eslint": "^5.16.0",
         "eslint-config-prettier": "^3.6.0",
         "eslint-plugin-jest": "^22.15.2",
         "eslint-plugin-prettier": "^3.1.0",
         "extend": "^3.0.2",
         "jest": "^23.6.0",
+        "jest-environment-jsdom": "^23.4.0",
         "jest-junit-reporter": "^1.1.0",
         "jsdom": "^11.12.0",
         "jsonlint": "^1.6.3",
         "pegjs": "^0.10.0",
         "prettier": "^1.18.2",
+        "ts-jest": "^23.10.5",
         "vnu-jar": "^18.12.18"
     },
     "jest": {
+        "preset": "ts-jest",
         "testEnvironment": "node",
         "coveragePathIgnorePatterns": [
             "src/parser.js"

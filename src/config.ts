@@ -5,10 +5,10 @@
  *
  * @prettier
  */
-const path = require('path');
+import path = require('path');
 
-module.exports = {
-    port: parseInt(process.env['KUMASCRIPT_PORT']) || 9080,
+export = {
+    port: parseInt(process.env['KUMASCRIPT_PORT']!) || 9080,
     documentURLTemplate:
         process.env['DOCUMENT_URL_TEMPLATE'] ||
         'https://developer.mozilla.org/en-US/docs/{path}?raw=1&redirect=no',
@@ -22,8 +22,8 @@ module.exports = {
     // NOTE(djf): In January 2019 I tried rendering 9500 documents, and
     // it resulted in 14,600 items in the cache for a total size of 41mb
     // of content, so I think 80mb ought to be a good size for this.
-    cacheMegabytes: parseInt(process.env['KUMASCRIPT_CACHE_MEGABYTES']) || 80,
-    cacheMinutes: parseInt(process.env['KUMASCRIPT_CACHE_MINUTES']) || 60,
+    cacheMegabytes: parseInt(process.env['KUMASCRIPT_CACHE_MEGABYTES']!) || 80,
+    cacheMinutes: parseInt(process.env['KUMASCRIPT_CACHE_MINUTES']!) || 60,
 
     // If this is configured, then src/cache.js will use Redis.
     // Otherwise it will fall back to an in-memory LRU cache.

@@ -6,8 +6,8 @@
  */
 const url = require('url');
 
-const cache = require('../cache.js');
-const config = require('../config.js');
+const cache = require('../cache.ts');
+const config = require('../config.ts');
 
 // Utility functions are collected here. These are functions that are used
 // by the exported functions below. Some of them are themselves exported.

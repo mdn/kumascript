@@ -1,7 +1,7 @@
 /**
  * @prettier
  */
-const { lintHTML } = require('./utils');
+const { lintHTML, readFixture, readJSONFixture } = require('./utils');
 
 const ERROR_TEST_CASES = [
     {
@@ -26,13 +26,25 @@ const ERROR_TEST_CASES = [
     }
 ];
 
-describe('test lintHTML function', function() {
-    for (const test of ERROR_TEST_CASES) {
-        it(test.title, function() {
-            expect(lintHTML(test.html)).toContain(test.error);
+describe('Macro test utils', function() {
+    describe('test lintHTML function', function() {
+        for (const test of ERROR_TEST_CASES) {
+            it(test.title, function() {
+                expect(lintHTML(test.html)).toContain(test.error);
+            });
+        }
+        it('with valid HTML input', function() {
+            expect(lintHTML('<div>This is nice</div>')).toBeFalsy();
         });
-    }
-    it('with valid HTML input', function() {
-        expect(lintHTML('<div>This is nice</div>')).toBeFalsy();
+    });
+
+    it('`readFixture` works', function() {
+        let result = String(readFixture('utils-test/fixture.txt')).trim();
+        expect(result).toEqual('Lorem ipsum...');
+    });
+
+    it('`readJSONFixture` works', function() {
+        const result = readJSONFixture('utils-test', 'fixture');
+        expect(result).toEqual({ 'utils-test': true });
     });
 });

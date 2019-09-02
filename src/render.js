@@ -49,7 +49,7 @@ const {
     MacroNotFoundError,
     MacroCompilationError,
     MacroExecutionError
-} = require('./errors.js');
+} = require('./errors.ts');
 
 async function render(source, templates, pageEnvironment) {
     // Parse the source document.
