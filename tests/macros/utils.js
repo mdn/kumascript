@@ -176,6 +176,15 @@ function lintHTML(html, fragment = true) {
                 </html>`;
     }
     try {
+        /**
+         * Without `JSON.stringify(…)`, spaces in the file path would be treated
+         * as argument separators, e.g.:
+         * `C:\Mozilla Sources\kumascript\node_modules\...\vnu-jar\...\vnu.jar`
+         * would be interpreted as:
+         *
+         * - Argument 1: `C:\Mozilla`
+         * - Argument 2: `Sources\kumascript\node_modules\...\vnu-jar\...\vnu.jar`
+         */
         execSync(`java -jar ${JSON.stringify(vnu)} --errors-only --format text -`, {
             input: html,
             stdio: 'pipe',

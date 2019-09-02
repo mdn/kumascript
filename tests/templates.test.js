@@ -77,6 +77,17 @@ describe('Templates class', () => {
 
     it('only loads files once', async () => {
         const EJS = require('ejs');
+        /**
+         * Without `JSON.stringify(…)`, `\` in the file path would be treated
+         * as part of an escape sequence (e.g.:
+         * `C:\nodejs\...\kumascript\tests\fixtures\templates\test.ejs`
+         * would be interpreted as:
+         *
+         * ```none
+         * C:
+         * odejs...kumascript	estsixtures	emplates	est.ejs
+         * ```
+         */
         const mockLoader = jest.fn(filename => `<%= ${JSON.stringify(filename)} -%>`);
         EJS.clearCache();
         EJS.fileLoader = mockLoader;
