@@ -85,7 +85,7 @@ describe('Templates class', () => {
          *
          * ```none
          * C:
-         * odejs...kumascript	estsixtures	emplates	est.ejs
+         * odejs...kumascript	ests␌ixtures	emplates	est.ejs
          * ```
          */
         const mockLoader = jest.fn(filename => `<%= ${JSON.stringify(filename)} -%>`);
