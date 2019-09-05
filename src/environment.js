@@ -140,7 +140,9 @@ class Environment {
          * @type {NodeRequireFunction}
          */
         // TODO: This doesn't support macros in sub-directories
-        globals.require = createRequireFromPath(this.templates.macroDirectory);
+        globals.require = createRequireFromPath(
+            (templates && templates.macroDirectory) || `${__dirname}/../macros`
+        );
 
         this.prototypeEnvironment = freeze(globals);
     }
