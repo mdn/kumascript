@@ -117,13 +117,14 @@ function describeMacro(macroName, runTests) {
  *
  * @param {string} title
  * @param {function(Macro):void} runTest
+ * @param {number} [timeout]
  */
-function itMacro(title, runTest) {
+function itMacro(title, runTest, timeout) {
     it(title, function() {
         // Assumes that setup returns a promise (if async) or
         // undefined (if synchronous).
         return runTest(macro);
-    });
+    }, timeout);
 }
 
 /**
@@ -133,13 +134,14 @@ function itMacro(title, runTest) {
  * argument that is the macro test object.
  *
  * @param {function(Macro):void} setup
+ * @param {number} [timeout]
  */
-function beforeEachMacro(setup) {
+function beforeEachMacro(setup, timeout) {
     beforeEach(function() {
         // Assumes that setup returns a promise (if async) or
         // undefined (if synchronous).
         return setup(macro);
-    });
+    }, timeout);
 }
 
 /**
@@ -149,13 +151,14 @@ function beforeEachMacro(setup) {
  * argument that is the macro test object.
  *
  * @param {function(Macro):void} teardown
+ * @param {number} [timeout]
  */
-function afterEachMacro(teardown) {
+function afterEachMacro(teardown, timeout) {
     afterEach(function() {
         // Assumes that teardown returns a promise (if async) or
         // undefined (if synchronous).
         return teardown(macro);
-    });
+    }, timeout);
 }
 
 /**
