@@ -28,7 +28,7 @@ fs.readdirSync(fixture_dir).forEach(function(fn) {
 
 describeMacro('Compat', function() {
     beforeEachMacro(function(macro) {
-        macro.ctx.require = jest.fn(pkg => fixtureCompatData);
+        jest.setMock('mdn-browser-compat-data', fixtureCompatData);
 
         /*        macro.ctx.require = sinon.stub();
         macro.ctx.require.withArgs('mdn-browser-compat-data').returns(fixtureCompatData);
@@ -752,6 +752,26 @@ describeMacro('Compat', function() {
                     ),
                     'ic-footnote'
                 );
+            });
+        }
+    );
+    itMacro(
+        'Links in notes are correctly processed',
+        function(macro) {
+            macro.ctx.env.slug = 'Notes/Feature';
+            return macro.call('notes.feature').then(function(result) {
+                let dom = JSDOM.fragment(result);
+                let anchors = Array.from(dom.querySelectorAll('.bc-browser-opera > .bc-history > dl > dd > a'));
+                expect(anchors).toHaveLength(3);
+
+                expect(anchors[0].getAttribute('href')).toEqual('/en-US/docs/Sandbox');
+                expect(anchors[0]).toHaveProperty('textContent', 'with link');
+
+                expect(anchors[1].getAttribute('href')).toBeFalsy();
+                expect(anchors[1]).toHaveProperty('textContent', 'with link to self')
+
+				expect(anchors[2].getAttribute('href')).toEqual('#Anchor');
+                expect(anchors[2]).toHaveProperty('textContent', 'with link to anchor on self');
             });
         }
     );
