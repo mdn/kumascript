@@ -1084,6 +1084,11 @@
     "url": "https://w3c.github.io/pointerevents/extension.html",
     "status": "Draft"
   },
+  "Pointer Events 3": {
+    "name": "Pointer Events – Level 3",
+    "url": "https://w3c.github.io/pointerevents/",
+    "status": "ED"
+  },
   "Pointer Lock": {
     "name": "Pointer Lock",
     "url": "https://w3c.github.io/pointerlock/",
