@@ -458,6 +458,17 @@
             "properties": [],
             "events":     []
         },
+        "History API": {
+          "overview": [
+            "Performance API"
+          ],
+          "interfaces": [
+            "History"
+          ],
+          "methods": [],
+          "properties": [],
+          "events": []
+        },
         "HTML DOM": {
             "interfaces": [ "BeforeUnloadEvent",
                             "DOMStringMap",
