@@ -4,6 +4,10 @@
       "inh": "OrientationSensor",
       "impl": []
     },
+    "AbstractRange": {
+      "inh": "",
+      "impl": []
+    },
     "Accelerometer": {
       "inh": "Sensor",
       "impl": []
@@ -1488,7 +1492,7 @@
       "impl": []
     },
     "Range": {
-      "inh": "",
+      "inh": "AbstractRange",
       "impl": []
     },
     "RecordErrorEvent": {
@@ -1517,6 +1521,10 @@
     },
     "Sensor": {
       "inh": "EventTarget",
+      "impl": []
+    },
+    "StaticRange": {
+      "inh": "AbstractRange",
       "impl": []
     },
     "SVGAElement": {
