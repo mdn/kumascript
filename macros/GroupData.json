@@ -460,7 +460,7 @@
         },
         "History API": {
           "overview": [
-            "Performance API"
+            "History API"
           ],
           "interfaces": [
             "History"
