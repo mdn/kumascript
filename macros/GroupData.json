@@ -193,6 +193,7 @@
                             "/docs/Web/API/Document_Object_Model/Examples" ],
             "interfaces": [ "AbortController",
                             "AbortSignal",
+                            "AbstractRange",
                             "Attr",
                             "ByteString",
                             "CDATASection",
@@ -241,6 +242,7 @@
                             "ProcessingInstruction",
                             "PromiseResolver",
                             "Range",
+                            "StaticRange",
                             "Text",
                             "TextDecoder",
                             "TextEncoder",
@@ -458,6 +460,17 @@
             "methods":    [],
             "properties": [],
             "events":     []
+        },
+        "History API": {
+          "overview": [
+            "History API"
+          ],
+          "interfaces": [
+            "History"
+          ],
+          "methods": [],
+          "properties": [],
+          "events": []
         },
         "HTML DOM": {
             "interfaces": [ "BeforeUnloadEvent",
@@ -953,13 +966,12 @@
                             "ServiceWorkerGlobalScope: pushsubscriptionchange" ]
         },
         "Resize Observer API": {
-            "interfaces": [ "ResizeObservation",
-                            "ResizeObserver",
+            "overview":   [ "Resize Observer API" ],
+            "interfaces": [ "ResizeObserver",
                             "ResizeObserverEntry" ],
             "methods":    [],
             "properties": [],
-            "events":     [],
-            "callbacks":  [ "ResizeObserverCallback" ]
+            "events":     []
         },
         "Resource Timing API": {
             "overview":   [ "Resource Timing API" ],

@@ -3,6 +3,7 @@
  */
 
 const Templates = require('../src/templates.js');
+const path = require('path');
 
 describe('Templates class', () => {
     it('has the expected methods', () => {
@@ -12,7 +13,7 @@ describe('Templates class', () => {
     });
 
     function dir(name) {
-        return `${__dirname}/fixtures/templates/${name}`;
+        return path.resolve(__dirname, 'fixtures', 'templates', name);
     }
 
     it('throws on non-existent dir', () => {
@@ -38,9 +39,9 @@ describe('Templates class', () => {
         let macros = new Templates(directory);
         expect(macros.getTemplateMap()).toEqual(
             new Map([
-                ['test1', directory + '/test1.ejs'],
-                ['test2', directory + '/Test2.ejs'],
-                ['async', directory + '/async.ejs']
+                ['test1', path.resolve(directory, 'test1.ejs')],
+                ['test2', path.resolve(directory, 'Test2.ejs')],
+                ['async', path.resolve(directory, 'async.ejs')],
             ])
         );
     });
@@ -60,7 +61,7 @@ describe('Templates class', () => {
 
         let result = await macros.render('async', {
             async_adder: function(n) {
-                return new Promise((resolve, reject) => {
+                return new Promise(resolve => {
                     setTimeout(() => resolve(n + 1));
                 });
             }
@@ -76,18 +77,29 @@ describe('Templates class', () => {
 
     it('only loads files once', async () => {
         const EJS = require('ejs');
-        const mockLoader = jest.fn(filename => `<%= "${filename}" -%>`);
+        /**
+         * Without `JSON.stringify(…)`, `\` in the file path would be treated
+         * as part of an escape sequence (e.g.:
+         * `C:\nodejs\...\kumascript\tests\fixtures\templates\test.ejs`
+         * would be interpreted as:
+         *
+         * ```none
+         * C:
+         * odejs...kumascript	ests␌ixtures	emplates	est.ejs
+         * ```
+         */
+        const mockLoader = jest.fn(filename => `<%= ${JSON.stringify(filename)} -%>`);
         EJS.clearCache();
         EJS.fileLoader = mockLoader;
         const directory = dir('macros');
         const macros = new Templates(directory);
 
         let result1 = await macros.render('test1');
-        expect(result1).toBe(directory + '/test1.ejs');
+        expect(result1).toBe(path.resolve(directory, 'test1.ejs'));
         expect(mockLoader.mock.calls.length).toBe(1);
 
         let result2 = await macros.render('test2');
-        expect(result2).toBe(directory + '/Test2.ejs');
+        expect(result2).toBe(path.resolve(directory, 'Test2.ejs'));
         expect(mockLoader.mock.calls.length).toBe(2);
 
         // Render the macros again, but don't expect any more loads
