@@ -2,11 +2,12 @@
 // Embeds a Test262.report results table
 //
 // Parameters:
-//  $0 - An embed URL from test262.report (absolute)
-//  Example call {{EmbedTest262ReportResultsTable("https://test262.report/embed/features/globalThis?engines=chakra%2Cjavascriptcore%2Cspidermonkey%2Cv8&summary=true&include-browsers=true")}}
+//  $0 - An embed URL from test262.report (relative)
+//
+//  Example call {{EmbedTest262ReportResultsTable("/features/globalThis?engines=chakra%2Cjavascriptcore%2Cspidermonkey%2Cv8&summary=true&include-browsers=true")}}
 //
 
-var str = '<iframe frameborder="0" scrolling="no" style="width:100%;height:300px;" src="' + $0 + '"></iframe>';
+var str = '<iframe frameborder="0" scrolling="no" style="width:100%;height:300px;" src="https://test262.report/embed' + $0 + '"></iframe>';
 
 %>
 <%- str %>
