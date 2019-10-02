@@ -509,6 +509,11 @@
     "url": "https://drafts.css-houdini.org/css-paint-api-1/",
     "status": "WD"
   },
+  "CSS Properties and Values API": {
+    "name": "CSS Properties and Values API Level 1",
+    "url": "https://drafts.css-houdini.org/css-properties-values-api/",
+    "status": "ED"
+  },
   "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
     "url": "https://wicg.github.io/overscroll-behavior/",
