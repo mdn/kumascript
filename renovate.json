@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "masterIssue": true,
+  "dockerfile": {
+    "pinDigests": true
+  },
+  "rebaseStalePrs": true,
+  "timezone": "UTC",
+  "schedule": ["before 13:00 on mondays"]
+}
