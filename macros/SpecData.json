@@ -1644,6 +1644,16 @@
     "url": "https://immersive-web.github.io/webxr/",
     "status": "WD"
   },
+  "WebXR AR Module": {
+    "name": "WebXR Augmented Reality Module",
+    "url": "https://immersive-web.github.io/webxr-ar-module/",
+    "status": "ED"
+  },
+  "WebXR Gamepads Module": {
+    "name": "WebXR Gamepads Module",
+    "url": "https://immersive-web.github.io/webxr-gamepads-module/",
+    "status": "ED"
+  },
   "WOFF1.0": {
     "name": "WOFF File Format 1.0",
     "url": "https://www.w3.org/TR/WOFF/",

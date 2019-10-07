@@ -2437,6 +2437,82 @@
       "inh": "",
       "impl": []
     },
+    "XR": {
+      "inh": "EventTarget",
+      "impl": []
+    },
+    "XRBoundedReferenceSpace": {
+      "inh": "XRReferenceSpace",
+      "impl": []
+    },
+    "XRFrame": {
+      "inh": "",
+      "impl": []
+    },
+    "XRInputSource": {
+      "inh": "",
+      "impl": []
+    },
+    "XRInputSourceArray": {
+      "inh": "",
+      "impl": []
+    },
+    "XRInputSourceEvent": {
+      "inh": "Event",
+      "impl": []
+    },
+    "XRInputSourcesChangeEvent": {
+      "inh": "Event",
+      "impl": []
+    },
+    "XRPose": {
+      "inh": "",
+      "impl": []
+    },
+    "XRReferenceSpace": {
+      "inh": "XRSpace",
+      "impl": []
+    },
+    "XRReferenceSpaceEvent": {
+      "inh": "Event",
+      "impl": []
+    },
+    "XRRenderState": {
+      "inh": "",
+      "impl": []
+    },
+    "XRRigidTransform": {
+      "inh": "",
+      "impl": []
+    },
+    "XRSession": {
+      "inh": "EventTarget",
+      "impl": []
+    },
+    "XRSessionEvent": {
+      "inh": "Event",
+      "impl": []
+    },
+    "XRSpace": {
+      "inh": "EventTarget",
+      "impl": []
+    },
+    "XRView": {
+      "inh": "",
+      "impl": []
+    },
+    "XRViewerPose": {
+      "inh": "XRPose",
+      "impl": []
+    },
+    "XRViewport": {
+      "inh": "",
+      "impl": []
+    },
+    "XRWebGLLayer": {
+      "inh": "",
+      "impl": []
+    },
     "XULCommandEvent": {
       "inh": "UIEvent",
       "impl": []
