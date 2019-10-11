@@ -511,8 +511,8 @@
   },
   "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
-    "url": "https://wicg.github.io/overscroll-behavior/",
-    "status": "Draft"
+    "url": "https://www.w3.org/TR/css-overscroll-1/",
+    "status": "WD"
   },
   "CSS Rhythmic Sizing": {
     "name": "CSS Rhythmic Sizing",
