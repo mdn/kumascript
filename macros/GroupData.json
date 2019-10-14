@@ -1771,7 +1771,7 @@
                             "XRSessionEventInit",
                             "XRSessionInit",
                             "XRWebGLLayerInit" ],
-            "types":      [ "GamepadMappingType",
+            "types":      [ "XREnvironmentBlendMode",
                             "XREye",
                             "XRHandedness",
                             "XRReferenceSpaceType",
