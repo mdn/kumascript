@@ -1782,7 +1782,7 @@
             "callbacks":  [ "XRFrameRequestCallback" ]
         },
         "XDomain": {
-            "interfaces": [ "XDomainRequest" ],
+            "interfaces": [ "XDomainrequest" ],
             "methods":    [],
             "properties": [],
             "events":     []
