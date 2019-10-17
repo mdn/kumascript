@@ -7,10 +7,10 @@ const jsdom = require('jsdom');
 
 const locales = {
     'en-US': {
-        Core_Tools: 'Page Inspector'
+        Core_Tools: 'Network Monitor'
     },
     fr: {
-        Core_Tools: 'Inspecteur'
+        Core_Tools: 'Moniteur réseau'
     }
 };
 
