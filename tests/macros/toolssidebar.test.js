@@ -7,10 +7,10 @@ const jsdom = require('jsdom');
 
 const locales = {
     'en-US': {
-        Core_Tools: 'Core Tools'
+        Core_Tools: 'Page Inspector'
     },
     fr: {
-        Core_Tools: 'Outils principaux'
+        Core_Tools: 'Inspecteur'
     }
 };
 
