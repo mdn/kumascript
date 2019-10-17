@@ -49,7 +49,7 @@ summary:
       for testing, you will want to run your local development version of MDN:
 
           cd ..
-          docker-compose build
+          docker-compose pull
           docker-compose up -d
           cd kumascript
 
@@ -71,7 +71,7 @@ Your pull request will be reviewed by one or more members of the MDN team, and
 if accepted, your changes will be merged into the master branch and scheduled
 for release to production.
 
-## Updating the Dockerfile and/or package.json file
+## Updating the docker/Dockerfile and/or package.json file
 
 If you update either one or both of these files, you'll need to do a little
 more before you run your local development version of MDN.
@@ -135,7 +135,7 @@ more before you run your local development version of MDN.
 
 ## Setup (Standalone)
 
-* Install [Node.js 10.x](https://nodejs.org/en/download/package-manager/)
+* Install [Node.js](https://nodejs.org/en/download/package-manager/)
 * Install the dependencies:
     * `npm install`
 

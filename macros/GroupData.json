@@ -96,6 +96,7 @@
                             "Element: paste" ]
         },
         "Console API": {
+            "overview":   [ "Console API" ],
             "interfaces": [ "Console" ],
             "methods":    [],
             "properties": [ "Window.console",
@@ -192,6 +193,7 @@
                             "/docs/Web/API/Document_Object_Model/Examples" ],
             "interfaces": [ "AbortController",
                             "AbortSignal",
+                            "AbstractRange",
                             "Attr",
                             "ByteString",
                             "CDATASection",
@@ -240,6 +242,7 @@
                             "ProcessingInstruction",
                             "PromiseResolver",
                             "Range",
+                            "StaticRange",
                             "Text",
                             "TextDecoder",
                             "TextEncoder",
@@ -458,6 +461,17 @@
             "properties": [],
             "events":     []
         },
+        "History API": {
+          "overview": [
+            "History API"
+          ],
+          "interfaces": [
+            "History"
+          ],
+          "methods": [],
+          "properties": [],
+          "events": []
+        },
         "HTML DOM": {
             "interfaces": [ "BeforeUnloadEvent",
                             "DOMStringMap",
@@ -568,10 +582,12 @@
             "events":     [ "Document: DOMContentLoaded",
                             "Document: readystatechange",
                             "Element: afterscriptexecute",
+                            "Element: auxclick",
                             "Element: beforescriptexecute",
                             "Element: blur",
                             "Element: click",
                             "Element: contextmenu",
+                            "Element: DOMActivate",
                             "Element: focus",
                             "Element: select",
                             "Element: show",
@@ -950,13 +966,12 @@
                             "ServiceWorkerGlobalScope: pushsubscriptionchange" ]
         },
         "Resize Observer API": {
-            "interfaces": [ "ResizeObservation",
-                            "ResizeObserver",
+            "overview":   [ "Resize Observer API" ],
+            "interfaces": [ "ResizeObserver",
                             "ResizeObserverEntry" ],
             "methods":    [],
             "properties": [],
-            "events":     [],
-            "callbacks":  [ "ResizeObserverCallback" ]
+            "events":     []
         },
         "Resource Timing API": {
             "overview":   [ "Resource Timing API" ],
@@ -1717,6 +1732,55 @@
             "methods":    [],
             "properties": [],
             "events":     []
+        },
+        "WebXR Device API": {
+            "overview":   [ "WebXR Device API" ],
+            "interfaces": [ "XR",
+                            "XRBoundedReferenceSpace",
+                            "XRFrame",
+                            "XRInputSource",
+                            "XRInputSourceArray",
+                            "XRInputSourceEvent",
+                            "XRInputSourcesChangeEvent",
+                            "XRPose",
+                            "XRReferenceSpace",
+                            "XRReferenceSpaceEvent",
+                            "XRRenderState",
+                            "XRRigidTransform",
+                            "XRSession",
+                            "XRSessionEvent",
+                            "XRSpace",
+                            "XRView",
+                            "XRViewerPose",
+                            "XRViewport",
+                            "XRWebGLLayer" ],
+            "methods":    [ ],
+            "properties": [ "Navigator.xr" ],
+            "events":     [ "XR: devicechange",
+                            "XRSession: end",
+                            "XRSession: inputsourcechange",
+                            "XRReferenceSpace: reset",
+                            "XRSession: select",
+                            "XRSession: selectend",
+                            "XRSession: selectstart",
+                            "XRSession: visibilitychange" ],
+            "dictionaries": [ "XRRenderStateInit",
+                              "XRSessionInit" ],
+            "types":      [ "GamepadMappingType",
+                            "XREnvironmentBlendMode",
+                            "XREye",
+                            "XRHandedness",
+                            "XRInputSourceEventInit",
+                            "XRInputSourcesChangeEventInit",
+                            "XRReferenceSpaceEventInit",
+                            "XRReferenceSpaceType",
+                            "XRSessionEventInit",
+                            "XRSessionMode",
+                            "XRTargetRayMode",
+                            "XRVisibilityState",
+                            "XRWebGLLayerInit",
+                            "XRWebGLRenderingContext" ],
+            "callbacks":  [ "XRFrameRequestCallback" ]
         },
         "XDomain": {
             "interfaces": [ "XDomainrequest" ],
