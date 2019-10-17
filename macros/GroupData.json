@@ -1783,7 +1783,7 @@
             "callbacks":  [ "XRFrameRequestCallback" ]
         },
         "XDomain": {
-            "interfaces": [ "XDomainrequest" ],
+            "interfaces": [ "XDomainRequest" ],
             "methods":    [],
             "properties": [],
             "events":     []
