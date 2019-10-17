@@ -56,6 +56,9 @@
         "ja": "結合子",
         "ru": "Комбинаторы"
     },
+    "Grouping Selectors": {
+        "en-US": "Grouping Selectors"
+    },
     "Pseudo-classes": {
         "en-US": "Pseudo-classes",
         "fr": "Pseudo-classes",
