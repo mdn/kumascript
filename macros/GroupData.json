@@ -1754,7 +1754,7 @@
                             "XRViewerPose",
                             "XRViewport",
                             "XRWebGLLayer" ],
-            "methods":    [ "WebGLRenderingContextBase.makeXRCompatible()" ],
+            "methods":    [ "WebGLRenderingContext.makeXRCompatible()" ],
             "properties": [ "Navigator.xr" ],
             "events":     [ "XR: devicechange",
                             "XRSession: end",
