@@ -58,7 +58,7 @@ node {
         // Checkout Kuma project's master branch
         checkout(
             [$class: 'GitSCM',
-             userRemoteConfigs: [[url: 'https://github.com/mozilla/kuma']],
+             userRemoteConfigs: [[url: 'https://github.com/mdn/kuma']],
              branches: [[name: 'refs/heads/master']],
              extensions: [[$class: 'SubmoduleOption',
                            disableSubmodules: false,

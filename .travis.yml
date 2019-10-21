@@ -15,7 +15,7 @@ before_script:
   - rm -rf node_modules
   # Move TravisCI's checkout of kumascript into a submodule of kuma
   - cd ..
-  - git clone https://github.com/mozilla/kuma --depth 2
+  - git clone https://github.com/mdn/kuma --depth 2
   - cd kuma
   - git submodule update --init locale
   - rmdir kumascript
