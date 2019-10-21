@@ -7,6 +7,5 @@
 
 var height = $1 || 300;
 
-var s_result = '<p><iframe allowfullscreen="allowfullscreen" scrolling="no" frameborder="0" height="' + height + '" src="https://rpm.newrelic.com/public/charts/' + $0 + '" width="100%"></iframe></p>';
-
-%><%- s_result %>
+%>
+<p><iframe allowfullscreen="allowfullscreen" scrolling="no" frameborder="0" height="<%= height %>'" src="https://rpm.newrelic.com/public/charts/<%= $0 %>" width="100%"></iframe></p>
