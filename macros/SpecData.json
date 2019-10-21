@@ -842,7 +842,7 @@
   "HTML Imports": {
     "name": "HTML Imports",
     "url": "https://w3c.github.io/webcomponents/spec/imports/",
-    "status": "WD"
+    "status": "Obsolete"
   },
   "HTML Media Capture": {
     "name": "HTML Media Capture",
