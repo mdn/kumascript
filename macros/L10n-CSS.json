@@ -4,6 +4,7 @@
         "fr": "Référence CSS",
         "de": "CSS Referenz",
         "ja": "CSS リファレンス",
+        "he": "",
         "zh-CN": "CSS 参考",
         "es": "Referencia CSS",
         "pl": "Dokumentacja CSS",
@@ -15,6 +16,7 @@
         "fr": "Règles @",
         "de": "At-Regeln",
         "ja": "@規則",
+        "he": "חוקי @",
         "ru": "@-правила"
     },
     "types": {
@@ -22,6 +24,7 @@
         "fr": "Types de donnée",
         "de": "Datentypen",
         "ja": "データ形式",
+        "he": "סוגי מידע",
         "ru": "Типы данных"
     },
     "missing": {
@@ -29,6 +32,7 @@
         "fr": "Valeur introuvable dans la base de données",
         "de": "Wert nicht in der DB gefunden!",
         "ja": "DB に値が見つかりません！",
+        "he": "הערך לא נמצא במסד הנתונים!",
         "ru": "Значение не найдено в базе данных!"
     },
     "info_in_preview_not_available": {
@@ -36,36 +40,42 @@
         "de"   : "CSS-Info in der Vorschau nicht verfügbar",
         "fr"   : "CSS-Info n'est pas disponible en aperçu",
         "ja"   : "プレビューの CSS info が利用できません",
+        "he"   : "מידע על CSS אינו זמין בתצוגה מקדימה",
         "ru"   : "CSS info недоступно в предпросмотре"
     },
     "tag_selectors": {
         "en-US": "Selectors",
         "fr"   : "Sélecteur",
         "ja"   : "セレクター",
+        "he"   : "סלקטורים",
         "ru"   : "Селекторы"
     },
     "Basic Selectors": {
         "en-US": "Basic Selectors",
         "fr": "Sélecteurs simples",
         "ja": "基本セレクター",
+        "he": "סלקטורים בסיסיים",
         "ru": "Базовые селекторы"
     },
     "Combinators": {
         "en-US": "Combinators",
         "fr": "Combinateurs",
         "ja": "結合子",
+        "he": "משלבים",
         "ru": "Комбинаторы"
     },
     "Pseudo-classes": {
         "en-US": "Pseudo-classes",
         "fr": "Pseudo-classes",
         "ja": "擬似クラス",
+        "he": "מחלקות פסאודו",
         "ru": "Псевдоклассы"
     },
     "Pseudo-elements": {
         "en-US": "Pseudo-elements",
         "fr": "Pseudo-éléments",
         "ja": "擬似要素",
+        "he": "אלמנטי פסאודו",
         "ru": "Псевдоэлементы"
     }
 }
