@@ -5,6 +5,7 @@
         "es"   : "Desktop",
         "fr"   : "Ordinateur",
         "ja"   : "デスクトップ",
+        "he"   : "דבקטופ",
         "ru"   : "Компьютеры",
         "nl"   : "Desktop"
     },
@@ -14,6 +15,7 @@
         "es"   : "Mobile",
         "fr"   : "Mobile",
         "ja"   : "モバイル",
+        "he"   : "מובייל",
         "ru"   : "Мобильные",
         "nl"   : "Mobile"
     },
@@ -21,6 +23,7 @@
         "en-US": "Server",
         "de"   : "Server",
         "ja"   : "サーバー",
+        "he"   : "שרת",
         "nl"   : "Server",
         "fr"   : "Serveur"
     },
@@ -29,6 +32,7 @@
          "de"   : "Android Webview",
          "es"   : "Android webview",
          "ja"   : "Android webview",
+         "he"   : "תצוגת אנדרואיד",
          "nl"   : "Android webview",
          "fr"   : "Webview Android"
     },
@@ -37,6 +41,7 @@
          "de"   : "Chrome",
          "es"   : "Chrome",
          "ja"   : "Chrome",
+         "he"   : "כרום",
          "nl"   : "Chrome",
          "fr"   : "Chrome"
     },
@@ -45,6 +50,7 @@
          "de": "Chrome für Android",
          "es": "Chrome para Android",
          "ja": "Android 版 Chrome",
+         "he": "כרום לאנדרואיד",
          "nl": "Chrome voor Android",
          "ru": "Chrome для Android",
          "fr": "Chrome pour Android"
@@ -54,6 +60,7 @@
          "de"   : "Edge",
          "es"   : "Edge",
          "ja"   : "Edge",
+         "he"   : "אדג'",
          "nl"   : "Edge",
          "fr"   : "Edge"
     },
@@ -62,6 +69,7 @@
          "de"   : "Firefox",
          "es"   : "Firefox",
          "ja"   : "Firefox",
+         "he"   : "פיירפוקס",
          "nl"   : "Firefox",
          "fr"   : "Firefox"
     },
@@ -70,6 +78,7 @@
          "de": "Firefox für Android",
          "es": "Firefox para Android",
          "ja": "Android 版 Firefox",
+         "he": "פיירפוקס לאנדרואיד",
          "nl": "Firefox voor Android",
          "ru": "Firefox для Android",
          "fr": "Firefox pour Android"
@@ -79,6 +88,7 @@
          "de"   : "Internet Explorer",
          "es"   : "Internet Explorer",
          "ja"   : "Internet Explorer",
+         "he"   : "אינטרנט אקספלורר",
          "nl"   : "Internet Explorer",
          "fr"   : "Internet Explorer"
     },
@@ -87,6 +97,7 @@
          "de"   : "Node.js",
          "es"   : "Node.js",
          "ja"   : "Node.js",
+         "he"   : "Node.js",
          "nl"   : "Node.js",
          "fr"   : "Node.js"
     },
@@ -95,6 +106,7 @@
          "de"   : "Opera",
          "es"   : "Opera",
          "ja"   : "Opera",
+         "he"   : "אופרה",
          "nl"   : "Opera",
          "fr"   : "Opera"
     },
@@ -103,6 +115,7 @@
          "de": "Opera für Android",
          "es": "Opera para Android",
          "ja": "Android 版 Opera",
+         "he": "אופרה לאנדרואיד",
          "nl": "Opera voor Android",
          "ru": "Opera для Android",
          "fr": "Opera pour Android"
@@ -112,6 +125,7 @@
          "de"   : "Safari",
          "es"   : "Safari",
          "ja"   : "Safari",
+         "he"   : "ספארי",
          "nl"   : "Safari",
          "fr"   : "Safari"
     },
@@ -120,6 +134,7 @@
          "de"   : "Safari auf iOS",
          "es"   : "Safari en iOS",
          "ja"   : "iOSのSafari",
+         "he"   : "ספארי עבור iOS",
          "nl"   : "Safari op iOS",
          "fr"   : "Safari sur iOS"
     },
@@ -128,6 +143,7 @@
          "de"   : "Samsung Internet",
          "es"   : "Samsung Internet",
          "ja"   : "Samsung Internet",
+         "he"   : "סמסונג אינטרנט",
          "nl"   : "Samsung Internet",
          "fr"   : "Samsung Internet"
     },
@@ -137,6 +153,7 @@
         "es"   : "Notas de implementación",
         "fr"   : "Notes d'implémentation",
         "ja"   : "実装ノート",
+        "he"   : "הערות יישום",
         "ru"   : "Замечания реализации",
         "nl"   : "Implementatieopmerkingen"
     },
@@ -146,6 +163,7 @@
         "es"   : "Si",
         "fr"   : "Oui",
         "ja"   : "あり",
+        "he"   : "כן",
         "ru"   : "Да",
         "nl"   : "Ja"
     },
@@ -155,6 +173,7 @@
         "es"   : "Por favor actualizalo con la version mas temprana de soporte.",
         "fr"   : "Veuillez mettre à jour avec la version minimale du support",
         "ja"   : "対応する最も早いバージョン番号に更新してください。",
+        "he"   : "אנא עדכן זאת בגרסת התמיכה הקרובה ביותר.",
         "ru"   : "Пожалуйста, замените этот шаблон на указание самой ранней поддерживаемой версии.",
         "nl"   : "Graag bijwerken met de vroegste versie van ondersteuning."
     },
@@ -164,6 +183,7 @@
         "es"   : "No",
         "fr"   : "Non",
         "ja"   : "なし",
+        "he"   : "לא",
         "ru"   : "Нет",
         "nl"   : "Nee"
     },
@@ -173,6 +193,7 @@
         "es"   : "Parcial",
         "fr"   : "Partiel",
         "ja"   : "一部",
+        "he"   : "חלקי",
         "ru"   : "Частичная",
         "nl"   : "Gedeeltelijk"
     },
@@ -183,6 +204,7 @@
         "es"   : "Soporte completo",
         "fr"   : "Support complet",
         "ja"   : "完全対応",
+        "he"   : "תמיכה מלאה",
         "ru"   : "Полная поддержка",
         "nl"   : "Volledige ondersteuning"
     },
@@ -192,6 +214,7 @@
         "es"   : "Sin soporte",
         "fr"   : "Aucun support",
         "ja"   : "未対応",
+        "he"   : "אין תמיכה",
         "ru"   : "Нет поддержки",
         "nl"   : "Geen ondersteuning"
     },
@@ -201,6 +224,7 @@
         "es"   : "Soporte parcial",
         "fr"   : "Support partiel",
         "ja"   : "部分対応",
+        "he"   : "תמיכה חלקית",
         "ru"   : "Частичная поддержка",
         "nl"   : "Gedeeltelijke ondersteuning"
     },
@@ -210,6 +234,7 @@
         "es"   : "?",
         "fr"   : "?",
         "ja"   : "?",
+        "he"   : "?",
         "ru"   : "?",
         "nl"   : "?"
     },
@@ -219,6 +244,7 @@
         "es"   : "Compatibilidad desconocida; porfavor actualiza esto.",
         "fr"   : "Compatibilité inconnue, merci de contribuer à ces données.",
         "ja"   : "実装状況不明。更新してください。",
+        "he"   : "תאימות לא ידועה; נא לעדכן את זה.",
         "ru"   : "Совместимость неизвестна; пожалуйста, обновите информацию.",
         "nl"   : "Compatibiliteit onbekend, graag bijwerken."
     },
@@ -228,6 +254,7 @@
         "es"   : "Compatibilidad desconocida",
         "fr"   : "Compatibilité inconnue",
         "ja"   : "実装状況不明",
+        "he"   : "תאימות לא ידועה",
         "ru"   : "Совместимость неизвестна",
         "nl"   : "Compatibiliteit onbekend"
     },
@@ -237,6 +264,7 @@
         "es"   : "Caracteristica",
         "fr"   : "Fonctionnalité",
         "ja"   : "機能",
+        "he"   : "תכונה",
         "ru"   : "Возможность",
         "nl"   : "Functie"
     },
@@ -246,6 +274,7 @@
         "es"   : "Experimental",
         "fr"   : "Expérimentale",
         "ja"   : "実験的",
+        "he"   : "ניסיוני",
         "ru"   : "Экспериментальная",
         "nl"   : "Experimenteel"
     },
@@ -255,6 +284,7 @@
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité expérimentale. Celle-ci peut être amenée à changer par la suite.",
         "ja"   : "実験的。動作が変更される可能性があります。",
+        "he"   : "ניסיוני. צפו להתנהגות שתשתנה בעתיד.",
         "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем.",
         "nl"   : "Experimenteel. Het verwachte gedrag kan in de toekomst veranderen."
     },
@@ -264,6 +294,7 @@
         "es"   : "No estándar",
         "fr"   : "Non-standard",
         "ja"   : "非標準",
+        "he"   : "לא סטנדרטי",
         "ru"   : "Нестандартная",
         "nl"   : "Niet standaard"
     },
@@ -273,6 +304,7 @@
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
+        "he"   : "לא סטנדרטית. צפו לתאימות דפדפנים גרועה.",
         "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
         "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers."
     },
@@ -282,6 +314,7 @@
         "es"   : "Deprecado",
         "fr"   : "Obsolète",
         "ja"   : "非推奨",
+        "he"   : "הוצא משימוש",
         "nl"   : "Verouderd",
         "ru"   : "Устаревшая"
     },
@@ -290,6 +323,7 @@
         "de"   : "Veraltet. Nicht für den Einsatz in neuen Webseiten gedacht.",
         "es"   : "Deprecado. No debe ser usado en nuevos sitios web.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
+        "he"   : "הוצא משימוש. לא להשתמש באתרים חדשים.",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах.",
         "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
@@ -300,6 +334,7 @@
         "es"   : "Prefijado",
         "fr"   : "Préfixée",
         "ja"   : "接頭辞付き",
+        "he"   : "בעל קידומת",
         "ru"   : "С префиксом",
         "nl"   : "Voorgevoegd"
     },
@@ -309,6 +344,7 @@
         "es"   : "Requiere de un prefijo de vendedor : $1$",
         "fr"   : "Nécessite l'utilisation d'un préfixe&nbsp;: $1$",
         "ja"   : "$1$ のベンダー接頭辞が必要",
+        "he"   : "מיושם עם קידומת ספק: $1$",
         "ru"   : "Требует вендорный префикс: $1$",
         "nl"   : "Vereist het leveranciersvoorvoegsel: $1$"
     },
@@ -318,6 +354,7 @@
         "es"   : "Notas",
         "fr"   : "Notes",
         "ja"   : "補足",
+        "he"   : "הערות",
         "ru"   : "Замечания",
         "nl"   : "Opmerkingen"
     },
@@ -327,6 +364,7 @@
         "es"   : "Ver notas de implementación",
         "fr"   : "Voir les notes d'implémentation",
         "ja"   : "実装ノートを参照してください",
+        "he"   : "ראו הערות יישום",
         "ru"   : "Смотрите замечания реализации",
         "nl"   : "Zie implementatieopmerkingen"
     },
@@ -336,6 +374,7 @@
         "es"   : "Nombre alternativo",
         "fr"   : "Autre nom",
         "ja"   : "代替名",
+        "he"   : "שם אלטרנטיבי",
         "ru"   : "Альтернативное имя",
         "nl"   : "Vervangende naam"
     },
@@ -354,6 +393,7 @@
         "es"   : "Deshabilitado",
         "fr"   : "Désactivée",
         "ja"   : "無効",
+        "he"   : "מכובה",
         "ru"   : "Отключено",
         "nl"   : "Uitgeschakeld"
     },
@@ -363,6 +403,7 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
+        "he"   : "על המשתמש להפעיל באופן מפורש תכונה זו.",
         "ru"   : "Пользователь должен сам включить эту возможность.",
         "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
     },
@@ -381,6 +422,7 @@
         "es"   : "Requiere de un prefijo de proveedor o un de nombre diferente para su uso.",
         "fr"   : "Cette fonctionnalité nécessite un préfixe particulier ou utilise un autre nom.",
         "ja"   : "使用するには、ベンダー接頭辞または異なる名前が必要です。",
+        "he"   : "דורש קידומת ספק או שם אחר לשימוש.",
         "ru"   : "Требует вендорный префикс или другое имя для использования.",
         "nl"   : "Vereist een leveranciersvoorvoegsel of een andere naam voor gebruik."
     },
@@ -390,6 +432,7 @@
         "es"   : "Usa un nombre no estandar.",
         "fr"   : "Cette fonctionnalité utilise un nom non-standard.",
         "ja"   : "非標準の名前を使用しています。",
+        "he"   : "עושה שימוש בשם לא סטנדרטי.",
         "ru"   : "Использует нестандартное имя.",
         "nl"   : "Gebruikt een niet-standaard naam."
     },
@@ -399,6 +442,7 @@
         "es"   : "El usuario debe de habilitar explícitamente esta característica.",
         "fr"   : "Une action explicite de l'utilisateur est nécessaire pour activer cette fonctionnalité.",
         "ja"   : "ユーザーが明示的にこの機能を有効にしなければなりません。",
+        "he"   : "על המשתמש להפעיל באופן מפורש תכונה זו.",
         "ru"   : "Пользователь должен сам включить эту возможность.",
         "nl"   : "Gebruiker moet deze functie expliciet inschakelen."
     },
@@ -408,6 +452,7 @@
         "es"   : "Ver notas de implementación.",
         "fr"   : "Voir les notes d'implémentation.",
         "ja"   : "実装ノートを参照してください。",
+        "he"   : "ראו הערות יישום.",
         "ru"   : "Смотрите замечания реализации.",
         "nl"   : "Zie implementatieopmerkingen"
     },
@@ -417,6 +462,7 @@
         "es"   : "Experimental. Esperar que el comportamiento cambie en el futuro.",
         "fr"   : "Fonctionnalité expérimentale. Celle-ci peut être amenée à changer par la suite.",
         "ja"   : "実験的。動作が変更される可能性があります。",
+        "he"   : "ניסיוני. צפו להתנהגות שתשתנה בעתיד.",
         "ru"   : "Экспериментальная. Ожидаемое поведение может измениться в будущем.",
         "nl"   : "Experimenteel. Het verwachte gedrag kan in de toekomst veranderen."
     },
@@ -426,6 +472,7 @@
         "es"   : "No estandar . Esperar poco soporte entre navegadores.",
         "fr"   : "Fonctionnalité non-standard. Celle-ci peut être incorrectement supportée par les autres navigateurs.",
         "ja"   : "非標準。ブラウザー間の互換性が低い可能性があります。",
+        "he"   : "לא סטנדרטי. צפו לתאימות דפדפנים גרועה.",
         "ru"   : "Нестандартная. Ожидается плохая кросс-браузерная поддержка.",
         "nl"   : "Niet standaard. Slechte ondersteuning verwacht voor meerdere browsers."
     },
@@ -434,6 +481,7 @@
         "de"   : "Veraltet. Nicht für den Einsatz in neuen Webseiten gedacht.",
         "es"   : "Deprecado. No debe ser usado en nuevos sitios web.",
         "ja"   : "非推奨。新しいウェブサイトでは使用しないでください。",
+        "he"   : "הוצא משימוש. לא לשימוש באתרים חדשים.",
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах",
         "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
