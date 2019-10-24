@@ -126,6 +126,7 @@
         "de"   : "Filterelement",
         "pt-BR": "Elemento de filtro primitivo",
         "fr"   : "Élément de filtre",
+        "he"   : "סינון אלמנט פרימיטיבי.",
         "zh-CN": "滤镜元素",
         "ru"   : "Примитивный фильтр"
     },
@@ -269,6 +270,7 @@
         "en-US": "Filter primitive elements",
         "de"   : "Filterelemente",
         "fr"   : "Éléments de primitive de filtre",
+        "he"   : "סינון אלמנטים פרימיטיביים.",
         "pt-BR": "Elementos de filtro primitivo",
         "zh-CN": "滤镜元素",
         "ru"   : "Примитивные фильтры"
@@ -388,6 +390,7 @@
         "en-US": "Filter attributes",
         "de"   : "Filterattribute",
         "fr"   : "Attributs de filtre",
+        "he"   : "סינון תכונות",
         "zh-CN": "滤镜属性属性",
         "ru"   : "Атрибуты фильтров"
     },
