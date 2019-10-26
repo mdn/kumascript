@@ -119,7 +119,7 @@ switch($0) {
         break;
     case 'header':
         if (string.length(tip)) { str = str + " " + tip; }
-        %><div class="blockIndicator obsolete obsoleteHeader"><p><strong><%-await template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p></div><%
+        %><div class="blockIndicator obsolete obsoleteHeader"><p><strong><%-str%></strong><br/><%-str_desc%></p></div><%
         break;
     case 'method':
         if (string.length(tip)) { str = str + " " + tip; }
