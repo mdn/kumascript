@@ -1,0 +1,51 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+var slug = env.slug;
+var baseURL = "/" + locale + "/docs/Related/IMSC/";
+
+function currentPageIsUnder(root) {
+  rootSlug = "Related/IMSC/" + root;
+  if (slug.indexOf(rootSlug) != -1) {
+    return "open";
+  }
+  return "closed";
+}
+
+var text = mdn.localStringMap({
+  'en-US': {
+    'IMSC_guides': 'IMSC guides',
+      'IMSC_basics': 'IMSC basics',
+      'Using_the_imscJS_polyfill': 'Using_the_imscJS_polyfill',
+      'Styling_IMSC_documents': 'Styling IMSC documents',
+      'Subtitle_placement_in_IMSC': 'Subtitle placement in IMSC',
+      'Namespaces_in_IMSC': 'Namespaces in IMSC',
+      'Timing_in_IMSC': 'Timing in IMSC',
+      'Mapping_video_time_codes_to_IMSC': 'Mapping video time codes to IMSC',
+      'IMSC_and_other_standards': 'IMSC and other standards'
+  }
+});
+%>
+
+<section class="Quick_links" id="Quick_Links">
+
+<ol>
+  <li><a href="<%=baseURL%>"><strong>IMSC</strong></a></li>
+  <li class="toggle">
+      <details <%=currentPageIsUnder('IMSC_guides')%>>
+          <summary><%=text['IMSC_guides']%></summary>
+          <ol>
+            <li><a href="<%=baseURL%>Basics"><%=text['IMSC_basics']%></a></li>
+            <li><a href="<%=baseURL%>Using_the_imscJS_polyfill"><%=text['Using_the_imscJS_polyfill']%></a></li>
+            <li><a href="<%=baseURL%>Styling"><%=text['Styling_IMSC_documents']%></a></li>
+            <li><a href="<%=baseURL%>Subtitle_placement"><%=text['Subtitle_placement_in_IMSC']%></a></li>
+            <li><a href="<%=baseURL%>Namespaces"><%=text['Namespaces_in_IMSC']%></a></li>
+            <li><a href="<%=baseURL%>Timing_in_IMSC"><%=text['Timing_in_IMSC']%></a></li>
+            <li><a href="<%=baseURL%>Mapping_video_time_codes_to_IMSC"><%=text['Mapping_video_time_codes_to_IMSC']%></a></li>
+            <li><a href="<%=baseURL%>IMSC_and_other_standards"><%=text['IMSC_and_other_standards']%></a></li>
+          </ol>
+      </details>
+  </li>
+</ol>
+
+</section>
