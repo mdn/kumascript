@@ -16,6 +16,7 @@
             "args": "none",
             "varsIgnorePattern": "^_",
             "argsIgnorePattern": "^_"
-        }]
+        }],
+        "jest/valid-describe": "off"
     }
 }
