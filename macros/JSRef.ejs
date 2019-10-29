@@ -38,6 +38,9 @@ var rtlLocales = ['ar', 'he', 'fa'];
 var slug_stdlib = '/' + env.locale + '/docs/Web/JavaScript/' + text['refslug'] + '/' + text['stdlibslug'];
 var mainObj = slug.replace('Web/JavaScript/' + text['refslug'] + '/' + text['stdlibslug'] + '/', '').split('/')[0];
 
+// Selects an index in the form of a zero-length string.
+const PROP_REGEX = /\b(?=\.\b|\[)/g
+
 // Data for inheritance chain
 var inheritance = ["Object", "Function"];
 var inheritanceData = {
@@ -161,8 +164,9 @@ function buildSublist(pages, title, opened) {
 
     var summary = escapeQuotes(aPage.summary) || '';
     var url = aPage.url.replace('en-US', locale);
-    var title = aPage.title;
+    let title = aPage.title;
     var translated = false;
+    let isObsolete = false;
 
     if (locale != 'en-US') {
         aPage.translations.forEach(function(translation){
@@ -176,7 +180,7 @@ function buildSublist(pages, title, opened) {
     }
 
     var cta = '';
-     if (!translated && locale != 'en-US') {
+    if (!translated && locale != 'en-US') {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['translationCTA'] + '">' + text['translate'] + '</a>';
     }
 
@@ -201,8 +205,10 @@ function buildSublist(pages, title, opened) {
         result += '<bdi>';
     }
 
+    title = title.replace(PROP_REGEX, '<wbr/>')
+
     if (slug == aPage.slug) {
-        result += '<em><code>' + aPage.title + '</code></em>'
+        result += '<em><code>' + title + '</code></em>'
     } else {
         result += '<a href="'
                + url
