@@ -7,7 +7,7 @@
 
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('dekiscript-wiki', function() {
+describeMacro('DekiScript-Wiki', function() {
     itMacro('basic API', function(macro) {
         let pkg = macro.ctx.wiki;
         assert.isObject(pkg);

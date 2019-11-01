@@ -514,7 +514,7 @@ const TEST_CASE = [
 // Test runner
 // ----------------------------------------------------------------------------
 
-describeMacro('svginfo', () => {
+describeMacro('SVGInfo', () => {
     beforeEachMacro(macro => {
         macro.ctx.wiki.getPage = jest.fn(async url => {
             for (let locale of Object.keys(MOCK_PAGES)) {
