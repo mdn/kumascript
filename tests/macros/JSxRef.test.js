@@ -7,7 +7,7 @@ const { assert, itMacro, describeMacro } = require('./utils');
 const js_ref_slug = 'Web/JavaScript/Reference/';
 const js_ref_url = '/en-US/docs/' + js_ref_slug;
 
-describeMacro('jsxref', function() {
+describeMacro('JSxRef', function() {
     itMacro('One argument (simple global object)', function(macro) {
         // Suggested in macro docstring, used on:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime

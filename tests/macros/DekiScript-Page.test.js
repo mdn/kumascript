@@ -69,7 +69,7 @@ function getProps(items, prop_name) {
     return result;
 }
 
-describeMacro('dekiscript-page', function() {
+describeMacro('DekiScript-Page', function() {
     itMacro('dummy', function(macro) {
         let pkg = macro.ctx.page;
         assert.isObject(pkg);

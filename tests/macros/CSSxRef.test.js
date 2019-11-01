@@ -177,7 +177,7 @@ const TEST_CASE = [
 // Test runner
 // ----------------------------------------------------------------------------
 
-describeMacro('cssxref', () => {
+describeMacro('CSSxRef', () => {
     beforeEachMacro(macro => {
         // let's make sure we have a clean calls to wiki.getPage
         macro.ctx.wiki.getPage = jest.fn(url => {
