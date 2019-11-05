@@ -137,7 +137,7 @@ switch($0) {
     case 'header':
         if (tip.length) { str = str + " " + tip; }
         %><div class="blockIndicator deprecated deprecatedHeader">
-            <p><strong><%-await template("ObsoleteBadge", [1])%> <%-str%></strong><br/><%-str_desc%></p>
+            <p><strong><%-str%></strong><br/><%-str_desc%></p>
         </div><%
         break;
     case 'method':
