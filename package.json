@@ -26,7 +26,7 @@
         "ejs": "2.6.1",
         "express": "4.16",
         "lru-cache": "5.1.1",
-        "mdn-browser-compat-data": "0.x",
+        "mdn-browser-compat-data": "1.x",
         "mdn-data": "2.x",
         "morgan": "1.9.1",
         "newrelic": "5.9.0",
