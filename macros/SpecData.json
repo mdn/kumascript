@@ -1611,12 +1611,12 @@
   },
   "Web Share API": {
     "name": "Web Share API",
-    "url": "https://wicg.github.io/web-share/",
+    "url": "https://w3c.github.io/web-share/",
     "status": "Draft"
   },
   "Web Share API 2": {
     "name": "Web Share API - Level 2",
-    "url": "https://wicg.github.io/web-share/level-2/",
+    "url": "https://w3c.github.io/web-share/level-2/",
     "status": "Draft"
   },
   "Web Speech API": {
