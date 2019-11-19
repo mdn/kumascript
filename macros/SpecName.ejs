@@ -19,7 +19,10 @@ var title;
 var result;
 var lang = env.locale;
 
-var specList = string.deserialize(await template('SpecData'));
+var specList = Object.assign(
+    Object.create(null),
+    require('mdn-data/specs')
+);
 
 // Some APIs share specifications. Here we attend to that.
 
@@ -33,7 +36,7 @@ specList['CSS3 UI'] = specList['CSS3 Basic UI'];
 specList['CSS4 UI'] = specList['CSS4 Basic UI'];
 specList['CSS Scroll Snap Points'] = specList['CSS Scroll Snap'];
 specList['WebSMS'] = specList['Messaging'];
-specList['ES2015'] = specList['ES6'];
+specList['ES6'] = specList['ES2015'];
 specList['ES7'] = specList['ES2016'];
 specList['ES8'] = specList['ES2017'];
 

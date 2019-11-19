@@ -2,9 +2,24 @@
  * @prettier
  */
 
+const fs = require('fs');
+const path = require('path');
 const { assert, itMacro, describeMacro } = require('./utils');
 
-describeMacro('spec2', function() {
+const specDataFixturesPath = path.resolve(__dirname, 'fixtures', 'SpecData');
+
+const specsFixturePath = path.resolve(specDataFixturesPath, 'specs.json');
+const specsFixture = fs.readFileSync(specsFixturePath, 'utf8');
+const specsJSON = JSON.parse(specsFixture);
+
+const specL10nFixturePath = path.resolve(specDataFixturesPath, 'l10n.json');
+const specL10nFixture = fs.readFileSync(specL10nFixturePath, 'utf8');
+const specL10nJSON = JSON.parse(specL10nFixture);
+
+describeMacro('Spec2', function() {
+    jest.doMock('mdn-data/specs', () => specsJSON);
+    jest.doMock('mdn-data/l10n/specs', () => specL10nJSON);
+
     itMacro('CR (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call('Upgrade Insecure Requests'),

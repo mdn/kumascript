@@ -2,9 +2,10 @@
 /* parameters: */
 /* $0 = name of specification */
 
-var specList = string.deserialize(await template('SpecData'));
+const specList = require('mdn-data/specs');
+const localStrings = require('mdn-data/l10n/specs');
 
-var status = {};
+let status = Object.create(null);
 
 Object.keys(specList).forEach(function(name) {
   status[name] = specList[name].status;
@@ -19,7 +20,7 @@ status['CSS4 UI'] = status['CSS4 Basic UI'];
 status['CSS Scroll Snap Points'] = status['CSS Scroll Snap'];
 status['WebSMS'] = status['Messaging'];
 status['Blending'] = status['Compositing'];
-status['ES2015'] = status['ES6'];
+status['ES6'] = status['ES2015'];
 status['ES7'] = status['ES2016'];
 status['ES8'] = status['ES2017'];
 
@@ -131,4 +132,4 @@ var unknown_label = mdn.localString({
     'pt-BR' : 'Desconhecido'
 });
 
-%><span class="spec-<%- status[$0] || ''  %>"><%= (status[$0] && label[status[$0]]) || unknown_label %></span>
+%><span class="spec-<%- status[$0] || '' %>"><%= (status[$0] && mdn.getLocalString(localStrings, status[$0])) || unknown_label %></span>
