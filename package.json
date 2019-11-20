@@ -23,7 +23,7 @@
         "node": ">=10.0.0"
     },
     "dependencies": {
-        "ejs": "2.6.1",
+        "ejs": "2.7.4",
         "express": "4.16",
         "lru-cache": "5.1.1",
         "mdn-browser-compat-data": "0.x",
