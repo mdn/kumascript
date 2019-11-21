@@ -447,7 +447,7 @@
   "CSS Containment": {
     "name": "CSS Containment Module Level 1",
     "url": "https://drafts.csswg.org/css-contain/",
-    "status": "CR"
+    "status": "REC"
   },
   "CSS Color Adjust": {
     "name": "CSS Color Adjustment Module Level 1",
@@ -827,7 +827,7 @@
   "Highres Time Level 2": {
     "name": "High Resolution Time Level 2",
     "url": "https://www.w3.org/TR/hr-time-2/",
-    "status": "CR"
+    "status": "REC"
   },
   "Highres Time Level 3": {
     "name": "High Resolution Time Level 3",
