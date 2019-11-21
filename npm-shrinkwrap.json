@@ -4118,17 +4118,17 @@
             "dev": true
         },
         "mdn-browser-compat-data": {
-            "version": "0.0.91",
-            "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-0.0.91.tgz",
-            "integrity": "sha512-CyGR9QD3zZfQAyYkQXvQH9pmDXrAUQ2tWIKuqepPlq4JsMIirb7dSSYB7FoOuTSb2jvS0AI3YhVVCsBQyCkoqg==",
+            "version": "1.0.0",
+            "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-1.0.0.tgz",
+            "integrity": "sha512-I6MI6a9cEeUoHKN/5R5/CQA3HXYnQOuqvrp53B1QdNas9vJ1Jok6Ldt7ClEL8kywWbaoRXkJOfV0EbZbrWCdeQ==",
             "requires": {
                 "extend": "3.0.2"
             }
         },
         "mdn-data": {
-            "version": "2.0.4",
-            "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.4.tgz",
-            "integrity": "sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA=="
+            "version": "2.0.6",
+            "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.6.tgz",
+            "integrity": "sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA=="
         },
         "media-typer": {
             "version": "0.3.0",
