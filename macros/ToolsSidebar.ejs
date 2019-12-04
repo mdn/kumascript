@@ -3,6 +3,7 @@
 const locale = env.locale;
 
 const baseURL = `/${locale}/docs/Tools/`;
+const addonsBaseURL = `/${locale}/docs/Mozilla/Add-ons/`;
 
 const text = mdn.localStringMap({
   "en-US": {
@@ -491,9 +492,9 @@ const text = mdn.localStringMap({
         <summary><%=text['Connecting_the_devtools']%></summary>
         <ol>
           <li><a href="<%=baseURL%>about:debugging"><%=text['about:debugging']%></a></li>
-          <li><a href="https://developer.mozilla.org<%=baseURL%>Remote_Debugging/Debugging_Firefox_for_Android_over_Wifi"><%=text['Connecting_to_Firefox_for_Android']%></a></li>
-          <li><a href="https://developer.mozilla.org<%=baseURL%>Working_with_iframes"><%=text['Connecting_to_iframes']%></a></li>
-          <li><a href="https://developer.mozilla.org<%=baseURL%>Valence"><%=text['Connecting_to_other_browsers']%></a></li>
+          <li><a href="<%=baseURL%>Remote_Debugging/Debugging_Firefox_for_Android_over_Wifi"><%=text['Connecting_to_Firefox_for_Android']%></a></li>
+          <li><a href="<%=baseURL%>Working_with_iframes"><%=text['Connecting_to_iframes']%></a></li>
+          <li><a href="<%=baseURL%>Valence"><%=text['Connecting_to_other_browsers']%></a></li>
         </ol>
       </details>
     </li>
@@ -506,7 +507,7 @@ const text = mdn.localStringMap({
         </ol>
       </details>
     </li>
-    <li><a href="/en-US/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools"><%=text['Extending_the_devtools']%></a></li>
+    <li><a href="<%=addonsBaseURL%>WebExtensions/Extending_the_developer_tools"><%=text['Extending_the_devtools']%></a></li>
     <li><a href="<%=baseURL%>Settings"><%=text['Settings']%></a></li>
     <li><a href="<%=baseURL%>Tips"><%=text['Tips']%></a></li>
     <li><a href="<%=baseURL%>Release_notes"><%=text['Release_notes']%></a></li>
