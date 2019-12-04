@@ -7,10 +7,10 @@ const jsdom = require('jsdom');
 
 const locales = {
     'en-US': {
-        Core_Tools: 'Core Tools'
+        Page_Inspector: 'Page Inspector'
     },
     fr: {
-        Core_Tools: 'Outils principaux'
+        Page_Inspector: 'Inspecteur'
     }
 };
 
@@ -21,8 +21,8 @@ function checkSidebarDom(dom, locale) {
         'Section does not contain Quick_links class'
     );
 
-    let summaries = dom.querySelectorAll('summary');
-    assert.equal(summaries[0].textContent, locales[locale].Core_Tools);
+    let listItems = dom.querySelectorAll('li');
+    assert.equal(listItems[0].textContent, locales[locale].Page_Inspector);
 }
 
 describeMacro('ToolsSidebar', function() {
