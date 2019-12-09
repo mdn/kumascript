@@ -1256,7 +1256,7 @@
   },
   "Subresource Integrity": {
     "name": "Subresource Integrity",
-    "url": "https://w3c.github.io/webappsec/specs/subresourceintegrity/",
+    "url": "https://w3c.github.io/webappsec-subresource-integrity/",
     "status": "REC"
   },
   "SVG and HTML": {
