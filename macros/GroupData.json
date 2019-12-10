@@ -430,10 +430,12 @@
                             "Window: gamepaddisconnected" ]
         },
         "Geolocation API": {
-            "interfaces": [ "Coordinates",
-                            "Geolocation",
-                            "Position",
-                            "PositionError",
+            "overview":   [ "Geolocation API" ],
+            "guides":     [ "/docs/Web/API/Geolocation_API/Using" ],
+            "interfaces": [ "Geolocation",
+                            "GeolocationCoordinates",
+                            "GeolocationPosition",
+                            "GeolocationPositionError",
                             "PositionOptions" ],
             "methods":    [],
             "properties": [ "Navigator.geolocation" ],
