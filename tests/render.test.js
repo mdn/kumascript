@@ -34,6 +34,21 @@ describe('render() function', () => {
         expect(errors).toEqual([]);
     });
 
+    it.each(['render', 'remove'])('handles selective %s', async mode => {
+        let input = get('testcase2/input');
+        let expected = get(`testcase2/output_selective_${mode}`);
+        let templates = new Templates(fixture('testcase2/macros'));
+        let pageEnv = {
+            selective_mode: [
+                mode,
+                ['Multi:Line:Macro', '頁尾附註', 'MacroWithJson']
+            ]
+        };
+        let [result, errors] = await render(input, templates, pageEnv);
+        expect(result).toEqual(expected);
+        expect(errors).toEqual([]);
+    });
+
     it('renders asynchronous macros', async () => {
         jest.useFakeTimers();
         async function after(delay, value) {
