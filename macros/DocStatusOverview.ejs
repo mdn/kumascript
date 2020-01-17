@@ -57,6 +57,19 @@ await getPages(pageList, $0);
         <th>Documentation requests</th>
     </tr>
   </thead>
+  <tfoot>
+    <tr>
+        <th>Section</th>
+        <th>Pages</th>
+        <th>No tags</th>
+        <th>Needs* tags</th>
+        <th>Editorial reviews</th>
+        <th>Technical reviews</th>
+        <th>Outdated pages</th>
+        <th>Dev-doc-needed bugs</th>
+        <th>Documentation requests</th>
+    </tr>
+  </tfoot>
   <tbody>
     <%
     var columns = ['noTags', 'needsTags', 'editorialReviews', 'technicalReviews', 'outdated', 'ddn', 'dr'];
@@ -75,7 +88,7 @@ await getPages(pageList, $0);
             <td><a href="<%=result[key].url%>"><%=key.replace("documentation status", "", "i")%></a></td>
             <td><%=result[key].metrics.pages.counter%></td>
             <%
-            for (i=0; i < columns.length; i++) {
+            for (var i=0; i < columns.length; i++) {
                 var metric = columns[i];
                 var color = "none";
                 if (result[key].metrics[metric]) {
@@ -90,7 +103,7 @@ await getPages(pageList, $0);
         </tr>
     <% } %>
     <tr>
-        <td><strong>Total</strong></td>
+        <th><strong>Total</strong></th>
         <td><strong><%=totalPages%></strong></td>
         <td><strong><%=totalNoTags%></strong></td>
         <td><strong><%=totalNeedsTags%></strong></td>
