@@ -72,19 +72,18 @@ var found = mdn.localString({
      for (i in result) { %>
          <li>
 
-            <% if (hasTag(result[i].tags, 'Experimental')) { %>
-                <span class="sidebar-icon"><%-await template("ExperimentalBadge", [1])%></span>
-            <% } %>
             <% if (hasTag(result[i].tags, 'Non-standard')) { %>
                  <span class="sidebar-icon"><%-await template("NonStandardBadge", [1])%></span>
             <% } %>
-            <% if (hasTag(result[i].tags, 'Deprecated')) { %>
-                 <span class="sidebar-icon"><%-await template("DeprecatedBadge", [1])%></span>
+            <% if (hasTag(result[i].tags, 'Experimental')) { %>
+                <span class="sidebar-icon"><%-await template("ExperimentalBadge", [1])%></span>
             <% } %>
             <% if (hasTag(result[i].tags, 'Obsolete')) { %>
                 <span class="sidebar-icon"><%-await template("ObsoleteBadge", [1])%></span>
+            <% } else if (hasTag(result[i].tags, 'Deprecated')) { %>
+                 <span class="sidebar-icon"><%-await template("DeprecatedBadge", [1])%></span>
             <% } %>
-            
+
              <% if (hasTag(result[i].tags, 'Obsolete')) { %>
                 <s class="obsoleteElement">
             <% } %>
@@ -94,7 +93,7 @@ var found = mdn.localString({
             <% if (hasTag(result[i].tags, 'Obsolete')) { %>
                 </s>
             <% } %>
-        
+
         </li>
     <% } %>
 </ul>

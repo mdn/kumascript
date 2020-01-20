@@ -180,21 +180,19 @@ function buildSublist(pages, title, opened) {
         cta += ' <a href="'+ url +'$translate" style="opacity:0.5" title="'+ text['translationCTA'] + '">' + text['translate'] + '</a>';
     }
 
-    if (containsTag(aPage, 'Experimental')) {
-        result += badges.ExperimentalBadge;
-    }
-
     if (containsTag(aPage, 'Non-standard') || containsTag(aPage, 'Non Standard')) {
         result += badges.NonStandardBadge;
     }
 
-    if (containsTag(aPage, 'Deprecated')) {
-        result += badges.DeprecatedBadge;
+    if (containsTag(aPage, 'Experimental')) {
+        result += badges.ExperimentalBadge;
     }
 
     if (containsTag(aPage, 'Obsolete')) {
         result += badges.ObsoleteBadge;
         result += '<s class="obsoleteElement">';
+    } else if (containsTag(aPage, 'Deprecated')) {
+        result += badges.DeprecatedBadge;
     }
 
     if (rtlLocales.indexOf(locale) != -1) {
