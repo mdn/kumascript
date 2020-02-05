@@ -1376,7 +1376,7 @@
   },
   "WebAssembly Embedding": {
     "name": "WebAssembly features for web embedding",
-    "url": "https://github.com/WebAssembly/design/blob/master/Web.md",
+    "url": "https://webassembly.org/docs/web/",
     "status": "Draft"
   },
   "WebAssembly JS": {
