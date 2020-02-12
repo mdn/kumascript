@@ -40,13 +40,6 @@ if ((api.indexOf("..") === -1) && (api.indexOf(".") !== -1)) { // Handle try...c
     URL += $0;
 }
 
-let summary = l10n.summary;
-page = await wiki.getPage(URL);
-
-if (page && page.summary) {
-    summary = mdn.escapeQuotes(page.summary);
-}
-
 let anchor = $2 || '';
 if (anchor && anchor[0] != '#') {
     anchor = "#" + anchor;
@@ -55,4 +48,4 @@ if (anchor && anchor[0] != '#') {
 let code    = !$3 ? '<code>'  : '';
 let endcode = !$3 ? '</code>' : '';
 
-%><a href="<%- URL + anchor %>" title="<%-summary%>"><%- code %><%- str %><%- endcode %></a>
+%><a href="<%- URL + anchor %>"><%- code %><%- str %><%- endcode %></a>
