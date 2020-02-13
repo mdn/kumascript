@@ -20,7 +20,6 @@ let commonl10n = string.deserialize(await template('L10n:Common'));
 let l10n = {
     refslug: mdn.getLocalString(jsl10n, 'slug_reference'),
     slug: mdn.getLocalString(jsl10n, 'slug_global_objects'),
-    summary: mdn.getLocalString(commonl10n, 'summary'),
 };
 
 let str = $1 || $0;
