@@ -8,20 +8,16 @@
 
 let str = $1 || $0;
 
-let URL    = mdn.localString({
-    "ar"   : "/ar/docs/Glossary/",
-    "bg"   : "/bg/docs/Речник/",
-    "de"   : "/de/docs/Glossary/",
-    "en-US": "/en-US/docs/Glossary/",
-    "es"   : "/es/docs/Glossary/",
-    "fr"   : "/fr/docs/Glossaire/",
-    "ja"   : "/ja/docs/Glossary/",
-    "ko"   : "/ko/docs/Glossary/",
-    "pt-BR": "/pt-BR/docs/Glossario/",
-    "ru"   : "/ru/docs/Словарь/",
-    "uk"   : "/uk/docs/Glossary/"
-});
-
+let URL = "/en-US/docs/Glossary/";
 URL += $0.replace(/\s+/g,'_');
+
+if (env.locale !== "en-US") {
+    let page = await wiki.getPage(URL);
+    for(let translation of page.translations) {
+        if (translation.locale === env.locale) {
+            URL = translation.url;
+        }
+    }
+}
 
 %><a href="<%- URL %>"><%= str %></a>
