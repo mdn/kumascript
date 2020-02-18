@@ -13,9 +13,11 @@ URL += $0.replace(/\s+/g,'_');
 
 if (env.locale !== "en-US") {
     let page = await wiki.getPage(URL);
-    for(let translation of page.translations) {
-        if (translation.locale === env.locale) {
-            URL = translation.url;
+    if (page && page.translations) {
+        for(let translation of page.translations) {
+            if (translation.locale === env.locale) {
+                URL = translation.url;
+            }
         }
     }
 }
