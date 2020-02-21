@@ -11,25 +11,27 @@ const {
 } = require('./utils');
 
 /**
-* Load all the fixtures.
-*/
+ * Load all the fixtures.
+ */
 const fs = require('fs');
 const path = require('path');
-const subpagesFixturePath = path.resolve(__dirname, 'fixtures/apiref/subpages.json');
+const subpagesFixturePath = path.resolve(__dirname, 'fixtures/APIRef/subpages.json');
 const subpagesFixture = JSON.parse(fs.readFileSync(subpagesFixturePath, 'utf8'));
-const commonl10nFixturePath = path.resolve(__dirname, 'fixtures/apiref/commonl10n.json');
-const commonl10nFixture = fs.readFileSync(commonl10nFixturePath, 'utf8');
-const commonL10nJSON = JSON.parse(commonl10nFixture);
-const groupDataFixturePath = path.resolve(__dirname, 'fixtures/apiref/groupdata.json');
+const commonL10nFixturePath = path.resolve(__dirname, 'fixtures/APIRef/commonL10n.json');
+const commonL10nFixture = fs.readFileSync(commonL10nFixturePath, 'utf8');
+const commonL10nJSON = JSON.parse(commonL10nFixture);
+const groupDataFixturePath = path.resolve(__dirname, 'fixtures/APIRef/groupData.json');
 const groupDataFixture = fs.readFileSync(groupDataFixturePath, 'utf8');
-const interfaceDataNoEntriesFixturePath = path.resolve(__dirname, 'fixtures/apiref/interfacedata_no_entries.json');
-const interfaceDataNoEntriesFixture = fs.readFileSync(interfaceDataNoEntriesFixturePath, 'utf8');
-const interfaceDataFixturePath = path.resolve(__dirname, 'fixtures/apiref/interfacedata.json');
-const interfaceDataFixture = fs.readFileSync(interfaceDataFixturePath, 'utf8');
+const inheritanceNoEntriesFixturePath = path.resolve(__dirname, 'fixtures/APIRef/inheritance_no_entries.json');
+const inheritanceNoEntriesFixture = fs.readFileSync(inheritanceNoEntriesFixturePath, 'utf8');
+const inheritanceNoEntriesJSON = JSON.parse(inheritanceNoEntriesFixture);
+const inheritanceFixturePath = path.resolve(__dirname, 'fixtures/APIRef/inheritance.json');
+const inheritanceFixture = fs.readFileSync(inheritanceFixturePath, 'utf8');
+const inheritanceJSON = JSON.parse(inheritanceFixture);
 
 /**
-* All the const objects that follow define bits of the data we expect.
-**/
+ * All the const objects that follow define bits of the data we expect.
+ */
 const expectedMainIfLink = {
     withGroupData: {
         text: 'TestInterface API',
@@ -262,9 +264,11 @@ const expectedWithInterfaceData = {
 }
 
 /**
-* This function is used to compare two sidebar items that
-* represent interface items, like methods and properties.
-*/
+ * This function is used to compare two sidebar items that
+ * represent interface items, like methods and properties.
+ *
+ * @param {Element} actual
+ */
 function checkInterfaceItem(actual, expected, config) {
     // Are we on the page that this link points to?
     const linkSlug = expected.target.split('/').slice(3).join('/');
@@ -294,9 +298,11 @@ function checkInterfaceItem(actual, expected, config) {
 }
 
 /**
-* This function is used to compare two sidebar items that
-* represent related items, like related interfaces got from GroupData.
-*/
+ * This function is used to compare two sidebar items that
+ * represent related items, like related interfaces got from GroupData.
+ *
+ * @param {Element} actual
+ */
 function checkRelatedItem(actual, expected, config) {
     const itemLink = actual.querySelector('a');
     // For these items we just have to compare textContent and href
@@ -304,6 +310,12 @@ function checkRelatedItem(actual, expected, config) {
     expect(itemLink.href).toEqual(`/${config.locale}${expected.target}`);
 }
 
+/**
+ * @param {string} expectedSummary
+ * @param {object[]} expectedItems
+ * @param {Element} actual
+ * @param {(actual: Element, expected, config) => void} compareItemFunction
+ */
 function checkItemList(expectedSummary, expectedItems, actual, config, compareItemFunction) {
     const actualSummary = actual.querySelector('summary');
     expect(actualSummary.textContent).toEqual(expectedSummary);
@@ -316,10 +328,12 @@ function checkItemList(expectedSummary, expectedItems, actual, config, compareIt
 }
 
 /**
-* This is the entry point for checking the result of a test.
-* config.expected contains the expected results, and we use other bits
-* of config, most notably locale
-*/
+ * This is the entry point for checking the result of a test.
+ * config.expected contains the expected results, and we use other bits
+ * of config, most notably locale
+ *
+ * @param {string} html
+ */
 function checkResult(html, config) {
     // Lint the HTML
     expect(lintHTML(html)).toBeFalsy();
@@ -331,6 +345,7 @@ function checkResult(html, config) {
     expect(num_valid_links).toEqual(num_total_links);
 
     // Test main interface link
+    /** @type {HTMLAnchorElement} */
     const mainIfLink = dom.querySelector('ol>li>strong>a');
     expect(mainIfLink.textContent).toEqual(config.expected.mainIfLink.text);
     expect(mainIfLink.href).toEqual(`/${config.locale}${config.expected.mainIfLink.target}`);
@@ -385,6 +400,15 @@ function checkResult(html, config) {
     }
 }
 
+/**
+ * @param {object} config
+ * @param {string} config.name
+ * @param {string} [config.locale]
+ * @param {string} config.currentSlug
+ * @param {any} config.argument
+ * @param {object} config.inheritance
+ * @param {object} config.expected
+ */
 function testMacro(config) {
     for (const locale of ['en-US', 'fr', 'ja']) {
         let testName = `${config.name}; locale: ${locale}`;
@@ -396,26 +420,23 @@ function testMacro(config) {
             const originalTemplate = macro.ctx.template;
             macro.ctx.template = jest.fn( async (name, ...args) => {
                 if (name === "L10n:Common") {
-                    return commonl10nFixture;
+                    return commonL10nFixture;
                 }
                 if (name === "GroupData") {
                     return groupDataFixture;
                 }
-                if (name === "InterfaceData") {
-                    return config.interfaceData;
-                }
                 return await originalTemplate(name, ...args);
             });
+            jest.doMock('mdn-data/api/inheritance', () => config.inheritance);
             if (config.argument) {
-              return macro.call(config.argument).then(function(result) {
-                  checkResult(result, config);
-              });
+                return macro.call(config.argument).then(function(result) {
+                    checkResult(result, config);
+                });
             } else {
-              return macro.call().then(function(result) {
-                  checkResult(result, config);
-              });
+                return macro.call().then(function(result) {
+                    checkResult(result, config);
+                });
             }
-
         });
     }
 }
@@ -427,6 +448,7 @@ describeMacro('APIRef', function() {
             expect(page).toEqual('/en-US/docs/Web/API/TestInterface');
             return subpagesFixture;
         });
+        jest.resetModules();
     });
 
     // Test with current page as main interface page
@@ -434,7 +456,7 @@ describeMacro('APIRef', function() {
         name: 'slug: \'Web/API/TestInterface\'; no InterfaceData entries; no argument',
         currentSlug: 'Web/API/TestInterface',
         argument: null,
-        interfaceData: interfaceDataNoEntriesFixture,
+        inheritance: inheritanceNoEntriesJSON,
         expected: expectedBasic
     });
 
@@ -443,7 +465,7 @@ describeMacro('APIRef', function() {
         name: 'slug: \'Web/API/TestInterface/TestMethod1\'; no InterfaceData entries; no argument',
         currentSlug: 'Web/API/TestInterface/TestMethod1',
         argument: null,
-        interfaceData: interfaceDataNoEntriesFixture,
+        inheritance: inheritanceNoEntriesJSON,
         expected: expectedBasic
     });
 
@@ -452,7 +474,7 @@ describeMacro('APIRef', function() {
         name: 'slug: \'Web/API/TestInterface\'; no InterfaceData entries; argument: \'TestInterface\'',
         currentSlug: 'Web/API/TestInterface',
         argument: 'TestInterface',
-        interfaceData: interfaceDataNoEntriesFixture,
+        inheritance: inheritanceNoEntriesJSON,
         expected: expectedWithGroupData
     });
 
@@ -461,7 +483,7 @@ describeMacro('APIRef', function() {
         name: 'slug: \'Web/API/TestInterface\'; no InterfaceData entries; argument: \'I don\'t exist\'',
         currentSlug: 'Web/API/TestInterface',
         argument: 'I don\'t exist',
-        interfaceData: interfaceDataNoEntriesFixture,
+        inheritance: inheritanceNoEntriesJSON,
         expected: expectedBasic
     });
 
@@ -470,7 +492,7 @@ describeMacro('APIRef', function() {
         name: 'slug: \'Web/API/TestInterface\'; InterfaceData entries expected; no argument',
         currentSlug: 'Web/API/TestInterface',
         argument: null,
-        interfaceData: interfaceDataFixture,
+        inheritance: inheritanceJSON,
         expected: expectedWithInterfaceData
     });
 
