@@ -61,7 +61,7 @@ describeMacro('spec2', function() {
     itMacro('Old-Transforms (en-US)', function(macro) {
         return assert.eventually.equal(
             macro.call('CSS3 2D Transforms'),
-            '<span class="spec-WD">Working Draft</span>'
+            '<span class="spec-CR">Candidate Recommendation</span>'
         );
     });
     itMacro('Unknown (en-US)', function(macro) {
