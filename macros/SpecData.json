@@ -759,6 +759,11 @@
     "url": "https://fetch.spec.whatwg.org/",
     "status": "Living"
   },
+  "Fetch Metadata": {
+    "name": "Fetch Metadata Request Headers",
+    "url": "https://w3c.github.io/webappsec-fetch-metadata/",
+    "status": "ED"
+  },
   "File API": {
     "name": "File API",
     "url": "https://w3c.github.io/FileAPI/",
