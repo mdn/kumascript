@@ -1371,8 +1371,13 @@
   },
   "Web Animations": {
     "name": "Web Animations",
-    "url": "https://drafts.csswg.org/web-animations/",
+    "url": "https://drafts.csswg.org/web-animations-1/",
     "status": "WD"
+  },
+  "Web Animations 2": {
+    "name": "Web Animations Level 2",
+    "url": "https://drafts.csswg.org/web-animations-2/",
+    "status": "Draft"
   },
   "WebAssembly Core": {
     "name": "WebAssembly Core Specification",
