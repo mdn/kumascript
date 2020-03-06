@@ -56,7 +56,6 @@ var text = mdn.localStringMap({
     'Classes': 'Classes',
     'Errors': 'Errors',
     'More': 'Misc',
-    'New_in_JS': 'New in JavaScript',
     'Lexical_grammar': 'Lexical grammar',
     'Enumerability':'Enumerability and ownership of properties',
     'Data_types': 'Data types and data structures',
@@ -66,7 +65,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': 'Deprecated features',
     'Documentation': 'Documentation:',
     'Useful_lists': 'Useful lists',
-    'Index': 'All pages index',
     'Methods_Index': 'Methods index',
     'Properties_Index': 'Properties index',
     'JavaScript_tag': 'Pages tagged "JavaScript"',
@@ -120,7 +118,6 @@ var text = mdn.localStringMap({
     'Classes': 'Классы',
     'Errors': 'Ошибки',
     'More': 'Ещё',
-    'New_in_JS': 'Новое в JavaScript',
     'Lexical_grammar': 'Лексическая грамматика',
     'Enumerability':'Перечисляемость и принадлежность свойств',
     'Data_types': 'Типы и структуры данных',
@@ -130,7 +127,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': 'Устаревшие возможности',
     'Documentation': 'Документация:',
     'Useful_lists': 'Полезные списки',
-    'Index': 'Индекс всех страниц',
     'Methods_Index': 'Индекс методов',
     'Properties_Index': 'Индекс свойств',
     'JavaScript_tag': 'Страницы, помеченные «JavaScript»',
@@ -184,7 +180,6 @@ var text = mdn.localStringMap({
     'Classes': 'Classes',
     'Errors': 'Errors',
     'More': 'Plus',
-    'New_in_JS': 'Nouveautés de JavaScript',
     'Lexical_grammar': 'Grammaire lexicale',
     'Enumerability':'Rattachement des propriétés',
     'Data_types': 'Types et structures de données',
@@ -194,7 +189,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': 'Fonctionnalités dépréciées',
     'Documentation': 'Documentation\xa0:',
     'Useful_lists': 'Listes utiles',
-    'Index': 'Index des pages',
     'Methods_Index': 'Index des méthodes',
     'Properties_Index': 'Index des propriétés',
     'JavaScript_tag': 'Pages étiquetées "JavaScript"',
@@ -248,7 +242,6 @@ var text = mdn.localStringMap({
     'Classes': 'Classes',
     'Errors': 'Errors',
     'More': '更多',
-    'New_in_JS': 'New in JavaScript',
     'Lexical_grammar': '词法文法',
     'Enumerability':'属性的可枚举性和所有权',
     'Data_types': '数据类型和数据解构',
@@ -258,7 +251,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': '已废弃的特性',
     'Documentation': '文档:',
     'Useful_lists': '常用列表',
-    'Index': '全部页面索引',
     'Methods_Index': '方法索引',
     'Properties_Index': '属性索引',
     'JavaScript_tag': '拥有 "JavaScript" 标签的页面',
@@ -312,7 +304,6 @@ var text = mdn.localStringMap({
     'Classes': 'Klassen',
     'Errors': 'Fehler',
     'More': 'Weiteres',
-    'New_in_JS': 'Neu in JavaScript',
     'Lexical_grammar': 'Lexikalische Grammatik',
     'Enumerability':'Enumerability und Ownership von Eigenschaften',
     'Data_types': 'Datentypen und Datenstrukturen',
@@ -322,7 +313,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': 'Veraltete Bestandteile',
     'Documentation': 'Dokumentation:',
     'Useful_lists': 'Nützliche Listen',
-    'Index': 'Index aller Seiten',
     'Methods_Index': 'Index aller Methoden',
     'Properties_Index': 'Index aller Eigenschaften',
     'JavaScript_tag': 'Seiten mit dem Tag "JavaScript"',
@@ -376,7 +366,6 @@ var text = mdn.localStringMap({
     'Classes': 'クラス',
     'Errors': 'Errors',
     'More': 'その他',
-    'New_in_JS': 'JavaScript の新機能',
     'Lexical_grammar': '字句文法',
     'Enumerability': 'プロパティの列挙可能性と所有権',
     'Data_types': 'データ型とデータ構造',
@@ -386,7 +375,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': '廃止予定の機能',
     'Documentation': '文書化について:',
     'Useful_lists': '便利なページ一覧',
-    'Index': '全ページ索引',
     'Methods_Index': 'メソッド索引',
     'Properties_Index': 'プロパティ索引',
     'JavaScript_tag': '"JavaScript" タグ付きページ',
@@ -440,7 +428,6 @@ var text = mdn.localStringMap({
     'Classes': 'Classes',
     'Errors': 'Erros',
     'More': 'Mais conteúdo',
-    'New_in_JS': 'Novidades em JavaScript',
     'Lexical_grammar': 'Gramática léxica',
     'Enumerability':'Enumerabilidade e domínio de propriedades',
     'Data_types': 'Tipos de dados e estruturas de dados',
@@ -450,7 +437,6 @@ var text = mdn.localStringMap({
     'Deprecated_features': 'Funcionalidades depreciadas',
     'Documentation': 'Documentação:',
     'Useful_lists': 'Listas úteis',
-    'Index': 'Índice para todas as páginas',
     'Methods_Index': 'Índice de Métodos',
     'Properties_Index': 'Índice de Propriedades',
     'JavaScript_tag': 'Páginas com a tag "JavaScript"',
@@ -577,18 +563,11 @@ var text = mdn.localStringMap({
       </ol>
     </details>
   </li>
-  <li class="toggle">
-    <details <%=state('New_in_JS')%>>
-      <summary><%=text['New_in_JS']%></summary>
-      <%-await template("ListSubpagesForSidebar", ['/en-US/docs/Web/JavaScript/New_in_JavaScript', 1])%>
-    </details>
-  </li>
   <li><strong><a href="/<%=locale%>/docs/MDN"><%=text['Documentation']%></a></strong></li>
   <li class="toggle">
     <details <%=state('Useful_lists')%>>
       <summary><%=text['Useful_lists']%></summary>
       <ol>
-        <li><a href="/<%=locale%>/docs/Web/JavaScript/Index"><%=text['Index']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Methods_Index"><%=text['Methods_Index']%></a></li>
         <li><a href="/<%=locale%>/docs/Web/JavaScript/Reference/Properties_Index"><%=text['Properties_Index']%></a></li>
         <li><a href="/<%=locale%>/docs/tag/JavaScript"><%=text['JavaScript_tag']%></a></li>
