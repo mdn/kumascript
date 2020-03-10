@@ -46,7 +46,7 @@ var result = [];
 function getPages(pageList) {
     if (pageList) {
         for (var i = 0; i < pageList.length; i++) {
-            result.push({title: pageList[i].title.replace('<','&lt;').replace('>','&gt;'), url: pageList[i].url, tags: pageList[i].tags.sort(), summary: pageList[i].summary || '<strong>No summary!</strong>'})
+            result.push({title: pageList[i].title.replace(/</g,'&lt;').replace(/>/g,'&gt;'), url: pageList[i].url, tags: pageList[i].tags.sort(), summary: pageList[i].summary || '<strong>No summary!</strong>'})
             var subpage = getPages(pageList[i].subpages);
         }
     }
@@ -68,7 +68,7 @@ getPages(pageList);
 <% for (i=0; i < result.length; i++) { %>
 <tr>
     <td rowspan="2"><%=i+1%></td>
-    <td rowspan="2"><a href='<%=result[i].url%>'><%=result[i].title%></a></td>
+    <td rowspan="2"><a href='<%=result[i].url%>'><%-result[i].title%></a></td>
     <td><strong><%=result[i].tags.join(", ")%></strong></td>
 </tr>
 <tr>
