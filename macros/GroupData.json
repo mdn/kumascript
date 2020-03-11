@@ -1264,6 +1264,7 @@
                             "Element: touchcancel" ]
         },
         "URL API": {
+            "overview":   [ "URL API" ],
             "interfaces": [ "URL",
                             "URLSearchParams",
                             "HTMLHyperlinkElementUtils",
