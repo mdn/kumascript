@@ -79,7 +79,7 @@ function getPages(pageList) {
             if (containsNeedsWorkTag(pageList[i].tags)) { metrics["needsTags"][2]++; }
             if (hasReviewTag(pageList[i].review_tags, 'editorial')) { metrics["editorialReviews"][2]++; }
             if (hasReviewTag(pageList[i].review_tags, 'technical')) { metrics["technicalReviews"][2]++; }
-            
+
             var subpage = getPages(pageList[i].subpages);
             if (subpage) {
                 pageCounter++;
@@ -94,16 +94,14 @@ function getPages(pageList) {
 
 getPages(pageList);
 
-var indexPage = $0 + '/Index';
-
 %>
 <table class="docstatussummary standard-table">
   <thead>
     <tr>
-      <th><a href="<%=indexPage%>"><%=s_pages%></a></th>
+      <th><%=s_pages%></th>
 <%
  for (var key in metrics) {
-  if (metrics.hasOwnProperty(key)) { 
+  if (metrics.hasOwnProperty(key)) {
       var href = metrics[key][1];
       var title = metrics[key][0].replace(/_/g, " ");
       if (href.indexOf('#', 0) === 0) {

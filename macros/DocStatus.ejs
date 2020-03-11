@@ -41,7 +41,6 @@ var bugPageURL = 'https://bugzilla.mozilla.org/show_bug.cgi?id=';
 var metrics = {
     pages: {
         title: 'Pages',
-        link: enURL + '/Index',
         counter: 0
     },
     noTags: {
@@ -320,12 +319,14 @@ await getL10nPages(languages);
 <%
 for (var obj in metrics) {
 if (metrics.hasOwnProperty(obj) && typeof metrics[obj] !== 'undefined') {
+    let out = metrics[obj].title;
     var href = metrics[obj].link;
     if (href && href.indexOf('#', 0) === 0) {
         href = env.path + href;
+        out = `<a href="${href}">${metrics[obj].title}</a>`;
     }
 %>
-    <th><a href="<%=href%>"><%=metrics[obj].title%></a></th>
+    <th><%-out%></th>
 <% }} %>
     </tr>
   </thead>
