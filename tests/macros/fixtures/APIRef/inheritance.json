@@ -1,0 +1,33 @@
+{
+    "ImplementsTestInterface": {
+        "inherits": "AndAnotherRandomThing",
+        "implements": [
+            "TestInterface"
+        ]
+    },
+    "AlsoImplementsTestInterface": {
+        "inherits": "YetAnotherRandomThing",
+        "implements": [
+            "TestInterface",
+            "SomethingUnrelated"
+        ]
+    },
+    "AnUnrelatedThing": {
+        "inherits": "SomeOtherRandomThing",
+        "implements": []
+    },
+    "TestInterfaceGrandparent": {
+        "inherits": null,
+        "implements": []
+    },
+    "TestInterfaceParent": {
+        "inherits": "TestInterfaceGrandparent",
+        "implements": [
+            "SomeRandomThing"
+        ]
+    },
+    "TestInterface": {
+        "inherits": "TestInterfaceParent",
+        "implements": []
+    }
+}

@@ -19,7 +19,7 @@ var escapeQuotes = mdn.escapeQuotes;
 var htmlEscape = kuma.htmlEscape;
 var rtlLocales = ['ar', 'he', 'fa'];
 
-var webAPIData = string.deserialize(await template("InterfaceData"));
+const interfaceData = require('mdn-data/api/inheritance');
 if (group) {
   var webAPIGroups = string.deserialize(await template("GroupData"));
 }
@@ -41,8 +41,8 @@ var text = {
 
 // Collect all the things
 var mainIFPages = await page.subpagesExpand('/en-US/docs/Web/API/' + mainIF);
-var impl = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].impl : [];
-var inh = webAPIData[0][mainIF] != undefined ? webAPIData[0][mainIF].inh : '';
+const impl = interfaceData[mainIF] != undefined ? interfaceData[mainIF].implements : [];
+const inh = interfaceData[mainIF] != undefined ? interfaceData[mainIF].inherits : null;
 var related = [];
 var events = []
 if (group && webAPIGroups[0][group]) {
@@ -106,28 +106,27 @@ methods.sort(APISort);
 ctors.sort(APISort);
 events.sort(APISort);
 
+const { hasOwnProperty } = Object.prototype
+
 function getInheritance(inh) {
-  if (inh.length > 0) {
+  if (inh !== null) {
     inheritedIF.push(inh);
-    if (webAPIData[0].hasOwnProperty(inh)) {
-        var inh = webAPIData[0][inh].inh;
-        getInheritance(inh);
+    if (hasOwnProperty.call(interfaceData, inh)) {
+        getInheritance(interfaceData[inh].inherits);
     }
   }
 }
 getInheritance(inh);
 
 function getImplementedBy(data) {
-  for (var key in data) {
-    if (data.hasOwnProperty(key)
-        && data[key].impl
-        && data[key].impl.indexOf(mainIF) != -1) {
+  for (const key of Object.keys(data)) {
+    if (data[key].implements.includes(mainIF)) {
       implementedBy.push(key);
     }
   }
   implementedBy.sort();
 }
-getImplementedBy(webAPIData[0]);
+getImplementedBy(interfaceData);
 
 // output helpers
 
@@ -256,7 +255,7 @@ if (methods.length > 0) {
 if (events.length > 0) {
   output += buildSublist(events, text['Events']);
 }
-if (inh.length > 0) {
+if (inh !== null) {
   output += buildIFList(inheritedIF, text['Inheritance']);
 }
 if (implementedBy.length > 0) {

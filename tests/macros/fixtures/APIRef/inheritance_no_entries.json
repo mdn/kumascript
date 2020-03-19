@@ -1,0 +1,28 @@
+{
+    "ImplementsAnInterface": {
+        "inherits": "AndAnotherRandomThing",
+        "implements": [
+            "NoThisOne"
+        ]
+    },
+    "AlsoImplementsTestInterface": {
+        "inherits": "YetAnotherRandomThing",
+        "implements": [
+            "SomethingUnrelated"
+        ]
+    },
+    "AnUnrelatedThing": {
+        "inherits": "SomeOtherRandomThing",
+        "implements": []
+    },
+    "NotMyGrandParent": {
+        "inherits": null,
+        "implements": []
+    },
+    "NotMyParent": {
+        "inherits": "NotMyGrandParent",
+        "implements": [
+            "SomeRandomThing"
+        ]
+    }
+}
