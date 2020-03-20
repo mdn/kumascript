@@ -698,8 +698,9 @@ if (!compatData) {
 traverseFeatures(compatData, depth, '');
 
 if (features.length > 0) {
+		const childPath = query.split(".").join("/") + ".json";
     output = `<div class="bc-data" id="bcd:${query}">`;
-    output += '<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data">Update compatibility data on GitHub</a>';
+    output += `<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data/${childPath}">Update compatibility data on GitHub</a>`;
     output += `<table class="bc-table bc-table-${bcCategory}">`;
     output += writeCompatHead();
     output += writeCompatBody();
