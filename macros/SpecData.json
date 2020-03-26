@@ -730,9 +730,9 @@
     "status": "Standard"
   },
   "ESDraft": {
-    "name": "ECMAScript Latest Draft (ECMA-262)",
+    "name": "ECMAScript (ECMA-262)",
     "url": "https://tc39.es/ecma262/",
-    "status": "Draft"
+    "status": "Living"
   },
   "ES Int 1.0": {
     "name": "ECMAScript Internationalization API 1.0 (ECMA-402)",
@@ -745,9 +745,9 @@
     "status": "Standard"
   },
   "ES Int Draft": {
-    "name": "ECMAScript Internationalization API 4.0 (ECMA-402)",
+    "name": "ECMAScript Internationalization API (ECMA-402)",
     "url": "https://tc39.es/ecma402/",
-    "status": "Draft"
+    "status": "Living"
   },
   "Feature Policy": {
     "name": "Feature Policy",
