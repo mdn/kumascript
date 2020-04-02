@@ -966,7 +966,7 @@
   },
   "Media Capabilities": {
     "name": "Media Capabilities",
-    "url": "https://wicg.github.io/media-capabilities/",
+    "url": "https://w3c.github.io/media-capabilities/",
     "status": "Draft"
   },
   "Media Capture": {
@@ -981,12 +981,12 @@
   },
   "Media Playback Quality": {
     "name": "Media Playback Quality",
-    "url": "https://wicg.github.io/media-playback-quality/",
+    "url": "https://w3c.github.io/media-playback-quality/",
     "status": "ED"
   },
   "Media Session": {
     "name": "Media Session Standard",
-    "url": "https://wicg.github.io/mediasession/",
+    "url": "https://w3c.github.io/mediasession/",
     "status": "Draft"
   },
   "Media Source Extensions": {
@@ -1036,7 +1036,7 @@
   },
   "Network Information": {
     "name": "Network Information API",
-    "url": "https://w3c.github.io/netinfo/",
+    "url": "https://wicg.github.io/netinfo/",
     "status": "Draft"
   },
   "OpenGL ES 2.0": {
@@ -1636,7 +1636,7 @@
   },
   "Web Speech API": {
     "name": "Web Speech API",
-    "url": "https://w3c.github.io/speech-api/",
+    "url": "https://wicg.github.io/speech-api/",
     "status": "Draft"
   },
   "Web Telephony": {
