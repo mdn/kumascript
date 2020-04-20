@@ -179,6 +179,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : 'Introduction to automated testing',
         'Setting_up_your_own_test_automation_environment' : 'Setting up your own test automation environment',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -396,6 +397,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : 'Einführung in automatisiertes Testen',
         'Setting_up_your_own_test_automation_environment' : 'Setze deine eigene Testumgebung auf',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -613,6 +615,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : 'Introdução a testes automatizados',
         'Setting_up_your_own_test_automation_environment' : 'Configurando seu próprio ambiente de testes automatizados',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -814,6 +817,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : 'Вступление в автоматическое тестирование',
         'Setting_up_your_own_test_automation_environment' : 'Установка вашей автоматической среды тестирования',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -1019,6 +1023,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : '自动测试介绍',
         'Setting_up_your_own_test_automation_environment' : '设置您的自动测试环境',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -1219,6 +1224,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : '自動化測試介紹',
         'Setting_up_your_own_test_automation_environment' : '設定自己的自動化測試環境',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -1450,6 +1456,7 @@ var text = mdn.localStringMap({
         'Introduction_to_automated_testing' : 'Introduction to automated testing',
         'Setting_up_your_own_test_automation_environment' : 'Setting up your own test automation environment',
       'Git_and_GitHub' : 'Git and GitHub',
+        'Git_and_GitHub_overview' : 'Git and GitHub overview',
       'Understanding_client-side_web_development_tools' : 'Understanding client-side web development tools',
         'Client-side_web_development_tools_index' : 'Client-side web development tools index',
         'Client-side_tooling_overview' : 'Client-side tooling overview',
@@ -1782,6 +1789,19 @@ var text = mdn.localStringMap({
   </li>
   <li><a href="<%=baseURL%>Tools_and_testing/GitHub"><%=text['Git_and_GitHub']%></a></li>
   <li class="toggle">
+    <details <%=currentPageIsUnder('Tools_and_testing/GitHub')%>>
+        <summary><%=text['Git_and_GitHub']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>Tools_and_testing/GitHub"><%=text['Git_and_GitHub_overview']%></a></li>
+          <li><a href="https://guides.github.com/activities/hello-world/">Hello World</a></li>
+          <li><a href="https://guides.github.com/introduction/git-handbook/">Git Handbook</a></li>
+          <li><a href="https://guides.github.com/activities/forking/">Forking Projects</a></li>
+          <li><a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">About pull requests</a></li>
+          <li><a href="https://guides.github.com/features/issues/">Mastering Issues</a></li>
+        </ol>
+    </details>
+  </li>
+  <li class="toggle">
     <details <%=currentPageIsUnder('Tools_and_testing/Understanding_client-side_tools')%>>
         <summary><%=text['Understanding_client-side_web_development_tools']%></summary>
         <ol>
@@ -1794,7 +1814,6 @@ var text = mdn.localStringMap({
         </ol>
     </details>
   </li>
-
   <li data-default-state="<%=currentPageIsUnder('Server-side')%>"><a href="<%=baseURL%>Server-side"><strong><%=text['Server-side_website_programming']%></strong></a></li>
   <li class="toggle">
     <details <%=currentPageIsUnder('Server-side/First_steps')%>>
