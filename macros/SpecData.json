@@ -476,7 +476,7 @@
   },
   "CSS Grid 2": {
     "name": "CSS Grid Layout Module Level 2",
-    "url": "https://www.w3.org/TR/css-grid-2/",
+    "url": "https://drafts.csswg.org/css-grid-2/",
     "status": "WD"
   },
   "CSS Layout": {
@@ -511,7 +511,7 @@
   },
   "CSS Overscroll Behavior": {
     "name": "CSS Overscroll Behavior Module Level 1",
-    "url": "https://www.w3.org/TR/css-overscroll-1/",
+    "url": "https://drafts.csswg.org/css-overscroll-1/",
     "status": "WD"
   },
   "CSS Properties and Values API": {
@@ -551,7 +551,7 @@
   },
   "CSS Shadow Parts": {
     "name": "Shadow Parts",
-    "url": "https://www.w3.org/TR/css-shadow-parts-1/",
+    "url": "https://drafts.csswg.org/css-shadow-parts-1/",
     "status": "WD"
   },
   "CSS Shapes": {
