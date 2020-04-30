@@ -1109,11 +1109,6 @@
     "url": "https://www.w3.org/TR/pointerevents2/",
     "status": "REC"
   },
-  "Pointer Events 2 Ext": {
-    "name": "Pointer Events - Level 2 Extensions",
-    "url": "https://w3c.github.io/pointerevents/extension.html",
-    "status": "Draft"
-  },
   "Pointer Events 3": {
     "name": "Pointer Events – Level 3",
     "url": "https://w3c.github.io/pointerevents/",
