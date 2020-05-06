@@ -749,6 +749,11 @@
     "url": "https://tc39.es/ecma402/",
     "status": "Living"
   },
+  "Event Timing API": {
+    "name": "Event Timing API",
+    "url": "https://wicg.github.io/event-timing/",
+    "status": "ED"
+  },
   "Feature Policy": {
     "name": "Feature Policy",
     "url": "https://w3c.github.io/webappsec-feature-policy/",
@@ -937,6 +942,16 @@
   "Keyboard Map": {
     "name": "Keyboard Map",
     "url": "https://wicg.github.io/keyboard-map/",
+    "status": "ED"
+  },
+  "Largest Contentful Paint": {
+    "name": "Largest Contentful Paint",
+    "url": "https://wicg.github.io/largest-contentful-paint/",
+    "status": "ED"
+  },
+  "Layout Instability": {
+    "name": "Layout Instability API",
+    "url": "https://wicg.github.io/layout-instability/",
     "status": "ED"
   },
   "Long Tasks": {
