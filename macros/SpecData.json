@@ -1512,7 +1512,7 @@
   "WebAuthn": {
     "name": "Web Authentication: An API for accessing Public Key Credentials Level 1",
     "url": "https://w3c.github.io/webauthn/",
-    "status": "CR"
+    "status": "REC"
   },
   "WebDriver": {
     "name": "WebDriver",
