@@ -51,6 +51,9 @@ var nextTextAlign = "right";
 var prevFloatValue = "left";
 var nextFloatValue = "right";
 
+var prevArrowDir = "icon-arrow-right"
+var nextArrowDir = "icon-arrow-left"
+
 // for RTL
 switch(lang) {
     case "ar":
@@ -60,6 +63,8 @@ switch(lang) {
         nextTextAlign = "left";
         prevFloatValue = "right";
         nextFloatValue = "left";
+        prevArrowDir = "icon-arrow-left"
+        nextArrowDir = "icon-arrow-right"
         break;
     default:
         break;
@@ -67,11 +72,11 @@ switch(lang) {
 
 
 if ($0) {
-    strPrevious = '<a style="float:' + prevFloatValue + '; width: 20%; text-align:' + prevTextAlign + ';" href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="icon-arrow-left" aria-hidden="true"></i>' + s_PreviousNext[0] + '</a>';
+    strPrevious = '<a style="float:' + prevFloatValue + '; width: 20%; text-align:' + prevTextAlign + ';" href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '"><span style="' + buttonStyle + '"><i class="' + prevArrowDir + '" aria-hidden="true"></i>' + s_PreviousNext[0] + '</a>';
 }
 
 if ($1) {
-    strNext = '<a style="width: 20%;float:' + nextFloatValue + ';text-align: ' + nextTextAlign + ';" href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '"><span style="' + buttonStyle + '">' + s_PreviousNext[1] + '<i class="icon-arrow-right" aria-hidden="true"></i></a>';
+    strNext = '<a style="width: 20%;float:' + nextFloatValue + ';text-align: ' + nextTextAlign + ';" href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '"><span style="' + buttonStyle + '">' + s_PreviousNext[1] + '<i class="' + nextArrowDir + '" aria-hidden="true"></i></a>';
 }
 
 if ($2) {
