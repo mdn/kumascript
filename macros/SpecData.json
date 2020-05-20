@@ -1174,7 +1174,7 @@
     "url": "https://w3c.github.io/remote-playback/",
     "status": "CR"
   },
-  "Reporting": {
+  "Reporting API": {
     "name": "Reporting API",
     "url": "https://w3c.github.io/reporting/",
     "status": "ED"
