@@ -514,6 +514,11 @@
     "url": "https://www.w3.org/TR/css-overscroll-1/",
     "status": "WD"
   },
+  "CSS Properties and Values API": {
+    "name": "CSS Properties and Values API Level&nbsp;1",
+    "url": "https://drafts.css-houdini.org/css-properties-values-api-1/",
+    "status": "WD"
+  },
   "CSS Rhythmic Sizing": {
     "name": "CSS Rhythmic Sizing",
     "url": "https://drafts.csswg.org/css-rhythm/",
@@ -806,7 +811,7 @@
   },
   "Geolocation": {
     "name": "Geolocation API",
-    "url": "https://dev.w3.org/geo/api/spec-source.html",
+    "url": "https://w3c.github.io/geolocation-api/",
     "status": "REC"
   },
   "Geometry Interfaces": {
@@ -1311,8 +1316,8 @@
   },
   "Tracking": {
     "name": "Tracking Preference Expression (DNT)",
-    "url": "https://w3c.github.io/dnt/drafts/tracking-dnt.html",
-    "status": "CR"
+    "url": "https://www.w3.org/TR/tracking-dnt/",
+    "status": "Obsolete"
   },
   "Typed Array": {
     "name": "Typed Array Specification",
@@ -1376,7 +1381,7 @@
   },
   "WebAssembly Embedding": {
     "name": "WebAssembly features for web embedding",
-    "url": "https://github.com/WebAssembly/design/blob/master/Web.md",
+    "url": "https://webassembly.org/docs/web/",
     "status": "Draft"
   },
   "WebAssembly JS": {
