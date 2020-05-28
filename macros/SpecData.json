@@ -934,6 +934,21 @@
     "url": "https://w3c.github.io/IntersectionObserver/",
     "status": "WD"
   },
+  "Intl.DateTimeFormat.formatRange": {
+    "name": "Intl.DateTimeFormat.formatRange",
+    "url": "https://tc39.es/proposal-intl-DateTimeFormat-formatRange/",
+    "status": "Draft"
+  },
+  "Intl.DisplayNames": {
+    "name": "Intl.DisplayNames",
+    "url": "https://tc39.es/proposal-intl-displaynames/",
+    "status": "Draft"
+  },
+  "Intl.ListFormat": {
+    "name": "Intl.ListFormat",
+    "url": "https://tc39.es/proposal-intl-list-format/",
+    "status": "Draft"
+  },
   "Keyboard Lock": {
     "name": "Keyboard Lock",
     "url": "https://wicg.github.io/keyboard-lock/",
@@ -953,6 +968,11 @@
     "name": "Layout Instability API",
     "url": "https://wicg.github.io/layout-instability/",
     "status": "ED"
+  },
+  "Legacy RegExp features": {
+    "name": "Legacy RegExp features in JavaScript",
+    "url": "https://github.com/tc39/proposal-regexp-legacy-features/",
+    "status": "Draft"
   },
   "Long Tasks": {
     "name": "Long Tasks API 1",
@@ -1114,6 +1134,11 @@
     "url": "https://w3c.github.io/performance-timeline/",
     "status": "CR"
   },
+  "Pipeline operator": {
+    "name": "Pipeline operator",
+    "url": "https://tc39.es/proposal-pipeline-operator/",
+    "status": "Draft"
+  },
   "Pointer Events": {
     "name": "Pointer Events",
     "url": "https://www.w3.org/TR/pointerevents1/",
@@ -1149,10 +1174,20 @@
     "url": "https://wicg.github.io/priority-hints/",
     "status": "Draft"
   },
+  "Promise.any": {
+    "name": "Promise.any",
+    "url": "https://tc39.es/proposal-promise-any/",
+    "status": "Draft"
+  },
   "Proximity Events": {
     "name": "Proximity Sensor",
     "url": "https://w3c.github.io/proximity/",
     "status": "WD"
+  },
+  "Public and private instance fields": {
+    "name": "Public and private instance fields",
+    "url": "https://tc39.es/proposal-class-fields/",
+    "status": "Draft"
   },
   "Push API": {
     "name": "Push API",
