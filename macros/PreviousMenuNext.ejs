@@ -44,11 +44,11 @@ var s_Menu = mdn.localString({
 
 
 if ($0) {
-    strPrevious = '<a href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '"><span><i class="icon-arrow-left" aria-hidden="true"></i><span class="label">' + s_PreviousNext[0] + '</span></a>';
+    strPrevious = '<a href="/' + lang + '/docs/' + string.replace($0, ' ', '_') + '"><i class="icon-arrow-left" aria-hidden="true"></i><span class="label">' + s_PreviousNext[0] + '</span></a>';
 }
 
 if ($1) {
-    strNext = '<a href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '"><span><span class="label">' + s_PreviousNext[1] + '</span><i class="icon-arrow-right" aria-hidden="true"></i></a>';
+    strNext = '<a href="/' + lang + '/docs/' + string.replace($1, ' ', '_') + '"><span class="label">' + s_PreviousNext[1] + '</span><i class="icon-arrow-right" aria-hidden="true"></i></a>';
 }
 
 if ($2) {
@@ -59,11 +59,11 @@ if ($2) {
   var finalString = linkText.replace(re,' ');
 
   if($0 && $1) {
-    strMenu = '<a href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
+    strMenu = '<a href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
   } else if($0) {
-    strMenu = '<a href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
+    strMenu = '<a href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
   } else if($1) {
-    strMenu = '<a href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><span><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
+    strMenu = '<a href="/' + lang + '/docs/' + string.replace($2, ' ', '_') + '"><i class="icon-arrow-up" aria-hidden="true"></i>' + s_Menu + finalString + '</a>';
   }
 }
 
