@@ -300,7 +300,7 @@
     "status": "REC"
   },
   "CSS3 Sizing": {
-    "name": "CSS Intrinsic &amp; Extrinsic Sizing Module Level&nbsp;3",
+    "name": "CSS Box Sizing Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-sizing-3/",
     "status": "WD"
   },
@@ -410,7 +410,7 @@
     "status": "WD"
   },
   "CSS4 Sizing": {
-    "name": "CSS Intrinsic &amp; Extrinsic Sizing Module Level&nbsp;4",
+    "name": "CSS Box Sizing Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-sizing-4/",
     "status": "ED"
   },
