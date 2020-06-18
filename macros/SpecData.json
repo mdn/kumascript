@@ -56,7 +56,7 @@
   },
   "Background Sync": {
     "name": "Web Background Synchronization",
-    "url": "https://wicg.github.io/BackgroundSync/spec/",
+    "url": "https://wicg.github.io/background-sync/spec/",
     "status": "Living"
   },
   "Background Tasks": {
