@@ -1289,6 +1289,14 @@
             "properties": [],
             "events":     []
         },
+        "Visual Viewport": {
+            "overview":   [ "Visual Viewport API"],
+            "interfaces": [ "VisualViewport" ],
+            "methods":    [],
+            "properties": [ "Window.visualViewport" ],
+            "events":     [ "VisualViewport: resize",
+                            "VisualViewport: scroll" ]
+        },
         "Web Animations": {
             "overview":   [ "Web Animations API" ],
             "guides":     [ "/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API",
