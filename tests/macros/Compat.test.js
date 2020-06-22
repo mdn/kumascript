@@ -168,7 +168,7 @@ describeMacro('Compat', function() {
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-desktop').colSpan,
-                    4
+                    5
                 );
                 assert.equal(
                     dom.querySelector('.bc-platform-mobile').colSpan,
