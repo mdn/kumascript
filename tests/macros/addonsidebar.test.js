@@ -9,7 +9,7 @@ const {
     beforeEachMacro,
     describeMacro,
     itMacro,
-    lintHTML
+    lintHTML,
 } = require('./utils');
 
 const SUMMARIES = {
@@ -18,57 +18,45 @@ const SUMMARIES = {
         'Concepts',
         'User interface',
         'How to',
-        'Porting',
-        'Firefox workflow',
+        'Firefox differentiators',
         'JavaScript APIs',
         'Manifest keys',
-        'Browser themes',
-        'Publishing add-ons',
-        'Distributing add-ons',
-        'Channels'
+        'Extension Workshop',
+        'Channels',
     ],
     fr: [
         'Démarrage',
         'Concepts',
         'Interface Utilisateur',
         "Mode d'emploi",
-        'Portage',
-        'Déroulement avec Firefox',
+        'Firefox differentiators',
         'Les API JavaScript',
         'Clés de manifeste',
-        'Thème de navigateur',
-        'Publication de votre extension',
-        'Distribuer votre module',
-        'Canaux de discussions'
+        'Extension Workshop',
+        'Canaux de discussions',
     ],
     ja: [
         '始めましょう',
         '概念',
         'ユーザーインターフェイス',
         '逆引きリファレンス',
-        '移行',
-        'Firefox でのワークフロー',
+        'Firefox differentiators',
         'JavaScript API 群',
         'Manifest keys',
-        'ブラウザのテーマ',
-        'アドオンを公開する',
-        'アドオンの配布',
-        'チャンネル'
+        'Extension Workshop',
+        'チャンネル',
     ],
     'zh-CN': [
         '开始',
         '概念',
         '用户界面',
         '怎么做',
-        '移植',
-        'Firefox工作流程',
+        'Firefox differentiators',
         'JavaScript APIs',
         'Manifest keys',
-        '浏览器主题',
-        '发布附加程序',
-        '分发附加程序',
-        '渠道'        
-    ]
+        'Extension Workshop',
+        '渠道',
+    ],
 };
 
 const MANIFEST_SLUG = 'Mozilla/Add-ons/WebExtensions/manifest.json';
@@ -84,32 +72,32 @@ function getMockResultForFetchJSONResource(doc_url) {
                 url: `/${locale}/docs/${MANIFEST_SLUG}/author`,
                 subpages: [],
                 slug: `${MANIFEST_SLUG}/author`,
-                title: 'author'
+                title: 'author',
             },
             {
                 locale: `${locale}`,
                 url: `/${locale}/docs/${MANIFEST_SLUG}/background`,
                 subpages: [],
                 slug: `${MANIFEST_SLUG}/background`,
-                title: 'background'
+                title: 'background',
             },
             {
                 locale: `${locale}`,
                 url: `/${locale}/docs/${MANIFEST_SLUG}/theme`,
                 subpages: [],
                 slug: `${MANIFEST_SLUG}/theme`,
-                title: 'theme'
+                title: 'theme',
             },
             {
                 locale: `${locale}`,
                 url: `/${locale}/docs/${MANIFEST_SLUG}/version`,
                 subpages: [],
                 slug: `${MANIFEST_SLUG}/version`,
-                title: 'version'
-            }
+                title: 'version',
+            },
         ],
         slug: MANIFEST_SLUG,
-        title: 'manifest.json'
+        title: 'manifest.json',
     };
 }
 
@@ -153,8 +141,8 @@ function checkSidebarResult(html, locale, isUnderWebExtAPI = false) {
     }
 }
 
-describeMacro('AddonSidebar', function() {
-    beforeEachMacro(function(macro) {
+describeMacro('AddonSidebar', function () {
+    beforeEachMacro(function (macro) {
         // Mock the call to template('WebExtAPISidebar', []).
         macro.ctx.template = jest.fn((macro, args) => {
             // This template will be tested on its own, so nothing needed here.
@@ -168,20 +156,20 @@ describeMacro('AddonSidebar', function() {
     });
 
     for (const locale of ['en-US', 'fr', 'ja']) {
-        itMacro(`with locale ${locale}`, function(macro) {
+        itMacro(`with locale ${locale}`, function (macro) {
             macro.ctx.env.locale = locale;
             macro.ctx.env.slug = 'Mozilla/Add-ons/AMO';
-            return macro.call().then(function(result) {
+            return macro.call().then(function (result) {
                 expect(macro.ctx.template).toHaveBeenCalledTimes(1);
                 checkSidebarResult(result, locale);
             });
         });
-        itMacro(`with locale ${locale} under WebExtensions/API`, function(
+        itMacro(`with locale ${locale} under WebExtensions/API`, function (
             macro
         ) {
             macro.ctx.env.locale = locale;
             macro.ctx.env.slug = 'Mozilla/Add-ons/WebExtensions/API/alarms';
-            return macro.call().then(function(result) {
+            return macro.call().then(function (result) {
                 expect(macro.ctx.template).toHaveBeenCalledTimes(1);
                 checkSidebarResult(result, locale, true);
             });
