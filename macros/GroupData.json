@@ -86,7 +86,8 @@
         },
         "Clipboard API": {
             "interfaces": [ "Clipboard",
-                            "ClipboardEvent"],
+            "ClipboardEvent",
+            "ClipboardItem"],
             "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
             "properties": [ "Navigator.clipboard" ],
