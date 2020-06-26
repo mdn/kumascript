@@ -1,0 +1,106 @@
+<%
+var currentSection = $0;
+var locale = env.locale;
+var slug = env.slug;
+var baseURL = '/' + locale + '/docs/Mozilla/Add-ons/';
+
+function currentPageIsUnder(root) {
+  rootSlug = 'Mozilla/Add-ons/' + root;
+  if (slug && slug.indexOf(rootSlug) != -1) {
+    return 'open';
+  }
+  return '';
+}
+
+var text = mdn.localStringMap({
+  'en-US': {
+    'Themes': 'Themes',
+    'Themes/Theme_concepts': 'Browser themes',
+    'extension_workshop': 'Extension Workshop',
+    'Themes/Using_the_AMO_theme_generator': 'Using the AMO theme generator',
+    'Channels': 'Channels',
+    'Blog': 'Add-ons blog',
+    'Forums': 'Add-ons forum',
+    'Chat': 'Add-ons chat',
+    'Contact_us': 'Contact us'
+  },
+  'fr': {
+    'Themes': 'Thèmes',
+    'Themes/Theme_concepts': 'Thème de navigateur',
+    'extension_workshop': 'Extension Workshop',
+    'Themes/Using_the_AMO_theme_generator': 'Using the AMO theme generator',
+    'Channels': 'Canaux de discussions',
+    'Blog': 'Blog extensions',
+    'Forums': 'Forum extensions',
+    'Chat': 'Add-ons chat',
+    'Contact_us': 'Nous contacter'
+  },
+  'ja': {
+    'Themes': 'テーマ',
+    'Themes/Theme_concepts': 'ブラウザのテーマ',
+    'extension_workshop': 'Extension Workshop',
+    'Themes/Using_the_AMO_theme_generator': 'Using the AMO theme generator',
+    'Channels': 'チャンネル',
+    'Blog': 'ブログ',
+    'Forums': 'フォーラム',
+    'Chat': 'Add-ons chat',
+    'Contact_us': 'コンタクト'
+  },
+  'ko': {
+    'Themes': '테마',
+    'Themes/Theme_concepts': '브라우저 테마',
+    'extension_workshop': 'Extension Workshop',
+    'Themes/Using_the_AMO_theme_generator': 'AMD 테마 생성기 사용하기',
+    'Channels': '채널',
+    'Blog': '부가 기능 블로그',
+    'Forums': '부가 기능 포럼',
+    'Chat': 'Add-ons chat',
+    'Contact_us': '연락하기'
+  },
+  'zh-CN': {
+    'Themes': '主题',
+    'Themes/Theme_concepts': '浏览器主题',
+    'extension_workshop': 'Extension Workshop',
+    'Themes/Using_the_AMO_theme_generator': '使用AMO主题生成器',
+    'Channels': '渠道',
+    'Blog': 'Add-ons博客',
+    'Forums': 'Add-ons论坛',
+    'Chat': 'Add-ons chat',
+    'Contact_us': '联系我们'
+  }
+});
+
+%>
+
+<section class="Quick_links" id="Quick_Links">
+  <ol>
+    <li><a href="<%=baseURL%>Themes"><strong><%=text['Themes']%></strong></a></li>
+    <li class="toggle">
+      <details>
+        <summary><%=text['Themes/Theme_concepts']%></summary>
+        <ol>
+          <li><a href="<%=baseURL%>Themes/Theme_concepts"><%=text['Themes/Theme_concepts']%></a></li>
+        </ol>
+      </details>
+    </li>
+    <li class="toggle">
+      <details>
+        <summary><%=text['extension_workshop']%></summary>
+        <ol>
+          <li><a href="https://extensionworkshop.com/documentation/themes/using-the-amo-theme-generator/"><%=text['Themes/Using_the_AMO_theme_generator']%></a></li>
+        </ol>
+      </details>
+    </li>
+    <li class="toggle">
+      <details>
+        <summary><%=text['Channels']%></summary>
+        <ol>
+          <li><a href="https://blog.mozilla.org/addons"><%=text['Blog']%></a></li>
+          <li><a href="https://discourse.mozilla.org/c/add-ons"><%=text['Forums']%></a></li>
+          <li><a href="https://chat.mozilla.org/#/room/%23addons:mozilla.org"><%=text['Chat']%></a></li>
+          <li><a href="<%=baseURL%>Contact_us"><%=text['Contact_us']%></a></li>
+        </ol>
+      </details>
+    </li>
+  </ol>
+</section>
