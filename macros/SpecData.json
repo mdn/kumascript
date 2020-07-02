@@ -1430,7 +1430,7 @@
     "status": "Draft"
   },
   "WeakRefs": {
-    "name": "WeakRefs proposal",
+    "name": "WeakRefs",
     "url": "https://tc39.es/proposal-weakrefs/",
     "status": "Draft"
   },
