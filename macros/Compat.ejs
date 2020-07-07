@@ -228,6 +228,31 @@ function getCellString(added, removed, partial) {
 }
 
 /*
+Returns the version number to appear in a cell
+
+`added` and `removed` are either null, true, false or a string containing a version number
+`partial` is either null, true, or false indicating partial_implementation
+*/
+function getVersionNumber(added, removed, partial) {
+  let output = undefined;
+
+  if(added !== null && added !== true && added !== false) {
+    output = added;
+  }
+
+  if (removed) {
+    output = undefined;
+  } else if (partial) {
+    output = undefined;
+    // Display "Partial" instead of "Yes", "No", or "?" if we have no version string
+    if (!(typeof(added) !== 'string')) {
+      output = added;
+    }
+  }
+  return output;
+}
+
+/*
 Given the support information for a browser, this returns
 a CSS class to apply to the table cell.
 
@@ -523,14 +548,25 @@ function writeCompatCells(supportData) {
     let needsNotes = false;
     let support = supportData[browserNameKey];
     let supportInfo = '';
+    let versionNumber = null;
     if (support) {
       if (Array.isArray(support)) {
         // Take first support data
+        versionNumber = getVersionNumber(
+          support[0].version_added,
+          support[0].version_removed,
+          support[0].partial_implementation
+        )
         supportInfo += getCellString(support[0].version_added,
                                      support[0].version_removed,
                                      support[0].partial_implementation);
         needsNotes = true;
       } else {
+        versionNumber = getVersionNumber(
+          support.version_added,
+          support.version_removed,
+          support.partial_implementation
+        )
         supportInfo += getCellString(support.version_added,
                                      support.version_removed,
                                      support.partial_implementation);
@@ -551,7 +587,17 @@ function writeCompatCells(supportData) {
       output += ' bc-has-history';
     }
 
-    output += `"><span class="bc-browser-name">${browserName}</span>${supportInfo}`;
+    output += '"';
+
+    if (versionNumber !== null) {
+      let releaseDate = getData(`browsers.${browserNameKey}.releases.${versionNumber}.release_date`, bcd)
+
+      if(releaseDate) {
+        output += ` title="${releaseDate}"`
+      }
+    }
+
+    output += `><span class="bc-browser-name">${browserName}</span>${supportInfo}`;
 
     if (needsNotes) {
       output += writeCellIcons(support);

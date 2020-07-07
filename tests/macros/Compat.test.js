@@ -54,6 +54,18 @@ describeMacro('Compat', function() {
     // which consist of different browsers
     // Tests content_areas.json
     itMacro(
+        'Includes browser version release dates',
+        function(macro) {
+            return macro.call('api.feature').then(function(result) {
+                let dom = JSDOM.fragment(result);
+                assert.equal(
+                    dom.querySelector('td.bc-browser-firefox').title,
+                    "2004-11-09"
+                );
+            });
+        }
+    );
+    itMacro(
         'Creates correct platform and browser columns for API data',
         function(macro) {
             return macro.call('api.feature').then(function(result) {
