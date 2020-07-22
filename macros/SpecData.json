@@ -1,4 +1,4 @@
-{ 
+{
   "Accelerometer": {
     "name": "Accelerometer",
     "url": "https://www.w3.org/TR/accelerometer/",
@@ -1263,6 +1263,11 @@
     "name": "Screen Orientation API",
     "url": "https://w3c.github.io/screen-orientation/",
     "status": "WD"
+  },
+  "Screen Wake Lock": {
+    "name": "Screen Wake Lock API",
+    "url": "https://w3c.github.io/screen-wake-lock/",
+    "status": "ED"
   },
   "Scroll Anchoring": {
     "name": "Scroll Anchoring",
