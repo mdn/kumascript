@@ -760,8 +760,8 @@
     "status": "ED"
   },
   "Feature Policy": {
-    "name": "Feature Policy",
-    "url": "https://w3c.github.io/webappsec-feature-policy/",
+    "name": "Permissions Policy",
+    "url": "https://w3c.github.io/webappsec-permissions-policy/",
     "status": "ED"
   },
   "Fetch": {
@@ -1138,6 +1138,11 @@
     "name": "Performance Timeline Level 2",
     "url": "https://w3c.github.io/performance-timeline/",
     "status": "CR"
+  },
+  "Permissions Policy": {
+    "name": "Permissions Policy",
+    "url": "https://w3c.github.io/webappsec-permissions-policy/",
+    "status": "ED"
   },
   "Pipeline operator": {
     "name": "Pipeline operator",
