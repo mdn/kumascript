@@ -1134,6 +1134,10 @@
     "url": "https://w3c.github.io/payment-method-id/",
     "status": "CR"
   },
+  "Periodic Background Sync": {
+    "name": "Web Periodic Background Synchronization",
+    "url": "WD"
+  },
   "Permissions API": {
     "name": "Permissions",
     "url": "https://w3c.github.io/permissions/",
