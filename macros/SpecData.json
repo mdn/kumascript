@@ -374,6 +374,11 @@
     "url": "https://drafts.csswg.org/css-ui-4/",
     "status": "WD"
   },
+  "CSS4 Box": {
+    "name": "CSS Box Model Module Level 4",
+    "url": "https://drafts.csswg.org/css-box-4/",
+    "status": "ED"
+  },
   "CSS4 Cascade": {
     "name": "CSS Cascading and Inheritance Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-cascade/",
