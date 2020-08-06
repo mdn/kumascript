@@ -765,8 +765,15 @@
             "interfaces": [ "MediaMetadata",
                             "MediaSession"],
             "methods":    [],
-            "properties": [],
-            "events":     []
+            "properties": [ "navigator.mediaSession" ],
+            "events":     [],
+            "dictionaries": [ "MediaImage",
+                              "MediaMetadataInit",
+                              "MediaPositionState",
+                              "MediaSessionActionDetails" ],
+            "types":      [ "MediaSessionAction",
+                            "MediaSessionPlaybackState" ],
+            "callbacks":  [ "MediaSessionActionHandler" ]
         },
         "Media Source Extensions": {
             "overview": [ "Media Source Extensions API" ],
