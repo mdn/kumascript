@@ -1136,7 +1136,8 @@
   },
   "Periodic Background Sync": {
     "name": "Web Periodic Background Synchronization",
-    "url": "WD"
+    "url": "https://wicg.github.io/periodic-background-sync/",
+    "status": "WD"
   },
   "Permissions API": {
     "name": "Permissions",
