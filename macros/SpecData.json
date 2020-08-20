@@ -409,6 +409,11 @@
     "url": "https://drafts.csswg.org/mediaqueries-4/",
     "status": "CR"
   },
+  "CSS4 Overflow": {
+    "name": "CSS Overflow Module Level 4",
+    "url": "https://drafts.csswg.org/css-overflow-4/",
+    "status": "WD"
+  },
   "CSS4 Pseudo-Elements": {
     "name": "CSS Pseudo-Elements Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-pseudo-4/",
