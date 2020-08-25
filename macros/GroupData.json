@@ -85,6 +85,7 @@
             "events":     []
         },
         "Clipboard API": {
+            "overview":   [ "Clipboard API" ],
             "interfaces": [ "Clipboard",
             "ClipboardEvent",
             "ClipboardItem"],
@@ -95,6 +96,14 @@
                             "Element: copy",
                             "Element: cut",
                             "Element: paste" ]
+        },
+        "Content Index API": {
+            "overview":   [ "Content Index API" ],
+            "interfaces": [ "ContentIndex", "ContentIndexEvent" ],
+            "methods":    [],
+            "properties": ["ServiceWorkerRegistration.index",
+                "ServiceWorkerGlobalScope.oncontentdelete"],
+            "events":     ["ServiceWorkerGlobalScope: contentdelete"]
         },
         "Console API": {
             "overview":   [ "Console API" ],
@@ -890,6 +899,15 @@
             "properties": [ "Window.performance" ],
             "events":     []
         },
+        "Periodic Background Sync": {
+            "overview":   [ "Web Periodic Background Synchronization API" ],
+            "interfaces": [ "PeriodicSyncEvent",
+                            "PeriodicSyncManager" ],
+            "methods":    [],
+            "properties": [ "ServiceWorkerRegistration.periodicSync",
+                            "ServiceWorkerGlobalScope.onperiodicsync" ],
+            "events":     [ "ServiceWorkerGlobalScope: periodicsync" ]
+        },
         "Permissions API": {
             "overview":   [ "Permissions API" ],
             "guides":     [ "/docs/Web/API/Permissions_API/Using_the_Permissions_API" ],
@@ -1016,6 +1034,13 @@
             "interfaces": [ "ScreenOrientation" ],
             "methods":    [],
             "properties": [ "Screen.orientation"],
+            "events":     []
+        },
+        "Screen Wake Lock API": {
+            "overview":   [ "Screen Wake Lock API" ],
+            "interfaces": [ "WakeLock", "WakeLockSentinel", "Navigator.wakelock" ],
+            "methods":    [],
+            "properties": [],
             "events":     []
         },
         "Selection API": {
