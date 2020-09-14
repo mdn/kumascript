@@ -87,8 +87,8 @@
         "Clipboard API": {
             "overview":   [ "Clipboard API" ],
             "interfaces": [ "Clipboard",
-            "ClipboardEvent",
-            "ClipboardItem"],
+                            "ClipboardEvent",
+                            "ClipboardItem" ],
             "dictionaries": [ "ClipboardPermissionDescriptor" ],
             "methods":    [],
             "properties": [ "Navigator.clipboard" ],
@@ -99,10 +99,11 @@
         },
         "Content Index API": {
             "overview":   [ "Content Index API" ],
-            "interfaces": [ "ContentIndex", "ContentIndexEvent" ],
+            "interfaces": [ "ContentIndex",
+                            "ContentIndexEvent" ],
             "methods":    [],
             "properties": ["ServiceWorkerRegistration.index",
-                "ServiceWorkerGlobalScope.oncontentdelete"],
+                           "ServiceWorkerGlobalScope.oncontentdelete"],
             "events":     ["ServiceWorkerGlobalScope: contentdelete"]
         },
         "Console API": {
@@ -1038,7 +1039,9 @@
         },
         "Screen Wake Lock API": {
             "overview":   [ "Screen Wake Lock API" ],
-            "interfaces": [ "WakeLock", "WakeLockSentinel", "Navigator.wakelock" ],
+            "interfaces": [ "WakeLock",
+                            "WakeLockSentinel",
+                            "Navigator.wakelock" ],
             "methods":    [],
             "properties": [],
             "events":     []
