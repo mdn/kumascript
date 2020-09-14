@@ -1040,10 +1040,9 @@
         "Screen Wake Lock API": {
             "overview":   [ "Screen Wake Lock API" ],
             "interfaces": [ "WakeLock",
-                            "WakeLockSentinel",
-                            "Navigator.wakelock" ],
+                            "WakeLockSentinel" ],
             "methods":    [],
-            "properties": [],
+            "properties": [ "Navigator.wakelock" ],
             "events":     []
         },
         "Selection API": {
