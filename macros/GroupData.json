@@ -1013,6 +1013,7 @@
             "events":     []
         },
         "Screen Capture API": {
+            "overview":   [ "Screen Capture API" ],
             "guides":     [ "/docs/Web/API/Screen_Capture_API/Using_Screen_Capture" ],
             "interfaces": [],
             "dictionaries": [],
