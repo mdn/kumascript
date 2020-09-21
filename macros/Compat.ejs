@@ -31,6 +31,7 @@ Example calls
 */
 
 const bcd = require('mdn-browser-compat-data');
+const posthtml = require('posthtml')([posthtmlProcessMdnLinks]);
 var query = $0;
 var depth = $1 || 1;
 var output = '';
@@ -102,6 +103,25 @@ function writeIcon(iconSlug, replacer, isLegend) {
   return output;
 }
 
+/**
+ * @param {string} url Must be a URL linking to a page on MDN
+ * @return {string} Returns the relative MDN URL, or the empty string
+ *                  if the URL would link to the current page.
+ */
+function processMdnUrl(url) {
+    let href = url.replace('https://developer.mozilla.org', '');
+    if (url.includes('#') && href.split('#')[0] === '/docs/' + env.slug) {
+        href = url.substring(url.indexOf('#'))
+    }
+    if (href === '/docs/' + env.slug) {
+        return '';
+    }
+    if (href[0] === '/') {
+        href = '/' + env.locale + href;
+    }
+    return href;
+}
+
 function writeFeatureName(row, feature) {
   let desc = '';
   let featureIcons = '';
@@ -123,12 +143,8 @@ function writeFeatureName(row, feature) {
   }
   // Add relative MDN url, but don't link to the current page
   if (feature.mdn_url) {
-    let href = feature.mdn_url.replace('https://developer.mozilla.org', '');
-    if (feature.mdn_url.includes('#') && href.split('#')[0] === '/docs/' + env.slug) {
-      href = feature.mdn_url.substring(feature.mdn_url.indexOf('#'))
-    }
-    if (href !== '/docs/' + env.slug) {
-      if (href[0] === '/') href = '/' + env.locale + href;
+    let href = processMdnUrl(feature.mdn_url);
+    if (href) {
       desc = `<a href="${href}">${desc}</a>`;
     }
   }
@@ -394,6 +410,23 @@ function writeCellIcons(support) {
   return output;
 }
 
+function posthtmlProcessMdnLinks(tree) {
+    tree.match({ tag: 'a' }, node => {
+        let {attrs} = node;
+        let {href} = attrs;
+
+        if (href) {
+            attrs.href = processMdnUrl(href);
+        }
+
+        return node;
+    })
+}
+
+function processHtmlStringWithMdnUrls(html) {
+    return posthtml.process(html, {sync: true}).html;
+}
+
 /*
 Create notes section
 
@@ -434,13 +467,13 @@ function writeNotes(support, browserId) {
         for (let note of support.notes) {
           notes.push({
             icon: writeIcon('footnote'),
-            text: note
+            text: processHtmlStringWithMdnUrls(note)
           });
         }
       } else {
         notes.push({
           icon: writeIcon('footnote'),
-          text: support.notes
+          text: processHtmlStringWithMdnUrls(support.notes)
         });
       }
     }

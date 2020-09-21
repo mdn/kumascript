@@ -26,6 +26,19 @@
                                 "Array note 2 in second support range: Currently supported only by Google Daydream."
                             ]
                         }
+                    ],
+                    "opera": [
+                        {
+                            "version_added": "15",
+                            "notes": "Simple note <a href='https://developer.mozilla.org/docs/Sandbox'>with link</a>"
+                        },
+                        {
+                            "version_added": "15",
+                            "notes": [
+                                "Array note 1 <a href='https://developer.mozilla.org/docs/Notes/Feature'>with link to self</a>",
+                                "Array note 2 <a href='https://developer.mozilla.org/docs/Notes/Feature#Anchor'>with link to anchor on self</a>"
+                            ]
+                        }
                     ]
                 }
             }
