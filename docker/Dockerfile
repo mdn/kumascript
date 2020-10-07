@@ -22,7 +22,7 @@ WORKDIR /
 COPY kumascript/package.json kumascript/npm-shrinkwrap.json /
 RUN npm ci && \
     # update any top-level npm packages listed in package.json,
-    # such as mdn-browser-compat-data,
+    # such as @mdn/browser-compat-data,
     # as allowed by each package's given "semver".
     npm update
 ENV NODE_PATH=/node_modules
