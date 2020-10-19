@@ -1029,6 +1029,11 @@
     "url": "https://www.w3.org/TR/MathML3/",
     "status": "REC"
   },
+  "MathMLCore": {
+    "name": "MathML Core",
+    "url": "https://mathml-refresh.github.io/mathml-core/",
+    "status": "Draft"
+  },
   "Media Capabilities": {
     "name": "Media Capabilities",
     "url": "https://w3c.github.io/media-capabilities/",
