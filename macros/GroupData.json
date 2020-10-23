@@ -918,6 +918,23 @@
             "properties": [ "Navigator.permissions",
                             "WorkerNavigator.permissions"],
             "events":     []
+		},
+        "Picture-in-Picture API": {
+            "overview":   [ "Picture-in-Picture API" ],
+            "guides":     [ "/docs/Web/API/Picture-in-Picture_API/Guide" ],
+            "interfaces": [ "PictureInPictureWindow" ],
+            "methods":    [ "HTMLVideoElement.requestPictureInPicture()",
+                            "Document.exitPictureInPicture()" ],
+            "properties": [ "HTMLVideoElement.autoPictureInPicture",
+							"HTMLVideoElement.disablePictureInPicture",
+							"HTMLVideoElement.onenterpictureinpicture",
+							"HTMLVideoElement.onleavepictureinpicture",
+                            "Document.pictureInPictureEnabled",
+                            "DocumentOrShadowRoot.pictureInPictureElement",
+                            "PictureInPictureWindow.onresize" ],
+            "events":     [ "HTMLVideoElement: enterpictureinpicture",
+                            "HTMLVideoElement: leavepictureinpicture",
+                            "PictureInPictureWindow: resize" ]
         },
         "Pointer Events": {
             "overview":   [ "Pointer events" ],
