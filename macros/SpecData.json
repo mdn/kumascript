@@ -1178,12 +1178,12 @@
     "name": "Permissions Policy",
     "url": "https://w3c.github.io/webappsec-permissions-policy/",
     "status": "ED"
-	},
-	"Picture-in-Picture": {
-		"name": "Picture-in-Picture API",
-		"url": "https://w3c.github.io/picture-in-picture/",
-		"status": "Draft"
-	},
+  },
+  "Picture-in-Picture": {
+    "name": "Picture-in-Picture API",
+    "url": "https://w3c.github.io/picture-in-picture/",
+    "status": "Draft"
+  },
   "Pipeline operator": {
     "name": "Pipeline operator",
     "url": "https://tc39.es/proposal-pipeline-operator/",
