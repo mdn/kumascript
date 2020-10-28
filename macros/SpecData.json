@@ -504,6 +504,11 @@
     "url": "https://drafts.csswg.org/css-grid-2/",
     "status": "WD"
   },
+  "CSS Grid 3": {
+    "name": "CSS Grid Layout Module Level 3",
+    "url": "https://drafts.csswg.org/css-grid-3/",
+    "status": "ED"
+  },
   "CSS Layout": {
     "name": "CSS Layout API Level 1",
     "url": "https://drafts.css-houdini.org/css-layout-api-1/",
