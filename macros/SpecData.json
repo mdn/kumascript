@@ -1029,6 +1029,11 @@
     "url": "https://www.w3.org/TR/MathML3/",
     "status": "REC"
   },
+  "MathMLCore": {
+    "name": "MathML Core",
+    "url": "https://mathml-refresh.github.io/mathml-core/",
+    "status": "Draft"
+  },
   "Media Capabilities": {
     "name": "Media Capabilities",
     "url": "https://w3c.github.io/media-capabilities/",
@@ -1173,6 +1178,11 @@
     "name": "Permissions Policy",
     "url": "https://w3c.github.io/webappsec-permissions-policy/",
     "status": "ED"
+  },
+  "Picture-in-Picture": {
+    "name": "Picture-in-Picture API",
+    "url": "https://w3c.github.io/picture-in-picture/",
+    "status": "Draft"
   },
   "Pipeline operator": {
     "name": "Pipeline operator",

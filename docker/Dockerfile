@@ -1,4 +1,4 @@
-FROM node:12.18.4@sha256:7f35eaf7c26a25056a43777fff187fd590662fa5564b3cbb665ee253c4da7604
+FROM node:12.19.0@sha256:5ac384055c146446ff68cae2c438e2b95bb629bedab9b14958e62c472bc7e7e8
 
 RUN set -ex && \
     apt-get update && \
@@ -22,7 +22,7 @@ WORKDIR /
 COPY kumascript/package.json kumascript/npm-shrinkwrap.json /
 RUN npm ci && \
     # update any top-level npm packages listed in package.json,
-    # such as mdn-browser-compat-data,
+    # such as @mdn/browser-compat-data,
     # as allowed by each package's given "semver".
     npm update
 ENV NODE_PATH=/node_modules

@@ -24,6 +24,14 @@
                 "js-tokens": "^4.0.0"
             }
         },
+        "@mdn/browser-compat-data": {
+            "version": "2.0.1",
+            "resolved": "https://registry.npmjs.org/@mdn/browser-compat-data/-/browser-compat-data-2.0.1.tgz",
+            "integrity": "sha512-3EoAQjXcR+UXAjb48z5el061KLZt2oLULeIcHgKSAqk8SyQLSE4zKj/+Y2nhqaXygkDPXiQ+vf0JMamdy161ZQ==",
+            "requires": {
+                "extend": "3.0.2"
+            }
+        },
         "@newrelic/koa": {
             "version": "1.0.8",
             "resolved": "https://registry.npmjs.org/@newrelic/koa/-/koa-1.0.8.tgz",
@@ -4116,14 +4124,6 @@
             "resolved": "https://registry.npmjs.org/math-random/-/math-random-1.0.4.tgz",
             "integrity": "sha512-rUxjysqif/BZQH2yhd5Aaq7vXMSx9NdEsQcyA07uEzIvxgI7zIr33gGsh+RU0/XjmQpCW7RsVof1vlkvQVCK5A==",
             "dev": true
-        },
-        "mdn-browser-compat-data": {
-            "version": "1.0.0",
-            "resolved": "https://registry.npmjs.org/mdn-browser-compat-data/-/mdn-browser-compat-data-1.0.0.tgz",
-            "integrity": "sha512-I6MI6a9cEeUoHKN/5R5/CQA3HXYnQOuqvrp53B1QdNas9vJ1Jok6Ldt7ClEL8kywWbaoRXkJOfV0EbZbrWCdeQ==",
-            "requires": {
-                "extend": "3.0.2"
-            }
         },
         "mdn-data": {
             "version": "2.0.6",
