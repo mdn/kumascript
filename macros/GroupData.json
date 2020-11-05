@@ -23,6 +23,15 @@
              "properties": [ "Navigator.battery" ],
              "events":     []
         },
+        "Barcode Detector API": {
+            "overview":   [ "Barcode Detector API" ],
+            "guides":     [],
+            "interfaces": [ "BarcodeDetector" ],
+            "methods":    [ "BarcodeDetector.detect()",
+                            "BarcodeDetector.getSupportedFormats()" ],
+            "properties": [],
+            "events":     []
+        },
         "Beacon": {
             "overview":   [ "Beacon API" ],
             "guides":     [ "/docs/Web/API/Beacon_API/Using_the_Beacon_API" ],
