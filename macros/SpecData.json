@@ -234,6 +234,11 @@
     "url": "https://drafts.csswg.org/css-display/",
     "status": "CR"
   },
+  "CSS Easing 1": {
+    "name": "CSS Easing Functions Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-easing-1/",
+    "status": "CR"
+  },
   "CSS3 Environment Variables": {
     "name": "CSS Environment Variables Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-env-1/",
@@ -613,11 +618,6 @@
     "name": "CSS Mobile Text Size Adjustment Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-size-adjust/",
     "status": "ED"
-  },
-  "CSS Timing 1": {
-    "name": "CSS Timing Functions Level&nbsp;1",
-    "url": "https://drafts.csswg.org/css-timing-1/",
-    "status": "WD"
   },
   "CSS Transforms 2": {
     "name": "CSS Transforms Level&nbsp;2",
