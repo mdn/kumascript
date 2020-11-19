@@ -158,6 +158,29 @@
             "properties": [],
             "events":     []
         },
+        "CSS Painting API": {
+            "overview":   [ "CSS Painting API" ],
+            "interfaces": [ "PaintWorkletGlobalScope",
+                            "PaintRenderingContext2D",
+                            "PaintSize" ],
+            "methods":    [ "PaintWorklet.registerPaint()" ],
+            "properties": [],
+            "events":     []
+        },
+        "CSS Typed OM API": {
+            "overview":   [ "CSS Typed OM API" ],
+            "interfaces": [ "CSSKeywordValue",
+                            "CSSImageValue",
+                            "CSSNumericValue",
+                            "CSSStyleValue",
+                            "CSSPositionValue",
+                            "CSSTransformValue",
+                            "CSSUnparsedValue",
+                            "StylePropertyMap" ],
+            "methods":    [],
+            "properties": [],
+            "events":     []
+        },
         "CSSOM": {
             "overview":   [ "CSS Object Model" ],
             "guides":     [ "/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements",
