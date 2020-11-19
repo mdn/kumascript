@@ -960,9 +960,14 @@
     "status": "REC"
   },
   "IndexedDB 2": {
-    "name": "Indexed Database API Draft",
-    "url": "https://w3c.github.io/IndexedDB/",
+    "name": "Indexed Database API 2.0",
+    "url": "https://www.w3.org/TR/IndexedDB/",
     "status": "REC"
+  },
+  "IndexedDB 3": {
+    "name": "Indexed Database API 3.0",
+    "url": "https://w3c.github.io/IndexedDB/",
+    "status": "ED"
   },
   "InputDeviceCapabilities": {
     "name": "InputDeviceCapabilities",
