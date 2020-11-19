@@ -106,6 +106,14 @@
                             "Element: cut",
                             "Element: paste" ]
         },
+        "Contact Picker API": {
+            "overview":   [ "Contact Picker API" ],
+            "interfaces": [ "ContactsManager" ],
+            "methods":    [ "ContactsManager.select()",
+                            "ContactsManager.getProperties()" ],
+            "properties": [ "Navigator.contacts" ],
+            "events":     []
+        },
         "Content Index API": {
             "overview":   [ "Content Index API" ],
             "interfaces": [ "ContentIndex",
