@@ -50,6 +50,36 @@ describeMacro('Compat', function() {
         expect(lintHTML(result)).toBeFalsy();
     });
 
+    itMacro(
+        'Creates correct section header for the API data table',
+        function(macro) {
+            return macro.call('api.feature', 1, true).then(function(result) {
+                let dom = JSDOM.fragment(result);
+                const header = dom.querySelector('h2');
+                assert.equal(
+                    header.id,
+                    'Browser_compatibility'
+                );
+                assert.equal(
+                    header.textContent,
+                    'Browser compatibility'
+                );
+            });
+        }
+    );
+    itMacro(
+        'Does not insert section header by default',
+        function(macro) {
+            return macro.call('api.feature').then(function(result) {
+                let dom = JSDOM.fragment(result);
+                assert.equal(
+                    dom.querySelector('h2'),
+                    null
+                );
+            });
+        }
+    );
+
     // Different content areas have different platforms (desktop, mobile, server)
     // which consist of different browsers
     // Tests content_areas.json

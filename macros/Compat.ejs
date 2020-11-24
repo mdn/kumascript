@@ -8,6 +8,9 @@ Parameters
 $0 – A query string indicating for which feature to retrieve compat data for.
 $1 – A depth setting indicating how deep sub features should be added to the table
 (flattened, default: 1, first level of sub feature data will be included).
+$2 - An optinal boolean indicating whether to add section header before the table,
+(boolean, default: false. The section header is a translated eqivalent of
+<h2 id="Browser_compatibility">Browser compatibility</h2>
 
 Example calls
 
@@ -33,6 +36,7 @@ Example calls
 const bcd = require('@mdn/browser-compat-data');
 var query = $0;
 var depth = $1 || 1;
+const displayHeader = $2 === true;
 var output = '';
 var category = query.split(".")[0];
 var legendItems = new Set(); // entries will be unique
@@ -42,6 +46,76 @@ var localize = mdn.getLocalString;
 
 var s_no_data_found = mdn.localString({
   'en-US': `No compatibility data found. Please contribute data for "${query}" (depth: ${depth}) to the <a href="https://github.com/mdn/browser-compat-data">MDN compatibility data repository</a>.`
+});
+
+/*
+ * TODO: move this to the MDN localization infrastructure.
+ */
+var sectionHeaderTextLocal = mdn.localString({
+  'en-US': 'Browser compatibility',
+  'de': 'Browserkompatibilität',
+  'es': 'Tabla de compabilidad de navegadores',
+  'fr': 'Tableau de compatibilité',
+  'ja': 'ブラウザー実装状況',
+//    'ka': '',
+//    'ko': '',
+//    'ms': '',
+//    'nl': '',
+//    'pl': '',
+//    'ro': '',
+  'ru': 'Поддержка браузерами', // таблицa совместимости
+//    'sq': '',
+//    'th': '',
+//    'tr': '',
+//    'vi': '',
+//    'bn-BD': '',
+//    'fy-NL': '',
+//    'ga-IE': '',
+    'pt-BR': 'Tabela de compatibilidade entre Navegadores',
+//    'pt-PT': '',
+    'zh-CN': '浏览器兼容性表格',
+    'zh-TW': '兼容表格'
+});
+
+/*
+ * TODO: move this to the MDN localization infrastructure.
+ * Note: these values should match href attributes from ./SeeCompatTable.ejs,
+ * if those are declared in str.
+ */
+var sectionHeaderIdLocal = mdn.localString({
+//  'ca': 'Browser_compatibility',
+//  'cs': 'Browser_compatibility',
+  'de': 'Browser_compatibility',
+//    'el': 'Browser_compatibility',
+  'es': 'Browser_compatibility',
+//    'fa': 'Browser_compatibility',
+//    'fi': 'Browser_compatibility',
+  'fr': 'Compatibilité_des_navigateurs',
+//    'he': 'Browser_compatibility',
+//    'hr': 'Browser_compatibility',
+//    'hu': 'Browser_compatibility',
+//    'id': 'Browser_compatibility',
+//    'it': 'Browser_compatibility',
+  'ja': 'Browser_compatibility',
+//    'ka': 'Browser_compatibility',
+//    'ko': 'Browser_compatibility',
+//    'ms': 'Browser_compatibility',
+//    'nl': 'Browser_compatibility',
+//    'pl': 'Browser_compatibility',
+//    'ro': 'Browser_compatibility',
+  'ru': 'Browser_compatibility',
+//    'sq': 'Browser_compatibility',
+//    'th': 'Browser_compatibility',
+//    'tr': 'Browser_compatibility',
+//    'vi': 'Browser_compatibility',
+//    'bn-BD': 'Browser_compatibility',
+//    'fy-NL': 'Browser_compatibility',
+//    'ga-IE': 'Browser_compatibility',
+  'pt-BR': 'Compatibilidade_de_navegadores',
+//    'pt-PT': 'Browser_compatibility',
+  'zh-CN': 'Browser_compatibility',
+  'zh-TW': 'Browser_compatibility',
+  'en-US': 'Browser_compatibility'
 });
 
 const browsers = {
@@ -65,6 +139,19 @@ if (category === 'webextensions') {
   bcCategory = 'ext';
   displayBrowsers = [...browsers["webextensions-desktop"], ...browsers["webextensions-mobile"]];
   platforms = ['webextensions-desktop', 'webextensions-mobile'];
+}
+
+/**
+ * Writes the localized section header with the appropriate id
+ */
+function writeSectionHeader() {
+    let output = '';
+
+    if (displayHeader === true) {
+        output += `<h2 id="${sectionHeaderIdLocal}">${sectionHeaderTextLocal}</h2>`
+    }
+
+    return output;
 }
 
 /**
@@ -698,7 +785,8 @@ if (!compatData) {
 traverseFeatures(compatData, depth, '');
 
 if (features.length > 0) {
-    output = `<div class="bc-data" id="bcd:${query}">`;
+    output = writeSectionHeader();
+    output += '<div class="bc-data" id="bcd:${query}">';
     output += '<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data">Update compatibility data on GitHub</a>';
     output += `<table class="bc-table bc-table-${bcCategory}">`;
     output += writeCompatHead();
