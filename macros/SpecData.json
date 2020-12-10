@@ -64,6 +64,11 @@
     "url": "https://www.w3.org/TR/requestidlecallback/",
     "status": "PR"
   },
+  "Barcode Detection API": {
+    "name": "Accelerated Shape Detection in Images",
+    "url": "https://wicg.github.io/shape-detection-api/",
+    "status": "Draft"
+  },
   "Basic Card Payment": {
     "name": "Basic Card Payment",
     "url": "https://w3c.github.io/payment-method-basic-card/",
@@ -160,8 +165,13 @@
     "status": "WD"
   },
   "CSS3 Animations": {
-    "name": "CSS Animations",
-    "url": "https://drafts.csswg.org/css-animations/",
+    "name": "CSS Animations Level 1",
+    "url": "https://drafts.csswg.org/css-animations-1/",
+    "status": "WD"
+  },
+  "CSS3 Animations 2": {
+    "name": "CSS Animations Level 2",
+    "url": "https://drafts.csswg.org/css-animations-2/",
     "status": "WD"
   },
   "CSS3 Backgrounds": {
@@ -224,6 +234,11 @@
     "url": "https://drafts.csswg.org/css-display/",
     "status": "CR"
   },
+  "CSS Easing 1": {
+    "name": "CSS Easing Functions Level&nbsp;1",
+    "url": "https://drafts.csswg.org/css-easing-1/",
+    "status": "CR"
+  },
   "CSS3 Environment Variables": {
     "name": "CSS Environment Variables Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-env-1/",
@@ -237,7 +252,7 @@
   "CSS3 Fonts": {
     "name": "CSS Fonts Module Level&nbsp;3",
     "url": "https://drafts.csswg.org/css-fonts-3/",
-    "status": "CR"
+    "status": "REC"
   },
   "CSS3 Fragmentation": {
     "name": "CSS Fragmentation Module Level&nbsp;3",
@@ -404,6 +419,11 @@
     "url": "https://drafts.csswg.org/css-fonts-4/",
     "status": "WD"
   },
+  "CSS4 Fragmentation": {
+    "name": "CSS Fragmentation Module Level&nbsp;4",
+    "url": "https://drafts.csswg.org/css-break-4/",
+    "status": "WD"
+  },
   "CSS4 Images": {
     "name": "CSS Images Module Level&nbsp;4",
     "url": "https://drafts.csswg.org/css-images-4/",
@@ -504,6 +524,11 @@
     "url": "https://drafts.csswg.org/css-grid-2/",
     "status": "WD"
   },
+  "CSS Grid 3": {
+    "name": "CSS Grid Layout Module Level 3",
+    "url": "https://drafts.csswg.org/css-grid-3/",
+    "status": "ED"
+  },
   "CSS Layout": {
     "name": "CSS Layout API Level 1",
     "url": "https://drafts.css-houdini.org/css-layout-api-1/",
@@ -593,11 +618,6 @@
     "name": "CSS Mobile Text Size Adjustment Module Level&nbsp;1",
     "url": "https://drafts.csswg.org/css-size-adjust/",
     "status": "ED"
-  },
-  "CSS Timing 1": {
-    "name": "CSS Timing Functions Level&nbsp;1",
-    "url": "https://drafts.csswg.org/css-timing-1/",
-    "status": "WD"
   },
   "CSS Transforms 2": {
     "name": "CSS Transforms Level&nbsp;2",
@@ -940,9 +960,14 @@
     "status": "REC"
   },
   "IndexedDB 2": {
-    "name": "Indexed Database API Draft",
-    "url": "https://w3c.github.io/IndexedDB/",
+    "name": "Indexed Database API 2.0",
+    "url": "https://www.w3.org/TR/IndexedDB/",
     "status": "REC"
+  },
+  "IndexedDB 3": {
+    "name": "Indexed Database API 3.0",
+    "url": "https://w3c.github.io/IndexedDB/",
+    "status": "ED"
   },
   "InputDeviceCapabilities": {
     "name": "InputDeviceCapabilities",
@@ -1587,6 +1612,11 @@
   "EXT_texture_filter_anisotropic": {
     "name": "EXT_texture_filter_anisotropic",
     "url": "https://www.khronos.org/registry/webgl/extensions/EXT_texture_filter_anisotropic/",
+    "status": "REC"
+  },
+  "KHR_parallel_shader_compile": {
+    "name": "KHR_parallel_shader_compile",
+    "url": "https://www.khronos.org/registry/webgl/extensions/KHR_parallel_shader_compile/",
     "status": "REC"
   },
   "OES_element_index_uint": {

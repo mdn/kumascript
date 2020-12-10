@@ -45,7 +45,7 @@
       "impl": []
     },
     "AudioContext": {
-      "inh": "EventTarget",
+      "inh": "BaseAudioContext",
       "impl": []
     },
     "AudioDestinationNode": {
@@ -1300,7 +1300,7 @@
       "impl": []
     },
     "OfflineAudioContext": {
-      "inh": "AudioContext",
+      "inh": "BaseAudioContext",
       "impl": []
     },
     "OfflineResourceList": {

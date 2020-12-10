@@ -23,6 +23,15 @@
              "properties": [ "Navigator.battery" ],
              "events":     []
         },
+        "Barcode Detector API": {
+            "overview":   [ "Barcode Detector API" ],
+            "guides":     [],
+            "interfaces": [ "BarcodeDetector" ],
+            "methods":    [ "BarcodeDetector.detect()",
+                            "BarcodeDetector.getSupportedFormats()" ],
+            "properties": [],
+            "events":     []
+        },
         "Beacon": {
             "overview":   [ "Beacon API" ],
             "guides":     [ "/docs/Web/API/Beacon_API/Using_the_Beacon_API" ],
@@ -97,6 +106,14 @@
                             "Element: cut",
                             "Element: paste" ]
         },
+        "Contact Picker API": {
+            "overview":   [ "Contact Picker API" ],
+            "interfaces": [ "ContactsManager" ],
+            "methods":    [ "ContactsManager.select()",
+                            "ContactsManager.getProperties()" ],
+            "properties": [ "Navigator.contacts" ],
+            "events":     []
+        },
         "Content Index API": {
             "overview":   [ "Content Index API" ],
             "interfaces": [ "ContentIndex",
@@ -137,6 +154,29 @@
                             "FontFaceSet",
                             "FontFaceSource",
                             "FontFaceSetLoadEvent" ],
+            "methods":    [],
+            "properties": [],
+            "events":     []
+        },
+        "CSS Painting API": {
+            "overview":   [ "CSS Painting API" ],
+            "interfaces": [ "PaintWorkletGlobalScope",
+                            "PaintRenderingContext2D",
+                            "PaintSize" ],
+            "methods":    [ "PaintWorklet.registerPaint()" ],
+            "properties": [],
+            "events":     []
+        },
+        "CSS Typed OM API": {
+            "overview":   [ "CSS Typed OM API" ],
+            "interfaces": [ "CSSKeywordValue",
+                            "CSSImageValue",
+                            "CSSNumericValue",
+                            "CSSStyleValue",
+                            "CSSPositionValue",
+                            "CSSTransformValue",
+                            "CSSUnparsedValue",
+                            "StylePropertyMap" ],
             "methods":    [],
             "properties": [],
             "events":     []
@@ -1460,8 +1500,6 @@
             "overview":     [ "Web Crypto API" ],
             "interfaces":   [ "Crypto",
                               "CryptoKey",
-                              "CryptoKeyPair",
-                              "RandomSource",
                               "SubtleCrypto" ],
             "methods":      [],
             "properties":   [ "Window.crypto" ],
@@ -1470,6 +1508,8 @@
                               "AesCtrParams",
                               "AesGcmParams",
                               "AesKeyGenParams",
+                              "Algorithm",
+                              "CryptoKeyPair",
                               "EcKeyGenParams",
                               "EcKeyImportParams",
                               "EcdhKeyDeriveParams",
@@ -1477,6 +1517,8 @@
                               "HkdfParams",
                               "HmacImportParams",
                               "HmacKeyGenParams",
+                              "JsonWebKey",
+                              "KeyAlgorithm",
                               "Pbkdf2Params",
                               "RsaHashedImportParams",
                               "RsaHashedKeyGenParams",
