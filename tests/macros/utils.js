@@ -3,8 +3,11 @@
  */
 
 // Provides utilities that as a whole constitute the macro test framework.
+
 const { execSync } = require('child_process');
+const fs = require('fs');
 const os = require('os');
+const path = require('path');
 
 const vnu = require('vnu-jar');
 
@@ -67,20 +70,72 @@ function createMacroTestObject(macroName) {
         url: 'https://developer.mozilla.org/'
     };
     let environment = new Environment(pageContext, templates, true);
+    let ctx = environment.prototypeEnvironment;
+
+    /** @type {Map<string, string>} */
+    const macroResults = new Map();
+    const realTemplate = ctx.template;
+    ctx.template = jest.fn(async (name, ...args) => {
+        let macroName = String(name)
+            .replace(/:/g, '-')
+            .toLowerCase();
+        let result = macroResults.get(macroName);
+        if (typeof result === 'string') {
+            return result;
+        }
+        return realTemplate(name, ...args);
+    });
 
     return {
         /**
          * Give the test-case writer access to the macro's globals (ctx).
          * For example, "macro.ctx.env.locale" can be manipulated to something
          * other than 'en-US' or "macro.ctx.wiki.getPage" can be mocked
-         * using "sinon.stub()" to avoid network calls.
+         * using `jest.fn()` to avoid network calls.
          */
-        ctx: environment.prototypeEnvironment,
+        ctx,
+
+        /**
+         * When writing tests for a macro that invokes other macros with
+         * the `template()` function, you sometimes want to specify
+         * a mock return value for those other macros.
+         *
+         * This function provides a much easier way to handle that than
+         * using `jest.fn()` directly.
+         *
+         * To unmock a template result, simply call `unmockTemplate()`
+         * with the same `name`.
+         *
+         * @param {string} name
+         * @param {string} result
+         */
+        mockTemplate(name, result) {
+            macroResults.set(
+                name.replace(/:/g, '-').toLowerCase(),
+                String(result)
+            );
+        },
+
+        /**
+         * Stops mocking the result of a `template()` function call.
+         *
+         * @param {string} name
+         * @returns {boolean}
+         *          - `true` if a macro result has previously been
+         *            mocked using `mockTemplate()`.
+         *          - `false` otherwise.
+         */
+        unmockTemplate(name) {
+            return macroResults.delete(name.replace(/:/g, '-').toLowerCase());
+        },
 
         /**
          * Use this function to make test calls on the named macro, if
          * applicable.  Its arguments become the arguments to the
          * macro. It returns a promise.
+         *
+         * @param {...any} args
+         * @returns {Promise<string>}
          */
         async call(...args) {
             let rendered = await templates.render(
@@ -205,6 +260,39 @@ function lintHTML(html, fragment = true) {
     }
 }
 
+/**
+ * Reads a generic fixture file from the `fixtures` directory.
+ *
+ * @param {string|string[]} filePath
+ *        A path to a file relative to the `fixtures` directory.
+ * @param {string|{encoding?:string,flag?:string}} [options]
+ *        Either the encoding for the result, or an object that contains the encoding
+ *        and an optional flag. If a flag is not provided, it defaults to `'r'`.
+ *
+ * @returns {string|Buffer}
+ */
+function readFixture(filePath, options) {
+    if (!Array.isArray(filePath)) {
+        filePath = [filePath];
+    }
+    let absolutePath = path.resolve(__dirname, 'fixtures', ...filePath);
+    return fs.readFileSync(absolutePath, options);
+}
+
+/**
+ * Reads a JSON fixture file from the `fixtures` directory.
+ *
+ * @param {...string} filePath
+ *        A path to a file relative to the `fixtures` directory.
+ */
+function readJSONFixture(...filePath) {
+    let fileName = filePath.pop();
+    if (!path.extname(fileName)) {
+        fileName += '.json';
+    }
+    return JSON.parse(readFixture([...filePath, fileName]));
+}
+
 // ### Exported public API
 module.exports = {
     assert,
@@ -212,5 +300,7 @@ module.exports = {
     describeMacro,
     afterEachMacro,
     beforeEachMacro,
-    lintHTML
+    lintHTML,
+    readFixture,
+    readJSONFixture
 };

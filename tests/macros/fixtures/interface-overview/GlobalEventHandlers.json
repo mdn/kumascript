@@ -1,0 +1,5291 @@
+[
+    {
+        "json_modified": "2019-01-16T20:28:53.636467",
+        "subpages": [],
+        "tags": [
+            "Property",
+            "NeedsContent",
+            "Reference",
+            "API",
+            "NeedsUpdate",
+            "Window",
+            "NeedsHelp",
+            "Event Handler",
+            "Experimental",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onabort</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/abort\" title=\"/en-US/docs/Web/Events/abort\">abort</a></code> events sent to the window.",
+        "id": 32988,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onabort",
+        "uuid": "e6e89d57-c979-4c32-b496-3567cf703497",
+        "title": "GlobalEventHandlers.onabort",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onabort",
+        "modified": "2019-01-16T10:28:47.372553",
+        "label": "GlobalEventHandlers.onabort",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T09:49:17.902894",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:29:24.870324",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "web animations api",
+            "Element",
+            "Reference",
+            "Property",
+            "Window",
+            "GlobalEventHandlers",
+            "Document",
+            "Animation",
+            "onanimationcancel",
+            "Web Animations",
+            "CSS Animations"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onanimationcancel</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/animationcancel\" title=\"/en-US/docs/Web/Events/animationcancel\">animationcancel</a></code> events.",
+        "id": 197803,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onanimationcancel",
+        "uuid": "b6628057-f7a7-4eda-8fee-6cf5148c6a8c",
+        "title": "GlobalEventHandlers.onanimationcancel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onanimationcancel",
+        "modified": "2019-01-16T19:11:10.579576",
+        "label": "GlobalEventHandlers.onanimationcancel",
+        "localization_tags": [],
+        "last_edit": "2018-12-12T10:57:25.067149",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:29:57.918463",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "Property",
+            "web animations api",
+            "onanimationend",
+            "CSS",
+            "Reference",
+            "API",
+            "CSS3 Animations",
+            "CSS Animations",
+            "Window",
+            "Element",
+            "Document",
+            "GlobalEventHandlers",
+            "Web Animations",
+            "Animations"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onanimationend</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/animationend\" title=\"/en-US/docs/Web/Events/animationend\">animationend</a></code> events.",
+        "id": 197799,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onanimationend",
+        "uuid": "25fe8fad-219e-4fb7-956b-5c7584e25f14",
+        "title": "GlobalEventHandlers.onanimationend",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onanimationend",
+        "modified": "2019-01-16T19:10:52.555750",
+        "label": "GlobalEventHandlers.onanimationend",
+        "localization_tags": [],
+        "last_edit": "2018-12-12T11:01:51.119278",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML_content",
+                "title": "HTML content"
+            },
+            {
+                "id": "CSS_content",
+                "title": "CSS content"
+            },
+            {
+                "id": "JavaScript_content",
+                "title": "JavaScript content"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:08:53.192727",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "web animations api",
+            "onanimationiteration",
+            "CSS",
+            "Reference",
+            "Property",
+            "Experimental",
+            "animationiteration",
+            "CSS Animations",
+            "CSS Transitions",
+            "GlobalEventHandlers",
+            "Animation",
+            "Web Animations",
+            "Transitions"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onanimationiteration</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/animationiteration\" title=\"/en-US/docs/Web/Events/animationiteration\">animationiteration</a></code> events.",
+        "id": 197875,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onanimationiteration",
+        "uuid": "fa1757af-3f8a-4340-90bd-90c5f1d7f304",
+        "title": "GlobalEventHandlers.onanimationiteration",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onanimationiteration",
+        "modified": "2019-01-16T19:11:19.980917",
+        "label": "GlobalEventHandlers.onanimationiteration",
+        "localization_tags": [],
+        "last_edit": "2018-12-12T11:04:21.021940",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T19:10:22.355594",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "HTMLElement",
+            "GlobalEventHandlers",
+            "Reference",
+            "CSS3 Animations",
+            "CSS Animations",
+            "Window",
+            "Document",
+            "onanimationstart",
+            "onwebkitanimationstart",
+            "Animations"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "An event handler for the <code><a href=\"/en-US/docs/Web/Events/animationstart\" title=\"/en-US/docs/Web/Events/animationstart\">animationstart</a></code> event. This event is sent when a <a href=\"/en-US/docs/Web/CSS/CSS_Animations\">CSS Animation</a> starts to play.",
+        "id": 197663,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onanimationstart",
+        "uuid": "d9826824-6a50-4f1d-94a2-95a49392cf4e",
+        "title": "GlobalEventHandlers.onanimationstart",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onanimationstart",
+        "modified": "2019-01-16T19:09:31.953822",
+        "label": "GlobalEventHandlers.onanimationstart",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T02:53:47.256674",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML_content",
+                "title": "HTML content"
+            },
+            {
+                "id": "CSS_content",
+                "title": "CSS content"
+            },
+            {
+                "id": "JavaScript_content",
+                "title": "JavaScript content"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:40:19.916552",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "Experimental",
+            "auxclick"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onauxclick</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/auxclick\" title=\"/en-US/docs/Web/Events/auxclick\">auxclick</a></code> events.",
+        "id": 211863,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onauxclick",
+        "uuid": "288894e5-8792-46b0-84e2-d8d03c9fe594",
+        "title": "GlobalEventHandlers.onauxclick",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onauxclick",
+        "modified": "2019-01-16T19:51:55.910206",
+        "label": "GlobalEventHandlers.onauxclick",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T12:41:49.652099",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-18T06:55:15.360135",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onblur</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/blur\" title=\"/en-US/docs/Web/Events/blur\">blur</a></code> events. It's available on <a href=\"/en-US/docs/Web/API/Element\" title=\"Element is the most general base class from which all objects in a Document inherit. It only has methods and properties common to all kinds of elements. More specific classes inherit from Element.\"><code>Element</code></a>, <a href=\"/en-US/docs/Web/API/Document\" title=\"The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree.\"><code>Document</code></a>, and <a href=\"/en-US/docs/Web/API/Window\" title=\"The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window.\"><code>Window</code></a>.",
+        "id": 1747,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onblur",
+        "uuid": "7258f9c4-4f9a-45f2-a225-15e04c5109ed",
+        "title": "GlobalEventHandlers.onblur",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onblur",
+        "modified": "2019-01-16T08:16:02.503738",
+        "label": "GlobalEventHandlers.onblur",
+        "localization_tags": [],
+        "last_edit": "2019-01-08T13:02:12.309051",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result_2",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:22:16.884962",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers",
+            "NeedsExample",
+            "Dialog",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>oncancel</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/cancel\" title=\"/en-US/docs/Web/Events/cancel\">cancel</a></code> events sent to a <a href=\"/en-US/docs/Web/HTML/Element/dialog\" title=\"The HTML &lt;dialog&gt; element represents a dialog box or other interactive component, such as an inspector or window.\"><code>&lt;dialog&gt;</code></a> element.",
+        "id": 178414,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/oncancel",
+        "uuid": "89e5eba3-2178-4fb8-ab8d-56d5d2cad69c",
+        "title": "GlobalEventHandlers.oncancel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oncancel",
+        "modified": "2019-01-16T17:22:16.681416",
+        "label": "GlobalEventHandlers.oncancel",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T12:45:01.003098",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:22:24.679318",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>oncanplay</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/canplay\" title=\"/en-US/docs/Web/Events/canplay\">canplay</a></code> events.",
+        "id": 178502,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/oncanplay",
+        "uuid": "36772505-e5a0-4432-b149-0e9e85bf916d",
+        "title": "GlobalEventHandlers.oncanplay",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oncanplay",
+        "modified": "2019-01-16T17:22:24.435819",
+        "label": "GlobalEventHandlers.oncanplay",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T09:56:58.733392",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:22:29.981062",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>oncanplaythrough</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/canplaythrough\" title=\"/en-US/docs/Web/Events/canplaythrough\">canplaythrough</a></code> events.",
+        "id": 178516,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/oncanplaythrough",
+        "uuid": "949faa4f-96dd-447f-bf77-237919e7d217",
+        "title": "GlobalEventHandlers.oncanplaythrough",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oncanplaythrough",
+        "modified": "2019-01-16T17:22:29.784018",
+        "label": "GlobalEventHandlers.oncanplaythrough",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T09:58:35.504608",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-02-07T07:39:21.634208",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onchange</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/change\" title=\"/en-US/docs/Web/Events/change\">change</a></code> events.",
+        "id": 1746,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onchange",
+        "uuid": "75a8a2a9-25ff-4ab5-a2f3-b69e866ca52e",
+        "title": "GlobalEventHandlers.onchange",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onchange",
+        "modified": "2019-02-07T07:39:20.626004",
+        "label": "GlobalEventHandlers.onchange",
+        "localization_tags": [],
+        "last_edit": "2019-02-07T07:39:17.752438",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-28T06:14:59.875383",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onclick</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/click\" title=\"/en-US/docs/Web/Events/click\">click</a></code> events on a given element.",
+        "id": 3171,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onclick",
+        "uuid": "f1f63e04-bc30-45b6-9797-a1b630a57536",
+        "title": "GlobalEventHandlers.onclick",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onclick",
+        "modified": "2019-01-16T08:29:13.916551",
+        "label": "GlobalEventHandlers.onclick",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T12:41:47.622242",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:57:10.535466",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "Experimental",
+            "GlobalEventHandlers",
+            "Dialog",
+            "NeedsExample"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onclose</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/close\" title=\"/en-US/docs/Web/Events/close\">close</a></code> events sent to a <a href=\"/en-US/docs/Web/HTML/Element/dialog\" title=\"The HTML &lt;dialog&gt; element represents a dialog box or other interactive component, such as an inspector or window.\"><code>&lt;dialog&gt;</code></a> element.",
+        "id": 32989,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onclose",
+        "uuid": "88e386de-c2a1-4f9c-b894-e6769c964bc4",
+        "title": "GlobalEventHandlers.onclose",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onclose",
+        "modified": "2019-01-16T10:28:47.428159",
+        "label": "GlobalEventHandlers.onclose",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T13:49:54.856569",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:33:51.284210",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>oncontextmenu</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/contextmenu\" title=\"/en-US/docs/Web/Events/contextmenu\">contextmenu</a></code> events.",
+        "id": 1006,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/oncontextmenu",
+        "uuid": "4f56dedb-94df-47f4-a879-083717918ea3",
+        "title": "GlobalEventHandlers.oncontextmenu",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oncontextmenu",
+        "modified": "2019-01-16T08:06:32.103930",
+        "label": "GlobalEventHandlers.oncontextmenu",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T14:05:13.504805",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Disabling_context_menus",
+                "title": "Disabling context menus"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Pausing_an_animation",
+                "title": "Pausing an animation"
+            },
+            {
+                "id": "HTML_2",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript_2",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result_2",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:22:32.448887",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "TextTrack"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>oncuechange</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/cuechange\" title=\"/en-US/docs/Web/Events/cuechange\">cuechange</a></code> events.",
+        "id": 178540,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/oncuechange",
+        "uuid": "def7682e-7bfc-46ca-bae4-0e33b20b4691",
+        "title": "GlobalEventHandlers.oncuechange",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oncuechange",
+        "modified": "2019-01-16T17:22:32.252894",
+        "label": "GlobalEventHandlers.oncuechange",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:00:57.479673",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:11:08.022882",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>ondblclick</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/dblclick\" title=\"/en-US/docs/Web/Events/dblclick\">dblclick</a></code> events on the given element.",
+        "id": 388,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/ondblclick",
+        "uuid": "b5b11143-0fce-4ced-ab79-afad88e8fc01",
+        "title": "GlobalEventHandlers.ondblclick",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondblclick",
+        "modified": "2019-01-16T07:58:28.243559",
+        "label": "GlobalEventHandlers.ondblclick",
+        "localization_tags": [],
+        "last_edit": "2018-12-28T12:01:53.102909",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T16:42:10.967906",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/drag\" title=\"/en-US/docs/Web/Events/drag\">drag</a></code> event.",
+        "id": 165737,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondrag",
+        "uuid": "ad371206-2680-46ff-8b37-18541cdb17e7",
+        "title": "GlobalEventHandlers.ondrag",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondrag",
+        "modified": "2019-01-16T16:41:53.516553",
+        "label": "GlobalEventHandlers.ondrag",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:01:43.594055",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T16:42:00.484964",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/dragend\" title=\"/en-US/docs/Web/Events/dragend\">dragend</a></code> event.",
+        "id": 165743,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondragend",
+        "uuid": "cf380c11-8999-45ce-9eea-2ecec5129634",
+        "title": "GlobalEventHandlers.ondragend",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondragend",
+        "modified": "2019-01-16T16:41:55.138274",
+        "label": "GlobalEventHandlers.ondragend",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:02:22.029057",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T16:41:50.373040",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/dragenter\" title=\"/en-US/docs/Web/Events/dragenter\">dragenter</a></code> event.",
+        "id": 165753,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondragenter",
+        "uuid": "09cbb54b-2453-4f24-9154-9a1d6c72adb6",
+        "title": "GlobalEventHandlers.ondragenter",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondragenter",
+        "modified": "2019-01-16T16:41:38.300416",
+        "label": "GlobalEventHandlers.ondragenter",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:02:52.500092",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:54:37.988679",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "DOM HTML"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>GlobalEventHandler.ondragexit</code> </strong>property is an event handler for the <code><a href=\"/en-US/docs/Web/Events/dragexit\" title=\"/en-US/docs/Web/Events/dragexit\">dragexit</a></code> event.",
+        "id": 165751,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/ondragexit",
+        "uuid": "4e884108-498e-4a7d-8a27-76468c271eef",
+        "title": "GlobalEventHandlers.ondragexit",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondragexit",
+        "modified": "2019-01-16T16:41:50.940028",
+        "label": "GlobalEventHandlers.ondragexit",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:03:33.165111",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:55:12.894375",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/dragleave\" title=\"/en-US/docs/Web/Events/dragleave\">dragleave</a></code> event.",
+        "id": 165747,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/ondragleave",
+        "uuid": "462ca4cb-9dd4-4d1a-bb41-80eb022bfd4a",
+        "title": "GlobalEventHandlers.ondragleave",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondragleave",
+        "modified": "2019-01-16T16:41:37.860981",
+        "label": "GlobalEventHandlers.ondragleave",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:04:28.323620",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T16:42:08.863806",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/dragover\" title=\"/en-US/docs/Web/Events/dragover\">dragover</a></code> event.",
+        "id": 165745,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondragover",
+        "uuid": "ef805dbd-b861-4fa7-90c0-2862dbc01e35",
+        "title": "GlobalEventHandlers.ondragover",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondragover",
+        "modified": "2019-01-16T16:41:55.236280",
+        "label": "GlobalEventHandlers.ondragover",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:04:54.261577",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:21:18.829748",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/dragstart\" title=\"/en-US/docs/Web/Events/dragstart\">dragstart</a></code> event.",
+        "id": 165741,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondragstart",
+        "uuid": "4aa2eadc-4e2e-4d1e-9ef6-4f3e9f5586f5",
+        "title": "GlobalEventHandlers.ondragstart",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondragstart",
+        "modified": "2019-01-16T16:43:11.696842",
+        "label": "GlobalEventHandlers.ondragstart",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:05:21.038668",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:37:03.722538",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "drag and drop",
+            "API",
+            "HTML DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/drop\" title=\"/en-US/docs/Web/Events/drop\">drop</a></code> event.",
+        "id": 165749,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondrop",
+        "uuid": "24382563-eac0-4a1f-b2cb-53b9be451c25",
+        "title": "GlobalEventHandlers.ondrop",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondrop",
+        "modified": "2019-01-16T16:41:59.606695",
+        "label": "GlobalEventHandlers.ondrop",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:05:45.439932",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-18T05:46:15.619381",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>ondurationchange</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/durationchange\" title=\"/en-US/docs/Web/Events/durationchange\">durationchange</a></code> events.",
+        "id": 178558,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ondurationchange",
+        "uuid": "d01bd4a3-72d6-4bfe-a2ed-9a0c0db8026f",
+        "title": "GlobalEventHandlers.ondurationchange",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ondurationchange",
+        "modified": "2019-01-18T05:46:15.395864",
+        "label": "GlobalEventHandlers.ondurationchange",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:02:26.517741",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:12.485076",
+        "subpages": [],
+        "tags": [],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code>onemptied</code> property sets and returns the <a href=\"/docs/Web/Guide/Events/Event_handlers\" title=\"/en-US/docs/Web/Guide/DOM/Events/Event_handlers\">event handler</a> for the <code><a href=\"https://developer.mozilla.org/en-US/docs/Web/Events/emptied\" title=\"/en-US/docs/Web/Events/emptied\">emptied</a></code> event.",
+        "id": 179290,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onemptied",
+        "uuid": "b5d1cc92-af2a-4b96-84e2-bbf9c8d6ac18",
+        "title": "GlobalEventHandlers.onemptied",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onemptied",
+        "modified": "2019-01-16T17:24:46.569114",
+        "label": "GlobalEventHandlers.onemptied",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:07:08.724325",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Notes",
+                "title": "Notes"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:04.939640",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onended</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/ended\" title=\"/en-US/docs/Web/Events/ended\">ended</a></code> events.",
+        "id": 179292,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onended",
+        "uuid": "823f0510-9903-44ca-837f-69cfb9f8d834",
+        "title": "GlobalEventHandlers.onended",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onended",
+        "modified": "2019-01-16T17:24:58.449447",
+        "label": "GlobalEventHandlers.onended",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:04:01.823734",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": " Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-02-02T22:23:27.527410",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onerror</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/error\" title=\"/en-US/docs/Web/Events/error\">error</a></code> events.",
+        "id": 2305,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onerror",
+        "uuid": "f743ce31-f415-4e23-af68-078930ada66f",
+        "title": "GlobalEventHandlers.onerror",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onerror",
+        "modified": "2019-02-02T22:23:26.627273",
+        "label": "GlobalEventHandlers.onerror",
+        "localization_tags": [],
+        "last_edit": "2019-02-02T22:23:24.698802",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "window.onerror",
+                "title": "window.onerror"
+            },
+            {
+                "id": "window.addEventListener('error')",
+                "title": "window.addEventListener('error')"
+            },
+            {
+                "id": "element.onerror",
+                "title": "element.onerror"
+            },
+            {
+                "id": "Notes",
+                "title": "Notes"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:13:44.373344",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onfocus</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/focus\" title=\"/en-US/docs/Web/Events/focus\">focus</a></code> events on the given element.",
+        "id": 394,
+        "review_tags": [
+            "technical",
+            "editorial"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onfocus",
+        "uuid": "4754d300-163c-432c-b6a4-d576823daf9d",
+        "title": "GlobalEventHandlers.onfocus",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onfocus",
+        "modified": "2019-01-16T07:58:00.402714",
+        "label": "GlobalEventHandlers.onfocus",
+        "localization_tags": [],
+        "last_edit": "2018-12-20T12:33:52.219328",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result_2",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T19:27:00.262864",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "ongotpointercapture",
+            "Property",
+            "HTML DOM",
+            "events"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>ongotpointercapture</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/gotpointercapture\" title=\"/en-US/docs/Web/Events/gotpointercapture\">gotpointercapture</a></code> events.",
+        "id": 200042,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ongotpointercapture",
+        "uuid": "2e3e0055-c2c0-49cd-8568-c143b897b301",
+        "title": "GlobalEventHandlers.ongotpointercapture",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ongotpointercapture",
+        "modified": "2019-01-16T19:26:15.625559",
+        "label": "GlobalEventHandlers.ongotpointercapture",
+        "localization_tags": [],
+        "last_edit": "2018-12-28T12:06:06.558337",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:13:45.856399",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>oninput</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/input\" title=\"/en-US/docs/Web/Events/input\">input</a></code> events on the <a href=\"/en-US/docs/Web/HTML/Element/input\" title=\"The HTML &lt;input&gt; element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and user agent.\"><code>&lt;input&gt;</code></a>, <a href=\"/en-US/docs/Web/HTML/Element/select\" title=\"The HTML &lt;select&gt; element represents a control that provides a menu of options\"><code>&lt;select&gt;</code></a>, and <a href=\"/en-US/docs/Web/HTML/Element/textarea\" title=\"The HTML &lt;textarea&gt; element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.\"><code>&lt;textarea&gt;</code></a> elements. It also handles these events on elements where <a href=\"/en-US/docs/Web/API/HTMLElement/contentEditable\" title=\"The contenteditable property of the HTMLElement interface specifies whether or not the element is editable.\"><code>contenteditable</code></a> or <a href=\"/en-US/docs/Web/API/Document/designMode\" title='document.designMode controls whether the entire document is editable. Valid values are \"on\" and \"off\". According to the specification, this property is meant to default to \"off\". Firefox follows this standard. The earlier versions of Chrome and IE default to \"inherit\". Starting in Chrome 43, the default is \"off\" and \"inherit\" is no longer supported. In IE6-10, the value is capitalized.'><code>designMode</code></a> are turned on.",
+        "id": 1851,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/oninput",
+        "uuid": "ca44e18c-fbef-4b48-b743-d5d81a63cb0f",
+        "title": "GlobalEventHandlers.oninput",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oninput",
+        "modified": "2019-01-16T08:16:26.119687",
+        "label": "GlobalEventHandlers.oninput",
+        "localization_tags": [],
+        "last_edit": "2019-01-07T10:39:17.469398",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:24:58.266392",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>oninvalid</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/invalid\" title=\"/en-US/docs/Web/Events/invalid\">invalid</a></code> events.",
+        "id": 179294,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/oninvalid",
+        "uuid": "a0f915fd-b40f-4fee-9d1b-43fc4f8e201e",
+        "title": "GlobalEventHandlers.oninvalid",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/oninvalid",
+        "modified": "2019-01-16T17:24:34.474379",
+        "label": "GlobalEventHandlers.oninvalid",
+        "localization_tags": [],
+        "last_edit": "2019-01-02T06:47:18.217890",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-31T01:38:55.679508",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onkeydown</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/keydown\" title=\"/en-US/docs/Web/Events/keydown\">keydown</a></code> events.",
+        "id": 397,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onkeydown",
+        "uuid": "fa2cd521-ba74-4d44-9e10-dd97ee046788",
+        "title": "GlobalEventHandlers.onkeydown",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onkeydown",
+        "modified": "2019-01-31T01:38:54.773820",
+        "label": "GlobalEventHandlers.onkeydown",
+        "localization_tags": [],
+        "last_edit": "2019-01-31T01:38:52.934775",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "Compatibility_notes",
+                "title": "Compatibility notes"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-31T02:33:31.965110",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onkeypress</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/keypress\" title=\"/en-US/docs/Web/Events/keypress\">keypress</a></code> events.",
+        "id": 1900,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onkeypress",
+        "uuid": "b662959e-8ddc-4375-a823-d705d98177e0",
+        "title": "GlobalEventHandlers.onkeypress",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onkeypress",
+        "modified": "2019-01-31T02:33:31.204925",
+        "label": "GlobalEventHandlers.onkeypress",
+        "localization_tags": [],
+        "last_edit": "2019-01-31T02:33:29.690519",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Examples",
+                "title": "Examples"
+            },
+            {
+                "id": "Basic_example",
+                "title": "Basic example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Filter_keys_with_a_regular_expression",
+                "title": "Filter keys with a regular expression"
+            },
+            {
+                "id": "HTML_2",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript_2",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result_2",
+                "title": "Result"
+            },
+            {
+                "id": "Capture_the_typing_of_a_hidden_word",
+                "title": "Capture the typing of a hidden word"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "Browser_compatibility_notes",
+                "title": "Browser compatibility notes"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-31T01:42:01.496573",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onkeyup</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/keyup\" title=\"/en-US/docs/Web/Events/keyup\">keyup</a></code> events.",
+        "id": 385,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onkeyup",
+        "uuid": "64b80289-ad3a-4cbf-8e72-d28cd2837707",
+        "title": "GlobalEventHandlers.onkeyup",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onkeyup",
+        "modified": "2019-01-31T01:42:00.613356",
+        "label": "GlobalEventHandlers.onkeyup",
+        "localization_tags": [],
+        "last_edit": "2019-01-31T01:41:59.138041",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "Compatibility_notes",
+                "title": "Compatibility notes"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:27:03.745257",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "onload",
+            "Property",
+            "Reference",
+            "HTML DOM",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onload</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/load\" title=\"/en-US/docs/Web/Events/load\">load</a></code> events on a <a href=\"/en-US/docs/Web/API/Window\" title=\"The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window.\"><code>Window</code></a>, <a href=\"/en-US/docs/Web/API/XMLHttpRequest\" title=\"Use XMLHttpRequest (XHR) objects to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.\"><code>XMLHttpRequest</code></a>, <a href=\"/en-US/docs/Web/HTML/Element/img\" title=\"The HTML &lt;img&gt; element embeds an image into the document. It is a replaced element.\"><code>&lt;img&gt;</code></a> element, etc.",
+        "id": 8832,
+        "review_tags": [
+            "editorial"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onload",
+        "uuid": "447ae3e8-8ea4-4138-820a-3500257a7fa5",
+        "title": "GlobalEventHandlers.onload",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onload",
+        "modified": "2019-01-16T09:14:27.780123",
+        "label": "GlobalEventHandlers.onload",
+        "localization_tags": [],
+        "last_edit": "2019-01-02T09:01:31.191157",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Examples",
+                "title": "Examples"
+            },
+            {
+                "id": "Notes",
+                "title": "Notes"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:16.397935",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onloadeddata</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/loadeddata\" title=\"/en-US/docs/Web/Events/loadeddata\">loadeddata</a></code> events.",
+        "id": 179296,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onloadeddata",
+        "uuid": "8c9352cf-ae51-4572-abe1-e9e86de86bd0",
+        "title": "GlobalEventHandlers.onloadeddata",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onloadeddata",
+        "modified": "2019-01-16T17:25:08.551707",
+        "label": "GlobalEventHandlers.onloadeddata",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:09:14.333971",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:10.478834",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onloadedmetadata</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/loadedmetadata\" title=\"/en-US/docs/Web/Events/loadedmetadata\">loadedmetadata</a></code> events.",
+        "id": 179298,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onloadedmetadata",
+        "uuid": "eccc0257-b14a-4cd4-a850-d70f42ee75dd",
+        "title": "GlobalEventHandlers.onloadedmetadata",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onloadedmetadata",
+        "modified": "2019-01-16T17:25:00.487701",
+        "label": "GlobalEventHandlers.onloadedmetadata",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:10:48.879160",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:00:56.542313",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "onloadend",
+            "Property",
+            "Web",
+            "events",
+            "DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onloadend</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> representing the code to be called when the <code><a href=\"/en-US/docs/Web/Events/loadend\" title=\"/en-US/docs/Web/Events/loadend\">loadend</a></code> event is raised (when progress has stopped on the loading of a resource.)",
+        "id": 201189,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onloadend",
+        "uuid": "86d2c3ed-7962-4b64-a11e-c277f0f3399f",
+        "title": "GlobalEventHandlers.onloadend",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onloadend",
+        "modified": "2019-01-16T19:30:20.030587",
+        "label": "GlobalEventHandlers.onloadend",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:15:04.351083",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Examples",
+                "title": "Examples"
+            },
+            {
+                "id": "HTML_content",
+                "title": "HTML content"
+            },
+            {
+                "id": "JavaScript_content",
+                "title": "JavaScript content"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:15.533356",
+        "subpages": [],
+        "tags": [],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The onloadstart property sets and returns the <a href=\"/docs/Web/Guide/Events/Event_handlers\" title=\"/en-US/docs/Web/Guide/DOM/Events/Event_handlers\">event handler</a> for the <code><a href=\"/en-US/docs/Web/Events/loadstart\" title=\"/en-US/docs/Web/Events/loadstart\">loadstart</a></code> event.",
+        "id": 179300,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/GlobalEventHandlers.onloadstart",
+        "uuid": "c7c86eb9-3b18-48f8-a394-aae863db6322",
+        "title": "GlobalEventHandlers.onloadstart",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/GlobalEventHandlers.onloadstart",
+        "modified": "2019-01-16T17:24:59.298749",
+        "label": "GlobalEventHandlers.onloadstart",
+        "localization_tags": [],
+        "last_edit": "2016-03-03T07:18:47",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Notes",
+                "title": "Notes"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:00:40.936546",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "onloadstart",
+            "Property",
+            "Web",
+            "events",
+            "DOM"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onloadstart</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> representing the code to be called when the <code><a href=\"/en-US/docs/Web/Events/loadstart\" title=\"/en-US/docs/Web/Events/loadstart\">loadstart</a></code> event is raised (when progress has begun on the loading of a resource.)",
+        "id": 201191,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onloadstart",
+        "uuid": "47a1bd6d-f5af-4e58-a207-297f75cba13b",
+        "title": "GlobalEventHandlers.onloadstart",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onloadstart",
+        "modified": "2019-01-16T19:30:15.657829",
+        "label": "GlobalEventHandlers.onloadstart",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:15:32.079786",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Examples",
+                "title": "Examples"
+            },
+            {
+                "id": "HTML_content",
+                "title": "HTML content"
+            },
+            {
+                "id": "JavaScript_content",
+                "title": "JavaScript content"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "sect5",
+                "title": null
+            },
+            {
+                "id": "sect6",
+                "title": null
+            },
+            {
+                "id": "sect7",
+                "title": null
+            },
+            {
+                "id": "sect8",
+                "title": null
+            },
+            {
+                "id": "sect9",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:36:22.894454",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "onlostpointercapture",
+            "events"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onlostpointercapture</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/lostpointercapture\" title=\"/en-US/docs/Web/Events/lostpointercapture\">lostpointercapture</a></code> events.",
+        "id": 200040,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onlostpointercapture",
+        "uuid": "158fedae-53f9-4057-8a2d-63a23ec8b75c",
+        "title": "GlobalEventHandlers.onlostpointercapture",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onlostpointercapture",
+        "modified": "2019-01-16T19:26:14.885778",
+        "label": "GlobalEventHandlers.onlostpointercapture",
+        "localization_tags": [],
+        "last_edit": "2018-12-21T08:09:20.576997",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:21:29.646068",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onmousedown</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/mousedown\" title=\"/en-US/docs/Web/Events/mousedown\">mousedown</a></code> events.",
+        "id": 386,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onmousedown",
+        "uuid": "67aa4bfc-d0cf-4b7d-9833-64743380aa6f",
+        "title": "GlobalEventHandlers.onmousedown",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmousedown",
+        "modified": "2019-01-16T07:58:00.230174",
+        "label": "GlobalEventHandlers.onmousedown",
+        "localization_tags": [],
+        "last_edit": "2019-01-04T09:50:03.187197",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-21T11:58:47.458046",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onmouseenter</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/mouseenter\" title=\"/en-US/docs/Web/Events/mouseenter\">mouseenter</a></code> events.",
+        "id": 179302,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onmouseenter",
+        "uuid": "ce6876fc-5c01-4308-b6a8-cb81214efbdb",
+        "title": "GlobalEventHandlers.onmouseenter",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmouseenter",
+        "modified": "2019-01-16T17:24:59.529585",
+        "label": "GlobalEventHandlers.onmouseenter",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:06:15.335931",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-22T22:19:05.936405",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onmouseleave</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/mouseleave\" title=\"/en-US/docs/Web/Events/mouseleave\">mouseleave</a></code> events.",
+        "id": 179304,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onmouseleave",
+        "uuid": "3471b843-f829-486e-971d-a439aefe7bb9",
+        "title": "GlobalEventHandlers.onmouseleave",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmouseleave",
+        "modified": "2019-01-16T17:24:46.178817",
+        "label": "GlobalEventHandlers.onmouseleave",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:07:46.544389",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T16:18:09.440500",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onmousemove</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/mousemove\" title=\"/en-US/docs/Web/Events/mousemove\">mousemove</a></code> events.",
+        "id": 391,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onmousemove",
+        "uuid": "b1d51616-d9fd-4927-815b-54839a4b3e57",
+        "title": "GlobalEventHandlers.onmousemove",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmousemove",
+        "modified": "2019-01-16T07:59:20.589071",
+        "label": "GlobalEventHandlers.onmousemove",
+        "localization_tags": [],
+        "last_edit": "2019-01-04T07:16:58.096775",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Examples",
+                "title": "Examples"
+            },
+            {
+                "id": "Tooltips",
+                "title": "Tooltips"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Draggable_elements",
+                "title": "Draggable elements"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T10:59:08.538015",
+        "subpages": [],
+        "tags": [
+            "API",
+            "Property",
+            "Reference",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onmouseout</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/mouseout\" title=\"/en-US/docs/Web/Events/mouseout\">mouseout</a></code> events.",
+        "id": 1022,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onmouseout",
+        "uuid": "8afbe801-b057-4c61-aed3-4dfb0ff60438",
+        "title": "GlobalEventHandlers.onmouseout",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmouseout",
+        "modified": "2019-01-16T08:06:45.255573",
+        "label": "GlobalEventHandlers.onmouseout",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:29:29.503484",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Example",
+                "title": null
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T10:58:51.050242",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onmouseover</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/mouseover\" title=\"/en-US/docs/Web/Events/mouseover\">mouseover</a></code> events.",
+        "id": 1023,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onmouseover",
+        "uuid": "5f7679eb-ecc7-4491-8e20-d9191cbc9086",
+        "title": "GlobalEventHandlers.onmouseover",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmouseover",
+        "modified": "2019-01-16T08:06:19.638569",
+        "label": "GlobalEventHandlers.onmouseover",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:30:35.254049",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Example",
+                "title": null
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:13:23.194757",
+        "subpages": [],
+        "tags": [
+            "HTML DOM",
+            "Reference",
+            "API",
+            "Property",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onmouseup</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/mouseup\" title=\"/en-US/docs/Web/Events/mouseup\">mouseup</a></code> events.",
+        "id": 392,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onmouseup",
+        "uuid": "1c0c120e-5461-4fbf-9224-977d52e385dc",
+        "title": "GlobalEventHandlers.onmouseup",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmouseup",
+        "modified": "2019-01-16T07:58:42.205341",
+        "label": "GlobalEventHandlers.onmouseup",
+        "localization_tags": [],
+        "last_edit": "2019-01-04T10:18:08.309646",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:09.735066",
+        "subpages": [],
+        "tags": [],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong>onmousewheel</strong> property sets and returns the <a href=\"/docs/Web/Guide/Events/Event_handlers\" title=\"/en-US/docs/Web/Guide/DOM/Events/Event_handlers\">event handler</a> for the <code><a href=\"/en-US/docs/Web/Events/mousewheel\" title=\"/en-US/docs/Web/Events/mousewheel\">mousewheel</a></code> event.",
+        "id": 179308,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onmousewheel",
+        "uuid": "c4d734b4-b6fb-4a55-aacc-0453ebb7d971",
+        "title": "GlobalEventHandlers.onmousewheel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onmousewheel",
+        "modified": "2019-01-16T17:24:59.301633",
+        "label": "GlobalEventHandlers.onmousewheel",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:20:30.531152",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Notes",
+                "title": "Notes"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:25:11.928684",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onpause</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/pause\" title=\"/en-US/docs/Web/Events/pause\">pause</a></code> events.",
+        "id": 179312,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpause",
+        "uuid": "6616721c-0e5d-4f80-8361-6330cacab89d",
+        "title": "GlobalEventHandlers.onpause",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpause",
+        "modified": "2019-01-16T17:24:57.487732",
+        "label": "GlobalEventHandlers.onpause",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:12:14.275818",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T17:24:27.090365",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Reference",
+            "Property",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onplay</strong></code><em> </em>property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is the <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> for processing <code><a href=\"/en-US/docs/Web/Events/play\" title=\"/en-US/docs/Web/Events/play\">play</a></code> events.",
+        "id": 179314,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onplay",
+        "uuid": "6ef7e26a-3625-42af-9c1a-345ba24f5ced",
+        "title": "GlobalEventHandlers.onplay",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onplay",
+        "modified": "2019-01-16T17:24:23.636757",
+        "label": "GlobalEventHandlers.onplay",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T10:14:55.037727",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:26:38.184924",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Event Handler"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onpointercancel</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/pointercancel\" title=\"/en-US/docs/Web/Events/pointercancel\">pointercancel</a></code> events.",
+        "id": 165223,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointercancel",
+        "uuid": "e6abcabf-8174-41cd-86c6-f9d2edd1ec2e",
+        "title": "GlobalEventHandlers.onpointercancel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointercancel",
+        "modified": "2019-01-16T18:17:59.984268",
+        "label": "GlobalEventHandlers.onpointercancel",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:39:58.854252",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:25:05.045613",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Document",
+            "Element",
+            "Pointer Events API",
+            "Pointer Events",
+            "Window"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> event handler <strong><code>onpointerdown</code></strong> is used to specify the event handler for the <code><a href=\"/en-US/docs/Web/Events/pointerdown\" title=\"/en-US/docs/Web/Events/pointerdown\">pointerdown</a></code> event, which is fired when the pointing device is initially pressed. This event can be sent to <a href=\"/en-US/docs/Web/API/Window\" title=\"The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window.\"><code>Window</code></a>, <a href=\"/en-US/docs/Web/API/Document\" title=\"The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree.\"><code>Document</code></a>, and <a href=\"/en-US/docs/Web/API/Element\" title=\"Element is the most general base class from which all objects in a Document inherit. It only has methods and properties common to all kinds of elements. More specific classes inherit from Element.\"><code>Element</code></a> objects.",
+        "id": 165209,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onpointerdown",
+        "uuid": "2da476dc-4191-4172-a81d-f45841f385b3",
+        "title": "GlobalEventHandlers.onpointerdown",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointerdown",
+        "modified": "2019-01-16T16:40:08.362597",
+        "label": "GlobalEventHandlers.onpointerdown",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:22:47.318573",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:56:40.167707",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Event Handler"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onpointerenter</code></strong><em> </em>property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/pointerenter\" title=\"/en-US/docs/Web/Events/pointerenter\">pointerenter</a></code> events.",
+        "id": 165207,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointerenter",
+        "uuid": "033c0653-39de-420b-b6d3-caeba4986c2f",
+        "title": "GlobalEventHandlers.onpointerenter",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointerenter",
+        "modified": "2019-01-16T16:39:54.762928",
+        "label": "GlobalEventHandlers.onpointerenter",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:43:00.717432",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-17T05:19:42.604121",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Pointer Events",
+            "NeedsBrowserCompatibility",
+            "onpointerleave"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\">global event handler</a> for the <code><a href=\"/en-US/docs/Web/Events/pointerleave\" title=\"/en-US/docs/Web/Events/pointerleave\">pointerleave</a></code> event, which is delivered to a <a href=\"/en-US/docs/Web/API/Node\" title=\"Node is an interface from which a number of DOM API object types inherit. It allows those types to be treated similarly; for example, inheriting the same set of methods, or being tested in the same way.\"><code>Node</code></a> when the pointer (mouse cursor, fingertip, etc.) exits its hit test area (for example, if the cursor exits an <a href=\"/en-US/docs/Web/API/Element\" title=\"Element is the most general base class from which all objects in a Document inherit. It only has methods and properties common to all kinds of elements. More specific classes inherit from Element.\"><code>Element</code></a> or <a href=\"/en-US/docs/Web/API/Window\" title=\"The Window interface represents a window containing a DOM document; the document property points to the DOM document loaded in that window.\"><code>Window</code></a>'s content area). This event is part of the <a href=\"/en-US/docs/Web/API/Pointer_events\">Pointer Events API</a>.",
+        "id": 165227,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointerleave",
+        "uuid": "0ae8ec72-03be-401e-9a3a-60c09fb6670c",
+        "title": "GlobalEventHandlers.onpointerleave",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointerleave",
+        "modified": "2019-01-16T16:39:59.274704",
+        "label": "GlobalEventHandlers.onpointerleave",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:23:46.177988",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:27:15.857454",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Event Handler"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onpointermove</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/pointermove\" title=\"/en-US/docs/Web/Events/pointermove\">pointermove</a></code> events.",
+        "id": 165213,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointermove",
+        "uuid": "6bfdc189-9106-484f-9d0a-84698cb4597d",
+        "title": "GlobalEventHandlers.onpointermove",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointermove",
+        "modified": "2019-01-16T16:39:51.626294",
+        "label": "GlobalEventHandlers.onpointermove",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:44:48.031898",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:45:44.887645",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Event Handler"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onpointerout</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/pointerout\" title=\"/en-US/docs/Web/Events/pointerout\">pointerout</a></code> events.",
+        "id": 165225,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointerout",
+        "uuid": "884fca63-0198-4a08-98a4-52098841d3a5",
+        "title": "GlobalEventHandlers.onpointerout",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointerout",
+        "modified": "2019-01-16T16:39:57.880586",
+        "label": "GlobalEventHandlers.onpointerout",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:46:24.835263",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:58:58.570005",
+        "subpages": [],
+        "tags": [
+            "API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Event Handler"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onpointerover</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/pointerover\" title=\"/en-US/docs/Web/Events/pointerover\">pointerover</a></code> events.",
+        "id": 165205,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointerover",
+        "uuid": "7e0d859c-7c47-4f34-aede-3d8b4dbdbf03",
+        "title": "GlobalEventHandlers.onpointerover",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointerover",
+        "modified": "2019-01-16T16:40:30.981708",
+        "label": "GlobalEventHandlers.onpointerover",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T10:47:30.151503",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:27:25.816337",
+        "subpages": [],
+        "tags": [
+            "API",
+            "Reference",
+            "Property",
+            "HTML DOM",
+            "PointerEvent",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onpointerup</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/pointerup\" title=\"/en-US/docs/Web/Events/pointerup\">pointerup</a></code> events.",
+        "id": 165217,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/onpointerup",
+        "uuid": "56af1313-96fb-44d2-ab22-9eab7242216e",
+        "title": "GlobalEventHandlers.onpointerup",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onpointerup",
+        "modified": "2019-01-16T16:40:38.624085",
+        "label": "GlobalEventHandlers.onpointerup",
+        "localization_tags": [],
+        "last_edit": "2018-12-14T13:43:13.145393",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:01:11.672568",
+        "subpages": [],
+        "tags": [
+            "Property",
+            "DOM",
+            "API",
+            "Event Handler",
+            "Reference",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onreset</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/reset\" title=\"/en-US/docs/Web/Events/reset\">reset</a></code> events.",
+        "id": 44734,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onreset",
+        "uuid": "65d02da2-3913-4daa-bdd8-4e80ddffd5f8",
+        "title": "GlobalEventHandlers.onreset",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onreset",
+        "modified": "2019-01-16T11:23:54.090068",
+        "label": "GlobalEventHandlers.onreset",
+        "localization_tags": [],
+        "last_edit": "2019-01-03T06:25:24.699979",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T20:57:43.618455",
+        "subpages": [],
+        "tags": [
+            "Property",
+            "DOM",
+            "API",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onresize</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> interface is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/resize\" title=\"/en-US/docs/Web/Events/resize\">resize</a></code> events.",
+        "id": 1739,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onresize",
+        "uuid": "d09dfdfd-6e7f-4f8d-8a83-cad07536206e",
+        "title": "GlobalEventHandlers.onresize",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onresize",
+        "modified": "2019-01-16T08:15:43.715450",
+        "label": "GlobalEventHandlers.onresize",
+        "localization_tags": [],
+        "last_edit": "2019-01-03T06:57:19.478138",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T18:58:35.764243",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onscroll</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/scroll\" title=\"/en-US/docs/Web/Events/scroll\">scroll</a></code> events.",
+        "id": 2025,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onscroll",
+        "uuid": "b41e1588-e525-4c7b-a41c-1600dc220980",
+        "title": "GlobalEventHandlers.onscroll",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onscroll",
+        "modified": "2019-01-16T08:17:41.166122",
+        "label": "GlobalEventHandlers.onscroll",
+        "localization_tags": [],
+        "last_edit": "2019-01-03T10:48:47.729817",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:02:10.140758",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onselect</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/select\" title=\"/en-US/docs/Web/Events/select\">select</a></code> events.",
+        "id": 1721,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onselect",
+        "uuid": "7903ac1d-2339-4ada-8c6f-f5901c5c57b6",
+        "title": "GlobalEventHandlers.onselect",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onselect",
+        "modified": "2019-01-16T08:15:29.720189",
+        "label": "GlobalEventHandlers.onselect",
+        "localization_tags": [],
+        "last_edit": "2019-01-02T11:17:09.203249",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:10:12.833470",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Selection",
+            "Selection API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "onselectionchange",
+            "Experimental"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onselectionchange</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/selectionchange\" title=\"/en-US/docs/Web/Events/selectionchange\">selectionchange</a></code> events.",
+        "id": 201293,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onselectionchange",
+        "uuid": "be9a145b-2e99-48a6-95e6-5b730a2a0039",
+        "title": "GlobalEventHandlers.onselectionchange",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onselectionchange",
+        "modified": "2019-01-16T19:30:37.054257",
+        "label": "GlobalEventHandlers.onselectionchange",
+        "localization_tags": [],
+        "last_edit": "2019-01-03T07:00:31.432287",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:48:16.640647",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "Selection API",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "Experimental",
+            "onselectstart",
+            "Selection"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onselectstart</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/selectstart\" title=\"/en-US/docs/Web/Events/selectstart\">selectstart</a></code> events.",
+        "id": 162867,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onselectstart",
+        "uuid": "b963174e-7db2-4e86-97ed-2b0d14c3e23d",
+        "title": "GlobalEventHandlers.onselectstart",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onselectstart",
+        "modified": "2019-01-16T16:29:44.588334",
+        "label": "GlobalEventHandlers.onselectstart",
+        "localization_tags": [],
+        "last_edit": "2019-01-03T07:00:26.949470",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:13:43.322253",
+        "subpages": [],
+        "tags": [
+            "Reference",
+            "API",
+            "Property",
+            "HTML DOM",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>onsubmit</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/submit\" title=\"/en-US/docs/Web/Events/submit\">submit</a></code> events.",
+        "id": 1833,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onsubmit",
+        "uuid": "fdcba01d-78bd-4d56-8c85-ee030d9f0a2a",
+        "title": "GlobalEventHandlers.onsubmit",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onsubmit",
+        "modified": "2019-01-16T08:16:31.962140",
+        "label": "GlobalEventHandlers.onsubmit",
+        "localization_tags": [],
+        "last_edit": "2018-12-28T14:25:50.538087",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T19:06:09.442368",
+        "subpages": [],
+        "tags": [
+            "HTML DOM",
+            "Reference",
+            "API",
+            "Property",
+            "Experimental",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>ontouchcancel</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/touchcancel\" title=\"/en-US/docs/Web/Events/touchcancel\">touchcancel</a></code> events.",
+        "id": 165015,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ontouchcancel",
+        "uuid": "e42e2160-ab8e-44fd-a89c-2a2896aaa0f2",
+        "title": "GlobalEventHandlers.ontouchcancel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ontouchcancel",
+        "modified": "2019-01-16T16:38:51.665815",
+        "label": "GlobalEventHandlers.ontouchcancel",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T12:43:19.942052",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T16:40:09.337579",
+        "subpages": [],
+        "tags": [
+            "HTML DOM",
+            "Reference",
+            "TouchEvent",
+            "API",
+            "Experimental"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/touchend\" title=\"/en-US/docs/Web/Events/touchend\">touchend</a></code> event.",
+        "id": 165233,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ontouchend",
+        "uuid": "50929fbd-aab3-484e-966b-c24dff27e44d",
+        "title": "GlobalEventHandlers.ontouchend",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ontouchend",
+        "modified": "2019-01-16T16:39:47.981805",
+        "label": "GlobalEventHandlers.ontouchend",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:29:38.585141",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_Value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:23:41.191938",
+        "subpages": [],
+        "tags": [
+            "HTML DOM",
+            "Reference",
+            "API",
+            "Experimental"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "A <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>global event handler</code></a> for the <code><a href=\"/en-US/docs/Web/Events/touchmove\" title=\"/en-US/docs/Web/Events/touchmove\">touchmove</a></code> event.",
+        "id": 165229,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ontouchmove",
+        "uuid": "c875c191-28f8-46ff-97ed-f80892d9f65f",
+        "title": "GlobalEventHandlers.ontouchmove",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ontouchmove",
+        "modified": "2019-01-16T16:40:05.580930",
+        "label": "GlobalEventHandlers.ontouchmove",
+        "localization_tags": [],
+        "last_edit": "2018-08-24T03:30:04.466959",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_Value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T21:08:59.852104",
+        "subpages": [],
+        "tags": [
+            "HTML DOM",
+            "Reference",
+            "API",
+            "Property",
+            "Experimental",
+            "Event Handler",
+            "GlobalEventHandlers"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>ontouchstart</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/touchstart\" title=\"/en-US/docs/Web/Events/touchstart\">touchstart</a></code> events.",
+        "id": 165009,
+        "review_tags": [
+            "technical"
+        ],
+        "slug": "Web/API/GlobalEventHandlers/ontouchstart",
+        "uuid": "d6fd6fb5-54ab-4b83-a5c9-d1d39669479e",
+        "title": "GlobalEventHandlers.ontouchstart",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ontouchstart",
+        "modified": "2019-01-16T16:38:54.530886",
+        "label": "GlobalEventHandlers.ontouchstart",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T12:43:33.184621",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Return_value",
+                "title": "Return value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "Specifications",
+                "title": "Specifications"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T19:53:06.268155",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "API",
+            "CSS3 Transitions",
+            "GlobalEventHandlers",
+            "Reference",
+            "Property",
+            "CSS Transitions",
+            "ontransitioncancel"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>ontransitioncancel</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/transitioncancel\" title=\"/en-US/docs/Web/Events/transitioncancel\">transitioncancel</a></code> events.",
+        "id": 212265,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/ontransitioncancel",
+        "uuid": "bfddf355-e41b-4d89-a598-b90d8a63fe1f",
+        "title": "GlobalEventHandlers.ontransitioncancel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ontransitioncancel",
+        "modified": "2019-01-16T19:52:59.415167",
+        "label": "GlobalEventHandlers.ontransitioncancel",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T11:23:15.910055",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML_content",
+                "title": "HTML content"
+            },
+            {
+                "id": "CSS_content",
+                "title": "CSS content"
+            },
+            {
+                "id": "JavaScript_content",
+                "title": "JavaScript content"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-16T22:28:09.775563",
+        "subpages": [],
+        "tags": [
+            "Event Handler",
+            "Property",
+            "Element",
+            "Reference",
+            "API",
+            "ontransitionend",
+            "CSS Transitions",
+            "GlobalEventHandlers",
+            "Document",
+            "CSS3 Transitions",
+            "Window"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <code><strong>ontransitionend</strong></code> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"REDIRECT DOM event handlers\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/transitionend\" title=\"/en-US/docs/Web/Events/transitionend\">transitionend</a></code> events.",
+        "id": 197883,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/ontransitionend",
+        "uuid": "ac5950ef-1ab2-4d37-8cbe-9689c232dcc8",
+        "title": "GlobalEventHandlers.ontransitionend",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/ontransitionend",
+        "modified": "2019-01-16T19:11:40.716371",
+        "label": "GlobalEventHandlers.ontransitionend",
+        "localization_tags": [],
+        "last_edit": "2018-12-13T11:20:16.831484",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "sect2",
+                "title": null
+            },
+            {
+                "id": "sect3",
+                "title": null
+            },
+            {
+                "id": "sect4",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    },
+    {
+        "json_modified": "2019-01-29T09:04:42.545058",
+        "subpages": [],
+        "tags": [
+            "API",
+            "Reference",
+            "Property",
+            "DOM",
+            "GlobalEventHandlers",
+            "onwheel",
+            "Event Handler"
+        ],
+        "locale": "en-US",
+        "translations": [],
+        "summary": "The <strong><code>onwheel</code></strong> property of the <a href=\"/en-US/docs/Web/API/GlobalEventHandlers\" title=\"The GlobalEventHandlers mixin describes the event handlers common to several interfaces like HTMLElement, Document, or Window.\"><code>GlobalEventHandlers</code></a> mixin is an <a href=\"/en-US/docs/Web/API/EventHandler\" title=\"A possible way to get notified of Events of a particular type (such as click) for a given object is to specify an event handler using:\"><code>EventHandler</code></a> that processes <code><a href=\"/en-US/docs/Web/Events/wheel\" title=\"/en-US/docs/Web/Events/wheel\">wheel</a></code> events.",
+        "id": 54366,
+        "review_tags": [],
+        "slug": "Web/API/GlobalEventHandlers/onwheel",
+        "uuid": "a6405ded-5d46-4510-b009-040effa69624",
+        "title": "GlobalEventHandlers.onwheel",
+        "url": "/en-US/docs/Web/API/GlobalEventHandlers/onwheel",
+        "modified": "2019-01-16T11:39:41.483213",
+        "label": "GlobalEventHandlers.onwheel",
+        "localization_tags": [],
+        "last_edit": "2019-01-03T10:51:24.786328",
+        "sections": [
+            {
+                "id": "Quick_Links",
+                "title": null
+            },
+            {
+                "id": "Syntax",
+                "title": "Syntax"
+            },
+            {
+                "id": "Value",
+                "title": "Value"
+            },
+            {
+                "id": "Example",
+                "title": "Example"
+            },
+            {
+                "id": "HTML",
+                "title": "HTML"
+            },
+            {
+                "id": "CSS",
+                "title": "CSS"
+            },
+            {
+                "id": "JavaScript",
+                "title": "JavaScript"
+            },
+            {
+                "id": "Result",
+                "title": "Result"
+            },
+            {
+                "id": "Specification",
+                "title": "Specification"
+            },
+            {
+                "id": "Browser_compatibility",
+                "title": "Browser compatibility"
+            },
+            {
+                "id": "sect1",
+                "title": null
+            },
+            {
+                "id": "Legend",
+                "title": "Legend"
+            },
+            {
+                "id": "See_also",
+                "title": "See also"
+            }
+        ]
+    }
+]
