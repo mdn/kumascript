@@ -437,5 +437,41 @@
         "nl"   : "Verouderd. Niet voor gebruik in nieuwe websites",
         "ru"   : "Устаревшая. Не следует использовать в новых веб-сайтах",
         "fr"   : "Obsolète. Les nouveaux sites web ne doivent pas utiliser cette fonctionnalité."
+    },
+    "flag_browser": {
+        "en-US": " To change preferences in ${browser}, visit ${url}."
+    },
+    "flag_support_start": {
+        "en-US": "From version ${versionAdded}"
+    },
+    "flag_support_range": {
+        "en-US": "From version ${versionAdded} until version ${versionRemoved} (exclusive)"
+    },
+    "flag_support_end": {
+        "en-US": "Until version ${versionRemoved} (exclusive)"
+    },
+    "flag_start": {
+        "en-US": "This feature is behind the "
+    },
+    "flag_start_cont": {
+        "en-US": "${support}: this feature is behind the "
+    },
+    "flag_valueToSet": {
+        "en-US": " (needs to be set to <code>${valueToSet}</code>)"
+    },
+    "flag_type_preference": {
+        "en-US": " preference${valueToSet}"
+    },
+    "flag_type_compile_flag": {
+        "en-US": " compile flag${valueToSet}"
+    },
+    "flag_type_runtime_flag": {
+        "en-US": " runtime flag${valueToSet}"
+    },
+    "flag_misc_joiner": {
+        "en-US": " and the "
+    },
+    "flag_misc_end": {
+        "en-US": "."
     }
 }
