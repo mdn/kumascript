@@ -6,7 +6,8 @@
         "fr"   : "Ordinateur",
         "ja"   : "デスクトップ",
         "ru"   : "Компьютеры",
-        "nl"   : "Desktop"
+        "nl"   : "Desktop",
+        "pt-BR": "Desktop"
     },
     "bc_icon_name_mobile": {
         "en-US": "Mobile",
