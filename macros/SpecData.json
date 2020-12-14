@@ -774,6 +774,11 @@
     "url": "https://www.ecma-international.org/ecma-262/9.0/",
     "status": "Standard"
   },
+  "ES2019": {
+    "name": "ECMAScript 2019 (ECMA-262)",
+    "url": "https://tc39.es/ecma262/2019/",
+    "status": "Standard"
+  },
   "ESDraft": {
     "name": "ECMAScript (ECMA-262)",
     "url": "https://tc39.es/ecma262/",
