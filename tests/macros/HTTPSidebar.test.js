@@ -7,7 +7,8 @@ const {
     itMacro,
     beforeEachMacro,
     describeMacro,
-    lintHTML } = require('./utils');
+    lintHTML
+} = require('./utils');
 
 const jsdom = require('jsdom');
 
@@ -20,6 +21,10 @@ const locales = {
     }
 };
 
+/**
+ * @param {ParentNode} dom
+ * @param {*} locale
+ */
 function checkSidebarDom(dom, locale) {
     let section = dom.querySelector('section');
     assert(
@@ -32,26 +37,33 @@ function checkSidebarDom(dom, locale) {
 }
 
 describeMacro('HTTPSidebar', function() {
-
     beforeEachMacro(function(macro) {
         macro.ctx.env.path = '/en-US/docs/Web/HTTP/Overview';
     });
 
-    itMacro('Creates a sidebar object for en-US', function(macro) {
-        macro.ctx.env.locale = 'en-US';
-        return macro.call().then(function(result) {
-            expect(lintHTML(result)).toBeFalsy();
-            let dom = jsdom.JSDOM.fragment(result);
-            checkSidebarDom(dom, 'en-US');
-        });
-    });
+    itMacro(
+        'Creates a sidebar object for en-US',
+        function(macro) {
+            macro.ctx.env.locale = 'en-US';
+            return macro.call().then(function(result) {
+                expect(lintHTML(result)).toBeFalsy();
+                let dom = jsdom.JSDOM.fragment(result);
+                checkSidebarDom(dom, 'en-US');
+            });
+        },
+        10000
+    );
 
-    itMacro('Creates a sidebar object for es', function(macro) {
-        macro.ctx.env.locale = 'es';
-        return macro.call().then(function(result) {
-            expect(lintHTML(result)).toBeFalsy();
-            let dom = jsdom.JSDOM.fragment(result);
-            checkSidebarDom(dom, 'es');
-        });
-    });
+    itMacro(
+        'Creates a sidebar object for es',
+        function(macro) {
+            macro.ctx.env.locale = 'es';
+            return macro.call().then(function(result) {
+                expect(lintHTML(result)).toBeFalsy();
+                let dom = jsdom.JSDOM.fragment(result);
+                checkSidebarDom(dom, 'es');
+            });
+        },
+        10000
+    );
 });
