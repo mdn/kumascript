@@ -1,0 +1,49 @@
+[
+    {
+        "tags": [
+            "Overview"
+        ],
+        "locale": "en-US",
+        "slug": "Web/API/Test_API",
+        "title": "Test API",
+        "url": "/en-US/docs/Web/API/Test_API"
+    },
+
+    {
+        "tags": [
+            "Interface"
+        ],
+        "locale": "en-US",
+        "slug": "Web/API/TestInterface",
+        "title": "TestInterface",
+        "url": "/en-US/docs/Web/API/TestInterface"
+    },
+    {
+        "tags": [
+            "Interface"
+        ],
+        "locale": "en-US",
+        "slug": "Web/API/TestInterface2",
+        "title": "TestInterface2 - Electric Boogaloo",
+        "url": "/en-US/docs/Web/API/TestInterface2"
+    },
+    {
+        "tags": [
+            "Interface"
+        ],
+        "locale": "en-US",
+        "slug": "Web/API/TestMixin",
+        "title": "TestMixin Interface",
+        "url": "/en-US/docs/Web/API/TestMixin"
+    },
+    {
+        "tags": [
+            "Interface"
+        ],
+        "locale": "en-US",
+        "slug": "Web/API/TestOther",
+        "title": "API TestOther - The new experimental CSS-style syntax with a description is supported. (yay!)",
+        "summary": "See <a href=\"https://discourse.mozilla.org/t/38861\">this Discourse thread</a> for details.",
+        "url": "/en-US/docs/Web/API/TestOther"
+    }
+]
