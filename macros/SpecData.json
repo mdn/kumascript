@@ -321,7 +321,7 @@
   },
   "CSS3 Selectors": {
     "name": "Selectors Level&nbsp;3",
-    "url": "https://drafts.csswg.org/selectors-3/",
+    "url": "https://www.w3.org/TR/selectors-3/",
     "status": "REC"
   },
   "CSS3 Sizing": {
