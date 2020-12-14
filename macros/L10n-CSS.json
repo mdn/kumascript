@@ -1,20 +1,20 @@
 {
     "css_ref_title": {
         "en-US": "CSS Reference",
-        "fr": "Référence CSS",
         "de": "CSS Referenz",
-        "ja": "CSS リファレンス",
-        "zh-CN": "CSS 参考",
+        "fr": "Référence CSS",
         "es": "Referencia CSS",
+        "ja": "CSS リファレンス",
         "pl": "Dokumentacja CSS",
         "pt-PT": "Referência CSS",
-        "ru": "CSS документация"
+        "ru": "CSS документация",
+        "zh-CN": "CSS 参考"
     },
     "at_rules": {
         "en-US": "At-Rules",
         "fr": "Règles @",
         "de": "At-Regeln",
-        "ja": "@規則",
+        "ja": "@-規則",
         "ru": "@-правила"
     },
     "types": {
@@ -28,14 +28,14 @@
         "en-US": "Value not found in DB!",
         "fr": "Valeur introuvable dans la base de données",
         "de": "Wert nicht in der DB gefunden!",
-        "ja": "DB に値が見つかりません！",
+        "ja": "データベースで値が見つかりません！",
         "ru": "Значение не найдено в базе данных!"
     },
     "info_in_preview_not_available": {
         "en-US": "CSS info in preview not available",
         "de"   : "CSS-Info in der Vorschau nicht verfügbar",
         "fr"   : "CSS-Info n'est pas disponible en aperçu",
-        "ja"   : "プレビューの CSS info が利用できません",
+        "ja"   : "プレビューでは CSS info は利用できません",
         "ru"   : "CSS info недоступно в предпросмотре"
     },
     "tag_selectors": {
