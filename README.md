@@ -1,8 +1,11 @@
+
+# WARNING
+**This repository is no longer active. It has been replaced by the**
+**[kumascript folder](https://github.com/mdn/yari/tree/master/kumascript)**
+**within the https://github.com/mdn/yari repository. Please make**
+**any future changes there.**
+
 # kumascript
-[![Build Status](https://secure.travis-ci.org/mdn/kumascript.svg)](https://travis-ci.org/mdn/kumascript)
-[![Dependency Status](https://david-dm.org/mdn/kumascript.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript)
-[![devDependency Status](https://david-dm.org/mdn/kumascript/dev-status.svg?theme=shields.io)](https://david-dm.org/mdn/kumascript#info=devDependencies)
-[![What's deployed on stage,prod?](https://img.shields.io/badge/whatsdeployed-stage,prod-green.svg)](https://whatsdeployed.io/s/SWJ/mdn/kumascript)
 
 ## Overview
 
