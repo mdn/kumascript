@@ -14,7 +14,7 @@ if (/^(http[s]?:\/\/|mailto:)/.test('' + $0)) {
     text = $0.substr($0.indexOf(' ')+1);
   }
 
-  str = '<a class="external" href="' + link + '" title="' + link + '" target="_blank">' + text + '</a>';
+  str = '<a class="external" href="' + link + '" title="' + link + '" target="_blank" rel="noopener noreferrer">' + text + '</a>';
 }
 
 
