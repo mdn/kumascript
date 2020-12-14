@@ -1,4 +1,23 @@
 /**
+ * @prettier
+ */
+const { createRequireFromPath } = require('module');
+
+const kumaPrototype = require('./api/kuma.js');
+const mdnPrototype = require('./api/mdn.js');
+const stringPrototype = require('./api/string.js');
+const wikiPrototype = require('./api/wiki.js');
+const uriPrototype = require('./api/uri.js');
+const webPrototype = require('./api/web.js');
+const pagePrototype = require('./api/page.js');
+
+/**
+ * The properties of this object will be globals in the macro
+ * execution environment.
+ */
+const globalsPrototype = {};
+
+/**
  * An Environment object defines the API available to KumaScript macros
  * through the MDN, wiki, page and other global objects. When you create
  * an Environment object, pass an object that defines the per-page
@@ -15,36 +34,7 @@
  * of that execution environment. Because the functions will all be bound
  * (see the prepareProto() function at the end of this file) they can not
  * use `this` to refer to the objects in which they are actually defined.
- *
- * TODO(djf): The *Prototype objects could each be defined in a
- * separate src/api/*.js file and imported with require(). That would
- * be tidier, and would keep separate the code with poor test coverage
- * from the rest of the file which is well tested.
- *
- * @prettier
  */
-
-// The properties of this object will be globals in the macro
-// execution environment.
-const globalsPrototype = {
-    /**
-     * #### require(name)
-     *
-     * Load an npm package (the real "require" has its own cache).
-     *
-     * @type {NodeRequireFunction}
-     */
-    require: require
-};
-
-const kumaPrototype = require('./api/kuma.js');
-const mdnPrototype = require('./api/mdn.js');
-const stringPrototype = require('./api/string.js');
-const wikiPrototype = require('./api/wiki.js');
-const uriPrototype = require('./api/uri.js');
-const webPrototype = require('./api/web.js');
-const pagePrototype = require('./api/page.js');
-
 class Environment {
     // Intialize an environment object that will be used to render
     // all of the macros in one document or page. We pass in a context
@@ -103,6 +93,7 @@ class Environment {
             return freeze(p);
         }
 
+        /** @type {import('./templates.js')} */
         this.templates = templates;
         let globals = Object.create(prepareProto(globalsPrototype));
 
@@ -140,6 +131,18 @@ class Environment {
         // implement on globalsPrototype because it needs acccess to
         // this.templates.
         globals.template = this._renderTemplate.bind(this);
+
+        /**
+         * #### require(name)
+         *
+         * Load an npm package (the real "require" has its own cache).
+         *
+         * @type {NodeRequireFunction}
+         */
+        // TODO: This doesn't support macros in sub-directories
+        globals.require = createRequireFromPath(
+            (templates && templates.macroDirectory) || `${__dirname}/../macros`
+        );
 
         this.prototypeEnvironment = freeze(globals);
     }

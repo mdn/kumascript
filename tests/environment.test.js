@@ -30,7 +30,6 @@ const expectedObjects = [
 
 const expectedFunctions = [
     'require',
-    'Require',
     'template',
 
     'kuma.htmlEscape',
