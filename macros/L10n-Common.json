@@ -8,7 +8,8 @@
         "pt-BR": "A documentação sobre isto ainda não foi escrita; por favor considere contribuir!",
         "ru"   : "Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!",
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
-        "ja"   : "この項目についての文書はまだ書かれていません。書いてみませんか？"
+        "ja"   : "この項目についての文書はまだ書かれていません。書いてみませんか？",
+        "uk"   : "Документація про це ще не написана; будь ласка, залучайтесь!"
     },
 
     "Methods": {
@@ -22,7 +23,8 @@
         "zh-CN": "方法",
         "pl"   : "Metody",
         "ca"   : "Mètodes",
-        "ja"   : "メソッド"
+        "ja"   : "メソッド",
+        "uk"   : "Методи"
     },
 
     "Properties": {
@@ -36,7 +38,8 @@
         "it"   : "Proprietà",
         "pl"   : "Własności",
         "ca"   : "Propietats",
-        "ja"   : "プロパティ"
+        "ja"   : "プロパティ",
+        "uk"   : "Властивості"
     },
 
     "Event_handlers": {
@@ -48,7 +51,8 @@
         "pt-BR": "Handlers de Eventos",
         "zh-TW": "事件處理器",
         "zh-CN": "事件句柄",
-        "ru"   : "Обработчики событий"
+        "ru"   : "Обработчики событий",
+        "uk"   : "Обробники подій"
     },
 
     "Constructor": {
@@ -60,7 +64,8 @@
         "it"   : "Costruttore",
         "ca"   : "Constructor",
         "ja"   : "コンストラクター",
-        "ru"   : "Конструктор"
+        "ru"   : "Конструктор",
+        "uk"   : "Конструктор"
     },
 
     "Inheritance": {
@@ -72,7 +77,8 @@
         "ru"   : "Наследование:",
         "zh-CN": "继承",
         "ca"   : "Herència",
-        "ja"   : "継承"
+        "ja"   : "継承",
+        "uk"   : "Наслідування"
     },
 
     "Implemented_by": {
@@ -83,7 +89,8 @@
         "fr"   : "Implémenté par&nbsp;:",
         "it"   : "Implementato da:",
         "ca"   : "Implementat per",
-        "ru"   : "Выполняется:"
+        "ru"   : "Выполняется:",
+        "uk"   : "Реалізовано:"
     },
 
     "Related_pages": {
@@ -95,7 +102,8 @@
         "it"   : "Pagine correlate du $1",
         "ca"   : "Pàgines similars a $1",
         "ru"   : "Похожие страницы для $1",
-        "ja"   : "$1 に関連するページ"
+        "ja"   : "$1 に関連するページ",
+        "uk"   : "Пов'язані сторінки для $1"
     },
 
     "Related_pages_wo_group": {
@@ -107,7 +115,8 @@
         "it"   : "Pagine correlate:",
         "ca"   : "Pàgines similars",
         "ru"   : "Похожие страницы:",
-        "ja"   : "関連するページ"
+        "ja"   : "関連するページ",
+        "uk"   : "Пов'язані сторінки:"
     },
 
     "Reference": {
@@ -121,7 +130,8 @@
         "zh-CN": "参考",
         "pl"   : "Referencje",
         "ca"   : "Referència",
-        "ru"   : "Руководство"
+        "ru"   : "Руководство",
+        "uk"   : "Довідка"
     },
 
     "section": {
@@ -130,7 +140,8 @@
         "fr"   : "section",
         "pt-BR": "sessão",
         "ru"   : "секция",
-        "ja"   : "セクション"
+        "ja"   : "セクション",
+        "uk"   : "розділ"
     },
 
     "[Translate]": {
@@ -142,7 +153,8 @@
         "zh-CN": "[我来译!]",
         "ca"   : "[Traduir]",
         "ru"   : "[Перевести]",
-        "ja"   : "[翻訳する]"
+        "ja"   : "[翻訳する]",
+        "uk"   : "[Перекласти]"
 
     },
 
@@ -155,7 +167,8 @@
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
         "ca" : "Els nostres voluntaris encara no han traduït aquest article al Català. Uneix-te a nosaltres i ajuda-ns a acabar la feina!",
         "ru" : "Наши волонтёры ещё не перевели данную статью на Русский. Присоединяйтесь к нам и помогите закончить эту работу!",
-        "ja" : "まだボランティアによって日本語に翻訳されていない記事です。MDNに参加して、翻訳してみませんか？"
+        "ja" : "まだボランティアによって日本語に翻訳されていない記事です。MDNに参加して、翻訳してみませんか？",
+        "uk" : "Наші волонтери ще не переклали цю статтю українською. Приєднуйтесь та допоможіть нам це зробити!"
     },
 
     "Guides": {
@@ -165,7 +178,8 @@
         "fr"   : "Guides",
         "pt-BR": "Guias",
         "ru"   : "Руководства",
-        "ja"   : "ガイド"
+        "ja"   : "ガイド",
+        "uk"   : "Посібники"
     },
 
     "Events": {
@@ -175,7 +189,8 @@
         "fr"   : "Événements",
         "pt-BR": "Eventos",
         "ru"   : "События",
-        "ja"   : "イベント"
+        "ja"   : "イベント",
+        "uk"   : "Події"
     },
 
     "Interfaces": {
@@ -185,7 +200,8 @@
         "fr"   : "Interfaces",
         "pt-BR": "Interfaces",
         "ru"   : "Интерфейсы",
-        "ja"   : "インターフェイス"
+        "ja"   : "インターフェイス",
+        "uk"   : "Інтерфейси"
     },
 
     "listSeparator": {
@@ -195,13 +211,15 @@
         "fr"   : ", ",
         "ja"   : " 、 ",
         "pt-BR": ", ",
-        "ru"   : ", "
+        "ru"   : ", ",
+        "uk"   : ", "
     },
 
     "MissingPage": {
         "en-US": "[Page not yet written]",
         "de"   : "[Seite noch nicht geschrieben]",
         "fr"   : "[Page qui reste à écrire]",
-        "pt-BR": "[Página ainda não foi escrita]"
+        "pt-BR": "[Página ainda não foi escrita]",
+        "uk"   : "[Сторінка ще не написана]"
     }
 }
