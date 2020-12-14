@@ -1,0 +1,642 @@
+[
+  {
+    "url": "/en-US/docs/Glossary/404",
+    "title": "404",
+    "summary": "A 404 is a Standard Response Code meaning that the <a href=\"/en-US/docs/Glossary/Server\" class=\"glossaryLink\" title=\"server: A server is software or hardware offering a service to a user, usually referred to as client.  A hardware server is a shared computer on a network, usually powerful and housed in a data center.  A software server (often running on a hardware server) is a program that provides services to client programs or a user interface to human clients.\">server</a> cannot find the requested resource.",
+    "translations": [
+      {
+        "url": "/bg/docs/%D0%A0%D0%B5%D1%87%D0%BD%D0%B8%D0%BA/404",
+        "title": "404",
+        "summary": "404 е стандартизиран код за отговор (Standard Response Code), който означава, че <a href=\"/bg/docs/%D0%A0%D0%B5%D1%87%D0%BD%D0%B8%D0%BA/Server\" class=\"glossaryLink\" title=\"сървърът: Хардуерният сървър представлява компютър в мрежа, който предоставя услуги на други компютри – клиенти. Софтуерният сървър е програма, която предоставя услуги на клиентски програми.\">сървърът</a> не може да открие заявения ресурс (най-често страница или файл)."
+      },
+      {
+        "url": "/de/docs/Glossary/404",
+        "title": "404",
+        "summary": "404 ist ein Standard-Antwort-Code, der bedeutet, dass der <a href=\"/de/docs/Glossary/Server\" class=\"glossaryLink\" title=\"Server: Ein Hardware-Server ist ein in einem Netzwerk freigegebener Computer der Clients Dienste zur Verfügung stellt. Ein Software-Server ist ein Programm, das Client-Programmen Dienste bietet.\">Server</a> die angeforderte Ressource nicht finden kann."
+      },
+      {
+        "url": "/es/docs/Glossary/404",
+        "title": "404",
+        "summary": "Una respuesta 404 es una respuesta estándar que significa que el <a href=\"/en-US/docs/Glossary/Server\" class=\"glossaryLink\" title=\"server: A hardware server is a shared computer on a network that provides services to clients.  A software server is a program that provides services to client programs.\">server</a> no puede encontrar el recursos solicitado."
+      },
+      {
+        "url": "/fr/docs/Glossaire/404",
+        "title": "404",
+        "summary": "Une erreur 404 est un code de réponse standard indiquant que la ressource demandée ne peut être trouvée par le <a href=\"/fr/docs/Glossaire/Serveur\" class=\"glossaryLink\" title=\"serveur : Un serveur matériel est un ordinateur partagé sur un réseau qui fournit des services à des clients. Un serveur logiciel est un programme qui fournit des services à des programmes clients.\">serveur</a>."
+      },
+      {
+        "url": "/id/docs/Glossary/404",
+        "title": "404",
+        "summary": "404 merupakan Standard Kode Respon yang berarti bahwa <a href=\"/en-US/docs/Glossary/Server\" class=\"glossaryLink\" title=\"server: A hardware server is a shared computer on a network that provides services to clients.  A software server is a program that provides services to client programs.\">server</a> tidak dapat menemukan resource yang diminta."
+      },
+      {
+        "url": "/ja/docs/Glossary/404",
+        "title": "404",
+        "summary": "404とは、標準的なレスポンスコードの1つで、<a href=\"/ja/docs/Glossary/Server\" class=\"glossaryLink\" title=\"server: ハードウェアとしてのサーバは、クライアントにサービスを提供する、ネットワーク上で共有されるコンピュータです。ソフトウェアとしてのサーバは、クライアントプログラムにサービスを提供するプログラムです。\">server</a>に必要なリソース(ウェブページや画像などのファイル)が見つからなかったことを表します。"
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/404",
+        "title": "404",
+        "summary": "O 404 é um código de resposta padrão que significa que o <a href=\"/pt-BR/docs/Glossario/Servidor\" class=\"glossaryLink\" title=\"server: Um servidor hardware é um computador compartilhado em uma rede que provê serviços a clientes. Um servidor software é um programa que provê serviços a programas clientes.\">server</a> não consegue encontrar o recurso solicitado."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/404",
+        "title": "404",
+        "summary": ""
+      },
+      {
+        "url": "/sv-SE/docs/Glossary/404",
+        "title": "404",
+        "summary": "404 är en standardsvarskod som betyder att aktuell <a href=\"/en-US/docs/Glossary/Server\" class=\"glossaryLink\" title=\"server: A hardware server is a shared computer on a network that provides services to clients.  A software server is a program that provides services to client programs.\">server</a> inte kan hitta den efterfrågade resursen."
+      },
+      {
+        "url": "/uk/docs/Glossary/404",
+        "title": "404",
+        "summary": "404 – Стандартний Код Відповіді, що означає що <a href=\"/uk/docs/Glossary/Server\" class=\"glossaryLink\" title=\"сервер: Апаратний сервер являє собою загальний компʼютер в мережі, який надає сервіси клієнтам. Сервер, в програмному забезпеченні – програма, яка надає сервіси програмам-клієнтам.\">сервер</a> не в змозі знайти запитуваний ресурс."
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/404",
+        "title": "404",
+        "summary": "404 是一个标准的响应代码，代表<a href=\"/en-US/docs/Glossary/Server\" class=\"glossaryLink\" title=\"服务器: A hardware server is a shared computer on a network that provides services to clients.  A software server is a program that provides services to client programs.\">服务器</a>无法找到请求的资源。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/404",
+        "title": "404",
+        "summary": "Editorial review completed."
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/502",
+    "title": "502",
+    "summary": "An <a href=\"/en-US/docs/Glossary/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) is the basic protocol that enables file transfer on the Web. HTTP is textual (all communication is done in plain text) and stateless (no communication is aware of previous communications).\">HTTP</a> error code meaning \"Bad Gateway\".",
+    "translations": [
+      {
+        "url": "/de/docs/Glossary/502",
+        "title": "502",
+        "summary": "502 ist ein <a href=\"/de/docs/Glossary/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) ist das Standard Protokoll, dass es erm&#xF6;glicht, Dateien &#xFC;ber das Web zu &#xFC;bertragen. HTTP ist textlich (die gesamte Kouumunikation geschieht in einfachem Text) und zustandslos (Informationen aus vorheriger Kommunikation gehen verloren).\">HTTP</a>-Fehlercode, der \"Bad Gateway\", <em>fehlerhaftes Gateway</em>, bedeutet."
+      },
+      {
+        "url": "/es/docs/Glossary/502",
+        "title": "502",
+        "summary": "Un código código de error  <a href=\"/en-US/docs/Glossary/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) is the basic protocol that enables file transfer on the Web. HTTP is textual (all communication is done in plain text) and stateless (no communication is aware of previous communications).\">HTTP</a> que significa \"Bad Gateway\" (Pasarela incorrecta)."
+      },
+      {
+        "url": "/fr/docs/Glossaire/502",
+        "title": "502",
+        "summary": "Un <a href=\"/fr/docs/Glossaire/Serveur\" class=\"glossaryLink\" title=\"serveur&#xA0;: Un serveur mat&#xE9;riel est un ordinateur partag&#xE9; sur un r&#xE9;seau qui fournit des services &#xE0; des clients. Un serveur logiciel est un programme qui fournit des services &#xE0; des programmes clients.\">serveur</a> peut agir en tant que passerelle ou proxy (intermédiaire) entre un client (comme votre navigateur internet) et un serveur distant. Quand vous faites une requête pour accéder à une <a href=\"/fr/docs/Glossaire/URL\" class=\"glossaryLink\" title=\"URL&#xA0;: Une&#xA0;URL (Uniform Resource Locator) est une cha&#xEE;ne de caract&#xE8;res indiquant o&#xF9; une ressource peut &#xEA;tre trouv&#xE9;e sur Internet.\">URL</a>, le serveur passerelle va relayer votre demande au serveur distant. Le code erreur \"502\" signifie que le serveur distant a retourné une réponse invalide."
+      },
+      {
+        "url": "/ja/docs/Glossary/502",
+        "title": "502",
+        "summary": "<a href=\"/ja/docs/Glossary/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol&#x3001;&#x30CF;&#x30A4;&#x30D1;&#x30FC;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x8EE2;&#x9001;&#x30D7;&#x30ED;&#x30C8;&#x30B3;&#x30EB;) &#x306F; Web &#x304B;&#x3089;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x8EE2;&#x9001;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x53EF;&#x80FD;&#x306B;&#x3059;&#x308B;&#x57FA;&#x672C;&#x7684;&#x306A;&#x30D7;&#x30ED;&#x30C8;&#x30B3;&#x30EB;&#x3067;&#x3059;&#x3002; HTTP &#x306F;&#x5168;&#x3066;&#x306E;&#x901A;&#x4FE1;&#x304C;&#x30D7;&#x30EC;&#x30FC;&#x30F3;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x3067;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x3001;&#x305D;&#x3057;&#x3066;&#x30B9;&#x30C6;&#x30FC;&#x30C8;&#x30EC;&#x30B9;&#x3001;&#x3064;&#x307E;&#x308A;&#x524D;&#x306E;&#x901A;&#x4FE1;&#x3092;&#x6C17;&#x306B;&#x3057;&#x306A;&#x3044;&#x901A;&#x4FE1;&#x3067;&#x3059;&#x3002;\">HTTP</a> のエラーコードで \"Bad Gateway\" という意味です。"
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/502",
+        "title": "502",
+        "summary": "Um erro <a href=\"/pt-BR/docs/Glossario/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) &#xE9; o protocolo b&#xE1;sico que habilita a transfer&#xEA;ncia de arquivos na Web. HTTP &#xE9; textual (todas as comunica&#xE7;&#xF5;es s&#xE3;o feitas em texto simples) e sem estado (nenhuma comunica&#xE7;&#xE3;o est&#xE1; ciente de comunica&#xE7;&#xF5;es anteriores).\">HTTP</a>  que significa \"Bad Gateway\"."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/502",
+        "title": "Код ошибки 502",
+        "summary": "Код ошибки в протоколе <a href=\"/ru/docs/&#x421;&#x43B;&#x43E;&#x432;&#x430;&#x440;&#x44C;/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) - &#x44D;&#x442;&#x43E; &#x43E;&#x441;&#x43D;&#x43E;&#x432;&#x43D;&#x43E;&#x439; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B; &#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x447;&#x438; &#x434;&#x430;&#x43D;&#x43D;&#x44B;&#x445;, &#x43A;&#x43E;&#x442;&#x43E;&#x440;&#x44B;&#x439; &#x43F;&#x43E;&#x437;&#x432;&#x43E;&#x43B;&#x44F;&#x435;&#x442;&#xA0;&#x43F;&#x435;&#x440;&#x435;&#x434;&#x430;&#x432;&#x430;&#x442;&#x44C; &#x444;&#x430;&#x439;&#x43B;&#x44B; &#x432;&#xA0;Web. HTTP &#x44F;&#x432;&#x43B;&#x44F;&#x435;&#x442;&#x441;&#x44F; &#x442;&#x435;&#x43A;&#x441;&#x442;&#x43E;&#x432;&#x44B;&#x43C; &#x43F;&#x440;&#x43E;&#x442;&#x43E;&#x43A;&#x43E;&#x43B;&#x43E;&#x43C; (&#x432;&#x441;&#x435; &#x43A;&#x43E;&#x43C;&#x43C;&#x443;&#x43D;&#x438;&#x43A;&#x430;&#x446;&#x438;&#x438; &#x441;&#x43E;&#x432;&#x435;&#x440;&#x448;&#x430;&#x44E;&#x442;&#x441;&#x44F; &#x432; &#x444;&#x43E;&#x440;&#x43C;&#x430;&#x442;&#x435; plain-&#x442;&#x435;&#x43A;&#x441;&#x442;&#x430; (&#x43F;&#x440;&#x43E;&#x441;&#x442;&#x43E;&#x433;&#x43E; &#x442;&#x435;&#x43A;&#x441;&#x442;&#x430;)) &#x438; &#x43D;&#x435; &#x438;&#x43C;&#x435;&#x435;&#x442; &#x441;&#x43E;&#x441;&#x442;&#x43E;&#x44F;&#x43D;&#x438;&#x44F; (&#x442;&#x435;&#x43A;&#x443;&#x449;&#x435;&#x43C;&#x443; &#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x435;&#x43D;&#x438;&#x44E; &#x43D;&#x438;&#x447;&#x435;&#x433;&#x43E; &#x43D;&#x435; &#x438;&#x437;&#x432;&#x435;&#x441;&#x442;&#x43D;&#x43E; &#x43E;&#xA0;&#x43F;&#x440;&#x435;&#x434;&#x44B;&#x434;&#x443;&#x449;&#x435;&#x43C; &#x441;&#x43E;&#x435;&#x434;&#x438;&#x43D;&#x435;&#x43D;&#x438;&#x438;).\">HTTP</a>, означающий \"Ошибка шлюза\"."
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/502",
+        "title": "502",
+        "summary": "表示“网关错误”的 <a href=\"/en-US/docs/Glossary/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) is the basic protocol that enables file transfer on the Web. HTTP is textual (all communication is done in plain text) and stateless (no communication is aware of previous communications).\">HTTP</a> 错误码。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/502",
+        "title": "502",
+        "summary": "這是一個<a href=\"/en-US/docs/Glossary/HTTP\" class=\"glossaryLink\" title=\"HTTP: HTTP (HyperText Transfer Protocol) is the basic protocol that enables file transfer on the Web. HTTP is textual (all communication is done in plain text) and stateless (no communication is aware of previous communications).\">HTTP</a> 錯誤代碼，表示“網關錯誤”。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/AJAX",
+    "title": "AJAX",
+    "summary": "Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> (<strong>AJAX</strong>) is a programming practice of building more complex, dynamic webpages using a technology known as <a href=\"/en-US/docs/Glossary/XHR_(XMLHttpRequest)\" class=\"glossaryLink\" title=\"XMLHttpRequest: XMLHttpRequest (XHR) is a JavaScript API to create AJAX requests. Its methods provide the ability to send network requests between the browser and a server.\">XMLHttpRequest</a>.",
+    "translations": [
+      {
+        "url": "/az/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> - Asinxron <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> və <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, və <code>XMLHttpRequest</code> <a href=\"/az/docs/Glossary/obyekt\" class=\"glossaryLink\" title=\"The definition of that term (obyekt) has not been written yet; please consider contributing it!\">obyekt</a> birləşdirməklə daha mürəkkəb web saytlar yaratmağa imkan verən proqramlaşdırma praktikasıdır.  AJAX sizə səhifəni yenidən yükləmədən onun hər hansı bir hissəsini yeniləməyə imkan verir. AJAX həmçinin asinxron işləməyinizə imkan verir, yani, səhifənin həmin hissəsi yenilənərkən kodunuz işləməyə davam edəcək (sinxron olduqda isə səhifənin həmin hissəsi tam yenilənmədən kodunuz işləyə bilməz)."
+      },
+      {
+        "url": "/ca/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> i <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) és una pràctica de programació de combinar <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, el <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a> i el <a href=\"/ca/docs/Glossary/objecte\" class=\"glossaryLink\" title=\"The definition of that term (objecte) has not been written yet; please consider contributing it!\">objecte</a> XMLHttpRequest per construir pàgines web més complexes. AJAX el que us permet fer és actualitzar parts d'una pàgina web en lloc d'haver de recarregar la pàgina sencera. AJAX també us permet treballar de forma asíncrona, és a dir, el codi continua executant-se mentre que una part de la vostra pàgina web està tractant de recarregar-se (comparada amb la sincrònica, bloquejarà l'execució del vostre codi fins que aquesta part de la vostra pàgina web s'hagi recàrregat)."
+      },
+      {
+        "url": "/de/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "<strong>AJAX</strong> (Asynchronous <a href=\"/de/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) ist eine meist clientseitig genutzte Programmiersprache um dynamische Webseiten zu erzeugen. Mittlerweile wird sie dank Pakten wie Node.js auch immer mehr serverseitig eingesetzt.\">JavaScript</a> And <a href=\"/de/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: Die Erweiterbare Auszeichungssprache (englisch: eXtensible Markup Language, kurz XML) ist eine generische Auszeichnungssprache, die vom W3C spezifiziert wird. Die IT-Industrie verwendet viele Sprachen, die auf XML basieren, zur Datenbeschreibung.\">XML</a>, deutsch etwa \"asynchrones <a href=\"/de/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) ist eine meist clientseitig genutzte Programmiersprache um dynamische Webseiten zu erzeugen. Mittlerweile wird sie dank Pakten wie Node.js auch immer mehr serverseitig eingesetzt.\">JavaScript</a> und <a href=\"/de/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: Die Erweiterbare Auszeichungssprache (englisch: eXtensible Markup Language, kurz XML) ist eine generische Auszeichnungssprache, die vom W3C spezifiziert wird. Die IT-Industrie verwendet viele Sprachen, die auf XML basieren, zur Datenbeschreibung.\">XML</a>\") ist eine Programmierpraxis, die <a href=\"/de/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) ist eine beschreibende Sprache, die die Struktur von Webseiten definiert.\">HTML</a>, <a href=\"/de/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) ist eine deklarative Sprache, die das Aussehen von Webseiten im Browser steuert.\">CSS</a>, <a href=\"/de/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) ist eine meist clientseitig genutzte Programmiersprache um dynamische Webseiten zu erzeugen. Mittlerweile wird sie dank Pakten wie Node.js auch immer mehr serverseitig eingesetzt.\">JavaScript</a>, das <a href=\"/de/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"Die Definition dieses Ausdrucks (DOM) wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!\">DOM</a>, und das <code>XMLHttpRequest</code>–<a href=\"/de/docs/Glossary/Objekt\" class=\"glossaryLink\" title=\"Objekt: Ein Objekt bezieht sich auf eine Datenstruktur welche Daten und Anweisungen beinhaltet. Objekte stellen manchmal Gegenstände aus der echten Welt dar, wie zum Beispiel ein Auto oder eine Karte in einem Rennspiel. JavaScript, Java, C++, Python und Ruby sind Beispiele für  Objektorientierte Programmiersprachen.\">Objekt</a> miteinander kombiniert, um komplexere Webseiten zu erstellen. AJAX erlaubt es, einzelne Inhalte einer Webseite zu aktualisieren, anstatt die gesamte Seite neu laden zu müssen. Außerdem stellt AJAX eine asynchrone Art der Kommunikation dar, was bedeutet, dass Code auch dann ausgeführt wird, wenn Inhalte der Seite nachgeladen werden (im Gegensatz dazu blockiert synchrone Kommunikation den Code, solange die Inhalte laden)."
+      },
+      {
+        "url": "/el/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "Το AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> - Ασύγχρονο <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> και <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) είναι μια προγραμματιστική πρακτική συνδυασμού του <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, του <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, του JavaScript, του <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a> και του αντικειμένου (<a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a>) <code>XMLHttpRequest</code>, ώστε να δημιουργηθούν πιο περίπλοκες ιστοσελίδες. Το AJAX σάς επιτρέπει να ενημερώσετε ορισμένα μέρη της ιστοσελίδας, αντί να χρειαστεί να επαναφορτώσετε ολόκληρη τη σελίδα. Το AJAX σάς επιτρέπει επίσης να εργάζεστε ασύγχρονα, δηλαδή ο κώδικάς σας εξακολουθεί να εκτελείται, ενώ κάποιο μέρος της ιστοσελίδας σας προσπαθεί να φορτωθεί εκ νέου (σε σύγκριση με την συγχρονισμένη εργασία όπου ο κώδικάς σας δεν εκτελείται μέχρι να ολοκληρωθεί η φόρτωση του μέρους της ιστοσελίδας σας)."
+      },
+      {
+        "url": "/es/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (de las siglas en Inglés <strong>A</strong>synchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used to dynamically script webpages on the client side, but it is also often utilized on the server-side, using packages such as Node.js.\">JavaScript</a> <strong>A</strong>nd <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> ) es una práctica de programación que combina <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, el <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, y el <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a> <code>XMLHttpRequest</code> para construir páginas web más complejas. El uso de AJAX permite actualizar partes de la página web en lugar de recargar la página entera. AJAX permite además trabajar de manera asíncrona, lo que significa que el código continúa ejecutándose mientras esa parte de tu página web está intentando recargarse (en comparación, una carga síncrona bloquearía tu código hasta que esa parte de la página web terminara de cargarse)."
+      },
+      {
+        "url": "/fr/docs/Glossaire/AJAX",
+        "title": "AJAX",
+        "summary": "<strong>AJAX</strong> (Asynchronous <a href=\"/fr/docs/Glossaire/JavaScript\" class=\"glossaryLink\" title=\"JavaScript : JavaScript (JS) est un langage de programmation principalement utilisé côté client pour générer des pages web dynamiquement, mais également côté serveur, depuis l'arrivée de Node JS.\">JavaScript</a> And <a href=\"/fr/docs/Glossaire/XML\" class=\"glossaryLink\" title=\"XML : eXtensible Markup Language (XML) est un langage de balisage générique définit par le W3C. Le secteur IT utilise de nombreux langages basés sur XML comme langages de description de données.\">XML</a>) est une pratique de programmation consistant à construire des pages Web plus complexes et dynamiques en utilisant une technologie connue comme <a href=\"/fr/docs/Glossaire/XHR_(XMLHttpRequest)\" class=\"glossaryLink\" title=\"XMLHttpRequest : XMLHttpRequest (XHR) est une API JavaScript pour créer des requêtes AJAX. Ses méthodes permettent d'envoyer des demandes de réseau entre le navigateur et un serveur.\">XMLHttpRequest</a>."
+      },
+      {
+        "url": "/id/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> dan <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) merupakan praktik pemrograman yang menggabungkan <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, dan <code>XMLHttpRequest</code> <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a> untuk membangun halaman web yang lebih kompleks. Yang bisa Anda lakukan dengan AJAX yaitu memungkinkan Anda untuk memperbarui bagian dari halaman tanpa harus me-<em>reload</em> keseluruhan halaman. AJAX juga dapat bekerja secara <em>asynchronous</em>, yang berarti kode anda terus berjalan ketika bagian halaman tersebut mencoba untuk memuat kembali konten (dibandingkan secara cara kerja <em>synchronous,</em> di mana kode akan diblokir dari saat berjalan hingga halaman telah selesai dimuat)."
+      },
+      {
+        "url": "/it/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) è una pratica di programmazione che combina <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, il <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, e l'<a href=\"/it/docs/Glossary/oggetto\" class=\"glossaryLink\" title=\"The definition of that term (oggetto) has not been written yet; please consider contributing it!\">oggetto</a> <code>XMLHttpRequest</code> per costruire pagine web complesse. AJAX permette di aggiornare singole parti di una pagina, invece di doverla ricaricare completamente. Inoltre consente di lavorare in maniera asincrona: ciò significa che il tuo codice continua ad essere eseguito anche durante l'aggiornamento di quella parte della pagina (al contrario di un'esecuzione sincrona, che blocca il tuo codice finchè l'aggiornamento non è stato completato)"
+      },
+      {
+        "url": "/ja/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": ""
+      },
+      {
+        "url": "/kab/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> akked <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) d tasemrest n usihel yesdukulen <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, d <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, akked <code>XMLHttpRequest</code> <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a> akken ad nebnu ugar n isebtar web imeẓda.  Ayen ixeddem AJAX d aleqqem n kra n isebtar web deg umḍiq n usmiren n usebter meṛṛa. AJAX ad k-yeǧǧ daɣen ad tmahleḍ s wudem aramtawan, ayen yettwaǧǧan tangalt inek ad tetttwaselkem ticki kran n yeḥricen n isebtar inek ttaɛraḍen ad d-alin tikelt-nniḍen (ma yella nquren akken wudem amtawan i yessewḥalen tangalt inek seg uselkem arama yuli-d akk usebter inek)."
+      },
+      {
+        "url": "/ko/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>)는 <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a> 조작, 와 <code>XMLHttpRequest</code> <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a>를 활용한 프로그래밍 방식이다. AJAX는 전체 페이지가 다시 로드되지 않고 일부분만 업데이트하는 좀 더 복잡한 웹페이지를 만들 수 있게 해준다. 또한 AJAX를 사용하면 웹페이지 일부가 리로드 되는 동안에도 코드가 계속 실행되어 비동기식으로 작업할 수 있다.  (동기적으로 움직이는 코드와 비교하자면 웹페이지가 로딩이 끝날 때 까지 당신의 코드는 움직이지 않습니다.)"
+      },
+      {
+        "url": "/ms/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) adalah praktis pengaturcaraan yang menggabungkan <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, dan <code>XMLHttpRequest</code> <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a> bagi membina laman-laman web yang lebih kompleks. AJAX membenarkan anda untuk mengemas kini hanya sebahagian daripada sebuah laman web berbanding perlu memuat semula keseluruhan muka. AJAX juga membenarkan anda bekerja secara asinkroni, bermaksud kod anda terus berjalan sementara sebahagian lain laman web anda masih cuba dimuat semula (berbanding secara sinkroni yang menghalang kod anda dari terus berjalan sehingga sebahagian lain laman web anda selesai dimuat semula)."
+      },
+      {
+        "url": "/nl/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) is een progameertaal waarbij <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, en het <code>XMLHttpRequest</code>-<a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a> worden gecombineerd om complexere webpagina's te bouwen. AJAX maakt het mogelijk om bepaalde delen van een webpagina te vernieuwen (<em>updaten</em>) zonder de gehele pagina te moeten herladen.  Met AJAX is het ook mogelijk om asychroon te werken, dit houdt in dat bij het vernieuwen van een bepaald gedeelte op de website de code van dit gedeelte nog steeds blijft werken (bij synchroon is dit juist andersom: de code van het gedeelte dat wordt vernieuwd stopt met werken todat dat gedeelte klaar is met laden)."
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/AJAX",
+        "title": "AJAX",
+        "summary": "Editorial review completed."
+      },
+      {
+        "url": "/ro/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used to dynamically script webpages on the client side, but it is also often utilized on the server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> (<strong>AJAX</strong>) este o practică de programare pentru a construi pagini web mai complexe și dinamice, utilizând o tehnologie cunoscută sub numele de <a href=\"/en-US/docs/Glossary/XHR_(XMLHttpRequest)\" class=\"glossaryLink\" title=\"XMLHttpRequest: XMLHttpRequest (XHR) is a JavaScript API to create AJAX requests. Its methods provide the ability to send network requests between the browser and a server.\">XMLHttpRequest</a>."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/AJAX",
+        "title": "AJAX",
+        "summary": "<strong>AJAX</strong> (Asynchronous JavaScript and XML - \"Асинхронный <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) это язык программирования главным образом используемый web browsers для динамичного сценарирования веб страниц. Он также может быть использован на стороне server для выполнения любых действий.\">JavaScript</a> и <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) - расширяемый язык разметки, рекомендованный Консорциумом Всемирной паутины (W3C). В отрасли информационных технологий (ИТ) используется множество языков на основе XML в качестве языков описания данных.\">XML</a>\")  - практика программирования, которая комбинирует <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/HTML\" class=\"glossaryLink\" title='HTML: В 1990 году, как часть видения о Вебе, Тим Бернс-Ли определил понятие гипертекста, которое он оформил с помощью разметки, главным образом основанной на приложении SGML. Группа IETF начала формировать спецификацию HTML в 1993, и после нескольких набросков выпустила версию 2.0 в 1995. В 1994 Бернс-Ли основал W3C для развития Веба. В 1996, W3C взяло на себя работу над HTML и опубликовало \"HTML 3.2 Recommendation\" годом позже. HTML 4.0 был выпущен в 1999 и стал стандартом ISO в 2000.'>HTML</a>, <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets, или каскадные таблицы стилей) - это декларативный язык, который отвечает за то, как страницы выглядят в веб браузере. \">CSS</a>, <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) это язык программирования главным образом используемый web browsers для динамичного сценарирования веб страниц. Он также может быть использован на стороне server для выполнения любых действий.\">JavaScript</a>, <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/DOM\" class=\"glossaryLink\" title=\"DOM: DOM (Document Object Model) это API который представляет и взаимодействует со всеми HTML или XML документами. DOM это модель документа загруженная в browser и представляющая документ как узел дерева, где каждый узел представляет часть (e.g. an element документа, строку текста, или комментарий).\">DOM</a> и <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Object\" class=\"glossaryLink\" title=\"объект: Объект относится к структуре данных, содержит в себе данные и инструкции по работе с ними. Объекты могут обозначать реальные вещи, например: машину, яблоко, человека или даже карту к сокровищам с ее координатами и инструкциями о том, как добраться до этих сокровищ.\n \n JavaScript, Java, C++, Python, и Ruby это языки программирования которые относятся к объектно ориентированным языкам (ООП)\">объект</a> <code>XMLHttpRequest</code> для разработки более сложных веб-страниц. AJAX просто позволяет обновлять части веб-страницы, вместо перезагрузки всей страницы. AJAX также позволяет работать асинхронно. Это значит, что код продолжает выполняться, пока часть веб-страницы пытается обновиться (по сравнению с синхронной работой, которая будет блокировать выполнение кода, пока эта часть страницы не перезагрузится полностью)."
+      },
+      {
+        "url": "/sr/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) je praksa kombinovanja  <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript,  <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, i <code>XMLHttpRequest</code> <a href=\"/sr/docs/Glossary/objekta\" class=\"glossaryLink\" title=\"The definition of that term (objekta) has not been written yet; please consider contributing it!\">objekta</a>  u cilju pravljenja kompleksnih web stranica.  Ono što vam AJAX omogućava je da izvršite izmenu na stranici, a da ne morate da je učitate ponovo. AJAX vam takođe omogućava da radite asinhrono, što znači da se vaš kod izvršava dok se  taj deo vaše web stranice osvežava, odnosno učitava (kod sinhronog rada vaš kod se  blokira dok se taj deo web stranice ne učita)"
+      },
+      {
+        "url": "/tr/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asenkron <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> ve <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, JavaScript, ve <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM'u: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM'u</a> <code>XMLHttpRequest</code> <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"nesnesi: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">nesnesi</a> ile kombine ederek daha kompleks web sayfaları oluşturmaya yarayan bir programlama pratiğidir. AJAX sayesinde bir web sayfasının ilgilendiğimiz bölümlerini, bütün sayfayı yenilemek zorunda kalmaksızın, güncelleyebiliriz. AJAX ayrıca asenkron çalışabilmemizi sağlar; güncellemenin gerçekleştiği sırada diğer kodlar çalışmaya devam eder — aksi halde güncelleme bitene kadar kod akışı tıkanırdı (senkron)."
+      },
+      {
+        "url": "/uk/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": ""
+      },
+      {
+        "url": "/vi/docs/Tu-dien-thuat-ngu/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX (Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used to dynamically script webpages on the client side, but it is also often utilized on the server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>) là một kỹ thuật lập trình kết hợp <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>, <a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>, <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used to dynamically script webpages on the client side, but it is also often utilized on the server-side, using packages such as Node.js.\">JavaScript</a>, <a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>, và đối tượng XMLHttpRequest để xây dựng các trang web phức tạp hơn. Điều mà AJAX cho phép bạn thực hiện chỉ là cập nhật một số thành phần của trang web thay vì phải tải lại toàn bộ trang. AJAX cũng cho phép bạn làm việc bất đồng bộ, có nghĩa là mã nguồn của bạn tiếp tục chạy trong khi những thành phần đó sẽ cố gắng tải lại (còn đồng bộ sẽ không cho mã nguồn của bạn chạy cho đến khi các thành phần của trang web tải lại xong)."
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "<strong>AJAX</strong>（Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used to dynamically script webpages on the client side, but it is also often utilized on the server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> ，异步  <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used to dynamically script webpages on the client side, but it is also often utilized on the server-side, using packages such as Node.js.\">JavaScript</a> 和 <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a> ）是一种使用 <a href=\"/en-US/docs/Glossary/XHR_(XMLHttpRequest)\" class=\"glossaryLink\" title=\"XMLHttpRequest: XMLHttpRequest (XHR) is a JavaScript API to create AJAX requests. Its methods provide the ability to send network requests between the browser and a server.\">XMLHttpRequest</a> 技术构建更为复杂动态的网页的编程实践。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/AJAX",
+        "title": "AJAX",
+        "summary": "AJAX（Asynchronous <a href=\"/en-US/docs/Glossary/JavaScript\" class=\"glossaryLink\" title=\"JavaScript: JavaScript (JS) is a programming language mostly used client-side to dynamically script webpages, but often also server-side, using packages such as Node.js.\">JavaScript</a> And <a href=\"/en-US/docs/Glossary/XML\" class=\"glossaryLink\" title=\"XML: eXtensible Markup Language (XML) is a generic markup language specified by the W3C. The information technology (IT) industry uses many languages based on XML as data-description languages.\">XML</a>、非同步 JavaScript 與 XML）是結合了 <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a>、<a href=\"/en-US/docs/Glossary/CSS\" class=\"glossaryLink\" title=\"CSS: CSS (Cascading Style Sheets) is a declarative language that controls how webpages look in the browser.\">CSS</a>、JavaScript 、<a href=\"/en-US/docs/Glossary/DOM\" class=\"glossaryLink\" title=\"DOM: The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document. The DOM is a document model loaded in the browser and representing the document as a node tree, where each node represents part of the document (e.g. an element, text string, or comment).\">DOM</a>、還有 <code>XMLHttpRequest</code> <a href=\"/en-US/docs/Glossary/object\" class=\"glossaryLink\" title=\"object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.\">object</a>，以建立更複雜的網頁程式實做。AJAX 可以允許網頁只更新需要的部分，而無須重新載入整個頁面。另外，AJAX 也能讓你非同步工作，意思是說程式碼能在網頁試圖重新載入時持續運行（與同步（synchronously）相對比──它會在運行的時候封鎖程式碼運作，直到網頁重新載入成功為止）。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/API",
+    "title": "API",
+    "summary": "An API (Application Programming Interface) is a set of features and rules that exist inside a software program (the application) enabling interaction with it through software - as opposed to a human user interface. The API can be seen as a simple contract (the interface) between the application offering it and other items, such as third party software or hardware.",
+    "translations": [
+      {
+        "url": "/bn-BD/docs/Glossary/API",
+        "title": "এপিআই (API)",
+        "summary": "একাধিক সফটওয়্যার কম্পোনেন্ট এর মধ্যে যোগাযোগের সুবিধা এবং এ সংক্রান্ত নিয়মগুলিকে API (Application Programming Interface) বলা হয়ে থাকে। ওয়েব ডেভেলপমেন্টের ক্ষেত্রে, API বলতে সাধারণত ওয়েবের কন্টেন্টের সঙ্গে যোগাযোগ / কাজ (ইন্টারঅ্যাক্ট) করার জন্য একগুচ্ছ <a href=\"/en-US/docs/Glossary/method\" class=\"glossaryLink\" title=\"methods: A method is a function which is a property of an object. There are two kind of methods: Instance Methods which are built-in tasks performed by an object instance, or Static Methods which are tasks that can be performed without the need of an object instance.\">methods</a>, <a href=\"/en-US/docs/Glossary/property\" class=\"glossaryLink\" title=\"properties: The term property can have several meanings depending on the context. It may refer to:\">properties</a>, ইভেন্ট, এবং <a href=\"/en-US/docs/Glossary/URL\" class=\"glossaryLink\" title=\"URLs: Uniform Resource Locator (URL) is a text string specifying where a resource can be found on the Internet.\">URLs</a> কে বুঝানো হয়।"
+      },
+      {
+        "url": "/ca/docs/Glossary/API",
+        "title": "API",
+        "summary": "Un API (Application Programming Interface) és un conjunt de característiques i normes que existeixen dins d'un programa de programari que permet la interacció entre el programari i altres elements, com un altre programari o maquinari."
+      },
+      {
+        "url": "/de/docs/Glossary/API",
+        "title": "API",
+        "summary": "Eine API (Application Programming Interface) ist eine Menge von Funktionen und Regeln, die innerhalb eines Softwareprogrammes die Interaktion zwischen der Software und anderen Elementen, wie anderer Software oder Hardware, ermöglicht."
+      },
+      {
+        "url": "/es/docs/Glossary/API",
+        "title": "API",
+        "summary": "Una <strong><dfn>Interfaz de Programación de Aplicaciones</dfn></strong> (API, por sus siglas en inglés) define un conjunto de directivas que pueden ser usadas para tener una pieza de software funcionando con algunas otras."
+      },
+      {
+        "url": "/fr/docs/Glossaire/API",
+        "title": "API",
+        "summary": "Une API (Application Programming Interface) est un ensemble de fonctionnalités et de régles existant dans un programme logiciel et permettant l'interaction entre le logiciel et d'autres éléments comme d'autres logiciels ou des matériels."
+      },
+      {
+        "url": "/id/docs/Glossary/API",
+        "title": "API",
+        "summary": "Sebuah API (Application Programming Interface) merupakan set dari fitur dan aturan yang memungkinkan interaksi antar software yang menyediakan API dan komponen software lain. DI pengembangan Web, API umumnya disebut standard set <a href=\"/en-US/docs/Glossary/method\" class=\"glossaryLink\" title=\"methods: A method is a function which is a property of an object. There are two kind of methods: Instance Methods which are built-in tasks performed by an object instance, or Static Methods which are tasks that can be performed without the need of an object instance.\">methods</a>, <a href=\"/en-US/docs/Glossary/property\" class=\"glossaryLink\" title=\"properties: The term property can have several meanings depending on the context. It may refer to:\">properties</a>, event, dan <a href=\"/en-US/docs/Glossary/URL\" class=\"glossaryLink\" title=\"URLs: Uniform Resource Locator (URL) is a text string specifying where a resource can be found on the Internet.\">URLs</a> untuk berinteraksi dengan Konten Web."
+      },
+      {
+        "url": "/ja/docs/Glossary/API",
+        "title": "API",
+        "summary": "API (Application Programming Interface) とは、あるソフトウェアが、他のソフトウェアやハードウェア等、外部とやりとりをするために備えている機能や規則の集まりです。"
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/API",
+        "title": "API",
+        "summary": "Uma API (<em>Application Programming Interface</em>) é um conjunto de características e regras existentes em uma aplicação que possibilitam interações com essa através de um software - ao contrário de uma interface de usuário humana. A API pode ser entendida como um simpes contrato entre a aplicação que a fornece e outros itens, como outros componentes do software, ou software de terceiros."
+      },
+      {
+        "url": "/pt-PT/docs/Gloss%C3%A1rio/API",
+        "title": "API",
+        "summary": "Uma API (Interface de Programação de Aplicação) é um conjunto de funcionalidades e regras que permitem a interação entre software, forncendo a API e outros componentes de software. No desenvolvimento da Web, API normalmente significa um conjunto de <a href=\"/en-US/docs/Glossary/method\" class=\"glossaryLink\" title=\"métodos: A method is a function which is a property of an object. There are two kind of methods: Instance Methods which are built-in tasks performed by an object instance, or Static Methods which are tasks that can be performed without the need of an object instance.\">métodos</a>, <a href=\"/en-US/docs/Glossary/property\" class=\"glossaryLink\" title=\"propriedades: The term property can have several meanings depending on the context. It may refer to:\">propriedades</a>, eventos, e <a href=\"/en-US/docs/Glossary/URL\" class=\"glossaryLink\" title=\"URLs: Uniform Resource Locator (URL) is a text string specifying where a resource can be found on the Internet.\">URLs</a> padrões para interagirem com o conteúdo da Web."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/API",
+        "title": "API",
+        "summary": "API (Application Programming Interface - интерфейс программных приложений )   <span class=\"st\">—</span> это установка функций и правил позволяющая взаимодействовать между программным обеспечением, которое предоставляет API и другими программными компонентами. В Веб разработке, под API обычно подразумевают набор стандартных методов, свойств, событий и URL ссылок для взаимодействия с Веб контентом."
+      },
+      {
+        "url": "/uk/docs/Glossary/API",
+        "title": "API",
+        "summary": "<strong>Прикладний програмний інтерфейс</strong> (англ. <em>Application Programming Interface</em>, скорочено <em>API</em>) — це сукупність засобів та правил, що вможливлюють взаємодію між окремими складниками програмного забезпечення або між програмним та апаратним забезпечення."
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/API",
+        "title": "API",
+        "summary": "一个 API（Application Programming Interface，应用编程接口）是软件（应用）中的一系列特性和规则，这些特性和规则允许其他软件与之交互（与用户界面相对）。API 可被视为提供它的应用与其他软硬件之间的一个简单的合约（接口）。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/API",
+        "title": "API",
+        "summary": "一個API (Application Programming Interface)是指存在于軟體程式中為軟體與其他項目，如其他軟體或硬體，實現互動的一系列功能和規則。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/ARIA",
+    "title": "ARIA",
+    "summary": "<strong>ARIA</strong> (<em>Accessible Rich <a href=\"/en-US/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: The Internet is a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols).\">Internet</a> Applications</em>) is a <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> specification for adding semantics and other metadata to <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a> to cater to users of assistive technology.",
+    "translations": [
+      {
+        "url": "/de/docs/Glossary/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA</strong> (<em>Accessible Rich <a href=\"/de/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: Das Internet ist ein weltweites Netzwerk aus Netzwerken, das die Internet-Protokollfamilie (auch bekannt als TCP/IP durch ihre beiden wichtigsten protocols) nutzt.\">Internet</a> Applications</em>) ist eine <a href=\"/de/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: Das World Wide Web Consortium (W3C) ist eine internationale Gruppe, die Regeln und Strukturen für das Web vorgibt und pflegt.\">W3C</a> Spezifikation um <a href=\"/de/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) ist eine beschreibende Sprache, die die Struktur von Webseiten definiert.\">HTML</a> Elemente mit semantischen Informationen oder Metadaten anzureichern, damit die Seite auch für Menschen mit Einschränkungen zugänglich ist."
+      },
+      {
+        "url": "/es/docs/Glossary/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA</strong> (<em>Accessible Rich <a href=\"/en-US/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: The Internet is a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols).\">Internet</a> Applications</em>) es una especificación de la <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> para agregar semantica y otros metadatos a <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a> para ayudar a los usuarios con tecnologia de apoyo."
+      },
+      {
+        "url": "/fr/docs/Glossaire/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA </strong>(<em>Accessible Rich <a href=\"/fr/docs/Glossaire/Internet\" class=\"glossaryLink\" title=\"Internet : Internet est un réseau mondial constitué de réseaux. Ce réseau utilise le protocole Internet aussi nommé TCP/IP d'après ses principaux protocoles.\">Internet</a> Applications</em>) est une spécification technique du <a href=\"/fr/docs/Glossaire/W3C\" class=\"glossaryLink\" title=\"W3C : Le World Wide Web Consortium (W3C) est un organisme international qui maintient les règles en relation avec le Web et les frameworks.\">W3C</a>. ARIA décrit comment ajouter de la sémantique et d'autres métadonnées à du contenu <a href=\"/fr/docs/Glossaire/HTML\" class=\"glossaryLink\" title=\"HTML : HTML (HyperText Markup Language) est un langage descriptif qui définit la structure d'une page web.\">HTML</a> dans le but de répondre aux besoins des technologies d'assistance."
+      },
+      {
+        "url": "/ja/docs/Glossary/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA</strong> (<em>Accessible Rich <a href=\"/ja/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: インターネットは、インターネット・プロトコル群を使用するネットワークの世界的ネットワークです (最も重要な 2 つの プロトコル から、 TCP/IP とも呼ばれています)。\">Internet</a> Applications</em>) は、支援技術の <a href=\"/ja/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: World Wide Web Consortium (W3C)は、Web関係の取り決めや枠組みを整備する国際団体です。\">W3C</a> 仕様で、ユーザーに応じてセマンティクスやその他のメタデータを <a href=\"/ja/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) は、ウェブページ構造を指定する記述言語です。\">HTML</a> へ付加します。"
+      },
+      {
+        "url": "/nl/docs/Glossary/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA</strong> (<em>Accessible Rich <a href=\"/en-US/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: The Internet is a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols).\">Internet</a> Applications</em>) is een specificatie van  <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> voor het toevoegen van semantiek en andere metadata aan <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a> voor gebruikers van technologische hulpmiddelen."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/ARIA",
+        "title": "ARIA",
+        "summary": "<span lang=\"ru\" id=\"result_box\"><span>Например, вы можете добавить атрибут</span></span> <code>role=\"alert\"</code> в <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%A2%D0%B5%D0%B3\" class=\"glossaryLink\" title='тег: В HTML теги используются для создания элементов. Имя HTML элемента - это имя заключенное в угловые скобки, как например &lt;p&gt; для \"абзаца\". Обратите внимание, что концу имени предшествует символ косой черты (слэша), \"&lt;/p&gt;\", и что в пустых элементах закрывающий тег не требуется и не допускается. Если атрибуты не указаны, то для них применяются значения по умолчанию.'>тег</a> <a href=\"/ru/docs/Web/HTML/Element/p\" title=\"HTML-элемент &lt;p&gt; определяет собой абзац текста.\"><code>&lt;p&gt;</code></a>, чтобы оповестить пользователя о том, что информация является важной и зависимой от времени (иначе вы могли бы передать это через цвет текста)."
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA</strong> (<em>Accessible Rich <a href=\"/en-US/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: The Internet is a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols).\">Internet</a> Applications</em>)  是向<a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a> 中添加语义和其他元数据的<a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> 规范，以满足用户的辅助技术的需要。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/ARIA",
+        "title": "ARIA",
+        "summary": "<strong>ARIA</strong>（Accessible Rich <a href=\"/en-US/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: The Internet is a worldwide network of networks that uses the Internet protocol suite (also named TCP/IP from its two most important protocols).\">Internet</a> Applications，可訪問的富網際網路應用程式）是一個 <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> 規範，用已對 <a href=\"/en-US/docs/Glossary/HTML\" class=\"glossaryLink\" title=\"HTML: HTML (HyperText Markup Language) is a descriptive language that specifies webpage structure.\">HTML</a> 添加語義和元數據，以迎合需要輔助技術的用戶。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/ARPA",
+    "title": "ARPA",
+    "summary": "<strong>.arpa </strong>(address and routing parameter area) is a <a href=\"/en-US/docs/Glossary/TLD\" class=\"glossaryLink\" title=\"top-level domain: A TLD (top-level domain) is the most generic domain in the Internet's hierarchical DNS (domain name system). A TLD is the final component of a domain name, for example, &quot;org&quot; in developer.mozilla.org.\">top-level domain</a> used for Internet infrastructure purposes, especially reverse DNS lookup (i.e., find the <a href=\"/en-US/docs/Glossary/domain_name\" class=\"glossaryLink\" title=\"domain name: A domain name is a website's&#xA0;address on the Internet.&#xA0;Domain names are used in URLs&#xA0;to identify to which server belong a specific webpage. The domain name consists of a hierarchial sequence of names (labels) separated by periods (dots) and ending with an&#xA0;extension.\">domain name</a> for a given <a href=\"/en-US/docs/Glossary/IP_address\" class=\"glossaryLink\" title=\"IP address: An IP address is a number assigned to every device connected to a network that uses the Internet protocol.\">IP address</a>).",
+    "translations": [
+      {
+        "url": "/es/docs/Glossary/ARPA",
+        "title": "ARPA",
+        "summary": "<strong>.arpa </strong>(parametros de dirección y enrutamiento) es un <a href=\"/en-US/docs/Glossary/TLD\" class=\"glossaryLink\" title=\"dominio de alto nivel: A TLD (top-level domain) is the most generic domain in the Internet's hierarchical DNS (domain name system). A TLD is the final component of a domain name, for example, &quot;org&quot; in developer.mozilla.org.\">dominio de alto nivel</a> usado para propositos de infraestructura de Internet, especialmente busqueda inversa de DNS (ej., encontrar el <a href=\"/es/docs/Glossary/nombre_de_dominio\" class=\"glossaryLink\" title=\"The definition of that term (nombre de dominio) has not been written yet; please consider contributing it!\">nombre de dominio</a> para una  <a href=\"/es/docs/Glossary/direcci%C3%B3n_IP\" class=\"glossaryLink\" title=\"The definition of that term (dirección IP) has not been written yet; please consider contributing it!\">dirección IP</a>) suministrada."
+      },
+      {
+        "url": "/fr/docs/Glossaire/ARPA",
+        "title": "ARPA",
+        "summary": "<strong>.arpa </strong>(address and routing parameter area) est un <a href=\"/fr/docs/Glossaire/TLD\" class=\"glossaryLink\" title=\"domaine de premier niveau : Un domaine de premier niveau ou TLD (top-level domain) est le domaine le plus générique de toute la hiérarchie DNS (système de noms de domaine) d'Internet. Un TLD est la composante finale d'un nom de domaine, par exemple, le &quot;org&quot; dans developer.mozilla.org.\">domaine de premier niveau</a> utilisé dans des objectifs relatifs à l'infrastructure d'Internet, en particulier des recherches DNS inverses (c'est-à-dire, trouver le <a href=\"/fr/docs/Glossaire/Nom_de_domaine\" class=\"glossaryLink\" title=\"nom de domaine : Un nom de domaine est l'adresse d'un site web sur l'Internet. Les noms de domaine sont utilisés dans les URLs pour identifier le serveur qui héberge une page web particulière. Le nom de domaine consiste en séquence hiérarchique de noms (labels) séparés par des points et terminée par une extension.\">nom de domaine</a> d'une <a href=\"/fr/docs/Glossaire/IP_address\" class=\"glossaryLink\" title=\"adresse IP : Une adresse IP est une série de chiffres assignée à chaque appareil connecté à un réseau qui utilise le protocole Internet.\">adresse IP</a> donnée)."
+      },
+      {
+        "url": "/ja/docs/Glossary/ARPA",
+        "title": "ARPA",
+        "summary": "<strong>.arpa </strong>(address and routing parameter area) はインターネットインフラ関連の目的で使われる<a href=\"/ja/docs/Glossary/TLD\" class=\"glossaryLink\" title=\"この用語 (トップレベルドメイン) の定義はまだ書かれていません。ぜひご寄稿ください！\">トップレベルドメイン</a>です。特にDNS逆引き(<a href=\"/ja/docs/Glossary/IP_address\" class=\"glossaryLink\" title=\"IPアドレス: IP アドレスはネットワークに接続された、インターネットプロトコル(IP) を使うすべての端末に割り当てられる番号です。\">IPアドレス</a>から<a href=\"/ja/docs/Glossary/domain_name\" class=\"glossaryLink\" title=\"ドメイン名: ドメイン名は インターネット 上でのウェブサイトのアドレスです。ドメイン名はURLでサーバーを一意に識別するために使用されています。ドメイン名は、ドットで区切られトップレベルドメインで終わる階層的な名前で構成されています。\">ドメイン名</a>を調べること)のために使われます。"
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/ARPA",
+        "title": "ARPA",
+        "summary": ""
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/ARPA",
+        "title": "ARPA",
+        "summary": "<strong>.arpa </strong>(地址和路由參數區域)是一個<a href=\"/en-US/docs/Glossary/TLD\" class=\"glossaryLink\" title=\"top-level domain: A TLD (top-level domain) is the most generic domain in the Internet's hierarchical DNS (domain name system). A TLD is the final component of a domain name, for example, &quot;org&quot; in developer.mozilla.org.\">top-level domain</a> 用於網際網路基建意圖，特別是反向 DNS 查找 (如：根據給出的 <a href=\"/en-US/docs/Glossary/IP_address\" class=\"glossaryLink\" title=\"IP address: An IP address is a number assigned to every device connected to a network that uses the Internet protocol.\">IP address</a> 查找 <a href=\"/en-US/docs/Glossary/domain_name\" class=\"glossaryLink\" title=\"domain name: A domain name is a website's address on the Internet. Domain names are used in URLs to identify to which server belong a specific webpage. The domain name consists of a hierarchial sequence of names (labels) separated by periods (dots) and ending with an extension.\">domain name</a>)。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/ASCII",
+    "title": "ASCII",
+    "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) is one of the most popular coding method used by computers for converting letters, numbers, punctuation and control codes into digital form. Since 2007, <a href=\"/en-US/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) is the World Wide Web's most common character encoding. Each character is represented by one to four bytes. UTF-8 is backward-compatible with ASCII and can represent any standard Unicode character.\">UTF-8</a> superseded it on the Web.",
+    "translations": [
+      {
+        "url": "/ca/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) és un dels mètodes de codificació més popular utilitzat pels ordinadors per a la conversió de lletres, nombres, codis de puntuació i control en forma digital. Des de 2007, <a href=\"/en-US/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) is the World Wide Web's most common character encoding. Each character is represented by one to four bytes. UTF-8 is backward-compatible with ASCII and can represent any standard Unicode character.\">UTF-8</a> ho ha substituït a la web."
+      },
+      {
+        "url": "/de/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) ist eine der verbreitetsten Kodierungen, die von Computern verwendet wird, um Buchstaben, Zahlen, Interpunktions- und Steuerungszeichen in digitale Form umzuwandeln. Seit 2007 wird es im <a href=\"/de/docs/Glossary/Internet\" class=\"glossaryLink\" title=\"Internet: Das Internet ist ein weltweites Netzwerk aus Netzwerken, das die Internet-Protokollfamilie (auch bekannt als TCP/IP durch ihre beiden wichtigsten protocols) nutzt.\">Internet</a> durch <a href=\"/de/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"Die Definition dieses Ausdrucks (UTF-8) wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!\">UTF-8</a> ersetzt."
+      },
+      {
+        "url": "/es/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) es uno de los métodos de codificación más utilizados por las computadoras para convertir letras, números, signos de puntuación y códigos de control en formato digital. Desde 2007, <a href=\"/en-US/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) is the World Wide Web's most common character encoding. Each character is represented by one to four bytes. UTF-8 is backward-compatible with ASCII and can represent any standard Unicode character.\">UTF-8</a> lo reemplazó en la Web."
+      },
+      {
+        "url": "/fr/docs/Glossaire/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) est l'une des méthodes d'encodage utilisées par les ordinateurs pour convertir les lettres, les nombres, la ponctuation et les codes de contrôle sous forme numérique. Depuis 2007, l'<a href=\"/fr/docs/Glossaire/UTF-8\" class=\"glossaryLink\" title=\"UTF-8 : UTF-8 (UCS Transformation Format 8) est le codage de caractères le plus répandu sur le world wide web. Chaque caractère est représenté par un à quatre octets. UTF-8 est rétro-compatible avec l'ASCII et peut représenter n'importe quel caractère Unicode.\">UTF-8</a> est privilégié sur internet."
+      },
+      {
+        "url": "/ja/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) とは、文字、数字、句読点、および制御コードをデジタル形式に変換するために、コンピュータによって使用される最も一般的な符号化方法の1つです。 2007 年から、ウェブ上では <a href=\"/ja/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) は WWW において最も一般的な文字エンコーディングです。1文字あたり1～4バイトで表します。UTF-8 は ASCII に対して前方互換性を持っており、Unicode 規格内の基本的な文字はすべて表現することができます。\">UTF-8</a> が用いられています。"
+      },
+      {
+        "url": "/nl/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange</em>) is de populairste methode voor computers om letters, nummers, interpunctie en stuurcodes om te zetten naar de digitale vorm. Sinds 2007 is het online vervangen door <a href=\"/en-US/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) is the World Wide Web's most common character encoding. Each character is represented by one to four bytes. UTF-8 is backward-compatible with ASCII and can represent any standard Unicode character.\">UTF-8</a>."
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/ASCII",
+        "title": "ASCII",
+        "summary": "ASCII(Padrão americano de codificação para intercâmbio de informações) é uma dos mais populares métodos de codificação usado <br>\n por computadores para converter letras, números, pontuações e códigos de controle dentro do formato digital. Desde 2007, UTF-8 <br>\n substituiu-o na web."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/ASCII",
+        "title": "ASCII",
+        "summary": "<a href=\"https://ru.wikipedia.org/wiki/ASCII\" title=\"ASCII\">ASCII</a> on Wikipedia"
+      },
+      {
+        "url": "/uk/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<a href=\"https://uk.wikipedia.org/wiki/ASCII\" title=\"ASCII\">ASCII</a>  на Wikipedia"
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (<em>American Standard Code for Information Interchange，美国信息交换标准码</em>) 是计算机中最常用的编码方式，用于将字母，数字，标点符号和控制字符转换为计算机可以理解的数字形式。 从2007年开始逐渐被<a href=\"/en-US/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) is the World Wide Web's most common character encoding. Each character is represented by one to four bytes. UTF-8 is backward-compatible with ASCII and can represent any standard Unicode character.\">UTF-8</a> 代替。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/ASCII",
+        "title": "ASCII",
+        "summary": "<strong>ASCII</strong> (米國信息交換標準碼)是計算機用來轉換字母、數字、符號和控制代碼轉換為數字形式的最流行的編碼方法之一。自 2007 以來, <a href=\"/en-US/docs/Glossary/UTF-8\" class=\"glossaryLink\" title=\"UTF-8: UTF-8 (UCS Transformation Format 8) is the World Wide Web's most common character encoding. Each character is represented by one to four bytes. UTF-8 is backward-compatible with ASCII and can represent any standard Unicode character.\">UTF-8</a> 在網頁上取代了它。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/ATAG",
+    "title": "ATAG",
+    "summary": "ATAG (Authoring Tool <a href=\"/en-US/docs/Glossary/Accessibility\" class=\"glossaryLink\" title=\"Accessibility: Web Accessibility (A11Y) refers to best practices for keeping a website usable despite&#xA0;physical and technical restrictions.&#xA0;Web accessibility is formally defined and discussed at the W3C through the Web Accessibility Initiative (WAI).\">Accessibility</a> Guidelines) is a <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> recommendation for building accessible-authoring tools that produce accessible contents.",
+    "translations": [
+      {
+        "url": "/de/docs/Glossary/ATAG",
+        "title": "ATAG",
+        "summary": "ATAG (Authoring Tool <a href=\"/de/docs/Glossary/Accessibility\" class=\"glossaryLink\" title=\"Die Definition dieses Ausdrucks (Accessibility) wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!\">Accessibility</a> Guidelines) ist eine <a href=\"/de/docs/Glossary/W3C\" class=\"glossaryLink\" title='W3C: Das World Wide Web Consortium (W3C) ist eine internationale Gruppe, die Regeln und Strukturen für das {{Glossary(\"World Wide Web\", \"Web\")}} vorgibt.'>W3C</a>-Empfehlung zum Bau von Publikationswerkzeugen, die Inhalte nach dem Accessibility-Standard herstellen."
+      },
+      {
+        "url": "/es/docs/Glossary/ATAG",
+        "title": "ATAG",
+        "summary": "ATAG (Authoring Tool <a href=\"/en-US/docs/Glossary/Accessibility\" class=\"glossaryLink\" title=\"Accessibility: Web Accessibility (A11Y) refers to best practices for keeping a website usable despite physical and technical restrictions. Web accessibility is formally defined and discussed at the W3C through the Web Accessibility Initiative (WAI).\">Accessibility</a> Guidelines/Pautas de accesibilidad de herramientas de autor) es una recomendación de la <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> para la construcción de herramientas de autor y producir contenido accesible."
+      },
+      {
+        "url": "/fr/docs/Glossaire/ATAG",
+        "title": "ATAG",
+        "summary": "<em>Authoring Tool Accessibility Guidelines</em> (ATAG) est une recommandation <a href=\"/fr/docs/Glossaire/W3C\" class=\"glossaryLink\" title=\"W3C : Le World Wide Web Consortium (W3C) est un organisme international qui maintient les règles en relation avec le Web et les frameworks.\">W3C</a> <span lang=\"fr\" id=\"result_box\"><span>pour construire des outils de création-accessibilité qui produisent des contenus accessibles.</span></span>"
+      },
+      {
+        "url": "/ja/docs/Glossary/ATAG",
+        "title": "ATAG",
+        "summary": "ATAG (Authoring Tool <a href=\"/ja/docs/Glossary/Accessibility\" class=\"glossaryLink\" title=\"Accessibility: Web アクセシビリティ (略語: A11Y、Accessibility の A から Y までが 11 文字のため、このように略す) は、身体的および技術的な制約によらず、Web サイトを使いやすく保つためのベストプラクティスです。Web アクセシビリティは、W3C の Web Accessibility Initiative (略称: WAI) によって、標準化と議論がされています。\">Accessibility</a> Guidelines の略、オーサリング・ツール・アクセシビリティ・ガイドライン) は 利用しやすいコンテンツを生産する、アクセシブル・オーサリングツールをビルドするための <a href=\"/ja/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: World Wide Web Consortium (W3C)は、Web関係の取り決めや枠組みを整備する国際団体です。\">W3C</a> 勧告です。"
+      },
+      {
+        "url": "/nl/docs/Glossary/ATAG",
+        "title": "ATAG",
+        "summary": "ATAG (Authoring Tool <a href=\"/en-US/docs/Glossary/Accessibility\" class=\"glossaryLink\" title=\"Accessibility: Web Accessibility (A11Y) refers to best practices for keeping a website usable despite physical and technical restrictions. Web accessibility is formally defined and discussed at the W3C through the Web Accessibility Initiative (WAI).\">Accessibility</a> Guidelines) is een aanbeveling van <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> voor het bouwen van toegankelijke opmaakprogramma's, waarmee toegankelijke inhoud kan worden gemaakt."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/ATAG",
+        "title": "ATAG",
+        "summary": "ATAG (Authoring Tool <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D1%81%D1%82%D1%8C\" class=\"glossaryLink\" title='Accessibility: Accessibility (Web Accessibility, A11Y - \"Доступность Web-контента\") - регламентирует лучшие практики обеспечения работоспособности и доступности сайта вне зависимости от физических и технических ограничений. Web Accessibility описывается и обсуждается в рамках Инициативы по обеспечению доступности W3С (Web Accessibility Initiative (WAI)).'>Accessibility</a> Guidelines) - это <a href=\"/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> рекомендации для создания общедоступных инструментов разработчика, которые создают общедоступный контент."
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/ATAG",
+        "title": "ATAG",
+        "summary": "ATAG (編輯工具可訪問性<a href=\"/en-US/docs/Glossary/Accessibility\" class=\"glossaryLink\" title=\"Accessibility: Web Accessibility (A11Y) refers to best practices for keeping a website usable despite physical and technical restrictions. Web accessibility is formally defined and discussed at the W3C through the Web Accessibility Initiative (WAI).\">Accessibility</a>指南)是一個<a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> 為創建可訪問内容構建可訪問性編輯工具的建議。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/Abstraction",
+    "title": "Abstraction",
+    "summary": "Abstraction in <a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"computer programming: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages&#xA0;such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">computer programming</a> is a way to reduce complexity and allow efficient design and implementation in complex software systems. It hides the technical complexity of systems behind simpler <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">APIs</a>.",
+    "translations": [
+      {
+        "url": "/de/docs/Glossary/Abstraktion",
+        "title": "Abstraktion",
+        "summary": "Die <strong>Abstraktion</strong> in der <a href=\"/de/docs/Glossary/Computerprogrammierung\" class=\"glossaryLink\" title=\"Die Definition dieses Ausdrucks (Computerprogrammierung) wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!\">Computerprogrammierung</a> ist eine der Methoden zur Reduzierung der Komplexität von Code und der erleichterten Implementierung effizienterer Designs und Benutzerschnittstellen bei komplizierter Software. Die Abstraktion versteckt die technische Komplexität eines Systems hinter leicht verständlichen <a href=\"/de/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: Eine API (Application Programming Interface) ist eine Menge von Funktionen und Regeln, die innerhalb eines Softwareprogrammes die Interaktion zwischen der Software und anderen Elementen, wie anderer Software oder Hardware, ermöglicht.\">APIs</a>."
+      },
+      {
+        "url": "/el/docs/Glossary/Abstraction",
+        "title": "Αφαίρεση",
+        "summary": "Η αφαίρεση στον <a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"προγραμματισμό υπολογιστών: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">προγραμματισμό υπολογιστών</a> είναι ένας τρόπος για να μειώνεται η πολυπλοκότητα και για να σχεδιάζονται και να υλοποιούνται περίπλοκα υπολογιστικά συστήματα με μεγαλύτερη ευκολία, κρύβοντας την τεχνική πολυπλοκότητα των συστημάτων πίσω από απλούστερα <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"API: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">API</a>."
+      },
+      {
+        "url": "/es/docs/Glossary/Abstraction",
+        "title": "Abstracción",
+        "summary": "En <a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"programación: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">programación</a>, una abstracción es una manera de reducir la complejidad y permitir un diseño e implementación más eficientes en sistemas de software complejos. Oculta la dificultad técnica de los sistemas detrás de <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program (the application) enabling interaction with it through software - as opposed to a human user interface. The API can be seen as a simple contract (the interface) between the application offering it and other items, such as third party software or hardware.\">APIs</a> más simples."
+      },
+      {
+        "url": "/fr/docs/Glossaire/Abstraction",
+        "title": "Abstraction",
+        "summary": "L'<em>Abstraction</em> dans le domaine de la <a href=\"/fr/docs/Glossaire/Computer_programming\" class=\"glossaryLink\" title=\"programmation informatique : La programmation informatique est un processus de composition et d'organisation d'un ensemble d'instructions. Celles-ci indiquent à un ordinateur / logiciel ce qu'il faut faire dans une langue que l'ordinateur comprend. Elles sont réalisées sous la forme de plusieurs langages différents tels que C ++, Java, JavaScript, HTML, Python, Ruby et Rust.\">programmation informatique</a> permet de réduire la complexité et d'obtenir une conception et une implémentation plus efficaces dans les systèmes logiciels complexes. Elle dissimule les complexités techniques des systèmes derrière des <a href=\"/fr/docs/Glossaire/API\" class=\"glossaryLink\" title=\"API : Une API (Application Programming Interface) est un ensemble de fonctionnalités et de régles existant dans un programme logiciel et permettant l'interaction entre le logiciel et d'autres éléments comme d'autres logiciels ou des matériels.\">API</a> plus simples à manipuler."
+      },
+      {
+        "url": "/ja/docs/Glossary/Abstraction",
+        "title": "Abstraction (抽象化)",
+        "summary": "<a href=\"/ja/docs/Glossary/Computer_Programming\" class=\"glossaryLink\" title=\"コンピュータープログラミング: コンピュータープログラミングは、一連の命令を構成して体系化する処理です。これらがコンピューター/ソフトウェアのプログラムに何をするべきかを、コンピューターが理解できる言語で指示します。これらの命令は様々なプログラミング言語（C++, Java, JavaScript, HTML, Python, Ruby, Rust など）の形で与えられています。\">コンピュータープログラミング</a>における抽象化とは、複雑なソフトウェアシステムにおいて、複雑さを軽減し、また効率的な設計と実装を可能にする方法です。これはシステムの技術的な複雑さを、<a href=\"/ja/docs/Glossary/API\" class=\"glossaryLink\" title=\"API: API (Application Programming Interface) とは、あるソフトウェアが、他のソフトウェアやハードウェア等、外部とやりとりをするために備えている機能や規則の集まりです。\">API</a> の背後に隠します。"
+      },
+      {
+        "url": "/kab/docs/Glossary/Abstraction",
+        "title": "Tadwant",
+        "summary": "Tadwant deg <a href=\"/kab/docs/Glossary/asmihel_n_tasenselkimt_\" class=\"glossaryLink\" title=\"The definition of that term (asmihel n tasenselkimt ) has not been written yet; please consider contributing it!\">asmihel n tasenselkimt </a> taɣult n usihel n tasenselkimt yettaǧǧa a seqsef n waxnaz u swaya ad iffeɣ yiwen n disign  ed  asnulfu imellilen deg anagraw n iseɣẓanen isemlalen.tettefer isemlalen titiknikitin n inagrawen defir n <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">APIs</a>. ig sahlen iw sqardec."
+      },
+      {
+        "url": "/ko/docs/Glossary/Abstraction",
+        "title": "Abstraction",
+        "summary": "추상화(Abstraction)는 <a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"computer programming: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">computer programming</a>에서 복잡한 소프트웨어 시스템에서 호율적으로 설계하고 구현할 수 있는 방법입니다. 단순한 <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">APIs</a>뒤에 시스템의 기술적 복잡성이 숨겨져있습니다."
+      },
+      {
+        "url": "/nl/docs/Glossary/Abstractie",
+        "title": "Abstractie",
+        "summary": "Abstractie in <a href=\"/nl/docs/Glossary/computerprogrammeren\" class=\"glossaryLink\" title=\"The definition of that term (computerprogrammeren) has not been written yet; please consider contributing it!\">computerprogrammeren</a> is een manier om complixiteit te verminderen en efficiënt design en efficiënte implementatie mogelijk te maken. Het verstopt de technische complexiteit van systemen achter simpelere <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"API's: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">API's</a>."
+      },
+      {
+        "url": "/pl/docs/Glossary/Abstrakcja",
+        "title": "Abstrakcja",
+        "summary": "Abstrakcja w <a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"computer programming: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">computer programming</a> <span class=\"tlid-translation translation\"><span title=\"\">to sposób na zmniejszenie złożoności i umożliwienie wydajnego projektowania i wdrażania w złożonych systemach oprogramowania.</span> <span title=\"\">Ukrywa złożoność techniczną systemów za prostszą</span></span> <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program (the application) enabling interaction with it through software - as opposed to a human user interface. The API can be seen as a simple contract (the interface) between the application offering it and other items, such as third party software or hardware.\">APIs</a>."
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/Abstra%C3%A7%C3%A3o",
+        "title": "Abstração",
+        "summary": "Abstração em <a href=\"/pt-BR/docs/Glossary/programa%C3%A7%C3%A3o_de_computadores\" class=\"glossaryLink\" title=\"The definition of that term (programação de computadores) has not been written yet; please consider contributing it!\">programação de computadores</a> é uma forma de reduzir a complexidade e tornar o projeto e a implementação mais eficientes em sistemas complexos de software. Ela esconde a complexidade técnica de um sistema por trás de uma <a href=\"/pt-BR/docs/Glossario/API\" class=\"glossaryLink\" title=\"APIs: Uma API (Application Programming Interface) é um conjunto de características e regras que residem dentro de uma aplicação que permitem iterações entre o software provedor da API e outros componentes do software ou terceiros.\">APIs</a> mais simples."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Abstraction",
+        "title": "Абстракция",
+        "summary": "<strong>Дополнительно</strong>"
+      },
+      {
+        "url": "/uk/docs/Glossary/%D0%90%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D1%96%D1%8F",
+        "title": "Абстракція",
+        "summary": ""
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/%E6%8A%BD%E8%B1%A1%E7%BC%96%E7%A8%8B",
+        "title": "抽象编程",
+        "summary": "在计算机编程<a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"computer programming: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">computer programming</a>领域中，抽象编程指在研发大型复杂软件系统时，通过抽象的方法来降低编程复杂度，实现系统快速高效设计和开发的编程模式。它将系统各功能实现的技术细节隐藏在相对简单的 <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">APIs</a>之后。"
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/Abstraction",
+        "title": "抽象化",
+        "summary": "在<a href=\"/en-US/docs/Glossary/computer_programming\" class=\"glossaryLink\" title=\"computer programming: Computer programming is a process of composing and organizing a collection of instructions. These tell a computer/software program what to do in a language which the computer understands. These instructions come in the form of many different languages such as C++, Java, JavaScript, HTML, Python, Ruby, and Rust.\">computer programming</a> 領域中，抽象化可用來減少軟體系統複雜度，讓設計及使用效率提升。用簡單的 <a href=\"/en-US/docs/Glossary/API\" class=\"glossaryLink\" title=\"APIs: An API (Application Programming Interface) is a set of features and rules that exist inside a software program enabling interaction between the software and other items, such as other software or hardware.\">APIs</a>隱藏背後複雜的系統機制。"
+      }
+    ]
+  },
+  {
+    "url": "/en-US/docs/Glossary/Accessibility",
+    "title": "Accessibility",
+    "summary": "<em>Web Accessibility</em> (<strong>A11Y</strong>) refers to best practices for keeping a website usable despite physical and technical restrictions. Web accessibility is formally defined and discussed at the <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> through the <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard&#xA0;browser or devices.\">Web Accessibility Initiative</a> (WAI).",
+    "translations": [
+      {
+        "url": "/ar/docs/Glossary/Accessibility",
+        "title": "إتاحة",
+        "summary": "تشير <em><a href=\"https://ar.wikipedia.org/wiki/%D8%A5%D8%AA%D8%A7%D8%AD%D8%A9\">الإتاحة</a> الويبيّة</em> (Web Accessibility) إلى أفضل الممارسات المُستخدمة لإبقاء المواقع قابلة للاستخدام بغض النظر عن الإعاقات (أو القيود) الجسديّة والتقنيّة. عُرِفَت ونُقِشَت الإتاحة الويبيّة رسمياً في رابطة الويب العالمية (W3C) خلال <a href=\"/ar/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"لم يتم تعريف المصطلح (مبادرة الإتاحة الويبيّة) بعد، يرجى النظر في المساهمة بتعريفه!\">مبادرة الإتاحة الويبيّة</a> (WAI)."
+      },
+      {
+        "url": "/de/docs/Glossary/Accessibility",
+        "title": "Accessibility",
+        "summary": "<em>Web Accessibility</em> (<strong>A11Y</strong>) ist ein Begriff, der empfohlene Methoden beschreibt, um eine Website für Menschen mit physischen und technischen Einschränkungen zugänglich zu machen. Web accessibility wird am <a href=\"/de/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: Das World Wide Web Consortium (W3C) ist eine internationale Gruppe, die Regeln und Strukturen für das Web vorgibt.\">W3C</a> durch die <a href=\"/de/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Die Definition dieses Ausdrucks (Web Accessibility Initiative) wurde noch nicht geschrieben; bitte hilf mit und trage sie bei!\">Web Accessibility Initiative</a> (WAI) definiert und diskutiert."
+      },
+      {
+        "url": "/el/docs/Glossary/%CE%A0%CF%81%CE%BF%CF%83%CE%B2%CE%B1%CF%83%CE%B9%CE%BC%CF%8C%CF%84%CE%B7%CF%84%CE%B1",
+        "title": "Προσβασιμότητα",
+        "summary": "<em>Η Προσβασιμότητα Ιστού</em> (<strong>A11Y</strong>) αναφέρεται στις καλύτερες τεχνικές διατήρησης της λειτουργικότητας μιας ιστοσελίδας παρά τους φυσικούς και τεχνικούς περιορισμούς. Η Προσβασιμότητα Ιστού ορίζεται τυπικά και συζητείται στο <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> διά μέσου της <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Πρωτοβουλίας Προσβασιμότητας Διαδικτύου: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Πρωτοβουλίας Προσβασιμότητας Διαδικτύου</a> (ΠΠΔ)."
+      },
+      {
+        "url": "/es/docs/Glossary/Accessibility",
+        "title": "Accesibilidad",
+        "summary": "<em>La accesibilidad web</em> (<strong>A11Y</strong>) hace referencia a las buenas prácticas para mantener la usabilidad de un sitio web a pesar de las restricciones físicas y técnicas. La accesibilidad web se define formalmente y es discutida en el <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> a través del <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/fr/docs/Glossaire/Accessibilit%C3%A9",
+        "title": "Accessibilité",
+        "summary": "<em>L'Accessibilité du web</em> (<strong>A11Y</strong>) correspond aux bonnes pratiques assurant qu'un site web reste utilisable indépendamment des conditions de navigation et possibles handicaps de l'utilisateur. L'accessibilité du web est définie formellement et discutée au <a href=\"/fr/docs/Glossaire/W3C\" class=\"glossaryLink\" title=\"W3C : Le World Wide Web Consortium (W3C) est un organisme international qui maintient les règles en relation avec le Web et les frameworks.\">W3C</a> au travers de la <a href=\"/fr/docs/Glossaire/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative : La WAI ou Web Accessibility Initiative a été lancée par le World Wide Web Consortium (W3C) pour rendre le web plus accessibie aux personnes handicapées, celles-ci pouvant avoir besoin d'un navigateur ou d'appareils non standards.\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/ja/docs/Glossary/Accessibility",
+        "title": "Accessibility (アクセシビリティ)",
+        "summary": "<em>Web アクセシビリティ</em> (略語: <strong>A11Y</strong>、Accessibility の A から Y までが 11 文字のため、このように略す) は、身体的および技術的な制約によらず、Web サイトを使いやすく保つためのベストプラクティスです。Web アクセシビリティは、<a href=\"/ja/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: World Wide Web Consortium (W3C) は、ウェブに関するルールや枠組みを整備する国際団体です。\">W3C</a> の <a href=\"/ja/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"この用語 (Web Accessibility Initiative) の定義はまだ書かれていません。ぜひご寄稿ください！\">Web Accessibility Initiative</a> (略称: WAI) によって、標準化と議論がされています。"
+      },
+      {
+        "url": "/kab/docs/Glossary/Accessibility",
+        "title": "Tanekcumt",
+        "summary": "<em>Tanekcumt Web </em>(<strong>A11Y</strong>) tesdewel refers to best practices for keeping a website usable despite physical and technical restrictions. Web accessibility is formally defined and discussed at the <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> through the <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/nl/docs/Glossary/Toegankelijkheid",
+        "title": "Toegankelijkheid",
+        "summary": "<em>Webtoegankelijkheid</em> (<strong>A11Y</strong>) verwijst naar optimale werkwijzen om een website gebruiksvriendelijk te houden ondanks fysieke of technische beperkingen. Webtoegankelijkheid is formeel gedefinieerd en besproken op de <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> door het <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/pt-BR/docs/Glossario/Acessibilidade",
+        "title": "Acessibilidade",
+        "summary": "<em>Acessibilidade na Web (</em><em>Web Accessibility)</em> (<strong>A11Y</strong>) <span lang=\"pt\" id=\"result_box\"><span>refere-se às melhores práticas para manter um site útil, apesar das restrições físicas e técnicas.</span> <span>A acessibilidade da Web é formalmente definida e discutida no</span></span> <a href=\"/pt-BR/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"The definition of that term (W3C) has not been written yet; please consider contributing it!\">W3C</a> através de <a href=\"/pt-BR/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"The definition of that term (Web Accessibility Initiative) has not been written yet; please consider contributing it!\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/pt-PT/docs/Gloss%C3%A1rio/Acessibilidade",
+        "title": "Acessibilidade",
+        "summary": "A<em> Acessibilidade da Web </em>(<strong>A11Y</strong>)refere-se às melhores práticas para manter um site da Web utilizável, apesar das restrições físicas e técnicas. A acessibilidade da Web é formalmente definida e discutida no <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> através de <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D1%81%D1%82%D1%8C",
+        "title": "Accessibility",
+        "summary": ""
+      },
+      {
+        "url": "/uk/docs/Glossary/%D0%92%D0%B5%D0%B1_%D0%94%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%96%D1%81%D1%82%D1%8C",
+        "title": "Веб Доступність",
+        "summary": ""
+      },
+      {
+        "url": "/zh-CN/docs/Glossary/Accessibility",
+        "title": "Accessibility",
+        "summary": "<em>无障碍网页（Web Accessibility</em> ，缩写：<strong>A11Y</strong><em>）</em>指在物理条件和技术条件限制下，保证网站达到最佳可用性的实践 。Web accessibility 正式定义与论述，在 <a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a> 上的 <a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Web Accessibility Initiative</a> (WAI)."
+      },
+      {
+        "url": "/zh-TW/docs/Glossary/Accessibility",
+        "title": "Accessibility",
+        "summary": "<em>網頁</em><strong>無障礙化 </strong>(<strong>A11Y</strong>) 指的是儘管有物理和技術上的限制，能夠保持網站可用最佳的方法。網頁無障礙化是透過<a href=\"/en-US/docs/Glossary/WAI\" class=\"glossaryLink\" title=\"Web Accessibility Initiative: WAI or Web Accessibility Initiative is an effort by the World Wide Web Consortium (W3C) to improve accessibility for people with various challenges, who may need a nonstandard browser or devices.\">Web Accessibility Initiative</a> (WAI)在<a href=\"/en-US/docs/Glossary/W3C\" class=\"glossaryLink\" title=\"W3C: The World Wide Web Consortium (W3C) is an international body that maintains Web-related rules and frameworks.\">W3C</a>被正式定義和討論的。"
+      }
+    ]
+  }
+]

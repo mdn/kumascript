@@ -11,6 +11,16 @@
 //      * `split` : A string with one of the value `h1`, `h2`, `h3`, `h4`, `h5`, `h6`. If this property is define with a valid value, the list of terms will be split with intermediate title for each letter.
 //      * `css`   : A sring representing some extra CSS class to apply to the list (to the top most UL elements)
 
+const str_notdefined = mdn.localString({
+    'en-US' : 'The definition of that term ($TERM_NAME$) has not been written yet; please consider contributing it!',
+});
+
+const str_category_other = mdn.localString({
+    'en-US' : 'Other',
+    'fr'    : 'Autre',
+    'ja'    : 'その他',
+});
+
 var URL    = "/en-US/docs/Glossary";
 
 var i, l, c, splitTitle, startWithDigit = /^\d/;
@@ -65,15 +75,16 @@ function sortMe(a, b) {
 function filterMe(term) {
     var i = keys.indexOf(term.toLowerCase());
 
-    if (i  >  -1 && (filter === 'all' || filter === 'defined')) {
-        this.push(pages[i]);
+    if (i >= 0) {
+        if (filter === 'all' || filter === 'defined') {
+            this.push(pages[i]);
+        }
     }
-
-    else if (locale === 'en-US' && (filter === 'all' || filter === 'notdefined')) {
+    else if (filter === 'all' || filter === 'notdefined') {
         this.push({
-            url    : URL + '/' + term.toLowerCase().replace(' ', '_'),
+            url    : URL + '/' + term.replace(' ', '_'),
             title  : term,
-            summary: 'The definition of that term (' + term + ') has not been written yet; please consider contributing it!'
+            summary: mdn.replacePlaceholders(str_notdefined, {TERM_NAME: term}),
         });
     }
 }
@@ -88,11 +99,7 @@ for (i = 0, l = list.length; i < l; i++) {
         c = list[i].title.charAt(0).toUpperCase();
 
         if (startWithDigit.test(c)) {
-            c = mdn.localString({
-                'en-US' : 'Other',
-                'fr'    : 'Autre',
-                'ja'    : 'その他',
-            });
+            c = str_category_other;
         }
 
         if (splitTitle !== c) {
@@ -108,7 +115,7 @@ for (i = 0, l = list.length; i < l; i++) {
 <%
         }
     }
-    
+
     else if (i === 0) {
 %>
     <ul class="<%= csscl %>">
