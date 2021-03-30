@@ -1,0 +1,68 @@
+<%
+/**
+ * The `{{InlineBadges}}` macro inserts inline indicators into a page
+ * in the correct order.
+ */
+
+if (!arguments.length) {
+    return '';
+}
+
+/** @type {string[]} */
+const indicatorsRaw = arguments.map(i => i.toLowerCase());
+let output = '';
+
+const ICONS = {
+    'non-standard': await template('Non-standard_Inline'),
+    'experimental': await template('Experimental_Inline'),
+    'deprecated': await template('Deprecated_Inline'),
+    'obsolete': await template('Obsolete_Inline'),
+};
+
+const BADGES = {
+    'readonly': await template('ReadOnlyInline'),
+    'securecontext': await template('SecureContext_Inline'),
+};
+
+let errors = '';
+const indicators = [];
+
+for (let i = 0; i < indicatorsRaw.length; i++) {
+    const indicator = indicatorsRaw[i];
+    if (indicators.includes(indicator)) {
+        errors += `
+  - Duplicate badge: ${arguments[i]}`;
+        continue;
+    }
+
+    if (indicator in ICONS || indicator in BADGES) {
+        indicators.push(indicator);
+        continue;
+    }
+
+    errors += `
+  - Unknown badge: ${arguments[i]}`;
+}
+
+if (errors) {
+    throw new TypeError(`Invalid arguments passed to {{InlineBadge}}:${errors}`)
+}
+
+for (let icon in ICONS) {
+    if (
+        !indicators.includes(icon) ||
+        (icon === 'deprecated' && indicators.includes('obsolete'))
+    ) {
+        continue;
+    }
+    %>&nbsp;<%-ICONS[icon]%><%
+}
+
+for (let badge in BADGES) {
+    if (!indicators.includes(badge)) {
+        continue;
+    }
+    // Badges have a leading margin, so they don't need the extra space.
+    %><%-BADGES[badge]%><%
+}
+%>
