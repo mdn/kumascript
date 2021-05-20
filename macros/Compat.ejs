@@ -698,8 +698,24 @@ if (!compatData) {
 traverseFeatures(compatData, depth, '');
 
 if (features.length > 0) {
+    const directories = query.split(".");
+    // See https://github.com/mdn/kumascript/pull/1347#issuecomment-607686327
+    // e.g. api.Node.appendChild -> api.Node
+    if (query.startsWith("api")) {
+        if (directories.length >= 3) {
+            directories.pop();
+        }
+    }
+    
+    // javascript.builtins.Function.call -> javascript.builtins.Function
+    if (query.startsWith("javascript.builtins")) {
+        if (directories.length >= 4) {
+            directories.pop();
+        }
+    }
+    const childPath = directories.join("/") + ".json";
     output = `<div class="bc-data" id="bcd:${query}">`;
-    output += '<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data">Update compatibility data on GitHub</a>';
+    output += `<a class="bc-github-link" href="https://github.com/mdn/browser-compat-data/blob/master/${childPath}">Update compatibility data on GitHub</a>`;
     output += `<table class="bc-table bc-table-${bcCategory}">`;
     output += writeCompatHead();
     output += writeCompatBody();
