@@ -28,8 +28,8 @@ if ($0 && $0 != undefined) {
 
 // If a version was specified, we need to use the older badge type
 
-if (str.length) {
-    %><%- await template('obsoleteGeneric', ["inline",str]) %><%
+if (str) {
+    %><%- await template('ObsoleteGeneric', ["inline", str]) %><%
 } else {
     %><%- await template('ObsoleteBadge', [type]) %><%
 }
