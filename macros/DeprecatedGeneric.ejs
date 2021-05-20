@@ -24,11 +24,7 @@ if ($1) {
         n = string.trim( string.substr(t, 2) );
         ver = "JavaScript ";
         if (string.length(n) > 0) {
-            if(wiki.pageExists(lang + '/docs/JavaScript/New_in_JavaScript/' + n)) {
-                link = '/' + lang + '/docs/JavaScript/New_in_JavaScript/' + n;
-            } else if(wiki.pageExists('/en-US/docs/JavaScript/New_in_JavaScript/' + n)) {
-                link = '/en-US/docs/JavaScript/New_in_JavaScript/' + n;
-            }
+            link = '/' + lang + '/docs/Web/JavaScript/New_in_JavaScript/' + n;
         }
     } else if (string.startswith(t, "css")) {
         n = string.trim(string.substr(t, 3));
@@ -41,17 +37,13 @@ if ($1) {
         ver = "HTML";
 
         if (string.length(N) > 0) {
-            if(wiki.pageExists('/' + lang + '/docs/HTML/HTML' + N)) {
-                link = '/' + lang + '/docs/HTML/HTML' + N;
-            } else if(wiki.pageExists('/en-US/docs/HTML/HTML' + N)) {
-                link = '/en-US/docs/HTML/HTML' + N;
-            } else if(wiki.pageExists('/' + lang + '/docs/HTML')) {
-                link = '/' + lang + '/docs/HTML';
+            if(wiki.pageExists('/' + lang + '/docs/Web/HTML/HTML' + N) || wiki.pageExists('/en-US/docs/Web/HTML/HTML' + N)) {
+                link = '/' + lang + '/docs/Web/HTML/HTML' + N;
             } else {
-                link = '/en-US/docs/HTML';
+                link = '/' + lang + '/docs/Web/HTML';
             }
         } else {
-            link = '/' + lang + '/docs/HTML';
+            link = '/' + lang + '/docs/Web/HTML';
         }
     } else if (string.startswith(t, "svg")) {
         n = string.trim(string.substr(t, 3));
@@ -129,21 +121,24 @@ var str_desc = mdn.localString({
   "zh-TW": "This feature has been removed from the Web standards. Though some browsers may still support it, it is in the process of being dropped. Do not use it in old or new projects. Pages or Web apps using it may break at any time."
 });
 
-
 switch($0) {
     case 'inline':
-        %><span class="inlineIndicator deprecated deprecatedInline" title="<%=(tip)%>"><%-str%></span><%
+        if (ver) {
+            %><%-await template("SimpleBadge", [str, "deprecated", tip])%><%
+        } else {
+            %><%-await template("DeprecatedBadge")%><%
+        }
         break;
     case 'header':
         if (tip.length) { str = str + " " + tip; }
-        %><div class="blockIndicator deprecated deprecatedHeader">
+        %><div class="blockIndicator deprecated">
             <p><strong><%-str%></strong><br/><%-str_desc%></p>
         </div><%
         break;
     case 'method':
         if (tip.length) { str = str + " " + tip; }
         %><div>
-            <span class="indicatorInHeadline deprecated deprecatedMethod"><%-str%></span>
+            <span class="indicatorInHeadline deprecated"><%-str%></span>
             <h3><%-($2)%></h3>
         </div><%
         break;
