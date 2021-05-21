@@ -3,6 +3,7 @@
         "en-US": "Categories",
         "de"   : "Kategorien",
         "es"   : "Categorias",
+        "he"   : "קטגוריות",
         "ja"   : "カテゴリー",
         "pt-BR": "Categorias",
         "fr"   : "Catégories",
@@ -12,11 +13,13 @@
     "info_in_preview_not_available": {
         "en-US": "SVG info in preview not available",
         "de": "SVG-Info in der Vorschau nicht verfügbar"
+        "he"   : "מידע SVG בתצוגה מקדימה אינו זמין",
     },
     "permittedContent": {
         "en-US": "Permitted content",
         "de"   : "Erlaubter Inhalt",
         "es"   : "Contenido permitido",
+        "he"   : "תוכן מותר",
         "ja"   : "許可された内容",
         "pt-BR": "Conteúdo permitido",
         "fr"   : "Contenu autorisé",
@@ -28,6 +31,7 @@
         "de"   : "Beliebige Anzahl der folgenden Elemente, in beliebiger Reihenfolge:",
         "es"   : "Cualquier n\u00famero de los siguientes elementos, en cualquier orden:",
         "fr"   : "Tout \u00e9l\u00e9ment de cette liste, quel qu'en soit l'ordre:",
+        "he"   : "כל מספר מהאלמנטים הבאים, בכל סדר:",
         "ja"   : "任意の数、任意の順で以下の要素を配置可能：",
         "pt-BR": "Qualquer n\u00famero dos seguintes elementos, em qualquer ordem:",
         "zh-CN": "\u4efb\u610f\u6570\u91cf\u3001\u4efb\u610f\u6392\u5e8f\u7684\u4e0b\u5217\u5143\u7d20\uff1a",
@@ -38,6 +42,7 @@
         "de"   : "Beliebige Elemente oder Zeichendaten",
         "es"   : "Cualquier elemento o datos de caracter",
         "fr"   : "Tout \u00e9l\u00e9ment ou caract\u00e8re de donn\u00e9e",
+        "he"   : "כל אלמנט או נתוני תווים",
         "ja"   : "いくつかの要素や文字データ",
         "pt-BR": "Quaisquer elementos ou dados de caracteres",
         "zh-CN": "\u4efb\u4f55\u5143\u7d20\u6216\u5b57\u7b26\u6570\u636e",
@@ -48,6 +53,7 @@
         "de"   : "Zeichendaten und eine beliebige Anzahl folgender Elemente in beliebiger Reihenfolge:",
         "es"   : "Datos de caracteres y cualquier cantidad de los siguientes elementos en cualquier \u00f3rden:",
         "fr"   : "Des caract\u00e8res et n'importe quel nombre des \u00e9l\u00e9ments suivants, dans n'importe quel ordre:",
+        "he"   : "נתוני תווים ומספר רכיבים מהרשימה הבאה, בכל סדר:",
         "ja"   : "文字データと任意の数の以下の要素を任意の順で:",
         "pt-BR": "Dados de caracteres e qualquer n\u00famero dos seguintes elementos, em qualquer ordem:",
         "zh-CN": "\u5b57\u7b26\u6570\u636e\u4ee5\u53ca\u4efb\u610f\u6570\u91cf\u3001\u4efb\u610f\u6392\u5e8f\u7684\u4e0b\u5217\u5143\u7d20\uff1a",
@@ -58,6 +64,7 @@
         "de"   : "Leer",
         "es"   : "Vacío",
         "fr"   : "Vide",
+        "he"   : "ריק",
         "ja"   : "空",
         "pt-BR": "Vazio",
         "zh-CN": "空洞",
@@ -75,6 +82,7 @@
         "en-US": "Animation element",
         "de"   : "Animationselement",
         "fr"   : "Élément d'animation",
+        "he"   : "אלמנט אנימציה",
         "ja"   : "アニメーション要素",
         "pt-BR": "Elemento de animação",
         "zh-CN": "动画元素",
@@ -85,6 +93,7 @@
         "de"   : "Grundformelement",
         "es"   : "Elemento de forma básica",
         "fr"   : "Élément de forme basique",
+        "he"   : "אלמנט צורה בסיסית",
         "ja"   : "基本シェイプ要素",
         "pt-BR": "Elemento básico de forma",
         "zh-CN": "基本元素",
@@ -95,6 +104,7 @@
         "de"   : "Containerelement",
         "es"   : "Elemento contenedor",
         "fr"   : "Élément conteneur",
+        "he"   : "אלמנט מכיל",
         "ja"   : "コンテナー要素",
         "pt-BR": "Elemento recipiente",
         "zh-CN": "容器元素",
@@ -105,6 +115,7 @@
         "de"   : "Beschreibendes Element",
         "es"   : "Elemento descriptivo",
         "fr"   : "Élément descriptif",
+        "he"   : "אלמנט תיאורי",
         "ja"   : "説明的要素",
         "pt-BR": "Elemento descritivo",
         "zh-CN": "描述性元素",
@@ -115,6 +126,7 @@
         "de"   : "Filterelement",
         "pt-BR": "Elemento de filtro primitivo",
         "fr"   : "Élément de filtre",
+        "he"   : "סינון אלמנט פרימיטיבי.",
         "zh-CN": "滤镜元素",
         "ru"   : "Примитивный фильтр"
     },
@@ -122,6 +134,7 @@
         "en-US": "Font element",
         "de"   : "Schriftelement",
         "fr"   : "Elément de police",
+        "he"   : "אלמנט פונט",
         "ja"   : "フォント要素",
         "pt-BR": "Elemento de fonte",
         "zh-CN": "字体元素",
@@ -141,6 +154,7 @@
         "de"   : "Grafikelement",
         "es"   : "Elemento gráfico",
         "fr"   : "Élément graphique",
+        "he"   : "אלמנט גרפי",
         "ja"   : "グラフィックス要素",
         "pt-BR": "Elemento gráfico",
         "zh-CN": "图形元素",
@@ -150,6 +164,7 @@
         "en-US": "Graphics referencing element",
         "de"   : "Grafik referenzierendes Element",
         "fr"   : "Elément en rapport avec les graphismes",
+        "he"   : "אלמנט הפניית גרפיקה",
         "ja"   : "グラフィクス参照要素",
         "pt-BR": "Elemento gráfico referenciado",
         "zh-CN": "图形引用元素",
@@ -159,6 +174,7 @@
         "en-US": "Light source element",
         "de"   : "Lichtquellenelement",
         "fr"   : "Élément de source de lumière",
+        "he"   : "אלמנט מקור אור",
         "ja"   : "光源要素",
         "zh-CN": "光源元素",
         "ru"   : "Источникм света"
@@ -166,10 +182,12 @@
     "neverRenderedElement": {
         "en-US": "Never-rendered element",
         "de"   : "Niemals gerendertes Element"
+        "he"   : "אלמנט שלעולם לא ירונדר",
     },
     "paintServerElement": {
         "en-US": "Paint server element",
         "de"   : "Paintserver Element"
+        "he"   : "אלמנט שרת צבע",
     },
     "renderableElement": {
         "en-US": "Renderable element",
@@ -180,6 +198,7 @@
         "de"   : "Formelement",
         "es"   : "Elemento forma",
         "fr"   : "Élément de forme",
+        "he"   : "אלמנט צורה",
         "ja"   : "図形要素",
         "pt-BR": "Elemento de forma",
         "zh-CN": "形状元素",
@@ -190,6 +209,7 @@
         "de"   : "Strukturelement",
         "es"   : "Elemento estructural",
         "fr"   : "Élément structurel",
+        "he"   : "אלמנט מבני",
         "ja"   : "構造的要素",
         "pt-BR": "elemento estrutural",
         "zh-CN": "结构元素",
@@ -200,6 +220,7 @@
         "de"   : "Textinhaltselement",
         "es"   : "Elemento de contenido de texto",
         "fr"   : "Elément conteneur de texte",
+        "he"   : "אלמנט תוכן טקסט",
         "pt-BR": "Elemento de conteúdo textual",
         "zh-CN": "文本内容元素",
         "ru"   : "Текстосодержащий элемент"
@@ -217,6 +238,7 @@
         "de"   : "Keine",
         "es"   : "Ninguna",
         "fr"   : "Aucune",
+        "he"   : "ללא",
         "ja"   : "無し",
         "pt-BR": "Nenhum",
         "zh-CN": "无",
@@ -227,6 +249,7 @@
         "de"   : "Animationselemente",
         "es"   : "Elementos de animación",
         "fr"   : "Éléments d'animation",
+        "he"   : "אלמנטי אנימציה",
         "ja"   : "アニメーション要素",
         "pt-BR": "Elementos de animação",
         "zh-CN": "动画元素",
@@ -237,6 +260,7 @@
         "de"   : "Beschreibende Elemente",
         "es"   : "Elementos descriptivos",
         "fr"   : "Éléments descriptifs",
+        "he"   : "אלמנטיים תיאוריים",
         "ja"   : "説明的要素",
         "pt-BR": "Elementos descritivos",
         "zh-CN": "描述性元素",
@@ -246,6 +270,7 @@
         "en-US": "Filter primitive elements",
         "de"   : "Filterelemente",
         "fr"   : "Éléments de primitive de filtre",
+        "he"   : "סינון אלמנטים פרימיטיביים.",
         "pt-BR": "Elementos de filtro primitivo",
         "zh-CN": "滤镜元素",
         "ru"   : "Примитивные фильтры"
@@ -263,6 +288,7 @@
         "en-US": "Shape elements",
         "de"   : "Formelemente",
         "fr"   : "Éléments de formes",
+        "he"   : "אלמנטי צורה",
         "ja"   : "図形要素",
         "pt-BR": "Elementos de forma",
         "zh-CN": "形状元素",
@@ -273,6 +299,7 @@
         "de"   : "Strukturelemente",
         "es"   : "Elementos estructurales",
         "fr"   : "Éléments structurels",
+        "he"   : "אלמנטי מבנה",
         "ja"   : "構造的要素",
         "pt-BR": "Elementos estruturais",
         "zh-CN": "结构化元素",
@@ -283,6 +310,7 @@
         "de"   : "Textinhaltselemente",
         "fr"   : "Éléments avec du contenu texte",
         "es"   : "Elementos de contenido de texto",
+        "he"   : "אלמנטי תוכן טקסט",
         "pt-BR": "Elementos de conteúdo textual",
         "zh-CN": "文字内容子元素",
         "ru"   : "Текстосодержащие элементы"
@@ -331,6 +359,7 @@
     "ariaAttributes": {
         "en-US": "ARIA attributes",
         "de"   : "ARIA Attribute"
+        "he"   : "תכונות ARIA",
     },
     "conditionalProccessingAttributes": {
         "en-US": "Conditional proccessing attributes",
@@ -345,6 +374,7 @@
         "de"   : "Kernattribute",
         "pt-BR": "Atributos centrais",
         "fr"   : "Attributs centraux",
+        "he"   : "תכונות ליבה",
         "zh-CN": "核心属性",
         "ru"   : "Атрибуты ядра"
     },
@@ -360,6 +390,7 @@
         "en-US": "Filter attributes",
         "de"   : "Filterattribute",
         "fr"   : "Attributs de filtre",
+        "he"   : "סינון תכונות",
         "zh-CN": "滤镜属性属性",
         "ru"   : "Атрибуты фильтров"
     },
@@ -386,6 +417,7 @@
     "styleAttributes": {
         "en-US": "Style attributes",
         "de"   : "Stilattribute"
+        "he"   : "תכונות עיצוב",
     },
     "transferFunctionAttributes": {
         "en-US": "Transfer function attributes",
@@ -398,6 +430,7 @@
         "en-US": "XLink attributes",
         "de"   : "XLink Attribute",
         "fr"   : "Attribut XLink",
+        "he"   : "תכונות XLink",
         "ja"   : "XLink属性",
         "pt-BR": "Atributos Xlink",
         "zh-CN": "Xlink属性",

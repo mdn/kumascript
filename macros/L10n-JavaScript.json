@@ -4,6 +4,7 @@
         "es"   : "Referencia",
         "de"   : "Reference",
         "fr"   : "Reference",
+        "he"   : "רפרנס",
         "ca"   : "Referencia",
         "pl"   : "Referencje",
         "ru"   : "Reference"
@@ -14,6 +15,7 @@
         "es"   : "Objetos_globales",
         "de"   : "Global_Objects",
         "fr"   : "Objets_globaux",
+        "he"   : "אובייקטים_גלובאליים",
         "ca"   : "Objectes_globals",
         "pl"   : "Obiekty",
         "ru"   : "Global_Objects"
@@ -22,6 +24,7 @@
     "stdlib": {
         "en-US": "Standard built-in objects",
         "fr"   : "Objets standards",
+        "he"   : "אובייקטים מובנים סטנדרטיים",
         "de"   : "Standard-Objekte",
         "ru"   : "Стандартные встроенные объекты",
         "zh-CN": "JavaScript 标准库",

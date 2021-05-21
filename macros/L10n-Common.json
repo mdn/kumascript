@@ -5,6 +5,7 @@
         "de"   : "Die Beschreibung hierüber wurde bisher noch nicht geschrieben. Bitte überlege, mitzuwirken!",
         "es"   : "La documentación acerca de este tema no ha sido escrita todavía . ¡Por favor  considera contribuir !",
         "fr"   : "Cette documentation n'a pas encore été rédigée, vous pouvez aider en contribuant&nbsp;!",
+        "he"   : "תיעוד בנושא זה טרם נכתב; אנא שקול לתרום!",
         "pt-BR": "A documentação sobre isto ainda não foi escrita; por favor considere contribuir!",
         "ru"   : "Документация об этом ещё не написана; пожалуйста, поспособствуйте её написанию!",
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
@@ -17,6 +18,7 @@
         "fr"   : "Méthodes",
         "it"   : "Metodi",
         "es"   : "Métodos",
+        "he"   : "מתודות",
         "pt-BR": "Métodos",
         "ru"   : "Методы",
         "zh-CN": "方法",
@@ -59,6 +61,7 @@
         "fr"   : "Constructeur",
         "it"   : "Costruttore",
         "ca"   : "Constructor",
+        "he"   : "קונסטרקטור",
         "ja"   : "コンストラクター",
         "ru"   : "Конструктор"
     },
@@ -67,6 +70,7 @@
         "en-US": "Inheritance:",
         "de"   : "Vererbung:",
         "es"   : "Herencia",
+        "he"   : "ירושה",
         "pt-BR": "Herança:",
         "fr"   : "Héritage&nbsp;:",
         "ru"   : "Наследование:",
@@ -79,6 +83,7 @@
         "en-US": "Implemented by:",
         "de"   : "Implementiert von:",
         "es"   : "Implementado por:",
+        "he"   : "מומש על ידי:",
         "pt-BR": "Implementado por:",
         "fr"   : "Implémenté par&nbsp;:",
         "it"   : "Implementato da:",
@@ -90,6 +95,7 @@
         "en-US": "Related pages for $1",
         "de"   : "Ähnliche Seiten zu $1",
         "es"   : "Páginas relacionadas a $1",
+        "he"   : "באותו נושא עבור $1",
         "pt-BR": "Páginas relacionadas a $1",
         "fr"   : "Pages liées à $1",
         "it"   : "Pagine correlate du $1",
@@ -102,6 +108,7 @@
         "en-US": "Related pages:",
         "de"   : "Ähnliche Seiten:",
         "es"   : "Páginas relacionadas:",
+        "he"   : "באותו נושא:",
         "pt-BR": "Páginas relacionadas:",
         "fr"   : "Pages similaires&nbsp;:",
         "it"   : "Pagine correlate:",
@@ -128,6 +135,7 @@
         "en-US": "section",
         "de"   : "Abschnitt",
         "fr"   : "section",
+        "he"   : "אזור",
         "pt-BR": "sessão",
         "ru"   : "секция",
         "ja"   : "セクション"
@@ -138,6 +146,7 @@
         "de"   : "[Übersetzen]",
         "es"   : "[Traducir]",
         "fr"   : "[Traduire]",
+        "he"   : "[תרגום]",
         "pt-BR": "[Traduzir]",
         "zh-CN": "[我来译!]",
         "ca"   : "[Traduir]",
@@ -151,6 +160,7 @@
         "de": "Unsere Freiwilligen haben diesen Artikel noch nicht ins Deutsche übersetzt. Machen Sie mit und helfen Sie, das zu erledigen!",
         "es": "Nuestros voluntarios aún no han traducido este artículo al Español. ¡Únete a nosotros y ayuda a traducirlo!",
         "fr": "Nos volontaires n'ont pas encore traduit cet article en français. Rejoignez-nous et aidez-nous à le faire&nbsp;!",
+        "he": "המתנדבים שלנו עדיין לא תרגמו מאמר זה לשפה שלך. הצטרפו אלינו ועזרו לבצע את העבודה!",
         "pt-BR": "Nossos voluntários ainda não traduziram este artigo para sua linguagem. Junte-se a nós e nos ajude a traduzir!",
         "zh-CN": "此页面仍未被本地化, 期待您的翻译!",
         "ca" : "Els nostres voluntaris encara no han traduït aquest article al Català. Uneix-te a nosaltres i ajuda-ns a acabar la feina!",
@@ -163,6 +173,7 @@
         "de"   : "Handbuch",
         "es"   : "Guías",
         "fr"   : "Guides",
+        "he"   : "מדריכים",
         "pt-BR": "Guias",
         "ru"   : "Руководства",
         "ja"   : "ガイド"
@@ -173,6 +184,7 @@
         "de"   : "Ereignisse",
         "es"   : "Eventos",
         "fr"   : "Événements",
+        "he"   : "אירועים",
         "pt-BR": "Eventos",
         "ru"   : "События",
         "ja"   : "イベント"
@@ -183,6 +195,7 @@
         "de"   : "Schnittstellen",
         "es"   : "Interfaces",
         "fr"   : "Interfaces",
+        "he"   : "ממשקים",
         "pt-BR": "Interfaces",
         "ru"   : "Интерфейсы",
         "ja"   : "インターフェイス"
@@ -194,6 +207,7 @@
         "es"   : ", ",
         "fr"   : ", ",
         "ja"   : " 、 ",
+        "he"   : ", ",
         "pt-BR": ", ",
         "ru"   : ", "
     },
@@ -202,6 +216,7 @@
         "en-US": "[Page not yet written]",
         "de"   : "[Seite noch nicht geschrieben]",
         "fr"   : "[Page qui reste à écrire]",
+        "he"   : "[העמוד טרם נכתב]",
         "pt-BR": "[Página ainda não foi escrita]"
     }
 }
