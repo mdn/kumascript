@@ -1664,8 +1664,13 @@
     "url": "https://www.khronos.org/registry/webgl/extensions/OES_vertex_array_object/",
     "status": "REC"
   },
-  "WebAuthn": {
+  "WebAuthn Level 1": {
     "name": "Web Authentication: An API for accessing Public Key Credentials Level 1",
+    "url": "https://www.w3.org/TR/webauthn-1/",
+    "status": "REC"
+  },
+  "WebAuthn Level 2": {
+    "name": "Web Authentication: An API for accessing Public Key Credentials Level 2",
     "url": "https://w3c.github.io/webauthn/",
     "status": "REC"
   },
