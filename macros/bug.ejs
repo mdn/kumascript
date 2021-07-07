@@ -1,4 +1,3 @@
-<%
 /*
  * Inserts a link to a bug in Mozilla's Bugzilla database.
  *
@@ -11,7 +10,7 @@
  * http://www.bugzilla.org/docs/tip/en/html/api/Bugzilla/WebService/Server/REST.html
  * https://wiki.mozilla.org/Bugzilla:REST_API
  */
-
+<%
 var type = $1 || 'bug';
 var bugNumber = $0;
 var bugPageURL = 'https://bugzilla.mozilla.org/show_bug.cgi?id=' + bugNumber;
